@@ -1,0 +1,71 @@
+{
+  "id": "2026-09-20-six-case",
+  "purpose": "探索器の対応範囲と、Jev の完了判断の根拠を 3 業種・各 2 目的で確かめる。営業先への連絡や結果の公開はしない。",
+  "registeredBeforeRuns": true,
+  "referenceReviewer": "Codex が公式ページと通常ブラウザーを別途確認。人間の被験者によるテストではない。",
+  "settings": {"maxActions": 12, "intervalMs": 3000, "viewport": {"width": 1440, "height": 1000}, "locale": "ja-JP", "font": true, "ocr": false, "navigationMode": "links-only", "repeats": 1},
+  "protocol": [
+    "全件で同じ探索コードを使い、途中で修正しない。各試行は新しいブラウザーコンテキストから始める。",
+    "Jev には目的、現在日付、画面の観察情報、操作履歴、操作候補だけを渡す。以下の答え、評価基準、参照 URL、到達経路は渡さない。",
+    "読み取り専用の公開ページを対象とし、入力、送信、登録、購入、問い合わせは行わない。アクセス制限に遭遇したら停止する。",
+    "Jev の done と事後の根拠選択は、客観的成功とは区別する。観察ログと画面を参照情報に照合して別途評価する。",
+    "必要情報の未取得、操作・安全制約、判断の問題、UX 問題候補を分ける。単発の停止をサイトの欠陥と判定しない。",
+    "サイト側の UX 問題候補を報告するには、必要情報と操作の取得を確認し、通常ブラウザーで再現を確認する。満たさない場合は候補なし、または保留とする。",
+    "画像と観察ログはローカル検証用。記事への転載、営業資料の送付、第三者公開は別途判断する。"
+  ],
+  "policyReview": [
+    {"site": "esa", "robots": "https://esa.io/robots.txt", "robotsResult": "200。コメントのみで有効な拒否指示なし。", "policy": "https://docs.esa.io/posts/5", "scope": "公開案内の少数回の閲覧。運営妨害をしない。"},
+    {"site": "エニタイムフィットネス", "robots": "https://www.anytimefitness.co.jp/robots.txt", "robotsResult": "200。User-Agent : * / Disallow:（空）。", "policy": "https://www.anytimefitness.co.jp/site/", "scope": "公開案内の少数回の閲覧。画像の外部転載や配布は行わない。"},
+    {"site": "国立科学博物館", "robots": "https://www.kahaku.go.jp/robots.txt", "robotsResult": "200。/staging/* を拒否。今回の対象外。", "policy": "https://www.kahaku.go.jp/sitepolicy.html", "scope": "公開案内の少数回の閲覧。画像の外部転載や配布は行わない。営業対象ではなく業種差の検証例。"}
+  ],
+  "cases": [
+    {
+      "id": "esa-price-trial", "site": "esa", "industry": "情報共有 SaaS",
+      "url": "https://esa.io/?lang=ja",
+      "goal": "利用料金と無料で試せる期間を知りたい。登録や申し込みはしない。",
+      "source": "https://esa.io/pricing",
+      "requiredFacts": ["1 ユーザー・1 か月につき税込 500 円。", "無料期間はチームを作成した月の 2 か月後の月末まで。"],
+      "referenceReachability": "開始ページの料金・無料トライアルのリンクから料金ページへ通常ブラウザーで到達し、本文を確認した。"
+    },
+    {
+      "id": "esa-capacity-billing", "site": "esa", "industry": "情報共有 SaaS",
+      "url": "https://esa.io/?lang=ja",
+      "goal": "記事や添付ファイルの容量に上限があるかと、月の途中で参加したメンバーの料金がどう計算されるか知りたい。登録や申し込みはしない。",
+      "source": "https://esa.io/pricing",
+      "requiredFacts": ["記事と添付ファイルのアップロード容量は原則として無制限。", "所属する人数と日数に基づく日割り。個人のログイン・投稿の有無とは無関係で、翌月 1 日に前月分を請求。"],
+      "referenceReachability": "料金ページの価格欄下に両方の説明があることを通常ブラウザーで確認した。ヘルプは別オリジンなので探索器が停止する可能性がある。"
+    },
+    {
+      "id": "anytime-tour", "site": "エニタイムフィットネス", "industry": "フィットネス",
+      "url": "https://www.anytimefitness.co.jp/",
+      "goal": "入会する前に施設を見学できるかと、見学を申し込む方法を知りたい。予約や問い合わせの送信はしない。",
+      "source": "https://www.anytimefitness.co.jp/faq/a52/",
+      "requiredFacts": ["見学できる。希望する店舗へ電話またはメールで予約する。", "スタッフの受付時間は店舗によって異なるので確認が必要。"],
+      "referenceReachability": "トップページの FAQ リンクを確認。通常ブラウザーのリンククリックでは遷移を確認できず、表示されたリンク先 URL を直接開いた。FAQ 一覧の『施設を見学することはできますか？』という見出しを押すと回答が展開し、本文を確認できた。開始ページからの全操作を通した再現とは区別する。"
+    },
+    {
+      "id": "anytime-highschool", "site": "エニタイムフィットネス", "industry": "フィットネス",
+      "url": "https://www.anytimefitness.co.jp/",
+      "goal": "高校生が無料で利用できる制度の対象条件と、利用できる店舗・時間帯を知りたい。登録や申し込みはしない。",
+      "source": "https://www.anytimefitness.co.jp/highschoolpass/",
+      "requiredFacts": ["保護者が会員で、高校在学期間中の 15 歳以上 18 歳以下が対象。", "利用は保護者の登録店舗のスタッフ受付時間内のみ。", "保護者が退会または移籍すると利用できない。"],
+      "referenceReachability": "トップページに制度名付きのリンクが存在することを確認し、リンク先で条件を通常ブラウザー確認。全文の到達操作数は計測していない。"
+    },
+    {
+      "id": "kahaku-fees", "site": "国立科学博物館", "industry": "博物館",
+      "url": "https://www.kahaku.go.jp/",
+      "goal": "上野本館の常設展に一般の大人 1 人と高校生 1 人で行く場合の、それぞれの通常の入館料を知りたい。チケットの購入はしない。",
+      "source": "https://www.kahaku.go.jp/riyou/nyukan-annai/",
+      "requiredFacts": ["常設展の通常料金は一般・大学生 630 円。", "小・中・高校生は無料。特別展の料金と区別する。"],
+      "referenceReachability": "トップページの入館料・チケット購入を押して入館案内へ到達し、料金本文を通常ブラウザーで確認した。"
+    },
+    {
+      "id": "kahaku-hours", "site": "国立科学博物館", "industry": "博物館",
+      "url": "https://www.kahaku.go.jp/",
+      "goal": "上野本館の通常の開館時間と最終入場時刻、休館日を知りたい。特別展や特定の日付の予定ではなく、通常の案内を確認したい。",
+      "source": "https://www.kahaku.go.jp/riyou/nyukan-annai/",
+      "requiredFacts": ["通常の開館は 9 時から 17 時、最終入場は終了 30 分前（16 時 30 分）。", "通常は月曜休館で、日曜または月曜が祝日・休日なら火曜。年末年始は 12 月 28 日から 1 月 1 日。", "8 月や特別展開催中などの例外があり、最新日程は開館カレンダーで確認する。"],
+      "referenceReachability": "トップページから入館案内へ通常ブラウザーで到達し、開館時間・最終入場・休館日の本文を確認した。"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "goalId": "notifications",
+  "goalText": "メール通知を停止したい",
+  "initialUrl": "http://127.0.0.1:5174/good/",
+  "viewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "source": "local",
+  "fake": false,
+  "success": {
+    "reason": "SUCCESS",
+    "objectiveSuccess": true,
+    "perceivedSuccess": true
+  },
+  "actions": [
+    {
+      "step": 1,
+      "action": "click",
+      "urlBefore": "http://127.0.0.1:5174/good/",
+      "target": {
+        "anonymousId": "e5",
+        "text": "通知設定\n\nメール通知の受信を変更\n\n↗",
+        "tagName": "a",
+        "role": "link",
+        "accessibleName": "通知設定",
+        "locator": {
+          "kind": "role",
+          "role": "link",
+          "value": "通知設定"
+        }
+      },
+      "urlAfter": "http://127.0.0.1:5174/good/#notifications",
+      "durationMs": 57.41309999999976
+    },
+    {
+      "step": 2,
+      "action": "click",
+      "urlBefore": "http://127.0.0.1:5174/good/#notifications",
+      "target": {
+        "anonymousId": "e3",
+        "text": "メール通知を停止する",
+        "tagName": "button",
+        "role": "button",
+        "accessibleName": "メール通知を停止する",
+        "locator": {
+          "kind": "role",
+          "role": "button",
+          "value": "メール通知を停止する"
+        }
+      },
+      "urlAfter": "http://127.0.0.1:5174/good/#notifications",
+      "durationMs": 54.41529999999966
+    }
+  ],
+  "completedAt": "2026-09-22T16:25:45.657Z"
+}

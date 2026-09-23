@@ -1,0 +1,111 @@
+import {experimental_evaluate as evaluate} from 'ai';
+
+export type ChoiceQuestion={type:'choice';instructions:string;criteria:Record<string,string>};
+export type ChoiceAnswers={model:string;answers:Record<string,{choice:string;probabilities:Record<string,number>;confidence?:number}>;request?:RequestTrace};
+export type ChoiceEvaluator=(state:unknown,questions:Record<string,ChoiceQuestion>)=>Promise<ChoiceAnswers>;
+export type RequestFailure={code:'HTTP_ERROR'|'TIMEOUT'|'REQUEST_FAILED'|'MISSING_CREDENTIALS'|'INVALID_RESPONSE';statusCode?:number;providerType?:string};
+export const safeProviderType=(value:unknown)=>typeof value==='string'&&['internal_server_error','rate_limit_exceeded','authentication_error','invalid_request_error','model_not_found','timeout_error','failed_dependency','forbidden','not_found','response_error'].includes(value)?value:undefined;
+export type RequestTrace={attempts:number;failures:RequestFailure[];elapsedMs?:number;budgetExhausted?:boolean};
+export type RetryProgress={phase:'request'|'retry'|'recovered';attempt:number;maxAttempts:number;elapsedMs:number;failure?:RequestFailure;delayMs?:number};
+export type RetryPolicy={maxAttempts:number;maxElapsedMs:number;retryDelaysMs?:number[];retryInvalidResponse?:boolean;onProgress?:(event:RetryProgress)=>void|Promise<void>};
+export function createBudgetedEvaluator(policy:RetryPolicy,totalMs:number):ChoiceEvaluator{
+ if(!Number.isSafeInteger(totalMs)||totalMs<1||totalMs>300000)throw new Error('Invalid aggregate inference budget');
+ let started:number|undefined;
+ return async(state,questions)=>{
+  started??=performance.now();
+  const remaining=Math.floor(totalMs-(performance.now()-started));
+  if(remaining<=0)throw new ChoiceRequestError({code:'TIMEOUT'},{attempts:0,failures:[],elapsedMs:0,budgetExhausted:true});
+  return evaluateChoices(state,questions,{...policy,maxElapsedMs:Math.min(policy.maxElapsedMs,remaining)});
+ };
+}
+// Fixed control-flow codes; never provider messages or credentials.
+export class InferenceInterruption extends Error{
+ constructor(public kind:'SAFETY_BOUNDARY'|'OBSERVATION_CHANGED',public request?:RequestTrace){super(kind);}
+}
+export class ChoiceRequestError extends Error{
+ constructor(public failure:RequestFailure,public request?:RequestTrace){super(`Choice API ${failure.code}${failure.statusCode?` HTTP ${failure.statusCode}`:''}`);}
+}
+// Deliberately whitelist metadata: raw SDK errors can include headers and inputs.
+export function safeRequestFailure(error:unknown):RequestFailure{
+ if(error instanceof ChoiceRequestError)return error.failure;
+ const value=error as {statusCode?:unknown;name?:unknown;type?:unknown}|null;
+ const status=value?.statusCode;
+ const providerType=safeProviderType(value?.type);
+ if(typeof status==='number'&&Number.isInteger(status)&&status>=400&&status<=599)return {code:'HTTP_ERROR',statusCode:status,...(providerType?{providerType}:{})};
+ if(value?.name==='TimeoutError'||value?.name==='AbortError')return {code:'TIMEOUT'};
+ if(value?.name==='AI_InvalidResponseDataError'||value?.name==='AI_TypeValidationError')return {code:'INVALID_RESPONSE'};
+ return {code:'REQUEST_FAILED'};
+}
+
+export function validateChoice(answer:ChoiceAnswers['answers'][string]|undefined,criteria:Record<string,unknown>){
+ if(!answer||!Object.hasOwn(criteria,answer.choice)||!answer.probabilities||typeof answer.probabilities!=='object')throw new Error('Invalid Choice response');
+ const keys=Object.keys(criteria),p=answer.probabilities;
+ if(Object.keys(p).length!==keys.length||keys.some(k=>!Object.hasOwn(p,k)||typeof p[k]!=='number'||!Number.isFinite(p[k])||p[k]<0||p[k]>1))throw new Error('Invalid probabilities');
+ if(Math.abs(Object.values(p).reduce((a,b)=>a+b,0)-1)>0.02)throw new Error('Probabilities do not sum to one');
+ return answer;
+}
+
+const evaluateOnce=async(state:unknown,questions:Record<string,ChoiceQuestion>,timeoutMs=30000):Promise<ChoiceAnswers>=>{
+ if(process.env.AI_GATEWAY_API_KEY){
+  const signal=AbortSignal.timeout(timeoutMs);
+  try{
+   const result=await evaluate({model:process.env.JEV_GATEWAY_MODEL||'typesafe-ai/jev',state:JSON.parse(JSON.stringify(state)),questions,maxRetries:0,abortSignal:signal});
+   return {model:result.response.modelId,answers:result.answers as ChoiceAnswers['answers']};
+  }catch(error){
+   throw new ChoiceRequestError(signal.aborted?{code:'TIMEOUT'}:safeRequestFailure(error));
+  }
+ }
+ const key=process.env.TYPESAFE_API_KEY;
+ if(!key)throw new ChoiceRequestError({code:'MISSING_CREDENTIALS'});
+ try{
+  const response=await fetch('https://api.typesafe.ai/v1/systemone',{method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json'},body:JSON.stringify({model:process.env.JEV_MODEL||'jev-latest',state,questions}),signal:AbortSignal.timeout(timeoutMs)});
+  if(!response.ok)throw new ChoiceRequestError({code:'HTTP_ERROR',statusCode:response.status});
+  try{return await response.json() as ChoiceAnswers;}
+  catch(error){throw new ChoiceRequestError(error instanceof SyntaxError?{code:'INVALID_RESPONSE'}:safeRequestFailure(error));}
+ }catch(error){throw new ChoiceRequestError(safeRequestFailure(error));}
+};
+
+// Retry inference only, never browser actions. An explicit live policy may
+// request one fresh response after malformed output; invalid answers are never used.
+// Each attempt has its own 30s timeout. SDK retries stay disabled to avoid nesting.
+export const evaluateChoices=async(state:unknown,questions:Record<string,ChoiceQuestion>,policy?:RetryPolicy):Promise<ChoiceAnswers>=>{
+ if(policy&&(!Number.isSafeInteger(policy.maxAttempts)||policy.maxAttempts<1||policy.maxAttempts>10||!Number.isSafeInteger(policy.maxElapsedMs)||policy.maxElapsedMs<1||policy.maxElapsedMs>300000||policy.retryDelaysMs&&(!policy.retryDelaysMs.length||policy.retryDelaysMs.some(n=>!Number.isSafeInteger(n)||n<0||n>60000))))throw new Error('Invalid inference recovery policy');
+ const started=performance.now(),maxAttempts=policy?.maxAttempts??3;
+ let invalidResponseRetried=false;
+ const remaining=()=>policy?policy.maxElapsedMs-(performance.now()-started):Infinity;
+ const failures:RequestFailure[]=[];
+ const trace=(attempts:number,budgetExhausted=false):RequestTrace=>({attempts,failures:[...failures],...(policy?{elapsedMs:performance.now()-started,...(budgetExhausted?{budgetExhausted:true}:{})}:{})});
+ const progress=async(event:RetryProgress,attempts:number)=>{
+  try{await policy?.onProgress?.(event);}
+  catch(error){if(error instanceof InferenceInterruption)error.request=trace(attempts);throw error;}
+ };
+ for(let attempt=1;attempt<=maxAttempts;attempt++){
+  // Callers may abort on a changed observation or a safety boundary. Such guards
+  // must propagate unchanged, not be mistaken for retryable provider failures.
+  await progress({phase:'request',attempt,maxAttempts,elapsedMs:performance.now()-started},attempt-1);
+  if(remaining()<=0)throw new ChoiceRequestError(failures.at(-1)??{code:'TIMEOUT'},trace(attempt-1,true));
+  let result:ChoiceAnswers;
+  try{
+   result=await evaluateOnce(state,questions,Math.max(1,Math.min(30000,Math.ceil(remaining()))));
+   try{
+    if(typeof result?.model!=='string'||!result.answers||Object.keys(result.answers).length!==Object.keys(questions).length)throw new Error('Invalid response');
+    for(const [id,q] of Object.entries(questions))validateChoice(result.answers[id],q.criteria);
+   }catch{throw new ChoiceRequestError({code:'INVALID_RESPONSE'});}
+  }catch(error){
+   const failure=safeRequestFailure(error);failures.push(failure);
+   const retryInvalid:boolean=failure.code==='INVALID_RESPONSE'&&policy?.retryInvalidResponse===true&&!invalidResponseRetried;
+   const retryable=retryInvalid||failure.code==='TIMEOUT'||failure.code==='HTTP_ERROR'&&
+    (failure.statusCode===408||failure.statusCode===429||failure.statusCode!>=500);
+   const delay=policy?.retryDelaysMs?.[Math.min(attempt-1,policy.retryDelaysMs.length-1)]??attempt*2000;
+   if(!retryable||attempt===maxAttempts||remaining()<=delay)throw new ChoiceRequestError(failure,trace(attempt,remaining()<=delay));
+   invalidResponseRetried||=retryInvalid;
+   await progress({phase:'retry',attempt,maxAttempts,elapsedMs:performance.now()-started,failure,delayMs:delay},attempt);
+   if(remaining()<=delay)throw new ChoiceRequestError(failure,trace(attempt,true));
+   await new Promise(resolve=>setTimeout(resolve,delay));
+   continue;
+  }
+  if(failures.length)await progress({phase:'recovered',attempt,maxAttempts,elapsedMs:performance.now()-started},attempt);
+  return {model:result.model,answers:result.answers,request:trace(attempt)};
+ }
+ throw new Error('Unreachable retry state');
+};

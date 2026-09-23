@@ -1,0 +1,98 @@
+{
+  "status": "IMPLEMENTED_AND_TESTED_LIVE_GOAL_UNRESOLVED",
+  "scope": {
+    "startUrl": "https://www.tnm.jp/",
+    "goal": "大人1人と高校生1人で総合文化展を見たい。2人分の観覧料、入館できる最終時刻、当日の再入館可否を確認したい。予約・購入はしない。",
+    "goalChecks": ["2人分の観覧料", "入館できる最終時刻", "当日の再入館可否"],
+    "maxActions": 0,
+    "intervalMs": 2000,
+    "providedAnswerOrRoute": false,
+    "codexBrowserActions": 0
+  },
+  "implementation": {
+    "memory": "Private observed-state graph, with one latest observed destination per executed operation. No unseen-page crawl or oracle.",
+    "identity": "Observed visible text, warnings, viewport and operation keys. Anonymous IDs, font metrics and element boxes do not create a fresh state. Guarded direct-link outcomes are shared across viewports and display changes by source document URL plus operation key. Scroll, disclosure and Back outcomes remain state-local. Private hrefs and disclosure trigger paths are not copied into Jev State.",
+    "exclusion": "Retire executed transitions unless their latest outcome provides a known route to untried non-back work. Collapse duplicate equivalent transitions.",
+    "transit": "After choosing a known route, suppress revisiting transit states and native Back until fresh work is executed. Keep onward known routes even if unrelated untried controls are present locally. New arrival states or changed reobservations cancel stale route assumptions.",
+    "back": "Approved native Back remains available outside transit, even when previously used. Past Back outcomes cannot justify future graph routes because they depend on browser history.",
+    "reports": "Record stateId, revision, exclusions and transitChoices outside model input. Display reasons without claiming the whole URL was read or the goal was achieved.",
+    "policyCaveat": "Systematic goal-directed exploration, not an unmodified measurement of human confusion. No arbitrary global operation cap. Safety boundaries and rate spacing remain unchanged."
+  },
+  "changedFiles": [
+    "runner/exploration-memory.ts", "runner/public-site.ts", "runner/report.ts",
+    "pages/control-observation.ts", "pages/AccountPage.ts", "pages/PublicSitePage.ts",
+    "tests/exploration-memory.test.ts", "tests/exploration-identities.test.ts",
+    "tests/public-exploration-memory.test.ts", "tests/public-loop-recovery.test.ts",
+    "tests/report.test.ts", "tests/observation.test.ts", "README.md"
+  ],
+  "regressions": {
+    "originalRunnerRed": ["Repeated same-URL navigation with changing font geometry hits ACTION_LIMIT", "Known route back to an untried sibling stops STUCK"],
+    "fixedRunnerGreen": "Both local real-browser CLI cases pass; the former uses 2 actions, the latter 5.",
+    "reviewFindingsFixed": [
+      "Per-revision transit quotas could strand a needed path; replaced with directed transit progress.",
+      "Unexpected destinations left transit active and hid recovery Back.",
+      "Past native Back destinations were incorrectly treated as stable graph routes.",
+      "Old successful destinations revived links whose latest outcome was a dead end.",
+      "A changed reobservation without execution retained a stale transit route.",
+      "First live run exposed an overconstraint: local untried header links suppressed an otherwise valid onward scroll route. Removed that local-freshness veto; origin/transit-state cycle checks remain. Added RED/GREEN regression.",
+      "Second live run exposed repeated sticky-header navigation at different viewports. Share only guarded direct-navigation edges by source document and operation identity; existing graph nodes resolve the same latest edge. Two new RED/GREEN tests and a POM boundary test verify scope and transit."
+    ],
+    "unrelatedFlake": "Existing body-replacement test restored body after 50ms, sometimes before observation under full-suite load. Hold the missing body through the actual observeControls call and restore in finally; no production observation logic changed."
+  },
+  "verification": {
+    "beforeFinalReobservationFix": {"tests":280,"pass":279,"fail":0,"skip":1,"elapsedMs":117800.8854},
+    "beforeLiveRefinement": {"tests":281,"pass":280,"fail":0,"skip":1,"elapsedMs":121752.0684},
+    "beforeSharedLinkMemoryAndCliTests": {"tests":18,"pass":18,"fail":0},
+    "beforeSharedLinkFullSuite": {"tests":282,"pass":281,"fail":0,"skip":1,"elapsedMs":123662.6628},
+    "finalMemoryPomAndCliTests": {"tests":21,"pass":21,"fail":0},
+    "finalFullSuite": {"tests":284,"pass":283,"fail":0,"skip":1,"elapsedMs":114969.7531},
+    "build": "PASS after final production change",
+    "review": "No remaining Critical/Important findings in the bounded implementation review; live semantic success reviewed separately."
+  },
+  "baseline": {
+    "directory": "reports/2026-09-23T08-18-32.459Z-public",
+    "reason": "STUCK", "actions":40, "observations":41, "elapsedMs":262521.8968,
+    "goalAchieved":false, "missing":["当日の再入館可否"]
+  },
+  "firstLiveRun": {
+    "directory":"reports/2026-09-23T09-16-22.978Z-public", "reason":"STUCK",
+    "actions":26, "observations":27, "elapsedMs":174154.6837,
+    "goalAchieved":false, "missing":["当日の再入館可否"],
+    "inferenceRetries":8, "reobservations":0, "traceErrors":0,
+    "finding":"Step 27 suppressed scroll_down because unrelated local links were untried; known downstream exploration remained. Fixed after this run, not retroactively labelled success."
+  },
+  "secondLiveRun": {
+    "directory":"reports/2026-09-23T09-22-21.026Z-public", "reason":"DECISION_ERROR",
+    "actions":80, "observations":81, "elapsedMs":497682.6589,
+    "goalAchieved":false, "missing":["当日の再入館可否"],
+    "inferenceRetries":42, "traceErrors":0,
+    "failure":{"stage":"action-selection","code":"HTTP_ERROR","status":400},
+    "finding":"The first run's blocked scroll path was traversable, but the same direct header link became fresh at each viewport or literal display change. Shared direct-link history was added only after this run."
+  },
+  "liveRun": {
+    "directory":"reports/2026-09-23T09-32-35.449Z-public", "reason":"DECISION_ERROR",
+    "actions":73, "observations":74, "uniqueObservedStates":21, "visitedDocuments":4,
+    "elapsedMs":424091.37940000003, "goalAchieved":false,
+    "confirmedInformation":["2人分の観覧料","入館できる最終時刻"],
+    "missing":["当日の再入館可否"], "observedReentryText":false,
+    "inferenceRetries":37, "traceErrors":0,
+    "failure":{"stage":"action-selection","code":"HTTP_ERROR","status":400,"providerType":"internal_server_error","rootCauseEstablished":false},
+    "accounting":{"logicalCalls":194,"successfulCalls":193,"attempts":231,"failures":38,"questions":404},
+    "exclusionCount":161, "transitExecutions":49,
+    "rawRegressionGenerated":false,
+    "interpretation":"Direct-link identities no longer become fresh solely due to viewport changes, and the run reached four documents. However 49 of 73 operations were allowed transit; eligibility based on any known untried work remains too broad. Fees and cutoff were grounded; re-entry was not observed. Neither goal success nor speed improvement is established.",
+    "timingCaveat":"Single non-deterministic live run, concurrent local test work during its early part, and 37 inference retry events. Elapsed time is an observed outcome, not an isolated performance benchmark."
+  },
+  "nextWork": [
+    "Narrow transit to an explicit untried destination/operation rather than any remaining branch, while preserving necessary recovery and unread scrolling. Reproduce the observed back-to-guide detours locally before changing policy.",
+    "Diagnose the action-selection HTTP 400 with exact safe request metadata; input growth is a concern but the upstream cause is not established by its generic internal_server_error type.",
+    "Repeat the same unchanged goal after those fixes. Do not generate a successful public regression or claim the information was unavailable on the site from this failed exploration."
+  ],
+  "limitations": [
+    "One live site and local fixtures are not a general navigation or semantic-accuracy benchmark.",
+    "Changing text, viewport or DOM disclosure paths may produce fresh states or identities; arbitrary dynamic sites do not have a termination guarantee.",
+    "Only previously observed transitions justify transit. An unseen route still needs to be chosen and executed.",
+    "Keeping full evidence and history still increases memory, report size and model input over long runs.",
+    "Jev can still select stuck; removing repeated operations is not a guarantee of discovering the answer."
+  ]
+}

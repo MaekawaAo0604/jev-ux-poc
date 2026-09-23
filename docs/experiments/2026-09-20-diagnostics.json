@@ -1,0 +1,67 @@
+{
+  "batch": "2026-09-20-six-case",
+  "codeModifiedDuringTrials": false,
+  "baselineHashesRecordedDuringExecution": {
+    "pages/visible-text.ts": "55FCBF244665744166C125F1F2372880D8AD1BA741307DFF1AE5B83FA8DCD39D",
+    "pages/AccountPage.ts": "BDEDA877DB54EC9E648C00738643A35CA97ECDD99B558299911A51EB8FF93FF7",
+    "pages/AutoPage.ts": "6FF007E53A193A917BD784B1A54F44E931A373552C99592E1AC8ABB4F64ADE0F",
+    "pages/PublicSitePage.ts": "91484E85D8418B0BFEEC797601EF2AA5801C8A3A4C35D3681F197D7824A535C5",
+    "jev/types.ts": "20796C6DEFF03A0774D8E5E6D2FFC9A325A0494D725555F981636B88B1C6D88B",
+    "jev/client.ts": "4EE3EA459A30633018913DDEC872CD22168B361187D43E3753533FFE78260A83",
+    "jev/decide.ts": "C7643F1C0DD9D73633A9311AF8CCC9F25F85DDD6450C9EC518D92BAC6257AF23",
+    "jev/completion.ts": "8C0E12B8DA984269442ED7DBCD84E438FAC1469982FE35556B8A162E42A08889",
+    "runner/public-site.ts": "5CB28AD31572369B21F3D40F1777BAC17B5ADDE38FD85AF4C4E6139B7B21E544",
+    "runner/public-options.ts": "0ED7077C6AF1D10FFB9C8C84828516BE2AFD10569EF5940BA82F158CE3DDE987",
+    "runner/report.ts": "E4EDD71C659031AB6A99EDB0E12F80D63578671CA3A8A0EC6153729840B6CB82",
+    "package-lock.json": "60B9C6CCC040DB8CD792AD37C961F81105C694C62551B4C99D83475AC45C6E48"
+  },
+  "auditReplay": {
+    "input": "reports/2026-09-20T05-02-42.154Z-public/exploration/result.json",
+    "originalStatus": "ERROR",
+    "attemptsReachingAPI": 1,
+    "questionCount": 48,
+    "evidenceCount": 47,
+    "transport": "OK",
+    "model": "typesafe-ai/jev",
+    "answerCount": 48,
+    "validation": "OK",
+    "assessment": "supported",
+    "selectedEvidenceCount": 16,
+    "interpretation": "保存入力の 1 回の再実行では失敗を再現しなかった。元の処理は例外の詳細を保存しないため、元の原因が通信か回答検証かは未確定。元の試行は ERROR のまま維持する。"
+  },
+  "unsupportedMenu": {
+    "trials": ["2026-09-20T05-07-37.538Z-public", "2026-09-20T05-08-20.637Z-public"],
+    "selectedControl": "e12 / button / 利用案内",
+    "error": "SAFETY_BOUNDARY: external destination or unsupported control",
+    "referenceCheck": "通常ブラウザーで利用案内を押し、collapsed から expanded への変化を確認。表示された入館案内を押して /riyou/nyukan-annai/ へ到達した。",
+    "cause": "PublicSitePage.act は HTMLAnchorElement の同一オリジン href だけを受け付け、非リンクのボタンを拒否する。今回はボタンを操作候補には出しているため、Jev の選択後に初めて未対応と判明する。"
+  },
+  "localVerificationAtEnd": {"testCount":34,"passed":33,"failed":0,"skipped":1,"skipReason":"実 OCR モデルの統合テストは opt-in のため未実行。","build":"PASS","note":"今回の実サイトで見つかった装飾文字の欠落は既存テストの対象外で、テスト合格はその修正を意味しない。"},
+  "visibleTextLoss": {
+    "trial": "reports/2026-09-20T05-03-12.645Z-public/exploration/result.json",
+    "step": 11,
+    "screenshot": "reports/2026-09-20T05-03-12.645Z-public/exploration/step-11.png",
+    "observation": "スクリーンショットには FAQ などのフッターリンクが読める状態で表示されるが、観察テキストには含まれず、複数の操作候補のラベルが空欄。COMPLEX_PAINT_SKIPPED 警告あり。",
+    "domCheck": {
+      "page": "https://www.anytimefitness.co.jp/flow/beginner/",
+      "linkLabel": "よくある質問",
+      "tag": "A",
+      "class": "main-link",
+      "pseudo": "::before",
+      "position": "absolute",
+      "content": "empty string",
+      "backgroundImage": "data URL の SVG 矢印",
+      "widthPx": 8,
+      "heightPx": 14,
+      "leftPx": 0,
+      "topPx": 6.4,
+      "opacity": 1,
+      "visibility": "visible",
+      "clipPath": "none",
+      "clip": "auto",
+      "maskImage": "none"
+    },
+    "cause": "pages/visible-text.ts の complex 判定は、絶対配置で背景がある疑似要素を見つけると、文字と重なっているかに関係なく親の文字を除外する。装飾矢印にも一致するため、画面上のリンク名を失う。",
+    "classification": "観察器の欠落。サイトの UX 問題や Jev の判断ミスに転嫁しない。"
+  }
+}

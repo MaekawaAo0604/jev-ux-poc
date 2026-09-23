@@ -1,0 +1,38 @@
+{
+  "experiment": "museum-goal-only",
+  "status": "MANUAL_INTERRUPTION",
+  "stoppedAt": "2026-09-22T17:31:25Z",
+  "stopRuleWasPreRegistered": false,
+  "interruptionReceipt": "reports/2026-09-22T17-21-22.853Z-public/exploration/interruption.json",
+  "initialUrl": "https://www.tnm.jp/",
+  "goal": "大人1人と高校生1人で総合文化展を見たい。2人分の観覧料、入館できる最終時刻、当日の再入館可否を確認したい。予約・購入はしない。",
+  "commandRequestedAt": "2026-09-22T17:21:12Z",
+  "reportDirectory": "reports/2026-09-22T17-21-22.853Z-public",
+  "settings": {"maxActions": 24, "intervalMs": 2000, "goalChecks": null, "realJev": true},
+  "method": {
+    "providedToExplorer": ["initial URL", "goal"],
+    "providedAnswersOrRoutes": false,
+    "codexBrowserActions": 0,
+    "codeChangedDuringExploration": false,
+    "parallelWork": "Read-only source inspection and public replay design; no parallel browser tests or extra target-site exploration."
+  },
+  "policy": {
+    "sitePolicyUrl": "https://www.tnm.jp/modules/r_free_page/index.php?id=195&lang=ja",
+    "robotsUrl": "https://www.tnm.jp/robots.txt",
+    "robotsStatus": 200,
+    "robotsDisallow": ["/admin.php", "/userinfo.php"],
+    "scope": "Bounded public browsing; no forms, login, reservations, purchases, files, or external navigation. Captured content remains local and is not published."
+  },
+  "sourceSha256": {
+    "runner/public-site.ts": "a55d4711335d56a321785c8a5f2c30893e23160b795d8634c3e903cf28a74137",
+    "runner/public-navigation.ts": "94e6093e630616bb7d86414a4f20d80aa5ef37c5f4d84d1374552e42eb748729",
+    "pages/PublicSitePage.ts": "5044fbf34607326f8c55e051bfc10e19bbe7c58cd26ba3076be666236b00d963",
+    "pages/AccountPage.ts": "e8d7af00c0da7da93d33bfbeaf75030d4f1ba37a0975506e952a00f220de8419",
+    "pages/AutoPage.ts": "b1d00f906fb91932f70dcb00282a0b7d5a8dccd093fa559e875b08440d8e419b",
+    "pages/visible-text.ts": "1a75498523c3e009249a875f90a07810c06f28e201c843c1ef0fc9a33d3a78be",
+    "jev/decide.ts": "d72dd7325070e02334f46bf3ec161e1846baea9cb0312737909925fa195f3cc8"
+  },
+  "acceptance": "Only a genuinely successful, independently checked observed path may produce a regression test. JEV_DONE alone is not objective success.",
+  "publicCodeGeneration": "NOT_RUN: no successful path. Public generator extension was assessed but not implemented.",
+  "regression": "NOT_RUN"
+}

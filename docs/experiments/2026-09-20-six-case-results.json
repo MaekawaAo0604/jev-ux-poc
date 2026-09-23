@@ -1,0 +1,34 @@
+{
+  "batch": "2026-09-20-six-case",
+  "reviewer": "Codex による公式案内、保存観察、スクリーンショットの照合。独立した被験者テストではない。",
+  "conclusion": "必要な情報が観察入力に入っていると確認できたのは esa の 2 件。残る 4 件には観察の欠落または操作制約があり、サイトの UX 評価を保留する。今回、営業に使えるサイト側の問題は確定していない。",
+  "counts": {"trials":6,"referenceMatched":2,"siteAssessmentWithheld":4,"confirmedSiteIssues":0,"originalAuditErrors":2},
+  "cases": [
+    {"id":"esa-price-trial","directory":"2026-09-20T05-02-42.154Z-public","shortGoal":"料金と無料期間","expectedReason":"JEV_DONE","reviewStatus":"必要情報を確認","category":"REFERENCE_MATCH","evidenceStep":2,"regionIds":["t9","t23","t24"],"review":"料金、課金単位、無料期間の説明が画面 2 と観察入力の両方にある。公式案内と一致した。自動の事後監査は ERROR。監査の成否とは分けて照合した。"},
+    {"id":"esa-capacity-billing","directory":"2026-09-20T05-02-57.619Z-public","shortGoal":"容量上限と月途中参加の料金","expectedReason":"JEV_DONE","reviewStatus":"必要情報を確認","category":"REFERENCE_MATCH","evidenceStep":2,"regionIds":["t25","t26"],"review":"容量は原則無制限で、所属人数・日数による日割りという説明が画面 2 と観察入力にある。公式案内と一致した。自動の事後監査は ERROR。"},
+    {"id":"anytime-tour","directory":"2026-09-20T05-03-12.645Z-public","shortGoal":"入会前の見学と申込方法","expectedReason":"ACTION_LIMIT","reviewStatus":"観察の欠落あり・評価保留","category":"OBSERVATION_LIMIT","evidenceStep":11,"regionIds":[],"review":"12 操作の上限で停止。画面 11 には FAQ のリンクが見えるが、その文言を観察器が落としている。回答本文には未到達。取得の欠落があるため、経路選択の妥当性やサイトの分かりやすさをこの試行で判定しない。"},
+    {"id":"anytime-highschool","directory":"2026-09-20T05-05-24.884Z-public","shortGoal":"高校生制度の条件・店舗・時間","expectedReason":"LOOP","reviewStatus":"観察の欠落あり・評価保留","category":"OBSERVATION_LIMIT","evidenceStep":8,"regionIds":[],"review":"11 操作の後、12 回目の判断で往復を検知し実行前に停止。画面 8 に見える高校生制度のフッターリンクの文字が観察入力にない。条件の本文には未到達。途中の店舗検索には位置情報取得失敗の表示もあり、環境要因を除外できない。"},
+    {"id":"kahaku-fees","directory":"2026-09-20T05-07-37.538Z-public","shortGoal":"大人と高校生の常設展料金","expectedReason":"SAFETY_BOUNDARY","reviewStatus":"操作未対応・評価保留","category":"ACTION_LIMITATION","evidenceStep":1,"regionIds":[],"review":"最初に利用案内ボタン e12 を選択。探索器は同一オリジンのリンクしか実行しないため、メニュー展開を拒否した。実行済み操作は 0 回。通常ブラウザーでは展開して入館案内へ進めた。"},
+    {"id":"kahaku-hours","directory":"2026-09-20T05-08-20.637Z-public","shortGoal":"通常の開館時間・最終入場・休館日","expectedReason":"SAFETY_BOUNDARY","reviewStatus":"操作未対応・評価保留","category":"ACTION_LIMITATION","evidenceStep":1,"regionIds":[],"review":"こちらも利用案内ボタン e12 を選んだ時点で操作を拒否した。トップページの当日の開館時間だけでは、最終入場や通常の休館日の根拠が足りない。Jev が誤って完了した事例ではない。"}
+  ],
+  "followUpChecks": [
+    "エニタイムの FAQ リンクにある 8 × 14 px の装飾矢印が、疑似要素の背景を理由とする文字除外条件に一致することを DOM とコードで確認した。隠し文字が見えたという問題ではなく、見える文字を落とした問題。",
+    "国立科学博物館の利用案内は、通常ブラウザーでは展開でき、続いて入館案内へ進めた。今回の SAFETY_BOUNDARY はアクセス拒否や外部サイト遷移ではなく、探索器の非リンク操作の制約による。",
+    "esa の事後監査を保存入力で 1 回だけ再実行すると、48 問の送信と 48 回答の検証に成功した。元の 2 件の ERROR を成功に置き換えてはいない。例外詳細が保存されておらず、元の原因は未確定。"
+  ],
+  "nextPriorities": [
+    "装飾と文字の重なりを区別して、見えるリンク名の欠落を減らす。隠れた文字を拾わない条件は維持し、装飾矢印と文字を覆う疑似要素を別々の回帰テストにする。",
+    "メニューや FAQ の開閉など、表示切替だけの操作を安全に扱う。すべてのボタンを許可せず、送信・登録・購入の禁止を維持する。実行できない候補は選択前に区別する。",
+    "事後監査のエラーを、秘密情報を含めず通信・応答検証などの段階別に保存する。再実行結果は元ログと別に残す。",
+    "修正後も同じ 6 目的と設定で比較する。その後、未見サイトで再検証してサイト固有の調整に偏っていないか確かめる。"
+  ],
+  "limits": [
+    "3 サイトを各 2 目的、各 1 回だけ試した便宜的なサンプル。同一サイトの目的は独立な試行とは限らない。成功率や人間の離脱率に一般化しない。",
+    "観察入力に必要な事実があることを確認したのであり、人間の理解や Jev の内的な推論を検証したものではない。",
+    "全試行で objectiveSuccess は null のまま維持し、この別途照合を探索時の自動判定として扱わない。",
+    "OCR、画像内の文字、別オリジン、PDF、フォーム送信、位置情報許可は対象外。iframe も遮断した。",
+    "esa の 2 件には PARTIAL_TEXT 警告がある。必要な料金・期間・容量・日割りの文章は画像と照合したが、ページ全体の完全な抽出を保証しない。",
+    "6 件とも探索中のコードは変更していない。画面は 1440 × 1000、上限 12 操作、操作前待機 3 秒。所要時間は通信・待機を含み、人間の操作時間ではない。",
+    "スクリーンショットは内部検証用で、外部公開・営業送付の許諾を取得したものではない。"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "change": "Concrete untried frontier selection, recorded-route traversal, compact navigation inputs, and visible control heading context",
+  "productionMode": "Existing --goal-check public exploration. Legacy combined Jev decision mode is unchanged; shared direct-navigation memory is used by both modes.",
+  "firstVerification": {
+    "unitAndIntegration": {"total": 297, "passed": 296, "failed": 0, "skipped": 1, "durationMs": 135236.161},
+    "build": "passed",
+    "liveLocalCases": "reports/frontier-validation-2026-09-23T11-06-19.893Z/results.json",
+    "localResults": {"branchGoalOnlyActions": 4, "duplicateLabelGoalOnlyActions": 1, "seededRouteActions": 3, "seededRouteSelectionCalls": 1}
+  },
+  "firstPublicVerification": {
+    "source": "reports/2026-09-23T11-07-39.804Z-public/exploration",
+    "status": "DIAGNOSTIC_INTERRUPTION_NOT_GOAL_SUCCESS",
+    "confirmedConsoleActionsAtInterruption": 85,
+    "reason": "Shared absolute-href navigation was incorrectly treated as fresh work from each referring document; selected remote targets triggered repeated long detours. The owned probe Node and dedicated Chromium process tree were stopped before correcting this bug.",
+    "preservation": "Per-step evidence and checkpoint files retained. A final interrupted in-flight action may not have a completed trace; this is not a successful regression source. User browser and Vite were not stopped."
+  },
+  "followupCorrection": {
+    "test": "tests/frontier-routing.test.ts: a shared navigation destination on another page is a known route, not a new target",
+    "redObserved": true,
+    "implementation": "Direct navigation identities now share the last observed destination by private resolved absolute href across documents; query and fragment remain distinct. Scroll and disclosures remain state-local.",
+    "status": "VALIDATION_IN_PROGRESS"
+  },
+  "files": [
+    "runner/exploration-memory.ts", "runner/public-site.ts", "jev/frontier.ts", "jev/frontier-types.ts", "jev/decide.ts", "jev/types.ts",
+    "pages/visible-text.ts", "pages/control-observation.ts", "pages/AccountPage.ts",
+    "tests/frontier-routing.test.ts", "tests/frontier-decision.test.ts", "tests/control-context.test.ts",
+    "tests/exploration-memory.test.ts", "tests/batch-observation.test.ts", "tests/public-cli.test.ts", "tests/fixtures/limit-provider.mjs"
+  ]
+}

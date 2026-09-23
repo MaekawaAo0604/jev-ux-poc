@@ -1,0 +1,64 @@
+{
+  "scope": "Diagnosis only; no production implementation or end-to-end rerun",
+  "source": "reports/2026-09-23T09-32-35.449Z-public/exploration",
+  "controlledProbe": "reports/root-cause-probe-2026-09-23T10-44-56.933Z/diagnostics.json",
+  "liveRunFacts": {
+    "executedActions": 73,
+    "observations": 74,
+    "distinctFragmentFreeDocuments": 4,
+    "executedKnownTransitActions": 49,
+    "observationsOfferingAboutMuseumBranch": 74,
+    "timesAboutMuseumSelected": 0,
+    "observationsContainingReentryText": 0,
+    "blankVisibleTitles": 63,
+    "distinctHistoryResultStrings": 4
+  },
+  "findings": [
+    {
+      "status": "confirmed",
+      "finding": "The answer exists on the official site, but the recorded exploration did not reach its branch.",
+      "officialSources": [
+        "https://www.tnm.jp/modules/r_free_page/index.php?id=140&lang=ja",
+        "https://www.tnm.jp/modules/r_free_page/?id=156&lang=ja"
+      ],
+      "qualification": "Read-only document verification is separate from Jev exploration. No known route or answer was injected into the probe. This does not claim the current observer has successfully traversed every step of that branch."
+    },
+    {
+      "status": "confirmed-code-mechanism",
+      "finding": "ExplorationMemory permits an old edge when any known untried non-back operation is reachable. It neither selects a specific frontier target nor represents goal relevance. Transit metadata is logged but not included in the action-selection input.",
+      "sources": ["runner/exploration-memory.ts:65", "runner/exploration-memory.ts:93", "runner/public-site.ts:127", "runner/public-site.ts:138"],
+      "qualification": "Repeated local action selection is not a committed plan to inspect a particular new branch. The 49 transits alone do not prove all 49 were unnecessary."
+    },
+    {
+      "status": "confirmed-code-mechanism",
+      "finding": "One action-selection question must reconstruct prior outcomes, resolve observation references, reason about already-visited ranges, and select a useful onward action. Click criteria contain the visible label but not the control's section relationship or observed edge outcome.",
+      "sources": ["jev/decide.ts:49", "jev/navigation-context.ts:11", "jev/progress.ts:20", "runner/public-site.ts:122"],
+      "qualification": "Poor responsibility separation is the main design diagnosis, not a proof that Jev cannot perform browser navigation or that a replacement policy is already validated."
+    },
+    {
+      "status": "context-only-fix-not-supported",
+      "finding": "Navigation removes region context. However, adding only the already-observed childcare heading to the unique Details control in saved step 63 did not establish an improvement.",
+      "baseline": {"samples": 2, "childcareDetailsSelected": 2},
+      "contextAdded": {"samples": 2, "childcareDetailsSelected": 1, "invalidResponses": 1},
+      "qualification": "Tiny diagnostic sample; the failure was not counted as a successful correction. This field-only change is not evidence against all possible context encodings."
+    },
+    {
+      "status": "input-sensitivity-reproduced-exact-provider-cause-unknown",
+      "finding": "The exact failed step-74 application request was reconstructed and hash-verified. Original 67,774-byte input failed twice (503 then 400). Removing only explorationProgress reduced it to 52,880 bytes and succeeded twice, but both decisions chose the previously visited usage guide again.",
+      "qualification": "No retries; two samples per condition. The experiment supports input sensitivity, not an exact byte or token ceiling. Existing larger successful requests rule out a universal 67,774-byte cutoff. No recognized context-limit reason was recovered from the provider errors.",
+      "sources": ["jev/decide.ts:19", "jev/client.ts:95", "https://docs.typesafe.ai/models"]
+    },
+    {
+      "status": "validation-gap",
+      "finding": "Loop integration tests using loop-provider.mjs replace inference with deterministic first-available-control choices. They validate plumbing but not real Jev branch selection.",
+      "source": "tests/fixtures/loop-provider.mjs"
+    }
+  ],
+  "recommendedValidationBeforeProductionChange": [
+    "Use small frozen cases for a known exhausted branch, a necessary return path, and ambiguous same-label controls; do not optimize only for the museum site.",
+    "Separate choosing an untried exploration target from traversing already-observed edges toward that target; keep existing observation, execution, evidence and trace modules.",
+    "Keep the complete audit trail on disk, while constructing short decision-specific inputs with explicit observed outcomes and control context.",
+    "Validate with real Jev calls in addition to deterministic control-flow tests. Check that a chosen new target is actually reached, not merely that repeated clicks disappear.",
+    "Do not claim a UX failure until observation/tool limitations and exploration-policy failures are separately accounted for."
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "experiment": "museum-goal-only-after-observation-fix",
+  "status": "DECISION_ERROR",
+  "reportDirectory": "reports/2026-09-22T19-00-09.081Z-public",
+  "initialUrl": "https://www.tnm.jp/",
+  "goal": "大人1人と高校生1人で総合文化展を見たい。2人分の観覧料、入館できる最終時刻、当日の再入館可否を確認したい。予約・購入はしない。",
+  "settings": {"maxActions": 24, "intervalMs": 2000, "goalChecks": null, "realJev": true},
+  "method": {
+    "providedAnswersOrRoutes": false,
+    "codexBrowserActions": 0,
+    "codeChangedDuringExploration": false,
+    "additionalExplorationRuns": 0,
+    "productionHashesMatch": "reports/observation-profile-2026-09-22T18-51-47.992Z.json",
+    "policyReview": "Same approved scope and policy recorded in 2026-09-23-museum-goal-only.json; public browsing only, no forms/login/purchases/external navigation; artifacts private and local."
+  },
+  "result": {
+    "actions": 7,
+    "decisionStates": 8,
+    "elapsedMs": 37160.2716,
+    "firstFourActionStepsMs": 13654.7595,
+    "apiAttempts": 11,
+    "apiFailures": 4,
+    "failure": {"step": 8, "attempts": 3, "statusCode": 503, "providerType": "internal_server_error"},
+    "earlierRecoveredFailure": {"step": 5, "attempts": 2, "statusCode": 503},
+    "actionTraceErrors": 0,
+    "completionAudit": "NOT_RUN",
+    "goalAchieved": false
+  },
+  "timing": {
+    "measuredBrowserActionMs": 1698.2275,
+    "configuredActionIntervalMs": 14000,
+    "configuredInitialIntervalMs": 2000,
+    "configuredRetryBackoffMs": 8000,
+    "residualUninstrumentedMs": 11462.0441,
+    "note": "Configured waits are nominal, not independently timed. Residual includes initial navigation, inference, observation, screenshots, logs and timer overhead; it is not an inference-only measurement. No global end-to-end speedup ratio is claimed for this incomplete, different action path."
+  },
+  "limitations": [
+    "The inference endpoint returned HTTP 503; the underlying provider cause is not established.",
+    "The model scrolled upward, selected the same ticket anchor again, then scrolled upward again. Faster observation does not establish good exploration decisions.",
+    "The logged visible text has adult price and opening hours, but does not establish high-school eligibility, the two-person total or re-entry policy. This does not imply the site lacks those facts.",
+    "No successful public trace, generated public test, or public regression PASS was produced."
+  ]
+}

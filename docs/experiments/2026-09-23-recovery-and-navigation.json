@@ -1,0 +1,127 @@
+{
+  "status": "SUPERSEDED_BY_PRODUCTION_FOLLOWUP",
+  "followup": "docs/experiments/2026-09-23-production-followup.json",
+  "recordScope": "Historical measurements below retain their original conditions. Production fixes, unlimited exploration and follow-up results are recorded separately in followup.",
+  "goal": "大人1人と高校生1人で総合文化展を見たい。2人分の観覧料、入館できる最終時刻、当日の再入館可否を確認したい。予約・購入はしない。",
+  "scope": {"startUrl":"https://www.tnm.jp/","maxActions":24,"intervalMs":2000,"providedAnswerOrRoute":false,"codexBrowserActions":0,"artifacts":"private-local"},
+  "recoveryAndObservation": {
+    "changes": ["Omit duplicate grounding regions from action requests while preserving original evidence","Bound transient inference recovery to six attempts and 90 seconds, without replaying browser actions","Reobserve before retry and after recovery; discard stale judgments","Preserve actual request accounting across goal-check interruption wrappers","Certify only empty, pure-translation decorations with known containing-block geometry"],
+    "redGreen": ["Transient failure on third attempt then fourth-attempt recovery","Changed page before retry","Still-connected target text changed during successful retry","Typed interruption accounting through evidence session","Translated visible heading","Scrolled and inline containing blocks fail closed"],
+    "verification": {"fullSuiteBeforeLastInlineGuard":{"pass":194,"skip":1,"fail":0},"translatedAfterInlineGuard":{"pass":21,"fail":0},"build":"PASS before last inline guard; subsequent tsc PASS","existingRawRegression":{"pass":3,"repeatEach":3},"existingMaintainedRegression":{"pass":3,"repeatEach":3}},
+    "liveRun": {
+      "reportDirectory":"reports/2026-09-22T20-10-22.081Z-public",
+      "reason":"LOOP","actions":21,"states":23,"elapsedMs":71587.0793,
+      "inferenceAttempts":23,"inferenceFailures":1,"reobservations":1,"recordingErrors":0,
+      "observed":["Adult fee","High-school eligibility and free admission with proof requirement","Opening hours and entry cutoff rule"],
+      "notObserved":["Re-entry rule"],
+      "goalAchieved":false
+    }
+  },
+  "remainingNavigationDiagnosis": {
+    "visitedViewportUnionAtStep7":[0,3817],
+    "maxVisitedBottom":3817,
+    "historyOmitted":false,
+    "interpretation":"Selection kept revisiting observed upper ranges despite an available downward candidate. This is not evidence that re-entry information is absent from the site.",
+    "savedInputExperiment":"reports/navigation-input-probe-2026-09-22T20-13-17.218Z/diagnostics.json",
+    "probeResults":{"baseline":"scroll_up","candidatePositionalNotes":["scroll_down","scroll_down"],"deduplicatedHistory":"done"},
+    "nextChange":"Generic positional observation notes attached to scroll criteria; no candidate deletion or route hints. History deduplication is not adopted because the probe prematurely chose done.",
+    "limitation":"Four single-request probes are diagnostic evidence, not an accuracy benchmark. Live verification remains required.",
+    "notesOnlyLiveRun":{"reportDirectory":"reports/2026-09-22T20-19-33.453Z-public","reason":"LOOP","actions":18,"states":19,"elapsedMs":58991.2375,"inferenceFailures":0,"maxVisitedBottom":4517,"goalAchieved":false},
+    "notesOnlyConclusion":"One new downward range was observed, but the path still cycled. Candidate annotations alone did not resolve exploration.",
+    "loopGuardChange":"Enforce the existing two-execution limit for identical URL/screen/action before inference, allowing Jev to choose other observed candidates instead of aborting the entire exploration. Keep original candidates for the final action-limit judgment. Log and display exclusions; do not represent this as unassisted Jev behavior.",
+    "loopGuardRedGreen":["An exhausted toggle previously ended LOOP; now an alternate observed link is selected and reached","At maxActions, retain all candidates to distinguish ACTION_LIMIT from forced STUCK or done"],
+    "guardLiveRun":{"reportDirectory":"reports/2026-09-22T20-27-11.261Z-public","reason":"JEV_DONE","actions":14,"states":15,"explorationElapsedMs":61467.8562,"inferenceFailures":8,"avoidedLoopStates":0,"auditStatus":"ERROR","auditElapsedMs":38935.4846,"auditAttempts":6,"auditFailures":6,"goalAchieved":false},
+    "guardLiveCaveats":["Site returned English content after homepage; not a controlled speed comparison","Loop guard was not exercised in this live path; only the local integration proves its effect","Same-day admission coverage is not re-entry permission; re-entry remains unobserved"],
+    "auditInput":{"questions":161,"evidenceRecords":160,"inputBytes":116502,"omittedOlderRecords":true},
+    "auditProbe":"reports/completion-input-probe-2026-09-22T20-30-10.715Z/diagnostics.json",
+    "auditProbeResults":["Completion-only first call HTTP503","Eight detail questions with smaller evidence context succeeded","Completion-only repeat: insufficient with relative probability0.95"],
+    "strictRunPlan":{"mode":"existing goal-checks-experimental","checks":["2人分の観覧料","入館できる最終時刻","当日の再入館可否"],"newScenarioOrAnswer":false,"description":"Exact excerpts from the unchanged goal; not comparable to prior combined-mode latency"}
+  },
+  "completionAuditRecovery": {
+    "change":"Preserve the full saved context, send the completion question once, and audit evidence in batches of eight. Share a 120-second aggregate deadline. Preserve validated partial answers on failure without marking the audit complete.",
+    "source":"reports/2026-09-22T20-27-11.261Z-public",
+    "reaudit":"reports/completion-reaudit-2026-09-22T20-40-32.625Z/index.html",
+    "result":{"status":"RECORDED","assessment":"insufficient","logicalCalls":21,"attempts":33,"recoveredFailures":12,"elapsedMs":38146.9276,"targetSiteCalls":0},
+    "interpretation":"The transport failure was recovered; the exploration still lacked goal evidence. These are separate outcomes."
+  },
+  "strictModeFirstRun": {
+    "report":"reports/2026-09-22T20-41-13.880Z-public",
+    "reason":"ACTION_LIMIT","actions":24,"states":27,"elapsedMs":202693.1056,
+    "logicalCalls":210,"attempts":229,"failures":21,"reusedCalls":1077,"goalAchieved":false,
+    "diagnosis":"Observed adult labels and prices were separate table-cell quotes. Fee quotes were rejected before applicability assessment by the existing 0.75 content threshold. Fee and re-entry therefore both remained pending."
+  },
+  "navigationPriorityAndTableRows": {
+    "changes":["Group strictly visible native-table cells by their own row; never borrow hidden cells, nested-table content, or text from another row","Keep every pending goal item and the same strict completion gate; prioritize items whose preliminary availability is absent or uncertain, falling back to all unresolved items","Persist and render priorityGoalChecks and verificationPendingGoalChecks separately from success"],
+    "review":"No significant findings in read-only implementation review",
+    "liveRun":{"report":"reports/2026-09-22T20-53-07.103Z-public","reason":"ACTION_LIMIT","actions":24,"states":27,"elapsedMs":199431.1619,"logicalCalls":162,"attempts":184,"failures":24,"reusedCalls":1168,"groundedItems":["2人分の観覧料","入館できる最終時刻"],"missingItems":["当日の再入館可否"],"goalAchieved":false},
+    "caveat":"This run received English admission content, unlike the previous run. It is not a controlled accuracy or latency comparison.",
+    "boundedFollowup":{"maxActions":48,"intervalMs":2000,"changedGoal":false,"providedAnswerOrRoute":false,"reason":"The 24-action run advanced into new visitor-information pages; a single larger-budget run tests whether it can reach the remaining information."}
+  },
+  "semanticDiagnostic": {
+    "report":"reports/content-contract-probe-2026-09-22T20-49-38.408Z/diagnostics.json",
+    "cases":12,"variants":2,"targetSiteCalls":0,
+    "observations":["Production classified a promotional sentence as direct with relative score0.97","Production rejected a real labeled price0.61 and free-admission paragraph0.71 at the current threshold","Shorter instructions changed these errors but did not establish general improvement"],
+    "adopted":false,"thresholdChanged":false,
+    "limitation":"Uncalibrated relative scores are not correctness probabilities. Mock tests validate control flow and provenance, not semantic accuracy; repeated checks by the same model are not independent verification."
+  },
+  "latestLocalVerification": {
+    "fullSuite":{"total":238,"pass":237,"skip":1,"fail":0,"elapsedMs":98097.1523},
+    "afterFocusReporting":{"tests":22,"pass":22,"fail":0},
+    "build":"PASS after all production changes including the one-time malformed-response recovery",
+    "rawPlaywright":{"pass":3,"repeatEach":3,"retries":0},
+    "maintainedPlaywright":{"pass":3,"repeatEach":3,"retries":0},
+    "regressionScope":"Existing local notifications trace, not the public museum exploration. No public regression test generated from an unverified trace."
+  },
+  "sameUrlHistoryFailure": {
+    "report":"reports/2026-09-22T20-58-01.993Z-public",
+    "reason":"SAFETY_BOUNDARY","detail":"back destination changed","actions":20,"elapsedMs":114659.1128,
+    "attempts":115,"recoveredFailures":4,"loopGuardSteps":[19,21],"goalAchieved":false,
+    "diagnosis":"Chromium appends distinct native session-history entries for repeated goto calls to the same fragment URL. The middleware tracked only URL changes and therefore expected to return home too early.",
+    "localReproduction":"home -> next#section -> next#section -> back -> back",
+    "redTest":"tests/public-history.test.ts: expected JEV_DONE, actual SAFETY_BOUNDARY",
+    "fix":"Track native history entry identities for approved navigations; retain rejection of site-created unobserved back destinations. Derive back candidate availability from the same POM history rather than a separate URL-change counter.",
+    "baselineGuard":"Pin the first observed native history entry once, including existing-page usage; never rebaseline on later observations. Four red/green cases cover pushState and replaceState after that observation.",
+    "verification":{"publicSiteTests":17,"publicSitePass":17,"runnerAndObservationTests":8,"runnerAndObservationPass":8,"build":"PASS","review":"Initial-baseline finding closed; no remaining significant findings within the observed-destination boundary"},
+    "limitations":["Native history tracking is Chromium-specific, matching the current public runner","A state-object-only replaceState with unchanged entry ID and URL is not treated as a new destination"],
+    "publicRequestsPausedDuringDiagnosis":true,
+    "postFixLiveRun":"reports/2026-09-22T21-15-08.509Z-public",
+    "liveBackReproduction":{"step":21,"result":"OK","followingStep":22,"continuedToNewPage":true}
+  },
+  "latestLiveVerification": {
+    "report":"reports/2026-09-22T21-15-08.509Z-public/index.html",
+    "actions":25,"states":27,"elapsedMs":172095.8813,"reason":"DECISION_ERROR",
+    "failedStage":"goal-evidence","failure":"INVALID_RESPONSE","invalidAttempts":1,
+    "backBugReproducedAfterFix":false,"backWorkedAtStep":21,
+    "goalAchieved":false,"publicRegressionGenerated":false
+  },
+  "invalidResponseRecovery": {
+    "probe":"reports/invalid-response-probe-2026-09-22T21-20-02.052Z/diagnostics.json",
+    "probeResult":"The interrupted input produced valid answers in both isolated re-requests; original malformed response contents were not retained, so its exact schema defect is unknown.",
+    "change":"Opt-in one-time malformed-response retry, inside the existing total attempt/deadline budget. Discard invalid answers completely, validate every new answer, and keep pre-retry/post-recovery observation guards. Defaults remain fail-fast.",
+    "localVerification":{"tests":16,"pass":16,"browserReplayDuringInferenceRetry":false},
+    "savedAssessmentResume":{"report":"reports/resumed-assessment-2026-09-22T21-23-29.364Z/result.json","status":"RECORDED","newCalls":7,"elapsedMs":3630.1742,"websiteRequests":0,"browserActions":0,"pending":["2人分の観覧料","当日の再入館可否"]},
+    "caveat":"This resumes assessment only, not browser exploration, and does not establish full Goal achievement."
+  },
+  "approvedIndependentComparison": {
+    "scope":"User approved saved-data comparison only; no live site access or production model switch",
+    "script":"docs/experiments/2026-09-23-verifier-comparison.mjs",
+    "tests":{"command":"node --import tsx --test docs/experiments/2026-09-23-verifier-comparison.test.mjs","pass":3,"fail":0},
+    "initialTransportFailures":["reports/verifier-comparison-2026-09-23T05-54-57.968Z/results.json","reports/verifier-comparison-2026-09-23T05-59-26.314Z/results.json","reports/verifier-comparison-2026-09-23T06-59-43.871Z/results.json"],
+    "transportDiagnosis":"A separately instrumented failed request exposed AggregateError EACCES beneath GatewayResponseError 500. A later authorized run reached the actual providers. Do not equate all synthetic SDK 500s with server responses.",
+    "pairedComparison":"reports/verifier-comparison-2026-09-23T07-01-04.211Z/results.json",
+    "pairedResults":{"elapsedMs":32357.4099,"jev":{"responses":2,"errors":4,"validResponsesMatchingExpected":2},"gemini":{"responses":6,"errors":0,"responsesMatchingExpected":6}},
+    "retentionFinding":"The current last-160-record audit input omits every observed entry-cutoff quote. All 502 saved records retain six such occurrences. Gemini judged the cutoff absent with the current input and present with all records in all three repeats. This is separate from the live multi-stage fee rejection.",
+    "metadataFollowup":"reports/verifier-comparison-2026-09-23T07-04-34.317Z/results.json",
+    "metadataFollowupResults":{"elapsedMs":9247.2909,"retainedRecords":502,"textIdsSourceAndOrderUnchanged":true,"removedFields":["bbox","step"],"jev":{"responses":2,"errors":1,"validResponsesMatchingExpected":2,"responseElapsedMs":[961.5052,681.9512],"error":"HTTP 503 after two attempts"},"gemini":{"responses":3,"errors":0,"responsesMatchingExpected":3}},
+    "finding":"With all recorded text preserved but coordinate/redundant step metadata omitted, both models' returned answers recognize fees and entry cutoff, while correctly leaving re-entry unsupported. Thus these saved observations do not show that Jev is intrinsically unable to judge the fees.",
+    "capacityCaveat":"Gateway catalogue lists a 32000-token Jev context. Full coordinate-bearing input generated 400/503 responses; text-only input returned valid Jev judgments. Input-size involvement is supported, but the exact server-side reason for each 400 is not proven by retained error details.",
+    "citationReview":"Gemini's cited strings and IDs exactly match saved records. However its prose selects currentDate as the visit date even though the Goal does not specify a visit date; exact citation validation alone is not semantic correctness or production readiness.",
+    "limitations":["One saved site trace, three repeats per condition, not a general benchmark","Direct four-question diagnostic bypasses the existing multi-stage gate; production completion was not fixed","API failures are retained, not counted as correct judgments","No re-entry policy was supplied to either model","Original observation files remain unchanged","No successful public trace or public regression test was generated"],
+    "nextAction":"Repair evidence retention and payload construction without dropping observed facts; separately validate the multi-stage gate against direct whole-record judgments before adopting a model replacement. Re-entry navigation and provider failures remain unresolved."
+  },
+  "remainingWork": {
+    "unresolved":["Japanese fee evidence is still rejected by the multi-stage semantic gate despite preliminary availability","Exploration has not observed the re-entry policy","The public trace is not independently verified and cannot be promoted to a passing regression"],
+    "requestedDecision":"Saved-data comparison was approved and executed. Production model switching was not requested or performed.",
+    "notDone":["No threshold lowered to force success","No FAQ route or answer supplied to the explorer","No external-model switch made","No unverified public test generated"]
+  }
+}

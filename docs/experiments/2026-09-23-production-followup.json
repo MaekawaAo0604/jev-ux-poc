@@ -1,0 +1,148 @@
+{
+  "status": "PRODUCTION_FIXES_VERIFIED_LIVE_GOAL_STILL_STUCK",
+  "scope": {
+    "startUrl": "https://www.tnm.jp/",
+    "goal": "大人1人と高校生1人で総合文化展を見たい。2人分の観覧料、入館できる最終時刻、当日の再入館可否を確認したい。予約・購入はしない。",
+    "goalChecks": ["2人分の観覧料", "入館できる最終時刻", "当日の再入館可否"],
+    "maxActions": 0,
+    "intervalMs": 2000,
+    "providedAnswerOrRoute": false,
+    "codexBrowserActions": 0
+  },
+  "implemented": [
+    "Remove the 160-record and 20000-character post-completion audit eviction. Preserve every source entry, sending id/source/text while retaining bbox/step locally.",
+    "Remove the 20000-character history eviction; retain observed text, regions, context and existing omission flags.",
+    "Default public exploration to maxActions=0 (unlimited). Explicit positive limits still judge the final observation. Rate, loop, origin and form protections remain.",
+    "Treat direct content choices as candidates without an uncalibrated 0.75 override. Individual applicability, sufficiency and contradiction checks still gate completion.",
+    "Clarify that one quote may apply to one requested party in a compound goal. Subsequent review narrowed this to parties corresponding to the quote's requestedInformation; another item's facility or scheme cannot substitute.",
+    "Strict action input uses a lossless observation pool referenced by ordered action history; combined legacy mode and original stored State remain unchanged.",
+    "Deduplicate exact accepted semantic quotes only in model input; retain report occurrences and distinct block provenance.",
+    "Batch contradiction checks by complete observed pages, preserving legends with rows. Aggregate only after every batch completes, with absent/uncertain vetoes. Report completed/total batches and no acquired label during incomplete contradiction checks.",
+    "Recognize strictly certified empty scaleX(0) or scaleY(0) pseudo decorations as non-painting. Preserve fail-closed handling of nonzero, combined, animated and uncertain paint.",
+    "Move the existing per-action interval from before execution to after execution and before the next observation. Initial navigation delay and safety checks remain; no extra delay or extra observation is added."
+  ],
+  "semanticVerification": {
+    "initialFullGate": "reports/production-gate-probe-2026-09-23T07-22-39.781Z/results.json",
+    "initialResult": "Five control cases correct; saved museum fees still pending because quote scope rejected the adult fee, not because the fact was absent.",
+    "scopeDiagnosis": "reports/scope-probe-2026-09-23T07-25-51.023Z/results.json",
+    "scopeResult": "Original scope rejects adult fee. Exhibition-name-only change still rejects it. Explicit partial-person scope accepts it; no Goal name change was adopted.",
+    "partialScopeFullGate": "reports/production-gate-probe-2026-09-23T07-27-19.818Z/results.json",
+    "reviewedScopeFullGate": "reports/production-gate-probe-2026-09-23T07-35-00.375Z/results.json",
+    "reviewedScopeResult": "7/7 expected outcomes. Promotion, question, wrong scheme and missing-party evidence remain incomplete; negative availability answer is complete; distinct facilities do not fill each other's missing fee; saved museum path leaves only re-entry pending.",
+    "blockBatchRegression": "reports/production-gate-probe-2026-09-23T07-42-29.806Z/results.json",
+    "blockBatchFinding": "Raw size-based block splitting recovered the expanded input but split the old crowd table from its observed legend. The last fragment falsely vetoed fees/time. This failure was retained; no pass claim was made.",
+    "pageBatchVerification": "reports/production-gate-probe-2026-09-23T07-48-14.820Z/results.json",
+    "pageBatchResult": "8/8 expected outcomes after preserving all same-page observations together. Both saved museum snapshots leave only re-entry pending; no target-site calls.",
+    "limitations": "Small saved/synthetic set, not a general accuracy benchmark. Fake-provider tests establish control flow and provenance, not semantic accuracy."
+  },
+  "verificationBeforeFinalChanges": {
+    "fullSuite": {"total": 246, "pass": 245, "skip": 1, "fail": 0, "elapsedMs": 123420.0517},
+    "afterFinalScopeWording": {"focusedTests": 35, "pass": 35, "fail": 0},
+    "build": "Passed after page-aware contradiction batching and again after the header-observation fix",
+    "afterBlockBatchAndPoolingFullSuite": {"total":258,"pass":257,"skip":1,"fail":0,"elapsedMs":122426.1174},
+    "afterPageAwareBatchingFocused": {"tests":49,"pass":49,"fail":0},
+    "afterPageAwareBatchingFullSuite": {"total":260,"pass":259,"skip":1,"fail":0,"elapsedMs":127355.6128},
+    "afterHeaderObservationFullSuite": {"total":263,"pass":262,"skip":1,"fail":0,"elapsedMs":118175.0479},
+    "rawRegression": {"pass":3,"repeatEach":3,"retries":0,"elapsedSeconds":8.3},
+    "maintainedRegression": {"pass":3,"repeatEach":3,"retries":0,"elapsedSeconds":8.4},
+    "afterHeaderRawRegression": {"pass":3,"repeatEach":3,"retries":0,"elapsedSeconds":7.0},
+    "afterHeaderMaintainedRegression": {"pass":3,"repeatEach":3,"retries":0,"elapsedSeconds":7.3},
+    "regressionCaveat": "These are existing local notification tests, not museum success."
+  },
+  "navigationDiagnostics": {
+    "explicitFocus": "reports/action-focus-probe-2026-09-23T07-32-01.493Z/results.json",
+    "explicitFocusResult": "Repeating the pending Goal in instructions did not change either of two saved choices; not adopted.",
+    "losslessPool": "reports/action-focus-probe-2026-09-23T07-33-18.090Z/results.json",
+    "losslessPoolResult": "Separate observation pool plus ordered referencing history chose the visible visitor-guide link on both saved screens. No fact or route was supplied. Early snapshots grew slightly in bytes; long-run duplicate storage improvement and live behavior require verification."
+  },
+  "liveRun": {
+    "directory": "reports/2026-09-23T07-28-29.669Z-public",
+    "status": "DECISION_ERROR",
+    "actions": 36,
+    "states": 40,
+    "elapsedMs": 486843.29939999996,
+    "failure": {"stage":"goal-evidence", "requestStage":"contradictions", "code":"HTTP_ERROR", "statusCode":400, "providerType":"internal_server_error", "inputBytes":72568},
+    "observed": ["Adult fee", "High-school free admission and proof requirement", "Entry-cutoff rule"],
+    "notObserved": ["Re-entry rule"],
+    "interpretation": "No operation-count stop; reached visitor guide and visitor rules. The whole-observation contradiction request then failed. Payload growth is being addressed losslessly; exact upstream 400 reason is not retained.",
+    "loadedScopePrompt": "Partial-person rule before requestedInformation refinement; code loaded at process start. Later local edits do not alter this running process.",
+    "loadedActionInput": "Existing flat observed-history input, not the later observation-pool implementation",
+    "goalAchieved": false
+  },
+  "review": {
+    "controlFlowBypass": false,
+    "scopeWordingFinding": "Fixed by tying each quote to its requestedInformation and preserving facility/scheme constraints; real distinct-facility control passed.",
+    "capacityRisks": [
+      "Deep-cloned historical snapshots produce quadratic memory and serialized-report growth in sufficiently long runs.",
+      "Navigation inputs still grow with distinct observations; an indivisible observed page plus shared accepted evidence may exceed provider capacity. Batching is not a claim of unlimited model context.",
+      "Completion evidence batches repeat the full context; the existing 120-second aggregate diagnostic-audit timeout can leave a partial audit."
+    ]
+  },
+  "afterHeaderLiveRun": {
+    "directory": "reports/2026-09-23T08-05-05.851Z-public",
+    "status": "STUCK",
+    "actions": 41,
+    "states": 46,
+    "elapsedMs": 257612.4263,
+    "maxActions": 0,
+    "goalAchieved": false,
+    "verifiedInformation": ["Adult fee 1000 yen, high-school student free with age proof", "Entry cutoff is 30 minutes before closing; ordinary closing at 17:00 and specified extended days at 20:00"],
+    "notObserved": ["Same-day re-entry rule"],
+    "retries": 13,
+    "reobservations": 4,
+    "apiErrorTermination": false,
+    "limitation": "The model revisited already examined visitor/ticket sections and finally chose stuck. Recovered API failures still occurred; no error-free claim.",
+    "navigationReview": "History and observation pool retained all recorded data; candidate exclusions matched executed signatures. However, identical body content at the same page/position had transitional header differences and different element IDs, splitting one return action into two signatures. Stable-screen repeated choices also occurred, so this is not solely a middleware bug."
+  },
+  "navigationOutcomeDiagnostic": {
+    "script": "docs/experiments/2026-09-23-navigation-outcome-probe.mjs",
+    "result": "reports/navigation-outcome-probe-2026-09-23T08-12-06.825Z/results.json",
+    "targetSiteRequests": 0,
+    "judgments": 6,
+    "finding": "Candidate-level notes about same-page, same-label prior transitions did not yield a useful route change. Two choices remained unchanged; the third changed to the already examined ticket link. Not adopted.",
+    "authorizationReview": "Initial auto-review rejection was followed by read-only verification of public-only provenance (no login/input, click/scroll only) and the existing Jev gateway destination. The same command was then approved on resubmission with that evidence."
+  },
+  "postActionSettlingVerification": {
+    "regression": "tests/public-observation-settle.test.ts",
+    "red": "Before the interval move, the delayed local disclosure was observed before its answer settled and ended ACTION_LIMIT instead of JEV_DONE.",
+    "greenFocused": {"tests":18,"pass":18,"fail":0,"elapsedMs":103744.3448},
+    "fullSuite": {"total":264,"pass":263,"skip":1,"fail":0,"elapsedMs":120963.5131},
+    "build": "PASS",
+    "review": "No blocker. Safety checked before action and after interval; executed trace saved before waiting; first and subsequent action spacing retained. A fixed interval does not guarantee all possible animations have ended."
+  },
+  "finalLiveRun": {
+    "directory": "reports/2026-09-23T08-18-32.459Z-public",
+    "status": "STUCK",
+    "actions": 40,
+    "states": 41,
+    "elapsedMs": 262521.8968,
+    "maxActions": 0,
+    "goalAchieved": false,
+    "objectiveVerified": false,
+    "verifiedInformation": ["Adult fee 1000 yen, high-school student free with age proof", "Entry cutoff is 30 minutes before closing; ordinary closing at 17:00 and specified extended days at 20:00"],
+    "notObserved": ["Same-day re-entry rule"],
+    "retries": 21,
+    "reobservations": 0,
+    "apiErrorTermination": false,
+    "actionTraceRecordingErrors": 0,
+    "completionAudit": "NOT_RUN because exploration did not claim completion",
+    "regressionGenerated": false,
+    "interpretation": "The existing loop reached an explicit model stuck decision, not an action-count stop or API-failure stop. The post-action interval run had no transitional reobservations, but repeated navigation remained. This does not establish goal completion, error-free inference, or a speedup; upstream failures were recovered and the unresolved re-entry item stayed unresolved.",
+    "nextTechnicalIssue": "Navigation decisions repeat already examined paths despite intact history and coverage context. Candidate-level history notes did not resolve this. Any further exploration-policy change needs separate tests; do not substitute known answers, routes or a successful label."
+  },
+  "headerObservationDiagnosis": {
+    "script": "docs/experiments/2026-09-23-museum-header-paint-diagnosis.mjs",
+    "readOnlyHomepageVisits": 1,
+    "browserActions": 0,
+    "jevCalls": 0,
+    "missingLabels": ["展示・催し物", "来館案内", "教育", "コレクション", "調査・研究・貸与", "東博について"],
+    "cause": "HTML text is present. An empty ::after underline on inline anchors has transform matrix(0,0,0,1,0,0); existing paint certification treats this invisible zero-width decoration as unknown and excludes the entire label.",
+    "specification": "https://drafts.csswg.org/css-transforms-1/#transform-function-lists",
+    "implementedFix": "Recognize only narrowly certified empty zero-axis 2D pseudo decorations as non-painting; preserve existing fail-closed handling for nonzero/unknown effects.",
+    "focusedVerification": {"pass":41,"fail":0,"build":"PASS"},
+    "postFixReadOnlyHomepageVisits": 1,
+    "postFixResult": "All six previously excluded labels are observed and offered as action candidates. COMPLEX_PAINT_SKIPPED is absent. The unrelated unlabeled-control warning remains.",
+    "review": "The initial fixture lacked UTF-8 content type. Corrected it, temporarily removed only the production branch to reconfirm two failing positive tests, then restored the fix and reran all focused tests. Independent review found no covered-text disclosure path in the scoped branch."
+  },
+  "remaining": ["Actual discovery of the same-day re-entry rule through goal-only exploration", "General navigation-policy improvement that demonstrably reduces repeated paths without giving the model a site-specific route", "A successful independently checked public trace before any public regression generation"]
+}
