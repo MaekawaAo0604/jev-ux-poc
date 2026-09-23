@@ -14,6 +14,7 @@ import {GoalChecksError,GoalDecisionError,pendingGoalChecks} from '../jev/goal-s
 import {createEvidenceSession} from '../jev/evidence-session.js';
 import type {ActionTrace,RecordedAction} from './action-trace.js';
 import {ExplorationMemory} from './exploration-memory.js';
+import {actionOutcome} from './action-recovery.js';
 if(process.argv.includes('--help')){
  console.log('Usage: npm run explore -- URL "GOAL" --reviewed [--max-actions 0] [--interval-ms 2000] [--goal-check "EXCERPT" ...]\n--max-actions: optional action limit; 0 means unlimited (default).\n--goal-check: experimental separate information checks; use excerpts of the goal, never answers or routes. Omit to keep legacy decisions.\n--reviewed: site rules and exploration scope have been checked. No automatic policy review.\nDirect links and network-blocked disclosures; no form submission, login, external navigation or file reading.');
  process.exit(0);
@@ -78,7 +79,7 @@ page.on('response',response=>{
 });
 const pom=new PublicSitePage(page,navigation.resolve,navigation.release),steps:any[]=[],explorationMemory=new ExplorationMemory();
 const assertSafe=()=>{if(boundary)throw new Error(boundary);pom.assertSafe();};
-let activeStep:any,observationChanged=false,consecutiveRefreshes=0;
+let activeStep:any,observationChanged=false,consecutiveRefreshes=0,consecutiveActionFailures=0;
 const livePolicy:RetryPolicy={
  maxAttempts:6,maxElapsedMs:90000,retryDelaysMs:[1000,2000,5000,10000,15000],retryInvalidResponse:true,
  onProgress:async event=>{
@@ -167,6 +168,7 @@ try{
     await page.waitForTimeout(intervalMs);
     assertSafe();
    }
+   if(!reason)consecutiveActionFailures=0;
    step.result=reason||'OK';console.log(`Step ${n}: ${candidates[choice].label} => ${step.result}`);
   }catch(e){
    const message=e instanceof Error?e.message:String(e);
@@ -177,7 +179,17 @@ try{
     console.log(`Step ${n}: observation changed; refreshing judgment without replaying actions`);
     if(++consecutiveRefreshes>=3){reason='PAGE_ERROR';step.result=reason;step.error='Observation kept changing during inference recovery.';}
    }else{
-    reason=safety||boundary||(['UNSUPPORTED_CONTENT','SAFETY_BOUNDARY'].find(code=>message.includes(code)))||(e instanceof GoalChecksError?'GOAL_CONFIG_ERROR':step.decision?'ACTION_ERROR':'DECISION_ERROR');step.result=reason;step.error=message;if(e instanceof ChoiceRequestError){step.request=e.request;step.failure=e.failure;}if(e instanceof GoalChecksError||e instanceof GoalDecisionError)step.goalAssessment=e.goalAssessment;if(e instanceof GoalDecisionError)step.decisionStage=e.stage;
+    const code=safety||boundary||(['UNSUPPORTED_CONTENT','SAFETY_BOUNDARY','ACTION_NOOP'].find(code=>message.includes(code)))||(e instanceof GoalChecksError?'GOAL_CONFIG_ERROR':step.decision?'ACTION_ERROR':'DECISION_ERROR');
+    const recovery=actionOutcome(code,['ACTION_ERROR','ACTION_NOOP'].includes(code)?++consecutiveActionFailures:1);
+    step.result=recovery.result;step.error=message;if(e instanceof ChoiceRequestError){step.request=e.request;step.failure=e.failure;}if(e instanceof GoalChecksError||e instanceof GoalDecisionError)step.goalAssessment=e.goalAssessment;if(e instanceof GoalDecisionError)step.decisionStage=e.stage;
+    if(recovery.terminal)reason=recovery.result;
+    else{
+     // The attempt stays in the exploration record so the same choice is not
+     // offered again; a click that changed nothing is still a user action.
+     explorationMemory.executed(offer,step.decision.choice);
+     if(code==='ACTION_NOOP')actionCount++;
+     console.log(`Step ${n}: ${recovery.result}; continuing with the remaining candidates`);
+    }
    }
   }
   activeStep=undefined;

@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {probabilityLabels,report} from '../runner/report.js';
+import {measurementClass,probabilityLabels,report} from '../runner/report.js';
 import {mkdtemp,mkdir,writeFile,readFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
@@ -177,4 +177,37 @@ test('long journeys scroll within the desktop panel and stack without horizontal
   const summary=page.locator('.run>summary');await summary.focus();await page.keyboard.press('Enter');assert.equal(await page.locator('.journey').isVisible(),false);
   await page.keyboard.press('Enter');assert.equal(await page.locator('.journey').isVisible(),true);
  }finally{await browser.close();}
+});
+
+test('terminal reasons separate UX difficulty from instrument failure and out-of-scope stops',()=>{
+ // Action count is the difficulty signal, so it must only be read as such when
+ // the run ended for a reason that is about the site or the agent.
+ for(const reason of ['SUCCESS','JEV_DONE','DONE_WITHOUT_SUCCESS','STUCK','LOOP','ACTION_LIMIT'])assert.equal(measurementClass(reason),'ux',reason);
+ // Our own tooling broke: the count is inflated by the instrument, not the UX.
+ for(const reason of ['ACTION_ERROR','DECISION_ERROR','PAGE_ERROR','GOAL_CONFIG_ERROR','REOBSERVE'])assert.equal(measurementClass(reason),'instrument',reason);
+ // Neither: the run left what the tool is allowed or able to observe.
+ for(const reason of ['SAFETY_BOUNDARY','UNSUPPORTED_CONTENT'])assert.equal(measurementClass(reason),'scope',reason);
+ assert.equal(measurementClass(''),'unknown');
+});
+
+test('a run that ended on an instrument failure is marked so its action count is not read as UX difficulty',async()=>{
+ const html=await renderFixture({reason:'ACTION_ERROR',steps:[step(1,'ホーム','https://example.test/','ACTION_ERROR')]});
+ assert.match(html,/data-measurement="instrument"/);
+ assert.match(html,/UXの指標としては使えません/);
+});
+
+test('a run that reached an action limit keeps its action count usable as a UX signal',async()=>{
+ const html=await renderFixture({reason:'ACTION_LIMIT',steps:[step(1,'ホーム','https://example.test/','ACTION_LIMIT')]});
+ assert.match(html,/data-measurement="ux"/);
+ assert.doesNotMatch(html,/UXの指標としては使えません/);
+});
+
+test('the overview counts how many runs may be aggregated as UX difficulty and summary.json records the class',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'jev-report-')),dir=join(root,'trial');await mkdir(dir);
+ const base={variant:'good',goalText:'請求書を保存',font:false,repeat:1,dir,fake:false,actionCount:2,backCount:0,loopCount:0,elapsedMs:1200,path:[],steps:[]};
+ await report(root,[{...base,reason:'JEV_DONE'},{...base,reason:'ACTION_LIMIT'},{...base,reason:'ACTION_ERROR'},{...base,reason:'SAFETY_BOUNDARY'}]);
+ const html=await readFile(join(root,'index.html'),'utf8');
+ assert.match(html,/<b>2<\/b><span>UX指標として有効<\/span>/);
+ const summary=JSON.parse(await readFile(join(root,'summary.json'),'utf8'));
+ assert.deepEqual(summary.map((r:any)=>r.measurement),['ux','ux','instrument','scope']);
 });

@@ -74,7 +74,10 @@ test('custom graphical disclosure cannot report success without an actual visibi
   await page.goto('https://example.test/');
   const pom=new PublicSitePage(page),screen=await pom.observe(false),trigger=screen.elements.find(e=>e.description)!;
   assert.ok(trigger);
-  await assert.rejects(pom.act({type:'click',elementId:trigger.id}),/ACTION_ERROR/);
+  // A control that ran and changed nothing is reported as ACTION_NOOP rather
+  // than a tool failure, but it must still reject: expanded state is never
+  // manufactured, and the panel stays exactly as it was.
+  await assert.rejects(pom.act({type:'click',elementId:trigger.id}),/ACTION_NOOP/);
   assert.equal(await page.locator('#panel').isVisible(),false);
  }finally{await browser.close();}
 });

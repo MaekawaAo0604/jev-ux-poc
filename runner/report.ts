@@ -6,6 +6,21 @@ const escape=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':
 export function probabilityLabels(step:any){
   return Object.entries(step.decision?.probabilities||{}).sort((a,b)=>Number(b[1])-Number(a[1])).map(([id,p])=>`${step.candidates?.[id]?.label||id} (${id}): ${(Number(p)*100).toFixed(1)}%`).join('\n');
 }
+// Action count is the difficulty signal of this PoC. A run that ended because
+// our own tooling broke inflates that count for reasons unrelated to the site,
+// so the class is recorded next to the count instead of being read into it.
+export type MeasurementClass='ux'|'instrument'|'scope'|'unknown';
+const measurementClasses:Record<string,MeasurementClass>={
+  SUCCESS:'ux',JEV_DONE:'ux',DONE_WITHOUT_SUCCESS:'ux',STUCK:'ux',LOOP:'ux',ACTION_LIMIT:'ux',
+  ACTION_ERROR:'instrument',DECISION_ERROR:'instrument',PAGE_ERROR:'instrument',GOAL_CONFIG_ERROR:'instrument',REOBSERVE:'instrument',
+  SAFETY_BOUNDARY:'scope',UNSUPPORTED_CONTENT:'scope',
+};
+export const measurementClass=(reason:string):MeasurementClass=>measurementClasses[reason]??'unknown';
+const measurementNotes:Partial<Record<MeasurementClass,string>>={
+  instrument:'この試行はツール側の失敗で終了しました。操作数はUXの指標としては使えません。',
+  scope:'この試行は探索範囲の外で停止しました。操作数はUXの指標としては使えません。',
+  unknown:'終了理由を分類できません。操作数はUXの指標としては使えません。',
+};
 type Outcome={label:string;kind:string;note:string};
 function outcome(reason:string):Outcome{
   const labels:Record<string,Outcome>={
@@ -128,15 +143,16 @@ async function journey(r:any,dir:string,urlDir:string,index:number){
   return `<div class="journey" tabindex="0" role="region" aria-label="操作経路"><ol class="flow">${nodes.join('')}</ol></div>`;
 }
 export async function report(root:string,results:any[]){
-  await writeFile(join(root,'summary.json'),JSON.stringify(results.map(({steps,...r})=>r),null,2));
+  await writeFile(join(root,'summary.json'),JSON.stringify(results.map(({steps,...r})=>({...r,measurement:measurementClass(r.reason)})),null,2));
   const cards=await Promise.all(results.map(async(r,index)=>{
     const dir=resolve(r.dir),rel=relative(root,dir).replaceAll('\\','/');
     const urlDir=rel.split('/').map(encodeURIComponent).join('/')||'.',end=outcome(r.reason);
     const seconds=Number.isFinite(r.elapsedMs)?(r.elapsedMs/1000).toFixed(1):'—';
     const stats=`${r.actionCount??0} 操作 · ${r.steps?.length??0} 判断 · ${seconds} 秒`;
     const technical=(r.steps||[]).map((s:any)=>`<section><h3>判断 ${escape(s.number)} · ${escape(s.result)}</h3><p>${escape(s.error||'')}</p>${goalProgress(s,index,r.steps.length)}<pre>${escape(probabilityLabels(s)||'操作の選択確率なし')}</pre><a href="${escape(urlDir)}/step-${encodeURIComponent(String(s.number))}.json">判断時の入力・結果 JSON</a></section>`).join('');
-    return `<details class="run" data-outcome="${end.kind}"${index===0?' open':''}><summary><span class="run-heading"><span class="tag">${escape(String(r.variant||'対象').toUpperCase())} · 文字サイズ情報 ${r.font?'あり':'なし'} · 試行 ${escape(r.repeat??1)}${r.fake?' · FAKE':''}</span><span class="run-title">${escape(r.goalText)}</span><span class="metrics">${escape(stats)}</span></span>${badge(end)}</summary><div class="run-body"><p class="completion">${escape(completionLabel(r))}</p>${evidenceAccounting(r)}${goalProgress(r.steps?.at(-1),index,r.steps?.length||0)}<h2>目的までの操作経路</h2><p class="hint">画面 → 選んだ操作 → 次の画面。画像を押すと拡大表示できます。<span class="hint-scroll"> 長い経路は横にスクロールできます。</span></p>${await journey(r,dir,urlDir,index)}${completionEvidence(r,index)}<details class="technical"><summary>判断の詳細・選択確率を見る</summary><p>確率はJevの出力です。人間の離脱率やUXスコアではありません。画面の再訪は、同一URL・同一観察情報に基づく表示です。</p><a href="${escape(urlDir)}/result.json">試行全体の実行ログ JSON</a>${technical}</details></div></details>`;
+    const measurement=measurementClass(r.reason),measurementNote=measurementNotes[measurement];
+    return `<details class="run" data-outcome="${end.kind}" data-measurement="${measurement}"${index===0?' open':''}><summary><span class="run-heading"><span class="tag">${escape(String(r.variant||'対象').toUpperCase())} · 文字サイズ情報 ${r.font?'あり':'なし'} · 試行 ${escape(r.repeat??1)}${r.fake?' · FAKE':''}</span><span class="run-title">${escape(r.goalText)}</span><span class="metrics">${escape(stats)}</span></span>${badge(end)}</summary><div class="run-body">${measurementNote?`<p class="notice">${escape(measurementNote)}</p>`:''}<p class="completion">${escape(completionLabel(r))}</p>${evidenceAccounting(r)}${goalProgress(r.steps?.at(-1),index,r.steps?.length||0)}<h2>目的までの操作経路</h2><p class="hint">画面 → 選んだ操作 → 次の画面。画像を押すと拡大表示できます。<span class="hint-scroll"> 長い経路は横にスクロールできます。</span></p>${await journey(r,dir,urlDir,index)}${completionEvidence(r,index)}<details class="technical"><summary>判断の詳細・選択確率を見る</summary><p>確率はJevの出力です。人間の離脱率やUXスコアではありません。画面の再訪は、同一URL・同一観察情報に基づく表示です。</p><a href="${escape(urlDir)}/result.json">試行全体の実行ログ JSON</a>${technical}</details></div></details>`;
   }));
-  const counts=[['全試行',results.length],['処理成功',results.filter(r=>r.reason==='SUCCESS').length],['停止・未確認',results.filter(r=>!['success','error'].includes(outcome(r.reason).kind)).length],['実行エラー',results.filter(r=>outcome(r.reason).kind==='error').length]];
+  const counts=[['全試行',results.length],['処理成功',results.filter(r=>r.reason==='SUCCESS').length],['停止・未確認',results.filter(r=>!['success','error'].includes(outcome(r.reason).kind)).length],['実行エラー',results.filter(r=>outcome(r.reason).kind==='error').length],['UX指標として有効',results.filter(r=>measurementClass(r.reason)==='ux').length]];
   await writeFile(join(root,'index.html'),`<!doctype html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jev UX · 操作経路レポート</title><style>${reportStyle}</style></head><body><main><header><p class="eyebrow">JEV / NAVIGATION REPORT</p><h1>目的までの道のりを、見える形に。</h1><p class="intro">何を選び、どこへ進み、どこで止まったか。試行を開いて、画面と操作を順番にたどれます。</p>${results.some(r=>r.fake)?'<p class="notice">FAKE実行を含みます。固定ルールによる配線確認は、Jevの性能・UX評価の証拠には使えません。</p>':''}<div class="overview">${counts.map(([label,n])=>`<div><b>${n}</b><span>${label}</span></div>`).join('')}</div><p class="hint">Jevの行動は人間の行動を再現したものではありません。停止理由と実行エラーを区別して確認してください。</p></header>${cards.join('')}<p class="footer">保存済みログから生成したレポートです。図の描画にモデルの呼び出しはありません。</p></main></body></html>`);
 }

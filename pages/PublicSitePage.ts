@@ -170,7 +170,10 @@ export class PublicSitePage extends AutoPage {
           }
           await this.page.waitForTimeout(50);
         }
-        throw new Error('ACTION_ERROR: disclosure did not change its panel visibility');
+        // Not every disclosure is a toggle: a header menu can open on click and
+        // close only on an outside click. The click ran and the page stayed put,
+        // so this is something the control did not do, not a tool failure.
+        throw new Error('ACTION_NOOP: disclosure did not change its panel visibility');
         }finally{await panel?.dispose();}
       }
     }
