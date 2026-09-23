@@ -211,3 +211,25 @@ test('the overview counts how many runs may be aggregated as UX difficulty and s
  const summary=JSON.parse(await readFile(join(root,'summary.json'),'utf8'));
  assert.deepEqual(summary.map((r:any)=>r.measurement),['ux','ux','instrument','scope']);
 });
+
+test('a split sufficiency verdict is shown as a split, not just its majority',async()=>{
+ const s=step(1,'料金','https://example.test/','JEV_DONE','done') as any;
+ const a=(choice:string)=>({choice,probabilities:{present:choice==='present'?1:0,absent:choice==='absent'?1:0,uncertain:0}});
+ s.decision.goalAssessment={coverage:{choice:'complete'},checks:[{text:'料金',choice:'present'}],grounding:{requests:[],checks:[
+  {text:'料金',evidence:[{id:'s1-t1',step:1,text:'630円',warnings:[],omitted:false}],relatedEvidence:[],uncertainEvidence:[],
+   assessment:a('present'),contradictions:a('present'),assessmentDraws:[a('absent'),a('present'),a('absent'),a('present'),a('present')]},
+ ]}};
+ const html=await renderFixture({reason:'JEV_DONE',steps:[s]});
+ assert.match(html,/十分性の判定：5回中3回 present/);
+});
+
+test('a single-draw sufficiency verdict adds no split line',async()=>{
+ const s=step(1,'料金','https://example.test/','JEV_DONE','done') as any;
+ const a=(choice:string)=>({choice,probabilities:{present:1,absent:0,uncertain:0}});
+ s.decision.goalAssessment={coverage:{choice:'complete'},checks:[{text:'料金',choice:'present'}],grounding:{requests:[],checks:[
+  {text:'料金',evidence:[{id:'s1-t1',step:1,text:'630円',warnings:[],omitted:false}],relatedEvidence:[],uncertainEvidence:[],
+   assessment:a('present'),contradictions:a('present'),assessmentDraws:[a('present')]},
+ ]}};
+ const html=await renderFixture({reason:'JEV_DONE',steps:[s]});
+ assert.doesNotMatch(html,/十分性の判定：/);
+});
