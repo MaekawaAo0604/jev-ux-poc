@@ -85,6 +85,9 @@ test('the aggregate is cached, so a second consultation issues no request', asyn
     // groundGoal pushes response.request into progress.requests; a vote that
     // returned none would drop this stage from the recorded traces entirely.
     assert.equal(first.request!.attempts, spent, 'the trace sums the draws');
+    // A reuse took no draws. Reporting the aggregate as if it were one draw
+    // would make a reused verdict look like a single-sample judgement.
+    assert.deepEqual(second.draws, [], 'a cache hit reports the draws it took: none');
   } finally {p.restore();}
 });
 

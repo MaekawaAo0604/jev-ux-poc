@@ -114,7 +114,9 @@ export class EvidenceSession{
    catch{this.data.entries=this.data.entries.filter(e=>e!==hit);return this.vote(stage,state,questions,draws);}
    this.add(stage,{reusedCalls:1,reusedQuestions:1});
    this.data.requests.push({key,stage,questions:1,attempts:0,failures:[],status:'reused'});
-   return copy({model:hit.model,answers:hit.answers,draws:[hit.answers[id]]});
+   // No draws were taken here. Returning the aggregate as one draw would make
+   // a reused verdict read as a single-sample judgement in the record.
+   return copy({model:hit.model,answers:hit.answers,draws:[]});
   }
   const collected:Answer[]=[],majority=Math.floor(draws/2)+1,failures:RequestFailure[]=[];
   let model='',attempts=0,elapsedMs=0;

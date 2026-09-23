@@ -115,10 +115,38 @@ The margin is thin: 0.53 present against 0.40 absent. The item is now decidable,
 
 The exploration ended before reaching the header menu, so the disclosure no-op did not recur live. `ACTION_NOOP` and the retry allowance are verified by `tests/sticky-disclosure.test.ts`, which reproduced the live `ACTION_ERROR` at step 2 before the change, not by a second live occurrence.
 
+## Follow-up: sufficiency voting
+
+Spec `docs/superpowers/specs/2026-09-24-sufficiency-voting-design.md`, plan `docs/superpowers/plans/2026-09-24-sufficiency-voting.md`.
+
+Reading the runs above showed why an item's verdict never improved once it was drawn: `scope-sufficiency` is cached by its accepted evidence, so the first answer is reused for the rest of the run. A probe (`docs/experiments/2026-09-24-sufficiency-stability-probe.mjs`) established that the provider is not deterministic at identical input — the marginal item drew present 6 / absent 2 with `localContext` and absent 8 / 8 without. A single draw therefore mislabelled an answerable item about a quarter of the time, permanently.
+
+The completion test now decides sufficiency by a symmetric majority of up to five draws, stopping as soon as any choice reaches three, and no longer applies the coarse and scope clauses, which never discriminated across 990 recorded judgements.
+
+Re-run with voting: `reports/2026-09-23T23-50-23.136Z-public`.
+
+| | Pre-voting re-run | Voted re-run |
+|---|---|---|
+| Reason / actions | JEV_DONE, 6 | JEV_DONE, 6 |
+| Elapsed | 54.0 s | 74.5 s |
+| API | 51 calls / 116 questions, 0 failures | 54 calls / 116 questions, 7 failures (all 503, all recovered) |
+| `scope-sufficiency` calls | 2 | 7 |
+
+The draws, recorded per step:
+
+- 開館時間, step 3: three draws, all `present`, stopped at the majority.
+- 大人と高校生で行く場合の入館料, step 7: four draws — **`absent`, `present`, `present`, `present`**.
+
+The first draw on the price item was `absent`. Under the previous rule that single draw would have been cached and reused, and this run would have failed to complete again. The case voting was built for occurred on the first live attempt.
+
+The aggregate is not a confident one: mean `present` 0.49 against `absent` 0.4375. Voting stabilised the decision; it did not resolve the model's uncertainty, and the report now states the split next to the verdict for exactly that reason.
+
+Cost rose by three calls overall and five on the voting stage, inside the four-to-twelve predicted in the spec. One run is not a repeatability measurement.
+
 ## Final verification
 
 - `npx tsc --noEmit`: passed.
-- `npm test`: 310 tests, 309 passed, 0 failed, 1 existing real-OCR skip.
+- `npm test`: 323 tests, 322 passed, 0 failed, 1 existing real-OCR skip.
 
 ## Limits
 

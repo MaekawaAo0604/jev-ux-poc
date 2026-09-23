@@ -10,6 +10,10 @@
 
 **Spec:** `docs/superpowers/specs/2026-09-24-sufficiency-voting-design.md`
 
+## Status
+
+Completed 2026-09-24 on branch `fix/sufficiency-voting`. One correction during execution: a cache hit returned the aggregate as if it were a single draw, which made a reused verdict read as a single-sample judgement. It now returns no draws, pinned by a test.
+
 ## Global Constraints
 
 - Do not lower the bar for completion. Drawing and stopping must be symmetric; no rule may name a choice.
@@ -34,7 +38,7 @@
 - Consumes: `evidenceKey`, `copy`, `this.data`, `this.add`, `this.evaluate`, `validateChoice` (already imported in the file). Add `RequestFailure` to the existing `./client.js` type import if it is not there.
 - Produces: `EvidenceSession.vote(stage: string, state: unknown, questions: Record<string, ChoiceQuestion>, draws: number): Promise<ChoiceAnswers & {draws: Answer[]}>` where `Answer = ChoiceAnswers['answers'][string]`.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `tests/sufficiency-voting.test.ts`:
 
@@ -140,12 +144,12 @@ test('a vote needs exactly one question and a usable draw count', async () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx tsx --test tests/sufficiency-voting.test.ts`
 Expected: FAIL — `session.vote is not a function`.
 
-- [ ] **Step 3: Write minimal implementation**
+- [x] **Step 3: Write minimal implementation**
 
 In `jev/evidence-session.ts`, add after the `copy` constant (line 14):
 
@@ -204,14 +208,14 @@ Add `vote` immediately after the `evaluate` method:
  }
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx tsx --test tests/sufficiency-voting.test.ts`
 Expected: PASS, 6 tests.
 
 If the plurality test fails on tie ordering, read the actual aggregate before changing the rule: the test encodes the rule from the spec, and the rule must not be changed to make a choice win.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add jev/evidence-session.ts tests/sufficiency-voting.test.ts
@@ -230,7 +234,7 @@ git commit -m "Add a symmetric majority vote to EvidenceSession"
 - Consumes: nothing from Task 1.
 - Produces: `pendingGoalChecks` keeps its signature `(assessment: GoalAssessment) => string[]`; only the post-grounding predicate changes.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Append to `tests/goal-status.test.ts`:
 
@@ -263,12 +267,12 @@ test('missing evidence, insufficiency and contradictions each still block',()=>{
 
 Add `pendingGoalChecks` to that file's existing import from `../jev/goal-status.js` if it is not already imported.
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx tsx --test tests/goal-status.test.ts`
 Expected: FAIL on the first two tests — `['料金']` returned instead of `[]`.
 
-- [ ] **Step 3: Write minimal implementation**
+- [x] **Step 3: Write minimal implementation**
 
 Replace the post-grounding filter in `jev/goal-status.ts`:
 
@@ -285,12 +289,12 @@ Replace the post-grounding filter in `jev/goal-status.ts`:
 
 Leave the `preliminary` branch above it unchanged.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx tsx --test tests/goal-status.test.ts tests/goal-evidence.test.ts tests/contradiction-batches.test.ts`
 Expected: PASS. If an existing assertion now fails, read it before editing: an assertion about contradictions or missing evidence must keep blocking, and only an assertion that pinned the removed clauses may change.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add jev/goal-status.ts tests/goal-status.test.ts
@@ -309,7 +313,7 @@ git commit -m "Drop the completion clauses that never discriminated"
 - Consumes: `EvidenceSession.vote` from Task 1.
 - Produces: `SUFFICIENCY_DRAWS: 5` exported from `jev/goal-evidence.ts`; `GroundedCheck.assessmentDraws?: Answer[]`.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Append to `tests/sufficiency-voting.test.ts`:
 
@@ -370,12 +374,12 @@ test('a unanimous sufficiency still records the draws it actually took', async (
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx tsx --test tests/sufficiency-voting.test.ts`
 Expected: FAIL — `SUFFICIENCY_DRAWS` is not exported.
 
-- [ ] **Step 3: Write minimal implementation**
+- [x] **Step 3: Write minimal implementation**
 
 In `jev/goal-evidence.ts`:
 
@@ -399,12 +403,12 @@ Replace the sufficiency call inside the `for(const {i} of active)` loop:
   check.assessmentDraws=response.draws;
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx tsx --test tests/sufficiency-voting.test.ts tests/goal-evidence.test.ts tests/evidence-session.test.ts`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add jev/goal-evidence.ts tests/sufficiency-voting.test.ts
@@ -423,7 +427,7 @@ git commit -m "Decide sufficiency by vote and keep every draw"
 - Consumes: `GroundedCheck.assessmentDraws` from Task 3.
 - Produces: no exported symbol; rendered text only.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Append to `tests/report.test.ts`:
 
@@ -451,12 +455,12 @@ test('a single-draw sufficiency verdict adds no split line',async()=>{
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx tsx --test tests/report.test.ts`
 Expected: FAIL — the split line is not rendered.
 
-- [ ] **Step 3: Write minimal implementation**
+- [x] **Step 3: Write minimal implementation**
 
 In `runner/report.ts`, inside `goalProgress`, immediately before the `return` that builds the per-check `<li>`, add:
 
@@ -467,12 +471,12 @@ In `runner/report.ts`, inside `goalProgress`, immediately before the `return` th
 
 Then insert `${drawNote}` into that `<li>` template, directly after the existing `<p class="hint">…</p>` that reports the coarse judgement.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx tsx --test tests/report.test.ts`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add runner/report.ts tests/report.test.ts
@@ -490,12 +494,12 @@ git commit -m "Show a split sufficiency verdict in the report"
 - Consumes: everything above.
 - Produces: a recorded live run.
 
-- [ ] **Step 1: Typecheck and run the whole suite**
+- [x] **Step 1: Typecheck and run the whole suite**
 
 Run: `npx tsc --noEmit && npm test`
 Expected: PASS, 0 failures, the existing single OCR skip. If an assertion about call counts through the sufficiency stage fails, update it to the voted count; do not weaken an assertion about completion semantics.
 
-- [ ] **Step 2: Re-run the exploration that failed**
+- [x] **Step 2: Re-run the exploration that failed**
 
 Run:
 
@@ -505,11 +509,11 @@ npm run explore -- "https://www.kahaku.go.jp/" "上野本館の常設展示に�
 
 Record from `result.json`: `reason`, `actionCount`, the per-check `assessmentDraws` splits, and `evidenceSession.accounting.logicalCalls`. The measured expectation is a majority `present` for 「大人と高校生で行く場合の入館料」 with a visible split, and roughly four to twelve more calls than the 51 of `reports/2026-09-23T22-19-24.081Z-public`. A different outcome is a finding to report, not a reason to change the rule.
 
-- [ ] **Step 3: Append the result to the analysis document**
+- [x] **Step 3: Append the result to the analysis document**
 
 Add a section to `docs/experiments/2026-09-24-evidence-pipeline-analysis.md` giving the before/after call counts, the draw split, and whether the verdict changed. State plainly that one run is not a repeatability measurement.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add docs/superpowers/plans/2026-09-24-sufficiency-voting.md docs/experiments/2026-09-24-evidence-pipeline-analysis.md
