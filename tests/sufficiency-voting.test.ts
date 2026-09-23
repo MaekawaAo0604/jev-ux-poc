@@ -97,3 +97,58 @@ test('a vote needs exactly one question and a usable draw count', async () => {
     assert.equal(p.calls.length, 0, 'a rejected vote reaches no provider');
   } finally {p.restore();}
 });
+
+import {assessGoal} from '../jev/goal-status.js';
+import {SUFFICIENCY_DRAWS} from '../jev/goal-evidence.js';
+import type {State} from '../jev/types.js';
+
+const pipelineState: State = {
+  goal: '料金を知りたい。', currentDate: '2026-09-24', history: [],
+  screen: {title: '料金', text: ['大人 630円'], elements: [], canScrollDown: false, canScrollUp: false},
+};
+
+// Answers every stage routinely, and scripts only the sufficiency draws.
+function pipelineProvider(sufficiency: string[]) {
+  const stages: string[] = [];
+  const previous = (globalThis as any).AI_SDK_DEFAULT_PROVIDER, key = process.env.AI_GATEWAY_API_KEY;
+  (globalThis as any).AI_SDK_DEFAULT_PROVIDER = {evaluationModel: () => ({
+    specificationVersion: 'v4', provider: 'TEST', modelId: 'TEST', supportedQuestionTypes: ['choice'],
+    async doEvaluate(input: any) {
+      const answers: any = {};
+      for (const [id, q] of Object.entries<any>(input.questions)) {
+        let choice: string;
+        if (id.startsWith('grounded_')) {stages.push(id); choice = sufficiency[stages.length - 1] ?? sufficiency[sufficiency.length - 1];}
+        else choice = id === 'coverage' ? 'complete' : id === 'check_0' ? 'present'
+          : id.startsWith('screen_') ? 'relevant' : id.startsWith('intent_') ? 'cost'
+          : id.startsWith('evidence_') ? 'direct' : id.startsWith('scope_quote_') ? 'match' : 'present';
+        answers[id] = {type: 'choice', choice, probabilities: Object.fromEntries(Object.keys(q.criteria).map(k => [k, k === choice ? 1 : 0]))};
+      }
+      return {answers, warnings: []};
+    },
+  })};
+  process.env.AI_GATEWAY_API_KEY = 'LOCAL_TEST_ONLY';
+  return {stages, restore() {
+    (globalThis as any).AI_SDK_DEFAULT_PROVIDER = previous;
+    if (key === undefined) delete process.env.AI_GATEWAY_API_KEY; else process.env.AI_GATEWAY_API_KEY = key;
+  }};
+}
+
+test('sufficiency is decided by a vote and every draw is recorded', async () => {
+  assert.equal(SUFFICIENCY_DRAWS, 5);
+  const p = pipelineProvider(['absent', 'present', 'absent', 'present', 'present']);
+  try {
+    const assessment = await assessGoal(pipelineState, ['料金']);
+    const proof = assessment.grounding!.checks[0];
+    assert.equal(proof.assessment!.choice, 'present', 'the majority decides, not the first draw');
+    assert.deepEqual(proof.assessmentDraws!.map(d => d.choice), ['absent', 'present', 'absent', 'present', 'present']);
+    assert.equal(p.stages.length, 5);
+  } finally {p.restore();}
+});
+
+test('a unanimous sufficiency still records the draws it actually took', async () => {
+  const p = pipelineProvider(['present', 'present', 'present', 'present', 'present']);
+  try {
+    const assessment = await assessGoal(pipelineState, ['料金']);
+    assert.deepEqual(assessment.grounding!.checks[0].assessmentDraws!.map(d => d.choice), ['present', 'present', 'present']);
+  } finally {p.restore();}
+});
