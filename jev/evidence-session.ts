@@ -12,6 +12,17 @@ export type EvidenceSessionSnapshot={version:1;namespace?:Namespace;entries:Entr
 const counts=():Counts=>({logicalCalls:0,successfulCalls:0,attempts:0,failures:0,questions:0,reusedCalls:0,reusedQuestions:0});
 const fresh=():EvidenceSessionSnapshot=>({version:1,entries:[],requests:[],accounting:{...counts(),byStage:{}}});
 const copy=<T>(value:T):T=>JSON.parse(JSON.stringify(value));
+type Answer=ChoiceAnswers['answers'][string];
+// Most votes wins. A three-choice question can split with no majority, so the
+// plurality decides, then the higher mean probability, then the first draw.
+// No step names a choice, so an aggregate cannot be nudged toward completion.
+function voteAnswer(draws:Answer[],criteria:Record<string,unknown>):Answer{
+ const keys=Object.keys(criteria),votes=new Map<string,number>();
+ for(const d of draws)votes.set(d.choice,(votes.get(d.choice)??0)+1);
+ const probabilities=Object.fromEntries(keys.map(k=>[k,Number((draws.reduce((sum,d)=>sum+(d.probabilities[k]??0),0)/draws.length).toFixed(4))]));
+ const choice=[...votes.keys()].sort((a,b)=>(votes.get(b)!-votes.get(a)!)||((probabilities[b]??0)-(probabilities[a]??0))||(draws.findIndex(d=>d.choice===a)-draws.findIndex(d=>d.choice===b)))[0];
+ return {choice,probabilities};
+}
 export const evidenceKey=(value:unknown)=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const modelNamespace=()=>process.env.AI_GATEWAY_API_KEY?`gateway:${process.env.JEV_GATEWAY_MODEL||'typesafe-ai/jev'}`:`direct:${process.env.JEV_MODEL||'jev-latest'}`;
 
@@ -87,6 +98,42 @@ export class EvidenceSession{
   const answers=Object.fromEntries(Object.entries(response.answers).map(([id,a])=>[id,{choice:a.choice,probabilities:{...a.probabilities},...(a.confidence===undefined?{}:{confidence:a.confidence})}]));
   if(cache)this.data.entries.push({key,stage,model:response.model,answers,...(units?{units:[...units]}:{})});
   await this.options.checkpoint?.(this.snapshot());return copy({...response,answers});
+ }
+ // A single draw is cached and then reused for the rest of a run, so one
+ // unlucky answer decides an item permanently. Draw until a majority, keep
+ // every draw for the report, and cache the aggregate rather than a draw.
+ async vote(stage:string,state:unknown,questions:Record<string,ChoiceQuestion>,draws:number):Promise<ChoiceAnswers&{draws:Answer[]}>{
+  const ids=Object.keys(questions);
+  if(ids.length!==1)throw new Error('A vote needs exactly one question');
+  if(!Number.isSafeInteger(draws)||draws<1||draws>9)throw new Error('Invalid draw count');
+  const id=ids[0],criteria=questions[id].criteria;
+  const key=evidenceKey({namespace:this.data.namespace,state,questions});
+  const hit=this.data.entries.find(e=>e.stage===stage&&e.key===key);
+  if(hit){
+   try{validateChoice(hit.answers[id],criteria);}
+   catch{this.data.entries=this.data.entries.filter(e=>e!==hit);return this.vote(stage,state,questions,draws);}
+   this.add(stage,{reusedCalls:1,reusedQuestions:1});
+   this.data.requests.push({key,stage,questions:1,attempts:0,failures:[],status:'reused'});
+   return copy({model:hit.model,answers:hit.answers,draws:[hit.answers[id]]});
+  }
+  const collected:Answer[]=[],majority=Math.floor(draws/2)+1,failures:RequestFailure[]=[];
+  let model='',attempts=0,elapsedMs=0;
+  for(let i=0;i<draws;i++){
+   const response=await this.evaluate(stage,state,questions,undefined,false);
+   collected.push(response.answers[id]);model=response.model;
+   // One vote is one logical judgment made of several transported requests.
+   // Sum them so the stage keeps a truthful trace instead of the last draw's.
+   attempts+=response.request?.attempts??1;
+   if(response.request?.failures.length)failures.push(...response.request.failures);
+   elapsedMs+=response.request?.elapsedMs??0;
+   const votes=new Map<string,number>();
+   for(const d of collected)votes.set(d.choice,(votes.get(d.choice)??0)+1);
+   if([...votes.values()].some(n=>n>=majority))break;
+  }
+  const answers={[id]:voteAnswer(collected,criteria)};
+  this.data.entries.push({key,stage,model,answers});
+  await this.options.checkpoint?.(this.snapshot());
+  return copy({model,answers,request:{attempts,failures,elapsedMs},draws:collected});
  }
 }
 export function createEvidenceSession(options?:{snapshot?:unknown;checkpoint?:(snapshot:EvidenceSessionSnapshot)=>Promise<void>;evaluate?:ChoiceEvaluator}):EvidenceSession{return new EvidenceSession(options);}
