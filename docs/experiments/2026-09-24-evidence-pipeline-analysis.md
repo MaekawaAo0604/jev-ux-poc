@@ -143,6 +143,28 @@ The aggregate is not a confident one: mean `present` 0.49 against `absent` 0.437
 
 Cost rose by three calls overall and five on the voting stage, inside the four-to-twelve predicted in the spec. One run is not a repeatability measurement.
 
+## Repeatability: the compounding model was wrong
+
+`docs/experiments/2026-09-24-repeatability.mjs`, results in `reports/repeatability-2026-09-24T01-16-25.348Z`, commit 53a98ef, five runs per arm, 25-action cap.
+
+Both arms ask kahaku for the same information over the same route. Only the decomposition differs: arm B splits arm A's compound price item into its two halves.
+
+| | 2 checks | 3 checks |
+|---|---|---|
+| Goal | 大人と高校生で行く場合の入館料 / 開館時間 | 大人の入館料 / 高校生の入館料 / 開館時間 |
+| Completed | **5 / 5** | **1 / 5** |
+| Reasons | JEV_DONE ×5 | JEV_DONE ×1, ACTION_LIMIT ×4 |
+| Mean actions | 7.2 | 25 (every run reached the cap) |
+| Mean calls | 68 | 130 |
+
+The spec predicted 0.80 and 0.72 from a per-item pass rate of 0.75 raised to the number of checks. Both are wrong, and in opposite directions. That model assumed the per-item pass rate is a property of the item. It is not: 「高校生の入館料」 was unanimously `absent` on all three draws in all four failing runs, while the same fact inside the compound 「大人と高校生で行く場合の入館料」 passed five times out of five. **How a goal is split decides whether a part is answerable at all**, which no amount of resampling can change.
+
+What voting did measurably change: three of the five 2-check runs drew at least one dissenting `absent`, and in one of them the dissent was the **first** draw — `[absent, present, present, present]`. Under the previous single-draw rule that run would have frozen on `absent` and failed. Arm A would have been 4/5 instead of 5/5, so voting moved one run in five.
+
+The 3-check failures also exposed a second cause that the spec had deliberately deferred. 「開館時間:contradictions」 vetoed in two of the four failing runs, on an item that passed in the other eight runs across both arms. Contradictions are still decided by a single draw; their stability was listed as unmeasured, and this measures it. Extending the vote to that gate now has evidence behind it.
+
+Cost and infrastructure: API failures ran from 6 to 37 per run, all recovered by the existing retry policy. An uncapped 3-check run reached 119 decision steps and 254 calls before it was stopped, which is what the action limit exists for.
+
 ## Final verification
 
 - `npx tsc --noEmit`: passed.

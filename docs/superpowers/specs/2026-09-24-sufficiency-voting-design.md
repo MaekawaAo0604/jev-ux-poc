@@ -71,6 +71,7 @@ Dropping the coarse clause means a later coarse answer that flips to `absent` no
 ## Limits
 
 - Voting reduces the variance of the decision. It does not make a genuinely marginal item certain: the with-context arm sits near 0.5 and stays there.
-- The 0.75 pass rate comes from one item, eight draws. Predicted rates for two and three checks are arithmetic from that single measurement, not a measured completion rate.
-- Contradictions, content classification and quote scope keep single draws, so compounding through those stages is unchanged.
+- **Measured 2026-09-24 and refuted.** The predicted 0.80 and 0.72 for two and three checks came from treating the 0.75 pass rate as a property of the item. Five runs per arm gave 5/5 for two checks and 1/5 for three. Splitting a compound item made one half unanimously `absent` where the compound passed every time, so decomposition changes whether a part is answerable rather than multiplying a fixed rate. See `docs/experiments/2026-09-24-evidence-pipeline-analysis.md`.
+- What voting did change, measured: one run in five. Three of five 2-check runs drew a dissenting `absent`, and in one the dissent was the first draw, which the previous rule would have frozen.
+- Contradictions, content classification and quote scope keep single draws. The contradiction veto has since been measured: it blocked 「開館時間」 in two of ten runs on an item that passed in the other eight. Extending the vote to that gate now has evidence behind it.
 - Cost rises by roughly four to twelve calls per run against a measured 51 to 71, and rises further on runs that ground more items.
