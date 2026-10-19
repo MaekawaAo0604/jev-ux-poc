@@ -11,7 +11,7 @@ const sameEntry=(a:HistoryEntry|undefined,b:HistoryEntry|undefined)=>!!a&&!!b&&a
 /** Direct link navigation and narrowly classified, network-blocked disclosures. */
 export class PublicSitePage extends AutoPage {
   protected classifyNative=true;
-  constructor(page:Page,private resolveNavigation:(url:string)=>Promise<string>=async url=>url,private releaseNavigation:()=>Promise<void>=async()=>{}){super(page);}
+  constructor(page:Page,private resolveNavigation:(url:string)=>Promise<string>=async url=>url,private releaseNavigation:()=>Promise<void>=async()=>{},vision=false){super(page,vision);}
   private localOnly=false;
   private prepared?:Promise<void>;
   private pendingNavigation?:{url:string;request?:Request};
@@ -21,6 +21,8 @@ export class PublicSitePage extends AutoPage {
   private historyClient?:Promise<CDPSession>;
   private blockedForm=false;
   get canGoBack(){return !this.historyChanged&&this.previousEntries.length>0;}
+  // Private, already-approved native history; never copied into Jev State.
+  get explorationBackUrl(){return this.canGoBack?this.previousEntries.at(-1)!.url:undefined;}
   get explorationNavigationChoices(){
     const current=documentURL(this.page.url());
     // Same-document fragments (including an empty '#') preserve DOM state.
@@ -82,6 +84,7 @@ export class PublicSitePage extends AutoPage {
     for(const element of screen.elements){
       const control=this.observedPublicControls.get(element.id)!;
       if(!element.text.trim()){
+        if(this.vision&&control.kind==='link')continue;
         if(control.kind==='disclosure'&&control.description){
           element.description=control.description;
           if(!screen.warnings?.includes('NON_TEXT_CONTROL_DESCRIPTION'))(screen.warnings??=[]).push('NON_TEXT_CONTROL_DESCRIPTION');
@@ -189,6 +192,11 @@ export class PublicSitePage extends AutoPage {
         this.pendingNavigation={url:documentURL(previous.url)};
         const response=await this.page.goBack({waitUntil:'commit',timeout:5000});
         if(response)this.localOnly=false;
+        // An unload-time replaceState can satisfy Playwright's commit waiter
+        // with the departing URL before the real Back document arrives.
+        // Wait for the already approved URL, then still check its native ID.
+        try{await this.page.waitForURL(url=>url.href===previous.url,{waitUntil:'domcontentloaded',timeout:5000});}
+        catch{throw new Error('SAFETY_BOUNDARY: back destination changed');}
         await this.settleNavigation();
         const after=await this.navigationHistory();
         if(this.page.url()!==previous.url||!sameEntry(after.entries[after.currentIndex],previous))throw new Error('SAFETY_BOUNDARY: back destination changed');

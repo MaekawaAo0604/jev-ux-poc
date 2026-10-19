@@ -1,10 +1,54 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {measurementClass,probabilityLabels,report} from '../runner/report.js';
+import {measurementClass,measurementForRun,probabilityLabels,report} from '../runner/report.js';
 import {mkdtemp,mkdir,writeFile,readFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {chromium} from 'playwright';
+
+test('image memory report shows source-linked model judgments without claiming objective evidence or no memory',async()=>{
+ const s:any=step(1,'案内','https://example.test/','STUCK','stuck');
+ s.visualContext={imageJudgments:{requirements:[{id:'g1',text:'条件 <script>',status:'observed',records:[{assessment:'observed',source:{id:'v1',step:1,sha256:'a'.repeat(64)},model:'TEST'}]}],routes:[{targetId:'f1',assessment:'promising',source:{id:'v1',step:1,sha256:'a'.repeat(64)},model:'TEST'}]}};
+ const html=await renderFixture({vision:true,reason:'STUCK',settings:{observationMode:'image-only',visualJudgmentMemory:'enabled'},steps:[s]});
+ assert.match(html,/画像由来の判断記録/);assert.match(html,/モデル判断/);assert.match(html,/条件 &lt;script&gt;/);assert.doesNotMatch(html,/<script>/);
+ assert.match(html,/href="#trial-0-screen-1"/);assert.match(html,/f1/);assert.match(html,/aaaa/);
+ assert.doesNotMatch(html,/過去画像の内容は保持しない/);
+});
+
+test('image-only reports distinguish private DOM logs from model inputs and do not claim site UX validity',async()=>{
+ const run={reason:'STUCK',vision:true,settings:{observationMode:'image-only',completionAuditInput:'disabled'}};
+ assert.equal(measurementForRun(run),'unknown');
+ const html=await renderFixture(run);
+ assert.match(html,/画像のみ/);assert.doesNotMatch(html,/画像 \+ DOM/);
+ assert.match(html,/DOM.*送信していません/);assert.match(html,/過去画像/);
+});
+
+test('readable negative outcomes stay UX observations while unreadability and audit errors are qualified separately',()=>{
+ const base={reason:'STUCK',visualCompletionAudit:{status:'RECORDED',assessment:'insufficient',warnings:[],screens:[{readability:'readable'}]}};
+ assert.equal(measurementForRun(base),'ux');
+ assert.equal(measurementForRun({...base,visualCompletionAudit:{...base.visualCompletionAudit,screens:[{readability:'unreadable'}]}}),'instrument');
+ assert.equal(measurementForRun({...base,visualCompletionAudit:{...base.visualCompletionAudit,status:'ERROR'}}),'instrument');
+ assert.equal(measurementForRun({...base,visualCompletionAudit:{...base.visualCompletionAudit,assessment:'uncertain',warnings:['NO_EVIDENCE_SELECTED']}}),'unknown');
+});
+
+test('known independent reliability failures cannot count as valid site UX, even with a successful model audit',async()=>{
+ const base={reason:'JEV_DONE',visualCompletionAudit:{status:'RECORDED',assessment:'supported',warnings:[],screens:[{readability:'readable'}]}};
+ assert.equal(measurementForRun({...base,reliability:{middlewareFailures:1}}),'instrument');
+ assert.equal(measurementForRun({...base,reliability:{middlewareFailures:0}}),'ux');
+ assert.equal(measurementForRun({reason:'STUCK',reliability:{middlewareFailures:1}}),'instrument');
+ const html=await renderFixture({...base,reliability:{middlewareFailures:1}});
+ assert.match(html,/独立照合の不一致/);
+});
+
+test('visual audits show reached, unreached and instrument errors without rewriting the exploration ending',async()=>{
+ for(const assessment of ['supported','insufficient','uncertain']){
+  const html=await renderFixture({reason:'STUCK',vision:true,steps:[step(1,'案内','https://example.test/')],visualCompletionAudit:{status:assessment==='uncertain'?'ERROR':'RECORDED',assessment,objectiveVerified:false,evidence:assessment==='supported'?[{id:'v1',step:1,sha256:'a'.repeat(64)}]:[],uncertainEvidence:[],screens:[{}],observations:[{}],warnings:[],...(assessment==='uncertain'?{error:{code:'SOURCE_MISSING'}}:{})}});
+  assert.match(html,/画像記録による到達判定/);assert.match(html,/途中停止/);
+  if(assessment==='supported')assert.match(html,/href="#trial-0-screen-1"/);
+  if(assessment==='insufficient')assert.match(html,/未到達・情報不足/);
+  if(assessment==='uncertain')assert.match(html,/監査エラー/);
+ }
+});
 test('probabilities keep human labels and duplicate labels retain distinct IDs',()=>{
  const text=probabilityLabels({candidates:{e1:{label:'契約情報'},e2:{label:'契約情報'}},decision:{probabilities:{e1:.3,e2:.7}}});
  assert.equal(text,'契約情報 (e2): 70.0%\n契約情報 (e1): 30.0%');

@@ -5,6 +5,17 @@ import {parsePublicOptions} from '../runner/public-options.js';
 test('public options preserve goal and apply explicit limits',()=>{
  assert.deepEqual(parsePublicOptions(['https://example.com/','料金を知る','--max-actions','8','--interval-ms','2500','--reviewed']),{url:'https://example.com/',goal:'料金を知る',maxActions:8,intervalMs:2500});
 });
+
+test('public image mode is opt-in and cannot silently use text-only goal-check evidence',()=>{
+ const options=parsePublicOptions(['https://example.com/','Read conditions','--reviewed','--vision']);
+ assert.equal((options as any).vision,true);
+ assert.throws(()=>parsePublicOptions(['https://example.com/','Read conditions','--reviewed','--vision','--goal-check','conditions']),/vision.*goal-check/i);
+});
+
+test('OCR memory requires explicit image mode and is preserved in the parsed options',()=>{
+ assert.deepEqual(parsePublicOptions(['https://example.com/','Read','--reviewed','--vision','--vision-ocr']),{url:'https://example.com/',goal:'Read',maxActions:0,intervalMs:2000,vision:true,visionOCR:true});
+ assert.throws(()=>parsePublicOptions(['https://example.com/','Read','--reviewed','--vision-ocr']),/vision-ocr.*vision/i);
+});
 test('public options default to unlimited actions and serialize an explicit zero limit',()=>{
  for(const flags of [[],['--max-actions','0']]){
   const options=parsePublicOptions(['https://example.com/','Read the answer','--reviewed',...flags]);

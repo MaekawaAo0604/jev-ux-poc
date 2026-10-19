@@ -1,10 +1,10 @@
 import {createHash} from 'node:crypto';
-import type {Candidate,Observation} from '../jev/types.js';
+import type {Candidate,Observation,ObservedAlternative} from '../jev/types.js';
 import type {FrontierOffer} from '../jev/frontier-types.js';
 
 type Exclusion='explored'|'transit-route'|'duplicate';
 type Edge={destination?:string};
-type Node={id:string;available:Map<string,Candidate['action']['type']>;edges:Map<string,Edge>;navigationKeys:Map<string,string>;screen:Observation;controls:Map<string,Candidate>};
+type Node={id:string;documentUrl:string;available:Map<string,Candidate['action']['type']>;edges:Map<string,Edge>;navigationKeys:Map<string,string>;screen:Observation;controls:Map<string,Candidate>};
 export type ExplorationOffer={
  stateId:string;revision:number;candidates:Record<string,Candidate>;
  transitChoices:string[];exclusions:Record<string,Exclusion>;
@@ -18,8 +18,11 @@ export class ExplorationMemory{
  private nodes=new Map<string,Node>();
  private navigations=new Map<string,Edge>();
  private revision=0;
- private current?:{node:Node;keys:Record<string,string>;offer:ExplorationOffer};
- private pending?:{edge:Edge;back:boolean};
+ private current?:{node:Node;keys:Record<string,string>;offer:ExplorationOffer;backKey?:string};
+ private pending?:{edge:Edge;back:boolean;source:string;previousBackKey?:string;expectedBackSource?:string};
+ // Current native history identities map to the exact observed departure
+ // state. They are never stored or traversed as reusable graph Back edges.
+ private backSources=new Map<string,string>();
  private transitVisited?:Set<string>;
  private targetIds=new Map<string,string>();
  private committed?:{targetId:string;focus:string};
@@ -27,13 +30,15 @@ export class ExplorationMemory{
 
  observe(url:string,screen:Observation,offered:Record<string,Candidate>,identities:Record<string,string>,navigationChoices:readonly string[]=[]):ExplorationOffer{
   const keys=Object.fromEntries(Object.entries(offered).map(([id,c])=>[id,identities[id]??JSON.stringify(c.action)]));
+  const backId=Object.keys(offered).find(id=>offered[id].action.type==='back');
+  const backKey=backId?identities[backId]:undefined;
   const documentUrl=new URL(url);documentUrl.hash='';
   // Do not confuse transient element IDs, font metrics or pixel boxes with a
   // new task state. Visible text, warnings, location and distinct controls stay.
   const controls=[...new Set(Object.entries(offered).filter(([,c])=>!['back','done','stuck'].includes(c.action.type)).map(([id,c])=>JSON.stringify([keys[id],c.label])))].sort();
   const fingerprint=createHash('sha256').update(JSON.stringify({url:documentUrl.href,text:screen.text,warnings:screen.warnings??[],viewport:screen.viewport,canScrollUp:screen.canScrollUp,canScrollDown:screen.canScrollDown,controls})).digest('hex');
   let node=this.nodes.get(fingerprint);
-  if(!node){node={id:`s${this.nodes.size+1}`,available:new Map(),edges:new Map(),navigationKeys:new Map(),screen,controls:new Map()};this.nodes.set(fingerprint,node);this.revision++;}
+  if(!node){node={id:`s${this.nodes.size+1}`,documentUrl:documentUrl.href,available:new Map(),edges:new Map(),navigationKeys:new Map(),screen,controls:new Map()};this.nodes.set(fingerprint,node);this.revision++;}
   // Inference recovery may reobserve a changed screen without any execution.
   if(!this.pending&&this.current&&this.current.node!==node){this.transitVisited=undefined;this.committed=undefined;}
   if(screen.title)this.titles.set(documentUrl.href,screen.title);
@@ -47,11 +52,13 @@ export class ExplorationMemory{
   // fragment transitions stay state-local.
   node.navigationKeys=new Map(navigationChoices.filter(id=>offered[id]?.action.type==='click').map(id=>[keys[id],keys[id]]));
   if(this.pending){
-   const {edge,back}=this.pending;
+   const {edge,back,source,previousBackKey,expectedBackSource}=this.pending;
+   if(!back&&backKey&&backKey!==previousBackKey)this.backSources.set(backKey,source);
+   if(back&&expectedBackSource!==node.id)this.committed=undefined;
    if(edge.destination!==node.id){
     // A changed destination invalidates the route we committed to following.
     this.transitVisited=undefined;
-    this.committed=undefined;
+    if(!back||expectedBackSource!==node.id)this.committed=undefined;
     // New native back entries are traversal, not newly explored opportunities.
     if(!back&&edge.destination)this.revision++;
     // Plan from the latest actual outcome, not an obsolete successful route.
@@ -79,7 +86,7 @@ export class ExplorationMemory{
    candidates[id]=candidate;
   }
   const offer={stateId:node.id,revision:this.revision,candidates,transitChoices,exclusions};
-  this.current={node,keys,offer};return offer;
+  this.current={node,keys,offer,backKey};return offer;
  }
 
  /** Call only after Playwright has actually completed this operation. */
@@ -94,18 +101,22 @@ export class ExplorationMemory{
    if(navigationKey)this.navigations.set(navigationKey,edge);else current.node.edges.set(key,edge);
    if(!back){this.revision++;this.transitVisited=undefined;}
   }else if(!back)(this.transitVisited??=new Set()).add(current.node.id);
-  this.pending={edge,back};
+  this.pending={edge,back,source:current.node.id,previousBackKey:current.backKey,...(back?{expectedBackSource:this.backSources.get(key)}:{})};
  }
 
  /** Concrete untried operations reachable by already observed forward edges.
   * BFS chooses the shortest known route; it never guesses an unvisited URL.
-  * Native Back is intentionally not a stable graph edge (its stack changes).
+  * Only the currently offered native Back may use its observed departure
+  * state. A past Back destination never becomes a stable future graph edge.
   */
  frontier(offer:ExplorationOffer):FrontierOffer{
   const current=this.current;
   if(!current||current.offer!==offer)throw new Error('Stale exploration offer');
   const targets:FrontierOffer['targets']={},byId=new Map([...this.nodes.values()].map(n=>[n.id,n]));
   const queue:{node:Node;first?:string;distance:number}[]=[{node:current.node,distance:0}],seen=new Set<string>();
+  const backId=Object.keys(offer.candidates).find(id=>offer.candidates[id].action.type==='back');
+  const backSource=current.backKey&&this.backSources.get(current.backKey),source=backSource&&byId.get(backSource);
+  if(backId&&source)queue.push({node:source,first:backId,distance:1});
   for(let i=0;i<queue.length;i++){
    const {node,first,distance}=queue[i];if(seen.has(node.id))continue;seen.add(node.id);
    for(const [key,type] of node.available){
@@ -118,11 +129,33 @@ export class ExplorationMemory{
     const id=this.targetId(node,key);if(targets[id])continue;
     const action=candidate.action;
     const element=action.type==='click'?node.screen.elements.find(e=>e.id===action.elementId):undefined;
-    targets[id]={label:candidate.label,kind:type,pageTitle:node.screen.title,...(node.screen.pageId?{pageId:node.screen.pageId}:{}),...(element?.context?{context:element.context}:{}),travelSteps:distance,nextChoice:immediate};
+    targets[id]={label:candidate.label,kind:type,pageTitle:node.screen.title,...(node.screen.pageId?{pageId:node.screen.pageId}:{}),...(node.screen.viewport?{viewport:{...node.screen.viewport}}:{}),...(action.type==='scroll'?{direction:action.direction}:{}),...(element?.context?{context:element.context}:{}),travelSteps:distance,nextChoice:immediate};
    }
   }
   if(this.committed&&!targets[this.committed.targetId])this.committed=undefined;
   return {targets,...(this.committed?{continuation:{...this.committed}}:{})};
+ }
+
+ /** Previously visible but unexecuted controls, not promises of a Back route.
+  * The current history stack remains owned and checked by the browser POM. */
+ observedAlternatives(offer:ExplorationOffer,backUrl?:string):ObservedAlternative[]{
+  if(this.current?.offer!==offer)throw new Error('Stale exploration offer');
+  const alternatives:ObservedAlternative[]=[],seen=new Set<string>();
+  const destination=backUrl?new URL(backUrl):undefined;if(destination)destination.hash='';
+  for(const node of this.nodes.values()){
+   if(destination&&node.documentUrl!==destination.href)continue;
+   if(node===this.current.node||node.screen.pageId&&node.screen.pageId===this.current.node.screen.pageId)continue;
+   const controls:ObservedAlternative['controls']=[];
+   for(const [key,kind] of node.available){
+    if(kind!=='click'||this.edgeFor(node,key))continue;
+    const candidate=node.controls.get(key);if(!candidate)continue;
+    const identity=JSON.stringify([node.screen.pageId??node.id,key]);if(seen.has(identity))continue;seen.add(identity);
+    const action=candidate.action,context=action.type==='click'?node.screen.elements.find(e=>e.id===action.elementId)?.context:undefined;
+    controls.push({label:candidate.label,kind,...(context?{context:structuredClone(context)}:{})});
+   }
+   if(controls.length)alternatives.push({pageTitle:node.screen.title,...(node.screen.pageId?{pageId:node.screen.pageId}:{}),controls});
+  }
+  return alternatives;
  }
 
  commit(offer:ExplorationOffer,targetId:string,focus:string){
