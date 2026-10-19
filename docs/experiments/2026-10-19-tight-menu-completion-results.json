@@ -1,0 +1,373 @@
+{
+  "baseCommit": "b2b291e",
+  "codeSha256": {
+    "jev/image-only-input.ts": "649ecbdcbc7ff10c561ce6d301c1d044bce420c5f158958aca36dacfa4efbb14",
+    "jev/visual-context.ts": "3ab3b4a69d8e650734055e2788562ffb7d8354e7ed37a947e3a524105f32638b",
+    "pages/visual-numbering.ts": "ddce4801f03206edde19a909eab1651d2447bb04dc0906b12b30a39d308adc61",
+    "tests/completion-proof.test.ts": "21b5c1eec69876caeb927e89245a9048291d2fbdacc59ca4c3b4fde5694f5ee0",
+    "tests/fixtures/image-memory-provider.mjs": "8d9e06488915b94d8ac3b22cd515d1366037154fccb63f1d5d95de9694d280b9",
+    "tests/vision-numbering.test.ts": "9aa8b5cc8e91a7f8bd0c4f0185b55fb38878602f3019a082d3fe8f0f160ce523",
+    "tests/vision.test.ts": "acf4739dfa14885fa91d4ac966d249bcd9e3a5e911d9d9b299ff260fc890bf07"
+  },
+  "settings": {
+    "model": "jev-1.14.0",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "locale": "ja-JP",
+    "sequential": true,
+    "intervalMs": 2000,
+    "maxActions": 0,
+    "flags": [
+      "--reviewed",
+      "--vision",
+      "--image-only",
+      "--image-memory",
+      "--image-memory-proof"
+    ]
+  },
+  "policies": [
+    "docs/experiments/2026-10-19-cross-site-protocol.json",
+    "docs/experiments/2026-10-19-cross-site-software-protocol.json",
+    "docs/experiments/2026-10-19-real-goals-v2.json"
+  ],
+  "runs": [
+    {
+      "id": "library-card",
+      "repeat": 1,
+      "root": "reports/2026-10-19T07-52-42.271Z-public",
+      "images": [
+        "step-4.png",
+        "step-5.png",
+        "step-6.png"
+      ],
+      "note": "1 と 2 の持参を求める画面で 1 しか見えていないとき、coverage=complete でも boundary=open として終了を阻止した。次に 2 の申請書を表示し、さらにスクロールしてから終了した。",
+      "reason": "JEV_DONE",
+      "actions": 5,
+      "elapsedMs": 27428.5509,
+      "objectiveSuccess": null,
+      "checks": [
+        {
+          "step": 4,
+          "choice": "scroll_down",
+          "coverage": "complete",
+          "boundary": "open",
+          "sourceIds": [
+            "v4"
+          ],
+          "evidenceGuard": {
+            "supported": false,
+            "unresolved": [
+              "completion-boundary"
+            ]
+          }
+        },
+        {
+          "step": 5,
+          "choice": "scroll_down",
+          "coverage": "incomplete",
+          "boundary": "closed",
+          "sourceIds": [
+            "v5",
+            "v4"
+          ],
+          "evidenceGuard": {
+            "supported": true,
+            "unresolved": []
+          }
+        },
+        {
+          "step": 6,
+          "choice": "done",
+          "coverage": "complete",
+          "boundary": "closed",
+          "sourceIds": [
+            "v6",
+            "v4"
+          ],
+          "evidenceGuard": {
+            "supported": true,
+            "unresolved": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "library-card",
+      "repeat": 2,
+      "root": "reports/2026-10-19T07-53-31.637Z-public",
+      "images": [
+        "step-4.png",
+        "step-5.png",
+        "step-6.png"
+      ],
+      "note": "新規ブラウザの再試行でも、部分表示時の complete を阻止し、2 の申請書を表示してから終了した。",
+      "reason": "JEV_DONE",
+      "actions": 5,
+      "elapsedMs": 27865.5449,
+      "objectiveSuccess": null,
+      "checks": [
+        {
+          "step": 4,
+          "choice": "scroll_down",
+          "coverage": "complete",
+          "boundary": "open",
+          "sourceIds": [
+            "v4"
+          ],
+          "evidenceGuard": {
+            "supported": false,
+            "unresolved": [
+              "completion-boundary"
+            ]
+          }
+        },
+        {
+          "step": 5,
+          "choice": "scroll_down",
+          "coverage": "incomplete",
+          "boundary": "closed",
+          "sourceIds": [
+            "v5",
+            "v4"
+          ],
+          "evidenceGuard": {
+            "supported": true,
+            "unresolved": []
+          }
+        },
+        {
+          "step": 6,
+          "choice": "done",
+          "coverage": "complete",
+          "boundary": "closed",
+          "sourceIds": [
+            "v6",
+            "v4"
+          ],
+          "evidenceGuard": {
+            "supported": true,
+            "unresolved": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "software-license-formats",
+      "repeat": 1,
+      "root": "reports/2026-10-19T07-54-19.330Z-public",
+      "images": [
+        "step-1.png"
+      ],
+      "note": "商用利用と圧縮形式が最初の画像に揃っている。boundary=closed と判断し、追加操作なしで終了した。",
+      "reason": "JEV_DONE",
+      "actions": 0,
+      "elapsedMs": 7235.9999,
+      "objectiveSuccess": null,
+      "checks": [
+        {
+          "step": 1,
+          "choice": "done",
+          "coverage": "complete",
+          "boundary": "closed",
+          "sourceIds": [
+            "v1"
+          ],
+          "evidenceGuard": {
+            "supported": true,
+            "unresolved": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "museum-family",
+      "repeat": 1,
+      "root": "reports/2026-10-19T07-54-39.506Z-public",
+      "images": [
+        "step-4.png"
+      ],
+      "note": "体験作品の説明と「遊べるのは小学生まで」「雨の日もだよ」を表示した。Goal にない残りの注意事項の全読は要求しなかった。営業日の例外などを網羅した確認ではない。",
+      "reason": "JEV_DONE",
+      "actions": 3,
+      "elapsedMs": 24162.6213,
+      "objectiveSuccess": null,
+      "checks": [
+        {
+          "step": 4,
+          "choice": "done",
+          "coverage": "complete",
+          "boundary": "closed",
+          "sourceIds": [
+            "v4"
+          ],
+          "evidenceGuard": {
+            "supported": true,
+            "unresolved": []
+          }
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "total": 471,
+    "pass": 468,
+    "fail": 0,
+    "skip": 3
+  },
+  "focusedTests": {
+    "total": 51,
+    "pass": 51,
+    "fail": 0
+  },
+  "probes": {
+    "menuDir": "reports/tight-menu-pair-2026-10-19T07-44-27.363Z",
+    "firstBoundary": "reports/completion-boundary-pair-2026-10-19T07-48-14.725Z",
+    "finalBoundary": "reports/completion-boundary-pair-2026-10-19T07-49-05.089Z"
+  },
+  "limitations": [
+    "4 試行は小標本であり、人間の利用者を対象にした UX 評価や成功率ではない。JEV_DONE と終了後の画像監査はモデル判断として残し、objectiveSuccess は null のまま。",
+    "番号の対照実験は同一ページの旧描画と新描画を比較した 3 組。選択した FAQ の操作確認は 1 回。元の複合 Goal 全体を再実行した結果ではない。",
+    "一覧の保存画像実験は再構成した文脈による切り分けであり、過去 API リクエストの完全再送ではない。正例は独立した 2 画像の対照。最初の案が正例を 3 回とも拒否した記録も保存した。",
+    "欠落チェック自体も Jev の判断。列挙を読み落とす場合、一覧ではない複合条件、選択されなかった過去画像の情報欠落は残る。",
+    "長い説明ページの往復スクロールは未解決。前回の中断試行では後に別経路も試しており、永久ループとは断定できない。この修正の解決済み項目には含めない。",
+    "操作判断は現在画像 1 枚のまま。今回の追加質問は --image-memory-proof の完了照合だけに入る。同じ選択済み根拠画像と API 呼出しを再利用し、OCR、DOM 本文、正解経路は追加していない。",
+    "外部サイトは既存の規約点検記録に基づく低頻度の閲覧限定検証。明示許諾を得たという意味ではない。画像と生返答はローカル保管し、外部公開しない。"
+  ],
+  "sources": [
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-52-42.271Z-public\\exploration\\result.json",
+      "sha256": "3cb42c0ced0b15e6a39ff4613996002fc1fda6b5b765bf078df79d0f0bb827a8"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-52-42.271Z-public\\exploration\\action-trace.json",
+      "sha256": "64540213bcb43e9f88a549383d7e8b82ed8d5f6f143fab0ab0ff060d1de9fc0a"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-52-42.271Z-public\\exploration\\step-4.png",
+      "sha256": "972f9b50518ae0d33e40d630cb82918d00fba9577e95650fa2dc5523067b9ed3"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-52-42.271Z-public\\exploration\\step-5.png",
+      "sha256": "9a7e13e4ed89231d69b23ea23e0390a4c47100364c936c5a89dcda5885ab5ce3"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-52-42.271Z-public\\exploration\\step-6.png",
+      "sha256": "c5a51ef022b7a7e5be0857909ea88219322ba4e4456db28337f4549aba511259"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-53-31.637Z-public\\exploration\\result.json",
+      "sha256": "6dce8e7a7221e8f4c9e78b5eb339fcca0b6b5032ccd07997f2eacbba981d6319"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-53-31.637Z-public\\exploration\\action-trace.json",
+      "sha256": "6f3582afaa353a484efd86c1e06e880783073ae5fa24a8df94ed87fb871aeda4"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-53-31.637Z-public\\exploration\\step-4.png",
+      "sha256": "972f9b50518ae0d33e40d630cb82918d00fba9577e95650fa2dc5523067b9ed3"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-53-31.637Z-public\\exploration\\step-5.png",
+      "sha256": "9a7e13e4ed89231d69b23ea23e0390a4c47100364c936c5a89dcda5885ab5ce3"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-53-31.637Z-public\\exploration\\step-6.png",
+      "sha256": "c5a51ef022b7a7e5be0857909ea88219322ba4e4456db28337f4549aba511259"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-54-19.330Z-public\\exploration\\result.json",
+      "sha256": "cbac9d360231d6d44b1a96c1c32d9dfcd77cd92b6eb29d45a695bccb78f901a2"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-54-19.330Z-public\\exploration\\action-trace.json",
+      "sha256": "e11497be8a215f34c85958c86569884f362332047faaffb16f9da30e58695271"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-54-19.330Z-public\\exploration\\step-1.png",
+      "sha256": "619d9438d4ad28bfb0fe215ec447255deba56d0453391e98c51aee72d8ffb61a"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-54-39.506Z-public\\exploration\\result.json",
+      "sha256": "01674e2e1cc6564b4639bee5c3e5c9af8e3f685e72a4840b4b345ef920eaa7aa"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-54-39.506Z-public\\exploration\\action-trace.json",
+      "sha256": "c242a3ad62e9815c2081be5710e9bcc66414b4e38756653535b4ca6c0684be47"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T07-54-39.506Z-public\\exploration\\step-4.png",
+      "sha256": "7f8d941ed644f05878fe5cfc8805ae6bf8e8c1081b6e82889651ed64a24e3286"
+    },
+    {
+      "file": "reports/tight-menu-pair-2026-10-19T07-44-27.363Z/probe.json",
+      "sha256": "7d9a6032ad50f5108aa5eeb795fb6b7db772cab3aac47d987dc7021df6c1bb73"
+    },
+    {
+      "file": "reports/tight-menu-pair-2026-10-19T07-44-27.363Z/execution.json",
+      "sha256": "8fe8a919c92a52738b07ad867662ae1d4193ed640cac9f986ed89d88f6e1e3a2"
+    },
+    {
+      "file": "reports/tight-menu-pair-2026-10-19T07-44-27.363Z/plain.png",
+      "sha256": "38cab065a15860ece20a73b64469807e3bf3e08036db92b3a2e8c2d0b6687659"
+    },
+    {
+      "file": "reports/tight-menu-pair-2026-10-19T07-44-27.363Z/before.png",
+      "sha256": "04702690c7e624dd2bd6e6f4bd31d7b95a3d0da0c61e07a10f2bb0a1f6bcf978"
+    },
+    {
+      "file": "reports/tight-menu-pair-2026-10-19T07-44-27.363Z/after.png",
+      "sha256": "619d9438d4ad28bfb0fe215ec447255deba56d0453391e98c51aee72d8ffb61a"
+    },
+    {
+      "file": "reports/tight-menu-pair-2026-10-19T07-44-27.363Z/selected-destination.png",
+      "sha256": "cc1ed38e6f7f169c337f5c86a4c1e1fb50565815ca8080b1ffe1fd72566b0988"
+    },
+    {
+      "file": "reports/completion-boundary-pair-2026-10-19T07-48-14.725Z/probe.json",
+      "sha256": "2f330632fddf85463fc68648cee1bdda651510eaaccb311dc73229812a59f81b"
+    },
+    {
+      "file": "reports/completion-boundary-pair-2026-10-19T07-48-14.725Z/positive.json",
+      "sha256": "880c0b0ce95ebad6e895f847ca35b282d6be948cf2df163224627e2797e56975"
+    },
+    {
+      "file": "reports/completion-boundary-pair-2026-10-19T07-49-05.089Z/probe.json",
+      "sha256": "d8b523ba63993b1787b4442dbe91d325160e59fb42df2ea6b8480454c44f8f86"
+    },
+    {
+      "file": "reports/completion-boundary-pair-2026-10-19T07-49-05.089Z/positive.json",
+      "sha256": "89bca2de5b95cb1985b6990002a2d2fc6116bade43dad79272bacf10b770526a"
+    },
+    {
+      "file": "reports/2026-10-19T07-23-17.048Z-public/exploration/step-3.png",
+      "sha256": "4725b1a03052dd91a2db458ad6dba7194572440f1537bd4b70c6572b6c834afb"
+    },
+    {
+      "file": "reports/2026-10-19T07-24-15.833Z-public/exploration/step-5.png",
+      "sha256": "5c03f198011f811ae826353122b69fc41796df74fa8aea78db4833588a9770f5"
+    },
+    {
+      "file": "reports/tight-menu-completion-final-tests-2026-10-19.log",
+      "sha256": "3cb48a3eabf87543e27bee401c23d2b79b28ac8d84cf56a3336103d82fc4ef80"
+    },
+    {
+      "file": "reports/tight-menu-completion-final-build-2026-10-19.log",
+      "sha256": "f36baab556ba38ec1a1c9620e5c5730a1d030502c20e767c6c2d52fcda7bd703"
+    },
+    {
+      "file": "docs/experiments/2026-10-19-cross-site-protocol.json",
+      "sha256": "99e253433946bace6ae4d8865049397ae08d6965116464bf30de3baef98834f4"
+    },
+    {
+      "file": "docs/experiments/2026-10-19-cross-site-software-protocol.json",
+      "sha256": "7ca0e70901f21901bab8e050d6eecde0b9d67aa5f555ec0740a50fbbeaf8c170"
+    },
+    {
+      "file": "docs/experiments/2026-10-19-real-goals-v2.json",
+      "sha256": "4599daa9b0f448464815e7c7be8393b093b7b494f6a8d5d43c4ad5334ecd2368"
+    }
+  ],
+  "originalsUnchanged": true
+}

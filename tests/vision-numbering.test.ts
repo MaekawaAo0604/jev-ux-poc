@@ -7,6 +7,24 @@ import {candidatesFor} from '../jev/types.js';
 import {VisualDecisionContext} from '../jev/visual-context.js';
 import {numberedScreenshot} from '../pages/visual-numbering.js';
 
+test('tight text menus keep every external number on its own row instead of shifting it to the next link',async()=>{
+ const browser=await chromium.launch();
+ try{
+  const page=await browser.newPage({viewport:{width:1440,height:1000}});
+  await page.setContent('<style>body{margin:0}nav{position:fixed;left:30px;top:135.78125px;width:128px;font:bold 12.8px/20px Verdana}nav div{height:20px}a{display:inline}</style><nav>'+['7z Format','LZMA SDK','Download','FAQ','Support','Links'].map((text,i)=>`<div><a href="#item${i+1}">${text}</a></div>`).join('')+'</nav>');
+  const pom=new AutoPage(page,true),screen=await pom.observe(false),candidates=candidatesFor(screen,false),plain=await page.screenshot();
+  const capture=await pom.captureDecisionScreenshot(screen,candidates);
+  assert.equal(capture.targets.length,6);
+  for(const t of capture.targets){
+   assert.ok(t.badge.height<=t.height,'a row identifier cannot be taller than the compact target');
+   assert.ok(Math.abs(t.badge.y+t.badge.height/2-t.y-t.height/2)<1,'the identifier must stay on the same row when adjacent space is free');
+   assert.ok(t.badge.x>=t.x+t.width||t.badge.x+t.badge.width<=t.x,'the menu wording must not be covered by its own identifier');
+  }
+  assert.deepEqual(await page.screenshot(),plain);
+  await pom.act(candidates.e4.action);assert.equal(new URL(page.url()).hash,'#item4');
+ }finally{await browser.close();}
+});
+
 test('a first-row badge cannot be painted over a different second-row link',async()=>{
  const browser=await chromium.launch();
  try{
@@ -146,9 +164,9 @@ test('dense image controls retain nonoverlapping visible badges with recorded ta
    const a=badges[i],b=badges[j];assert.ok(a.x+a.width<=b.x||b.x+b.width<=a.x||a.y+a.height<=b.y||b.y+b.height<=a.y,'numbers must not overlap');
   }
   for(const t of capture.targets){
-   assert.equal(t.connector.to.x,t.x+t.width/2);
-   assert.equal(t.connector.from.x,t.badge.x+t.badge.width/2);
-   assert.ok(t.connector.to.y===t.y-4||t.connector.to.y===t.y+t.height+4);
+   const {from,to}=t.connector,b=t.badge;
+   assert.ok(to.x===t.x+t.width/2&&(to.y===t.y-4||to.y===t.y+t.height+4)||to.y===t.y+t.height/2&&(to.x===t.x-4||to.x===t.x+t.width+4),'connector must terminate at its own control outline');
+   assert.ok(from.x===b.x+b.width/2&&(from.y===b.y||from.y===b.y+b.height)||from.y===b.y+b.height/2&&(from.x===b.x||from.x===b.x+b.width),'connector must start on its own badge edge');
   }
  }finally{await browser.close();}
 });

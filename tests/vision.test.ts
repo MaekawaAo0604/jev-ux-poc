@@ -18,7 +18,7 @@ for(const proof of [false,true])test(`local image judgment memory is wired into 
   if(proof&&body.questions.completionCoverage){assert.equal(body.state.observations.length,1);assert.ok(body.assets[body.state.observations[0].screenshot]);}
   if(c.history.length)receivedMemory=c.imageJudgments.requirements[0].records.length>0;
   return Response.json({model:'TEST',answers:Object.fromEntries(Object.entries(body.questions).map(([id,q]:[string,any])=>{
-   const choice=id==='image_check_0'?(c.history.length?'observed':'not_shown'):id==='completionCoverage'?'complete':c.history.length?'done':'e1';
+   const choice=id==='image_check_0'?(c.history.length?'observed':'not_shown'):id==='completionCoverage'?'complete':id==='completionBoundary'?'closed':c.history.length?'done':'e1';
    return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,Number(k===choice)]))}];
   }))});
  };

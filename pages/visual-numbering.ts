@@ -11,7 +11,8 @@ export async function numberedScreenshot(page:Page,targets:VisualTarget[],path?:
   const shadow=host.attachShadow({mode:'closed'});
   const labels=targets.map(t=>{
    const label=document.createElement('span');label.textContent=`[${t.id}]`;
-   label.style.cssText='all:initial;position:fixed;left:0;top:0;background:#ffe96b;color:#111;font:bold 23px/26px monospace;padding:0 4px;pointer-events:none;white-space:nowrap;visibility:hidden';
+   const height=Math.min(26,Math.max(12,Math.floor(t.height))),font=Math.min(23,height-2);
+   label.style.cssText=`all:initial;position:fixed;left:0;top:0;background:#ffe96b;color:#111;font:bold ${font}px/${height}px monospace;padding:0 4px;pointer-events:none;white-space:nowrap;visibility:hidden`;
    shadow.append(label);return label;
   });
   host.popover='manual';document.documentElement.append(host);
@@ -72,6 +73,12 @@ export async function numberedScreenshot(page:Page,targets:VisualTarget[],path?:
     for(const x of [t.x+t.width-width-4,t.x+4])for(const y of [t.y+4,t.y+t.height-height-4]){
      if(!position&&x>=t.x&&y>=t.y&&x+width<=t.x+t.width&&y+height<=t.y+t.height&&placement.available(x,y))position={x,y,width,height};
     }
+    // Compact text rows cannot accommodate a full-size marker. Keep a short
+    // marker on its own baseline before considering any other row.
+    if(height<26)for(const x of [t.x+t.width+8,t.x-width-8]){
+     const y=t.y+(t.height-height)/2;
+     if(!position&&placement.available(x,y))position={x,y,width,height};
+    }
     // Otherwise take the nearest readable outside position, not the first
     // point in a column (which could be several navigation rows away).
     if(!position){
@@ -82,8 +89,9 @@ export async function numberedScreenshot(page:Page,targets:VisualTarget[],path?:
     if(!position)throw new Error('VISUAL_LABEL_PLACEMENT_FAILED: no readable placement for offered controls');
     label.style.left=`${position.x}px`;label.style.top=`${position.y}px`;label.style.visibility='visible';placed.push(position);
     const above=position.y+height<=t.y,below=position.y>=t.y+t.height;
-    const to={x:t.x+t.width/2,y:above?t.y-4:below?t.y+t.height+4:t.y+t.height/2};
-    const from={x:position.x+width/2,y:position.y+height/2<=to.y?position.y+height:position.y};
+    const left=!above&&!below&&position.x+width<=t.x,right=!above&&!below&&position.x>=t.x+t.width;
+    const to={x:left?t.x-4:right?t.x+t.width+4:t.x+t.width/2,y:above?t.y-4:below?t.y+t.height+4:t.y+t.height/2};
+    const from={x:left?position.x+width:right?position.x:position.x+width/2,y:left||right?position.y+height/2:position.y+height/2<=to.y?position.y+height:position.y};
     const outline=document.createElement('span');
     outline.style.cssText=`all:initial;position:fixed;left:${t.x-4}px;top:${t.y-4}px;width:${t.width+8}px;height:${t.height+8}px;box-sizing:border-box;border:1px solid #806600;pointer-events:none`;
     shadow.prepend(outline);

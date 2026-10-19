@@ -20,7 +20,7 @@ globalThis.fetch=async(url,options)=>{
   }else action=c.history.length===0?'e1':c.history.length===1?'stuck':c.history.length>=3?(process.env.TEST_IMAGE_MEMORY_EAGER?'back':'done'):Object.keys(body.questions.nextAction?.criteria??{}).find(id=>/^e\d+$/.test(id));
  }
  return Response.json({model:'jev-1.14.0',answers:Object.fromEntries(Object.entries(body.questions).map(([id,q])=>{
-  const choice=id==='image_check_0'?(c.history.length===0||c.history.length===2?'observed':'not_shown'):id==='image_check_1'?(c.history.length>=3?'observed':'not_shown'):id.startsWith('image_route_')?(id==='image_route_f2'?'promising':'unrelated'):id==='nextAction'?action:id==='completionCoverage'?'complete':id==='readability'?'readable':id==='relevance'?'related':id==='completion'?'supported':'relevant';
+  const choice=id==='image_check_0'?(c.history.length===0||c.history.length===2?'observed':'not_shown'):id==='image_check_1'?(c.history.length>=3?'observed':'not_shown'):id.startsWith('image_route_')?(id==='image_route_f2'?'promising':'unrelated'):id==='nextAction'?action:id==='completionCoverage'?'complete':id==='completionBoundary'?'closed':id==='readability'?'readable':id==='relevance'?'related':id==='completion'?'supported':'relevant';
   assert.ok(Object.hasOwn(q.criteria,choice),`Invalid test choice ${choice} for ${id}`);
   return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,Number(k===choice)]))}];
  }))});
