@@ -21,7 +21,7 @@ export function captureVisualObservation(bytes:Buffer,step:number,file:string,ur
  try{dimensions=pngDimensions(bytes);}catch{throw new VisualSourceError('INVALID_SOURCE');}
  return {id:file==='final.png'?'final':`v${step}`,step,phase:file==='final.png'?'final':'decision',source:'screenshot',file:sourceFile(file),sha256:hash(bytes),...dimensions,url,hashSource};
 }
-async function readImage(dir:string,observation:VisualObservation):Promise<ImageInput>{
+export async function readVisualImage(dir:string,observation:VisualObservation):Promise<ImageInput>{
  let bytes:Buffer;
  try{bytes=await readFile(join(dir,sourceFile(observation.file)));}
  catch(error){if(error instanceof VisualSourceError)throw error;throw new VisualSourceError('SOURCE_MISSING');}
@@ -42,7 +42,7 @@ export async function recordVisualCompletion(goal:string,currentDate:string,dir:
  let stage:'input'|'screen'|'completion'='input';
  const invoke=async(selected:VisualObservation[],questions:Record<string,ChoiceQuestion>,requestStage:'screen'|'completion')=>{
   const input:VisualState={goal,currentDate,observations:[]},images:Record<string,ImageInput>={};
-  for(const o of selected){const reference=randomUUID();images[reference]=await readImage(dir,o);input.observations.push({id:o.id,step:o.step,screenshot:reference});}
+  for(const o of selected){const reference=randomUUID();images[reference]=await readVisualImage(dir,o);input.observations.push({id:o.id,step:o.step,screenshot:reference});}
   const requestStart=performance.now();
   try{
    const body=await evaluate(input,questions,images);

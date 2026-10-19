@@ -6,6 +6,26 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {chromium} from 'playwright';
 
+test('structured outcome shows partial information and source links without replacing the original stopping reason',async()=>{
+ const html=await renderFixture({reason:'STUCK',goalOutcome:{status:'RECORDED',coverage:'selected-images-only',objectiveVerified:false,items:[
+  {text:'料金 <script>',status:'confirmed',evidence:[{id:'v1',step:1,sha256:'a'.repeat(64),phase:'decision'}]},
+  {text:'土日の利用',status:'conditional',evidence:[{id:'final',step:3,sha256:'b'.repeat(64),phase:'final'}]},
+  {text:'所要時間',status:'unconfirmed',evidence:[]},
+ ],warnings:[]}});
+ assert.match(html,/今回確認できたこと・未確定のこと/);assert.match(html,/条件付きの案内/);assert.match(html,/観測範囲では未確認/);
+ assert.match(html,/料金 &lt;script&gt;/);assert.match(html,/href="#trial-0-screen-final"/);assert.match(html,/途中停止/);
+ assert.doesNotMatch(html,/data-outcome="success"/);
+});
+
+test('structured outcome API errors are reported separately, not as missing site information',async()=>{
+ const html=await renderFixture({reason:'JEV_DONE',goalOutcome:{status:'ERROR',items:[],error:{code:'HTTP_ERROR',statusCode:400}}});
+ assert.match(html,/結果整理に失敗/);assert.match(html,/HTTP 400/);assert.match(html,/Jevが完了と判断/);
+});
+test('outcome evidence links can reach the final frame even when legacy completion audit is absent',async()=>{
+ const html=await renderFixture({reason:'STUCK',steps:[step(1,'案内','https://example.test/','STUCK','stuck')],goalOutcome:{status:'RECORDED',items:[],warnings:[],observations:[{id:'final',phase:'final',step:2}]}});
+ assert.ok(html.includes('id="trial-0-screen-final"'),'the selected final image must have a real report anchor');
+});
+
 test('image memory report shows source-linked model judgments without claiming objective evidence or no memory',async()=>{
  const s:any=step(1,'案内','https://example.test/','STUCK','stuck');
  s.visualContext={imageJudgments:{requirements:[{id:'g1',text:'条件 <script>',status:'observed',records:[{assessment:'observed',source:{id:'v1',step:1,sha256:'a'.repeat(64)},model:'TEST'}]}],routes:[{targetId:'f1',assessment:'promising',source:{id:'v1',step:1,sha256:'a'.repeat(64)},model:'TEST'}]}};

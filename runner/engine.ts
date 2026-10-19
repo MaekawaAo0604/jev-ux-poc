@@ -12,6 +12,7 @@ import type {ActionTrace,RecordedAction} from './action-trace.js';
 import {saveRawTest} from './generate-test.js';
 import {captureVisualObservation,recordSavedVisualCompletion,type VisualObservation} from './visual-evidence.js';
 import {VisualDecisionContext} from '../jev/visual-context.js';
+import {recordGoalOutcome} from './goal-outcome.js';
 import {rememberObservation} from '../jev/history.js';
 export type Config={variant:'good'|'bad';goal:GoalId;font:boolean;maxActions:number;dir:string;baseURL:string;repeat:number;fake:boolean;pom?:'manual'|'auto';success?:'oracle'|'jev'|'both';generateTest?:boolean;rawDir?:string;vision?:boolean;visionOCR?:boolean;imageOnly?:boolean;imageMemory?:boolean;imageMemoryProof?:boolean};
 export type VisualDecider=(state:State,candidates:Record<string,Candidate>,screenshot:Buffer,context?:VisualDecisionContext)=>Promise<Decision>;
@@ -114,6 +115,7 @@ export async function run(page:Page,decide:Decider,config:Config,auditEvaluator?
   }
   const timing={explorationMs:elapsedMs,decisionMs:steps.reduce((total,s)=>total+(s.decisionMs||0),0),traceCaptureMs,actionMs:actions.reduce((total,a)=>total+(a.durationMs||0),0),completionAuditMs,...(visualCompletionAudit?{visualCompletionAuditMs:visualCompletionAudit.elapsedMs}:{}),generationMs:generatedTest.generationMs||0};
   const result={...config,pom:config.pom||'manual',successMode,objectiveSuccess,perceivedSuccess,perception,comparison,completionAudit,...(visualCompletionAudit?{visualCompletionAudit}:{}),firstObjectiveStep,goalText:goal.text,status:reason==='SUCCESS'?'SUCCESS':reason==='JEV_DONE'?'PERCEIVED_SUCCESS':'FAILED',reason,actionCount,backCount,loopCount,stuck:reason==='STUCK',elapsedMs,errors,downloads,path:history,steps,actionTrace,generatedTest,timing,model:steps[0]?.decision?.model||null};
-  const recorded={...result,finalCapture,...(finalVisualObservation?{finalVisualObservation}:{})};
+  const goalOutcome=config.imageMemory&&!config.fake?await recordGoalOutcome(goal.text,steps.at(-1)?.state.currentDate||'',config.dir,steps,finalVisualObservation):undefined;
+  const recorded={...result,finalCapture,...(finalVisualObservation?{finalVisualObservation}:{}),...(goalOutcome?{goalOutcome}:{})};
   await writeFile(join(config.dir,'result.json'),JSON.stringify(recorded,null,2));return recorded;
 }

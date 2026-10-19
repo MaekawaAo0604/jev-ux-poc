@@ -75,7 +75,14 @@ function imageJudgmentEvidence(r:any,index:number){
  const source=(s:any)=>`${Number.isInteger(s?.step)&&s.step>0&&s.step<=(r.steps?.length||0)?`<a href="#trial-${index}-screen-${s.step}">画面 ${s.step}</a>`:'出典不明'} · ${escape(String(s?.sha256||'').slice(0,12))}`;
  return `<section class="completion-audit image-judgments"><h2>画像由来の判断記録</h2><p>過去の画像を見た Jev のモデル判断です。正確な回答文や独立検証済みの事実ではありません。入口の見込みと Goal の確認状況は区別しています。</p><ul class="evidence-list">${memory.requirements.map((q:any)=>`<li><h3>${escape(q.text)}</h3><p>${escape(names[q.status]||q.status)}</p><details><summary>判断の出典を見る</summary>${q.records.map((v:any)=>`<p>${source(v.source)} · ${escape(names[v.assessment]||v.assessment)}</p>`).join('')}</details></li>`).join('')}</ul><details><summary>入口の見込み：${memory.routes.length} 件</summary><ul class="evidence-list">${memory.routes.map((v:any)=>`<li>${escape(v.targetId)} · ${escape(names[v.assessment]||v.assessment)} · ${source(v.source)}</li>`).join('')}</ul></details></section>`;
 }
-function completionEvidence(r:any,index:number){return imageJudgmentEvidence(r,index)+visualCompletionEvidence(r,index)+domCompletionEvidence(r,index);}
+function goalOutcomeEvidence(r:any,index:number){
+ const audit=r.goalOutcome;if(!audit||audit.status==='NOT_RUN')return '';
+ const heading='<h2>今回確認できたこと・未確定のこと</h2>';
+ if(audit.status==='ERROR')return `<section class="completion-audit goal-outcome">${heading}<p class="notice">結果整理に失敗しました。情報がサイトにないという意味ではありません。元の探索判断は変更していません。</p><p>${escape(audit.error?.code)}${audit.error?.statusCode?` (HTTP ${escape(audit.error.statusCode)})`:''}</p></section>`;
+ const labels:Record<string,string>={confirmed:'具体的な情報・結果あり（モデル判断）',conditional:'条件付きの案内・要問い合わせ',not_achieved:'未達の表示を確認（モデル判断）',unconfirmed:'選択画像の観測範囲では未確認',unreadable:'判読・対応関係が不確か',context:'背景・制約というモデル分類'};
+ return `<section class="completion-audit goal-outcome">${heading}<p>原文の項目ごとに、終了後に選択画像だけを再評価しました。確認済みでも正確な回答文の抽出・独立検証・Goal全体の達成を保証しません。未確認はサイト全体で情報が存在しないという意味ではありません。</p><ul class="evidence-list">${audit.items.map((item:any)=>`<li data-item-status="${escape(item.status)}"><h3>${escape(item.text)}</h3><p>${escape(labels[item.status]||item.status)}</p>${item.evidence.map((o:any)=>`<a href="#trial-${index}-screen-${o.phase==='final'?'final':encodeURIComponent(String(o.step))}">${o.phase==='final'?'最終画面':`根拠の画面 ${escape(o.step)}`}</a> <span class="evidence-meta">SHA-256 ${escape(o.sha256.slice(0,12))}…</span>`).join(' · ')||'<p class="hint">具体的な根拠画像は選ばれていません。</p>'}</li>`).join('')}</ul>${audit.warnings?.length?'<p class="notice">根拠のない肯定分類を未確認へ戻した項目があります。元の返答はJSONに保存しています。</p>':''}<p class="hint">選択範囲は項目別の最新有効判断の出典と最終画面です。全履歴を網羅した監査ではなく、原文断片の項目分けにも見落としがあり得ます。</p></section>`;
+}
+function completionEvidence(r:any,index:number){return goalOutcomeEvidence(r,index)+imageJudgmentEvidence(r,index)+visualCompletionEvidence(r,index)+domCompletionEvidence(r,index);}
 function domCompletionEvidence(r:any,index:number){
  const audit=r.completionAudit;
  if(!audit||audit.status==='NOT_RUN')return '<p class="hint">完了判断の根拠の記録なし（未実行または旧形式のログ）。</p>';
@@ -170,7 +177,7 @@ async function journey(r:any,dir:string,urlDir:string,index:number){
     nodes.push(`<li><section class="screen" id="${id}"><span class="screen-number">画面 ${number} / 判断 ${escape(s.number??number)}</span><h3>${escape(title)}</h3>${revisit}${avoided}${await screenshot(dir,urlDir,s.screenshot,`画面 ${number}：${title}`)}${stop}</section>${connector}</li>`);
   }
   // Screenshots in steps are PRE-action. Add the actual final capture after the last executed action.
-  if(steps.length&&(steps.at(-1).result==='OK'||r.visualCompletionAudit?.observations?.some((o:any)=>o.phase==='final'))){
+  if(steps.length&&(steps.at(-1).result==='OK'||r.visualCompletionAudit?.observations?.some((o:any)=>o.phase==='final')||r.goalOutcome?.observations?.some((o:any)=>o.phase==='final'))){
     const title=clean(r.path?.at(-1)?.result).replace(/^画面:\s*/,'')||'最終画面';
     nodes.push(`<li><section class="screen" id="trial-${index}-screen-final"><span class="screen-number">操作後の最終画面</span><h3>${escape(title)}</h3>${await screenshot(dir,urlDir,'final.png','操作後の最終画面')}<div class="stop-note">${badge(end)}<p>${escape(end.note)}</p></div></section></li>`);
   }

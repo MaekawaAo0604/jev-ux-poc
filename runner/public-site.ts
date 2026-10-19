@@ -17,6 +17,7 @@ import {ExplorationMemory} from './exploration-memory.js';
 import {actionOutcome} from './action-recovery.js';
 import {captureVisualObservation,recordSavedVisualCompletion,type VisualObservation} from './visual-evidence.js';
 import {VisualDecisionContext} from '../jev/visual-context.js';
+import {recordGoalOutcome} from './goal-outcome.js';
 if(process.argv.includes('--help')){
  console.log('--vision --image-only --image-memory: retain image-grounded Choice judgments and source hashes; no OCR or past-image resend.');
  console.log('--image-memory-proof: with --image-memory, completionCoverage alone reloads hash-verified requirement-source PNGs; actions still use one current image.');
@@ -238,7 +239,8 @@ finally{
  const result={variant:'public',goalText:goal,pom:'auto',font:true,repeat:1,fake:false,...(vision?{vision:true}:{}),successMode:'jev',objectiveSuccess:null,perceivedSuccess:reason==='JEV_DONE',comparison:'UNVERIFIED',completionAudit,perception:reason==='JEV_DONE'?'DONE':'UNCONFIRMED',status:reason==='JEV_DONE'?'PERCEIVED_SUCCESS':'UNCONFIRMED',reason,actionCount,backCount,loopCount,elapsedMs,path:history,steps,dir,finalURL:page.url(),warnings,settings:{url,maxActions,intervalMs,navigationMode:'links-and-local-disclosures',redirectMode:'same-origin-up-to-3',policyReview:'user-acknowledged',decisionMode:goalChecks?'goal-checks-experimental':'combined',...(vision?{observationMode:imageOnly?'image-only':'image-and-dom',completionAuditInput:imageOnly?'disabled':'dom-only',visualTextMemory:visionOCR?'ocr-verified':'disabled',visualJudgmentMemory:imageMemory?'enabled':'disabled',completionEvidenceImages:imageMemoryProof?'selected-sources':'disabled',visualTargetMode:numberedVision?'numbered':'legacy'}:{}),...(goalChecks?{goalChecks}:{})}};
  const actionTrace:ActionTrace={schemaVersion:1,goalId:'public',goalText:goal,initialUrl:url,viewport:page.viewportSize()||{width:1440,height:1000},source:'public',fake:false,success:{reason,objectiveSuccess:null,perceivedSuccess:reason==='JEV_DONE'},actions,completedAt:new Date().toISOString(),...(recordingErrors.length?{recordingErrors}:{})};
  await writeFile(join(dir,'action-trace.json'),JSON.stringify(actionTrace,null,2));
- const recorded={...result,actionTrace,finalCapture,...(finalVisualObservation?{finalVisualObservation}:{}),...(visualCompletionAudit?{visualCompletionAudit}:{}),...(evidenceSession?{evidenceSession:evidenceSession.snapshot()}:{})};
+ const goalOutcome=imageMemory?await recordGoalOutcome(goal,steps.at(-1)?.state.currentDate||'',dir,steps,finalVisualObservation):undefined;
+ const recorded={...result,actionTrace,finalCapture,...(finalVisualObservation?{finalVisualObservation}:{}),...(visualCompletionAudit?{visualCompletionAudit}:{}),...(goalOutcome?{goalOutcome}:{}),...(evidenceSession?{evidenceSession:evidenceSession.snapshot()}:{})};
  if(evidenceSession)await writeFile(join(dir,'evidence-session.json'),JSON.stringify(evidenceSession.snapshot(),null,2));
  await writeFile(join(dir,'result.json'),JSON.stringify(recorded,null,2));await report(root,[recorded]);console.log(JSON.stringify({reason,actionCount,finalURL:page.url(),report:join(root,'index.html')}));await browser.close();
 }
