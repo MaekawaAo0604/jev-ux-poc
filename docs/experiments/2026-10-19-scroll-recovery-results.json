@@ -1,0 +1,276 @@
+{
+  "baseCommit": "577dff5",
+  "codeSha256": {
+    "jev/image-only-input.ts": "5714ee3379924903bdc4b710182adc082225fd0bf62d6495f5b3752583b9d55e",
+    "jev/navigation-context.ts": "b2e6bea86fafa05ebbf252638a3271189c53e54284baba02ed51f97e3fd56bfb",
+    "runner/exploration-memory.ts": "4571ccdad877ad704f57fc0f0ccd1d5b29be71c1226bad48176c955b57c2b54e",
+    "tests/image-scroll-progress.test.ts": "8be067a2891e4f766525fcb3e0b0cf4d8874cfa495aab3b99bfc3d275477b3bf",
+    "tests/scroll-frontier.test.ts": "f51ec4c20b4737e8393f779f006b5a3714339a7de4bbde778e50cb96053dec8f",
+    "tests/image-only.test.ts": "c5d9d4d447c0a3395968c764499e18477418b2ce0c649774c61ec3a99124c62c",
+    "tests/public-vision.test.ts": "63ddbe484c417fc3cf615724ec9d406a0189756a2720051a1c313c4adbe56949"
+  },
+  "settings": {
+    "sequential": true,
+    "model": "jev-1.14.0",
+    "intervalMs": 2000,
+    "maxActions": 0,
+    "observationMode": "image-only",
+    "completionEvidenceImages": "selected-sources"
+  },
+  "attempts": [
+    {
+      "root": "reports/2026-10-19T07-25-20.426Z-public",
+      "version": "修正前の元試行",
+      "status": "EXPERIMENTER_ABORTED",
+      "note": "このターン以前の保存記録。後で別の枝も試したため、永久ループとは断定しない。",
+      "originalModelEnding": null,
+      "observations": 34,
+      "executedOK": 33,
+      "lastSavedResult": "PENDING",
+      "errors": [],
+      "exactCodeSnapshotAvailable": true,
+      "remoteScrollCommitments": 8,
+      "repeatedImageActions": 8
+    },
+    {
+      "root": "reports/2026-10-19T08-22-39.686Z-public",
+      "version": "位置ヒントのみ",
+      "status": "EXPERIMENTER_ABORTED",
+      "note": "情報を渡しても、コードによる遠隔の逆スクロール計画が再現したため実験者が中断。",
+      "originalModelEnding": null,
+      "observations": 48,
+      "executedOK": 47,
+      "lastSavedResult": "PENDING",
+      "errors": [],
+      "exactCodeSnapshotAvailable": false,
+      "remoteScrollCommitments": 19,
+      "repeatedImageActions": 19
+    },
+    {
+      "root": "reports/2026-10-19T08-27-17.809Z-public",
+      "version": "遠隔スクロール省略の初期案",
+      "status": "NORMAL_TERMINATION",
+      "expectedEnding": "UNSUPPORTED_CONTENT",
+      "note": "操作エラーを含み、未対応形式で終了。必要な戻り道を消す境界問題も別途テストで再現したため、最終版の成功検証には使わない。",
+      "originalModelEnding": "UNSUPPORTED_CONTENT",
+      "observations": 26,
+      "executedOK": 24,
+      "lastSavedResult": "UNSUPPORTED_CONTENT",
+      "errors": [
+        {
+          "step": 4,
+          "result": "ACTION_ERROR",
+          "error": "PAGE_ERROR: navigation request failed (UNKNOWN)"
+        },
+        {
+          "step": 26,
+          "result": "UNSUPPORTED_CONTENT",
+          "error": "UNSUPPORTED_CONTENT"
+        }
+      ],
+      "exactCodeSnapshotAvailable": false,
+      "remoteScrollCommitments": 3,
+      "repeatedImageActions": 3
+    },
+    {
+      "root": "reports/2026-10-19T08-35-57.628Z-public",
+      "version": "入れ子経路保持、出発点除外前",
+      "status": "EXPERIMENTER_ABORTED",
+      "note": "コードを読み込んだ後にレビューで循環による誤保持が見つかった。最終コードの試行と区別するため実験者が中断。",
+      "originalModelEnding": null,
+      "observations": 34,
+      "executedOK": 33,
+      "lastSavedResult": "UNSUPPORTED_CONTENT",
+      "errors": [
+        {
+          "step": 34,
+          "result": "UNSUPPORTED_CONTENT",
+          "error": "page.goto: Download is starting\nCall log:\n\u001b[2m  - navigating to \"https://www.7-zip.org/a/lzma2301.7z\", waiting until \"commit\"\u001b[22m\n"
+        }
+      ],
+      "exactCodeSnapshotAvailable": false,
+      "remoteScrollCommitments": 3,
+      "repeatedImageActions": 3
+    },
+    {
+      "root": "reports/2026-10-19T08-38-59.306Z-public",
+      "version": "重複目的地の排除前 / 複合 Goal 1",
+      "status": "NORMAL_TERMINATION",
+      "expectedEnding": "STUCK",
+      "note": "20 操作で Jev 自身が途中停止。操作エラーが 1 件あり、Goal 達成やサイトの UX 不良の検証には使わない。",
+      "originalModelEnding": "STUCK",
+      "observations": 22,
+      "executedOK": 20,
+      "lastSavedResult": "STUCK",
+      "errors": [
+        {
+          "step": 14,
+          "result": "ACTION_ERROR",
+          "error": "PAGE_ERROR: navigation request failed (UNKNOWN)"
+        }
+      ],
+      "exactCodeSnapshotAvailable": false,
+      "remoteScrollCommitments": 3,
+      "repeatedImageActions": 0
+    },
+    {
+      "root": "reports/2026-10-19T08-41-27.924Z-public",
+      "version": "重複目的地の排除前 / 修復説明の対照",
+      "status": "NORMAL_TERMINATION",
+      "expectedEnding": "JEV_DONE",
+      "note": "修復ページから開始した独立の単一 Goal。1 スクロールで説明を表示し完了判断。元の複合 Goal の成功とは区別する。",
+      "originalModelEnding": "JEV_DONE",
+      "observations": 2,
+      "executedOK": 1,
+      "lastSavedResult": "JEV_DONE",
+      "errors": [],
+      "exactCodeSnapshotAvailable": false,
+      "remoteScrollCommitments": 0,
+      "repeatedImageActions": 0
+    },
+    {
+      "root": "reports/2026-10-19T08-42-21.426Z-public",
+      "version": "重複目的地の排除前 / 複合 Goal 2",
+      "status": "NORMAL_TERMINATION",
+      "expectedEnding": "STUCK",
+      "note": "23 操作で Jev 自身が途中停止。現在も選べるリンクを過去位置の用事として数える重複を見つけ、追加の再現テストと修正を行った。",
+      "originalModelEnding": "STUCK",
+      "observations": 24,
+      "executedOK": 23,
+      "lastSavedResult": "STUCK",
+      "errors": [],
+      "exactCodeSnapshotAvailable": false,
+      "remoteScrollCommitments": 2,
+      "repeatedImageActions": 2
+    }
+  ],
+  "finalRuns": [
+    {
+      "root": "reports/2026-10-19T08-54-23.592Z-public",
+      "goal": "7-Zipでパスワードを忘れた場合に復元できるかと、壊れた7z書庫を修復する方法を知りたい。ダウンロード・インストール・問い合わせはしない。",
+      "reason": "STUCK",
+      "actions": 21,
+      "elapsedMs": 90118.66949999999,
+      "objectiveSuccess": null,
+      "errors": [
+        {
+          "step": 4,
+          "result": "ACTION_ERROR",
+          "error": "PAGE_ERROR: navigation request failed (UNKNOWN)"
+        }
+      ],
+      "remoteScrollCommitments": 2,
+      "repeatedImageActions": 1
+    },
+    {
+      "root": "reports/2026-10-19T08-56-21.622Z-public",
+      "goal": "壊れた7z書庫を修復するためにどのような方法が案内されているか知りたい。ダウンロード・インストール・問い合わせはしない。",
+      "reason": "JEV_DONE",
+      "actions": 1,
+      "elapsedMs": 10187.915,
+      "objectiveSuccess": null,
+      "errors": [],
+      "remoteScrollCommitments": 0,
+      "repeatedImageActions": 0
+    }
+  ],
+  "tests": {
+    "total": 484,
+    "pass": 481,
+    "fail": 0,
+    "skip": 3
+  },
+  "focusedTests": {
+    "total": 42,
+    "pass": 42
+  },
+  "probe": {
+    "file": "reports/scroll-progress-pair-2026-10-19T08-27-29.897Z/probe.json",
+    "before": [
+      "scroll_up",
+      "scroll_up",
+      "scroll_up"
+    ],
+    "after": [
+      "scroll_up",
+      "scroll_up",
+      "scroll_up"
+    ]
+  },
+  "limits": [
+    "位置の観察済みは読解完了ではない。動的な表示変更や、画面情報の読み落としを解消したという検証ではない。",
+    "最終版の実サイト結果は小標本。モデルの揺らぎ、表示や経路の違いを含むため、修正前との操作数だけで因果的な速度向上や人間の UX を判定しない。",
+    "JEV_DONE でも客観的成功は未検証。未対応形式・安全境界・操作エラー・実験者中断は Goal 達成ともサイトの UX 不良とも扱わない。",
+    "位置ヒントだけの保存画像対照は再構成した文脈であり、元の API 要求の完全再送ではない。前後とも 3 回すべて上スクロールだった。",
+    "一度行った場所を全面禁止せず、現在画面での再読、未実行のリンク、既知の経路の先にある用事、未観察の隙間を残す。従って正当な移動やモデル自身の再確認までゼロになる保証はない。",
+    "既存の依頼範囲で同一オリジンの公開ページを低頻度に閲覧した。明示許諾ではなく、画像や返答はローカル保存のみ。途中版の厳密なコードスナップショットは保存していない。"
+  ],
+  "sources": [
+    {
+      "file": "reports\\2026-10-19T08-27-17.809Z-public\\exploration\\result.json",
+      "sha256": "c82725f87e4786443fc89313705ad5d1981a69dd3223eb3eacb6322ff5670a9f"
+    },
+    {
+      "file": "reports\\2026-10-19T08-27-17.809Z-public\\exploration\\action-trace.json",
+      "sha256": "cb5e89afc5a693a743ab2b6fa86efd7f7c96a71f56415df4eecac9d650a6dc32"
+    },
+    {
+      "file": "reports\\2026-10-19T08-38-59.306Z-public\\exploration\\result.json",
+      "sha256": "f2d6f0fed0016252e6a646c221d2b7803b9919b6bd78bd53e9763f8cda4c107b"
+    },
+    {
+      "file": "reports\\2026-10-19T08-38-59.306Z-public\\exploration\\action-trace.json",
+      "sha256": "5e836ede8c9595ff9b9066dd17a65579d7a71ab055e5cc3db77b4fc16f7f0c05"
+    },
+    {
+      "file": "reports\\2026-10-19T08-41-27.924Z-public\\exploration\\result.json",
+      "sha256": "bcfe9c51b690ff1eeb4aa70a5a32d30904f46642f7a9fab0ad355736cada9d61"
+    },
+    {
+      "file": "reports\\2026-10-19T08-41-27.924Z-public\\exploration\\action-trace.json",
+      "sha256": "bdf3c7c5738dc0c2296a5bb2291cd89915280b8fa5c033245bc63d240d1f8662"
+    },
+    {
+      "file": "reports\\2026-10-19T08-42-21.426Z-public\\exploration\\result.json",
+      "sha256": "9acbff695b0e07675598820c71a287b9697f0d900ff22948a8e5db9ac2464610"
+    },
+    {
+      "file": "reports\\2026-10-19T08-42-21.426Z-public\\exploration\\action-trace.json",
+      "sha256": "09f1ea95aef7c68a9735a08a229e7e4baf5579809b07af89ccde2480b8d12dd5"
+    },
+    {
+      "file": "reports\\2026-10-19T08-54-23.592Z-public\\exploration\\result.json",
+      "sha256": "b07d25b2b52454c28cec7f8d1768d6e7ddca11709df332888fa26ffdbf6f31ab"
+    },
+    {
+      "file": "reports\\2026-10-19T08-54-23.592Z-public\\exploration\\action-trace.json",
+      "sha256": "455540fe333f0d3258065bdc0f62f23440c67b834019f58ca2e5afd655b5efc3"
+    },
+    {
+      "file": "reports\\2026-10-19T08-56-21.622Z-public\\exploration\\result.json",
+      "sha256": "15b34752b41e32279fdca68b89c1a8f8fd220dd006e141caca43f2482e0f04c3"
+    },
+    {
+      "file": "reports\\2026-10-19T08-56-21.622Z-public\\exploration\\action-trace.json",
+      "sha256": "b343ce6860273a69b0aa72a75381c3a8a5a57860fa9e66f31bc109ba5c7c8d87"
+    },
+    {
+      "file": "reports/scroll-progress-pair-2026-10-19T08-27-29.897Z/probe.json",
+      "sha256": "c10a9e930859a21ed611476015740b85845f59a930a59b2add6754004874cf7c"
+    },
+    {
+      "file": "reports/scroll-recovery-final-tests-2026-10-19.log",
+      "sha256": "e7052f60a060e37934bad4704cef7f6e56e989946b14348134bbfc95d3d3a7ff"
+    },
+    {
+      "file": "reports/scroll-recovery-final-build-2026-10-19.log",
+      "sha256": "e961a9ad6f3a6e8485a5c8bc2cc4f79842b98ad71f2a017f5fe69a32bc4e5407"
+    },
+    {
+      "file": "docs/experiments/2026-10-19-cross-site-software-protocol.json",
+      "sha256": "7ca0e70901f21901bab8e050d6eecde0b9d67aa5f555ec0740a50fbbeaf8c170"
+    }
+  ],
+  "localSummarySha256": "7bef899cbf0676f7d8755258ccadda34b660fb97c72b4ec2c22a826df9678724",
+  "originalsUnchanged": true
+}

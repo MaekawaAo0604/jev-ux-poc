@@ -1,0 +1,199 @@
+{
+  "baseCommit": "8c492ec",
+  "codeSha256": {
+    "runner/public-navigation.ts": "99ee9580b13f17d335e11265dc9df9ca1530844ef9d264cd34471d71fe636e56",
+    "runner/public-site.ts": "9d3b504db01819d3d65879a9ccaf669e8b46364386bf3c17ada498c82c653ce8",
+    "tests/navigation-transport.test.ts": "cad7527b41505a2b5dedb048590a7b595deffa2718831d9d5ea852d653465fe1",
+    "tests/navigation-cli-recovery.test.ts": "ae46cc417f7f935f6a9d4f2e69e80680c257583b3e54d3a9bf399245375c823a",
+    "tests/fixtures/navigation-provider.mjs": "846cbfd3ba1bac92e774ac9a7d0b172d33ecfb54a4140b7356697043380b538a"
+  },
+  "baseline": {
+    "root": "reports/2026-10-19T10-04-56.654Z-public",
+    "status": "EXPERIMENTER_ABORTED",
+    "modelEnding": null,
+    "failedStep": 23,
+    "error": "PAGE_ERROR: navigation request failed (UNKNOWN)",
+    "rawTransportMessage": "apiRequestContext.get: socket hang up",
+    "observations": 39,
+    "diagnosticLog": "reports/navigation-diagnostic-baseline-2026-10-19.log"
+  },
+  "runs": [
+    {
+      "root": "reports/2026-10-19T10-10-22.245Z-public",
+      "goal": "7-Zipでパスワードを忘れた場合に復元できるかと、壊れた7z書庫を修復する方法を知りたい。ダウンロード・インストール・問い合わせはしない。",
+      "reason": "UNSUPPORTED_CONTENT",
+      "objectiveSuccess": null,
+      "actions": 27,
+      "elapsedMs": 112125.99840000001,
+      "navigationRequests": [
+        {
+          "step": 15,
+          "phase": "retry",
+          "category": "CONNECTION_RESET",
+          "attempt": 1
+        },
+        {
+          "step": 15,
+          "phase": "recovered",
+          "category": "CONNECTION_RESET",
+          "attempt": 2
+        }
+      ],
+      "recoveryEvidence": [
+        {
+          "step": 15,
+          "nextObservationStep": 16,
+          "file": "reports\\2026-10-19T10-10-22.245Z-public\\exploration\\step-16.png",
+          "sha256": "a1516e12bbf9d40ba00d42b491a351e9b0520aa204fbe8a37cfdae9033d2b200"
+        }
+      ],
+      "repairNavigations": [
+        {
+          "step": 4,
+          "result": "OK",
+          "navigationRequests": []
+        },
+        {
+          "step": 15,
+          "result": "OK",
+          "navigationRequests": [
+            {
+              "phase": "retry",
+              "category": "CONNECTION_RESET",
+              "attempt": 1
+            },
+            {
+              "phase": "recovered",
+              "category": "CONNECTION_RESET",
+              "attempt": 2
+            }
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "step": 28,
+          "result": "UNSUPPORTED_CONTENT",
+          "error": "page.goto: Download is starting\nCall log:\n\u001b[2m  - navigating to \"https://www.7-zip.org/a/lzma2301.7z\", waiting until \"commit\"\u001b[22m\n"
+        }
+      ]
+    },
+    {
+      "root": "reports/2026-10-19T10-13-03.265Z-public",
+      "goal": "7-Zipでパスワードを忘れた場合に復元できるかと、壊れた7z書庫を修復する方法を知りたい。ダウンロード・インストール・問い合わせはしない。",
+      "reason": "STUCK",
+      "objectiveSuccess": null,
+      "actions": 22,
+      "elapsedMs": 91518.3293,
+      "navigationRequests": [
+        {
+          "step": 4,
+          "phase": "retry",
+          "category": "CONNECTION_RESET",
+          "attempt": 1
+        },
+        {
+          "step": 4,
+          "phase": "recovered",
+          "category": "CONNECTION_RESET",
+          "attempt": 2
+        }
+      ],
+      "recoveryEvidence": [
+        {
+          "step": 4,
+          "nextObservationStep": 5,
+          "file": "reports\\2026-10-19T10-13-03.265Z-public\\exploration\\step-5.png",
+          "sha256": "a1516e12bbf9d40ba00d42b491a351e9b0520aa204fbe8a37cfdae9033d2b200"
+        }
+      ],
+      "repairNavigations": [
+        {
+          "step": 4,
+          "result": "OK",
+          "navigationRequests": [
+            {
+              "phase": "retry",
+              "category": "CONNECTION_RESET",
+              "attempt": 1
+            },
+            {
+              "phase": "recovered",
+              "category": "CONNECTION_RESET",
+              "attempt": 2
+            }
+          ]
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "tests": {
+    "total": 494,
+    "pass": 491,
+    "fail": 0,
+    "skip": 3
+  },
+  "build": "PASS",
+  "limitations": [
+    "接続を切った主体（配信元、途中のネットワーク等）は未特定。今回、API 取得層で socket hang up が生じることと、分類漏れを確認した。以前の全 UNKNOWN が同じ原因だったとは断定しない。",
+    "通信の復旧と Goal 達成は別。JEV_DONE もモデルの完了判断であり、客観的成功や人間の UX 評価ではない。切断が続く場合は計測側の PAGE_ERROR として止める。",
+    "画像のみ、同一オリジンの公開ページを 2 秒間隔で探索した。操作数の上限や、正解の経路・答えは追加していない。完了照合だけ選択済み根拠画像を使う。",
+    "公開ページの低負荷な閲覧であり、明示許諾を得たとの主張はしない。元画像やモデル返答はローカル保存のみ。小標本から故障率や速度向上率は算出しない。"
+  ],
+  "sources": [
+    {
+      "file": "reports/navigation-diagnostic-baseline-2026-10-19.log",
+      "sha256": "9652b440f8388c77815a76de5a54e7c8c3509763ae4302e192e7c2d0b51d7dd8"
+    },
+    {
+      "file": "reports\\2026-10-19T10-04-56.654Z-public\\exploration\\step-23.json",
+      "sha256": "9a8b5223b63f4f17196cd837cfb6706a586b26cc7c847c6954b06c8808f0b22b"
+    },
+    {
+      "file": "reports\\2026-10-19T10-10-22.245Z-public\\exploration\\result.json",
+      "sha256": "c7a93863b165fd3bc3651f3ef3b75838e17db399ab36d389cad41fd358f728b5"
+    },
+    {
+      "file": "reports\\2026-10-19T10-10-22.245Z-public\\exploration\\action-trace.json",
+      "sha256": "1c45b7b7701253b4c4a0833cd72fa99139ac53995813d0719824422e9f16aa82"
+    },
+    {
+      "file": "reports\\2026-10-19T10-10-22.245Z-public\\exploration\\step-16.png",
+      "sha256": "a1516e12bbf9d40ba00d42b491a351e9b0520aa204fbe8a37cfdae9033d2b200"
+    },
+    {
+      "file": "reports\\2026-10-19T10-13-03.265Z-public\\exploration\\result.json",
+      "sha256": "1b491cb4380c2d653877789566ec002def5e93f530ff9a2819d9b003f7f67a9c"
+    },
+    {
+      "file": "reports\\2026-10-19T10-13-03.265Z-public\\exploration\\action-trace.json",
+      "sha256": "4a4280b2581cf60893e9623390fdceacdff0772f4080cffab3cd2d4cdd3d0f93"
+    },
+    {
+      "file": "reports\\2026-10-19T10-13-03.265Z-public\\exploration\\step-5.png",
+      "sha256": "a1516e12bbf9d40ba00d42b491a351e9b0520aa204fbe8a37cfdae9033d2b200"
+    },
+    {
+      "file": "reports/navigation-fix-tests-2026-10-19.log",
+      "sha256": "9ebdd36f4ddaba1c932a67752057a05a63a1d2d6fdd7c9b1bd4b7a4abc24178c"
+    },
+    {
+      "file": "reports/navigation-fix-build-2026-10-19.log",
+      "sha256": "8bcb43cfc4af94175bc1c1f90f41c2ec13aebb30271460626a2a1be9b5c4c662"
+    },
+    {
+      "file": "docs/experiments/2026-10-19-cross-site-software-protocol.json",
+      "sha256": "7ca0e70901f21901bab8e050d6eecde0b9d67aa5f555ec0740a50fbbeaf8c170"
+    },
+    {
+      "file": "reports/navigation-fix-live-1-2026-10-19.log",
+      "sha256": "3a01b11eb8234a46327d59ab9f6e41fe6d4b10eda36b1dd64ceb83449c7ac400"
+    },
+    {
+      "file": "reports/navigation-fix-live-2-2026-10-19.log",
+      "sha256": "bc9df5e5aab579dd6b95703712fe534cb11f97c673d35a5e1a97675c9bb2b742"
+    }
+  ],
+  "originalsUnchanged": true
+}

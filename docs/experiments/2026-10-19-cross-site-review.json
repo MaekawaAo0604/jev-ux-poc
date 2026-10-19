@@ -1,0 +1,18 @@
+{
+ "productionHead":"b6046a6",
+ "protocols":["docs/experiments/2026-10-19-cross-site-protocol.json","docs/experiments/2026-10-19-cross-site-software-protocol.json"],
+ "plannedAttempts":8,
+ "normalRuns":[
+  {"id":"library-visit","site":"千代田区立図書館","repeat":1,"root":"reports/2026-10-19T07-22-42.879Z-public","imageReview":{"status":"source-supported","note":"最終画像に通常の開館時間と、九段下駅の出口から徒歩 5 分という案内が表示されている。","files":["final.png"]}},
+  {"id":"library-card","site":"千代田区立図書館","repeat":1,"root":"reports/2026-10-19T07-23-17.048Z-public","imageReview":{"status":"premature-completion","note":"区外居住でも貸出券を作れることは確認できた。ただし画面には必要なものが 1 と 2 あると表示され、1 の本人確認書類だけ見て終了した。2 の申込書はこの試行の画像に写っていない。","files":["step-2.png","step-3.png","final.png"]}},
+  {"id":"library-visit","site":"千代田区立図書館","repeat":2,"root":"reports/2026-10-19T07-23-40.167Z-public","imageReview":{"status":"source-supported","note":"1 回目と同じ経路で、開館時間と駅からの行き方の案内へ到達した。","files":["final.png"]}},
+  {"id":"library-card","site":"千代田区立図書館","repeat":2,"root":"reports/2026-10-19T07-24-15.833Z-public","imageReview":{"status":"source-supported","note":"今回は下へスクロールし、本人確認書類に加えて 2 の貸出券発行申込書を示す画像も観測した。最終画像だけでなく、途中画像も点検した。","files":["step-4.png","step-5.png","step-6.png"]}},
+  {"id":"software-license-formats","site":"7-Zip","repeat":1,"root":"reports/2026-10-19T07-25-07.847Z-public","imageReview":{"status":"source-supported","note":"最初の画像に商用組織でも登録や支払いが不要という記載と、Packing / unpacking の対応形式が表示されている。操作せず完了したこと自体は見落としではない。","files":["final.png"]}},
+  {"id":"software-license-formats","site":"7-Zip","repeat":2,"root":"reports/2026-10-19T07-27-41.316Z-public","imageReview":{"status":"source-supported","note":"1 回目と同じ最初の画面で条件を確認できた。","files":["final.png"]}}
+ ],
+ "abortedRun":{"id":"software-recovery","site":"7-Zip","repeat":1,"root":"reports/2026-10-19T07-25-20.426Z-public","experimentStatus":"EXPERIMENT_ABORTED_REPEATED_IMAGE_ACTION","originalModelEnding":null,"note":"修復ページで同一画像と同一スクロール操作の反復を確認したため、実験者が中断した。33 操作後の判断 34 は PENDING のまま残っている。回数の上限で止めたのではなく、観測済みの反復区間を追加巡回してもサイトの UX と解釈できないため止めた。","counterEvidence":"操作 28 では前の画面に戻り、29 から 31 では別枝と FAQ に移動している。永久ループだったとは断定しない。自然な終了までの所要時間も未測定。","partialFinding":"判断 27 の画像メモでは、修復方法は observed、忘れたパスワードについては not_shown。片方だけで完了することはこの試行では避けられた。","selectedFiles":["step-1.png","step-16.png","step-27.json","step-28.json","step-34.json"]},
+ "notLaunched":[{"id":"software-recovery","repeat":2,"reason":"既知の番号誤対応と反復の切り分けを優先し、外部サイトで同じ複合ケースを追加実行しなかった。"}],
+ "associationProbe":{"raw":"reports/cross-site-review-2026-10-19/number-association.json","source":"reports/2026-10-19T07-25-20.426Z-public/exploration/step-1.png","sourceSha256":"04702690c7e624dd2bd6e6f4bd31d7b95a3d0da0c61e07a10f2bb0a1f6bcf978","expectedBySavedElementMapping":{"faq":"e4","download":"e3"},"observed":[{"faq":"e3","download":"e2"},{"faq":"e3","download":"e2"},{"faq":"e3","download":"e2"}],"note":"保存画像だけを使った独立した 3 回の照合。DOM 文言や正解番号を Jev に渡していない。サイトへの追加アクセスはない。密な縦メニューでは番号の対応を取り違える問題が残る。最初に Download を選んだ原因すべてをこの照合だけで説明したことにはならない。"},
+ "priorities":["行間の狭い縦メニューで番号の対応を再現テストにする。今回の枠付き配置だけでは不足している。","必要なもの 1 と 2 のような列挙を途中まで見て完了する判定を検証する。","同一画像で同一操作を再試行する理由と、未確認条件に対して新情報が増えたかを保存ログから切り分ける。単純な再訪全面禁止は導入しない。"],
+ "limits":["2 サイトだけの探索であり、人間の UX 成功率や全サイトへの汎用性は測っていない。","画像点検は Codex が実施したもので、人間の被験者や事業者による正解判定ではない。","元の reason、objectiveSuccess、モデル回答を変更していない。中断を Jev の STUCK として数えない。","図書館の 1 回目を含め、JEV_DONE をそのまま客観的成功とは扱わない。","本番コードは変更していない。サイト画像と生のモデル応答はローカルに残し、公開リポジトリへ追加しない。"]
+}

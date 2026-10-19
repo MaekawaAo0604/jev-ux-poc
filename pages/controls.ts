@@ -4,12 +4,43 @@ export const controlSelector=nativeControlSelector+',:is(header,[role="banner"])
 
 export type PublicControl={kind:'link';href:string}|{kind:'disclosure';open:boolean;description?:string;panelPath?:number[]}|{kind:'blocked';reason:'UNSUPPORTED_CONTENT'|'SAFETY_BOUNDARY'};
 
-// Runs in the page; never returns hidden panel contents or navigation hints.
-export function publicControl(el:Element):PublicControl{
- if(el instanceof HTMLAnchorElement){
-  const url=new URL(el.href,location.href);
-  if(el.hasAttribute('download')||/\.(pdf|zip|exe|docx?|xlsx?)$/i.test(url.pathname))return {kind:'blocked',reason:'UNSUPPORTED_CONTENT'};
-  if(['http:','https:'].includes(url.protocol)&&url.origin===location.origin&&!url.username&&!url.password)return {kind:'link',href:url.href};
+// Self-contained for Playwright serialization. A URL + explicit origin also
+// runs in Node, so discovery, stale-target checks and HTTP hops share policy.
+// Never returns hidden panel contents or navigation hints to the model.
+export function publicControl(el:Element|string,origin?:string|void):PublicControl{
+ if(typeof el==='string'||el instanceof HTMLAnchorElement){
+  const blocked:PublicControl={kind:'blocked',reason:'SAFETY_BOUNDARY'};
+  const sourceOrigin=typeof origin==='string'?origin:undefined;
+  if(typeof el==='string'&&!sourceOrigin)return blocked;
+  const anchor=typeof el==='string'?undefined:el;
+  const url=new URL(typeof el==='string'?el:el.href,sourceOrigin??location.href);
+  const policy={
+   decode(value:string){
+    // Fail closed on malformed or excessively nested encodings, without
+    // allowing an encoded separator or dot segment to hide an auth route.
+    for(let i=0;i<4;i++){const next=decodeURIComponent(value);if(next===value)return value;value=next;}
+    if(/%[0-9a-f]{2}/i.test(value))throw new Error('Nested URL encoding');
+    return value;
+   },
+   authentication(value:string,informationPages=true){
+    // Treat decoded values as paths, never as protocol-relative authorities.
+    const path=new URL('/'+value.replaceAll('\\','/').replace(/^\/+/,''),url.origin).pathname;
+    const parts=path.toLowerCase().split(/[\/;]+/).filter(Boolean);
+    if(/^[a-z]{2}(?:-[a-z]{2})?$/.test(parts[0]??''))parts.shift();
+    const information=informationPages&&/^(help|docs|documentation|faq|guide|guides|support|manual|blog|articles)$/.test(parts[0]??'');
+    return parts.some(part=>/^(auth|oauth2?|authorize|authorization|saml|sso|oidc|sessions?)$/.test(part)||!information&&/^(log[-_]?in|sign[-_]?in|log[-_]?out|sign[-_]?out|register|registration|sign[-_]?up|wp-login\.php)$/.test(part));
+   },
+  };
+  try{
+   if(policy.authentication(policy.decode(url.pathname))||url.hash&&policy.authentication(policy.decode(url.hash.replace(/^#!?/,''))))return blocked;
+   for(const [key,value] of url.searchParams)if(/^(action|operation|op|do|cmd|route)$/.test(key.toLowerCase())&&policy.authentication(policy.decode('/'+value),false))return blocked;
+  }catch{return blocked;}
+  if(anchor){
+   const label=(anchor.innerText||anchor.textContent||anchor.getAttribute('aria-label')||'').normalize('NFKC').trim().replace(/\s+/g,' ');
+   if(/(?:ログイン|サインイン|ログアウト|サインアウト|新規登録|会員登録)(?:する|はこちら|へ)?$/.test(label.replaceAll(' ',''))||/^(?:log[- ]?in|sign[- ]?in|log[- ]?out|sign[- ]?out|sign[- ]?up|register)(?:\s+(?:with|via|using)\b.*)?$/i.test(label)||/^continue\s+with\s+(?:google|apple|facebook|microsoft|github)\b/i.test(label))return blocked;
+  }
+  if(anchor?.hasAttribute('download')||/\.(pdf|zip|exe|docx?|xlsx?)$/i.test(url.pathname))return {kind:'blocked',reason:'UNSUPPORTED_CONTENT'};
+  if(['http:','https:'].includes(url.protocol)&&url.origin===(sourceOrigin??location.origin)&&!url.username&&!url.password)return {kind:'link',href:url.href};
   return {kind:'blocked',reason:'SAFETY_BOUNDARY'};
  }
  const blocked:PublicControl={kind:'blocked',reason:'SAFETY_BOUNDARY'};

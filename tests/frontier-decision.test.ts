@@ -24,7 +24,8 @@ test('goal-check navigation asks about the untried target, preserves its context
  const decision=await jevDecide(s,candidates,{goalChecks:['再入館の条件'],frontier},evaluator(calls));
  const action=calls.find(c=>c.questions.nextAction)!;
  assert.ok(action.input.targets,'target selection must replace full-history action selection');
- assert.doesNotMatch(JSON.stringify(action.input),/IRRELEVANT_OLD_TEXT|observationId|explorationProgress|nextChoice/);
+ assert.doesNotMatch(JSON.stringify(action.input),/IRRELEVANT_OLD_TEXT|observationId|nextChoice/);
+ assert.deepEqual(action.input.explorationProgress,{pages:[]},'history without grounded page IDs cannot invent positional progress');
  assert.deepEqual(action.input.targets.f1.headings,['入退場について']);
  assert.deepEqual(decision.action,{type:'click',elementId:'e7'});
  assert.equal(decision.choice,'e7');assert.equal(decision.frontier?.targetId,'f1');
@@ -65,4 +66,10 @@ test('large frontiers are compared in bounded groups without dropping late candi
   return {model:'TEST',answers:{nextAction:{choice,probabilities:Object.fromEntries(Object.keys(questions.nextAction.criteria).map(k=>[k,Number(k===choice)]))}}};
  });
  assert.equal(seen.size,140);assert.equal(decision.frontier?.targetId,'f140');assert.equal(requests,4);
+});
+
+test('a frontier stop preserves the actual split over executable actions rather than inventing certainty',async()=>{
+ const decision=await chooseFrontier(state,candidates,frontier,[state.goal],async()=>({model:'TEST',answers:{nextAction:{choice:'stuck',confidence:.16,probabilities:{f1:.42,stuck:.58}}}}));
+ assert.equal(decision.choice,'stuck');assert.deepEqual(decision.probabilities,{e7:.42,stuck:.58});
+ assert.equal(decision.confidence,.16);
 });

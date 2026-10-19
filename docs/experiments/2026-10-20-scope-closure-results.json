@@ -1,0 +1,32 @@
+{
+  "productionHead": "83fe5880705c0f6fb62000ed92361a1364ce096e",
+  "report": "http://127.0.0.1:5173/reports/scope-closure-review-2026-10-19T15-47-53.965Z/index.html",
+  "verification": {"file": "reports/scope-closure-review-2026-10-19T15-47-53.965Z/verification.json", "sha256": "ce238a6ca38494133c006ad9b6519c586dda06496c4c9bf154776704668366f2"},
+  "sources": [
+    {"file": "reports/reference-closure-2026-10-19T15-44-00.423Z/reference.json", "sha256": "fea1ae1efc75e17d95f682b101e50314ce2e5d22feb624c6ab6b2eacafdc3b3e"},
+    {"file": "reports/live-outcome-controls-2026-10-19T15-43-57.117Z/controls.json", "sha256": "4cc69256c62e686aa053b8cab3457267a889dd708c43b7755191427759cdf84f"},
+    {"file": "reports/2026-10-19T13-27-02.965Z-public/exploration/result.json", "sha256": "e67e54f9799069a12b723da893cfd174154dbbfb7175034703c1874298ebc82d"}
+  ],
+  "confirmedObservations": {
+    "referenceHtmlClosure": {"documents": 8, "completed": true, "errors": 0, "scope": "Reachable same-origin root/.html documents without query strings, at inspection time. Not all site resources or historical HTML."},
+    "manualReferenceReview": "All eight saved document texts reviewed. No explicit forgotten-password recovery yes/no answer confirmed in this finite scope; 7z Format contains related encryption and exhaustive-search-cost information, not an explicit recovery answer.",
+    "externalAnswerExists": {"url": "https://sourceforge.net/p/sevenzip/discussion/45797/thread/a5e2f404f7/", "author": "Igor Pavlov", "postDate": "2020-12-14", "meaning": "Dated explanation of short-password recovery possibility, need for external software and lack of that feature in 7-Zip at the time. Not an execution test of current software."},
+    "externalConditionsReference": {"url": "https://sourceforge.net/p/sevenzip/discussion/45797/thread/454670b0f9/", "author": "Igor Pavlov", "postDate": "2023-08-31", "meaning": "Dated conditional explanation distinguishing password lengths and archive types, not a universal impossibility claim."},
+    "actualForumEntryBlocked": {"step": 22, "label": "7-Zip's Forum at SourceForge", "available": false, "reason": "SAFETY_BOUNDARY"},
+    "twoPageAnswerControls": {"runs": 2, "JEV_DONE": 2, "actionsEach": 3, "actualNativeBackAndCommittedSiblingClick": 2, "bothInformationItemsConfirmed": 2},
+    "missingAnswerControls": {"runs": 2, "STUCK": 2, "actionsEach": 6, "falseCompletion": 0},
+    "blockedAnswerControl": {"runs": 1, "STUCK": 1, "actions": 4, "blockedAnswerGETs": 0},
+    "directAnswerControl": {"runs": 1, "JEV_DONE": 1, "actions": 0},
+    "postRunConstraintClassification": "The constraint fragment was unconfirmed on all three completed controls and context on the negative controls. Keep this model classification separate from execution-history checks of prohibited actions."
+  },
+  "decision": "The run is noncompletion under a restricted exploration scope, not proof that the web lacks an answer, the site has bad UX, or Jev cannot read it. A known answer-bearing external reference lies behind an entry explicitly blocked by our scope. Do not remove all stop/loop protection or silently broaden the default allowlist.",
+  "remainingComparison": "Whether Jev can autonomously find/read the thread with only the official forum temporarily allowed requires a separate authorized exploration. Independent web search finding it does not prove autonomous Jev reachability. User choice requested; no scope expansion executed in this investigation.",
+  "checks": {"targetedTests": 30, "testFailures": 0, "newScriptTypechecks": 3, "buildExitCode": 0, "sourceFilesUnchanged": true, "productionCodeChanged": false, "reportImages": 34, "reportLinks": 104, "pageErrors": 0, "externalRequestsDuringReportQA": 0, "mobileOverflow": false},
+  "limits": [
+    "No general all-site or all-Goal reliability guarantee follows from six synthetic controls.",
+    "Reference review used current pages; old-run full historical HTML was not archived, so historical content equality is not asserted.",
+    "External reference discovery is separate from Jev exploration and never supplied as answers or routes to it.",
+    "Current software password-recovery capability is not independently tested; the cited statements retain their dates and conditions.",
+    "The raw STUCK result, objectiveSuccess=null and default scope are unchanged."
+  ]
+}

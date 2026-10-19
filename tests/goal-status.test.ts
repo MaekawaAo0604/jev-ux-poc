@@ -141,3 +141,28 @@ test('a failed action selection retains the preceding goal assessment and safe f
   return answers(questions,id=>id==='coverage'?'complete':id==='check_1'?'absent':'present');
  });
 });
+
+const answer=(choice:string,keys:string[])=>({choice,probabilities:Object.fromEntries(keys.map(k=>[k,k===choice?1:0]))});
+const CHECK=['present','absent','uncertain'];
+const assessmentWith=(coarse:string,proof:Partial<any>)=>({
+ coverage:answer('complete',['complete','incomplete','uncertain']),
+ checks:[{text:'料金',...answer(coarse,CHECK)}],
+ model:'TEST',
+ grounding:{requests:[],checks:[{text:'料金',evidence:[{id:'s1-t1',step:1,text:'630円',warnings:[],omitted:false}],relatedEvidence:[],uncertainEvidence:[],assessment:answer('present',CHECK),contradictions:answer('present',CHECK),scope:answer('match',['match','mismatch','uncertain']),...proof}]},
+} as any);
+
+test('a grounded verdict is not reopened by the coarse answer it was selected from',()=>{
+ // groundGoal only runs on coarse-present items, and in 990 recorded
+ // judgements a coarse answer never blocked an item grounding had accepted.
+ assert.deepEqual(pendingGoalChecks(assessmentWith('absent',{})),[]);
+});
+
+test('scope no longer blocks separately, because accepted evidence already implies it',()=>{
+ assert.deepEqual(pendingGoalChecks(assessmentWith('present',{scope:answer('uncertain',['match','mismatch','uncertain'])})),[]);
+});
+
+test('missing evidence, insufficiency and contradictions each still block',()=>{
+ assert.deepEqual(pendingGoalChecks(assessmentWith('present',{evidence:[]})),['料金']);
+ assert.deepEqual(pendingGoalChecks(assessmentWith('present',{assessment:answer('absent',CHECK)})),['料金']);
+ assert.deepEqual(pendingGoalChecks(assessmentWith('present',{contradictions:answer('absent',CHECK)})),['料金']);
+});

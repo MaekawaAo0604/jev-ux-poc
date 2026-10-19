@@ -115,10 +115,60 @@ The margin is thin: 0.53 present against 0.40 absent. The item is now decidable,
 
 The exploration ended before reaching the header menu, so the disclosure no-op did not recur live. `ACTION_NOOP` and the retry allowance are verified by `tests/sticky-disclosure.test.ts`, which reproduced the live `ACTION_ERROR` at step 2 before the change, not by a second live occurrence.
 
+## Follow-up: sufficiency voting
+
+Spec `docs/superpowers/specs/2026-09-24-sufficiency-voting-design.md`, plan `docs/superpowers/plans/2026-09-24-sufficiency-voting.md`.
+
+Reading the runs above showed why an item's verdict never improved once it was drawn: `scope-sufficiency` is cached by its accepted evidence, so the first answer is reused for the rest of the run. A probe (`docs/experiments/2026-09-24-sufficiency-stability-probe.mjs`) established that the provider is not deterministic at identical input — the marginal item drew present 6 / absent 2 with `localContext` and absent 8 / 8 without. A single draw therefore mislabelled an answerable item about a quarter of the time, permanently.
+
+The completion test now decides sufficiency by a symmetric majority of up to five draws, stopping as soon as any choice reaches three, and no longer applies the coarse and scope clauses, which never discriminated across 990 recorded judgements.
+
+Re-run with voting: `reports/2026-09-23T23-50-23.136Z-public`.
+
+| | Pre-voting re-run | Voted re-run |
+|---|---|---|
+| Reason / actions | JEV_DONE, 6 | JEV_DONE, 6 |
+| Elapsed | 54.0 s | 74.5 s |
+| API | 51 calls / 116 questions, 0 failures | 54 calls / 116 questions, 7 failures (all 503, all recovered) |
+| `scope-sufficiency` calls | 2 | 7 |
+
+The draws, recorded per step:
+
+- 開館時間, step 3: three draws, all `present`, stopped at the majority.
+- 大人と高校生で行く場合の入館料, step 7: four draws — **`absent`, `present`, `present`, `present`**.
+
+The first draw on the price item was `absent`. Under the previous rule that single draw would have been cached and reused, and this run would have failed to complete again. The case voting was built for occurred on the first live attempt.
+
+The aggregate is not a confident one: mean `present` 0.49 against `absent` 0.4375. Voting stabilised the decision; it did not resolve the model's uncertainty, and the report now states the split next to the verdict for exactly that reason.
+
+Cost rose by three calls overall and five on the voting stage, inside the four-to-twelve predicted in the spec. One run is not a repeatability measurement.
+
+## Repeatability: the compounding model was wrong
+
+`docs/experiments/2026-09-24-repeatability.mjs`, results in `reports/repeatability-2026-09-24T01-16-25.348Z`, commit 53a98ef, five runs per arm, 25-action cap.
+
+Both arms ask kahaku for the same information over the same route. Only the decomposition differs: arm B splits arm A's compound price item into its two halves.
+
+| | 2 checks | 3 checks |
+|---|---|---|
+| Goal | 大人と高校生で行く場合の入館料 / 開館時間 | 大人の入館料 / 高校生の入館料 / 開館時間 |
+| Completed | **5 / 5** | **1 / 5** |
+| Reasons | JEV_DONE ×5 | JEV_DONE ×1, ACTION_LIMIT ×4 |
+| Mean actions | 7.2 | 25 (every run reached the cap) |
+| Mean calls | 68 | 130 |
+
+The spec predicted 0.80 and 0.72 from a per-item pass rate of 0.75 raised to the number of checks. Both are wrong, and in opposite directions. That model assumed the per-item pass rate is a property of the item. It is not: 「高校生の入館料」 was unanimously `absent` on all three draws in all four failing runs, while the same fact inside the compound 「大人と高校生で行く場合の入館料」 passed five times out of five. **How a goal is split decides whether a part is answerable at all**, which no amount of resampling can change.
+
+What voting did measurably change: three of the five 2-check runs drew at least one dissenting `absent`, and in one of them the dissent was the **first** draw — `[absent, present, present, present]`. Under the previous single-draw rule that run would have frozen on `absent` and failed. Arm A would have been 4/5 instead of 5/5, so voting moved one run in five.
+
+The 3-check failures also exposed a second cause that the spec had deliberately deferred. 「開館時間:contradictions」 vetoed in two of the four failing runs, on an item that passed in the other eight runs across both arms. Contradictions are still decided by a single draw; their stability was listed as unmeasured, and this measures it. Extending the vote to that gate now has evidence behind it.
+
+Cost and infrastructure: API failures ran from 6 to 37 per run, all recovered by the existing retry policy. An uncapped 3-check run reached 119 decision steps and 254 calls before it was stopped, which is what the action limit exists for.
+
 ## Final verification
 
 - `npx tsc --noEmit`: passed.
-- `npm test`: 310 tests, 309 passed, 0 failed, 1 existing real-OCR skip.
+- `npm test`: 323 tests, 322 passed, 0 failed, 1 existing real-OCR skip.
 
 ## Limits
 

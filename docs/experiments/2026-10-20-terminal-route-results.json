@@ -1,0 +1,42 @@
+{
+  "productionHead": "e5878067ee336a23c26052ae414848433505d5a4",
+  "source": "reports/2026-10-19T13-27-02.965Z-public/exploration/result.json",
+  "sourceSha256": "e67e54f9799069a12b723da893cfd174154dbbfb7175034703c1874298ebc82d",
+  "probes": [
+    {"file": "reports/terminal-route-2026-10-19T15-27-11.913Z/probe.json", "sha256": "e43974d1d0483b3ea4bd2b51ac6cda4ae5b8455d5dab471d14ed1d06a835ca20", "trials": 20},
+    {"file": "reports/terminal-route-2026-10-19T15-28-41.227Z/probe.json", "sha256": "c7774720bcf6d88118603b8e9a49bd4afbf780b8adad54bc06f09a597a310fe2", "trials": 5}
+  ],
+  "method": "Sequential exact-response replay of all 25 archived decisions to reconstruct wire inputs; final-frame four-condition ablation with rotating order, five repeats each; then five repeats of the actual earlier step-20 frontier request with identical pixels. Live Jev only, no browser actions or public-site requests. No expected answers or DOM labels supplied.",
+  "model": "jev-1.14.0",
+  "results": [
+    {"condition": "current-action", "counts": {"scroll_up": 5}},
+    {"condition": "frontier", "counts": {"stuck": 5}},
+    {"condition": "frontier-no-route-judgments", "counts": {"stuck": 4, "f3": 1}, "f3MeaningForReviewOnly": "Download"},
+    {"condition": "frontier-no-coverage", "counts": {"stuck": 5}},
+    {"condition": "earlier-frontier", "counts": {"f5": 5}, "f5MeaningForReviewOnly": "Support"}
+  ],
+  "recordedFacts": {
+    "terminalStep": 25,
+    "terminalImageSha256": "a7854e169a5c1aa8f8789e23a3f19596b9ae2120b84c70dc1f40b00c4db7a921",
+    "sameImagePriorScrollUpSteps": [13, 15],
+    "samePriorScrollDestinationSteps": [14, 16],
+    "samePriorScrollDestinationSha256": "1129282ba84eabca60af164b9278072308455c307db2f753114b55c6017581e6",
+    "terminalRouteJudgments": {"unrelatedLinks": 5, "unratedScrollTargets": 4, "promising": 0},
+    "earlierControlStep": 20,
+    "earlierControlPixelsEqualTerminal": true,
+    "earlierPromisingTarget": "f5",
+    "actualFollowingExecution": {"step": 21, "choice": "e5", "committedTarget": "f5"},
+    "terminalRawTargetProbabilities": {"stuck": 0.43, "largestIndividualTarget": 0.13},
+    "reportedAggregatedBackProbability": 0.54
+  },
+  "interpretation": "Action selection repeatedly proposes an already executed scroll; frontier selection can select a previously image-judged promising entry, but stops on this final candidate set. The replay does not establish that stopping missed an accessible answer. Removing coverage did not reverse stopping; removing route judgments once selected a prohibited Download lead. No production bypass or forced-continuation fix is justified by these observations.",
+  "verification": {"liveCalls": 25, "errors": 0, "targetedTests": 16, "testFailures": 0, "scriptTypecheckExitCode": 0, "sourceUnchanged": true, "productionCodeChanged": false},
+  "limits": [
+    "Repeated calls over one archived Goal are not independent-site accuracy samples.",
+    "The earlier positive control changes history, target set and route judgments together. It proves context-sensitive route selection, not an isolated causal effect of one promising label.",
+    "Source-image equality and past scroll destinations prove a repeated view transition, not that every detail was understood or that revisiting is always useless.",
+    "No claim that password recovery information is absent from the entire site, that off-origin pages contain it, or that human UX failure is established.",
+    "No source-site revisit or production re-exploration occurred in this diagnostic.",
+    "Prior individual post-run evidence-selection inconsistency remains outside this stopping diagnosis."
+  ]
+}

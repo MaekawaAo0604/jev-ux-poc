@@ -1,0 +1,20 @@
+{
+ "productionCode":"2852e6846f8612877c42d04a2560049cd6891331 (unchanged runner/jev/pages/tests throughout)",
+ "protocol":"docs/experiments/2026-10-19-real-goals-v2.json",
+ "localReport":"reports/real-goals-2026-10-19T06-34-24.774Z/index.html",
+ "population":{"sites":1,"taskFamilies":3,"plannedAttempts":6,"normalTerminations":5,"experimenterAborted":1,"notAnObjectiveSuccessRate":true},
+ "normalTrials":[
+  {"id":"hours","repeat":1,"ending":"JEV_DONE","actions":1,"explorationMs":14696.5229,"wholeTrialMs":22162.4607,"imageReview":"normal hours visibly displayed; exact answer extraction not evaluated"},
+  {"id":"hours","repeat":2,"ending":"JEV_DONE","actions":1,"explorationMs":13664.6694,"wholeTrialMs":20965.067,"imageReview":"normal hours visibly displayed; exact answer extraction not evaluated"},
+  {"id":"visit","repeat":1,"ending":"JEV_DONE","actions":2,"explorationMs":21514.3744,"wholeTrialMs":30455.1453,"imageReview":"access/station route on frame 2; hours and admission conditions on frame 3"},
+  {"id":"visit","repeat":2,"ending":"JEV_DONE","actions":2,"explorationMs":16552.1322,"wholeTrialMs":24861.0202,"imageReview":"access/station route on frame 2; hours and admission conditions on frame 3"},
+  {"id":"family","repeat":1,"ending":"STUCK","actions":59,"recordedActionKinds":{"click":25,"back":1,"scroll":33},"explorationMs":256822.0915,"wholeTrialMs":311940.8376,"retrospectiveAuditMs":52472.6109,"outcomeAuditMs":828.402,"imageReview":"requested work/age/weather evidence not confirmed, not a claim of site-wide absence","intermediateErrors":[{"step":3,"kind":"ACTION_ERROR","message":"PAGE_ERROR: navigation request failed (UNKNOWN)"}]}
+ ],
+ "abortedTrial":{"id":"family","repeat":2,"status":"EXPERIMENT_ABORTED_INSTRUMENT_AMBIGUITY","originalModelEnding":null,"savedObservations":81,"completedRecordedActions":80,"lastSavedResult":"PENDING","reason":"Known wrong number-to-link association invalidates a clean site UX interpretation. Stop additional external exploration rather than continue an ambiguous instrument. This was not an action-count limit or a Jev stuck verdict.","partialSource":"reports/2026-10-19T06-41-16.178Z-public/exploration/","rawHashes":"reports/real-goals-2026-10-19T06-34-24.774Z/family-2-aborted.json"},
+ "separateProbe":"docs/experiments/2026-10-19-number-association.json",
+ "finding":"The saved annotated image yields wrong link-number associations on both named links in all three requests. Layout positions and actual executed target labels corroborate an instrument/input ambiguity. No alternative-overlay intervention was tested, so this does not prove one exclusive cause of the entire failed exploration.",
+ "limitations":["One museum, not cross-industry validation", "Codex image review, not human-user ground truth", "Original objectiveSuccess stays null", "No login/form/reservation/purchase or policy bypass", "Aborted attempt is neither a success nor a completed failure", "No site UX defect is inferred from tool/model misassociation", "Screenshots and raw site logs remain local"],
+ "siteSelectionCorrection":"docs/experiments/2026-10-19-real-goals-selection-correction.json",
+ "verification":{"htmlHTTP":200,"normalRunCards":5,"outcomeSections":5,"localReferences":233,"brokenAnchors":0,"browserPageErrors":0,"documentOverflowAt390px":false,"originalResultHashesUnchanged":true,"partialStepHashesUnchanged":true,"coreCodeDiffAgainst2852e68":false,"freshFullTestSuiteClaim":false,"note":"No production edits; did not claim a fresh software test suite. Validated experiment data, model probe outputs, source geometry and report rendering instead."},
+ "nextPriority":"Correct visual-number association while preserving actual target bindings, screenshot cleanup, text visibility and focus invariants. Compare frozen captures before/after placement changes, then rerun the original child-work Goal without a supplied route."
+}

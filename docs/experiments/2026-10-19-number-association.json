@@ -1,0 +1,13 @@
+{
+ "purpose":"Isolate label-to-number association on an already saved real-site screenshot. Separate from Goal exploration and not pooled into UX or success statistics.",
+ "head":"2852e6846f8612877c42d04a2560049cd6891331",
+ "input":"reports/2026-10-19T06-35-18.225Z-public/exploration/step-1.png",
+ "protocol":"Three fresh Jev requests use the identical current screenshot, no old images, DOM text, expected ID or correct route. Two choice questions ask for the visible named link's number. Screenshots and full response traces stay local.",
+ "expectedBySavedGeometryAndImageReview":{"kids":"e9","rules":"e7"},
+ "observed":[{"repeat":1,"kids":"e4","rules":"e2"},{"repeat":2,"kids":"e4","rules":"e2"},{"repeat":3,"kids":"e4","rules":"e2"}],
+ "associationMatches":{"kids":0,"rules":0,"repeats":3},
+ "corroboration":{"actualExecutedE7":"入館時のお願い","actualExecutedE4":"美術館について","trace":"reports/2026-10-19T06-35-18.225Z-public/exploration/action-trace.json"},
+ "geometry":{"e9Target":{"x":960.921875,"y":83,"width":229.078125,"height":32},"e4Target":{"x":923.796875,"y":13,"width":172,"height":52},"e4Badge":{"x":923.796875,"y":69,"width":55.796875,"height":26},"e7Target":{"x":500.796875,"y":83,"width":201.0625,"height":32},"e2Target":{"x":547.796875,"y":13,"width":158,"height":52},"e2Badge":{"x":547.796875,"y":69,"width":55.796875,"height":26}},
+ "interpretation":"Wrong associations reproduce on the current annotated image. Number labels can sit between navigation rows and appear associated with the next row. This is an instrument/input ambiguity to investigate before blaming the site. No alternate annotation intervention has been tested; it is not proof that overlay placement alone caused the entire exploration failure.",
+ "nextControlledCheck":"Keep the captured page, target identities, Goal, model and request context fixed; vary annotation placement only and measure association accuracy before changing production rendering. Preserve target text/geometry and screenshot cleanup/focus invariants."
+}

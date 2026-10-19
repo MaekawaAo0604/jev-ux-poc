@@ -1,0 +1,20 @@
+{
+ "productionHead":"b6046a6",
+ "productionCodeChanged":false,
+ "localReport":"reports/cross-site-review-2026-10-19/index.html",
+ "population":{"sites":2,"goals":4,"plannedAttempts":8,"started":7,"normalTerminations":6,"experimenterAborted":1,"notLaunched":1},
+ "normalRuns":[
+  {"id":"library-visit","repeat":1,"modelEnding":"JEV_DONE","actions":4,"explorationMs":23440.3918,"imageReview":"source-supported"},
+  {"id":"library-visit","repeat":2,"modelEnding":"JEV_DONE","actions":4,"explorationMs":24129.6022,"imageReview":"source-supported"},
+  {"id":"library-card","repeat":1,"modelEnding":"JEV_DONE","actions":2,"explorationMs":14683.928100000001,"imageReview":"premature-completion","missingVisibleEvidence":"Required item 2, application form, was not observed before completion; item 1 alone was visible."},
+  {"id":"library-card","repeat":2,"modelEnding":"JEV_DONE","actions":5,"explorationMs":27489.564700000003,"imageReview":"source-supported","additionalEvidence":"step-5.png includes required item 2 after scrolling."},
+  {"id":"software-license-formats","repeat":1,"modelEnding":"JEV_DONE","actions":0,"explorationMs":7161.2277,"imageReview":"source-supported"},
+  {"id":"software-license-formats","repeat":2,"modelEnding":"JEV_DONE","actions":0,"explorationMs":6611.6172,"imageReview":"source-supported"}
+ ],
+ "aborted":{"id":"software-recovery","repeat":1,"originalModelEnding":null,"experimentStatus":"EXPERIMENT_ABORTED_REPEATED_IMAGE_ACTION","savedObservations":34,"recordedExecutedSteps":33,"lastSavedResult":"PENDING","exactImageAndActionRepetitions":8,"counterEvidence":"Step28 went Back and steps29-31 changed branches. A redundant scrolling interval was observed, not proven permanent deadlock. The natural outcome and runtime were not measured.","partialStateAt27":{"repairMethod":"observed","forgottenPassword":"not_shown"},"secondRepeat":"not launched, not counted as failure"},
+ "separateAssociationProbe":{"requests":3,"questionsPerRequest":2,"expected":{"faq":"e4","download":"e3"},"allThreeObserved":{"faq":"e3","download":"e2"},"sourceSha256":"04702690c7e624dd2bd6e6f4bd31d7b95a3d0da0c61e07a10f2bb0a1f6bcf978","requestContainsExpectedAnswer":false,"additionalSiteRequests":0},
+ "verification":{"reportHTTP":200,"normalRunCards":6,"localFilesChecked":62,"brokenReferences":0,"browserPageErrors":0,"overflowAt390px":false,"dataAssertions":"PASS","sourceHashesUnchanged":true,"build":"PASS","freshFullTestSuiteClaim":false,"note":"Only experiment protocols, scripts and review data changed. No new production fix or fresh full software suite is claimed."},
+ "interpretation":"The museum annotation improvement did not generalize to tightly stacked 12.8px text links. The library also exposed inconsistent completion of numbered requirements. These are instrument/model limitations to investigate before attributing failure to site UX. No overall human-UX success percentage is inferred; objectiveSuccess remains null in original results.",
+ "nextChecks":["Dense menu association with a local captured fixture", "Completion coverage of visibly enumerated required items", "Why an already observed repair condition keeps receiving repeated scroll actions while another requirement remains unresolved"],
+ "provenance":"Detailed source paths, review notes and limitations: docs/experiments/2026-10-19-cross-site-review.json. Raw responses, screenshots and partial-file hashes remain local. Japanese technical-writing rules guided separation of observed findings from causal claims."
+}

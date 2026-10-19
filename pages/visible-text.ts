@@ -171,14 +171,27 @@ export function visibleText({font,controlSelector}:{font:boolean;controlSelector
   if(examined+value.length>60_000){warnings.push('Visible DOM text limit reached; observation is incomplete.');break;}
   examined+=value.length;
   let text='',bounds:TextRegion['bbox']|undefined,partial=false;
+  const fragments:TextRegion['bbox'][]=[];
+  let fragmentOpen=false;
   for(let i=0;i<value.length;){
    const length=String.fromCodePoint(value.codePointAt(i)!).length;
    range.setStart(node,i);range.setEnd(node,i+length);i+=length;
    const rects=Array.from(range.getClientRects()).filter(r=>r.width&&r.height);
    if(rects.length&&rects.every(r=>helpers.visible(r,el,ancestors))){
     text+=value.slice(i-length,i);
-    for(const r of rects)bounds=bounds?helpers.union(bounds,helpers.box(r)):helpers.box(r);
-   }else{if(value.slice(i-length,i).trim())partial=true;if(text&&!text.endsWith(' '))text+=' ';}
+    for(const r of rects){
+     const box=helpers.box(r);
+     bounds=bounds?helpers.union(bounds,box):box;
+     // DOM whitespace is not painted text: images can be visible behind it.
+     if(!value.slice(i-length,i).trim()){fragmentOpen=false;continue;}
+     const last=fragmentOpen?fragments.at(-1):undefined;
+     // Only touch/overlap on the same text line. Never fill image gaps or
+     // join distinct text nodes through a group's outer bounding rectangle.
+     if(last&&last.y0===box.y0&&last.y1===box.y1&&box.x0<=last.x1&&box.x1>=last.x0)fragments[fragments.length-1]=helpers.union(last,box);
+     else fragments.push(box);
+     fragmentOpen=true;
+    }
+   }else{fragmentOpen=false;if(value.slice(i-length,i).trim())partial=true;if(text&&!text.endsWith(' '))text+=' ';}
   }
   text=text.replace(/\s+/g,' ').trim();if(!text||!bounds)continue;
   if(partial&&!warnings.includes('PARTIAL_TEXT'))warnings.push('PARTIAL_TEXT');
@@ -188,8 +201,8 @@ export function visibleText({font,controlSelector}:{font:boolean;controlSelector
   const row=cell?.parentElement?.tagName==='TR'&&table&&cell.closest('table')===table?cell.parentElement:undefined;
   const group=row||ancestors.find(a=>!['inline','contents'].includes(helpers.style(a).display))||el;
   const previous=groups.get(group);
-  if(previous){previous.text+=' '+text;previous.bbox=helpers.union(previous.bbox,bounds);if(font)previous.fontSizePx=Math.max(previous.fontSizePx!,parseFloat(helpers.style(el).fontSize));}
-  else{const region:TextRegion={id:`t${regions.length+1}`,source:'dom',text,bbox:bounds,...(font?{fontSizePx:parseFloat(helpers.style(el).fontSize)}:{})};groups.set(group,region);regionElements.set(region,group);regions.push(region);}
+  if(previous){previous.text+=' '+text;previous.bbox=helpers.union(previous.bbox,bounds);previous.fragments!.push(...fragments);if(font)previous.fontSizePx=Math.max(previous.fontSizePx!,parseFloat(helpers.style(el).fontSize));}
+  else{const region:TextRegion={id:`t${regions.length+1}`,source:'dom',text,bbox:bounds,fragments,...(font?{fontSizePx:parseFloat(helpers.style(el).fontSize)}:{})};groups.set(group,region);regionElements.set(region,group);regions.push(region);}
   const heading=el.closest('h1,h2,h3,h4,h5,h6');
   if(heading){const parts=headingParts.get(heading)||[];parts.push(text);headingParts.set(heading,parts);}
   if(el.closest('h1'))title+=(title?' ':'')+text;
