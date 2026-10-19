@@ -34,13 +34,13 @@ export class ImageJudgmentMemory{
   }
   return questions;
  }
- accept(body:ChoiceAnswers,questions:Record<string,ChoiceQuestion>,source:ImageSource,targets:VisibleImageTarget[]){
+ accept(body:ChoiceAnswers,questions:Record<string,ChoiceQuestion>,source:ImageSource,targets:VisibleImageTarget[],readingModel=body.model){
   if(this.accepted.has(source.id))return;
   // Validate everything before committing any observation.
   const answers=Object.fromEntries(Object.entries(questions).map(([id,q])=>[id,validateChoice(body.answers[id],q.criteria)]));
   for(const [i,r] of this.requirements.entries()){
    const assessment=answers[`image_check_${i}`].choice as CheckStatus;
-   r.records.push({assessment,source:structuredClone(source),model:body.model});
+   r.records.push({assessment,source:structuredClone(source),model:readingModel});
    if(assessment!=='not_shown'||r.records.length===1)r.status=assessment;
   }
   for(const t of targets)this.routes.set(t.targetId,{targetId:t.targetId,assessment:answers[`image_route_${t.targetId}`].choice as RouteStatus,source:structuredClone(source),model:body.model});

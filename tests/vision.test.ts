@@ -13,12 +13,15 @@ for(const proof of [false,true])test(`local image judgment memory is wired into 
  const original=globalThis.fetch,key=process.env.AI_GATEWAY_API_KEY;process.env.AI_GATEWAY_API_KEY='LOCAL_TEST_ONLY';let receivedMemory=false;
  globalThis.fetch=async(_url,init)=>{
   const body=JSON.parse(String(init?.body)),c=body.state.context;
-  assert.equal(c.observationMode,'image-only');assert.ok(c.imageJudgments);assert.ok(!JSON.stringify(body).includes('DOM_SENTINEL'));
+  const reading=!!body.questions.image_check_0;
+  assert.equal(c.observationMode,'image-only');assert.ok(!JSON.stringify(body).includes('DOM_SENTINEL'));
+  if(reading){assert.equal(c.imageJudgments,undefined);assert.equal(c.history,undefined);assert.ok(Object.keys(body.questions).every(id=>id.startsWith('image_check_')));}
+  else assert.ok(c.imageJudgments);
   assert.equal(Object.keys(body.assets).length,1);
   if(proof&&body.questions.completionCoverage){assert.equal(body.state.observations.length,1);assert.ok(body.assets[body.state.observations[0].screenshot]);}
-  if(c.history.length)receivedMemory=c.imageJudgments.requirements[0].records.length>0;
+  if(c.history?.length)receivedMemory=c.imageJudgments.requirements[0].records.length>0;
   return Response.json({model:'TEST',answers:Object.fromEntries(Object.entries(body.questions).map(([id,q]:[string,any])=>{
-   const choice=id==='image_check_0'?(c.history.length?'observed':'not_shown'):id==='completionCoverage'?'complete':id==='completionBoundary'?'closed':c.history.length?'done':'e1';
+   const choice=id==='image_check_0'?(body.state.observations[0].step>1?'observed':'not_shown'):id==='completionCoverage'?'complete':id==='completionBoundary'?'closed':c.history.length?'done':'e1';
    return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,Number(k===choice)]))}];
   }))});
  };
@@ -28,6 +31,7 @@ for(const proof of [false,true])test(`local image judgment memory is wired into 
   const result=await run(page,async()=>{throw new Error('Text decider used');},{variant:'good',goal:'notifications',font:false,maxActions:0,dir,baseURL:'http://fixture.test',repeat:1,fake:true,pom:'auto',success:'jev',vision:true,imageOnly:true,imageMemory:true,imageMemoryProof:proof},undefined,jevVisualDecide);
   assert.equal(result.reason,'JEV_DONE');assert.equal(result.actionCount,1);assert.equal(receivedMemory,true);assert.equal(result.completionAudit.status,'NOT_RUN');
   assert.equal(result.steps[1].decision.completionCheck.evidenceGuard.supported,true);
+  assert.equal(result.steps[1].visualContext.requests.filter((r:any)=>r.stage==='image-check').length,2);
   if(proof)assert.equal(result.steps[1].visualContext.requests.at(-1).completionProof.imageCount,1);
  }finally{await browser.close();await rm(dir,{recursive:true,force:true});globalThis.fetch=original;if(key===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=key;}
 });

@@ -34,8 +34,8 @@ for(const boundary of ['closed','open','uncertain','missing'] as const)test(`com
   assert.equal(result.action.type,boundary==='closed'?'done':'scroll');
   assert.equal(result.completionCheck?.assessment,'complete','retain the original coarse model verdict');
   assert.equal(result.completionCheck?.evidenceGuard?.supported,boundary==='closed');
-  assert.equal(requests.length,2,'the boundary check shares the existing completion request');
-  assert.ok(requests[1].questions.completionBoundary);
+  assert.equal(requests.length,3,'one isolated read, one action, and one completion including the boundary check');
+  assert.ok(requests[2].questions.completionBoundary);
   assert.equal(Object.keys(requests[0].assets).length,1);
   assert.ok(!JSON.stringify(requests).includes('DOM_SENTINEL'));
   assert.equal(context.snapshot().requests.at(-1)?.answers?.completionCoverage.choice,'complete');
@@ -82,9 +82,10 @@ for(const failure of ['none','changed','missing','path'] as const)test(`completi
    await context.evaluate(state,next);
   }
   assert.deepEqual(loaded,[],'action selection must not load old pixels');
+  const beforeProof=requests.length;
   if(failure!=='none'){
    await assert.rejects(()=>context.evaluate(state,complete));
-   assert.equal(requests.length,3,'invalid proof must not reach inference');
+   assert.equal(requests.length,beforeProof,'invalid proof must not reach inference');
    const record=context.snapshot().requests.at(-1)!;assert.equal(record.status,'error');
    assert.ok(!JSON.stringify(record).includes('PRIVATE_PATH'));
    assert.equal(record.completionProof?.status,'error');return;

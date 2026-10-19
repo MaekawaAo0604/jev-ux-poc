@@ -116,7 +116,8 @@ test('image judgments survive later frames with provenance, remote route relevan
  const requests:any[]=[];let phase=1;
  globalThis.fetch=async(_url,init)=>{
   const body=JSON.parse(String(init?.body));requests.push(body);
-  assert.ok(body.questions.image_check_0,'the actual wire request must ask image-grounded questions');
+  assert.ok(body.questions.image_check_0||body.questions.nextAction,'reading and navigation use separate wire requests');
+  assert.ok(!(body.questions.image_check_0&&body.questions.nextAction));
   return Response.json({model:'TEST',answers:Object.fromEntries(Object.entries(body.questions).map(([id,q]:[string,any])=>{
    const choice=id==='image_check_0'?(phase===1?'observed':phase===3?'contradicted':'not_shown'):id==='image_check_1'?(phase===2?'observed':'not_shown'):id.startsWith('image_route_')?'promising':id==='nextAction'?'e1':'complete';
    return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,Number(k===choice)]))}];
@@ -131,7 +132,8 @@ test('image judgments survive later frames with provenance, remote route relevan
    await context.evaluate({goal,currentDate:'2026-10-18',screen,history:[{observedText:['DOM_SENTINEL']}]},question);
    if(phase===2)assert.equal(context.completionEvidence().supported,true);
   }
-  const previous=requests[1].state.context.imageJudgments;
+  assert.equal(requests.length,6);
+  const previous=requests.filter(r=>r.questions.nextAction)[1].state.context.imageJudgments;
   assert.equal(previous.requirements[0].status,'observed');assert.equal(previous.requirements[1].status,'not_shown');
   const previousSource=previous.sources[previous.requirements[0].records[0].source.reference];
   assert.equal(previousSource.step,1);
@@ -143,7 +145,7 @@ test('image judgments survive later frames with provenance, remote route relevan
   assert.equal(snapshot.routes[0].source.step,1,'offscreen target must not be reclassified from an unrelated current image');
   for(let i=0;i<requests.length;i++){
    const body=requests[i];assert.ok(!JSON.stringify(body.state).includes('DOM_SENTINEL'));assert.ok(!JSON.stringify(body.questions).includes('DOM_SENTINEL'));
-   assert.equal(Object.keys(body.assets).length,1);assert.equal((Object.values(body.assets)[0] as any).data_base64,Buffer.from(`image-${i+1}`).toString('base64'));
+   assert.equal(Object.keys(body.assets).length,1);assert.equal((Object.values(body.assets)[0] as any).data_base64,Buffer.from(`image-${Math.floor(i/2)+1}`).toString('base64'));
   }
  }finally{await context.close();globalThis.fetch=original;if(key===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=key;}
 });

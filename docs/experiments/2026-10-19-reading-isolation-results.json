@@ -1,0 +1,156 @@
+{
+  "root": "E:\\ChatGPT\\Ux_test\\reports\\reading-isolation-review-2026-10-19T13-06-35.746Z",
+  "sources": [
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\reading-isolation-2026-10-19T13-04-04.431Z\\benchmark.json",
+      "sha256": "a1c4f938ea531a9c5215eca12ad89460d527fc857850cebb3f28b038a87edbe2"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\scope-isolation-2026-10-19T13-04-16.638Z\\scope.json",
+      "sha256": "b56823efbb1a95b59111b4b0d6dbdb78262a0b3885731683bb7b417163b0eaf5"
+    }
+  ],
+  "publicSource": {
+    "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T12-27-16.233Z-public\\exploration\\result.json",
+    "sha256": "3ebd17f2a2326ef667c8a6ff0a9e7843d591d0686fd486802630b53a92778032"
+  },
+  "codeHashes": [
+    {
+      "file": "jev/visual-context.ts",
+      "sha256": "f4532fb39026b639e738778a821117ec25d7d7c47bc6838174a1796df85b1ef7"
+    },
+    {
+      "file": "jev/image-judgments.ts",
+      "sha256": "8b88d6cc1e46cd72893bbfa2acd5447c83ce94ef75166da980edecc355bb2d54"
+    },
+    {
+      "file": "jev/image-only-input.ts",
+      "sha256": "ecf08a79577cc32e722091e4ce0a26a3209a8f088b1fe44bb34b4925acad1d50"
+    }
+  ],
+  "groups": [
+    {
+      "step": 25,
+      "mode": "joint",
+      "valid": 5,
+      "observed": 5,
+      "matches": 0,
+      "medianInferenceMs": 746.1707999999999,
+      "apiCalls": 5
+    },
+    {
+      "step": 25,
+      "mode": "isolated",
+      "valid": 5,
+      "observed": 0,
+      "matches": 5,
+      "medianInferenceMs": 1341.451799999999,
+      "apiCalls": 10
+    },
+    {
+      "step": 6,
+      "mode": "joint",
+      "valid": 5,
+      "observed": 5,
+      "matches": 5,
+      "medianInferenceMs": 779.6674999999996,
+      "apiCalls": 5
+    },
+    {
+      "step": 6,
+      "mode": "isolated",
+      "valid": 5,
+      "observed": 5,
+      "matches": 5,
+      "medianInferenceMs": 1316.586800000001,
+      "apiCalls": 10
+    },
+    {
+      "step": 3,
+      "mode": "joint",
+      "valid": 5,
+      "observed": 0,
+      "matches": 5,
+      "medianInferenceMs": 804.0491999999977,
+      "apiCalls": 5
+    },
+    {
+      "step": 3,
+      "mode": "isolated",
+      "valid": 5,
+      "observed": 0,
+      "matches": 5,
+      "medianInferenceMs": 1345.0274999999965,
+      "apiCalls": 10
+    }
+  ],
+  "localChecks": [
+    {
+      "mode": "same",
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T13-04-18.112Z-public\\exploration\\result.json",
+      "sha256": "47bff58f8b50e3e08be4d106ef6aa48cd9487ec8b6aecec8b1e378b42bad6408",
+      "reason": "JEV_DONE",
+      "actions": 1,
+      "readingCalls": 2,
+      "answerGETs": 1,
+      "objectiveSuccess": null
+    },
+    {
+      "mode": "cross",
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T13-04-29.073Z-public\\exploration\\result.json",
+      "sha256": "ba90506d04a22e7747c9ae59aa14b7c80dec46ec0449074f79b33ca8b5f58cd8",
+      "reason": "STUCK",
+      "actions": 0,
+      "readingCalls": 1,
+      "answerGETs": 0,
+      "objectiveSuccess": null
+    },
+    {
+      "mode": "cross",
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T13-04-35.831Z-public\\exploration\\result.json",
+      "sha256": "adbfa165b1928514fc4ea295d11955b807b633cf26c748417ab893290ed5aa0e",
+      "reason": "STUCK",
+      "actions": 0,
+      "readingCalls": 1,
+      "answerGETs": 0,
+      "objectiveSuccess": null
+    },
+    {
+      "mode": "same",
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T13-04-42.939Z-public\\exploration\\result.json",
+      "sha256": "716be65368416d97dffc99adf27767a01f5f36f285a4d4cc572b14af76e62da0",
+      "reason": "JEV_DONE",
+      "actions": 1,
+      "readingCalls": 2,
+      "answerGETs": 1,
+      "objectiveSuccess": null
+    },
+    {
+      "mode": "direct-answer",
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T13-04-53.509Z-public\\exploration\\result.json",
+      "sha256": "6f4b64871e010e2fa7d02418ca1519bf63ad42f059d6ea8854b70560c92c31d4",
+      "reason": "JEV_DONE",
+      "actions": 0,
+      "readingCalls": 1,
+      "answerGETs": 1,
+      "objectiveSuccess": null
+    }
+  ],
+  "sourceFilesUnchanged": true,
+  "objectiveVerified": false,
+  "qa": {
+    "http": 200,
+    "images": 15,
+    "localLinks": 40,
+    "pageErrors": [],
+    "externalRequests": [],
+    "mobileOverflow": false
+  },
+  "limits": [
+    "Three fixed English screenshots with one Japanese Goal; five repeats per condition, not population accuracy.",
+    "Only the repair fragment was scored; password-recovery accuracy and whole-Goal completion were not measured.",
+    "New mode uses production VisualDecisionContext; old mode reconstructs its previous joint request.",
+    "Serial paired inference timing excludes local trace replay and is not end-to-end exploration latency.",
+    "No new public-site exploration; five owned-loopback live CLI runs check wiring and scope only."
+  ]
+}

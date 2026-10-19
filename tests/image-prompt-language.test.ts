@@ -26,14 +26,14 @@ test('image-only model boundary uses English guidance across actions, image chec
   await context.evaluate(state,{completionCoverage:{type:'choice',instructions:'DOM_SENTINEL',criteria:{complete:'完了',incomplete:'未完了',uncertain:'不明'}}});
   await context.evaluate({...state,targets:{f1:{kind:'click',travelSteps:1,pageId:'PRIVATE_PAGE',label:'DOM_SENTINEL'}}},
    {nextAction:{type:'choice',instructions:'DOM_SENTINEL',criteria:{f1:'DOM_SENTINEL',stuck:'停止'}}});
-  assert.equal(requests.length,3);
-  assert.deepEqual(Object.keys(requests[0].questions.nextAction.criteria),['e1','back','scroll_up','scroll_down','done','stuck']);
+  assert.equal(requests.length,5);
+  assert.deepEqual(Object.keys(requests[1].questions.nextAction.criteria),['e1','back','scroll_up','scroll_down','done','stuck']);
   assert.deepEqual(Object.keys(requests[0].questions.image_check_0.criteria),['observed','not_shown','context','contradicted','uncertain']);
-  assert.deepEqual(Object.keys(requests[0].questions.image_route_f1.criteria),['promising','unrelated','uncertain']);
-  assert.deepEqual(Object.keys(requests[1].questions.completionCoverage.criteria),['complete','incomplete','uncertain']);
-  assert.deepEqual(Object.keys(requests[1].questions.completionBoundary.criteria),['closed','open','uncertain']);
-  assert.deepEqual(Object.keys(requests[2].questions.nextAction.criteria),['f1','stuck']);
-  assert.equal(Object.keys(requests[0].assets).length,1);assert.equal(Object.keys(requests[1].assets).length,2);assert.equal(Object.keys(requests[2].assets).length,1);
+  assert.deepEqual(Object.keys(requests[1].questions.image_route_f1.criteria),['promising','unrelated','uncertain']);
+  assert.deepEqual(Object.keys(requests[2].questions.completionCoverage.criteria),['complete','incomplete','uncertain']);
+  assert.deepEqual(Object.keys(requests[2].questions.completionBoundary.criteria),['closed','open','uncertain']);
+  assert.deepEqual(Object.keys(requests[4].questions.nextAction.criteria),['f1','stuck']);
+  assert.deepEqual(requests.map(r=>Object.keys(r.assets).length),[1,1,2,1,1]);
   assert.equal(context.completionEvidence().supported,true);
   for(const body of requests){
    assert.equal(body.state.context.goal,goal);assert.doesNotMatch(JSON.stringify(body),/DOM_SENTINEL|PRIVATE_PAGE/);
@@ -46,6 +46,6 @@ test('image-only model boundary uses English guidance across actions, image chec
    for(const assetId of Object.keys(body.assets))assert.ok(!JSON.stringify(body.questions).includes(assetId),'opaque image IDs must not collide with words in prompts');
   }
   assert.ok(requests[0].questions.image_check_0.instructions.includes(fragments[0]));
-  assert.deepEqual(requests[2].state.context.history,[{step:1,pageId:'p1',action:{type:'click',elementId:'e1'},result:'executed'}]);
+  assert.deepEqual(requests[4].state.context.history,[{step:1,pageId:'p1',action:{type:'click',elementId:'e1'},result:'executed'}]);
  }finally{await context.close();globalThis.fetch=original;if(key===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=key;}
 });
