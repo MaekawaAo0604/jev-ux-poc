@@ -32,7 +32,7 @@ export async function readVisualImage(dir:string,observation:VisualObservation):
 }
 const relevanceCriteria={related:'There is specific information, an action result, or a display of inability to achieve the Goal.',unrelated:'There are only entry points, generic headings, or unrelated displays, with no concrete information about the Goal.',uncertain:'Relevant content cannot be read or judged from the image.'};
 const evidenceCriteria={relevant:'This image contains specific information or results supporting achievement of the Goal.',irrelevant:'This does not support achievement of the Goal.',uncertain:'Whether this can be used as evidence cannot be determined.'};
-const defaultEvaluate:VisualEvaluator=(state,questions,images)=>evaluateChoices(state,questions,{maxAttempts:3,maxElapsedMs:30000,retryDelaysMs:[1000,2000]},{images});
+const defaultEvaluate:VisualEvaluator=(state,questions,images)=>evaluateChoices(state,questions,{maxAttempts:3,maxElapsedMs:30000,retryDelaysMs:[1000,2000]},{images,recoverContextLimit:true});
 
 /** Audit saved observations after any termination; never change exploration or its verdict. */
 export async function recordVisualCompletion(goal:string,currentDate:string,dir:string,observations:VisualObservation[],evaluate:VisualEvaluator=defaultEvaluate):Promise<VisualCompletionAudit>{
