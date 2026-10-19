@@ -2,6 +2,7 @@ import {chromium} from 'playwright';
 import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {join,resolve} from 'node:path';
 import {PublicSitePage} from '../pages/PublicSitePage.js';
+import {publicControl} from '../pages/controls.js';
 import {jevDecide} from '../jev/decide.js';
 import {recordCompletion} from '../jev/completion.js';
 import {evaluateChoices,createBudgetedEvaluator,ChoiceRequestError,InferenceInterruption,type ChoiceEvaluator,type RetryPolicy} from '../jev/client.js';
@@ -51,6 +52,12 @@ const warnings:string[]=[];
 await context.route('**/*',async route=>{
  const request=route.request();
  if(boundary){await navigation.release();return route.abort();}
+ // Authentication is outside read-only exploration even when a page script,
+ // image or prefetch initiates it rather than an offered navigation link.
+ const destination=publicControl(request.url(),new URL(request.url()).origin);
+ if(destination.kind==='blocked'&&destination.reason==='SAFETY_BOUNDARY'){
+  boundary='SAFETY_BOUNDARY';await navigation.release();return route.abort();
+ }
  // Embedded frames are outside the POM's observation scope. Block them without
  // treating an unrelated widget as a failed top-level user navigation.
  if(request.isNavigationRequest()&&request.frame().parentFrame()){
@@ -80,7 +87,23 @@ await context.route('**/*',async route=>{
   }catch(error){const message=error instanceof Error?error.message:'';boundary=boundary||(['UNSUPPORTED_CONTENT','SAFETY_BOUNDARY'].find(code=>message.includes(code)))||'PAGE_ERROR';await navigation.release();await route.abort().catch(()=>{});}
   return;
  }
- return route.continue();
+ // Chromium may follow subresource HTTP redirects without routing the next
+ // hop. Fetch once without redirects/retries and reuse the response instead.
+ // Redirected resources are outside this conservative observation scope.
+ try{
+  const response=await route.fetch({maxRedirects:0,maxRetries:0,timeout:15000});
+  try{
+   if(response.status()>=300&&response.status()<400&&response.status()!==304){
+    boundary='SAFETY_BOUNDARY';
+    if(!warnings.includes('Redirected page resources were blocked and are not evaluated.'))warnings.push('Redirected page resources were blocked and are not evaluated.');
+    await navigation.release();return route.abort();
+   }
+   if(boundary)return route.abort();
+   return await route.fulfill({response});
+  }finally{await response.dispose();}
+ }catch{
+  boundary=boundary||'PAGE_ERROR';await navigation.release();await route.abort().catch(()=>{});
+ }
 });
 page.on('response',response=>{
  if(response.request().isNavigationRequest()&&response.frame()===page.mainFrame()){

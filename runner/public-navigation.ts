@@ -1,5 +1,6 @@
 import type {APIResponse,BrowserContext} from 'playwright';
 import {setTimeout as delay} from 'node:timers/promises';
+import {publicControl} from '../pages/controls.js';
 
 // Match known transport signatures, but never persist arbitrary messages/URLs.
 export function navigationFailureCategory(error:unknown){
@@ -31,9 +32,10 @@ export function publicNavigation(context:BrowserContext,origin:string,headers:Re
    let current=input,retryUsed=false;const visited=new Set<string>();
    for(let hop=0;hop<=3;hop++){
     if(!clientWindow||generation!==expectedGeneration)throw new Error('SAFETY_BOUNDARY: navigation window closed');
-    const url=new URL(current),fragment=url.hash;url.hash='';
-    if(!['http:','https:'].includes(url.protocol)||url.origin!==origin||url.username||url.password)throw new Error('SAFETY_BOUNDARY: redirect outside permitted origin');
-    if(/\.(pdf|zip|exe|docx?|xlsx?)$/i.test(url.pathname))throw new Error('UNSUPPORTED_CONTENT: file navigation');
+    const url=new URL(current),fragment=url.hash;
+    const control=publicControl(url.href,origin);
+    if(control.kind==='blocked')throw new Error(`${control.reason}: destination outside read-only navigation policy`);
+    url.hash='';
     if(visited.has(url.href))throw new Error('SAFETY_BOUNDARY: redirect loop');
     visited.add(url.href);
     let response:APIResponse;

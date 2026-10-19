@@ -121,7 +121,11 @@ export class PublicSitePage extends AutoPage {
   async navigateTo(url:string){
     try{
       this.assertSafe();
+      const origin=new URL(url).origin,control=publicControl(url,origin);
+      if(control.kind==='blocked')throw new Error(`${control.reason}: destination outside read-only navigation policy`);
       const destination=await this.resolveNavigation(url);
+      const resolved=publicControl(destination,origin);
+      if(resolved.kind==='blocked')throw new Error(`${resolved.reason}: resolved destination outside read-only navigation policy`);
       this.pendingNavigation={url:documentURL(destination)};
       // A committed response identifies a new document, unlike a matching
       // framenavigated URL, which also accepts same-document pushState.
