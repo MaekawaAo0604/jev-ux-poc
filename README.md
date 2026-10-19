@@ -2,7 +2,27 @@
 
 ユーザーの目的・現在見えるUI・操作履歴からJevが次の操作を選ぶ、ローカル専用PoCです。Good/Bad UI × 文字サイズ情報なし/あり × 2 Goalを実行します。
 
-## 起動
+## スマホから見る公開資料
+
+公開資料は https://maekawaao0604.github.io/jev-ux-poc/ で配信します。
+サービス概要と匿名化した検証サマリーだけを掲載し、詳細ログ、認証情報、第三者サイトの画像は載せません。
+探索の実行や生のレポート閲覧は、引き続きローカルで行います。
+
+```powershell
+npx tsx --test tests/public-pages.test.ts
+npm run build:pages
+```
+
+`public-site/` の指定した 5 ファイルだけを `.cache/public-pages/` に出力します。
+ファイルを追加するだけでは公開対象は増えません。追加時はビルダーと検査を見直してください。
+`reports/`、`docs/`、Vite のビルド結果はアップロードしません。
+出力先に想定外のファイルやリンクがある場合は、削除せずにビルドを拒否します。
+
+GitHub Actions の `Publish public documents` が `fix/sufficiency-voting` と `master` の公開用ソース変更時に配信します。
+既定ブランチの変更やマージは行いません。統合後はワークフローの配信ブランチを整理してください。
+公開文面の更新は `public-site/` で行い、元の診断記録をそのままコピーしないでください。
+
+## ローカル環境
 
 Node.js 22以上を使用します。
 
