@@ -151,6 +151,43 @@ left open is whether image-grounded route meaning survives the transition from
 the current-image choice to selection of a remote, anonymous frontier. Inspect
 that boundary before adding more generic history or asserting a site UX defect.
 
-A single unchanged-production run with the same Goal is the next repeatability
-check. Any outcome of that run must be labeled a baseline replicate, not an
-improvement caused by this rejected candidate.
+## Unchanged-production baseline replicate
+
+One additional run used the same literal Goal, URL, model and production flags:
+
+```sh
+npx tsx runner/public-site.ts URL GOAL --reviewed --vision --image-only --image-memory --image-memory-proof --max-actions 0 --interval-ms 2000
+```
+
+The URL and Goal are retained in the local source/result files, not replaced with
+an answer route. No candidate progress context or guidance was installed.
+
+- Result: `JEV_DONE`, 37 executed actions, 38 decision frames, 162.482 seconds
+  before the retrospective audit. The prior run was `STUCK`, 29 actions,
+  143.058 seconds. The paths differ substantially; this is not a speedup.
+- The runner finally returned to home at step 34. Steps 35, 36 and 37 scrolled
+  from home top 0 to 700, 1400 and 2100. Step 38 ended exploration.
+- Manual inspection of saved v37 and v38 confirms the factory-tour row with its
+  price/duration and the weekend/holiday consultation statement. No reservation
+  or contact was submitted. This is task-specific evidence, not an objective UX
+  quality score or a claim that humans explore identically.
+- The final completion check accepted two hash-verified source images (v38/v37).
+  The separate existing retrospective audit also returned `RECORDED/supported`
+  in 35.957 seconds. The online check participates in the completion decision;
+  only the retrospective audit is post hoc and cannot alter the termination.
+- The public runner still reports `objectiveSuccess: null` and `UNVERIFIED`.
+  Do not silently promote a model verdict into an objective success metric.
+
+Local report: `reports/2026-10-19T05-00-34.481Z-public/index.html`.
+Result SHA-256:
+`651ddb196468f3fc292307fbb4144695139d9129c2adcea3210b7b0268512804`.
+
+Report QA checked HTTP 200, 117 local references, both completion source hashes,
+no browser page errors and no horizontal overflow at 390px. Result bytes were
+unchanged by QA. The temporary local-report browser was closed.
+
+This successful baseline replicate does not reverse the rejection of the
+candidate. It demonstrates route variability under the unchanged implementation;
+it cannot establish the candidate's efficacy, a success rate or a general site
+UX conclusion. Investigate the current-image/remote-frontier boundary next,
+using repeated end-to-end comparisons before making a product claim.
