@@ -44,11 +44,98 @@ test('image-only reports distinguish private DOM logs from model inputs and do n
 });
 
 test('readable negative outcomes stay UX observations while unreadability and audit errors are qualified separately',()=>{
- const base={reason:'STUCK',visualCompletionAudit:{status:'RECORDED',assessment:'insufficient',warnings:[],screens:[{readability:'readable'}]}};
+ const base={reason:'STUCK',steps:[step(1,'案内','https://example.test/','STUCK','stuck')],visualCompletionAudit:{status:'RECORDED',assessment:'insufficient',warnings:[],screens:[{readability:'readable'}]}};
  assert.equal(measurementForRun(base),'ux');
  assert.equal(measurementForRun({...base,visualCompletionAudit:{...base.visualCompletionAudit,screens:[{readability:'unreadable'}]}}),'instrument');
  assert.equal(measurementForRun({...base,visualCompletionAudit:{...base.visualCompletionAudit,status:'ERROR'}}),'instrument');
  assert.equal(measurementForRun({...base,visualCompletionAudit:{...base.visualCompletionAudit,assessment:'uncertain',warnings:['NO_EVIDENCE_SELECTED']}}),'unknown');
+});
+
+const stoppedAfterReselection=()=>({number:23,url:'https://example.test/',result:'STUCK',
+ state:{screen:{title:'FAQ',text:[],elements:[]}},candidates:{scroll_up:{label:'上にスクロール'}},
+ decision:{choice:'stuck',action:{type:'stuck'},recovery:{initialDecision:{choice:'scroll_up',action:{type:'scroll',direction:'up'}},requests:[{model:'TEST'}]}},
+ loopAvoidance:{excludedChoices:['e3']},
+});
+test('a route-reselection stop is not reported as inability to choose the initial action',async()=>{
+ const run={reason:'STUCK',steps:[stoppedAfterReselection()]};
+ assert.equal(measurementForRun(run),'unknown');
+ const html=await renderFixture(run);
+ assert.match(html,/別ルート再選択で停止/);
+ assert.match(html,/再選択前：上にスクロール/);
+ assert.match(html,/再選択後：stuck/);
+ assert.match(html,/再選択のモデル呼出し：1/);
+ assert.match(html,/元の終了理由：STUCK/);
+ assert.doesNotMatch(html,/Jevが次の操作を選べず終了しました/);
+ assert.doesNotMatch(html,/data-action-state="executed"/);
+});
+
+test('restricted controls are observations, not proof that scope caused a primary-model stop',async()=>{
+ const s:any=step(1,'Support','https://example.test/','STUCK','stuck');
+ s.state.screen.elements=[{id:'e18',text:'Forum <script>',available:false,unavailableReason:'SAFETY_BOUNDARY'},
+  {id:'e19',text:'Unread label',available:false,unavailableReason:'UNOBSERVABLE_LABEL'}];
+ const run={reason:'STUCK',steps:[s]};
+ assert.equal(measurementForRun(run),'unknown');
+ const html=await renderFixture(run);
+ assert.match(html,/操作選択で停止/);assert.match(html,/探索制限の観測：1 件/);
+ assert.match(html,/Forum &lt;script&gt;/);assert.doesNotMatch(html,/<script>/);
+ assert.match(html,/停止との因果は未確定/);
+ assert.doesNotMatch(html,/探索範囲外で停止/);
+});
+
+test('unrelated blocked links do not turn successful or unqualified primary stops into scope failures',()=>{
+ const s:any=step(1,'Home','https://example.test/','STUCK','stuck');
+ assert.equal(measurementForRun({reason:'STUCK',steps:[s]}),'ux');
+ s.state.screen.elements=[{id:'e1',text:'Other language',available:false,unavailableReason:'SAFETY_BOUNDARY'}];
+ assert.equal(measurementForRun({reason:'JEV_DONE',steps:[s]}),'ux');
+ assert.equal(measurementForRun({reason:'PAGE_ERROR',steps:[s]}),'instrument');
+ assert.equal(measurementForRun({reason:'SAFETY_BOUNDARY',steps:[s]}),'scope');
+ assert.equal(measurementForRun({reason:'STUCK',steps:[s],reliability:{middlewareFailures:1}}),'instrument');
+});
+
+test('legacy STUCK without a matching terminal decision has unknown decision provenance',async()=>{
+ assert.equal(measurementForRun({reason:'STUCK',steps:[]}),'unknown');
+ const html=await renderFixture({reason:'STUCK',steps:[]});
+ assert.match(html,/停止した判断段階：記録なし/);
+ assert.doesNotMatch(html,/Jevが次の操作を選べず終了しました/);
+});
+
+test('a stale action decision is not presented as a model STUCK verdict',async()=>{
+ const s=step(1,'Home','https://example.test/','STUCK','e1');
+ const html=await renderFixture({reason:'STUCK',steps:[s]});
+ assert.match(html,/停止した判断段階：記録なし/);
+ assert.equal(measurementForRun({reason:'STUCK',steps:[s]}),'unknown');
+});
+
+for(const decision of [
+ {choice:'stuck'},
+ {choice:'e1',action:{type:'stuck'}},
+ {choice:'stuck',action:{type:'stuck'},completionCheck:{assessment:'incomplete'}},
+ {choice:'stuck',action:{type:'stuck'},recovery:{initialDecision:{choice:'scroll_up',action:{type:'scroll',direction:'up'}}}},
+])test(`incomplete legacy decisions remain renderable and unqualified: ${JSON.stringify(decision)}`,async()=>{
+ const s:any=step(1,'Home','https://example.test/','STUCK','stuck');s.decision=decision;
+ assert.equal(measurementForRun({reason:'STUCK',steps:[s]}),'unknown');
+ const html=await renderFixture({reason:'STUCK',steps:[s]});
+ assert.match(html,/停止した判断段階：記録なし/);
+});
+
+test('missing recovery request records are not displayed as zero model calls',async()=>{
+ const s:any=stoppedAfterReselection();delete s.decision.recovery.requests;
+ const html=await renderFixture({reason:'STUCK',steps:[s]});
+ assert.match(html,/再選択のモデル呼出し：記録なし/);
+ assert.doesNotMatch(html,/再選択のモデル呼出し：0/);
+});
+
+test('report summary retains the raw reason and includes separately derived diagnostic facts',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'jev-stop-summary-'));
+ await report(root,[{dir:root,reason:'STUCK',steps:[stoppedAfterReselection()]}]);
+ const [saved]=JSON.parse(await readFile(join(root,'summary.json'),'utf8'));
+ assert.equal(saved.reason,'STUCK');assert.equal(saved.measurement,'unknown');
+ assert.equal(saved.stopAssessment.schemaVersion,1);
+ assert.equal(saved.stopAssessment.terminalDecision.stage,'route-reselection');
+ assert.equal(saved.stopAssessment.terminalDecision.beforeReselection.choice,'scroll_up');
+ assert.equal(saved.stopAssessment.terminalDecision.final.choice,'stuck');
+ assert.deepEqual(saved.stopAssessment.terminalDecision.excludedChoices,['e3']);
+ assert.equal(saved.stopAssessment.attribution,'undetermined');
 });
 
 test('known independent reliability failures cannot count as valid site UX, even with a successful model audit',async()=>{

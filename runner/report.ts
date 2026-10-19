@@ -1,6 +1,7 @@
 import {writeFile,access} from 'node:fs/promises';
 import {join,relative,resolve} from 'node:path';
 import {reportStyle} from './report-style.js';
+import {assessStop} from './stop-assessment.js';
 
 const escape=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 export function probabilityLabels(step:any){
@@ -21,9 +22,10 @@ export function measurementForRun(r:any):MeasurementClass{
  if(r.reliability?.middlewareFailures>0||r.finalCapture?.status==='ERROR')return 'instrument';
  const base=measurementClass(r.reason),audit=r.visualCompletionAudit;
  if(base==='ux'&&imageOnlyRun(r))return 'unknown';
- if(base!=='ux'||!audit)return base;
- if(audit.status==='ERROR'||audit.screens?.some((s:any)=>s.readability==='unreadable'||s.readability==='uncertain'))return 'instrument';
- if(audit.status==='NOT_RUN'||audit.warnings?.includes('NO_EVIDENCE_SELECTED'))return 'unknown';
+ if(base!=='ux')return base;
+ if(audit?.status==='ERROR'||audit?.screens?.some((s:any)=>s.readability==='unreadable'||s.readability==='uncertain'))return 'instrument';
+ if(assessStop(r).uxCaveats.length)return 'unknown';
+ if(audit?.status==='NOT_RUN'||audit?.warnings?.includes('NO_EVIDENCE_SELECTED'))return 'unknown';
  return base;
 }
 const measurementNotes:Partial<Record<MeasurementClass,string>>={
@@ -35,7 +37,7 @@ type Outcome={label:string;kind:string;note:string};
 function outcome(reason:string):Outcome{
   const labels:Record<string,Outcome>={
     SUCCESS:{label:'処理成功',kind:'success',note:'スクリプトの成功条件を満たしました。'},
-    STUCK:{label:'途中停止',kind:'stuck',note:'Jevが次の操作を選べず終了しました。'},
+    STUCK:{label:'途中停止',kind:'stuck',note:'記録された終了理由はSTUCKです。判断段階と探索制限の記録を別に確認してください。'},
     LOOP:{label:'ループで停止',kind:'loop',note:'同じ状態・操作の繰り返しを検知し、実行せず停止しました。'},
     JEV_DONE:{label:'Jevが完了と判断',kind:'unverified',note:'Jevの判断による終了です。処理成功の確認とは区別します。'},
     DONE_WITHOUT_SUCCESS:{label:'未達で完了判断',kind:'unverified',note:'Jevは完了と判断しましたが、成功条件を満たしていません。'},
@@ -82,7 +84,24 @@ function goalOutcomeEvidence(r:any,index:number){
  const labels:Record<string,string>={confirmed:'具体的な情報・結果あり（モデル判断）',conditional:'条件付きの案内・要問い合わせ',not_achieved:'未達の表示を確認（モデル判断）',unconfirmed:'選択画像の観測範囲では未確認',unreadable:'判読・対応関係が不確か',context:'背景・制約というモデル分類'};
  return `<section class="completion-audit goal-outcome">${heading}<p>原文の項目ごとに、終了後に選択画像だけを再評価しました。確認済みでも正確な回答文の抽出・独立検証・Goal全体の達成を保証しません。未確認はサイト全体で情報が存在しないという意味ではありません。</p><ul class="evidence-list">${audit.items.map((item:any)=>`<li data-item-status="${escape(item.status)}"><h3>${escape(item.text)}</h3><p>${escape(labels[item.status]||item.status)}</p>${item.evidence.map((o:any)=>`<a href="#trial-${index}-screen-${o.phase==='final'?'final':encodeURIComponent(String(o.step))}">${o.phase==='final'?'最終画面':`根拠の画面 ${escape(o.step)}`}</a> <span class="evidence-meta">SHA-256 ${escape(o.sha256.slice(0,12))}…</span>`).join(' · ')||'<p class="hint">具体的な根拠画像は選ばれていません。</p>'}</li>`).join('')}</ul>${audit.warnings?.length?'<p class="notice">根拠のない肯定分類を未確認へ戻した項目があります。元の返答はJSONに保存しています。</p>':''}<p class="hint">選択範囲は項目別の最新有効判断の出典と最終画面です。全履歴を網羅した監査ではなく、原文断片の項目分けにも見落としがあり得ます。</p></section>`;
 }
-function completionEvidence(r:any,index:number){return goalOutcomeEvidence(r,index)+imageJudgmentEvidence(r,index)+visualCompletionEvidence(r,index)+domCompletionEvidence(r,index);}
+function completionEvidence(r:any,index:number){return stopDiagnostics(r,index)+goalOutcomeEvidence(r,index)+imageJudgmentEvidence(r,index)+visualCompletionEvidence(r,index)+domCompletionEvidence(r,index);}
+function stopDiagnostics(r:any,index:number){
+ const assessment=assessStop(r),d=assessment.terminalDecision;
+ if(r.reason!=='STUCK'&&!assessment.restrictedControls.length)return '';
+ const labels:Record<string,string>={'action-selection':'操作選択で停止','completion-reselection':'完了照合後の操作選択で停止','route-reselection':'別ルート再選択で停止','recorded-route':'記録済み経路の実行段階','unknown':'停止した判断段階：記録なし'};
+ const actionLabel=(v:NonNullable<typeof d.final>)=>{
+  if(v.action.type==='scroll')return v.action.direction==='up'?'上にスクロール':'下にスクロール';
+  if(v.action.type==='back')return '前の画面に戻る';
+  const step=r.steps?.find((s:any)=>s.number===d.step);
+  return step?.candidates?.[v.choice]?.label||v.choice;
+ };
+ const restrictions=assessment.restrictedControls.map(e=>{
+  const position=r.steps?.findIndex((s:any)=>s.number===e.step);
+  const source=position>=0?`<a href="#trial-${index}-screen-${position+1}">判断 ${escape(e.step)}</a>`:`判断 ${escape(e.step)}`;
+  return `<li>${source} · ${escape(e.text||e.id)} (${escape(e.id)}) · ${escape(e.reason)}</li>`;
+ }).join('');
+ return `<section class="completion-audit stop-assessment"><h2>停止判断と探索制限</h2><p>元の終了理由：${escape(r.reason)}</p>${r.reason==='STUCK'?`<h3>${escape(labels[d.stage])}</h3>${d.beforeReselection?`<p>再選択前：${escape(actionLabel(d.beforeReselection))} (${escape(d.beforeReselection.choice)})</p><p>再選択後：${escape(d.final?.choice)}</p><p>再選択のモデル呼出し：${escape(d.routeRequestCount??'記録なし')}</p><p class="hint">再選択前の操作は実行していません。別ルートの判断を挟んだ事実であり、元の操作なら進めたという証明ではありません。</p>`:''}${d.completionReview?`<p>独立した完了照合：${escape(d.completionReview.assessment)}</p>`:''}${d.excludedChoices.length?`<p>停止時に候補から除外：${d.excludedChoices.map(escape).join('、')}</p>`:''}<p class="hint">サイト・モデル・探索制御のどれが停止原因かは、この記録だけでは確定できません。</p>`:''}<p>探索制限の観測：${assessment.restrictedControls.length} 件（同じ操作の再観測を含む）</p>${restrictions?`<details><summary>制限された操作と出典</summary><ul class="evidence-list">${restrictions}</ul></details><p class="hint">実行不可と判定された操作の記録です。Goalとの関連・遷移先の内容・停止との因果は未確定です。この欄は制限の観測記録であり、遷移先の内容を検証した結果ではありません。</p>`:''}</section>`;
+}
 function domCompletionEvidence(r:any,index:number){
  const audit=r.completionAudit;
  if(!audit||audit.status==='NOT_RUN')return '<p class="hint">完了判断の根拠の記録なし（未実行または旧形式のログ）。</p>';
@@ -185,14 +204,15 @@ async function journey(r:any,dir:string,urlDir:string,index:number){
   return `<div class="journey" tabindex="0" role="region" aria-label="操作経路"><ol class="flow">${nodes.join('')}</ol></div>`;
 }
 export async function report(root:string,results:any[]){
-  await writeFile(join(root,'summary.json'),JSON.stringify(results.map(({steps,...r})=>({...r,explorationMeasurement:measurementClass(r.reason),measurement:measurementForRun(r)})),null,2));
+  results=results.map(r=>({...r,stopAssessment:assessStop(r)}));
+  await writeFile(join(root,'summary.json'),JSON.stringify(results.map(r=>{const {steps,...saved}=r;return {...saved,explorationMeasurement:measurementClass(r.reason),measurement:measurementForRun(r)};}),null,2));
   const cards=await Promise.all(results.map(async(r,index)=>{
     const dir=resolve(r.dir),rel=relative(root,dir).replaceAll('\\','/');
     const urlDir=rel.split('/').map(encodeURIComponent).join('/')||'.',end=outcome(r.reason);
     const seconds=Number.isFinite(r.elapsedMs)?(r.elapsedMs/1000).toFixed(1):'—';
     const stats=`${typeof r.vision==='boolean'?(r.vision?(imageOnlyRun(r)?'画像のみ':'画像 + DOM'):'DOMのみ')+' · ':''}${r.actionCount??0} 操作 · ${r.steps?.length??0} 判断 · ${seconds} 秒`;
     const technical=(r.steps||[]).map((s:any)=>`<section><h3>判断 ${escape(s.number)} · ${escape(s.result)}</h3><p>${escape(s.error||'')}</p>${goalProgress(s,index,r.steps.length)}<pre>${escape(probabilityLabels(s)||'操作の選択確率なし')}</pre><a href="${escape(urlDir)}/step-${encodeURIComponent(String(s.number))}.json">判断時の入力・結果 JSON</a></section>`).join('');
-    const measurement=measurementForRun(r),measurementNote=r.reliability?.middlewareFailures>0?measurementNotes.instrument:imageOnlyRun(r)&&measurement==='unknown'?'過去画像の情報保持を含む画像専用経路の能力は未検証のため、サイトの UX 指標としての利用を保留しています。':r.visualCompletionAudit&&measurementClass(r.reason)==='ux'&&measurement!=='ux'?(measurement==='instrument'?'画像の判読または根拠監査に問題があり、この試行をUXの問題とは断定できません。':'画像監査の返答が整合しない、または監査が未実行のため、UX指標としての利用を保留しています。'):measurementNotes[measurement];
+    const measurement=measurementForRun(r),measurementNote=r.reliability?.middlewareFailures>0?measurementNotes.instrument:measurement==='unknown'&&r.stopAssessment.uxCaveats.length?'別ルート再選択・探索制限・判断記録の不足を確認してください。停止の原因をサイトのUXに帰属できないため、UX指標としての利用を保留しています。':imageOnlyRun(r)&&measurement==='unknown'?'過去画像の情報保持を含む画像専用経路の能力は未検証のため、サイトの UX 指標としての利用を保留しています。':r.visualCompletionAudit&&measurementClass(r.reason)==='ux'&&measurement!=='ux'?(measurement==='instrument'?'画像の判読または根拠監査に問題があり、この試行をUXの問題とは断定できません。':'画像監査の返答が整合しない、または監査が未実行のため、UX指標としての利用を保留しています。'):measurementNotes[measurement];
     return `<details class="run" data-outcome="${end.kind}" data-measurement="${measurement}"${index===0?' open':''}><summary><span class="run-heading"><span class="tag">${escape(String(r.variant||'対象').toUpperCase())} · 文字サイズ情報 ${r.font?'あり':'なし'} · 試行 ${escape(r.repeat??1)}${r.fake?' · FAKE':''}</span><span class="run-title">${escape(r.goalText)}</span><span class="metrics">${escape(stats)}</span></span>${badge(end)}</summary><div class="run-body">${measurementNote?`<p class="notice">${escape(measurementNote)}</p>`:''}<p class="completion">${escape(completionLabel(r))}</p>${evidenceAccounting(r)}${goalProgress(r.steps?.at(-1),index,r.steps?.length||0)}<h2>目的までの操作経路</h2><p class="hint">画面 → 選んだ操作 → 次の画面。画像を押すと拡大表示できます。<span class="hint-scroll"> 長い経路は横にスクロールできます。</span></p>${await journey(r,dir,urlDir,index)}${completionEvidence(r,index)}<details class="technical"><summary>判断の詳細・選択確率を見る</summary><p>確率はJevの出力です。人間の離脱率やUXスコアではありません。画面の再訪は、同一URL・同一観察情報に基づく表示です。</p><a href="${escape(urlDir)}/result.json">試行全体の実行ログ JSON</a>${technical}</details></div></details>`;
   }));
   const counts=[['全試行',results.length],['処理成功',results.filter(r=>r.reason==='SUCCESS').length],['停止・未確認',results.filter(r=>!['success','error'].includes(outcome(r.reason).kind)).length],['実行エラー',results.filter(r=>outcome(r.reason).kind==='error').length],['UX指標として有効',results.filter(r=>measurementForRun(r)==='ux').length]];
