@@ -5,6 +5,67 @@ import {PublicSitePage} from '../pages/PublicSitePage.js';
 import {AutoPage} from '../pages/AutoPage.js';
 import {candidatesFor} from '../jev/types.js';
 import {VisualDecisionContext} from '../jev/visual-context.js';
+import {numberedScreenshot} from '../pages/visual-numbering.js';
+
+test('a first-row badge cannot be painted over a different second-row link',async()=>{
+ const browser=await chromium.launch();
+ try{
+  const page=await browser.newPage({viewport:{width:1440,height:1000}});
+  // Geometry from the failing capture: the old e4 badge covered the kids link e9.
+  const targets=[{id:'e4',x:923.796875,y:13,width:172,height:52},{id:'e9',x:960.921875,y:83,width:229.078125,height:32}];
+  await page.setContent(targets.map(t=>`<a href="#${t.id}" style="position:fixed;left:${t.x}px;top:${t.y}px;width:${t.width}px;height:${t.height}px">${t.id==='e4'?'美術館について':'キッズ・ファミリー'}</a>`).join(''));
+  const before=await page.screenshot(),capture=await numberedScreenshot(page,targets);
+  for(const t of capture.targets)for(const other of targets.filter(o=>o.id!==t.id)){
+   const b=t.badge;
+   assert.ok(b.x+b.width<=other.x||other.x+other.width<=b.x||b.y+b.height<=other.y||other.y+other.height<=b.y,`${t.id} badge covers ${other.id}`);
+  }
+  assert.deepEqual(await page.screenshot(),before);
+  await page.locator('a').last().click();assert.equal(new URL(page.url()).hash,'#e9');
+ }finally{await browser.close();}
+});
+
+test('packed navigation uses its empty control padding instead of remote or text-covering badges',async()=>{
+ const browser=await chromium.launch();
+ try{
+  const page=await browser.newPage({viewport:{width:640,height:480}});
+  await page.setContent('<style>body{margin:0}a{position:fixed;left:100px;width:200px;height:32px;display:flex;align-items:center;padding:0 70px 0 35px;box-sizing:border-box;font:14px sans-serif}</style><a style="top:0" href="#top"><span>利用案内</span></a><a style="top:35px" href="#kids"><span>子ども向け</span></a><a style="top:70px" href="#bottom"><span>作品紹介</span></a>');
+  const targets=[{id:'e1',x:100,y:0,width:200,height:32},{id:'e2',x:100,y:35,width:200,height:32},{id:'e3',x:100,y:70,width:200,height:32}];
+  const texts=await page.locator('a span').evaluateAll(els=>els.map(el=>el.getBoundingClientRect().toJSON()));
+  const capture=await numberedScreenshot(page,targets);
+  for(const t of capture.targets){
+   const b=t.badge;
+   assert.ok(b.x>=t.x&&b.y>=t.y&&b.x+b.width<=t.x+t.width&&b.y+b.height<=t.y+t.height,'empty padding should keep each badge attached to its own row');
+   for(const r of texts)assert.ok(b.x+b.width<=r.x||r.x+r.width<=b.x||b.y+b.height<=r.y||r.y+r.height<=b.y,'site text must remain readable');
+  }
+ }finally{await browser.close();}
+});
+
+test('a full-viewport image link does not prevent numbering a smaller overlaid link',async()=>{
+ const browser=await chromium.launch();
+ try{
+  const page=await browser.newPage({viewport:{width:640,height:480}});
+  await page.setContent('<a href="#background" style="position:fixed;inset:0;background:navy"></a><a href="#front" style="position:fixed;left:100px;top:100px;width:100px;height:60px;background:yellow"></a>');
+  const pom=new AutoPage(page,true),screen=await pom.observe(false),candidates=candidatesFor(screen,false);
+  const capture=await pom.captureDecisionScreenshot(screen,candidates);
+  assert.deepEqual(capture.targets.map(t=>t.id),['e1','e2']);
+  const [background,front]=capture.targets,b=background.badge;
+  assert.ok(b.x+b.width<=front.x||front.x+front.width<=b.x||b.y+b.height<=front.y||front.y+front.height<=b.y);
+  await pom.act(candidates.e2.action);assert.equal(new URL(page.url()).hash,'#front');
+ }finally{await browser.close();}
+});
+
+test('invisible text cannot prevent numbering an otherwise visible image link',async()=>{
+ const browser=await chromium.launch();
+ try{
+  const page=await browser.newPage({viewport:{width:640,height:480}});
+  for(const hidden of ['opacity:0','visibility:hidden','filter:opacity(0)','color:transparent','-webkit-text-fill-color:transparent']){
+   await page.setContent(`<a href="#whole" style="position:fixed;inset:0;background:navy"></a><div style="${hidden};position:fixed;inset:0;pointer-events:none"><span style="display:block;font:640px/480px monospace">XX</span></div>`);
+   const plain=await page.screenshot(),pom=new AutoPage(page,true),screen=await pom.observe(false);
+   const capture=await pom.captureDecisionScreenshot(screen,candidatesFor(screen,false));
+   assert.equal(capture.targets.length,1);assert.deepEqual(await page.screenshot(),plain);
+  }
+ }finally{await browser.close();}
+});
 
 test('default image evaluation sends no OCR questions or remembered OCR text',async()=>{
  const previous=globalThis.fetch,key=process.env.AI_GATEWAY_API_KEY;process.env.AI_GATEWAY_API_KEY='LOCAL_TEST_ONLY';const sent:any[]=[];
