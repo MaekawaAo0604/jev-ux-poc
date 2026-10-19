@@ -16,6 +16,41 @@ function observe(m:ExplorationMemory,name:string,links:Record<string,string>,bac
 const state:State={goal:'Find the answer',currentDate:'2026-10-16',history:[],screen:{title:'Dead end',text:[],elements:[],canScrollUp:false,canScrollDown:false}};
 const response=(questions:any,choice:string)=>({model:'TEST',answers:{nextAction:{choice,probabilities:Object.fromEntries(Object.keys(questions.nextAction.criteria).map(k=>[k,Number(k===choice)]))}}});
 
+test('ambiguous transit commits the judged endpoint instead of the first or nearest endpoint',async()=>{
+ // External choice inference is the only double; selection, mapping and
+ // continued execution all use the real production decision path.
+ for(const reverse of [false,true])for(const distance of [1,2]){
+  const candidates:Record<string,Candidate>={scroll_down:{label:'down',action:{type:'scroll',direction:'down'}},stuck:{label:'stop',action:{type:'stuck'}}};
+  const pairs:[string,import('../jev/frontier-types.js').FrontierTarget][]=[
+   ['f1',{label:'Unrelated room',kind:'click',pageTitle:'',travelSteps:1,nextChoice:'scroll_down'}],
+   ['f2',{label:'Useful FAQ',kind:'click',pageTitle:'',travelSteps:distance,nextChoice:'scroll_down'}],
+  ];
+  const frontier={targets:Object.fromEntries(reverse?[...pairs].reverse():pairs)};let calls=0;
+  const result=await jevDecide(state,candidates,{verifyCompletion:true,preserveTransit:true,frontier},async(input:any,questions)=>{
+   calls++;return response(questions,input.targets?'f2':'scroll_down');
+  });
+  assert.equal(result.frontier?.targetId,'f2');assert.equal(result.choice,'scroll_down');assert.equal(calls,2);
+  assert.equal(result.frontier?.probabilities.f2,1,'the endpoint must have a model judgment, not an enumeration-order assignment');
+  const landed:Record<string,Candidate>={e4:{label:'Room',action:{type:'click',elementId:'e4'}},e10:{label:'FAQ',action:{type:'click',elementId:'e10'}},stuck:candidates.stuck};
+  const next=await jevDecide(state,landed,{verifyCompletion:true,preserveTransit:true,frontier:{targets:{f1:{...pairs[0][1],travelSteps:0,nextChoice:'e4'},f2:{...pairs[1][1],travelSteps:0,nextChoice:'e10'}},continuation:{targetId:result.frontier!.targetId,focus:result.frontier!.focus}}},async(_input,questions)=>response(questions,'e4'));
+  assert.equal(next.choice,'e10');assert.equal(next.frontier?.mode,'continue');
+ }
+});
+
+test('an untried current action is not replaced by arbitrary endpoints sharing that hop',async()=>{
+ const candidates:Record<string,Candidate>={scroll_down:{label:'down',action:{type:'scroll',direction:'down'}},stuck:{label:'stop',action:{type:'stuck'}}};
+ const frontier={targets:{f1:{label:'Room',kind:'click' as const,pageTitle:'',travelSteps:1,nextChoice:'scroll_down'},f2:{label:'FAQ',kind:'click' as const,pageTitle:'',travelSteps:1,nextChoice:'scroll_down'},f3:{label:'New strip',kind:'scroll' as const,direction:'down' as const,pageTitle:'',travelSteps:0,nextChoice:'scroll_down'}}};let calls=0;
+ const decision=await jevDecide(state,candidates,{preserveTransit:true,frontier},async(_input,questions)=>{calls++;return response(questions,'scroll_down');});
+ assert.equal(decision.frontier?.targetId,'f3');assert.equal(calls,1);assert.equal(decision.frontier?.selectionSource,'current-action');
+});
+
+test('ambiguous transit respects a selector stop instead of inventing an endpoint',async()=>{
+ const candidates:Record<string,Candidate>={back:{label:'Back',action:{type:'back'}},stuck:{label:'stop',action:{type:'stuck'}}};
+ const frontier={targets:{f1:{label:'Room',kind:'click' as const,pageTitle:'',travelSteps:1,nextChoice:'back'},f2:{label:'FAQ',kind:'click' as const,pageTitle:'',travelSteps:1,nextChoice:'back'}}};
+ const decision=await jevDecide(state,candidates,{preserveTransit:true,frontier},async(input:any,questions)=>response(questions,input.targets?'stuck':'back'));
+ assert.equal(decision.choice,'stuck');assert.equal(decision.frontier,undefined);
+});
+
 test('an already selected fresh current action is committed without a second selector veto',async()=>{
  for(const [choice,action] of [['down',{type:'scroll',direction:'down'}],['link',{type:'click',elementId:'link'}]] as const){
   const candidates:Record<string,Candidate>={[choice]:{action,label:'Current observed target'},done:{action:{type:'done'},label:'Done'},stuck:{action:{type:'stuck'},label:'Stop'}};

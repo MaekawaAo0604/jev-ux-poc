@@ -102,11 +102,11 @@ export async function jevDecide(state:State,candidates:Record<string,Candidate>,
    const offer=options.frontier,focus=JSON.stringify([state.goal]);
    const continuing=offer.continuation?.focus===focus&&!!offer.targets[offer.continuation.targetId];
    const transit=Object.entries(offer.targets).filter(([,t])=>t.travelSteps>0&&t.nextChoice===initialDecision.choice);
-   if(options.preserveTransit&&!continuing&&['click','scroll','back'].includes(initialDecision.action.type)&&transit.length){
-    // The model selected the first hop, not a semantic remote target. Commit
-    // the nearest observed untried endpoint behind that hop so existing route
-    // continuation cannot wander round the same transit cycle indefinitely.
-    const [targetId,target]=[...transit].sort((a,b)=>a[1].travelSteps-b[1].travelSteps)[0];
+   if(options.preserveTransit&&!continuing&&['click','scroll','back'].includes(initialDecision.action.type)&&transit.length===1){
+    // Preserve an unambiguous first hop without another inference. With more
+    // than one endpoint, a hop is not a destination choice: use the existing
+    // frontier judgment below, never array order or nearest-distance ties.
+    const [targetId,target]=transit[0];
     return {...initialDecision,navigationTransit:{eligibleTargetIds:transit.map(([id])=>id),selectionSource:'current-action'},frontier:{targetId,label:target.label,focus,mode:'select',probabilities:{},selectionSource:'current-transit'}};
    }
    const direct=Object.entries(offer.targets).filter(([,t])=>t.travelSteps===0&&t.nextChoice===initialDecision.choice&&t.kind===initialDecision.action.type&&['click','scroll'].includes(t.kind));
