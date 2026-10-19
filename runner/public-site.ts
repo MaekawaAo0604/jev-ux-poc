@@ -8,7 +8,7 @@ import {evaluateChoices,createBudgetedEvaluator,ChoiceRequestError,InferenceInte
 import {candidatesFor,type State} from '../jev/types.js';
 import {report} from './report.js';
 import {parsePublicOptions} from './public-options.js';
-import {publicNavigation} from './public-navigation.js';
+import {publicNavigation,type NavigationRequestEvent} from './public-navigation.js';
 import {rememberObservation} from '../jev/history.js';
 import {GoalChecksError,GoalDecisionError,pendingGoalChecks} from '../jev/goal-status.js';
 import {createEvidenceSession} from '../jev/evidence-session.js';
@@ -35,10 +35,15 @@ const dir=join(root,'exploration');await mkdir(dir,{recursive:true});
 const browser=await chromium.launch({headless:true});
 const context=await browser.newContext({viewport:{width:1440,height:1000},locale:'ja-JP',acceptDownloads:false,serviceWorkers:'block'});
 const page=await context.newPage();page.setDefaultTimeout(10000);
+const navigationRequests:(NavigationRequestEvent&{step:number|null})[]=[];
 const navigation=publicNavigation(context,origin,{
  'accept-language':'ja-JP',
  accept:'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
  'user-agent':await page.evaluate(()=>navigator.userAgent),
+},event=>{
+ navigationRequests.push({step:activeStep?.number??null,...event});
+ if(activeStep)(activeStep.navigationRequests??=[]).push(event);
+ console.log(`Navigation: ${event.phase} ${event.category} attempt ${event.attempt}`);
 });
 let boundary='';
 const warnings:string[]=[];
@@ -202,7 +207,7 @@ try{
     console.log(`Step ${n}: observation changed; refreshing judgment without replaying actions`);
     if(++consecutiveRefreshes>=3){reason='PAGE_ERROR';step.result=reason;step.error='Observation kept changing during inference recovery.';}
    }else{
-    const code=safety||boundary||(['UNSUPPORTED_CONTENT','SAFETY_BOUNDARY','ACTION_NOOP'].find(code=>message.includes(code)))||(e instanceof GoalChecksError?'GOAL_CONFIG_ERROR':step.decision?'ACTION_ERROR':'DECISION_ERROR');
+    const code=safety||boundary||(['UNSUPPORTED_CONTENT','SAFETY_BOUNDARY','PAGE_ERROR','ACTION_NOOP'].find(code=>message.includes(code)))||(e instanceof GoalChecksError?'GOAL_CONFIG_ERROR':step.decision?'ACTION_ERROR':'DECISION_ERROR');
     const recovery=actionOutcome(code,['ACTION_ERROR','ACTION_NOOP'].includes(code)?++consecutiveActionFailures:1);
     step.result=recovery.result;step.error=message;if(e instanceof ChoiceRequestError){step.request=e.request;step.failure=e.failure;}if(e instanceof GoalChecksError||e instanceof GoalDecisionError)step.goalAssessment=e.goalAssessment;if(e instanceof GoalDecisionError)step.decisionStage=e.stage;
     if(recovery.terminal)reason=recovery.result;
@@ -240,7 +245,7 @@ finally{
  const actionTrace:ActionTrace={schemaVersion:1,goalId:'public',goalText:goal,initialUrl:url,viewport:page.viewportSize()||{width:1440,height:1000},source:'public',fake:false,success:{reason,objectiveSuccess:null,perceivedSuccess:reason==='JEV_DONE'},actions,completedAt:new Date().toISOString(),...(recordingErrors.length?{recordingErrors}:{})};
  await writeFile(join(dir,'action-trace.json'),JSON.stringify(actionTrace,null,2));
  const goalOutcome=imageMemory?await recordGoalOutcome(goal,steps.at(-1)?.state.currentDate||'',dir,steps,finalVisualObservation):undefined;
- const recorded={...result,actionTrace,finalCapture,...(finalVisualObservation?{finalVisualObservation}:{}),...(visualCompletionAudit?{visualCompletionAudit}:{}),...(goalOutcome?{goalOutcome}:{}),...(evidenceSession?{evidenceSession:evidenceSession.snapshot()}:{})};
+ const recorded={...result,navigationRequests,actionTrace,finalCapture,...(finalVisualObservation?{finalVisualObservation}:{}),...(visualCompletionAudit?{visualCompletionAudit}:{}),...(goalOutcome?{goalOutcome}:{}),...(evidenceSession?{evidenceSession:evidenceSession.snapshot()}:{})};
  if(evidenceSession)await writeFile(join(dir,'evidence-session.json'),JSON.stringify(evidenceSession.snapshot(),null,2));
  await writeFile(join(dir,'result.json'),JSON.stringify(recorded,null,2));await report(root,[recorded]);console.log(JSON.stringify({reason,actionCount,finalURL:page.url(),report:join(root,'index.html')}));await browser.close();
 }

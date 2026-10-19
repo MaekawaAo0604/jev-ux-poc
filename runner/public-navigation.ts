@@ -1,4 +1,5 @@
 import type {APIResponse,BrowserContext} from 'playwright';
+import {setTimeout as delay} from 'node:timers/promises';
 
 // Match known transport signatures, but never persist arbitrary messages/URLs.
 export function navigationFailureCategory(error:unknown){
@@ -9,7 +10,7 @@ export function navigationFailureCategory(error:unknown){
  if(/certificate|CERT_|SSL_|TLS_/i.test(signature))return 'TLS_ERROR';
  if(/Timeout|ETIMEDOUT|ERR_TIMED_OUT/i.test(signature))return 'TIMEOUT';
  if(/EACCES|EPERM|ERR_ACCESS_DENIED/i.test(signature))return 'ACCESS_DENIED';
- if(/ECONNRESET|ERR_CONNECTION_RESET/i.test(signature))return 'CONNECTION_RESET';
+ if(/ECONNRESET|ERR_CONNECTION_RESET|socket hang up/i.test(signature))return 'CONNECTION_RESET';
  return 'UNKNOWN';
 }
 
@@ -17,7 +18,9 @@ export function navigationFailureCategory(error:unknown){
  * Browser redirect chains can bypass Playwright routes, so do not let the
  * browser follow them. Navigate once to the vetted final URL with cached HTML.
  */
-export function publicNavigation(context:BrowserContext,origin:string,headers:Record<string,string>){
+export type NavigationRequestEvent={phase:'retry'|'recovered'|'failed';category:ReturnType<typeof navigationFailureCategory>;attempt:number};
+
+export function publicNavigation(context:BrowserContext,origin:string,headers:Record<string,string>,onRequest:(event:NavigationRequestEvent)=>void=()=>{}){
  const prepared=new Map<string,APIResponse>();
  let clientWindow=false,clientHops=0,generation=0;
  const release=async()=>{
@@ -25,7 +28,7 @@ export function publicNavigation(context:BrowserContext,origin:string,headers:Re
   const responses=[...prepared.values()];prepared.clear();await Promise.all(responses.map(r=>r.dispose()));
  };
  const resolveDocument=async(input:string,expectedGeneration:number)=>{
-   let current=input;const visited=new Set<string>();
+   let current=input,retryUsed=false;const visited=new Set<string>();
    for(let hop=0;hop<=3;hop++){
     if(!clientWindow||generation!==expectedGeneration)throw new Error('SAFETY_BOUNDARY: navigation window closed');
     const url=new URL(current),fragment=url.hash;url.hash='';
@@ -34,8 +37,27 @@ export function publicNavigation(context:BrowserContext,origin:string,headers:Re
     if(visited.has(url.href))throw new Error('SAFETY_BOUNDARY: redirect loop');
     visited.add(url.href);
     let response:APIResponse;
-    try{response=await context.request.get(url.href,{maxRedirects:0,timeout:15000,headers});}
-    catch(error){throw new Error(`PAGE_ERROR: navigation request failed (${navigationFailureCategory(error)})`);}
+    for(let attempt=1;;attempt++){
+     if(!clientWindow||generation!==expectedGeneration)throw new Error('SAFETY_BOUNDARY: navigation window closed');
+     try{
+      // A single reset retry belongs to the vetted GET, not to the browser's
+      // exploration graph. No automatic HTTP redirects or hidden SDK retries.
+      response=await context.request.get(url.href,{maxRedirects:0,maxRetries:0,timeout:15000,headers});
+      if(!clientWindow||generation!==expectedGeneration){await response.dispose();throw new Error('SAFETY_BOUNDARY: navigation window closed');}
+      if(attempt>1)onRequest({phase:'recovered',category:'CONNECTION_RESET',attempt});
+      break;
+     }catch(error){
+      if(!clientWindow||generation!==expectedGeneration)throw new Error('SAFETY_BOUNDARY: navigation window closed');
+      const category=navigationFailureCategory(error);
+      // One extra request across this entire HTTP chain, only for a reset.
+      // Status errors, access restrictions and unknown failures are not retried.
+      if(category==='CONNECTION_RESET'&&!retryUsed){
+       retryUsed=true;onRequest({phase:'retry',category,attempt});await delay(1000);continue;
+      }
+      onRequest({phase:'failed',category,attempt});
+      throw new Error(`PAGE_ERROR: navigation request failed (${category}; attempts=${attempt})`);
+     }
+    }
     if(!clientWindow||generation!==expectedGeneration){await response.dispose();throw new Error('SAFETY_BOUNDARY: navigation window closed');}
     if(response.status()>=300&&response.status()<400){
      const location=response.headers().location;await response.dispose();
