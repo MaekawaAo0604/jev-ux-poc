@@ -49,7 +49,7 @@ test('image-only public history records an executed disclosure no-op exactly onc
   const summary=JSON.parse(stdout.trim().split('\n').at(-1)!),result=JSON.parse(await readFile(resolve(summary.report,'../exploration/result.json'),'utf8'));
   assert.equal(result.steps[0].result,'ACTION_NOOP');assert.equal(result.reason,'STUCK');assert.equal(result.actionCount,1);
   const wire=stdout.split('\n').filter(line=>line.startsWith('IMAGE_ONLY_REQUEST ')).map(line=>JSON.parse(line.slice(19)));
-  assert.deepEqual(wire.at(-1).context.history,[{step:1,pageId:'p1',action:{type:'click',elementId:'e1'},result:'no-visible-change'}]);
+  assert.deepEqual(wire.at(-1).context.history,[{step:1,pageId:'p1',viewport:{top:0,bottom:1000,height:1000},action:{type:'click',elementId:'e1'},result:'no-visible-change'}]);
  }finally{await new Promise<void>((r,e)=>server.close(err=>err?e(err):r()));}
 });
 

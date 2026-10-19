@@ -1,6 +1,7 @@
 import {createHash} from 'node:crypto';
 import type {Candidate,Observation,ObservedAlternative} from '../jev/types.js';
 import type {FrontierOffer} from '../jev/frontier-types.js';
+import {observedViewportRanges} from '../jev/navigation-context.js';
 
 type Exclusion='explored'|'transit-route'|'duplicate';
 type Edge={destination?:string};
@@ -125,6 +126,10 @@ export class ExplorationMemory{
     if(!immediate)continue;
     const edge=this.edgeFor(node,key);
     if(edge){const destination=edge.destination&&byId.get(edge.destination);if(destination)queue.push({node:destination,first:immediate,distance:distance+1});continue;}
+    // An unpressed reverse-scroll button is not a new remote destination if
+    // its exposed strip was already observed. Current-image rereading remains
+    // selectable, and known paths to real untried controls are still traversed.
+    if(distance>0&&this.coveredScroll(node,key,current.node.id))continue;
     const candidate=node.controls.get(key);if(!candidate)continue;
     const id=this.targetId(node,key);if(targets[id])continue;
     const action=candidate.action;
@@ -176,6 +181,66 @@ export class ExplorationMemory{
   return navigationKey?this.navigations.get(navigationKey):node.edges.get(key);
  }
 
+ private observedScrollDirection(node:Node,key:string):boolean{
+  const action=node.controls.get(key)?.action;
+  const {pageId,viewport}=node.screen;
+  if(action?.type!=='scroll'||!viewport||!observedViewportRanges(pageId,[node.screen]).length)return false;
+  const peers=[...this.nodes.values()].filter(n=>n.documentUrl===node.documentUrl&&n.screen.pageId===pageId),ranges=observedViewportRanges(pageId,peers.map(n=>n.screen));
+  // The next strip alone is insufficient: a farther gap may still require
+  // traversing observed pixels. Downward exhaustion also needs an observed end.
+  const start=action.direction==='up'?0:viewport.bottom;
+  const end=action.direction==='up'?viewport.top:Math.max(-Infinity,...peers.filter(n=>!n.screen.canScrollDown&&observedViewportRanges(pageId,[n.screen]).length).map(n=>n.screen.viewport!.bottom));
+  return end>start&&Number.isFinite(end)&&ranges.some(r=>r.top<=start&&r.bottom>=end)&&!(action.direction==='down'&&end<ranges.at(-1)!.bottom);
+ }
+
+ private coveredScroll(node:Node,key:string,origin:string):boolean{
+  if(!this.observedScrollDirection(node,key))return false;
+  const action=node.controls.get(key)!.action as Extract<Candidate['action'],{type:'scroll'}>,viewport=node.screen.viewport!;
+  const peers=[...this.nodes.values()].filter(n=>n.documentUrl===node.documentUrl&&n.screen.pageId===node.screen.pageId);
+  const excluded=new Set([node.id,origin]);
+  const originNode=[...this.nodes.values()].find(n=>n.id===origin);
+  // Preserve direct untried controls and known onward paths, not just the
+  // currently visible controls. The secondary search cannot recurse here.
+  for(const peer of peers){
+   if(excluded.has(peer.id)||!peer.screen.viewport||!(action.direction==='up'?peer.screen.viewport.top<viewport.top:peer.screen.viewport.bottom>viewport.bottom))continue;
+   for(const [other,type] of peer.available)if(type==='click'&&!node.available.has(other)&&!this.availableAtOrigin(peer,other,originNode)){
+    const edge=this.edgeFor(peer,other);
+    if(!edge||edge.destination&&this.hasUntriedWork(edge.destination,excluded,originNode))return false;
+   }
+  }
+  return true;
+ }
+
+ private availableAtOrigin(node:Node,key:string,origin?:Node):boolean{
+  return !!origin?.available.has(key)&&(node.navigationKeys.has(key)&&origin.navigationKeys.has(key)||node.documentUrl===origin.documentUrl&&node.controls.get(key)?.label===origin.controls.get(key)?.label);
+ }
+
+ private hasUntriedWork(start:string,excluded:ReadonlySet<string>,origin?:Node):boolean{
+  const byId=new Map([...this.nodes.values()].map(n=>[n.id,n])),seen=new Set(excluded),queue=[start];
+  for(let i=0;i<queue.length;i++){
+   const id=queue[i];if(seen.has(id))continue;seen.add(id);
+   const node=byId.get(id);if(!node)continue;
+   for(const [key,type] of node.available){
+    if(type==='back')continue;
+    const edge=this.edgeFor(node,key);
+    if(!edge){
+     if(type==='click'&&this.availableAtOrigin(node,key,origin))continue;
+     if(type!=='scroll'||!this.observedScrollDirection(node,key))return true;
+     // Purpose discovery may cross several observed reverse-scroll ranges.
+     // Follow known same-page positions without adding an invented graph edge
+     // or recursively calling coveredScroll/hasFrontier.
+     const action=node.controls.get(key)!.action as Extract<Candidate['action'],{type:'scroll'}>,viewport=node.screen.viewport!;
+     for(const peer of byId.values()){
+      if(peer.documentUrl!==node.documentUrl||peer.screen.pageId!==node.screen.pageId||!peer.screen.viewport)continue;
+      if(action.direction==='up'?peer.screen.viewport.top<viewport.top:peer.screen.viewport.bottom>viewport.bottom)queue.push(peer.id);
+     }
+    }
+    else if(edge.destination)queue.push(edge.destination);
+   }
+  }
+  return false;
+ }
+
  private hasFrontier(start:string,origin:string):boolean{
   const byId=new Map([...this.nodes.values()].map(node=>[node.id,node])),seen=new Set([origin,...this.transitVisited??[]]),queue=[start];
   for(let i=0;i<queue.length;i++){
@@ -184,7 +249,7 @@ export class ExplorationMemory{
    for(const [key,type] of node.available){
     if(type==='back')continue;
     const edge=this.edgeFor(node,key);
-    if(!edge)return true;
+    if(!edge){if(!this.coveredScroll(node,key,origin))return true;continue;}
     if(edge.destination)queue.push(edge.destination);
    }
   }

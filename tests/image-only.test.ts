@@ -37,7 +37,7 @@ test('all image-only wire requests exclude DOM content, including completion and
    assert.ok(!JSON.stringify(body.questions).includes(secret),'DOM must not leak through criteria');
    assert.equal(Object.keys(body.assets).length,1);
    assert.equal(body.state.context.observationMode,'image-only');
-   assert.deepEqual(body.state.context.history,[{step:2,pageId:'p1',action:{type:'click',elementId:'e1'},result:'executed'}]);
+   assert.deepEqual(body.state.context.history,[{step:2,pageId:'p1',viewport:{top:0,bottom:800,height:800},action:{type:'click',elementId:'e1'},result:'executed'}]);
   }
   assert.equal(requests[0].state.context.screen.pageId,'p1');
   assert.deepEqual(Object.keys(requests[0].questions.nextAction.criteria),['e1','done','stuck']);

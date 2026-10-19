@@ -2,6 +2,7 @@ import type {Action,Observation} from './types.js';
 import type {ChoiceQuestion} from './client.js';
 import {goalCompleteness} from './goal-completeness.js';
 import type {ImageJudgments,ImageSource} from './image-judgments.js';
+import {scrollCoverage} from './navigation-context.js';
 
 // Only the proof path adds this question, alongside whole-Goal coverage and
 // over exactly the same verified source images. No OCR text or extra route.
@@ -30,22 +31,25 @@ const criteriaFor=(id:string)=>{
  * DOM-derived text/URLs stay in execution logs, never in model input. */
 export class ImageOnlyInput{
  private pages=new Map<string,string>();
- private history:{step:number;pageId?:string;action:Action;result:'executed'|'no-visible-change'}[]=[];
+ private history:{step:number;pageId?:string;viewport?:Observation['viewport'];action:Action;result:'executed'|'no-visible-change'}[]=[];
  pageId(id?:string){
   if(!id)return undefined;
   let token=this.pages.get(id);if(!token){token=`p${this.pages.size+1}`;this.pages.set(id,token);}return token;
  }
- record(action:Action,source:{step:number;pageId?:string},result:'executed'|'no-visible-change'='executed'){
+ record(action:Action,source:{step:number;pageId?:string;viewport?:Observation['viewport']},result:'executed'|'no-visible-change'='executed'){
   const clean:Action=action.type==='click'?{type:'click',elementId:action.elementId}:action.type==='scroll'?{type:'scroll',direction:action.direction}:{type:action.type};
-  this.history.push({step:source.step,...(source.pageId?{pageId:this.pageId(source.pageId)}:{}),action:clean,result});
+  const viewport=numericViewport(source.viewport);
+  this.history.push({step:source.step,...(source.pageId?{pageId:this.pageId(source.pageId)}:{}),...(viewport?{viewport}:{}),action:clean,result});
  }
  request(context:unknown,questions:Record<string,ChoiceQuestion>,source:{step:number;pageId?:string;viewport?:Observation['viewport']},imageJudgments?:ImageJudgments,completionProof=false){
   if(completionProof&&(Object.keys(questions).length!==1||!questions.completionCoverage))throw new Error('Evidence images require a completion-only request');
   const input=context as any;
   const pageId=this.pageId(source.pageId),viewport=numericViewport(source.viewport);
+  const positions=[...this.history,{pageId,viewport}],currentCoverage=scrollCoverage(pageId,viewport,positions);
   const targets=input.targets?Object.fromEntries(Object.entries(input.targets).map(([id,value])=>{
    criteriaFor(id);const t=value as any;
-   return [id,{kind:['click','scroll','back'].includes(t.kind)?t.kind:'unknown',...(t.pageId?{pageId:this.pageId(t.pageId)}:{}),...(numericViewport(t.viewport)?{viewport:numericViewport(t.viewport)}:{}),...(['up','down'].includes(t.direction)?{direction:t.direction}:{}),...(Number.isSafeInteger(t.travelSteps)?{travelSteps:t.travelSteps}:{}),...(t.travelSteps===0&&/^e\d+$/.test(t.visualTargetId)?{visualTargetId:t.visualTargetId}:{})}];
+   const coverage=t.kind==='scroll'&&['up','down'].includes(t.direction)?scrollCoverage(this.pageId(t.pageId),numericViewport(t.viewport),positions)?.[t.direction as 'up'|'down']:undefined;
+   return [id,{kind:['click','scroll','back'].includes(t.kind)?t.kind:'unknown',...(t.pageId?{pageId:this.pageId(t.pageId)}:{}),...(numericViewport(t.viewport)?{viewport:numericViewport(t.viewport)}:{}),...(['up','down'].includes(t.direction)?{direction:t.direction}:{}),...(coverage?{scrollCoverage:coverage}:{}),...(Number.isSafeInteger(t.travelSteps)?{travelSteps:t.travelSteps}:{}),...(t.travelSteps===0&&/^e\d+$/.test(t.visualTargetId)?{visualTargetId:t.visualTargetId}:{})}];
   })):undefined;
   const evidence=imageJudgments?'imageJudgmentsは過去の画像を見たJevのChoice判断と画像出典。DOM本文、読み取った全文、客観的な正解ではない。requirementsのobservedは当時その項目の根拠が画像にあったというモデル判断、routesのpromisingは入口の見込みだけで達成の証拠ではない。contextは独立した要求でないと分類した原文断片であり、Goal全体の条件を省略してよいという意味ではない。現在画像と過去の項目記録を同じ対象・手続か照合して使い、後の取消・矛盾・不明を優先する。':'過去画像の内容は保持されていない。targetsの内容は未確認であり、過去の本文を推測しない。';
   const images=completionProof?'この完了照合に限り、observationsのcurrent:trueが現在画像、current:falseが確認済み項目の出典画像。各screenshot参照で実画像を照合し、id・step・匿名ページID・SHA-256をimageJudgmentsの出典と対応させる。過去画像はその時点の情報であり、後の取消・矛盾・不明を優先する。操作目的の結果は現在画像で成立していなければ未完了。出典画像があっても、Goalの要求・限定条件が読めないなら未完了か不明。':'過去画像自体は再送していない。';
@@ -56,6 +60,7 @@ export class ImageOnlyInput{
    return [id,{type:'choice' as const,instructions:'次に行う操作、または未探索の対象を一つ選ぶ。targetsのvisualTargetIdは現在画像の番号との対応。'+instructions,criteria:Object.fromEntries(Object.keys(q.criteria).map(key=>[key,criteriaFor(key)]))}];
   }));
   if(imageJudgments)for(const q of Object.values(safeQuestions))q.instructions+=' imageJudgments内のsource.referenceは同じimageJudgments.sourcesのキー。参照先の画像ID・step・匿名ページID・SHA-256を出典として解決する。出典参照の共有だけを画像や回答文の証拠とは扱わない。';
-  return {context:{goal:input.goal,currentDate:input.currentDate,observationMode:'image-only',screen:{...(pageId?{pageId}:{}),...(viewport?{viewport}:{})},history:structuredClone(this.history),...(imageJudgments?{imageJudgments:judgmentInput(imageJudgments,targets?Object.keys(targets):undefined)}:{}),...(targets?{targets}:{}),...(input.completionCoverage&&['complete','incomplete','uncertain'].includes(input.completionCoverage)?{completionCoverage:input.completionCoverage}:{})},questions:safeQuestions,frame:{id:`v${source.step}`,step:source.step,...(pageId?{pageId}:{}),...(viewport?{viewport}:{})}};
+  for(const q of Object.values(safeQuestions))q.instructions+=' history.viewportは実行前に撮影した表示位置。screen.scrollCoverageとtargetsのscrollCoverageは、その方向へ移動して新たに露出する範囲を同じ匿名ページの過去の撮影範囲と比較したコードの位置判定。observedは位置が観察済み、unobservedは未観察の位置が残る意味であり、本文の読解やGoal達成の証拠ではない。動的な内容や配置変更は反映しない。同じ範囲の往復だけを新しい探索と扱わず、不足情報への手掛かりや別の入口を検討する。ただし未実行の入口へ戻る移動、必要な再確認や表示変更の確認のためなら観察済み方向も選べる。';
+  return {context:{goal:input.goal,currentDate:input.currentDate,observationMode:'image-only',screen:{...(pageId?{pageId}:{}),...(viewport?{viewport}:{}),...(currentCoverage?{scrollCoverage:currentCoverage}:{})},history:structuredClone(this.history),...(imageJudgments?{imageJudgments:judgmentInput(imageJudgments,targets?Object.keys(targets):undefined)}:{}),...(targets?{targets}:{}),...(input.completionCoverage&&['complete','incomplete','uncertain'].includes(input.completionCoverage)?{completionCoverage:input.completionCoverage}:{})},questions:safeQuestions,frame:{id:`v${source.step}`,step:source.step,...(pageId?{pageId}:{}),...(viewport?{viewport}:{})}};
  }
 }
