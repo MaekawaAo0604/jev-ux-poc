@@ -1,0 +1,813 @@
+{
+  "baseCommit": "38c3a84",
+  "productionModified": false,
+  "publicSiteRequests": 0,
+  "savedImageEvaluations": 72,
+  "localLiveExplorations": 5,
+  "scope": [
+    {
+      "mode": "same",
+      "token": "run-1",
+      "url": "http://127.0.0.1:60354/same/run-1",
+      "goal": "図書室の開館時間を知りたい。予約・問い合わせはしない。",
+      "reason": "JEV_DONE",
+      "actions": 1,
+      "elapsedMs": 5200.4400000000005,
+      "wallMs": 9373.3992,
+      "blocked": [],
+      "answerHits": [
+        {
+          "server": "A",
+          "path": "/answer/run-1"
+        }
+      ],
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-25-50.328Z-public\\exploration\\result.json",
+      "sha256": "9890fdcde8ff6b7df7cd248df5bf233291de4712761f19ae50f580ef14d40f0e",
+      "modelDone": true,
+      "objectiveSuccess": null
+    },
+    {
+      "mode": "cross",
+      "token": "run-2",
+      "url": "http://127.0.0.1:60354/cross/run-2",
+      "goal": "図書室の開館時間を知りたい。予約・問い合わせはしない。",
+      "reason": "STUCK",
+      "actions": 0,
+      "elapsedMs": 2310.5054,
+      "wallMs": 5741.956899999999,
+      "blocked": [
+        {
+          "id": "e1",
+          "label": "開館時間を見る",
+          "reason": "SAFETY_BOUNDARY"
+        }
+      ],
+      "answerHits": [],
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-25-59.329Z-public\\exploration\\result.json",
+      "sha256": "bacdfff2486d32b7ad1df2d9a8af28093f496567b2ec807d11fecc224f2e2329",
+      "modelDone": false,
+      "objectiveSuccess": null
+    },
+    {
+      "mode": "cross",
+      "token": "run-3",
+      "url": "http://127.0.0.1:60354/cross/run-3",
+      "goal": "図書室の開館時間を知りたい。予約・問い合わせはしない。",
+      "reason": "STUCK",
+      "actions": 0,
+      "elapsedMs": 2289.2394000000004,
+      "wallMs": 5469.9141,
+      "blocked": [
+        {
+          "id": "e1",
+          "label": "開館時間を見る",
+          "reason": "SAFETY_BOUNDARY"
+        }
+      ],
+      "answerHits": [],
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-26-05.045Z-public\\exploration\\result.json",
+      "sha256": "ffa4f8d4451b45f2c2e52b4cd7e8f7a3eeb10cc0e7b6d4dc654b6e6e9813f040",
+      "modelDone": false,
+      "objectiveSuccess": null
+    },
+    {
+      "mode": "same",
+      "token": "run-4",
+      "url": "http://127.0.0.1:60354/same/run-4",
+      "goal": "図書室の開館時間を知りたい。予約・問い合わせはしない。",
+      "reason": "JEV_DONE",
+      "actions": 1,
+      "elapsedMs": 5179.1487,
+      "wallMs": 8867.572400000001,
+      "blocked": [],
+      "answerHits": [
+        {
+          "server": "A",
+          "path": "/answer/run-4"
+        }
+      ],
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-26-10.567Z-public\\exploration\\result.json",
+      "sha256": "85b8d1fe01dc580edeb90240d77dc15162c05c4c1f3f99dbe07fbd3764e36ebf",
+      "modelDone": true,
+      "objectiveSuccess": null
+    },
+    {
+      "mode": "direct-answer",
+      "token": "run-5",
+      "url": "http://127.0.0.1:60355/answer/run-5",
+      "goal": "図書室の開館時間を知りたい。予約・問い合わせはしない。",
+      "reason": "JEV_DONE",
+      "actions": 0,
+      "elapsedMs": 2835.8499,
+      "wallMs": 6080.3124000000025,
+      "blocked": [],
+      "answerHits": [
+        {
+          "server": "B",
+          "path": "/answer/run-5"
+        }
+      ],
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-26-19.380Z-public\\exploration\\result.json",
+      "sha256": "b61b111af9bede7b26c29bec514073b10b99b0a6b2c411740c24625be2d19cf3",
+      "modelDone": true,
+      "objectiveSuccess": null
+    }
+  ],
+  "phases": [
+    {
+      "phase": "memory-action",
+      "source": "reports\\decision-isolation-2026-10-19T11-25-01.982Z\\isolation.json",
+      "groups": [
+        {
+          "step": 3,
+          "condition": "memory:false,action:false",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ]
+        },
+        {
+          "step": 3,
+          "condition": "memory:true,action:true",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ]
+        },
+        {
+          "step": 3,
+          "condition": "memory:false,action:true",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ]
+        },
+        {
+          "step": 3,
+          "condition": "memory:true,action:false",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "not_shown",
+            "observed"
+          ]
+        },
+        {
+          "step": 23,
+          "condition": "memory:false,action:false",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 23,
+          "condition": "memory:true,action:true",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 23,
+          "condition": "memory:false,action:true",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 23,
+          "condition": "memory:true,action:false",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 6,
+          "condition": "memory:false,action:false",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 6,
+          "condition": "memory:true,action:true",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 6,
+          "condition": "memory:false,action:true",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 6,
+          "condition": "memory:true,action:false",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        }
+      ],
+      "replay": [
+        {
+          "step": 23,
+          "frontier": false,
+          "firstChoice": "scroll_up",
+          "finalChoice": "scroll_up",
+          "calls": 1,
+          "questions": [
+            [
+              "e3",
+              "back",
+              "scroll_up",
+              "done",
+              "stuck"
+            ]
+          ],
+          "method": "Recorded replies held fixed; code-path replay only, no new model evidence"
+        },
+        {
+          "step": 23,
+          "frontier": true,
+          "firstChoice": "scroll_up",
+          "finalChoice": "stuck",
+          "calls": 2,
+          "questions": [
+            [
+              "e3",
+              "back",
+              "scroll_up",
+              "done",
+              "stuck"
+            ],
+            [
+              "f9",
+              "f1",
+              "f3",
+              "f6",
+              "f11",
+              "f28",
+              "f29",
+              "f37",
+              "f14",
+              "f31",
+              "f39",
+              "stuck"
+            ]
+          ],
+          "method": "Recorded replies held fixed; code-path replay only, no new model evidence"
+        },
+        {
+          "step": 4,
+          "frontier": true,
+          "firstChoice": "e1",
+          "finalChoice": "e1",
+          "calls": 1,
+          "questions": [
+            [
+              "e1",
+              "e3",
+              "back",
+              "scroll_up",
+              "done",
+              "stuck"
+            ]
+          ],
+          "method": "Recorded replies held fixed; code-path replay only, no new model evidence"
+        }
+      ],
+      "scrollProjection": {
+        "fromStep": 23,
+        "projectedTop": 688,
+        "alreadyVisitedSteps": [
+          15,
+          17
+        ],
+        "interpretation": "Deterministic position projection, not an executed browser action. Returning could support rereading but is not new spatial coverage."
+      },
+      "codeSha256": {
+        "jev/decide.ts": "3f6e2f14ae868b7bf8a51b39077a9b4c3e0b061b549a56de6c712eaf1435e62f",
+        "jev/frontier.ts": "b96bd3b0787c086ab4cf723c401291a4fc82a4f35448794c6e25bbbd757d14d4",
+        "jev/image-only-input.ts": "5714ee3379924903bdc4b710182adc082225fd0bf62d6495f5b3752583b9d55e",
+        "jev/image-judgments.ts": "d06cae3bd6872ae18535daf82f5651afd999e0f90a8da7095fb463cee9469f5c",
+        "jev/types.ts": "f3145e7dcf5805543175ee4086801663ce80f415d1ad1a71679f06dedeff6e52"
+      }
+    },
+    {
+      "phase": "history-control",
+      "source": "reports\\decision-isolation-2026-10-19T11-26-52.337Z\\isolation.json",
+      "groups": [
+        {
+          "step": 23,
+          "condition": "full",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 23,
+          "condition": "empty",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 23,
+          "condition": "geometry-only",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 6,
+          "condition": "full",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 6,
+          "condition": "empty",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 6,
+          "condition": "geometry-only",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        }
+      ],
+      "replay": [
+        {
+          "step": 23,
+          "frontier": false,
+          "firstChoice": "scroll_up",
+          "finalChoice": "scroll_up",
+          "calls": 1,
+          "questions": [
+            [
+              "e3",
+              "back",
+              "scroll_up",
+              "done",
+              "stuck"
+            ]
+          ],
+          "method": "Recorded replies held fixed; code-path replay only, no new model evidence"
+        },
+        {
+          "step": 23,
+          "frontier": true,
+          "firstChoice": "scroll_up",
+          "finalChoice": "stuck",
+          "calls": 2,
+          "questions": [
+            [
+              "e3",
+              "back",
+              "scroll_up",
+              "done",
+              "stuck"
+            ],
+            [
+              "f9",
+              "f1",
+              "f3",
+              "f6",
+              "f11",
+              "f28",
+              "f29",
+              "f37",
+              "f14",
+              "f31",
+              "f39",
+              "stuck"
+            ]
+          ],
+          "method": "Recorded replies held fixed; code-path replay only, no new model evidence"
+        },
+        {
+          "step": 4,
+          "frontier": true,
+          "firstChoice": "e1",
+          "finalChoice": "e1",
+          "calls": 1,
+          "questions": [
+            [
+              "e1",
+              "e3",
+              "back",
+              "scroll_up",
+              "done",
+              "stuck"
+            ]
+          ],
+          "method": "Recorded replies held fixed; code-path replay only, no new model evidence"
+        }
+      ],
+      "scrollProjection": {
+        "fromStep": 23,
+        "projectedTop": 688,
+        "alreadyVisitedSteps": [
+          15,
+          17
+        ],
+        "interpretation": "Deterministic position projection, not an executed browser action. Returning could support rereading but is not new spatial coverage."
+      },
+      "codeSha256": {
+        "jev/decide.ts": "3f6e2f14ae868b7bf8a51b39077a9b4c3e0b061b549a56de6c712eaf1435e62f",
+        "jev/frontier.ts": "b96bd3b0787c086ab4cf723c401291a4fc82a4f35448794c6e25bbbd757d14d4",
+        "jev/image-only-input.ts": "5714ee3379924903bdc4b710182adc082225fd0bf62d6495f5b3752583b9d55e",
+        "jev/image-judgments.ts": "d06cae3bd6872ae18535daf82f5651afd999e0f90a8da7095fb463cee9469f5c",
+        "jev/types.ts": "f3145e7dcf5805543175ee4086801663ce80f415d1ad1a71679f06dedeff6e52"
+      }
+    },
+    {
+      "phase": "position-and-wrapper",
+      "source": "reports\\decision-isolation-2026-10-19T11-27-53.789Z\\isolation.json",
+      "groups": [
+        {
+          "step": 23,
+          "condition": "no-coverage",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "not_shown",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 23,
+          "condition": "no-position",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "not_shown",
+            "observed"
+          ]
+        },
+        {
+          "step": 23,
+          "condition": "flat-context",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "not_shown",
+            "observed",
+            "not_shown"
+          ]
+        },
+        {
+          "step": 6,
+          "condition": "no-coverage",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 6,
+          "condition": "no-position",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        },
+        {
+          "step": 6,
+          "condition": "flat-context",
+          "password": [
+            "not_shown",
+            "not_shown",
+            "not_shown"
+          ],
+          "repair": [
+            "observed",
+            "observed",
+            "observed"
+          ]
+        }
+      ],
+      "replay": [
+        {
+          "step": 23,
+          "frontier": false,
+          "firstChoice": "scroll_up",
+          "finalChoice": "scroll_up",
+          "calls": 1,
+          "questions": [
+            [
+              "e3",
+              "back",
+              "scroll_up",
+              "done",
+              "stuck"
+            ]
+          ],
+          "method": "Recorded replies held fixed; code-path replay only, no new model evidence"
+        },
+        {
+          "step": 23,
+          "frontier": true,
+          "firstChoice": "scroll_up",
+          "finalChoice": "stuck",
+          "calls": 2,
+          "questions": [
+            [
+              "e3",
+              "back",
+              "scroll_up",
+              "done",
+              "stuck"
+            ],
+            [
+              "f9",
+              "f1",
+              "f3",
+              "f6",
+              "f11",
+              "f28",
+              "f29",
+              "f37",
+              "f14",
+              "f31",
+              "f39",
+              "stuck"
+            ]
+          ],
+          "method": "Recorded replies held fixed; code-path replay only, no new model evidence"
+        },
+        {
+          "step": 4,
+          "frontier": true,
+          "firstChoice": "e1",
+          "finalChoice": "e1",
+          "calls": 1,
+          "questions": [
+            [
+              "e1",
+              "e3",
+              "back",
+              "scroll_up",
+              "done",
+              "stuck"
+            ]
+          ],
+          "method": "Recorded replies held fixed; code-path replay only, no new model evidence"
+        }
+      ],
+      "scrollProjection": {
+        "fromStep": 23,
+        "projectedTop": 688,
+        "alreadyVisitedSteps": [
+          15,
+          17
+        ],
+        "interpretation": "Deterministic position projection, not an executed browser action. Returning could support rereading but is not new spatial coverage."
+      },
+      "codeSha256": {
+        "jev/decide.ts": "3f6e2f14ae868b7bf8a51b39077a9b4c3e0b061b549a56de6c712eaf1435e62f",
+        "jev/frontier.ts": "b96bd3b0787c086ab4cf723c401291a4fc82a4f35448794c6e25bbbd757d14d4",
+        "jev/image-only-input.ts": "5714ee3379924903bdc4b710182adc082225fd0bf62d6495f5b3752583b9d55e",
+        "jev/image-judgments.ts": "d06cae3bd6872ae18535daf82f5651afd999e0f90a8da7095fb463cee9469f5c",
+        "jev/types.ts": "f3145e7dcf5805543175ee4086801663ce80f415d1ad1a71679f06dedeff6e52"
+      }
+    }
+  ],
+  "findings": [
+    {
+      "code": "SCOPE_CONFOUNDS_STUCK",
+      "status": "REPRODUCED_IN_LOCAL_FIXTURE",
+      "detail": "The same displayed start page and answer content produces JEV_DONE inside origin and STUCK when the destination origin is disallowed; directly starting at the answer also produces JEV_DONE. No disallowed answer request was sent."
+    },
+    {
+      "code": "FRONTIER_CHANGES_PRIMARY_ACTION",
+      "status": "REPRODUCED_WITH_PINNED_REPLIES",
+      "detail": "The recorded primary scroll_up is returned without frontier and replaced by a secondary stuck with frontier. The projected scroll destination had already been seen in steps 15 and 17. This does not prove that removing the frontier would find the answer."
+    },
+    {
+      "code": "SINGLE_READING_CAUSE",
+      "status": "UNRESOLVED",
+      "detail": "Removing prior image judgments, the simultaneous action question, or executed history did not consistently remove observed on the FAQ sample. Position/context ablations changed some results but did not isolate one sufficient cause. The actual repair-content positive control remained observed."
+    }
+  ],
+  "limits": [
+    "Saved reply replay tests control flow, not model performance.",
+    "All current-image evaluations are reconstructed diagnostic requests, not exact original API replays.",
+    "Three repeats per reading condition and two per scope condition do not establish population success rates.",
+    "The local scope comparison holds page text and answer content fixed, not exact pixels: generated badges and offered candidates change normally when a link is blocked. This measures the combined scope-policy path.",
+    "The 7-Zip forum was not fetched and whether it contains the requested answer remains unknown.",
+    "Artificial local answer pages are fixture facts, not real-site facts.",
+    "Do not equate model JEV_DONE with independently verified overall product success, or local scope causality with the cause of the historical 7-Zip failure."
+  ],
+  "sources": [
+    {
+      "file": "reports\\decision-isolation-2026-10-19T11-25-01.982Z\\isolation.json",
+      "sha256": "78ac97436d7fd5f295a157dbfd21605340fc0ea9a2bf24fe115da1bb163e8901"
+    },
+    {
+      "file": "reports\\2026-10-19T10-13-03.265Z-public\\exploration\\step-3.json",
+      "sha256": "a15c1df8c71765027730f70aab2706b4245c868c938ed0d9e0f0fd3484a423d8"
+    },
+    {
+      "file": "reports\\2026-10-19T10-13-03.265Z-public\\exploration\\step-3.png",
+      "sha256": "8f37e3bbe85e2a04b3a4470162545d5d70c72a7ecd78a5122b437dd6d0c83e80"
+    },
+    {
+      "file": "reports\\2026-10-19T10-13-03.265Z-public\\exploration\\step-23.json",
+      "sha256": "b09de3838ae89f7b61879c4e6c8fad121ca51ef1341a9efcabb2b16de5a4adfb"
+    },
+    {
+      "file": "reports\\2026-10-19T10-13-03.265Z-public\\exploration\\step-23.png",
+      "sha256": "a7854e169a5c1aa8f8789e23a3f19596b9ae2120b84c70dc1f40b00c4db7a921"
+    },
+    {
+      "file": "reports\\2026-10-19T10-13-03.265Z-public\\exploration\\step-6.json",
+      "sha256": "66c67289995782532829bbe5f358d492cf1faa62441a85d58c8a7298fe2fc146"
+    },
+    {
+      "file": "reports\\2026-10-19T10-13-03.265Z-public\\exploration\\step-6.png",
+      "sha256": "1a5ffdc8006b8ef0a473b90d689e88dd60b468e9cdc73cbfa0ab01043a1a0220"
+    },
+    {
+      "file": "reports\\decision-isolation-2026-10-19T11-26-52.337Z\\isolation.json",
+      "sha256": "543ce95b9e5f85962d37aaa92db64ca1f294ff6337023cce0c4923768acb7978"
+    },
+    {
+      "file": "reports\\decision-isolation-2026-10-19T11-27-53.789Z\\isolation.json",
+      "sha256": "66c39efcc6feaf9131255c4584de34bfe1047c6b335e27e390ca4dfa9186387a"
+    },
+    {
+      "file": "reports\\scope-isolation-2026-10-19T11-25-49.127Z\\scope.json",
+      "sha256": "3d43df37c118529fb7c2e891ae22eebda2f42541f03f934a0ebcb3c228584490"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-25-50.328Z-public\\exploration\\result.json",
+      "sha256": "9890fdcde8ff6b7df7cd248df5bf233291de4712761f19ae50f580ef14d40f0e"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-25-59.329Z-public\\exploration\\result.json",
+      "sha256": "bacdfff2486d32b7ad1df2d9a8af28093f496567b2ec807d11fecc224f2e2329"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-26-05.045Z-public\\exploration\\result.json",
+      "sha256": "ffa4f8d4451b45f2c2e52b4cd7e8f7a3eeb10cc0e7b6d4dc654b6e6e9813f040"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-26-10.567Z-public\\exploration\\result.json",
+      "sha256": "85b8d1fe01dc580edeb90240d77dc15162c05c4c1f3f99dbe07fbd3764e36ebf"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-26-19.380Z-public\\exploration\\result.json",
+      "sha256": "b61b111af9bede7b26c29bec514073b10b99b0a6b2c411740c24625be2d19cf3"
+    }
+  ],
+  "originalsUnchanged": true
+}
