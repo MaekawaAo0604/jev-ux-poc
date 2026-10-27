@@ -6,3 +6,5 @@ reports/
 .env.*
 !.env.example
 debug.log
+.playwright-mcp/
+.yomiyasu/

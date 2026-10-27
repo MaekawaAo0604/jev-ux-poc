@@ -15,7 +15,7 @@ export class AccountPage {
   protected observedPublicControls=new Map<string,PublicControl>();
   protected observedControlPaths=new Map<string,number[]>();
   private pageIds=new Map<string,string>();
-  constructor(public page:Page,protected vision=false){
+  constructor(public page:Page,protected vision=false,protected hashRoutes=false){
     // A navigation event also fires for hash/pushState changes, which preserve
     // selected nodes. Document replacement invalidates their execution context;
     // release our handles on the next observation (or when the page closes).
@@ -68,7 +68,9 @@ export class AccountPage {
       if(publicControl)this.observedPublicControls.set(id,publicControl);
       if(identityPath)this.observedControlPaths.set(id,identityPath);
     }
-    const url=new URL(this.page.url());url.hash='';
+    const url=new URL(this.page.url());
+    // Opt in only for the bundled SPA: a hash is a route, not an anchor.
+    if(this.hashRoutes)url.hash=url.hash||'#home';else url.hash='';
     const documentUrl=url.href;
     let pageId=this.pageIds.get(documentUrl);
     if(!pageId){pageId=`p${this.pageIds.size+1}`;this.pageIds.set(documentUrl,pageId);}

@@ -1,0 +1,33 @@
+{
+  "report": "reports/jev-cost-filter-paper-2026-09-24T04-14-37.656Z",
+  "scope": "Paper only. No real orders or exchange credentials. New-buy gate applies to ruleFiltered and Jev; original rule remains unchanged.",
+  "tests": {
+    "experiment": {"command": "node --test docs/experiments/jev-fx-spike/*.test.mjs", "passed": 44, "failed": 0},
+    "repository": {"command": "npm test", "passed": 322, "skipped": 1, "failed": 0, "skipReason": "Real OCR integration is opt-in"},
+    "build": {"command": "npm run build", "exitCode": 0}
+  },
+  "live": {
+    "status": "MEASUREMENT_WINDOW_COMPLETE",
+    "comparisonComplete": true,
+    "elapsedMs": 600275,
+    "validQuotes": 5417,
+    "jev": {"completedDecisions": 1022, "rawActions": {"buy": 0, "sell": 0, "keep": 1022}, "fills": 0, "netLiquidationPnLUSD": 0},
+    "rule": {"fills": 44, "netLiquidationPnLUSD": -35.58114441925477, "paidFeesUSD": 35.196926254683426},
+    "ruleFiltered": {"blockedBuysAtDecision": 2357, "blockedBuysAtExecution": 0, "fills": 0, "netLiquidationPnLUSD": 0},
+    "maxObservedFiveSecondRiseBps": 2.8988740319935147,
+    "minRequiredRiseBps": 163.33490030770116,
+    "apiFailures": 13,
+    "maxConcurrentRequests": 1,
+    "actualAIChargeUSD": null
+  },
+  "audit": {
+    "status": "PASS",
+    "verifiedAt": "2026-09-24T04:24:57.764Z",
+    "verifiedGateDecisions": 6439,
+    "allRuntimeHashesMatchProtocol": true,
+    "independentAccountAndGateRecomputation": true
+  },
+  "ui": {"desktopViewport": [1440,1000], "mobileViewport": [390,844], "pageErrors": 0, "mobileHorizontalPageOverflow": false, "accountRows": 5, "gateRows": 2, "chartSeries": 5},
+  "coverageLimit": "This live window never met the purchase gate. Successful gated buys, post-response/post-decision price changes, execution-time rejections, and unrestricted loss-taking sells are verified by deterministic tests, not observed live trades in this run.",
+  "interpretation": "Reduced trading and transaction losses in this observed window, not profitability evidence or evidence that Jev outperforms a rule. AI billing is excluded from reported PnL, not treated as zero."
+}

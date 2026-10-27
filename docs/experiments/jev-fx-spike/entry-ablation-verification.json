@@ -1,0 +1,43 @@
+{
+  "scope": "Remove only the trailing5s entry gate from code and model instructions. Fees, spread, slippage, long-only policy, fixed100USD and no-real-order boundary are unchanged. Default gated mode remains for control experiments; use --no-entry-cost-filter for the unfiltered live mode.",
+  "pairedReplay": {
+    "report": "reports/jev-usdjpy-entry-ablation-2026-09-24T06-16-13.587Z",
+    "source": "reports/jev-usdjpy-paper-2026-09-24T05-50-57.025Z",
+    "matchedInputs": 48,
+    "selection": "40 equally spaced original request indices plus all8gate-eligible inputs. Enriched non-representative sample.",
+    "elapsedMs": 47520,
+    "on": {"buy": 0, "sell": 0, "keep": 48, "meanBuyChoiceProbability": 0.030833333333333334},
+    "off": {"buy": 0, "sell": 0, "keep": 48, "meanBuyChoiceProbability": 0.10291666666666667},
+    "changedChoices": 0,
+    "apiFailuresRecovered": 4,
+    "estimatedSuccessfulTokenCostUSD": 0.006078786,
+    "actualAIChargeUSD": null,
+    "checks": {"sourceEventsHashMatches": true, "controlPromptMatchesSource": true, "all48StatesMatchOriginals": true, "offStateOnlyRemovesEntryCostFilter": true, "responseModelMatches": true},
+    "limitations": "No positions or fills are replayed. Account state stays the original flat account for each pair. No PnL is inferred. One response per arm/input does not fully separate prompt effects from model variability. Unchanged choices do not mean unchanged distributions."
+  },
+  "liveSmoke": {
+    "report": "reports/jev-usdjpy-paper-2026-09-24T06-18-05.704Z",
+    "elapsedMs": 60029,
+    "comparisonComplete": true,
+    "quotes": 596,
+    "costFilterEnabled": false,
+    "modelInputsWithoutGate": 138,
+    "completedDecisions": 133,
+    "rawActions": {"buy": 0, "sell": 0, "keep": 133},
+    "fills": 0,
+    "netLiquidationPnLJPY": 0,
+    "estimatedSuccessfulTokenCostJPY": 1.2358237179749998,
+    "actualAIChargeUSD": null,
+    "apiFailuresRecovered": 4,
+    "audit": {"status": "PASS", "verifiedAt": "2026-09-24T06:19:42.984Z", "allRuntimeHashesMatchProtocol": true},
+    "limitations": "60second end-to-end smoke test, not a profitability estimate or a matched-market comparison to the prior10minute run."
+  },
+  "tests": {
+    "experiment": {"command": "node --test docs/experiments/jev-fx-spike/*.test.mjs", "passed": 60, "failed": 0},
+    "repository": {"command": "npm test", "passed": 322, "skipped": 1, "failed": 0, "skipReason": "Real OCR is opt-in"},
+    "build": {"command": "npm run build", "exitCode": 0},
+    "tdd": "Failing tests preceded unfiltered prompt generation and report support. Real accounting test verifies a buy on declining quotes, a later sell, both fees, adverse slippage and future-quote execution.",
+    "ui": {"desktopViewport": [1440,1000], "mobileViewport": [390,844], "pairedRows": 48, "liveRows": 4, "pageErrors": 0, "mobileOverflow": false},
+    "review": "Read-only code review found no actionable findings; warned not to interpret unchanged choices as unchanged probability distributions or evidence about profitability."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "scope": "Prompt-only matched-input replay. Both arms remove the entry gate; market observations, fees, slippage, original flat account, fixed USD quantity and long-only constraints stay unchanged. No orders, account-path simulation or PnL inference. The live runner's default prompt is unchanged.",
+  "report": "reports/jev-usdjpy-prompt-ablation-2026-09-24T06-43-29.673Z",
+  "source": "reports/jev-usdjpy-paper-2026-09-24T05-50-57.025Z",
+  "previousSample": "reports/jev-usdjpy-entry-ablation-2026-09-24T06-16-13.587Z",
+  "verifiedAt": "2026-09-24T06:45:13.094Z",
+  "matchedInputs": 48,
+  "successfulCalls": 96,
+  "elapsedMs": 43568,
+  "legacy": {"buy": 0, "sell": 0, "keep": 48, "meanBuyChoiceProbability": 0.10354166666666668},
+  "balanced": {"buy": 0, "sell": 0, "keep": 48, "meanBuyChoiceProbability": 0.14125000000000001},
+  "changedChoices": 0,
+  "apiFailuresRecovered": [{"inputId": 307, "arm": "balanced", "status": 503}, {"inputId": 768, "arm": "legacy", "status": 503}],
+  "estimatedSuccessfulTokenCostUSD": 0.005786844,
+  "actualAICostUSD": null,
+  "checks": {
+    "sourceEventsAndProtocolHashesMatch": true,
+    "allRuntimeCodeHashesMatch": true,
+    "same48IdsAsPreviousComparison": true,
+    "all48StatesMatchOriginalInputs": true,
+    "all96ActualRequestStateHashesMatchIdenticalUngatedState": true,
+    "all96ActualRequestQuestionHashesMatchProtocol": true,
+    "legacyInstructionsMatchPreviousUngatedArmExactly": true,
+    "allResponsesFromRequestedModel": true,
+    "countsProbabilitiesTokensAndCostRecalculated": true
+  },
+  "tests": {
+    "tdd": "New prompt-comparison test failed because comparisonDefinition did not exist, then passed after implementation. Tests verify that both payloads preserve identical ungated state, retain original state, preserve legacy instructions, and reject invalid arm names.",
+    "experiment": {"command": "node --test docs/experiments/jev-fx-spike/*.test.mjs", "passed": 61, "failed": 0},
+    "repository": {"command": "npm test", "passed": 322, "skipped": 1, "failed": 0, "skipReason": "Real OCR is opt-in"},
+    "build": {"command": "npm run build", "exitCode": 0},
+    "ui": {"desktopViewport": [1440, 1000], "mobileViewport": [390, 844], "rowsPerViewport": 48, "pageErrors": 0, "horizontalPageOverflow": false, "instructionDisclosureWorks": true},
+    "review": "Independent read-only review found no actionable issues; verified source/sample/control/payload equality and cautioned against generalizing unchanged choices."
+  },
+  "interpretation": "Changing these instructions did not change actions in this sample. Reported buy-choice probabilities differed, but one response per arm does not fully separate prompt effects from model variability. Neither profitability nor live entry/exit behavior was measured."
+}

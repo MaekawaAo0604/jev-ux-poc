@@ -1,9 +1,14 @@
 import type {Page} from 'playwright';
+import {createHash} from 'node:crypto';
+import {filterCandidates,publicExploration,type ExplorationInput} from '../jev/persona.js';
 import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import {GoodPage} from '../pages/GoodPage.js';
 import {BadPage} from '../pages/BadPage.js';
 import {AutoPage} from '../pages/AutoPage.js';
+import {LocalExplorationPage} from '../pages/LocalExplorationPage.js';
+import {ExplorationMemory} from './exploration-memory.js';
+import type {FrontierOffer} from '../jev/frontier-types.js';
 import {goals,type GoalId} from '../tests/goals.js';
 import {candidatesFor,type Decider,type State,type Candidate,type Decision} from '../jev/types.js';
 import {recordCompletion} from '../jev/completion.js';
@@ -14,8 +19,8 @@ import {captureVisualObservation,recordSavedVisualCompletion,type VisualObservat
 import {VisualDecisionContext} from '../jev/visual-context.js';
 import {recordGoalOutcome} from './goal-outcome.js';
 import {rememberObservation} from '../jev/history.js';
-export type Config={variant:'good'|'bad';goal:GoalId;font:boolean;maxActions:number;dir:string;baseURL:string;repeat:number;fake:boolean;pom?:'manual'|'auto';success?:'oracle'|'jev'|'both';generateTest?:boolean;rawDir?:string;vision?:boolean;visionOCR?:boolean;imageOnly?:boolean;imageMemory?:boolean;imageMemoryProof?:boolean};
-export type VisualDecider=(state:State,candidates:Record<string,Candidate>,screenshot:Buffer,context?:VisualDecisionContext)=>Promise<Decision>;
+export type Config={explorationMemory?:boolean;pageIdentity?:'document'|'hash-route';exploration?:ExplorationInput;variant:'good'|'bad';goal:GoalId;font:boolean;maxActions:number;dir:string;baseURL:string;repeat:number;fake:boolean;pom?:'manual'|'auto';success?:'oracle'|'jev'|'both';generateTest?:boolean;rawDir?:string;vision?:boolean;visionOCR?:boolean;imageOnly?:boolean;imageMemory?:boolean;imageMemoryProof?:boolean};
+export type VisualDecider=(state:State,candidates:Record<string,Candidate>,screenshot:Buffer,context?:VisualDecisionContext,frontier?:FrontierOffer)=>Promise<Decision>;
 export async function run(page:Page,decide:Decider,config:Config,auditEvaluator?:ChoiceEvaluator,visualDecide?:VisualDecider){
   await mkdir(config.dir,{recursive:true});
   if(config.visionOCR&&!config.vision)throw new Error('visionOCR requires vision');
@@ -24,8 +29,10 @@ export async function run(page:Page,decide:Decider,config:Config,auditEvaluator?
   if(config.imageOnly&&!visualDecide)throw new Error('imageOnly requires a visual decider');
   if(config.imageMemory&&!config.imageOnly)throw new Error('imageMemory requires imageOnly');
   if(config.imageMemoryProof&&!config.imageMemory)throw new Error('imageMemoryProof requires imageMemory');
+  if(config.explorationMemory&&(config.pom!=='auto'||!config.exploration))throw new Error('Local exploration memory requires auto POM and experiment inputs');
+  const memory=config.explorationMemory?new ExplorationMemory():undefined;
   const numberedVision=!!(config.vision||visualDecide)&&!config.visionOCR;
-  const goal=goals[config.goal],pom=config.pom==='auto'?new AutoPage(page,numberedVision):config.variant==='good'?new GoodPage(page,numberedVision):new BadPage(page,numberedVision);
+  const goal={...goals[config.goal],text:config.exploration?.charter.goal??goals[config.goal].text},pom=config.explorationMemory?new LocalExplorationPage(page,numberedVision,config.pageIdentity==='hash-route'):config.pom==='auto'?new AutoPage(page,numberedVision,config.pageIdentity==='hash-route'):config.variant==='good'?new GoodPage(page,numberedVision):new BadPage(page,numberedVision);
   const successMode=config.success||'oracle';let objectiveSuccess=false,perceivedSuccess=false,firstObjectiveStep:number|null=null;
   let history:State['history']=[];
   const steps:any[]=[],downloads:string[]=[],pending:Promise<void>[]=[];
@@ -44,17 +51,27 @@ export async function run(page:Page,decide:Decider,config:Config,auditEvaluator?
       if(errors.length){reason='PAGE_ERROR';break;}
       if(config.maxActions>0&&actionCount>=config.maxActions){reason='ACTION_LIMIT';break;}
       const stepStart=performance.now();const screen=await pom.observe(config.font);
-      const state:State={goal:goal.text,currentDate:'2026-09-19',screen,history:[...history]};
-      const candidates=candidatesFor(screen,depth>0);
+      const state:State={goal:goal.text,currentDate:config.exploration?.charter.initialState.currentDate??'2026-09-19',screen,history:[...history],...(config.exploration?{exploration:publicExploration(config.exploration)}:{})};
+      const local=pom instanceof LocalExplorationPage?pom:undefined;
+      const rawOffered=candidatesFor(screen,local?local.canGoBack:depth>0);
+      const offered=config.exploration?filterCandidates(rawOffered,screen,config.exploration.charter):rawOffered;
+      const offer=memory&&local?memory.observe(page.url(),screen,offered,local.explorationActionKeys,local.explorationNavigationChoices):undefined;
+      if(offer&&memory)state.observedAlternatives=local?.explorationBackUrl?memory.observedAlternatives(offer,local.explorationBackUrl):[];
+      const candidates=offer?offer.candidates:offered,frontier=offer&&memory?memory.frontier(offer):undefined;
       const n=steps.length+1;const screenshot=`step-${String(n).padStart(3,'0')}.png`;
       const capture=numberedVision?await pom.captureDecisionScreenshot(screen,candidates,join(config.dir,screenshot)):{bytes:await page.screenshot({path:join(config.dir,screenshot)}),targets:[]};
       const screenshotBytes=capture.bytes;
-      const step:any={number:n,url:page.url(),screenshot,state,candidates,...(numberedVision?{visualTargets:capture.targets}:{}),result:'PENDING',...(config.vision?{visualObservation:captureVisualObservation(screenshotBytes,n,screenshot,page.url())}:{})};steps.push(step);
-      if(visualDecide){visualContext.capture(screenshotBytes,{...step.visualObservation,step:n,url:page.url(),pageId:screen.pageId,viewport:screen.viewport},screen);step.visualContext=visualContext.snapshot();}
+      const step:any={number:n,url:page.url(),screenshot,state,candidates,...(numberedVision?{visualTargets:capture.targets}:{}),result:'PENDING',...(offer?{explorationMemory:{stateId:offer.stateId,revision:offer.revision,transitChoices:offer.transitChoices,exclusions:offer.exclusions},offeredCandidates:offered,frontier,...(Object.keys(offer.exclusions).length?{loopAvoidance:{excludedChoices:Object.keys(offer.exclusions),reason:'Existing ExplorationMemory: explored transitions, transit route, duplicate controls',offeredCandidates:offered}}:{})}:{}),...(config.vision?{visualObservation:captureVisualObservation(screenshotBytes,n,screenshot,page.url())}:{})};steps.push(step);
+      if(visualDecide){visualContext.capture(screenshotBytes,{...step.visualObservation,step:n,url:page.url(),pageId:screen.pageId,viewport:screen.viewport},screen,frontier);step.visualContext=visualContext.snapshot();}
       try{
-        const beforeDecision=performance.now();const decision=visualDecide?await visualDecide(state,candidates,screenshotBytes,visualContext):await decide(state,candidates);step.decisionMs=performance.now()-beforeDecision;step.decision=decision;
+        const beforeDecision=performance.now();const decision=visualDecide?await visualDecide(state,candidates,screenshotBytes,visualContext,frontier):await decide(state,candidates,frontier?{frontier}:undefined);step.decisionMs=performance.now()-beforeDecision;step.decision=decision;
+        if(config.exploration&&(!Object.hasOwn(candidates,decision.choice)||JSON.stringify(candidates[decision.choice].action)!==JSON.stringify(decision.action)))throw new Error('Decision is outside charter-approved candidates');
         const signature=JSON.stringify([page.url(),screen,decision.action]);const times=(seen.get(signature)||0)+1;seen.set(signature,times);
-        if(times>=3){loopCount++;reason='LOOP';step.result='LOOP';}
+        // The existing public exploration pipeline permits revisiting shared transit hops.
+        // Retain the legacy signature as telemetry, not a second stop policy.
+        const legacyLoopGuardEnabled=!memory;
+        if(config.exploration)step.loopCheck={enabled:legacyLoopGuardEnabled,policy:legacyLoopGuardEnabled?'legacy-triple-signature':'existing-memory-with-action-limit',threshold:3,occurrence:times,signatureSha256:createHash('sha256').update(signature).digest('hex'),matchingPreviousSteps:steps.filter(s=>s.number<n&&s.decision&&JSON.stringify([s.url,s.state.screen,s.decision.action])===signature).map(s=>s.number),blocked:legacyLoopGuardEnabled&&times>=3,historyIncluded:false};
+        if(legacyLoopGuardEnabled&&times>=3){loopCount++;reason='LOOP';step.result='LOOP';}
         else if(decision.action.type==='stuck'){reason='STUCK';step.result='STUCK';}
         else if(decision.action.type==='done'){
           perceivedSuccess=true;objectiveSuccess=objectiveSuccess||await goal.check(page,downloads);
@@ -67,7 +84,9 @@ export async function run(page:Page,decide:Decider,config:Config,auditEvaluator?
           try{recordedAction=await pom.describeAction(decision.action,n);}
           catch(e){recordingErrors.push({step:n,message:e instanceof Error?e.message:String(e)});}
           traceCaptureMs+=performance.now()-captureStart;
+          if(memory&&offer&&decision.frontier)memory.commit(offer,decision.frontier.targetId,decision.frontier.focus);
           const oldURL=page.url(),actionStart=performance.now();await pom.act(decision.action);visualContext.recordAction(decision.action);
+          if(memory&&offer)memory.executed(offer,decision.choice);
           if(recordedAction){
             recordedAction.urlAfter=page.url();recordedAction.durationMs=performance.now()-actionStart;
             try{if(recordedAction.action==='scroll')recordedAction.scroll=await page.evaluate(()=>({x:scrollX,y:scrollY}));}
@@ -82,6 +101,11 @@ export async function run(page:Page,decide:Decider,config:Config,auditEvaluator?
           objectiveSuccess=objectiveSuccess||await goal.check(page,downloads);
           if(objectiveSuccess&&firstObjectiveStep===null)firstObjectiveStep=n;
           step.objectiveSuccess=objectiveSuccess;
+          if(config.exploration){
+            const afterScreen=await pom.observe(config.font),afterScreenshot=`after-${String(n).padStart(3,'0')}.png`;
+            await page.screenshot({path:join(config.dir,afterScreenshot)});
+            step.outcome={url:page.url(),screen:afterScreen,screenshot:afterScreenshot};
+          }
           if(errors.length)reason='PAGE_ERROR';else if(objectiveSuccess&&successMode==='oracle')reason='SUCCESS';
         }
       }catch(e){reason=step.decision?'ACTION_ERROR':'DECISION_ERROR';step.result=reason;step.error=e instanceof Error?e.message:String(e);if(e instanceof Error&&'decisionReview' in e)step.decisionReview=e.decisionReview;}

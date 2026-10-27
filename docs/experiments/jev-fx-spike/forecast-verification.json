@@ -1,0 +1,62 @@
+{
+  "scope": "Forward-time USD/JPY midpoint direction forecasts only. No real orders, paper fills, trading decisions or changes to existing live trading defaults.",
+  "report": "reports/jev-usdjpy-forecast-2026-09-24T08-00-02.880Z",
+  "failedInitialReport": "reports/jev-usdjpy-forecast-2026-09-24T07-55-47.246Z",
+  "verifiedAt": "2026-09-24T08:05:16.668Z",
+  "warmupSeconds": 60,
+  "collectSeconds": 180,
+  "settlementSeconds": 61,
+  "elapsedMs": 301255,
+  "quotes": 2988,
+  "startedRequests": 389,
+  "committedPredictions": 368,
+  "scoredPairs": 1472,
+  "expiredHorizons": 0,
+  "missingOutcomes": 0,
+  "failedRequests": {"HTTP503": 15, "INVALID_FORECAST": 3, "AI_InvalidResponseDataError": 2},
+  "cancelledAtCollectionEnd": 1,
+  "latencyMs": {"min": 286, "p50": 433, "p95": 507, "max": 866},
+  "estimatedSuccessfulTokenCostUSD": 0.028634718,
+  "actualAICostUSD": null,
+  "results": [
+    {"horizonSeconds": 1, "n": 368, "jevAccuracy": 0.328804347826087, "momentumAccuracy": 0.39402173913043476, "nonOverlapN": 132, "jevNonOverlapAccuracy": 0.32575757575757575, "jevPredictedFlat": 327, "actualFlat": 120},
+    {"horizonSeconds": 5, "n": 368, "jevAccuracy": 0.21467391304347827, "momentumAccuracy": 0.5244565217391305, "nonOverlapN": 34, "jevNonOverlapAccuracy": 0.2647058823529412, "jevPredictedFlat": 236, "actualFlat": 28},
+    {"horizonSeconds": 30, "n": 368, "jevAccuracy": 0.26902173913043476, "momentumAccuracy": 0.3695652173913043, "nonOverlapN": 6, "jevNonOverlapAccuracy": 0, "jevPredictedFlat": 185, "actualFlat": 19},
+    {"horizonSeconds": 60, "n": 368, "jevAccuracy": 0.33152173913043476, "momentumAccuracy": 0.44565217391304346, "nonOverlapN": 3, "jevNonOverlapAccuracy": 0, "jevPredictedFlat": 123, "actualFlat": 8}
+  ],
+  "audit": {
+    "allSourceQuotesMatchReceivedMessages": true,
+    "allInputsRebuiltUsingOnlyEarlierQuotes": true,
+    "allActualPayloadHashesMatch": true,
+    "preparedAnswersFsyncedBeforeCommitTimestamp": true,
+    "allScoredOutcomeEventsAfterCommitEvents": true,
+    "firstEligibleFutureQuotesVerified": true,
+    "allClassificationsBaselineChoicesBrierAndSummariesIndependentlyRecalculated": true,
+    "allMethodDenominatorsMatch": true,
+    "allNonOverlapSubsetsVerified": true,
+    "requestCompletionFailureCancellationCountsReconcile": true,
+    "allRuntimeAndEventHashesMatchAtVerification": true
+  },
+  "tests": {
+    "experiment": {"command": "node --test docs/experiments/jev-fx-spike/*.test.mjs", "passed": 72, "failed": 0},
+    "repository": {"command": "npm test", "passed": 322, "skipped": 1, "failed": 0, "skipReason": "Real OCR is opt-in"},
+    "build": {"command": "npm run build", "exitCode": 0},
+    "ui": {"desktopViewport": [1440, 1050], "mobileViewport": [390, 844], "tables": 3, "rows": 12, "pageErrors": 0, "horizontalPageOverflow": false},
+    "review": "Read-only reviewer identified floating-point midpoint drift in baseline directions; hand-checked regression first failed, then passed after integer half-tick comparison. Follow-up review confirmed correction and bounded recovery, with no additional actionable issues."
+  },
+  "initialFailure": {
+    "committed": 21,
+    "status": "MODEL_OR_LOG_FAILURE",
+    "rootCause": "Initial statusless exception subtype was not retained, so exact initial cause is unproven. Eight bounded diagnostic replays of the last input all passed validation and were not scored.",
+    "change": "Added safe categorical diagnostics and bounded fresh-input recovery for invalid forecast or whitelisted SDK parse/schema errors. Strict validation retained; invalid answers never become committed predictions. New live run recorded three local invalid forecasts and two SDK response-data errors and recovered.",
+    "retained": true
+  },
+  "limitations": [
+    "Only three minutes of forecast collection: a technical pilot, not a tradable-edge or profitability test.",
+    "Raw forecasts overlap; 368 predictions per horizon are not independent market samples. Nonoverlap counts are132,34,6,3 and still not guaranteed independent.",
+    "Uses local receipt-time horizons and midpoint direction. Does not test move size, execution, costs, or positions.",
+    "Failed and cancelled requests are excluded from accuracy, disclosed separately; all baselines share the successful eligible sample.",
+    "Reported API cost covers successful committed requests in the final run only, excluding initial run, eight diagnostic calls, failures and cancellation. Actual billing is unknown.",
+    "No model or horizon tuning was performed in response to scores. Poor results here do not prove all Jev forecasting applications impossible."
+  ]
+}

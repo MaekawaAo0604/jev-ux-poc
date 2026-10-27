@@ -1,0 +1,13 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {chromium} from 'playwright';import {ClientToolPage} from '../pages/ClientToolPage.js';
+
+test('Back completes an iframe-only history traversal without waiting for a main-frame load',async()=>{
+ const browser=await chromium.launch();try{const page=await browser.newPage();await page.route('https://fixture.test/app/',r=>r.fulfill({contentType:'text/html',body:'<h1>Tool</h1><iframe name="preview"></iframe>'}));await page.goto('https://fixture.test/app/');const frame=page.frame({name:'preview'})!;await frame.goto('data:text/html,<h1>compressed</h1>');await frame.goto('data:text/html,<h1>original</h1>');const pom=new ClientToolPage(page,true,true);await pom.observe(false);assert.equal(pom.canGoBack,true);const cdp=await page.context().newCDPSession(page),before=await cdp.send('Page.getNavigationHistory'),expected=before.entries[before.currentIndex-1];await pom.act({type:'back'});const after=await cdp.send('Page.getNavigationHistory');assert.equal(after.entries[after.currentIndex].id,expected.id);assert.equal(page.url(),'https://fixture.test/app/');assert.match(await frame.locator('h1').innerText(),/compressed/);}finally{await browser.close();}
+});
+
+test('Back rejects a history entry inserted after the offered screen was observed',async()=>{
+ const browser=await chromium.launch();try{const page=await browser.newPage();await page.route('https://fixture.test/app/**',r=>r.fulfill({contentType:'text/html',body:'<h1>Tool</h1>'}));await page.goto('https://fixture.test/app/');await page.evaluate(()=>history.pushState({},'','#one'));const pom=new ClientToolPage(page,true,true);await pom.observe(false);assert.equal(pom.canGoBack,true);await page.evaluate(()=>history.pushState({},'','#two'));const cdp=await page.context().newCDPSession(page),before=await cdp.send('Page.getNavigationHistory');await assert.rejects(pom.act({type:'back'}),/history changed/);assert.deepEqual(await cdp.send('Page.getNavigationHistory'),before);}finally{await browser.close();}
+});
+
+test('Back also waits for ordinary same-path document navigation',async()=>{
+ const browser=await chromium.launch();try{const page=await browser.newPage();await page.route('https://fixture.test/app/**',r=>r.fulfill({contentType:'text/html',headers:{'cache-control':'no-store'},body:`<h1>${r.request().url().includes('?next')?'Next':'Home'}</h1>`}));await page.goto('https://fixture.test/app/');await page.goto('https://fixture.test/app/?next');const pom=new ClientToolPage(page,true,true);await pom.observe(false);await pom.act({type:'back'});assert.equal(await page.locator('h1').innerText(),'Home');}finally{await browser.close();}
+});

@@ -1,0 +1,40 @@
+{
+  "report": "reports/jev-usdjpy-paper-2026-09-24T05-50-57.025Z",
+  "priorIncompleteRun": "reports/jev-usdjpy-paper-2026-09-24T05-47-41.087Z",
+  "scope": "Public live USD/JPY feed. No real orders or brokerage credentials. 150000 JPY per lane, fixed100USD, long only, fee0.002%per side, assumed adverse0.001JPY/USD per side. Unobserved liquidity is explicitly assumed, not claimed.",
+  "tests": {
+    "experiment": {"command": "node --test docs/experiments/jev-fx-spike/*.test.mjs", "passed": 56, "failed": 0},
+    "repository": {"command": "npm test", "passed": 322, "skipped": 1, "failed": 0, "skipReason": "Real OCR integration is opt-in"},
+    "build": {"command": "npm run build", "exitCode": 0}
+  },
+  "live": {
+    "startedAt": "2026-09-24T05:50:57.028Z",
+    "completedAt": "2026-09-24T06:00:57.184Z",
+    "elapsedMs": 600156,
+    "comparisonComplete": true,
+    "quotes": 5961,
+    "jev": {"completedDecisions": 1046, "rawActions": {"buy": 0, "sell": 0, "keep": 1046}, "fills": 0, "netLiquidationPnLJPY": 0, "medianLatencyMs": 515.9034000000102},
+    "rule": {"fills": 145, "netLiquidationPnLJPY": -96.89934599981643, "holdingUSD": 100},
+    "ruleFiltered": {"fills": 4, "netLiquidationPnLJPY": -2.7658420000225306, "blockedAtDecision": 2391, "blockedAtExecution": 2, "holdingUSD": 0},
+    "buyHold": {"fills": 1, "netLiquidationPnLJPY": -1.0329039999924134, "holdingUSD": 100},
+    "cashPnLJPY": 0,
+    "jevInputsPassingGate": 8,
+    "jevCompletedPassingGate": 7,
+    "jevChoicesOnCompletedPassingGateInputs": {"keep": 7},
+    "jevFailuresOnPassingGateInputs": 1,
+    "gatePassRatePct": 0.8220097299110888,
+    "maxPastRiseBps": 1.5170622090332486,
+    "minRequiredRiseBps": 0.8423808068447336,
+    "spreadJPY": {"median": 0.005, "max": 0.006},
+    "apiFailures": {"503": 18, "529": 4},
+    "allApiFailuresRecovered": true,
+    "maxConcurrentJevRequests": 1,
+    "actualAIChargeUSD": null,
+    "estimatedSuccessfulTokenCostUSD": 0.07172793599999999,
+    "estimatedSuccessfulTokenCostJPY": 11.349331993439998
+  },
+  "audit": {"status": "PASS", "verifiedAt": "2026-09-24T06:01:31.450Z", "allRuntimeHashesMatchProtocol": true, "independentAccountAndGateRecomputation": true, "verifiedGateDecisions": 7007, "verifiedExecutionRechecks": 6},
+  "ui": {"desktopViewport": [1440,1000], "mobileViewport": [390,844], "pageErrors": 0, "mobileHorizontalPageOverflow": false, "accountRows": 5, "chartSeries": 5},
+  "interpretation": "Live USD/JPY permits the historical entry gate, unlike the prior high-cost BTC window. Jev still kept on all completed decisions, including seven gate-eligible inputs. No profitability demonstrated. Successful-token AI cost estimate exceeds the filtered rule loss in this short window; actual billing remains unknown.",
+  "skills": {"systematic-debugging": "Traced first-run stop to unhandled HTTP529; kept failed evidence and reran with bounded recovery.", "test-driven-development": "Failing tests preceded FX accounting, adapter, boundary, recovery and independent-audit changes.", "verification-before-completion": "Ran focused and full tests, build, live comparison, independent audit and browser checks before completion claims.", "japanese-tech-writing": "Separated observed values, execution assumptions and unproven profitability in FX.md."}
+}

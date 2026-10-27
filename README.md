@@ -2,6 +2,16 @@
 
 ユーザーの目的・現在見えるUI・操作履歴からJevが次の操作を選ぶ、ローカル専用PoCです。Good/Bad UI × 文字サイズ情報なし/あり × 2 Goalを実行します。
 
+## ペルソナ別の探索実験
+
+ペルソナと探索チャーターを別々の JSON で指定し、ベースライン＋3ペルソナを各3回比較できます。
+実行手順、出力形式、初回12試行の結果は [ペルソナ探索 PoC](docs/persona-experiment.md) を参照してください。
+LOOPの原因分析と追加対照の結果は [第2フェーズ検証](docs/persona-phase2.md) にまとめています。
+
+```powershell
+npm run experiment:persona -- --vision
+```
+
 ## スマホから見る公開資料
 
 公開資料は https://maekawaao0604.github.io/jev-ux-poc/ で配信します。

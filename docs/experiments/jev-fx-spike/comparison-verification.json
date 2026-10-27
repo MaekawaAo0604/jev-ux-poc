@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-24",
+  "scope": "Independent forward-time public BTC/USD paper comparison. No real orders, shorting or leverage. UX production code unchanged.",
+  "experimentTests": {"command": "node --test docs/experiments/jev-fx-spike/*.test.mjs", "passed": 31, "failed": 0},
+  "repositoryTests": {"command": "npm test", "passed": 322, "failed": 0, "skipped": 1, "skip": "real local OCR starts both language models cleanly and recognizes a rendered price"},
+  "firstRun": {"directory": "reports/jev-independent-paper-2026-09-24T03-39-00.846Z", "complete": false, "reason": "LOG_BACKPRESSURE", "preserved": true, "independentAccountingAudit": "PASS"},
+  "correction": "Temporary stream backpressure now waits for drain through an ordered bounded queue. Actual I/O errors and exhausted memory allowance stop the run. Dedicated tests verify order, overflow and stream errors.",
+  "secondRun": {
+    "directory": "reports/jev-independent-paper-2026-09-24T03-46-55.961Z",
+    "status": "MEASUREMENT_WINDOW_COMPLETE",
+    "comparisonComplete": true,
+    "elapsedMs": 600120,
+    "updates": 4942,
+    "jev": {"completedDecisions": 948, "buy": 0, "sell": 0, "keep": 948, "fills": 0, "tradingPnLUSD": 0, "latencyP50Ms": 361.0532, "latencyP95Ms": 521.2716},
+    "rule": {"completedDecisions": 4942, "fills": 32, "tradingPnLUSD": -25.899325810451842, "paidFeesUSD": 25.597586082173777, "maxDrawdownUSD": 25.899325810451842},
+    "buyHold": {"fills": 1, "netLiquidationPnLUSD": -1.7500048547663027},
+    "cashPnLUSD": 0,
+    "apiFailures": {"500": 1, "503": 38},
+    "auditBackpressureEventsRecovered": 1,
+    "independentAudit": "PASS",
+    "ruleDecisionsWhileJevAwaitedResponse": 4151,
+    "ruleDecisionsWhileJevRecovered": 381,
+    "maxConcurrentJevRequests": 1,
+    "observedCodeHashesMatch": true,
+    "realOrders": 0
+  },
+  "browserQA": {"desktop": "1440px: 4 account rows, 4 chart lines, no body overflow", "mobile": "390px: no body overflow; table scrolls within its container", "pageErrors": 0},
+  "review": {"criticalRemaining": 0, "importantRemaining": 0, "minor": "Very large reports around 40000 quote points can exceed the renderer's spread-argument limit; outside observed 4942-point trial. Use iterative bounds before longer/high-volume trials."},
+  "limitations": [
+    "Logical asynchronous lanes share one process, CPU, market feed and audit log; not process-level isolation.",
+    "The first roughly two minutes also overlapped local repository tests, so timings are not isolated CPU benchmarks.",
+    "Current fee, slippage, trade size and untuned 5s-return rule are assumptions; no general profitability claim.",
+    "Actual API billing is unknown. Separately recorded public-price estimate covers successful calls only.",
+    "Jev never selected buy or sell live; simulator tests cover those paths, but profitable live Jev trading is unproven."
+  ]
+}

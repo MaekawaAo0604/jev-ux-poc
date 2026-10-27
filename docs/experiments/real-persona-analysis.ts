@@ -1,0 +1,27 @@
+import {analyzeProbes} from './persona-probe-analysis.js';
+const counts=(rows:any[],key:(r:any)=>string)=>Object.fromEntries([...new Set(rows.map(key))].map(k=>[k,rows.filter(r=>key(r)===k).length]));
+export function analyzeRealPersonas(rows:any[],spec:any){
+ const mainScenes=spec.scenes.filter((s:any)=>s.id!=='control'),issues:string[]=[],expected=new Set<string>();
+ const key=(r:any)=>[r.phase,r.scene,r.condition,r.repeat].join(':');
+ for(const phase of ['primary','confirmation','ablation','control'])for(const scene of phase==='control'?spec.scenes.filter((s:any)=>s.id==='control'):mainScenes)for(const condition of phase==='ablation'?spec.ablations.map((a:any)=>a.id):spec.conditions)for(let repeat=1;repeat<=spec.repeats[phase];repeat++)expected.add(key({phase,scene:scene.id,condition,repeat}));
+ if(rows.length!==expected.size||new Set(rows.map(key)).size!==rows.length||rows.some(r=>!expected.has(key(r))))issues.push('MISSING_DUPLICATE_OR_UNPLANNED_TRIAL');
+ if(rows.some(r=>r.status!=='RECORDED'||!r.semanticChoice||r.fake||!r.model||r.model==='FAKE'))issues.push('NOT_COMPLETE_LIVE_MODEL_DATA');
+ if(new Set(rows.map(r=>r.model)).size!==1)issues.push('MODEL_DRIFT');
+ if(spec.model&&rows.some(r=>r.model!==spec.model))issues.push('REQUESTED_MODEL_MISMATCH');
+ for(const scene of spec.scenes){const selected=rows.filter(r=>r.scene===scene.id);if(selected.some(r=>!r.inputWithoutPersonaSha256||!r.imageSha256)||new Set(selected.map(r=>r.inputWithoutPersonaSha256)).size!==1||new Set(selected.map(r=>r.imageSha256)).size!==1)issues.push('UNMATCHED_INPUT_OR_IMAGE:'+scene.id);}
+ const stage=(phase:string)=>analyzeProbes(rows.filter(r=>r.phase===phase),{...spec,repeats:spec.repeats[phase],ablations:[],scenes:mainScenes});
+ const primary=stage('primary'),confirmation=stage('confirmation');
+ const scenes=mainScenes.map((scene:any)=>{
+  const p=primary.scenes.find((s:any)=>s.id===scene.id),c=confirmation.scenes.find((s:any)=>s.id===scene.id);
+  const passes=(s:any)=>s.inferenceEligible&&s.primaryHolmP!==null&&s.primaryHolmP<spec.analysis.alpha&&s.primary.effect>=spec.analysis.minEffect;
+  const preferenceChecks=spec.conditions.map((condition:string)=>{const mode=(phase:string)=>{const selected=rows.filter(r=>r.phase===phase&&r.scene===scene.id&&r.condition===condition),frequency=counts(selected,r=>r.semanticChoice??'ERROR'),maximum=Math.max(0,...Object.values(frequency));return Object.keys(frequency).filter(k=>frequency[k]===maximum).sort();};const first=mode('primary'),second=mode('confirmation');return {condition,primaryModes:first,confirmationModes:second,sameUniqueMode:first.length===1&&second.length===1&&first[0]===second[0]};});
+  const qualified=issues.length===0&&passes(p)&&passes(c);
+  return {id:scene.id,title:scene.title,primary:p,confirmation:c,qualified,preferenceChecks,samePreferenceReplicationClaimPermitted:qualified&&preferenceChecks.every((p:any)=>p.sameUniqueMode)};
+ });
+ const ablations=spec.ablations.flatMap((a:any)=>mainScenes.map((scene:any)=>{
+  const base=rows.filter(r=>r.phase==='confirmation'&&r.scene===scene.id&&r.condition===a.base),changed=rows.filter(r=>r.phase==='ablation'&&r.scene===scene.id&&r.condition===a.id);
+  const pairs=Array.from({length:spec.repeats.ablation},(_,i)=>({base:base.find(r=>r.repeat===i+1),changed:changed.find(r=>r.repeat===i+1)}));
+  return {scene:scene.id,condition:a.id,base:a.base,knowledgeFrom:a.knowledgeFrom,matched:pairs.every(p=>p.base&&p.changed&&p.base.status==='RECORDED'&&p.changed.status==='RECORDED'&&p.base.inputWithoutPersonaSha256===p.changed.inputWithoutPersonaSha256&&p.base.imageSha256===p.changed.imageSha256&&p.base.model===p.changed.model),changedPairs:pairs.filter(p=>p.base&&p.changed&&p.base.semanticChoice!==p.changed.semanticChoice).length,baseChoices:counts(base,r=>r.choiceGroup??r.semanticChoice??'ERROR'),changedChoices:counts(changed,r=>r.choiceGroup??r.semanticChoice??'ERROR'),interpretation:'Secondary comparison: only the knowledge field is swapped; persona name, id, expectations and other fields stay unchanged. Counts are not proof of internal reasoning.'};
+ }));
+ return {schemaVersion:1,kind:'REAL_PAGE_MATCHED_PERSONA_EVIDENCE',complete:issues.length===0,issues,plannedTrials:expected.size,recordedTrials:rows.length,scenes,qualifiedScenes:scenes.filter((s:any)=>s.qualified).map((s:any)=>s.id),ablations,control:{n:rows.filter(r=>r.phase==='control').length,conditions:spec.conditions.map((condition:string)=>({condition,choices:counts(rows.filter(r=>r.phase==='control'&&r.condition===condition),r=>r.semanticChoice??'ERROR')}))},humanValidityEstablished:false,fullExplorationEffectEstablished:false,knowledgeUseEstablished:false,analysisCorrections:['Enforce the originally requested model, even when every response uses the same wrong model.','Distinguish omnibus redetection from replication of the same persona-specific modal choice; the original omnibus thresholds are unchanged.'],limitations:['The independent unit is a stateless API decision on a frozen actual-site observation, not a human participant.','A qualified result applies to a complete persona configuration on these fixed screens and goals.','Primary and confirmation cohorts were prespecified; Holm correction covers the two main screens within each cohort.','Reason categories and probability vectors are secondary model outputs; primary inference uses the selected action.','Live action continuations are operational checks, not additional independent statistical replications.']};
+}

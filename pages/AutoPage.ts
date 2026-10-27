@@ -7,8 +7,10 @@ import {collectAutoControls,inspectControl,type ControlObservation,type Observed
 /** Runtime POM for this PoC: discovers native and ARIA links/buttons, without route knowledge. */
 export class AutoPage extends AccountPage {
   protected classifyNative=false;
+  protected controlSelector=controlSelector;
+  protected nativeControlSelector=nativeControlSelector;
   protected async observeControls(font:boolean):Promise<ControlObservation>{
-    const options=JSON.stringify({font,controlSelector,nativeControlSelector,classifyNative:this.classifyNative});
+    const options=JSON.stringify({font,controlSelector:this.controlSelector,nativeControlSelector:this.nativeControlSelector,classifyNative:this.classifyNative});
     // Serialize trusted functions together; imported function references do not
     // cross Playwright's execution-context boundary on their own.
     const snapshot=await this.page.evaluateHandle(`(${collectAutoControls.toString()})(${options},${visibleText.toString()},${publicControl.toString()},${inspectControl.toString()})`) as JSHandle<ReturnType<typeof collectAutoControls>>;
@@ -22,7 +24,7 @@ export class AutoPage extends AccountPage {
         const handle=property.asElement();
         if(!handle){await property.dispose();continue;}
         const metadata=data.controls[Number(index)];
-        controls.push({locator:this.page.locator(controlSelector).nth(metadata.index),handle,...metadata});
+        controls.push({locator:this.page.locator(this.controlSelector).nth(metadata.index),handle,...metadata});
       }
       return {screen:data.screen,controls};
     }catch(error){await Promise.all(controls.map(control=>control.handle.dispose().catch(()=>{})));throw error;}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "kind": "SYNTHETIC_MATCHED_SCENE_PROBE_NOT_PRODUCT_UX",
+  "repeats": 6,
+  "seed": 20261026,
+  "model": "jev-1.14.0",
+  "analysis": {"primary": "selected semantic action", "secondary": ["action probabilities", "self-reported reason category and probabilities"], "permutations": 9999, "alpha": 0.05, "multipleTesting": "Holm correction across three primary scene tests", "noEarlyStopping": true},
+  "scenes": [
+    {"id": "knowledge", "title": "ログイン保護の設定", "goal": "このアカウントに追加の本人確認を設定し、次回も自分でログインできるようにしたい", "description": "追加の本人確認はまだ設定されていません。どちらの方法でも同じ設定ができます。", "hypothesis": "Bは直接設定、Aは説明付き設定を選ぶ割合が高い可能性。Cの方向は事前指定しない。", "options": [{"id": "direct", "title": "TOTPを設定", "description": "認証アプリを使い、QRコードの登録から設定を始めます。所要約1分。"}, {"id": "guided", "title": "説明を読みながら設定", "description": "認証アプリとは何か、機種変更時の備えを説明してから、同じ登録画面へ進みます。所要約3分。"}]},
+    {"id": "privacy", "title": "通知内容の整理", "goal": "不要なメール通知を減らし、必要な種類の通知は残したい", "description": "通知はすべて受信中です。どちらの方法でも通知の種類を変更できます。", "hypothesis": "Cは外部送信しない方法を選ぶ割合が高い可能性。Bの効率期待を除くと時短方法の選択が減る可能性。", "options": [{"id": "fast", "title": "診断サービスでまとめて設定", "description": "利用履歴とメールアドレスを外部の通知診断サービスへ送信し、推奨設定を確認して適用します。所要約30秒。"}, {"id": "local", "title": "このサイト内で種類ごとに設定", "description": "通知の種類を一つずつ選びます。利用履歴やメールアドレスの外部送信はありません。所要約3分。"}]},
+    {"id": "confirmation", "title": "メール通知の停止", "goal": "このサービスからのメール通知を停止したい", "description": "現在の設定：受信する。通知停止後も、いつでもこの画面で再開できます。", "hypothesis": "Cは影響の確認、Bは直接停止を選ぶ割合が高い可能性。Cの慎重さを除くと事前確認が減る可能性。", "options": [{"id": "apply", "title": "メール通知を停止する", "description": "現在のメール通知を停止します。"}, {"id": "review", "title": "停止の影響を確認する", "description": "停止するメールの種類と、停止後も届く重要な連絡を確認します。その後に停止できます。"}]},
+    {"id": "control", "title": "表示サイズの変更", "goal": "画面の文字を大きくしたい", "description": "現在の文字サイズ：標準。", "hypothesis": "明確な単一操作では全条件が同じ操作を選ぶ。", "options": [{"id": "enlarge", "title": "文字を大きくする", "description": "表示する文字のサイズを大きくします。"}]}
+  ],
+  "ablations": [
+    {"id": "B_no_efficiency", "base": "B", "fields": {"expectations": ["目的を達成できる"], "behavioralTendencies": ["操作の効率に関する傾向は指定しない"]}, "interpretation": "効率期待と行動傾向だけを中立化。Bの知識、名称、経験は保持。"},
+    {"id": "C_no_caution", "base": "C", "fields": {"expectations": ["目的を達成できる"], "behavioralTendencies": ["確認頻度に関する傾向は指定しない"], "contextAndConstraints": []}, "interpretation": "確認期待、行動傾向、個人情報の制約だけを中立化。名称とセキュリティ知識は残るため、完全な慎重さ除去ではない。"}
+  ]
+}
