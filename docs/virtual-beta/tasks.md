@@ -9,3 +9,29 @@ Acceptance fixed before parallel work: four saved configurations same reset UI, 
 Baseline: existing full-frame numbered image + DOM goal-driven choice. Comparison harness reuses requestFor goal instructions, evaluateChoices, local POM, charter filtering, oracle, and image numbering; old experiment CLI remains untouched and separately regression tested. Existing frontier recovery is a goal-assistance feature, not assumed human memory; comparison harness does not remove revisits by default in any arm. This controlled harness baseline is not identical to every legacy CLI option; settings document the differences.
 
 Next: A/B implement; parent comparison/replay; integrate; freeze; independent verify; fix/reverify; final commands/results.
+
+## 実施記録
+
+T01/T02: Aが視覚変換・候補境界15テスト、Bが状態・sampler15テストを実装。親が比較runner/設定/入力allowlist/リプレイを統合。初回独立対象5b336d4。実装前基準と旧LOOP回帰は維持。
+
+T03: 実ブラウザーで4条件（モック）成功。実Jevは初回11calls中B2条件がHTTP400。未参照記憶アセットをローカルRED/GREENで修正し、新規UIから12calls再実行してHTTP400なし。計23callsで終了。4条件の初期fingerprint一致。モデル提案backをseed分布がlookへ変えて実行した証拠あり。初期不具合版と修正版を混ぜて成功率を推定しない。
+
+T04 round0: 新しい独立検証サブが6件のP2不具合を再現。期限、分布分類/根拠、モデル同一性、最終監査、API予約数。親とBがround1で修正。再検証固定版9218366。旧全体テスト623件中620pass/0fail/3skip、最終版の関連回帰と独立再検証はverification.mdへ追記。
+
+## 次の作業（今回未実装・未検証）
+
+優先1: 同じ予算を十分に確保して反復4条件実験を設計し、API/操作上限による打切りをUX離脱と分ける。今回は各条件1回の疎通で性能差を検定しない。
+
+優先1: Bの状態容量・方策質問・samplingを1要素ずつ切り替えるablation。現4条件はB部品全体の比較であり、記憶だけの因果効果ではない。
+
+優先1: 認識・期待更新のモデルを拡張する場合、観察画像と短い出典付き認識を結び、監査知識を使わず更新する契約を定める。現在は観察のrecency bufferで、理解や忘却の再現性能は未検証。
+
+優先2: 公開製品へ同じ境界を適用する監査/実行アダプター、通知以外の独立oracle（特にダウンロード）、UI操作リプレイの拡張。既存PublicSitePageとaction-traceを再利用する。現リプレイは分布算術と入力画像の検証。
+
+優先2: 動的注意/視線学習は、公開コード・実在する重み・データ・利用許諾・依存・必要性能を一次資料で確認し、fixation生成接続へ限定して比較する。今回学習モデルを採用したとは扱わない。
+
+人間との比較: 母集団/課題/初期状態/デバイスを揃えた参加者データ、操作時間とAPI latencyの分離、必要な視線・認識・離脱理由、同意、較正用と評価用課題の分離。人間の一致度は今回の完了条件に含めず未検証を維持。
+
+## 完了
+
+T04 round1 再検証完了: 新しい独立検証サブが固定製品版9218366を受入。F1〜F6すべて解消、追加の期限/unknown oracleケースも通過。型・β50件成功、foveated/crop各4条件の実ブラウザー疎通、32選択52画像参照と89ソースhash一致。親の最終buildと旧機能関連21件も成功。最終製品コードは再検証後変更していません。文書/測定設定だけを最終コミットへ追加。詳細verification.md、独立記録independent-review.md。人間再現・最終版の外部モデル性能は未検証。

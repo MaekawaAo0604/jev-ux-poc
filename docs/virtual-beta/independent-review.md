@@ -4,7 +4,7 @@ Verifier inspected frozen commit `5b336d4cd93d70a3869444206a6c802a3189e314`, bas
 
 ## Decision
 
-The foundation has working image transport, a constrained input boundary, independent look actions, bounded fresh memory, actual seeded distribution sampling, and a reproducible four-condition local harness. Round 0 is not accepted yet: six defects affect deadline enforcement, result integrity, or audit evidence. None establishes human behavioral validity.
+Final decision: the scoped local foundation is accepted on frozen product commit `9218366d9f58095986512472d4e761152543bb2c`. All six round-0 findings and both additional deadline variants passed independent regression after repair. No unresolved blocker was found within the eleven acceptance areas below. Human behavioral validity and final-snapshot external-model performance remain unverified. The round-0 findings are preserved as historical evidence; the final re-verification addendum records their resolution.
 
 ## Executed checks
 
@@ -83,7 +83,7 @@ Actual: API_LIMIT and apiCalls 1, because the core increments before invoking th
 
 Evidence: `reports/beta-independent-findings-round0/apiCount/result.json`. Regression: `rejected global API reservation must not count as an actual call`. Location: core API counter before evaluate.
 
-## Eleven acceptance areas
+## Eleven acceptance areas — historical round-0 assessment
 
 1. Inventory/reuse: inspected inventory, research, tasks and source. Existing client, Persona/Charter, POM, numbered screenshots and oracle are reused. Requested older beta documents were absent and are explicitly described as newly created. Frozen diff from f09047e adds beta modules, runner, tests, docs, config and package scripts, rather than modifying the old runner.
 2. Fixed user/task versus mutable state: Persona and Charter remain separate inputs; oracle is removed from public model input. Mutable state admits observations, actions/outcomes, fixation and declared expectations. No learned emotion/fatigue/trust model is claimed.
@@ -97,6 +97,43 @@ Evidence: `reports/beta-independent-findings-round0/apiCount/result.json`. Regre
 10. Outcomes/limits/timing: final objective success is checked even on the last allowed UI action. False subjective completion, abandon and infrastructure errors are distinct in passing tests. F2/F5 expose classification/evidence gaps. API and UI timing are separate; modeled user time is null by default and is not human hesitation. OBJECTIVE_SUCCESS and LOOK_LIMIT enum values currently have no runner termination branch; objective success remains an independent boolean.
 11. Regression/independence/limitations: actual tests, local CLI executions, adapter-wire stubs, replay and final whole-suite log were checked independently. Controlled current arm intentionally lacks legacy frontier/revisit suppression and separate completion checks; this is documented, so it cannot be called an identical legacy-policy benchmark. Live model performance and human behavioral validity were not independently verified in this local-only review. The parent reports separate fresh live runs; those are distinct evidence and should not be presented as verifier-run API tests.
 
-## Remaining verification
+## Remaining verification at the end of round 0
 
 Re-run all independent regressions on the next frozen snapshot, then focused beta tests and typecheck. Re-run changed local CLI/replay paths if product changes affect them. Preserve the frozen failing evidence above. No additional external API calls are needed to validate these six local defects. Public sites, invoice oracle adapters, human participants, gaze/recognition calibration, and predictive behavioral accuracy remain outside this v1 verification.
+
+## Final independent re-verification — frozen product 9218366
+
+Product commit: `9218366d9f58095986512472d4e761152543bb2c`, comprising the six fixes plus malformed-response/model-mismatch evidence sanitization. Product source stayed frozen during this verification. The verifier modified only verification tests and this report; implementations were repaired by the parent/assigned implementer.
+
+### Executed results
+
+- Fresh independent `npx tsc --noEmit`: exit 0.
+- Fresh independent `npx tsx --test --test-concurrency=1 tests/virtual-beta*.test.ts`: 50 passed, 0 failed, 0 skipped, 53944.3603 ms. This includes 12 independent browser/adapter regressions, 3 evaluator/sanitization checks, 15 state/selection checks, 15 vision checks, and 5 runner checks. Log: `reports/virtual-beta-independent-freeze2.log`.
+- Actual foveated four-condition mock CLI with explicit conditions JSON and actual crop four-condition mock CLI both passed. In each run set, current/state use 2 UI actions, 0 looks and 3 calls; vision/combined use 2 UI actions, 2 looks and 5 calls. All eight runs have objective success, perceived done, successful objective assessment, recorded terminal screenshot, and validForComparison true. Each set has matching initial fingerprints and 16 calls. Evidence: `reports/beta-independent-freeze2-foveated` and `reports/beta-independent-freeze2-crop`.
+- Every one of the eight new CLI run directories replayed successfully: 32 choices and 52 asset references. The independent gateway wire and memory-reference tests also pass for full, crop and foveated modes.
+- Both manifests record product commit 9218366 and sourceHash `afa2412167f0add8351ae7fa15074e801a20972d1c754f7470fb4d139153d587`. The hash of the saved source-hash map matches its aggregate hash. Independently hashing all 89 listed source files produced no mismatch. Explicit saved configurations exactly match `experiments/virtual-beta/conditions.json`.
+- All 29 synthetic browser fixture outputs from the final independent run are retained under `reports/beta-independent-findings-freeze2`; `summary.json` records their result metadata. The nondegenerate seed integration again produced 8 clicks and 8 abandons across 16 fresh seeds, despite modelChoice done having zero probability.
+- Independently replayed the parent's previously saved `reports/virtual-beta-live-v2-2026-10-27` locally: all 12 choices and 18 image references verified; each saved response model is jev-1.14.0. Combined step 3 replays modelChoice back to sampled look_3 with draw 0.6018468029797077. No API request was made by this replay. Those live artifacts predate the final repair snapshot, so they do not count as an external-model run of 9218366.
+- Independently read the final legacy/client/image/persona log produced by the parent on the repaired snapshot: 21 passed, 0 failed, `reports/virtual-beta-final-legacy-regression.log`. The earlier aggregate log remains 620 passed/3 skipped/0 failed. The parent separately reports a passing final build; the verifier independently ran typecheck and the 50 beta tests rather than duplicating the whole suite.
+
+### Findings resolved by observed behavior
+
+F1 resolved: late valid inference now terminates TIME_LIMIT with zero UI actions and objectiveSuccess false. Slow observation now ends TIME_LIMIT before a fresh evaluation, with apiCalls 0. Inference exhausting its remaining run allowance terminates TIME_LIMIT with apiCalls 1 and zero actions. All three variants passed with maxRunMs 3000; the larger test allowance avoids making initial browser startup a timing race. Evidence directories: `late-response`, `slow-observation`, and `deadline-timeout` beneath the final fixture root.
+
+F2 resolved through the exact product adapter evaluateBetaRequest: malformed HTTP-200 candidate probabilities now produce INVALID_DISTRIBUTION, preserve safe typed probability evidence in step.response, perform no UI action, and mark the row invalid. Arbitrary provider text/fields are redacted by the evaluator tests. Evidence: `bad-gateway-distribution`.
+
+F3 resolved: an exhausted look budget still fails closed with zero actions, but now saves selectionFailure stage filter, reason ZERO_SURVIVING_MASS, raw/normalized/filtered weights, rawTotal 1, filteredTotal 0, and LOOK_BUDGET_EXHAUSTED for all four excluded look candidates. Evidence: `look-filter`.
+
+F4 resolved through the exact product adapter: the requested/returned model mismatch produces API_ERROR with MODEL_MISMATCH, no subjective completion, zero UI actions and validForComparison false. The saved unexpected identity is sanitized rather than trusting arbitrary provider text. Evidence: `wrong-model`.
+
+F5 resolved with the clarified outcome contract: a terminal screenshot error preserves the known SUBJECTIVE_DONE event and perceivedDone true, but records terminalObservation ERROR / OBSERVATION_ERROR and validForComparison false. A separate final-oracle failure preserves subjective done, records objectiveAssessment ERROR with value null and ORACLE_ERROR, and can independently record a successful terminal screenshot. Consumers must use objectiveAssessment and validForComparison when judging outcome validity; objectiveSuccess can retain the last known historical boolean. Evidence: `final-capture-failure` and `final-oracle-error`.
+
+F6 resolved: a rejected aggregate API reservation records API_LIMIT with apiCalls 0. Evidence: `global-api-exhausted`.
+
+The final allowed UI click still records objectiveSuccess true, objectiveAssessment OK/true, final capture RECORDED, perceivedDone false and UI_ACTION_LIMIT. Its objective success is not lost merely because no further model decision is budgeted. Evidence: `last-click`.
+
+### Scope and remaining uncertainty
+
+All eleven areas are accepted for this local engineering foundation after the repairs. The controlled current arm remains intentionally different from the legacy policy: no frontier/revisit suppression or separate completion re-question, and the state arm bundles several changes. It is a controlled harness comparison, not an identical-policy performance benchmark.
+
+The time budget prevents admission of new inference/actions after expiration. Already running browser work and final evidence capture can extend elapsed wall time; it is not a process-level hard kill. Scripted mock completion and seed diversity demonstrate implementation behavior, not human prediction. Human matching, gaze/recognition/forgetting calibration, participant data, public-site adapters, invoice-oracle support, and remote-model performance of the final repair commit remain unverified. There is no remaining local blocker from F1–F6, and no additional external call was needed for their validation.
