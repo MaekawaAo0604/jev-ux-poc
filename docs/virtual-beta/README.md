@@ -1,6 +1,27 @@
-# Jev 仮想βテスト基盤 v1
+# Jev 仮想βテスト基盤
 
 既存のローカルUI、LocalExplorationPage、Jev 1.14、Persona/Charterの型と禁止操作フィルタ、番号付き画像、通知停止oracleを流用した比較用runnerです。旧runnerは変更していません。人間への一致度は未検証です。
+
+## 最新の検証
+
+Phase 2 の結果と再実行方法は [phase2-verification.md](phase2-verification.md)、小さな実測要約は [phase2-results.json](phase2-results.json) に保存しています。
+実 Jev は今回 48/48 要求を使用しました。current/state の完了例と、視覚制約条件の上限終了や予算分布変更を区別しています。
+人間の再現性能は未検証です。
+
+3 種の UI は --ui reference,position-only,wording-only、条件の絞り込みは --conditions current,combined で指定します。
+既定画面は維持し、比較 UI の位置と文言だけを opt-in で変えます。
+同じ UI 版の条件間で初期 fingerprint を照合し、異なる UI 同士の画像一致は要求しません。
+比較モックは以下で実行できます。スクリプトによる疎通であり、モデル性能の測定ではありません。
+
+```powershell
+npm run experiment:virtual-beta -- --mock --config experiments/virtual-beta/phase2-diagnostic.json --ui reference,position-only,wording-only --max-total-api 48 --out reports/beta-phase2-mock-new
+```
+
+実 API は承認済み --phase-budget JSON を指定し、要求前の永続予約でバッチをまたぐ累積数を管理します。
+今回の台帳 reports/beta-next-phase/api-budget.json は残り 0 要求です。再実験のために消費数をリセットしないでください。
+エラーや予約済み未確定要求も消費し、予約拒否は実要求へ加算しません。
+API と UI だけでなく注視、判断、実行時間の上限も維持します。
+独立検証は [phase2-independent-review.md](phase2-independent-review.md) を参照してください。
 
 ## 実行
 
@@ -10,14 +31,14 @@
 - コンポーネントと統合: npx tsx --test --test-concurrency=1 tests/virtual-beta*.test.ts
 - 既存を含む回帰: npx tsx --test --test-concurrency=1 tests/*.test.ts
 - 4条件の疎通: npm run experiment:virtual-beta -- --mock --config experiments/virtual-beta/conditions.json --out reports/beta-mock-new
-- 実Jev: npm run experiment:virtual-beta -- --config experiments/virtual-beta/conditions.json --env-file E:/ChatGPT/Ux_test/.env --out reports/beta-live-new --max-total-api 24
+- 実Jev: phase2-verification.md の承認済み累積予算付きコマンドを参照。
 - cropで比較: npm run experiment:virtual-beta -- --mock --vision crop --out reports/beta-crop-new
 - 保存分布と入力画像の検証: npm run replay:virtual-beta -- reports/beta-mock-new/combined-1
 - UI記録: npx playwright show-trace reports/beta-mock-new/combined-1/trace.zip
 
 出力先は新しいディレクトリを指定します。既存実験は上書きしません。--mock は既知のfixtureに対するスクリプトであり、自律探索・性能の証拠には使いません。実Jevコマンドは外部AIゲートウェイにデモ画面と公開入力を送るため、利用環境の通信権限が必要です。
 
---charter と --persona を別々に指定できます。現版の独立oracleは通知停止のみです。請求書保存や公開サイトの計測は既存runnerを使い、βrunner向けの監査アダプターは追加タスクとします。デフォルトは local:good、初心者A、1280x900、ja-JP、Asia/Tokyo、同一基準日。fresh browser contextで毎回初期化し、外部Google Fonts CSSを空にしてOSフォールバックを固定します。UIソースは変更しません。
+--charter と --persona を別々に指定できます。現版の独立oracleは通知停止のみです。請求書保存や公開サイトの計測は既存runnerを使い、βrunner向けの監査アダプターは追加タスクとします。デフォルトは local:good、初心者A、1280x900、ja-JP、Asia/Tokyo、同一基準日。fresh browser contextで毎回初期化し、外部Google Fonts CSSを空にしてOSフォールバックを固定します。通常画面は維持し、比較UIだけを明示設定で選びます。
 
 ## 4条件と境界
 
@@ -35,7 +56,7 @@ current は全画面の番号付き画像＋可視DOM・目標優先・argmax・
 
 各条件の既定上限はUI操作6、注視4、判断10、API6、90秒。全体はAPI24、並列1、repeatは1〜3。APIは既存クライアント経由、1回の試行のみ（再試行なし）で、残り時間をtimeoutへ渡します。上限到達・主観的done・離脱・stuck・安全停止・API障害・不正分布・操作失敗・観察障害を別の終了理由として保存します。objectiveSuccess と perceivedDone は独立で、停止理由だけで成功扱いにしません。API待ち時間とUI実行時間を分け、modeledUserMsは未校正のため既定nullです。
 
-manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.json と step-N.json は監査・モデル入力・画像参照・分布・状態・結果です。audit-N.png は監査用全画面、input-N.png は実際のモデル入力、final.png は最終状態、trace.zip はPlaywright記録。comparison.json/csv/htmlで比較します。初期fingerprintの一致を確認してください。リプレイは保存分布とseedの算術・入力hash・画像hashを検証し、API判断やUI操作を再実行しません。
+manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.json と step-N.json は監査・モデル入力・画像参照・分布・状態・結果です。audit-N.png は監査用全画面、input-N.png は実際のモデル入力、final.png は最終状態、trace.zip はPlaywright記録。comparison.json/csv/htmlで比較します。同じUI版の条件間で初期fingerprintの一致を確認してください。リプレイは保存分布とseedの算術・入力hash・画像hashを検証し、API判断やUI操作を再実行しません。
 
 初期確認・実行結果と独立検証は inventory.md / verification.md、採用根拠と制約は research.md、追加タスクは tasks.md を参照してください。
 
