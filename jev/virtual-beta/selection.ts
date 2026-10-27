@@ -2,11 +2,18 @@ import {createHash} from 'node:crypto';
 import {isDeepStrictEqual} from 'node:util';
 import type {BetaCandidates,SelectionConfig,SelectionRecord} from './contracts.js';
 
+/** Safe, validated probability/filter evidence; intentionally has no selected action. */
+export type SelectionFailureDetails={
+ stage:'filter';reason:'ZERO_SURVIVING_MASS';
+ raw:Record<string,number>;normalized:Record<string,number>;filteredWeights:Record<string,number>;
+ normalization:{rawTotal:number;filteredTotal:number};adjustments:SelectionRecord['adjustments'];
+};
+
 export class InvalidDistributionError extends Error {
  readonly code='INVALID_DISTRIBUTION';
- constructor(message:string){super(message);this.name='InvalidDistributionError';}
+ constructor(message:string,readonly details?:SelectionFailureDetails){super(message);this.name='InvalidDistributionError';}
 }
-const invalid=(message:string):never=>{throw new InvalidDistributionError(message);};
+const invalid=(message:string,details?:SelectionFailureDetails):never=>{throw new InvalidDistributionError(message,details);};
 const isRecord=(value:unknown):value is Record<string,unknown>=>value!==null&&typeof value==='object'&&!Array.isArray(value);
 function validateConfig(config:SelectionConfig){
  if(!config||!['argmax','sample'].includes(config.mode))invalid('Unsupported selection mode');
@@ -30,10 +37,12 @@ function selectAt(config:SelectionConfig,drawIndex:number,modelChoice:string,raw
  if(!isRecord(excluded)||Object.keys(excluded).some(key=>!Object.hasOwn(candidates,key)||typeof excluded[key]!=='string'||!excluded[key].trim()))invalid('Exclusions require known candidate keys and nonempty reasons');
  const copiedRaw=Object.fromEntries(keys.map(key=>[key,raw[key]]));
  const normalized=Object.fromEntries(keys.map(key=>[key,raw[key]/rawTotal]));
- const filteredTotal=keys.reduce((sum,key)=>sum+(Object.hasOwn(excluded,key)?0:normalized[key]),0);
- if(!Number.isFinite(filteredTotal)||filteredTotal<=0)invalid('No positive probability mass remains after filtering');
- const filtered=Object.fromEntries(keys.map(key=>[key,Object.hasOwn(excluded,key)?0:normalized[key]/filteredTotal]));
+ const filteredWeights=Object.fromEntries(keys.map(key=>[key,Object.hasOwn(excluded,key)?0:normalized[key]]));
+ const filteredTotal=keys.reduce((sum,key)=>sum+filteredWeights[key],0);
  const adjustments=Object.keys(excluded).sort().map(candidate=>({candidate,reason:excluded[candidate]}));
+ if(!Number.isFinite(filteredTotal))invalid('Nonfinite probability mass remains after filtering');
+ if(filteredTotal<=0)invalid('No positive probability mass remains after filtering',{stage:'filter',reason:'ZERO_SURVIVING_MASS',raw:copiedRaw,normalized,filteredWeights,normalization:{rawTotal,filteredTotal},adjustments});
+ const filtered=Object.fromEntries(keys.map(key=>[key,filteredWeights[key]/filteredTotal]));
  const draw=config.mode==='sample'?drawAt(config.seed,drawIndex):null;
  let selected:string;
  if(draw===null){

@@ -130,3 +130,27 @@ test('invalid memory capacities fail before state mutation',()=>{
  assert.equal(state.revision,0);
 });
 
+
+test('zero surviving mass preserves validated filter evidence without selecting or consuming a draw',()=>{
+ const raw={a:0.5,b:0.49},excluded={b:'look budget exhausted',a:'charter prohibits this action'};
+ const sampler=createSampler({mode:'sample',seed:1});
+ let failure:InvalidDistributionError|undefined;
+ try{sampler.select('a',raw,candidates,excluded);}catch(error){assert.ok(error instanceof InvalidDistributionError);failure=error;}
+ assert.ok(failure);
+ assert.deepEqual(failure.details,{
+  stage:'filter',reason:'ZERO_SURVIVING_MASS',raw:{a:0.5,b:0.49},normalized:{a:0.5/0.99,b:0.49/0.99},filteredWeights:{a:0,b:0},
+  normalization:{rawTotal:0.99,filteredTotal:0},adjustments:[{candidate:'a',reason:'charter prohibits this action'},{candidate:'b',reason:'look budget exhausted'}]
+ });
+ assert.ok(!Object.hasOwn(failure.details!,'selected'));assert.ok(!Object.hasOwn(failure.details!,'draw'));
+ raw.a=0;excluded.a='changed';
+ assert.equal(failure.details!.raw.a,0.5);assert.equal(failure.details!.adjustments[0].reason,'charter prohibits this action');
+ assert.equal(sampler.select('a',{a:0.75,b:0.25},candidates).drawIndex,0);
+});
+
+test('invalid raw distributions and malformed exclusions never echo unsafe input as failure details',()=>{
+ const sampler=createSampler({mode:'sample',seed:1});
+ for(const raw of [{a:NaN,b:1},{a:-1,b:2},{a:0.25,b:0.25}]){
+  assert.throws(()=>sampler.select('a',raw,candidates,{a:'forbidden',b:'forbidden'}),(error:unknown)=>error instanceof InvalidDistributionError&&error.details===undefined);
+ }
+ assert.throws(()=>sampler.select('a',{a:0.5,b:0.5},candidates,{unknown:'untrusted input'}),(error:unknown)=>error instanceof InvalidDistributionError&&error.details===undefined);
+});

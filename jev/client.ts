@@ -4,7 +4,7 @@ import {randomUUID} from 'node:crypto';
 export type ChoiceQuestion={type:'choice';instructions:string;criteria:Record<string,string>};
 export type ChoiceAnswers={model:string;answers:Record<string,{choice:string;probabilities:Record<string,number>;confidence?:number}>;request?:RequestTrace;usage?:{inputTokens?:number;outputTokens?:number};costUSD?:number};
 export type ImageInput={mediaType:'image/png'|'image/jpeg';data:string};
-export type ChoiceInputOptions={image?:ImageInput;images?:Record<string,ImageInput>;model?:string;gatewayHTTP?:boolean;recoverContextLimit?:boolean};
+export type ChoiceInputOptions={onResponse?:(response:ChoiceAnswers)=>void;image?:ImageInput;images?:Record<string,ImageInput>;model?:string;gatewayHTTP?:boolean;recoverContextLimit?:boolean};
 export type ChoiceEvaluator=(state:unknown,questions:Record<string,ChoiceQuestion>)=>Promise<ChoiceAnswers>;
 export type RequestFailure={code:'HTTP_ERROR'|'TIMEOUT'|'REQUEST_FAILED'|'MISSING_CREDENTIALS'|'INVALID_RESPONSE';statusCode?:number;providerType?:string;providerCode?:'max_tokens_exceeded'};
 export const safeProviderType=(value:unknown)=>typeof value==='string'&&['internal_server_error','rate_limit_exceeded','authentication_error','invalid_request_error','model_not_found','timeout_error','failed_dependency','forbidden','not_found','response_error'].includes(value)?value:undefined;
@@ -126,6 +126,8 @@ export const evaluateChoices=async(state:unknown,questions:Record<string,ChoiceQ
   try{
    longContextUsed||=longContext;
    result=await evaluateOnce(state,questions,Math.max(1,Math.min(30000,Math.ceil(remaining()))),input,longContext);
+   // Opt-in audit hook receives only parsed, whitelisted answer fields; copies cannot alter validation.
+   input?.onResponse?.(structuredClone(result));
    try{
     if(typeof result?.model!=='string'||!result.answers||Object.keys(result.answers).length!==Object.keys(questions).length)throw new Error('Invalid response');
     for(const [id,q] of Object.entries(questions))validateChoice(result.answers[id],q.criteria);

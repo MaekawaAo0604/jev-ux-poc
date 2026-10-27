@@ -1,0 +1,360 @@
+{
+  "date": "2026-10-27",
+  "revision": "5b336d4cd93d70a3869444206a6c802a3189e314",
+  "sourceHash": "37c746b9e777dc9d42b1b111f759898e5e9faad48623e11af17489b6adbd8a0e",
+  "initialStatesMatch": true,
+  "apiCallsTotalAcrossBatches": 23,
+  "liveBatch1": {
+    "artifact": "reports/virtual-beta-live-2026-10-27",
+    "calls": 11,
+    "result": "current succeeded; vision reached API_LIMIT; state and combined HTTP400; raw retained"
+  },
+  "liveBatch2": {
+    "artifact": "reports/virtual-beta-live-v2-2026-10-27",
+    "calls": 12,
+    "runs": [
+      {
+        "schemaVersion": 1,
+        "runId": "current-1",
+        "condition": "current",
+        "config": {
+          "schemaVersion": 1,
+          "id": "current",
+          "vision": {
+            "mode": "full",
+            "clearWidth": 960,
+            "clearHeight": 620,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": false,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "argmax",
+            "seed": 20261027
+          },
+          "behavior": "goal",
+          "maxUIActions": 6,
+          "maxLooks": 4,
+          "maxDecisions": 10,
+          "maxAPICalls": 3,
+          "maxRunMs": 90000,
+          "modeledActionMs": null
+        },
+        "input": {
+          "persona": {
+            "schemaVersion": 1,
+            "id": "A",
+            "name": "IT初心者",
+            "itLiteracy": "低い",
+            "serviceExperience": "初回",
+            "knowledge": [
+              "一般的なWebのリンクやボタンの操作のみを知っている"
+            ],
+            "expectations": [
+              "画面の説明を読みながら目的を達成できる"
+            ],
+            "behavioralTendencies": [
+              "知らない用語には慎重になる傾向がある。これは行動仮説であり特定の操作を強制しない"
+            ],
+            "contextAndConstraints": [
+              "普段はスマートフォンを利用する。実験1では他条件と同じ画面サイズで操作する"
+            ]
+          },
+          "charter": {
+            "schemaVersion": 1,
+            "id": "notifications-good",
+            "targetWebsite": "local:good",
+            "goal": "初めて利用する暮らしクラウドで、メール通知を停止し、停止したことを確認したい",
+            "initialState": {
+              "description": "デモアカウントのマイページ。通知は受信中。毎回、新しいブラウザーコンテキストで開始する。",
+              "currentDate": "2026-09-19"
+            },
+            "scope": [
+              "同じローカル検証サイト内の画面を探索する",
+              "デモアカウントのメール通知を停止する操作を許可する"
+            ],
+            "prohibitedActions": {
+              "actionTypes": [],
+              "controlTexts": [],
+              "downloads": true
+            },
+            "maxActions": 15
+          }
+        },
+        "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+        "objectiveSuccess": true,
+        "perceivedDone": true,
+        "termination": "SUBJECTIVE_DONE",
+        "looks": 0,
+        "uiActions": 2,
+        "decisions": 3,
+        "apiCalls": 3,
+        "apiMs": 2372.5246000000006,
+        "uiMs": 171.67649999999958,
+        "modeledUserMs": null,
+        "elapsedMs": 4241.5758000000005
+      },
+      {
+        "schemaVersion": 1,
+        "runId": "vision-1",
+        "condition": "vision",
+        "config": {
+          "schemaVersion": 1,
+          "id": "vision",
+          "vision": {
+            "mode": "foveated",
+            "clearWidth": 960,
+            "clearHeight": 620,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": false,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "argmax",
+            "seed": 20261027
+          },
+          "behavior": "goal",
+          "maxUIActions": 6,
+          "maxLooks": 4,
+          "maxDecisions": 10,
+          "maxAPICalls": 3,
+          "maxRunMs": 90000,
+          "modeledActionMs": null
+        },
+        "input": {
+          "persona": {
+            "schemaVersion": 1,
+            "id": "A",
+            "name": "IT初心者",
+            "itLiteracy": "低い",
+            "serviceExperience": "初回",
+            "knowledge": [
+              "一般的なWebのリンクやボタンの操作のみを知っている"
+            ],
+            "expectations": [
+              "画面の説明を読みながら目的を達成できる"
+            ],
+            "behavioralTendencies": [
+              "知らない用語には慎重になる傾向がある。これは行動仮説であり特定の操作を強制しない"
+            ],
+            "contextAndConstraints": [
+              "普段はスマートフォンを利用する。実験1では他条件と同じ画面サイズで操作する"
+            ]
+          },
+          "charter": {
+            "schemaVersion": 1,
+            "id": "notifications-good",
+            "targetWebsite": "local:good",
+            "goal": "初めて利用する暮らしクラウドで、メール通知を停止し、停止したことを確認したい",
+            "initialState": {
+              "description": "デモアカウントのマイページ。通知は受信中。毎回、新しいブラウザーコンテキストで開始する。",
+              "currentDate": "2026-09-19"
+            },
+            "scope": [
+              "同じローカル検証サイト内の画面を探索する",
+              "デモアカウントのメール通知を停止する操作を許可する"
+            ],
+            "prohibitedActions": {
+              "actionTypes": [],
+              "controlTexts": [],
+              "downloads": true
+            },
+            "maxActions": 15
+          }
+        },
+        "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+        "objectiveSuccess": false,
+        "perceivedDone": false,
+        "termination": "API_LIMIT",
+        "looks": 1,
+        "uiActions": 2,
+        "decisions": 3,
+        "apiCalls": 3,
+        "apiMs": 2406.234699999999,
+        "uiMs": 190.05109999999877,
+        "modeledUserMs": null,
+        "elapsedMs": 5100.715899999999
+      },
+      {
+        "schemaVersion": 1,
+        "runId": "state-1",
+        "condition": "state",
+        "config": {
+          "schemaVersion": 1,
+          "id": "state",
+          "vision": {
+            "mode": "full",
+            "clearWidth": 960,
+            "clearHeight": 620,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "sample",
+            "seed": 20261027
+          },
+          "behavior": "user",
+          "maxUIActions": 6,
+          "maxLooks": 4,
+          "maxDecisions": 10,
+          "maxAPICalls": 3,
+          "maxRunMs": 90000,
+          "modeledActionMs": null
+        },
+        "input": {
+          "persona": {
+            "schemaVersion": 1,
+            "id": "A",
+            "name": "IT初心者",
+            "itLiteracy": "低い",
+            "serviceExperience": "初回",
+            "knowledge": [
+              "一般的なWebのリンクやボタンの操作のみを知っている"
+            ],
+            "expectations": [
+              "画面の説明を読みながら目的を達成できる"
+            ],
+            "behavioralTendencies": [
+              "知らない用語には慎重になる傾向がある。これは行動仮説であり特定の操作を強制しない"
+            ],
+            "contextAndConstraints": [
+              "普段はスマートフォンを利用する。実験1では他条件と同じ画面サイズで操作する"
+            ]
+          },
+          "charter": {
+            "schemaVersion": 1,
+            "id": "notifications-good",
+            "targetWebsite": "local:good",
+            "goal": "初めて利用する暮らしクラウドで、メール通知を停止し、停止したことを確認したい",
+            "initialState": {
+              "description": "デモアカウントのマイページ。通知は受信中。毎回、新しいブラウザーコンテキストで開始する。",
+              "currentDate": "2026-09-19"
+            },
+            "scope": [
+              "同じローカル検証サイト内の画面を探索する",
+              "デモアカウントのメール通知を停止する操作を許可する"
+            ],
+            "prohibitedActions": {
+              "actionTypes": [],
+              "controlTexts": [],
+              "downloads": true
+            },
+            "maxActions": 15
+          }
+        },
+        "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+        "objectiveSuccess": true,
+        "perceivedDone": true,
+        "termination": "SUBJECTIVE_DONE",
+        "looks": 0,
+        "uiActions": 2,
+        "decisions": 3,
+        "apiCalls": 3,
+        "apiMs": 2577.1409000000003,
+        "uiMs": 929.3180000000029,
+        "modeledUserMs": null,
+        "elapsedMs": 7367.802300000001
+      },
+      {
+        "schemaVersion": 1,
+        "runId": "combined-1",
+        "condition": "combined",
+        "config": {
+          "schemaVersion": 1,
+          "id": "combined",
+          "vision": {
+            "mode": "foveated",
+            "clearWidth": 960,
+            "clearHeight": 620,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "sample",
+            "seed": 20261027
+          },
+          "behavior": "user",
+          "maxUIActions": 6,
+          "maxLooks": 4,
+          "maxDecisions": 10,
+          "maxAPICalls": 3,
+          "maxRunMs": 90000,
+          "modeledActionMs": null
+        },
+        "input": {
+          "persona": {
+            "schemaVersion": 1,
+            "id": "A",
+            "name": "IT初心者",
+            "itLiteracy": "低い",
+            "serviceExperience": "初回",
+            "knowledge": [
+              "一般的なWebのリンクやボタンの操作のみを知っている"
+            ],
+            "expectations": [
+              "画面の説明を読みながら目的を達成できる"
+            ],
+            "behavioralTendencies": [
+              "知らない用語には慎重になる傾向がある。これは行動仮説であり特定の操作を強制しない"
+            ],
+            "contextAndConstraints": [
+              "普段はスマートフォンを利用する。実験1では他条件と同じ画面サイズで操作する"
+            ]
+          },
+          "charter": {
+            "schemaVersion": 1,
+            "id": "notifications-good",
+            "targetWebsite": "local:good",
+            "goal": "初めて利用する暮らしクラウドで、メール通知を停止し、停止したことを確認したい",
+            "initialState": {
+              "description": "デモアカウントのマイページ。通知は受信中。毎回、新しいブラウザーコンテキストで開始する。",
+              "currentDate": "2026-09-19"
+            },
+            "scope": [
+              "同じローカル検証サイト内の画面を探索する",
+              "デモアカウントのメール通知を停止する操作を許可する"
+            ],
+            "prohibitedActions": {
+              "actionTypes": [],
+              "controlTexts": [],
+              "downloads": true
+            },
+            "maxActions": 15
+          }
+        },
+        "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+        "objectiveSuccess": false,
+        "perceivedDone": false,
+        "termination": "API_LIMIT",
+        "looks": 2,
+        "uiActions": 1,
+        "decisions": 3,
+        "apiCalls": 3,
+        "apiMs": 2881.8916000000027,
+        "uiMs": 174.37739999999758,
+        "modeledUserMs": null,
+        "elapsedMs": 9571.091800000002
+      }
+    ]
+  },
+  "mock": {
+    "artifact": "reports/virtual-beta-mock-final",
+    "result": "All4 objective/perceived success; current/state2UI0looks, vision/combined2UI2looks; scripted fixture only"
+  },
+  "localReplay": {
+    "choices": 12,
+    "imageReferences": 18,
+    "verified": true
+  },
+  "interpretation": "One bounded smoke trial per arm; not a performance estimate or evidence of human validity. Baseline/current is controlled harness, not every option of legacy CLI."
+}

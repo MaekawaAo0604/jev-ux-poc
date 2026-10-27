@@ -33,8 +33,10 @@ current は全画面の番号付き画像＋可視DOM・目標優先・argmax・
 
 ## 上限と結果
 
-各条件の既定上限はUI操作6、注視4、判断10、API6、90秒。全体はAPI24、並列1、repeatは1〜3。APIは既存クライアント経由、retry1回まで（再試行なし）で、残り時間をtimeoutへ渡します。上限到達・主観的done・離脱・stuck・安全停止・API障害・不正分布・操作失敗・観察障害を別の終了理由として保存します。objectiveSuccess と perceivedDone は独立で、停止理由だけで成功扱いにしません。API待ち時間とUI実行時間を分け、modeledUserMsは未校正のため既定nullです。
+各条件の既定上限はUI操作6、注視4、判断10、API6、90秒。全体はAPI24、並列1、repeatは1〜3。APIは既存クライアント経由、1回の試行のみ（再試行なし）で、残り時間をtimeoutへ渡します。上限到達・主観的done・離脱・stuck・安全停止・API障害・不正分布・操作失敗・観察障害を別の終了理由として保存します。objectiveSuccess と perceivedDone は独立で、停止理由だけで成功扱いにしません。API待ち時間とUI実行時間を分け、modeledUserMsは未校正のため既定nullです。
 
 manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.json と step-N.json は監査・モデル入力・画像参照・分布・状態・結果です。audit-N.png は監査用全画面、input-N.png は実際のモデル入力、final.png は最終状態、trace.zip はPlaywright記録。comparison.json/csv/htmlで比較します。初期fingerprintの一致を確認してください。リプレイは保存分布とseedの算術・入力hash・画像hashを検証し、API判断やUI操作を再実行しません。
 
 初期確認・実行結果と独立検証は inventory.md / verification.md、採用根拠と制約は research.md、追加タスクは tasks.md を参照してください。
+
+最終画像とoracleの取得状況は terminalObservation / objectiveAssessment に記録します。oracle障害では現在の判定はnullとなり、objectiveSuccessの既知値だけを最終判定に使えません。validForComparison=false の行はUX比較から除外します。利用者の終了判断は監査失敗で上書きしません。期限は観察後・API応答後・実操作前で検査し、残り時間をAPIへ伝えます。開始済みの処理や最終監査の後処理時間までゼロ遅延で打ち切るものではありません。
