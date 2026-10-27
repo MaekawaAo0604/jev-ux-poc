@@ -414,3 +414,7 @@ Remove-Item Env:RUN_OCR_INTEGRATION
 
 公式仕様: https://docs.typesafe.ai/introduction/quickstart / https://docs.typesafe.ai/primitives/choice
 `POST https://api.typesafe.ai/v1/systemone` / `questions.nextAction.criteria` / `answers.nextAction.probabilities` を使用。
+
+## 仮想βテスト基盤
+
+視覚制約・利用可能な記憶・確率的選択を独立設定した4条件比較は [docs/virtual-beta/README.md](docs/virtual-beta/README.md) を参照してください。既存CLIは維持しています。
