@@ -12,6 +12,28 @@ const clicks=(s:BetaStep|undefined)=>offered(s)?.filter(id=>/^e[1-9]\d*$/.test(i
 const source=(s:BetaStep|undefined)=>s?.audit?.sourceSha256||null;
 const consistentSource=(s:BetaStep|undefined)=>!!source(s)&&!!s?.vision?.sourceSha256&&source(s)===s.vision.sourceSha256;
 
+const budgetExclusion=(reason:string)=>reason.endsWith('_BUDGET_EXHAUSTED')||budgetTerminations.has(reason);
+const recordedMass=(weights:Record<string,number>|undefined,id:string)=>weights&&Number.isFinite(weights[id])&&weights[id]>=0?weights[id]:null;
+/** Positive excluded mass proves a changed distribution, not a different counterfactual action. */
+function analyzeBudgetInfluence(result:BetaResult){
+ const evidenceFor=(s:BetaStep|undefined)=>s?.selection??s?.selectionFailure;
+ const records=result.steps.map(s=>{
+  const evidence=evidenceFor(s);
+  if(!Array.isArray(evidence?.adjustments))return null;
+  const excludedCandidates=evidence.adjustments.filter(a=>budgetExclusion(a.reason)).map(a=>({candidate:a.candidate,reason:a.reason,rawMass:recordedMass(evidence.raw,a.candidate),normalizedMass:recordedMass(evidence.normalized,a.candidate)}));
+  if(!excludedCandidates.length)return null;
+  const sum=(key:'rawMass'|'normalizedMass')=>excludedCandidates.every(a=>a[key]!==null)?excludedCandidates.reduce((total,a)=>total+a[key]!,0):null;
+  return {decision:s.number,evidenceSource:s.selection?'selection' as const:'selection-failure' as const,excludedCandidates,rawRemovedMass:sum('rawMass'),normalizedRemovedMass:sum('normalizedMass')};
+ });
+ const steps=records.filter((r):r is NonNullable<typeof r>=>r!==null);
+ const last=result.steps.at(-1),terminalRecord=records.at(-1),terminalEvidence=evidenceFor(last);
+ const terminalBudgetFilterPresent=Array.isArray(terminalEvidence?.adjustments)?!!terminalRecord:null;
+ const terminalRemovedMass=terminalRecord?.normalizedRemovedMass??terminalRecord?.rawRemovedMass??null;
+ const terminationBudgetLimited=budgetTerminations.has(result.termination);
+ const terminalBudgetInfluenced=terminationBudgetLimited?true:terminalBudgetFilterPresent===false?false:terminalRemovedMass===null?null:terminalRemovedMass>0;
+ return {steps,anyDecisionBudgetFiltered:steps.length>0,terminationBudgetLimited,terminalBudgetFilterPresent,terminalBudgetInfluenced,interpretation:'Recorded budget exclusions and removed probability mass only. A true terminal flag means an explicit resource-limit termination or positive budget mass removed at the terminal decision; it does not prove a different action without the budget.'};
+}
+
 /** Pure projection of recorded evidence, not a filesystem/hash verifier or a cognitive model. */
 export function analyzeRun(result:BetaResult){
  const reasons:string[]=[];
@@ -70,7 +92,7 @@ export function analyzeRun(result:BetaResult){
   outcomes:{termination:result.termination,perceivedDone:result.perceivedDone,objectiveSuccess:result.objectiveSuccess,objectiveAssessment:result.objectiveAssessment?structuredClone(result.objectiveAssessment):null,terminalObservation:result.terminalObservation?{...result.terminalObservation}:null},
   counters:{apiCalls:result.apiCalls,decisions:result.decisions,looks:result.looks,uiActions:result.uiActions},
   timings:{apiMs:result.apiMs,uiMs:result.uiMs,elapsedMs:result.elapsedMs,modeledUserMs:result.modeledUserMs,humanTaskMs:null,interpretation:'API latency and runner elapsed time are not human task time.'},
-  timeline,lookEffectPairs,roiMetrics,
+  timeline,lookEffectPairs,roiMetrics,budgetInfluence:analyzeBudgetInfluence(result),
  };
 }
 export type RunAnalysis=ReturnType<typeof analyzeRun>;

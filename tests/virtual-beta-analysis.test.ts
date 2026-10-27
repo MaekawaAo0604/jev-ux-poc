@@ -65,3 +65,41 @@ test('mismatched observed fixation and inconsistent source metadata do not suppo
  const inconsistent=run([],{objectiveAssessment:{status:'OK',value:true}});
  assert.equal(analyzeRun(inconsistent).classification.artifactValidity,'infra-invalid');
 });
+function budgetFilteredStep(number=10):BetaStep {
+ const raw={abandon:.01,back:.05,done:0,look_0:.04,look_1:.09,look_2:.05,look_3:.13,reread:.42,stuck:.2,wait:.01};
+ const adjustments=['look_0','look_1','look_2','look_3'].map(candidate=>({candidate,reason:'LOOK_BUDGET_EXHAUSTED'}));
+ return step(number,{selection:{modelChoice:'reread',selected:'stuck',mode:'sample',draw:.9088529823347926,drawIndex:9,seed:20261027,raw,normalized:{...raw},filtered:{abandon:.01/.69,back:.05/.69,done:0,look_0:0,look_1:0,look_2:0,look_3:0,reread:.42/.69,stuck:.2/.69,wait:.01/.69},normalization:{rawTotal:1,filteredTotal:.69},adjustments},action:{type:'stuck'},outcome:'STUCK'});
+}
+
+test('STUCK after a positive look-budget filter retains termination and reports removed mass',()=>{
+ const source=run([budgetFilteredStep()],{termination:'STUCK',looks:4}); const snapshot=structuredClone(source); const a=analyzeRun(source);
+ assert.equal(a.classification.behavior,'stuck'); assert.equal(a.outcomes.termination,'STUCK');
+ assert.equal(a.budgetInfluence.terminalBudgetInfluenced,true); assert.equal(a.budgetInfluence.terminationBudgetLimited,false);
+ assert.equal(a.budgetInfluence.terminalBudgetFilterPresent,true); assert.equal(a.budgetInfluence.anyDecisionBudgetFiltered,true);
+ assert.equal(a.budgetInfluence.steps.length,1); const b=a.budgetInfluence.steps[0]; assert.equal(b.decision,10);
+ assert.equal(b.excludedCandidates.length,4); assert.ok(Math.abs(b.rawRemovedMass!-.31)<1e-12);
+ assert.ok(Math.abs(b.normalizedRemovedMass!-.31)<1e-12); assert.equal(b.excludedCandidates[0].reason,'LOOK_BUDGET_EXHAUSTED');
+ assert.equal(a.timeline[0].modelProposal,'reread'); assert.equal(a.timeline[0].selected,'stuck'); assert.deepEqual(source,snapshot);
+});
+test('uncensored STUCK, explicit API_LIMIT, missing evidence and earlier filters remain distinguishable',()=>{
+ const plain=budgetFilteredStep(); plain.selection!.adjustments=[];
+ const a=analyzeRun(run([plain],{termination:'STUCK'}));
+ assert.equal(a.budgetInfluence.terminalBudgetInfluenced,false); assert.equal(a.budgetInfluence.terminalBudgetFilterPresent,false);
+ assert.equal(a.budgetInfluence.steps.length,0); assert.equal(a.classification.behavior,'stuck');
+ const b=analyzeRun(run([],{termination:'API_LIMIT'})); assert.equal(b.budgetInfluence.terminalBudgetInfluenced,true); assert.equal(b.budgetInfluence.terminationBudgetLimited,true); assert.equal(b.classification.behavior,'budget-censored');
+ assert.equal(analyzeRun(run([step(1)],{termination:'STUCK'})).budgetInfluence.terminalBudgetInfluenced,null);
+ const c=analyzeRun(run([budgetFilteredStep(1),{...plain,number:2}],{termination:'STUCK'}));
+ assert.equal(c.budgetInfluence.anyDecisionBudgetFiltered,true); assert.equal(c.budgetInfluence.terminalBudgetInfluenced,false);
+});
+test('zero-mass budget exclusions and non-budget exclusions are not positive budget mass removal',()=>{
+ const s=budgetFilteredStep(); for(const {candidate} of s.selection!.adjustments){s.selection!.raw[candidate]=0;s.selection!.normalized[candidate]=0;}
+ const a=analyzeRun(run([s],{termination:'STUCK'})); assert.equal(a.budgetInfluence.terminalBudgetFilterPresent,true); assert.equal(a.budgetInfluence.terminalBudgetInfluenced,false); assert.equal(a.budgetInfluence.steps[0].rawRemovedMass,0);
+ s.selection!.adjustments=[{candidate:'back',reason:'POLICY_EXCLUDED'}];
+ assert.equal(analyzeRun(run([s],{termination:'STUCK'})).budgetInfluence.steps.length,0);
+});
+test('filter failure retains budget mass evidence without inventing a selection',()=>{
+ const s=step(1,{selectionFailure:{stage:'filter',reason:'ZERO_SURVIVING_MASS',raw:{look_0:1},normalized:{look_0:1},filteredWeights:{look_0:0},normalization:{rawTotal:1,filteredTotal:0},adjustments:[{candidate:'look_0',reason:'LOOK_BUDGET_EXHAUSTED'}]}});
+ const a=analyzeRun(run([s],{termination:'INVALID_DISTRIBUTION',validForComparison:false}));
+ assert.equal(a.budgetInfluence.steps[0].evidenceSource,'selection-failure'); assert.equal(a.budgetInfluence.steps[0].rawRemovedMass,1);
+ assert.equal(a.budgetInfluence.terminalBudgetInfluenced,true); assert.equal(a.classification.artifactValidity,'infra-invalid'); assert.equal(a.timeline[0].selected,null);
+});
