@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtemp,writeFile,readFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {PhaseBudget} from '../runner/virtual-beta-budget.js';
+import {BetaBudgetError} from '../runner/virtual-beta-core.js';
+async function ledger(overrides={}){const dir=await mkdtemp(join(tmpdir(),'beta-budget-'));const file=join(dir,'budget.json');await writeFile(file,JSON.stringify({schemaVersion:1,status:'APPROVED',phase:'test',newMaximum:4,perRunMaximum:2,used:0,attempts:[],...overrides}));return file;}
+test('phase budget persists every attempted request across processes/runs and rejects cap without counting',async()=>{const file=await ledger();let b=await PhaseBudget.open(file);for(const key of ['one','one','two','two']){const r=await b.reserve({runKey:key,condition:'current',revision:'test',sourceHash:'test'});await b.settle(r,'OK',{attempts:1});}assert.equal(b.remaining,0);await assert.rejects(b.reserve({runKey:'three',condition:'current',revision:'test',sourceHash:'test'}),BetaBudgetError);assert.equal(b.used,4);await b.close();b=await PhaseBudget.open(file);assert.equal(b.used,4);await b.close();const data=JSON.parse(await readFile(file,'utf8'));assert.equal(data.attempts.length,4);assert.equal(data.used,4);});
+test('per-run cap does not consume phase budget, transport failure does consume an attempt',async()=>{const file=await ledger(),b=await PhaseBudget.open(file);try{const info={runKey:'one',condition:'combined',revision:'test',sourceHash:'test'};let id=await b.reserve(info);await b.settle(id,'ERROR',{failureCode:'HTTP_ERROR'});id=await b.reserve(info);await b.settle(id,'OK',{attempts:1});await assert.rejects(b.reserve(info),BetaBudgetError);assert.equal(b.used,2);}finally{await b.close();}});
+test('unapproved or inconsistent ledger fails before reservation, and concurrent owner is rejected',async()=>{for(const overrides of [{status:'AWAITING_NEW_AUTHORIZATION'},{used:1},{newMaximum:49}])await assert.rejects(PhaseBudget.open(await ledger(overrides)));const file=await ledger(),b=await PhaseBudget.open(file);try{await assert.rejects(PhaseBudget.open(file));assert.equal(b.used,0);}finally{await b.close();}});

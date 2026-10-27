@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
+import {comparisonUIFromSearch} from './virtual-beta-ui.js';
 
 function App() {
   const bad = location.pathname.startsWith('/bad');
+  const comparisonUI = location.pathname.startsWith('/good/') ? comparisonUIFromSearch(location.search) : undefined;
   const [route, setRoute] = useState(location.hash.slice(1) || 'home');
   const [stopped, setStopped] = useState(false);
   React.useEffect(() => { const update = () => setRoute(location.hash.slice(1) || 'home'); window.addEventListener('hashchange', update); return () => window.removeEventListener('hashchange', update); }, []);
-  const link = (to: string, label: string, description?: string, small = false) => <a aria-label={label} className={small ? 'tile small' : 'tile'} href={'#' + to}><span>{label}</span>{description && <p>{description}</p>}<b aria-hidden="true">↗</b></a>;
+  const link = (to: string, label: string, description?: string, small = false) => {
+    const entry = to === 'notifications' ? comparisonUI : undefined;
+    const text = entry?.entryLabel ?? label;
+    return <a aria-label={text} className={small ? 'tile small' : 'tile'} href={'#' + to} data-beta-roi={entry ? 'notification-entry' : undefined} style={entry?.entryTranslateYPx ? {transform:`translateY(${entry.entryTranslateYPx}px)`} : undefined}><span>{text}</span>{description && <p>{description}</p>}<b aria-hidden="true">↗</b></a>;
+  };
   const titles: Record<string,string> = {home:'マイページ',invoices:'請求書',notifications:'通知設定',contract:'契約情報',billing:'請求関連',usage:'利用情報',settings:'各種設定',other:'その他',preferences:'お知らせの管理',activity:'利用履歴',campaign:'今月のおすすめ',help:'お問い合わせ'};
   async function download(month: string) {
     const content = `BT /F1 20 Tf 60 740 Td (Invoice ${month} - JPY 2980) Tj ET`;
@@ -25,7 +31,7 @@ function App() {
   {route==='contract' && <section className="panel"><h2>スタンダードプラン</h2><p>ご契約は有効です。</p>{link('billing',bad?'関連情報':'請求関連',undefined,bad)}</section>}
   {route==='billing' && <div className="grid">{link('invoices',bad?'各種書類':'請求書')}</div>}
   {route==='invoices' && <section className="panel"><p>検証用基準日：2026年9月19日</p>{['2026-09','2026-08','2026-07'].map((m,i)=><div className="invoice" key={m}><div><h2>{m.replace('-','年')}月</h2><p>¥2,980 ・ {i===1?'先月分':'ご利用料金'}</p></div><button onClick={()=>download(m)}>{m} の請求書をPDFで保存</button></div>)}</section>}
-  {(route==='notifications'||route==='preferences') && <section className="panel"><h2>メール通知</h2><p>サービスに関するお知らせをメールでお届けします。</p><p>現在の設定：{stopped?'停止':'受信する'}</p>{stopped?<p role="status">メール通知を停止しました</p>:<button onClick={()=>setStopped(true)}>メール通知を停止する</button>}</section>}
+  {(route==='notifications'||route==='preferences') && <section className="panel"><h2>メール通知</h2><p>サービスに関するお知らせをメールでお届けします。</p><p>現在の設定：{stopped?'停止':'受信する'}</p>{stopped?<p role="status">メール通知を停止しました</p>:<button data-beta-roi={comparisonUI ? 'notification-stop' : undefined} onClick={()=>setStopped(true)}>メール通知を停止する</button>}</section>}
   {['activity','campaign','help'].includes(route) && <section className="panel"><h2>{route==='activity'?'今月のご利用状況':route==='campaign'?'季節のキャンペーン':'サポート窓口'}</h2><p>{route==='activity'?'今月は12回サービスをご利用いただいています。':route==='campaign'?'新しい特典は近日公開予定です。':'受付時間：平日 10:00〜18:00'}</p></section>}
   {route!=='home' && <a className="home-link" href="#home">マイページへ戻る</a>}<footer>暮らしクラウド　·　デモアカウント</footer></main></div></>;
 }
