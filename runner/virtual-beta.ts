@@ -14,7 +14,7 @@ import {parsePersona,parseCharter} from '../jev/persona.js';
 import {evaluateBetaRequest} from './virtual-beta-evaluator.js';
 import {comparisonConfigs,validateConfig} from '../jev/virtual-beta/config.js';
 import type {BetaConfig} from '../jev/virtual-beta/contracts.js';
-import {runBeta,sha,BetaBudgetError,type BetaEvaluator,type BetaResult} from './virtual-beta-core.js';
+import {runBeta,sha,BetaBudgetError,BetaAdmissionError,type BetaEvaluator,type BetaResult} from './virtual-beta-core.js';
 function parseArgs(args:string[]){const values=new Map<string,string>(),flags=new Set<string>();for(let i=0;i<args.length;i++){const k=args[i];if(['--mock','--headed','--help'].includes(k)){flags.add(k);continue;}if(!['--charter','--persona','--config','--out','--seed','--vision','--env-file','--repeat','--max-total-api','--conditions','--ui','--phase-budget'].includes(k)||!args[i+1]||args[i+1].startsWith('--')||values.has(k))throw new Error('INVALID_OPTION '+k);values.set(k,args[++i]);}return {values,flags};}
 export function mockEvaluator():BetaEvaluator{
  let n=0;return async({questions,input})=>{const options=questions.nextAction.criteria;const constrained=!(input.observation as any)?.screen;const script=constrained?['look_3','e5','look_2','e3','done']:['e5','e3','done'];let choice=script[n]??'done';n++;if(!(choice in options))choice=Object.keys(options).find(k=>/^e[1-9]\d*$/.test(k))??'done';return {model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(questions).map(([key,q])=>{const selected=key==='nextAction'?choice:'goal';return [key,{choice:selected,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,k===selected?1:0]))}];}))};};
@@ -57,8 +57,16 @@ export async function main(args=process.argv.slice(2)){
   await context.route('**/*',route=>{const request=route.request();const url=new URL(request.url());if(url.hostname==='fonts.googleapis.com'&&request.resourceType()==='stylesheet')return route.fulfill({contentType:'text/css',body:''});if(url.origin===baseURL&&['GET','HEAD'].includes(request.method()))return route.continue();safety=true;return route.abort();});
   const page=await context.newPage();page.on('download',download=>{safety=true;void download.cancel();});await context.tracing.start({screenshots:true,snapshots:true,sources:false});
   const fake=mockEvaluator(),evaluate:BetaEvaluator=async request=>{if(totalCalls>=maxTotalAPI)throw new BetaBudgetError('API_LIMIT');if(mock){totalCalls++;return fake(request);}
-   const reservation=phaseBudget?await phaseBudget.reserve({runKey:root+'/'+runId,condition:config.id,revision:manifest.revision,sourceHash:manifest.sourceHash,...(uiVersion?{uiVersion:uiVersion.id}:{})}):undefined;totalCalls++;
-   let response;try{response=await evaluateBetaRequest(request);}catch(error){if(phaseBudget&&reservation)await phaseBudget.settle(reservation,'ERROR',{failureCode:typeof (error as any)?.code==='string'?(error as any).code:typeof (error as any)?.failure?.code==='string'?(error as any).failure.code:'REQUEST_FAILED'});throw error;}
+   const dispatchDeadline=performance.now()+request.timeoutMs;
+   const reservation=phaseBudget?await phaseBudget.reserve({runKey:root+'/'+runId,condition:config.id,revision:manifest.revision,sourceHash:manifest.sourceHash,...(uiVersion?{uiVersion:uiVersion.id}:{})}):undefined;
+   const remaining=Math.floor(dispatchDeadline-performance.now());
+   if(remaining<=0){
+    // Keep the durable debit conservative, but record that no HTTP started.
+    if(phaseBudget&&reservation)try{await phaseBudget.settle(reservation,'ERROR',{attempts:0,failureCode:'DEADLINE_BEFORE_REQUEST'});}catch{throw new BetaAdmissionError();}
+    throw new BetaBudgetError('TIME_LIMIT');
+   }
+   totalCalls++;
+   let response;try{response=await evaluateBetaRequest({...request,timeoutMs:remaining});}catch(error){if(phaseBudget&&reservation)await phaseBudget.settle(reservation,'ERROR',{failureCode:typeof (error as any)?.code==='string'?(error as any).code:typeof (error as any)?.failure?.code==='string'?(error as any).failure.code:'REQUEST_FAILED'});throw error;}
    if(phaseBudget&&reservation)await phaseBudget.settle(reservation,'OK',{attempts:response.request?.attempts??1});return response;};
   try{const result=await runBeta(page,{runId,dir,baseURL,charter,persona,config,evaluate,...(uiVersion?{uiVersion,roiSelectors}:{}),code:{revision:manifest.revision,sourceHash:manifest.sourceHash},isSafetyStopped:()=>safety});results.push(result);console.log(runId+': '+result.termination+' objective='+result.objectiveSuccess+' UI='+result.uiActions+' looks='+result.looks+' API='+result.apiCalls);}
   finally{await context.tracing.stop({path:join(dir,'trace.zip')});await context.close();}
