@@ -1,0 +1,1633 @@
+{
+  "schemaVersion": 1,
+  "kind": "saved-goal-fragment-audit",
+  "runId": "notifications-r1-reason",
+  "goal": "初めて利用する暮らしクラウドで、メール通知を停止し、停止したことを確認したい",
+  "goalSha256": "b05e5cd0d439ebac711ad82c991275722f3c69196686c568fb73efd09b77468a",
+  "producer": {
+    "revision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+    "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186"
+  },
+  "humanFidelityEvaluated": false,
+  "causalEffectEvaluated": false,
+  "savedInputsResent": false,
+  "classification": {
+    "status": "AVAILABLE",
+    "classifiedFrames": 10,
+    "unclassifiedSteps": 1,
+    "interpretation": "Current saved responses only; carried memory is not a new classification."
+  },
+  "rubric": {
+    "status": "APPLIED",
+    "interpretation": "Independently authored role expectations, not model input, rendered-view ground truth, or an automatic global correctness score."
+  },
+  "success": {
+    "objectiveSuccess": false,
+    "perceivedDone": false,
+    "objectiveAssessment": {
+      "status": "OK",
+      "value": false
+    },
+    "termination": "API_ERROR",
+    "validForComparison": false
+  },
+  "frames": [
+    {
+      "step": 1,
+      "responseEvidence": {
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      "source": {
+        "observationId": "o1",
+        "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+      },
+      "scope": "delivered-current-view-only",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "初めて利用する暮らしクラウドで",
+          "recordedFragment": {
+            "id": "g1",
+            "text": "初めて利用する暮らしクラウドで"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.07,
+              "not_shown": 0.09,
+              "context": 0.82,
+              "contradicted": 0.01,
+              "uncertain": 0.01
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "context",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The service and first-use setting identify context; this fragment alone does not add a requested result.",
+          "rubricComparison": "CONTEXT_SELECTED"
+        },
+        {
+          "id": "g2",
+          "text": "メール通知を停止し",
+          "recordedFragment": {
+            "id": "g2",
+            "text": "メール通知を停止し"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.01,
+              "not_shown": 0.35,
+              "context": 0.63,
+              "contradicted": 0,
+              "uncertain": 0.01
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. Within this full Goal, stopping email notifications is a requested action. Its conjunctive grammatical form does not make the action optional background.",
+          "rubricComparison": "RUBRIC_CONFLICT"
+        },
+        {
+          "id": "g3",
+          "text": "停止したことを確認したい",
+          "recordedFragment": {
+            "id": "g3",
+            "text": "停止したことを確認したい"
+          },
+          "recordedAssessment": "not_shown",
+          "raw": {
+            "choice": "not_shown",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 0.97,
+              "context": 0.03,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The Goal explicitly requests confirming that notifications were stopped; the requested result remains required.",
+          "rubricComparison": "NO_REQUIRED_CONTEXT_CONFLICT"
+        }
+      ],
+      "wholeGoal": {
+        "raw": {
+          "choice": "unsatisfied",
+          "probabilities": {
+            "satisfied": 0,
+            "unsatisfied": 0.9,
+            "uncertain": 0.1
+          },
+          "validation": {
+            "valid": true,
+            "code": null
+          }
+        },
+        "admittedChoice": "uncertain",
+        "admittedChoiceValid": true
+      },
+      "goalPreservation": {
+        "assessmentGoal": true,
+        "assessmentCharterGoal": true,
+        "actionGoal": true,
+        "actionCharterGoal": true
+      },
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "issues": []
+    },
+    {
+      "step": 2,
+      "responseEvidence": {
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      "source": {
+        "observationId": "o2",
+        "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+      },
+      "scope": "delivered-current-view-only",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "初めて利用する暮らしクラウドで",
+          "recordedFragment": {
+            "id": "g1",
+            "text": "初めて利用する暮らしクラウドで"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.02,
+              "not_shown": 0.03,
+              "context": 0.93,
+              "contradicted": 0.01,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "context",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The service and first-use setting identify context; this fragment alone does not add a requested result.",
+          "rubricComparison": "CONTEXT_SELECTED"
+        },
+        {
+          "id": "g2",
+          "text": "メール通知を停止し",
+          "recordedFragment": {
+            "id": "g2",
+            "text": "メール通知を停止し"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.01,
+              "not_shown": 0.35,
+              "context": 0.62,
+              "contradicted": 0,
+              "uncertain": 0.02
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. Within this full Goal, stopping email notifications is a requested action. Its conjunctive grammatical form does not make the action optional background.",
+          "rubricComparison": "RUBRIC_CONFLICT"
+        },
+        {
+          "id": "g3",
+          "text": "停止したことを確認したい",
+          "recordedFragment": {
+            "id": "g3",
+            "text": "停止したことを確認したい"
+          },
+          "recordedAssessment": "not_shown",
+          "raw": {
+            "choice": "not_shown",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 1,
+              "context": 0,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The Goal explicitly requests confirming that notifications were stopped; the requested result remains required.",
+          "rubricComparison": "NO_REQUIRED_CONTEXT_CONFLICT"
+        }
+      ],
+      "wholeGoal": {
+        "raw": {
+          "choice": "unsatisfied",
+          "probabilities": {
+            "satisfied": 0,
+            "unsatisfied": 0.78,
+            "uncertain": 0.22
+          },
+          "validation": {
+            "valid": true,
+            "code": null
+          }
+        },
+        "admittedChoice": "uncertain",
+        "admittedChoiceValid": true
+      },
+      "goalPreservation": {
+        "assessmentGoal": true,
+        "assessmentCharterGoal": true,
+        "actionGoal": true,
+        "actionCharterGoal": true
+      },
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "issues": []
+    },
+    {
+      "step": 3,
+      "responseEvidence": {
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      "source": {
+        "observationId": "o3",
+        "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+      },
+      "scope": "delivered-current-view-only",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "初めて利用する暮らしクラウドで",
+          "recordedFragment": {
+            "id": "g1",
+            "text": "初めて利用する暮らしクラウドで"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.01,
+              "not_shown": 0.03,
+              "context": 0.95,
+              "contradicted": 0.01,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "context",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The service and first-use setting identify context; this fragment alone does not add a requested result.",
+          "rubricComparison": "CONTEXT_SELECTED"
+        },
+        {
+          "id": "g2",
+          "text": "メール通知を停止し",
+          "recordedFragment": {
+            "id": "g2",
+            "text": "メール通知を停止し"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 0.29,
+              "context": 0.71,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. Within this full Goal, stopping email notifications is a requested action. Its conjunctive grammatical form does not make the action optional background.",
+          "rubricComparison": "RUBRIC_CONFLICT"
+        },
+        {
+          "id": "g3",
+          "text": "停止したことを確認したい",
+          "recordedFragment": {
+            "id": "g3",
+            "text": "停止したことを確認したい"
+          },
+          "recordedAssessment": "not_shown",
+          "raw": {
+            "choice": "not_shown",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 1,
+              "context": 0,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The Goal explicitly requests confirming that notifications were stopped; the requested result remains required.",
+          "rubricComparison": "NO_REQUIRED_CONTEXT_CONFLICT"
+        }
+      ],
+      "wholeGoal": {
+        "raw": {
+          "choice": "unsatisfied",
+          "probabilities": {
+            "satisfied": 0,
+            "unsatisfied": 0.88,
+            "uncertain": 0.12
+          },
+          "validation": {
+            "valid": true,
+            "code": null
+          }
+        },
+        "admittedChoice": "uncertain",
+        "admittedChoiceValid": true
+      },
+      "goalPreservation": {
+        "assessmentGoal": true,
+        "assessmentCharterGoal": true,
+        "actionGoal": true,
+        "actionCharterGoal": true
+      },
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "issues": []
+    },
+    {
+      "step": 4,
+      "responseEvidence": {
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      "source": {
+        "observationId": "o4",
+        "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+      },
+      "scope": "delivered-current-view-only",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "初めて利用する暮らしクラウドで",
+          "recordedFragment": {
+            "id": "g1",
+            "text": "初めて利用する暮らしクラウドで"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.01,
+              "not_shown": 0.04,
+              "context": 0.93,
+              "contradicted": 0.01,
+              "uncertain": 0.01
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "context",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The service and first-use setting identify context; this fragment alone does not add a requested result.",
+          "rubricComparison": "CONTEXT_SELECTED"
+        },
+        {
+          "id": "g2",
+          "text": "メール通知を停止し",
+          "recordedFragment": {
+            "id": "g2",
+            "text": "メール通知を停止し"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 0.27,
+              "context": 0.73,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. Within this full Goal, stopping email notifications is a requested action. Its conjunctive grammatical form does not make the action optional background.",
+          "rubricComparison": "RUBRIC_CONFLICT"
+        },
+        {
+          "id": "g3",
+          "text": "停止したことを確認したい",
+          "recordedFragment": {
+            "id": "g3",
+            "text": "停止したことを確認したい"
+          },
+          "recordedAssessment": "not_shown",
+          "raw": {
+            "choice": "not_shown",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 1,
+              "context": 0,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The Goal explicitly requests confirming that notifications were stopped; the requested result remains required.",
+          "rubricComparison": "NO_REQUIRED_CONTEXT_CONFLICT"
+        }
+      ],
+      "wholeGoal": {
+        "raw": {
+          "choice": "unsatisfied",
+          "probabilities": {
+            "satisfied": 0,
+            "unsatisfied": 0.83,
+            "uncertain": 0.17
+          },
+          "validation": {
+            "valid": true,
+            "code": null
+          }
+        },
+        "admittedChoice": "uncertain",
+        "admittedChoiceValid": true
+      },
+      "goalPreservation": {
+        "assessmentGoal": true,
+        "assessmentCharterGoal": true,
+        "actionGoal": true,
+        "actionCharterGoal": true
+      },
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "issues": []
+    },
+    {
+      "step": 5,
+      "responseEvidence": {
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      "source": {
+        "observationId": "o5",
+        "imageSha256": "f3d65a715fa0fdcdfb388ade04c6e6d3f00f65335b21beea6c6855ef7755a0b2"
+      },
+      "scope": "delivered-current-view-only",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "初めて利用する暮らしクラウドで",
+          "recordedFragment": {
+            "id": "g1",
+            "text": "初めて利用する暮らしクラウドで"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.02,
+              "not_shown": 0.05,
+              "context": 0.87,
+              "contradicted": 0.05,
+              "uncertain": 0.01
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "context",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The service and first-use setting identify context; this fragment alone does not add a requested result.",
+          "rubricComparison": "CONTEXT_SELECTED"
+        },
+        {
+          "id": "g2",
+          "text": "メール通知を停止し",
+          "recordedFragment": {
+            "id": "g2",
+            "text": "メール通知を停止し"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.01,
+              "not_shown": 0.28,
+              "context": 0.71,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. Within this full Goal, stopping email notifications is a requested action. Its conjunctive grammatical form does not make the action optional background.",
+          "rubricComparison": "RUBRIC_CONFLICT"
+        },
+        {
+          "id": "g3",
+          "text": "停止したことを確認したい",
+          "recordedFragment": {
+            "id": "g3",
+            "text": "停止したことを確認したい"
+          },
+          "recordedAssessment": "not_shown",
+          "raw": {
+            "choice": "not_shown",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 0.99,
+              "context": 0,
+              "contradicted": 0.01,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The Goal explicitly requests confirming that notifications were stopped; the requested result remains required.",
+          "rubricComparison": "NO_REQUIRED_CONTEXT_CONFLICT"
+        }
+      ],
+      "wholeGoal": {
+        "raw": {
+          "choice": "unsatisfied",
+          "probabilities": {
+            "satisfied": 0,
+            "unsatisfied": 0.84,
+            "uncertain": 0.16
+          },
+          "validation": {
+            "valid": true,
+            "code": null
+          }
+        },
+        "admittedChoice": "uncertain",
+        "admittedChoiceValid": true
+      },
+      "goalPreservation": {
+        "assessmentGoal": true,
+        "assessmentCharterGoal": true,
+        "actionGoal": true,
+        "actionCharterGoal": true
+      },
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "issues": []
+    },
+    {
+      "step": 6,
+      "responseEvidence": {
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      "source": {
+        "observationId": "o6",
+        "imageSha256": "9e31a25ca2c1c73b0aeecc5d45daa2d0f530e0feddcbe1991739f2b33104c53a"
+      },
+      "scope": "delivered-current-view-only",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "初めて利用する暮らしクラウドで",
+          "recordedFragment": {
+            "id": "g1",
+            "text": "初めて利用する暮らしクラウドで"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.01,
+              "not_shown": 0.05,
+              "context": 0.91,
+              "contradicted": 0.03,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "context",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The service and first-use setting identify context; this fragment alone does not add a requested result.",
+          "rubricComparison": "CONTEXT_SELECTED"
+        },
+        {
+          "id": "g2",
+          "text": "メール通知を停止し",
+          "recordedFragment": {
+            "id": "g2",
+            "text": "メール通知を停止し"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.02,
+              "not_shown": 0.31,
+              "context": 0.66,
+              "contradicted": 0,
+              "uncertain": 0.01
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. Within this full Goal, stopping email notifications is a requested action. Its conjunctive grammatical form does not make the action optional background.",
+          "rubricComparison": "RUBRIC_CONFLICT"
+        },
+        {
+          "id": "g3",
+          "text": "停止したことを確認したい",
+          "recordedFragment": {
+            "id": "g3",
+            "text": "停止したことを確認したい"
+          },
+          "recordedAssessment": "not_shown",
+          "raw": {
+            "choice": "not_shown",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 1,
+              "context": 0,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The Goal explicitly requests confirming that notifications were stopped; the requested result remains required.",
+          "rubricComparison": "NO_REQUIRED_CONTEXT_CONFLICT"
+        }
+      ],
+      "wholeGoal": {
+        "raw": {
+          "choice": "unsatisfied",
+          "probabilities": {
+            "satisfied": 0,
+            "unsatisfied": 0.75,
+            "uncertain": 0.25
+          },
+          "validation": {
+            "valid": true,
+            "code": null
+          }
+        },
+        "admittedChoice": "uncertain",
+        "admittedChoiceValid": true
+      },
+      "goalPreservation": {
+        "assessmentGoal": true,
+        "assessmentCharterGoal": true,
+        "actionGoal": true,
+        "actionCharterGoal": true
+      },
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "issues": []
+    },
+    {
+      "step": 7,
+      "responseEvidence": {
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      "source": {
+        "observationId": "o7",
+        "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+      },
+      "scope": "delivered-current-view-only",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "初めて利用する暮らしクラウドで",
+          "recordedFragment": {
+            "id": "g1",
+            "text": "初めて利用する暮らしクラウドで"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.01,
+              "not_shown": 0.03,
+              "context": 0.94,
+              "contradicted": 0.02,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "context",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The service and first-use setting identify context; this fragment alone does not add a requested result.",
+          "rubricComparison": "CONTEXT_SELECTED"
+        },
+        {
+          "id": "g2",
+          "text": "メール通知を停止し",
+          "recordedFragment": {
+            "id": "g2",
+            "text": "メール通知を停止し"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 0.41,
+              "context": 0.59,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. Within this full Goal, stopping email notifications is a requested action. Its conjunctive grammatical form does not make the action optional background.",
+          "rubricComparison": "RUBRIC_CONFLICT"
+        },
+        {
+          "id": "g3",
+          "text": "停止したことを確認したい",
+          "recordedFragment": {
+            "id": "g3",
+            "text": "停止したことを確認したい"
+          },
+          "recordedAssessment": "not_shown",
+          "raw": {
+            "choice": "not_shown",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 1,
+              "context": 0,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The Goal explicitly requests confirming that notifications were stopped; the requested result remains required.",
+          "rubricComparison": "NO_REQUIRED_CONTEXT_CONFLICT"
+        }
+      ],
+      "wholeGoal": {
+        "raw": {
+          "choice": "unsatisfied",
+          "probabilities": {
+            "satisfied": 0,
+            "unsatisfied": 0.9,
+            "uncertain": 0.1
+          },
+          "validation": {
+            "valid": true,
+            "code": null
+          }
+        },
+        "admittedChoice": "uncertain",
+        "admittedChoiceValid": true
+      },
+      "goalPreservation": {
+        "assessmentGoal": true,
+        "assessmentCharterGoal": true,
+        "actionGoal": true,
+        "actionCharterGoal": true
+      },
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "issues": []
+    },
+    {
+      "step": 8,
+      "responseEvidence": {
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      "source": {
+        "observationId": "o8",
+        "imageSha256": "80e0bf87dadb41940bd578cc80d823095334b4fea2b4790a57249164b2fc60ec"
+      },
+      "scope": "delivered-current-view-only",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "初めて利用する暮らしクラウドで",
+          "recordedFragment": {
+            "id": "g1",
+            "text": "初めて利用する暮らしクラウドで"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.02,
+              "not_shown": 0.05,
+              "context": 0.9,
+              "contradicted": 0.02,
+              "uncertain": 0.01
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "context",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The service and first-use setting identify context; this fragment alone does not add a requested result.",
+          "rubricComparison": "CONTEXT_SELECTED"
+        },
+        {
+          "id": "g2",
+          "text": "メール通知を停止し",
+          "recordedFragment": {
+            "id": "g2",
+            "text": "メール通知を停止し"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.01,
+              "not_shown": 0.35,
+              "context": 0.63,
+              "contradicted": 0,
+              "uncertain": 0.01
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. Within this full Goal, stopping email notifications is a requested action. Its conjunctive grammatical form does not make the action optional background.",
+          "rubricComparison": "RUBRIC_CONFLICT"
+        },
+        {
+          "id": "g3",
+          "text": "停止したことを確認したい",
+          "recordedFragment": {
+            "id": "g3",
+            "text": "停止したことを確認したい"
+          },
+          "recordedAssessment": "not_shown",
+          "raw": {
+            "choice": "not_shown",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 1,
+              "context": 0,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The Goal explicitly requests confirming that notifications were stopped; the requested result remains required.",
+          "rubricComparison": "NO_REQUIRED_CONTEXT_CONFLICT"
+        }
+      ],
+      "wholeGoal": {
+        "raw": {
+          "choice": "unsatisfied",
+          "probabilities": {
+            "satisfied": 0,
+            "unsatisfied": 0.78,
+            "uncertain": 0.22
+          },
+          "validation": {
+            "valid": true,
+            "code": null
+          }
+        },
+        "admittedChoice": "uncertain",
+        "admittedChoiceValid": true
+      },
+      "goalPreservation": {
+        "assessmentGoal": true,
+        "assessmentCharterGoal": true,
+        "actionGoal": true,
+        "actionCharterGoal": true
+      },
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "issues": []
+    },
+    {
+      "step": 9,
+      "responseEvidence": {
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      "source": {
+        "observationId": "o9",
+        "imageSha256": "23d84ea305604c1c4622aafc4fadce2aca7900a10b9c675ae155c948a7311c79"
+      },
+      "scope": "delivered-current-view-only",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "初めて利用する暮らしクラウドで",
+          "recordedFragment": {
+            "id": "g1",
+            "text": "初めて利用する暮らしクラウドで"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.02,
+              "not_shown": 0.05,
+              "context": 0.91,
+              "contradicted": 0.02,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "context",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The service and first-use setting identify context; this fragment alone does not add a requested result.",
+          "rubricComparison": "CONTEXT_SELECTED"
+        },
+        {
+          "id": "g2",
+          "text": "メール通知を停止し",
+          "recordedFragment": {
+            "id": "g2",
+            "text": "メール通知を停止し"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 0.33,
+              "context": 0.67,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. Within this full Goal, stopping email notifications is a requested action. Its conjunctive grammatical form does not make the action optional background.",
+          "rubricComparison": "RUBRIC_CONFLICT"
+        },
+        {
+          "id": "g3",
+          "text": "停止したことを確認したい",
+          "recordedFragment": {
+            "id": "g3",
+            "text": "停止したことを確認したい"
+          },
+          "recordedAssessment": "not_shown",
+          "raw": {
+            "choice": "not_shown",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 1,
+              "context": 0,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The Goal explicitly requests confirming that notifications were stopped; the requested result remains required.",
+          "rubricComparison": "NO_REQUIRED_CONTEXT_CONFLICT"
+        }
+      ],
+      "wholeGoal": {
+        "raw": {
+          "choice": "unsatisfied",
+          "probabilities": {
+            "satisfied": 0,
+            "unsatisfied": 0.8,
+            "uncertain": 0.2
+          },
+          "validation": {
+            "valid": true,
+            "code": null
+          }
+        },
+        "admittedChoice": "uncertain",
+        "admittedChoiceValid": true
+      },
+      "goalPreservation": {
+        "assessmentGoal": true,
+        "assessmentCharterGoal": true,
+        "actionGoal": true,
+        "actionCharterGoal": true
+      },
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "issues": []
+    },
+    {
+      "step": 10,
+      "responseEvidence": {
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      "source": {
+        "observationId": "o10",
+        "imageSha256": "80e0bf87dadb41940bd578cc80d823095334b4fea2b4790a57249164b2fc60ec"
+      },
+      "scope": "delivered-current-view-only",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "初めて利用する暮らしクラウドで",
+          "recordedFragment": {
+            "id": "g1",
+            "text": "初めて利用する暮らしクラウドで"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.01,
+              "not_shown": 0.06,
+              "context": 0.91,
+              "contradicted": 0.01,
+              "uncertain": 0.01
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "context",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The service and first-use setting identify context; this fragment alone does not add a requested result.",
+          "rubricComparison": "CONTEXT_SELECTED"
+        },
+        {
+          "id": "g2",
+          "text": "メール通知を停止し",
+          "recordedFragment": {
+            "id": "g2",
+            "text": "メール通知を停止し"
+          },
+          "recordedAssessment": "context",
+          "raw": {
+            "choice": "context",
+            "probabilities": {
+              "observed": 0.01,
+              "not_shown": 0.39,
+              "context": 0.59,
+              "contradicted": 0,
+              "uncertain": 0.01
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. Within this full Goal, stopping email notifications is a requested action. Its conjunctive grammatical form does not make the action optional background.",
+          "rubricComparison": "RUBRIC_CONFLICT"
+        },
+        {
+          "id": "g3",
+          "text": "停止したことを確認したい",
+          "recordedFragment": {
+            "id": "g3",
+            "text": "停止したことを確認したい"
+          },
+          "recordedAssessment": "not_shown",
+          "raw": {
+            "choice": "not_shown",
+            "probabilities": {
+              "observed": 0,
+              "not_shown": 1,
+              "context": 0,
+              "contradicted": 0,
+              "uncertain": 0
+            },
+            "validation": {
+              "valid": true,
+              "code": null
+            }
+          },
+          "rawMatchesRecord": true,
+          "expectedRole": "required",
+          "rationale": "Authored by the parent audit AI; not validated by human annotators. The Goal explicitly requests confirming that notifications were stopped; the requested result remains required.",
+          "rubricComparison": "NO_REQUIRED_CONTEXT_CONFLICT"
+        }
+      ],
+      "wholeGoal": {
+        "raw": {
+          "choice": "unsatisfied",
+          "probabilities": {
+            "satisfied": 0,
+            "unsatisfied": 0.78,
+            "uncertain": 0.22
+          },
+          "validation": {
+            "valid": true,
+            "code": null
+          }
+        },
+        "admittedChoice": "uncertain",
+        "admittedChoiceValid": true
+      },
+      "goalPreservation": {
+        "assessmentGoal": true,
+        "assessmentCharterGoal": true,
+        "actionGoal": true,
+        "actionCharterGoal": true
+      },
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "issues": []
+    }
+  ],
+  "faultSteps": [
+    {
+      "step": 11,
+      "responseEvidence": {
+        "assessmentResponseRecorded": false,
+        "actionResponseRecorded": false
+      },
+      "outcome": "ASSESSMENT_ERROR",
+      "assessmentResponsePresent": false,
+      "currentRecordPresent": false,
+      "carriedMemoryEntryCount": 8,
+      "error": {
+        "code": "HTTP_ERROR",
+        "statusCode": 402
+      },
+      "goalPreservation": {
+        "assessmentGoal": true,
+        "assessmentCharterGoal": true,
+        "actionGoal": true,
+        "actionCharterGoal": true
+      },
+      "consistency": {
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true
+      },
+      "issues": []
+    }
+  ],
+  "aggregates": {
+    "fragments": [
+      {
+        "id": "g1",
+        "text": "初めて利用する暮らしクラウドで",
+        "classifiedCount": 10,
+        "validDistributionCount": 10,
+        "invalidDistributionCount": 0,
+        "selections": {
+          "context": 10
+        },
+        "contextProbabilities": [
+          0.82,
+          0.93,
+          0.95,
+          0.93,
+          0.87,
+          0.91,
+          0.94,
+          0.9,
+          0.91,
+          0.91
+        ],
+        "requiredContextConflicts": 0,
+        "undeterminedRoleCount": 0,
+        "rawRecordMismatchCount": 0
+      },
+      {
+        "id": "g2",
+        "text": "メール通知を停止し",
+        "classifiedCount": 10,
+        "validDistributionCount": 10,
+        "invalidDistributionCount": 0,
+        "selections": {
+          "context": 10
+        },
+        "contextProbabilities": [
+          0.63,
+          0.62,
+          0.71,
+          0.73,
+          0.71,
+          0.66,
+          0.59,
+          0.63,
+          0.67,
+          0.59
+        ],
+        "requiredContextConflicts": 10,
+        "undeterminedRoleCount": 0,
+        "rawRecordMismatchCount": 0
+      },
+      {
+        "id": "g3",
+        "text": "停止したことを確認したい",
+        "classifiedCount": 10,
+        "validDistributionCount": 10,
+        "invalidDistributionCount": 0,
+        "selections": {
+          "not_shown": 10
+        },
+        "contextProbabilities": [
+          0.03,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "requiredContextConflicts": 0,
+        "undeterminedRoleCount": 0,
+        "rawRecordMismatchCount": 0
+      }
+    ],
+    "framesWithIssues": 0,
+    "requiredContextAndWholeGoalUnsatisfied": 10
+  },
+  "limitations": [
+    "Saved model inputs document preserved preparation; request transmission cannot be established from those fields, and a missing response does not establish whether transmission occurred.",
+    "Literal fragments are not a complete decomposition of the whole Goal.",
+    "Required+context is a conflict with an authored rubric, not proof of global semantic failure or a cause of repeated actions.",
+    "Context probability values are original raw values, not normalized, calibrated confidence, or independent samples.",
+    "Whole-Goal raw choice and admitted choice can differ; original subjective/objective/termination fields remain separate.",
+    "Source consistency and replay compatibility do not prove semantic correctness, human fidelity, performance, or identical producer code."
+  ],
+  "replay": {
+    "runId": "notifications-r1-reason",
+    "choices": 10,
+    "assessments": 10,
+    "images": 66,
+    "verified": true,
+    "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+  },
+  "provenance": {
+    "analyzerSha256": "fb81bf88310f7e645883b57be7a64b6864217b4176d4696a622eda58e22e6bdc",
+    "resultSha256": "c21153f39b9b7eb301cc70d04d49bef7189df7d1f50f3f3e85a4faae70dbc829",
+    "rubricSha256": "804db69bb7c58806b7f4f5df3e0fb650fc01f1ae086e9373b54f56f20ced4e29",
+    "producer": {
+      "revision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+      "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186"
+    },
+    "current": {
+      "revision": "ef280f029cd99917cb94ab2173861cf0cd84d3ba",
+      "sourceHashes": {
+        "app/holdout-fixture.ts": "c7bea5433a504c276a5a8d3bff72e2d1f2ae03c1f0242339db6162901d07b3d1",
+        "app/HoldoutFixture.tsx": "335d3f7255ec02fd604cb3d1f37e00da750614708285e9ef1cbb10e0d7417b05",
+        "app/main.tsx": "e65578d424a322ea4c151493b9383bd13788a68fb18e9d0a7c7fa8dc996e0e6d",
+        "app/semantic-fixture.ts": "2b15ba4f062d281905ed145a822555ab2f0a1b932a1ad5d61a8d1af53c88906f",
+        "app/SemanticFixture.tsx": "8f53d4604f56b8fb048aa08190bfade3839c9e288b1e72f11168c348f24524fb",
+        "app/style.css": "2f6290ed98a5506f4555451abbe01e6b316c15762ee06900ff6c8cc084c74d1c",
+        "app/virtual-beta-ui.ts": "c31ca61d4318cc479838f666dd700d520c05e5f13f29accf7523d670d4b65434",
+        "pages/AccountPage.ts": "4a352f6e7f6cf85dcbf3344f808f864ef66c020d5efbb11dca23dbb1a420f182",
+        "pages/action-target.ts": "10672b90c4fe551139d04ff9975a4ec94dbb6ccb1165ccb169dbbc60f103703b",
+        "pages/AutoPage.ts": "ea63070c70f7c88daca0fee56040c4700bb452faf6bcebae4fa4b6a7129b34ae",
+        "pages/BadPage.ts": "73c0b2a79d5cece705be786ccb33bdb1d46a8396150404fad5570950997589c4",
+        "pages/ClientToolPage.ts": "e4cae05ab785027d66063a428d29f8485828a0bb48d375e48c5bf918c49d1bce",
+        "pages/control-observation.ts": "baa7d28d01c3ff8834ddff005eb1dba513f48dd8a461a9fedb812f38cb32a214",
+        "pages/controls.ts": "1ef93879e55fd78ae90d1a36a37f9bde10893b1bf91334baa038fd0b9fdd1f1a",
+        "pages/GoodPage.ts": "91450f24a13da97eb5fbbd2f2201cc6645b90eff5ff1cede682a052e20e1fd0f",
+        "pages/LocalExplorationPage.ts": "0bab94559680b80cca1f337b9e3d741160adf604e7c91e7dfcb4ade9b34974c5",
+        "pages/PublicSitePage.ts": "a4d1ba466c3678a09f003d20cf6c804f1144ca0acb5231d85469b1d3f5630708",
+        "pages/visible-text.ts": "fc5b928397933adf2c5166a890ae397353c894d332b0fe8d33f265ddec19fa7d",
+        "pages/visual-numbering.ts": "ddce4801f03206edde19a909eab1651d2447bb04dc0906b12b30a39d308adc61",
+        "jev/client.ts": "b8159e75d0eb0024369f5751a06ca254413a017204aaab3f6195116155442d4b",
+        "jev/completion-frames.ts": "ca0a7ab113d87bddc181cae5a495ff56f307c2f1428909354ef43c28f08d8aa9",
+        "jev/completion.ts": "c8fb0d92776db13fc062e92a13305df9cad0b505a4d53c7a5191122781e40a17",
+        "jev/contradiction-batches.ts": "18e228f2fbaab96b414c1bfaa3c54bf7db866a611759f6ae1b2e82981c0bd62b",
+        "jev/decide.ts": "4617336f71f53534e5b5856af7e6a676b93106f4fab0537cd4d205c1f0223871",
+        "jev/evidence-blocks.ts": "47a4f144431bc38042767ec93f70fb5a201b921e901befb44481a185f2089b37",
+        "jev/evidence-session.ts": "895160b8972fe9a53a096c701b3b4f6a76ae4f44b0ea3e64198b1f745ce444b9",
+        "jev/fake.ts": "2749d6457f63ef426c276fa04fe06baf0362e3add9eccc441e20a683cf87d600",
+        "jev/frontier-types.ts": "f58ec32e1d1b549f54b34025d5bb4ea7ce37ac6e820ebb357be43e9e982915bd",
+        "jev/frontier.ts": "b96bd3b0787c086ab4cf723c401291a4fc82a4f35448794c6e25bbbd757d14d4",
+        "jev/goal-completeness.ts": "c490cfdf3a64f4da124805ff161af91cb877ed2e202b616fa25e5a0e2256a70b",
+        "jev/goal-evidence.ts": "e5ad5002ccb306566bfeff59a0a2746118cae556bc1cbeecab3fa913c5d1e4f8",
+        "jev/goal-status.ts": "9ecd8bd3523b098ca0714af8ef0cf8608540cc4e77171c9c3e5dcf434bac8501",
+        "jev/history.ts": "87fae36f54a111e16d5cefd62aeb4f312f123d987a63ca9b039272b32a0e18a6",
+        "jev/image-judgments.ts": "8b88d6cc1e46cd72893bbfa2acd5447c83ce94ef75166da980edecc355bb2d54",
+        "jev/image-only-input.ts": "ecf08a79577cc32e722091e4ce0a26a3209a8f088b1fe44bb34b4925acad1d50",
+        "jev/navigation-context.ts": "b2e6bea86fafa05ebbf252638a3271189c53e54284baba02ed51f97e3fd56bfb",
+        "jev/persona.ts": "f76235a4e2651dbc04cf47fd90b6ebaec79b60b749f747945886e5e2ca536654",
+        "jev/progress.ts": "a5d775d9a4bb9841ac97d10224311dbcf28c78b39e52b8d87d7b6d7c10046bbb",
+        "jev/types.ts": "1f8f6583173b6391c88069fde750e1737cfae8aa200a8d87de678019f7c5dc29",
+        "jev/virtual-beta/config.ts": "5ecc36765e76335fde8c9371bac666f846d991093b06c0f39f3d0effb82b95c7",
+        "jev/virtual-beta/contracts.ts": "da844da8f1b3e525ca9fa2808af9539aca5c5c3c57001d0994ebd046b9472ea6",
+        "jev/virtual-beta/correspondence-contracts.ts": "46fc64614b70e069c884320e73b66095943b9c42d007070a5ce02c0c16a82914",
+        "jev/virtual-beta/correspondence.ts": "b5acf6e4c6a82caeffcc55531759486eb2292eed7e98575d8d26d36362f9cf5d",
+        "jev/virtual-beta/deferral-contracts.ts": "bf49e0e32925fd4438dbb4f51803c9e5611e134478519798c75290a960af7d28",
+        "jev/virtual-beta/deferral-reason-contracts.ts": "a277fbe343d2889b64b43e9d06c0f8d985219395f25d42ea90a191192a2308fb",
+        "jev/virtual-beta/deferral-reason.ts": "e39f8a10866c3ac07a0e643eac09a2afde1289ca0eb29d44cc46db102c8bfea2",
+        "jev/virtual-beta/deferral.ts": "171843798b205d9a5fd9354d266fe6461997335c718200abf8c5666c614b1b82",
+        "jev/virtual-beta/deliberation-contracts.ts": "82dbbb7910273ede7d28beea7f46a5a4e5871160069074dd0c2bc7fa06458b7d",
+        "jev/virtual-beta/deliberation.ts": "d346b812fc4f47317d47081b0aeffc8e222969caaab87314a4628036a6b42e83",
+        "jev/virtual-beta/experience-contracts.ts": "953f0c765b26e725628ffafdc95f16f969bd8f907d429c6c23d6fb7a71e2044a",
+        "jev/virtual-beta/experience.ts": "883a02201e6821f8d64a0d652465076c7d2fe140753ac85319da78e9d2f3a400",
+        "jev/virtual-beta/goal-search-contracts.ts": "0c42e5bc3adc7ec2a66226770e799cbcb637bed341249b9274acb750f29d3ee7",
+        "jev/virtual-beta/goal-search.ts": "4851e45e67f7ae1a03927e3b8416109180cee2acb3d810e302e5b76d93d21abc",
+        "jev/virtual-beta/selection.ts": "284711d5f7e0900f443ba6a63381f1d7eac2ed4add6b7d2a680815a8e7488e34",
+        "jev/virtual-beta/semantic-types.ts": "af474ed867ea61f608dfd8f6bbf29b48a3e37e48d0f38b089987413d28807a0b",
+        "jev/virtual-beta/ui-types.ts": "aaeeb94ca7c409dd0b42ff63d8ba925458ace57b705050d8c672943a7e321b79",
+        "jev/virtual-beta/user-state.ts": "b9bf78b9c9db9df10f13b8c5a4d39db31c4a3cd43ce012e80e51ab64d9ab5268",
+        "jev/virtual-beta/vision.ts": "93469e77e90363e36284337b30a3590b0c9fddeeb7c16dfa845ea77cc681accc",
+        "jev/visual-context.ts": "f4532fb39026b639e738778a821117ec25d7d7c47bc6838174a1796df85b1ef7",
+        "runner/action-recovery.ts": "85f4e6f62e7fafc70490f27be27e513293556d89c5ebeea7a0f8d4d0037e11c1",
+        "runner/action-trace.ts": "534e8bc57d22bcd8e2943fb031e9df512d4cf6265e1f18d416d4fa8f08b2ae14",
+        "runner/budget-persistence.ts": "3fdeeae20257255abfabcf98cbe36d8be50fbba4bc6a73496f1d0b044507e2ac",
+        "runner/build-public-pages.ts": "8dec6543e69fd62037c21b412b8e59c25efe8fafee13191444bd833b96af3950",
+        "runner/deferral-reason-experiment.ts": "c85ecc1c6ea32cb2d9185980c46daeec5decf951cf8d12756841bed393a0df4e",
+        "runner/deliberation-analysis.ts": "2a5d6123d0ce5c4899fe6ee9f142e391bd7f1f1d4c810278969013bcd89acd24",
+        "runner/engine.ts": "2e6545aabd8c8d0139f0984f7be5fdae5b587820738a11e8302ee3e6a5d57ddd",
+        "runner/exploration-memory.ts": "4571ccdad877ad704f57fc0f0ccd1d5b29be71c1226bad48176c955b57c2b54e",
+        "runner/generate-test.ts": "88931c4ff967063acb741efc72376d4f9e2774e2626f0761018505c8e08729cf",
+        "runner/generate.ts": "fdd14e4b948c705fde36aff86b9b2dc4af28267dc5409a8c4623a267cb3eeaa7",
+        "runner/goal-diversity-fixture.ts": "6be711c40c33a9422e315b12e0931ea746b04685a2b72d048384e89c1542d2fc",
+        "runner/goal-diversity.ts": "2a1fc742240ab19e298d48cf3ced0cbf0a6a227c5c02fa261c94ef4e63e6db68",
+        "runner/goal-outcome.ts": "6f308337b05750aa39e23cfa095547b7981c1c053745c8fed3f4158073c7e0ff",
+        "runner/holdout-analysis.ts": "aef3ac1b19fda36404b1a779804a4967bc94b1ac1d238b9a09a7085c191dc0c9",
+        "runner/holdout-stability.ts": "4fb396add8834a28a6fa7219a8239d7f8e706086ff7b91c3a80ede789977eca8",
+        "runner/human-jev-experiment.ts": "c800593df5b2d93ab79d17084714e109c5e022523848dbaca330e952b299fe65",
+        "runner/human-jev-profiles.ts": "a016fed20a1e768959d69ee5e1c5a671fe9004d1a2f634a6a59fe4cc91812f58",
+        "runner/human-jev-review.ts": "08374866da9e93df5d04b194202cbf17bf7cb84563edf1d0cd36cebeb3bde141",
+        "runner/ocr-data.ts": "c4e7d272b6d6defbf44a03e7084786c21f1f5bc61b76a287b348a94b263e68d8",
+        "runner/ocr-report.ts": "38a29d598a163c53255730d5982c5436eaaa3aca082458f516b8fbd78188f751",
+        "runner/ocr.ts": "b5a935b6f614e5689b7fcb686b58ebf21b35f252735342088825897a80e76973",
+        "runner/persona-compare.ts": "c332b88f96f19461469fc02940a73a41ef109c14cae50a1c851d2c9c7477dccc",
+        "runner/persona-diagnostics.ts": "1663d47cc5677681db8daeaf64be60b0807945c83c1ce2279e3d21352cb00c0e",
+        "runner/persona-experiment.ts": "2d8d34a49594ce6d90c70fd9e6a67ad69a42809ae1106708b01cc65e7bf6bd97",
+        "runner/persona-human-validation.ts": "b677ae6532f625c00a3050bbb0909115cbe824366fa7acf0648f4984f75b57f4",
+        "runner/persona-human.ts": "5fbf6b46555c602cf7d1a8a03880919c4197d96c4fb4dbfead51286cfad24f2b",
+        "runner/persona-phase2-html.ts": "0523c4492bc6335b0fed894cb10c3570a3d8e28c698c7003840a97cba4c94d27",
+        "runner/persona-phase2.ts": "40f700792aca4de7f95eb4b6b8ad35c70186afef7c570e23dff016d71ae7d2a8",
+        "runner/persona-report.ts": "465046084a9ec0dd9412b3235be9191602cdf8119f51759c7e3a494509b9dbdb",
+        "runner/public-navigation.ts": "edbbeee2baffbbc98a5279d93769ef5574a71bafd77792cff3eb4ff867b43dad",
+        "runner/public-options.ts": "8af7e9700f405b3d612a8363d9af44074bbb245c146316858e035d6de6e914e7",
+        "runner/public-site.ts": "b6262ee067ec9036a3c18b5e1a202598f313d25937eecf701334ce26e13f601b",
+        "runner/reliability-measurement.ts": "6ba19e8de089f384078b8ace57399a19ea544214557a85fe6b9bb6112f383fbb",
+        "runner/reliability-source.ts": "da098483353c0c27a522b02afe61097c0b7d2ea40de098cf4b007df8d4d80723",
+        "runner/reliability-validation.ts": "b21605033fd361e7c5ccc07de337eed4ec3bf8d1723046d32be5203f99dd373b",
+        "runner/render.ts": "b60ed0aa5628b7aac9e424dedf28b26a192ef155e097e7a1c763ecf4959397cf",
+        "runner/report-style.ts": "479a604b8da89d0fed535798aa13ba5259d316893819e9f4ebc7bcbc42be4f7a",
+        "runner/report.ts": "ed1dc73ccc2677da4abbb44605698611a60f2f8190f0cc791886a4870d8676db",
+        "runner/run.ts": "5875ef4aa22735929f5ee90ab32fcc08263d2907026c7af1f7eddd00808c2daf",
+        "runner/semantic-analysis.ts": "17cbb72e8ac5c66db7a87dca7d9934cd6504eccb0bf4b5dfd881e6ad8bf97ac7",
+        "runner/semantic-protocol.ts": "3b2d2b44d7052eaf1773bb3c5671e8d03ddd69bb8312d36f5e2d2ec0f29dce1d",
+        "runner/stop-assessment.ts": "d0ecb40c45098f878734d4dd23de2ac11bd93a661aa11582a7bb1e05f23443c4",
+        "runner/virtual-beta-analysis.ts": "8684b4c0e4ea7e908ed0f995c4abcb21304351fc616d8ebc284ca43091c4178b",
+        "runner/virtual-beta-budget.ts": "03ee80e3eabccdd26fc4fa17f6f945074c59d4392484e1dd1f1b45842064d41b",
+        "runner/virtual-beta-core.ts": "2a2714a87eac7e8a0fd5b99c5c0cb8c5aa18515388361e6240e58a16f732e3b9",
+        "runner/virtual-beta-evaluator.ts": "54ddddadd50a5a44f583bea9fe3b1309f42c164857f824edd3a480ae440695ed",
+        "runner/virtual-beta-replay-candidates.ts": "cce8801b1d8b6e27aefc8e0b1e33dc62d3246ebe06463777361cba31cf17a6a8",
+        "runner/virtual-beta-replay.ts": "0fe97e378ca2a1d8b8a305c7bb97ffcbe6cb360c1cd15fd532c25481c5cbe081",
+        "runner/virtual-beta-source.ts": "27a647eba569333695ad2b218387998777e25f30c7deaadda6cc94757e0ec238",
+        "runner/virtual-beta.ts": "08e8161077a2fc9ac28dae0e45bbc09cedce9479f31e15828bac586166bbbca7",
+        "runner/vision-audit.ts": "b4533b4c361af065df93f97a40064cee2732bff515cbdd0470118395236e7603",
+        "runner/vision-outcome-validation.ts": "aac41057c892d0dc9d337ff70ea5a723019cb95ba4ee8a5cbb90be0c62621ac9",
+        "runner/vision-replay.ts": "a96d98dafe2737a84ce69d4530b870c3c310078c18878af47e832bd7bc834f97",
+        "runner/vision-smoke.ts": "40cc45b5a1dada494fbe2e486aa311bfe12259b1d9c995521f3005b1e7b25766",
+        "runner/vision-validation.ts": "023db50ce14ee6147851ffa175e16d7f3c2d1605c034f4f2e4835ce8c5be3382",
+        "runner/visual-detail.ts": "3815566ff0e055b66582c179b19a00107ddea41072a4feca6cdb679c84750ac7",
+        "runner/visual-evidence.ts": "cba6f3e0038e6d0f2f45cac99371031eac1da3a36a9a8200d076038b6fe57ebb",
+        "runner/visual-ocr.ts": "84100047bfb41228cdda6ea4a8981bcc6acb0168ea4cc549b770804a77f1b9e6",
+        "runner/windows-ocr.ts": "64b5a09126225d64f71579039fd0cc2b2c5b671fbd57ca0936937c2d5ef221df",
+        "package.json": "b5c7674ccf897de78f4800950a123983c828c223f7daba5b3af4c5806b8e50aa",
+        "package-lock.json": "0eb88ce57373a896eacfba5e501269dbbda9a435414fababb44270f177e0c5c9",
+        "tests/goals.ts": "12533a175f1fdb0be7fa4a26064fb44d5ce9b447b0618ca8d42789625c4d96d5",
+        "index.html": "e432d6bf6d82673a7deab3318a9c639169047d11c6a9829de1ed27a20bf6de24"
+      },
+      "sourceHash": "1b8c483b2b89c4f9fea113d2529d902ace425ec1a2a75e207109affa81b084c9"
+    },
+    "identicalProductSource": false,
+    "identicalRevision": false,
+    "sourceInterpretation": "Successful replay establishes compatibility with current replay checks; it does not establish identical producer code."
+  }
+}
