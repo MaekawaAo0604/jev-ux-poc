@@ -39,7 +39,7 @@ export function reasonSchedule():ReasonSlot[]{
 /** Fixed comparison declaration shared by pure audit tests and the ordinary runner. */
 export function reasonComparisonPlan(comparison:ReasonComparison='deferral-reason',limit=12){
  validateReasonExperimentOptions({out:'comparison-plan',mock:true,comparison,limit});
- const modes=comparison==='reason-grounding'?groundingModes:comparison==='reason-admission'?admissionModes:legacyModes;
+ const modes={...(comparison==='reason-grounding'?groundingModes:comparison==='reason-admission'?admissionModes:legacyModes)};
  const phase=comparison==='reason-grounding'?'deferral-reason-grounding-comparison':comparison==='reason-admission'?'deferral-reason-admission-comparison':'deferral-reason-comparison';
  const ledgerPhase=comparison==='reason-grounding'?'deferral-reason-grounding':comparison==='reason-admission'?'deferral-reason-admission':'deferral-reason';
  const fullSchedule=reasonSchedule(),schedule=fullSchedule.slice(0,limit);

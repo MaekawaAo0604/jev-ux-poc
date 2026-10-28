@@ -87,3 +87,21 @@ test('question-only or failed assessment records do not become completed review 
  const report=analyzeReasonRuns([run],'reason-grounding'),view=report.runs[0];
  assert.equal(view.groundedQuestionCount,1);assert.equal(view.groundedResponseCount,0);assert.ok(view.completedReviewLatency);assert.deepEqual(view.completedReviewLatency.entries,[]);assert.equal(view.completedReviewLatency.meanReleasedDelaySteps,null);assert.equal(report.cells[0].valid,0);assert.equal(report.cells[0].groundedQuestionCount,0);
 });
+
+for(const comparison of ['deferral-reason','reason-admission','reason-grounding'] as const){
+ test(comparison+' plan modes cannot poison the next comparison plan',()=>{
+  const first=reasonComparisonPlan(comparison),expected=structuredClone(reasonComparisonPlan(comparison)),originalModes={...first.modes};
+  try{
+   const writable=first.modes as unknown as Record<string,string>;writable.old='POISONED_PLAN';writable.reason='POISONED_REASON';
+   const next=reasonComparisonPlan(comparison);
+   assert.deepEqual(next,expected);assert.notStrictEqual(next.modes,first.modes);
+  }finally{Object.assign(first.modes,originalModes);}
+ });
+ test(comparison+' plan input schedule and budget mutations stay within that returned plan',()=>{
+  const first=reasonComparisonPlan(comparison),expected=structuredClone(reasonComparisonPlan(comparison));
+  first.inputComponents.shared.recencyImages=99;first.inputComponents.old.mode='POISONED_INPUT';first.inputComponents.reason.maxUniqueImages=99;
+  first.schedule[0].id='POISONED_SCHEDULE';first.fullSchedule[1].id='POISONED_FULL_SCHEDULE';first.schedule.pop();first.fullSchedule.pop();first.limits.maxRequests=999;
+  const next=reasonComparisonPlan(comparison);
+  assert.deepEqual(next,expected);assert.notStrictEqual(next.inputComponents,first.inputComponents);assert.notStrictEqual(next.inputComponents.shared,first.inputComponents.shared);assert.notStrictEqual(next.inputComponents.old,first.inputComponents.old);assert.notStrictEqual(next.inputComponents.reason,first.inputComponents.reason);assert.notStrictEqual(next.schedule,first.schedule);assert.notStrictEqual(next.fullSchedule,first.fullSchedule);assert.notStrictEqual(next.limits,first.limits);
+ });
+}
