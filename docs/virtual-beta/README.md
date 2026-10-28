@@ -4,6 +4,8 @@
 
 ## 最新の検証
 
+失敗経路の一時保留を [temporary-deferral.md](temporary-deferral.md) に追加した。実モデルの同じローカル課題で、対照は12判断で反復・未達、保留ありは帰還後に別カテゴリへ切り替わり6 UI操作・7判断で客観達成した。計38/48要求、関連145件・型/build・独立検証成功。元の入口を提案したモデル分布を明示方策が補正した1例であり、人間の再現や一般的改善率は未検証。補正時は別クリックとスクロールが同率で既存tie-breakが働いた。個別値は [temporary-deferral-results.json](temporary-deferral-results.json)。
+
 経験状態の追加と実モデル3試行は [experience-recovery.md](experience-recovery.md)、設定・個別結果は [experience-recovery-results.json](experience-recovery-results.json)。出発画像・対象・予想・到達・結果評価を独立容量8で結び、既存の評価/行動へ接続した。最初の2試行と根拠説明だけの追加1試行は計72要求。根拠付きの進展なし/予想不支持が届いても同経路を反復し、切替と目的達成は未達。関連127件と独立検証、型/buildは成功。人間一致とは区別する。
 
 既存二段階判断での経路切替は [deliberation-recovery.md](deliberation-recovery.md)、個別結果は [deliberation-recovery-results.json](deliberation-recovery-results.json)。同bad課題で有効化した。初回は文脈上限エラーで中断、長文脈転送接続の修正後は24要求すべて成功したが、12判断で同じ3画面を4循環し未達。評価が届いても期待と実観察を照合した見立ての更新は未実装。今回31要求、関連44件成功。API利用の都度確認不要という明示指示と自己上限運用は [api-usage-policy.md](api-usage-policy.md)。
