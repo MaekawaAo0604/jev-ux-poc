@@ -60,11 +60,23 @@ test('shared-link prerequisite cannot be bypassed; useful revisit returns to exa
  await action(p,'primary');assert.match(await p.locator('.holdout-content').innerText(),/本人確認/);assert.equal(await p.locator('[data-holdout-action="apply"]').count(),0);await p.evaluate(()=>{location.hash='account';});await p.waitForTimeout(40);assert.equal(await p.locator('[data-holdout-action="verify"]').isEnabled(),false,'must return home after requesting verification');await action(p,'home');await sameImage(p,initial);
  await action(p,'account');assert.equal(await p.locator('[data-holdout-action="verify"]').isEnabled(),true);await action(p,'verify');await incomplete(p);assert.match(await p.locator('.holdout-content').innerText(),/本人確認が完了/);
  await p.evaluate(()=>{location.hash='primary';});await p.waitForTimeout(40);assert.equal(await p.locator('[data-holdout-action="apply"]').count(),0,'must return home after completing verification');await incomplete(p);await action(p,'home');await sameImage(p,initial);await action(p,'primary');await incomplete(p);assert.match(await p.locator('.holdout-content').innerText(),/有効/);await action(p,'apply');assert.equal(await p.getByRole('status').innerText(),expected.revisit);
- await p.reload();await p.locator('.holdout-fixture').waitFor();await action(p,'home');await action(p,'account');assert.equal(await p.locator('[data-holdout-action="verify"]').isEnabled(),false);await p.close();
+ await action(p,'home');await p.reload();await p.locator('.holdout-fixture').waitFor();await action(p,'account');assert.equal(await p.locator('[data-holdout-action="verify"]').isEnabled(),false);await p.close();
  }}finally{await c.close();}
 });
 
 test('variants change visible wording and layout while retaining native local navigation and stable pointer rendering',async()=>{
  const c=await context();try{for(const task of ['switch','revisit','direct'] as const){const a=await open(c,{task,variant:'alpha'}),b=await open(c,{task,variant:'beta'});assert.notEqual(await a.locator('.holdout-content').innerText(),await b.locator('.holdout-content').innerText());assert.notDeepEqual(await a.locator('[data-holdout-action="primary"]').boundingBox(),await b.locator('[data-holdout-action="primary"]').boundingBox());
  for(const p of [a,b]){for(const href of await p.locator('a').evaluateAll(links=>links.map(l=>l.getAttribute('href'))))assert.ok(href?.startsWith('#'));const pixels=await image(p);await p.locator('[data-holdout-action="primary"]').hover();assert.deepEqual(await image(p),pixels);assert.equal(await p.locator('input').count(),0);}await a.close();await b.close();}}finally{await c.close();}
+});
+test('revisit accepts actual primary visits and native history returns after request and verification',async()=>{
+ const c=await context();try{for(const variant of ['alpha','beta'] as const){const p=await open(c,{task:'revisit',variant}),initial=await image(p);
+ if(variant==='alpha')await action(p,'primary');else{await p.evaluate(()=>{location.hash='primary';});await p.getByRole('heading',{name:'リンクの公開設定',exact:true}).waitFor();}
+ assert.match(await p.locator('.holdout-content').innerText(),/本人確認の申請を受け付けました/);
+ await p.goBack();await p.getByRole('heading',{name:'アルバム管理',exact:true}).waitFor();await sameImage(p,initial);
+ await action(p,'account');assert.equal(await p.locator('[data-holdout-action="verify"]').isEnabled(),true,'native history return must release requested verification');
+ await action(p,'verify');assert.match(await p.locator('.holdout-content').innerText(),/本人確認が完了/);await incomplete(p);
+ await p.goBack();await p.getByRole('heading',{name:'アルバム管理',exact:true}).waitFor();await sameImage(p,initial);
+ await action(p,'primary');assert.match(await p.locator('.holdout-content').innerText(),/有効/);await action(p,'apply');assert.equal(await p.getByRole('status').innerText(),expected.revisit);
+ await action(p,'home');await p.reload();await p.getByRole('heading',{name:'アルバム管理',exact:true}).waitFor();await incomplete(p);await action(p,'account');assert.equal(await p.locator('[data-holdout-action="verify"]').isEnabled(),false,'reload resets the request and verification');await p.close();
+ }}finally{await c.close();}
 });

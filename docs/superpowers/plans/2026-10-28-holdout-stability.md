@@ -22,3 +22,7 @@ Two repetitions per cell are a bounded cross-task stability check, not a statist
 - [ ] Execute bounded24 actual trials via normal runner, fresh browser each, no human-derived inputs. Save all inputs/images/weights/actions/termination and ledger.
 - [ ] Offline replay every completed run; independently audit source/config/reset/ledgers/timing and metrics. Fix instrumentation only with RED/regression/review; do not tune frozen policy or erase failures.
 - [ ] Save anonymous report with counts, actual branch changes/necessary revisits/direct success, limits and next tasks. Commit/push authorized feature branch, remote-check.
+
+## Preflight ruling
+
+The UI fixture used onClick-only prerequisite transitions and did not admit native Back as a legitimate home return. Fix the fixture by observing actual route transitions, add RED native-Back regression, reverify all six fixtures/reset/image identity, then refreeze source before any live request. Policy and parameters remain fixed. The initial integration log140 had139 passes/one mount-heading failure while UI was incomplete; final new26 tests pass and resolve that case. Old126 cases passed. Initial independent frozen-policy blob-vs-worktree equality needed newline normalization, not a policy code change.
