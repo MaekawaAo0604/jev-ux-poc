@@ -4,6 +4,8 @@
 
 ## 最新の検証
 
+最新の意味・案内取得の実験は [semantic-verification.md](semantic-verification.md)、個別結果は [semantic-results.json](semantic-results.json)、独立記録は [semantic-independent-review.md](semantic-independent-review.md) に保存した。新規47/48要求を使用。案内が隠れた18試行は注視移動0で、自律取得は未達。可視対照2件の選び分けと、人間再現の未検証を区別している。下記Phase 2は前フェーズの別予算・別版の結果。
+
 Phase 2 の結果と再実行方法は [phase2-verification.md](phase2-verification.md)、小さな実測要約は [phase2-results.json](phase2-results.json) に保存しています。
 実 Jev は今回 48/48 要求を使用しました。current/state の完了例と、視覚制約条件の上限終了や予算分布変更を区別しています。
 人間の再現性能は未検証です。
@@ -25,7 +27,7 @@ API と UI だけでなく注視、判断、実行時間の上限も維持しま
 
 ## 実行
 
-このブランチのルートで Node 22以上、npm依存とPlaywright Chromiumを用意してください。現在の隔離worktreeは既存node_modulesへのjunctionを使っています。別環境では npm ci と npx playwright install chromium が必要です。秘密情報はコミットしていません。
+このブランチのルートで Node 22.12以上、npm依存とPlaywright Chromiumを用意してください。現在の隔離worktreeは既存node_modulesへのjunctionを使っています。別環境では npm ci と npx playwright install chromium が必要です。秘密情報はコミットしていません。
 
 - 型・ビルド: npm run build
 - コンポーネントと統合: npx tsx --test --test-concurrency=1 tests/virtual-beta*.test.ts
@@ -61,3 +63,9 @@ manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.j
 初期確認・実行結果と独立検証は inventory.md / verification.md、採用根拠と制約は research.md、追加タスクは tasks.md を参照してください。
 
 最終画像とoracleの取得状況は terminalObservation / objectiveAssessment に記録します。oracle障害では現在の判定はnullとなり、objectiveSuccessの既知値だけを最終判定に使えません。validForComparison=false の行はUX比較から除外します。利用者の終了判断は監査失敗で上書きしません。期限は観察後・API応答後・実操作前で検査し、残り時間をAPIへ伝えます。開始済みの処理や最終監査の後処理時間までゼロ遅延で打ち切るものではありません。
+
+## 案内の意味と自律取得の検証（2026-10-28）
+
+[semantic-verification.md](semantic-verification.md) に実装、20試行と47/48要求の実測、コマンド、制約を保存した。個別の結果は [semantic-results.json](semantic-results.json)、独立検証は [semantic-independent-review.md](semantic-independent-review.md)。初期に案内が隠れる18件は注視移動0、案内が初めから見える対照2件は対応A/Bを選び分けた。自律的な情報取得は今回成立していない。人間記録は基盤のみ実装し、実参加者の測定はユーザー指定で後日に行う。
+
+`--semantic`、`--order-seed`、設定の `initialFixation`、表示維持の独立目的判定 `--preserve-display` を追加した。既存の4条件・Persona/Charter分離・分布保存とreplayを維持する。新規実験はgoal/argmaxで能力を切り分けており、従来combinedや人間再現モードとは混ぜない。
