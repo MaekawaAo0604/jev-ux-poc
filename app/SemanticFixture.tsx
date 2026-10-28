@@ -18,14 +18,14 @@ const css=`
 `;
 /** The assignment is used only for the cue and click handler; controls stay neutral. */
 export function SemanticFixtureView({fixture}:{fixture:SemanticFixture}){
- const definition=semanticDefinition(fixture),[stopped,setStopped]=useState(false),[compact,setCompact]=useState(false);
- const apply=(setting:'A'|'B')=>{if(setting===fixture.mapping)setStopped(true);else setCompact(value=>!value);};
+ const definition=semanticDefinition(fixture),[stopped,setStopped]=useState(false),[compact,setCompact]=useState(false),[displayChanges,setDisplayChanges]=useState(0);
+ const apply=(setting:'A'|'B')=>{if(setting===fixture.mapping)setStopped(true);else{setCompact(value=>!value);setDisplayChanges(value=>value+1);}};
  const bounds=(rect:{x:number;y:number;width:number;height:number})=>({left:rect.x,top:rect.y,width:rect.width,height:rect.height});
  return <div className="semantic-fixture"><style>{css}</style>
   <header><span className="semantic-brand">暮らしクラウド</span><span className="semantic-account">田中 花子 さん</span></header>
   <div className="semantic-sidebar"><p className="semantic-section">MY ACCOUNT</p><div className="semantic-nav">アカウント設定</div><p>暮らしに合わせて、<br/>サービスの設定を変更できます。</p></div>
   <main><div className="semantic-intro"><h1>アカウント設定</h1><p>通知や画面表示の設定を管理します。</p></div>
-   <section className="semantic-card"><h2>サービスの設定</h2><p>設定を選んで適用してください。</p><dl><dt>メール通知</dt><dd className="semantic-mail-state">{stopped?'停止':'受信する'}</dd><dt>画面表示</dt><dd className="semantic-display-state">{compact?'コンパクト':'標準'}</dd></dl></section>
+   <section className="semantic-card"><h2>サービスの設定</h2><p>設定を選んで適用してください。</p><dl><dt>メール通知</dt><dd className="semantic-mail-state">{stopped?'停止':'受信する'}</dd><dt>画面表示</dt><dd className="semantic-display-state" data-change-count={displayChanges}>{compact?'コンパクト':'標準'}</dd></dl></section>
    <button type="button" data-semantic-roi="semantic-a" style={bounds(definition.rects.a)} onClick={()=>apply('A')}>設定Aを適用</button>
    <button type="button" data-semantic-roi="semantic-b" style={bounds(definition.rects.b)} onClick={()=>apply('B')}>設定Bを適用</button>
    {stopped&&<p className="semantic-feedback" role="status">メール通知を停止しました</p>}

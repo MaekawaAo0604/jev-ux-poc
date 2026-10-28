@@ -10,3 +10,9 @@ test('factorial assignments have twelve unique fixed slots and one A/B pair per 
 test('invalid or duplicate treatments and invalid seeds fail before execution',()=>{
  for(const args of [[[],2,123],[[...ids,'reference'],2,123],[[...ids],0,123],[[...ids],2,-1],[[...ids],2,2**32]] as const)assert.throws(()=>createSemanticTrials(args[0] as any,args[1],args[2]));
 });
+
+import {comparisonConfigs,validateConfig} from '../jev/virtual-beta/config.js';
+test('initial fixation is explicit, cloned, and rejected outside the controlled viewport before dispatch',()=>{
+ const c=comparisonConfigs(1,'crop')[3],point={x:960,y:675},valid=validateConfig({...c,initialFixation:point});point.x=1;assert.deepEqual(valid.initialFixation,{x:960,y:675});assert.equal(validateConfig(c).initialFixation,undefined);
+ for(const bad of [null,{x:NaN,y:450},{x:640,y:Infinity},{x:1280,y:450},{x:640,y:900},{x:-1,y:450}])assert.throws(()=>validateConfig({...c,initialFixation:bad as any}));
+});

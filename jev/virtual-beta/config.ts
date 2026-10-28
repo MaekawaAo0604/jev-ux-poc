@@ -1,5 +1,6 @@
 import type {BetaConfig} from './contracts.js';
 export function validateConfig(c:BetaConfig):BetaConfig {
+ if(c.initialFixation!==undefined&&(!c.initialFixation||!Number.isFinite(c.initialFixation.x)||!Number.isFinite(c.initialFixation.y)||c.initialFixation.x<0||c.initialFixation.x>=1280||c.initialFixation.y<0||c.initialFixation.y>=900))throw new Error('INVALID_INITIAL_FIXATION');
  if(c.schemaVersion!==1||!/^[-a-z0-9]{1,64}$/.test(c.id))throw new Error('INVALID_CONFIG');
  for(const [key,limit] of Object.entries({maxUIActions:30,maxDecisions:60,maxAPICalls:60,maxRunMs:300000})) {const n=c[key as keyof BetaConfig];if(typeof n!=='number'||!Number.isSafeInteger(n)||n<1||n>limit)throw new Error('INVALID_CONFIG_'+key);}
  if(!Number.isSafeInteger(c.maxLooks)||c.maxLooks<0||c.maxLooks>30)throw new Error('INVALID_CONFIG_maxLooks');

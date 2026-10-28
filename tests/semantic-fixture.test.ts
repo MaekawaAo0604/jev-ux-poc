@@ -88,3 +88,15 @@ test('successful mail status text and pixels fit entirely in both initial and lo
   await p.close();
  }}finally{await c.close();}
 });
+
+test('display change audit counts every wrong apply across mail success and resets only on reload',async()=>{
+ const c=await context();try{for(const mapping of ['A','B'] as const){const p=await open(c,{version:1,ui:'reference',mapping}),display=p.locator('.semantic-display-state'),wrong=mapping==='A'?'B':'A';
+  assert.equal(await display.getAttribute('data-change-count'),'0');
+  const initialPixels=await p.screenshot();await display.evaluate(el=>el.removeAttribute('data-change-count'));assert.deepEqual(await p.screenshot(),initialPixels,'audit attribute has no initial pixel effect');await p.reload();await p.locator(semanticROIs['semantic-a']).waitFor();
+  await p.getByRole('button',{name:`設定${wrong}を適用`,exact:true}).click();assert.equal(await display.innerText(),'コンパクト');assert.equal(await display.getAttribute('data-change-count'),'1');assert.equal(await p.getByRole('status').count(),0);
+  await p.getByRole('button',{name:`設定${mapping}を適用`,exact:true}).click();assert.equal(await p.getByRole('status').innerText(),'メール通知を停止しました');assert.equal(await display.getAttribute('data-change-count'),'1');
+  await p.getByRole('button',{name:`設定${wrong}を適用`,exact:true}).click();assert.equal(await display.innerText(),'標準');assert.equal(await display.getAttribute('data-change-count'),'2');assert.equal(await p.getByRole('status').innerText(),'メール通知を停止しました');
+  await p.reload();await p.locator(semanticROIs['semantic-a']).waitFor();assert.equal(await display.getAttribute('data-change-count'),'0');assert.equal(await display.innerText(),'標準');assert.equal(await p.getByRole('status').count(),0);
+  await p.getByRole('button',{name:`設定${mapping}を適用`,exact:true}).click();assert.equal(await display.getAttribute('data-change-count'),'0');assert.equal(await p.getByRole('status').innerText(),'メール通知を停止しました');await p.close();
+ }}finally{await c.close();}
+});

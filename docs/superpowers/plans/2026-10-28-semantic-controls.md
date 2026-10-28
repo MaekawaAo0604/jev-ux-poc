@@ -34,3 +34,7 @@ Parent reuses human recorder with same fixture identity, code source hash and un
 - [ ] Human recorder smoke tested and excluded; validation mismatch tests, no invented participants.
 - [ ] Fresh independent verification on frozen code; fix/reverify<=3rounds; final build/tsc/full regression after last product fix.
 - [ ] Report actual semantic sensitivity and UI test results (including null/unavailable), human comparison deferred, commands and artifacts; push feature branch only after checks.
+
+## Diagnostic amendment before follow-up API calls
+
+Initial frozen e333750 experiment completed12trials/30calls: firstB inall12, no looks, mailobjective12/12 butstrictcue-supported0/12, mapping/UItests p=1. Original data/endpoints remainunchanged. An inexpensive wrongdisplayoperationallowedblindtrial-and-error. Remaining18calls allocated to (1) cueinitiallyexposed960675, referenceA/B onecall each (2); (2) referenceA/B×2rep, initial640450, goal neverchangedisplay whilemailstop, max4calls each (16). Separatefiles/configs/manifest/revision, no pooling. Success preservation requires independent DOM display-change-count0 evenafterrestoration. No answer/sequence/fixation instructions enter goalprompt. Initial-exposure control is explicitly exogenous, not autonomously chosen gaze. Extra diagnostics are outcome-motivated but fixed before their own outcomes; not confirmatoryreplication ofprimary. APIaggregate48/pertrial<=8 maintained. CSVsemanticUIlabeldefect also repaired. Newfinalsourcefreeze requires build/tsc/fullsuite afterfix.

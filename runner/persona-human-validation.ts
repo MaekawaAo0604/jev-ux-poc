@@ -20,6 +20,7 @@ export function validateHumanControl(value:any,expected:{charter:Charter;viewpor
  if(value.locale!==expected.locale||value.timezoneId!==expected.timezoneId)reasons.push('ロケールまたはタイムゾーンが一致しない。');
  if(expected.semantic){
   const actual=value.semantic,wanted=expected.semantic;
+  if((actual?.objectivePolicy??'mail-only')!==(wanted.objectivePolicy??'mail-only'))reasons.push('意味課題の達成条件が一致しない。');
   if(!actual||['version','ui','mapping'].some(key=>actual.fixture?.[key]!==wanted.fixture[key as keyof typeof wanted.fixture]))reasons.push('意味課題の版、UI、対応関係が一致しない。');
   for(const key of ['definitionHash','sourceHash','initialProductImageSha256'] as const)if(!/^[a-f0-9]{64}$/.test(wanted[key])||actual?.[key]!==wanted[key])reasons.push('意味課題の '+key+' が一致しない。');
  }

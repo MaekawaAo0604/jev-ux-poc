@@ -41,19 +41,21 @@ export async function executeBetaAction(pom:LocalExplorationPage,action:BetaActi
  if(['reread','wait','done','stuck','abandon'].includes(action.type))return {ui:false,look:false,fixation:{...state.fixation}};
  await pom.act(action as Action);return {ui:true,look:false,fixation:{...state.fixation}};
 }
-export async function runBeta(page:Page,args:{runId:string;dir:string;baseURL:string;charter:Charter;persona?:Persona;config:BetaConfig;evaluate:BetaEvaluator;semanticTrial?:SemanticTrial;uiVersion?:BetaUIIdentity;roiSelectors?:Record<string,string>;code?:{revision:string;sourceHash:string};isSafetyStopped?:()=>boolean}):Promise<BetaResult>{
+export async function runBeta(page:Page,args:{runId:string;dir:string;baseURL:string;charter:Charter;persona?:Persona;config:BetaConfig;evaluate:BetaEvaluator;preserveDisplay?:boolean;semanticTrial?:SemanticTrial;uiVersion?:BetaUIIdentity;roiSelectors?:Record<string,string>;code?:{revision:string;sourceHash:string};isSafetyStopped?:()=>boolean}):Promise<BetaResult>{
+ if(args.preserveDisplay&&!args.semanticTrial)throw new Error('PRESERVATION_REQUIRES_SEMANTIC_FIXTURE');
+ const checkObjective=async()=>{const mail=await goals[args.charter.oracle].check(page,[]);if(!args.preserveDisplay)return mail;const changes=await page.locator('.semantic-display-state').getAttribute('data-change-count');if(changes===null||!/^\d+$/.test(changes))throw new Error('SEMANTIC_PRESERVATION_AUDIT_MISSING');return mail&&changes==='0';};
  const config=validateConfig(args.config),input=publicExploration({charter:args.charter,...(args.persona?{persona:args.persona}:{})});
  if(args.uiVersion||args.semanticTrial){if(args.uiVersion&&args.semanticTrial)throw new Error('CONFLICTING_FIXTURES');if(args.charter.targetWebsite!=='local:good')throw new Error('COMPARISON_UI_REQUIRES_LOCAL_GOOD');input.charter={...input.charter,id:'notification-task',targetWebsite:'local:demo'};}
  await mkdir(args.dir,{recursive:true});
  const pom=new LocalExplorationPage(page,true,true),sampler=createSampler(config.selection),steps:BetaStep[]=[],started=performance.now();
- let user=createUserState(args.persona,{x:640,y:450}),history:State['history']=[],looks=0,uiActions=0,apiCalls=0,apiMs=0,uiMs=0,objectiveSuccess=false,perceivedDone=false,initialFingerprint:string|null=null,termination:Termination='DECISION_LIMIT';
+ let user=createUserState(args.persona,config.initialFixation??{x:640,y:450}),history:State['history']=[],looks=0,uiActions=0,apiCalls=0,apiMs=0,uiMs=0,objectiveSuccess=false,perceivedDone=false,initialFingerprint:string|null=null,termination:Termination='DECISION_LIMIT';
  const memoryImages=new Map<string,{bytes:Buffer;file:string}>();
  let pendingEvent:{action:BetaAction;outcome:'performed'|'failed'|'unchanged'}|undefined;
  let semantic:SemanticRunAudit|undefined;
  const auditROIs=args.semanticTrial?semanticROIs:args.roiSelectors;
  try{
  await page.goto(args.baseURL+'/'+(args.charter.targetWebsite==='local:good'?'good':'bad')+'/'+(args.semanticTrial?semanticQuery(args.semanticTrial.fixture):args.uiVersion?'?betaUI='+args.uiVersion.token:''),{waitUntil:'networkidle',timeout:10000});
- if(args.semanticTrial){const file='initial-product.png',bytes=await page.screenshot();await writeFile(join(args.dir,file),bytes);semantic={trial:structuredClone(args.semanticTrial),definitionHash:sha(JSON.stringify(semanticDefinition(args.semanticTrial.fixture))),initialProductImage:{file,sha256:sha(bytes)}};}
+ if(args.semanticTrial){const file='initial-product.png',bytes=await page.screenshot();await writeFile(join(args.dir,file),bytes);semantic={objectivePolicy:args.preserveDisplay?'mail-and-display-preserved':'mail-only',trial:structuredClone(args.semanticTrial),definitionHash:sha(JSON.stringify(semanticDefinition(args.semanticTrial.fixture))),initialProductImage:{file,sha256:sha(bytes)}};}
  for(let number=1;number<=config.maxDecisions;number++){
   if(args.isSafetyStopped?.()){termination='SAFETY_STOP';break;}
   if(performance.now()-started>=config.maxRunMs){termination='TIME_LIMIT';break;}
@@ -112,7 +114,7 @@ export async function runBeta(page:Page,args:{runId:string;dir:string;baseURL:st
     pendingEvent={action,outcome:executed.ui?'performed':'unchanged'};
     // Baseline goal assistant retains its existing visible DOM/action history. B never receives it.
     history.push({screen:screen.title,action:candidates[selection.selected].label,result:step.outcome,observedText:[...screen.text]});
-    try{objectiveSuccess=await goals[args.charter.oracle].check(page,[]);step.objectiveSuccess=objectiveSuccess;}catch{termination='OBSERVATION_ERROR';step.error={code:'ORACLE_ERROR'};step.outcome='ORACLE_ERROR';break;}
+    try{objectiveSuccess=await checkObjective();step.objectiveSuccess=objectiveSuccess;}catch{termination='OBSERVATION_ERROR';step.error={code:'ORACLE_ERROR'};step.outcome='ORACLE_ERROR';break;}
     step.counts={looks,uiActions};
    }catch{step.error={code:'ACTION_ERROR'};termination='ACTION_ERROR';step.outcome=termination;break;}
   }catch{termination='OBSERVATION_ERROR';step.error={code:'OBSERVATION_ERROR'};break;}
@@ -121,7 +123,7 @@ export async function runBeta(page:Page,args:{runId:string;dir:string;baseURL:st
  }catch{termination=args.isSafetyStopped?.()?'SAFETY_STOP':'OBSERVATION_ERROR';}
  if(args.isSafetyStopped?.())termination='SAFETY_STOP';
  let objectiveAssessment:BetaResult['objectiveAssessment'];
- try{objectiveSuccess=await goals[args.charter.oracle].check(page,[]);objectiveAssessment={status:'OK',value:objectiveSuccess};}catch{objectiveAssessment={status:'ERROR',value:null,code:'ORACLE_ERROR'};}
+ try{objectiveSuccess=await checkObjective();objectiveAssessment={status:'OK',value:objectiveSuccess};}catch{objectiveAssessment={status:'ERROR',value:null,code:'ORACLE_ERROR'};}
  let terminalObservation:BetaResult['terminalObservation'];
  try{await page.screenshot({path:join(args.dir,'final.png')});terminalObservation={status:'RECORDED'};}catch{terminalObservation={status:'ERROR',code:'OBSERVATION_ERROR'};}
  const validForComparison=objectiveAssessment.status==='OK'&&terminalObservation.status==='RECORDED'&&!['API_ERROR','INVALID_DISTRIBUTION','ACTION_ERROR','OBSERVATION_ERROR','SAFETY_STOP'].includes(termination);

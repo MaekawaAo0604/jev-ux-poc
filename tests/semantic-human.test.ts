@@ -16,3 +16,8 @@ test('semantic human match requires same fixture, mapping, UI, source, definitio
 test('matching metadata cannot promote automation or missing self-attestation to a human comparison',()=>{
  for(const value of [{...recorded(),actor:'automation'},{...recorded(),selfAttested:false}])assert.equal(validateHumanControl(value,expected as any).status,'UNVERIFIED_ACTOR');
 });
+
+test('human comparison rejects different objective policies even with identical product pixels',()=>{
+ const wanted={...expected,semantic:{...semantic,objectivePolicy:'mail-and-display-preserved' as const}};assert.equal(validateHumanControl(recorded(),wanted as any).conditionsMatch,false);
+ const r={...recorded(),semantic:{...semantic,objectivePolicy:'mail-and-display-preserved' as const}};assert.equal(validateHumanControl(r,wanted as any).conditionsMatch,true);
+});

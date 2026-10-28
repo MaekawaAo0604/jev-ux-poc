@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "reason": "Primary12 completed with zero looks, firstB fixed, mail goal12/12, strict semantic0/12. Separate diagnostic controls, no replacement or reinterpretation of primary outcomes.",
+  "usedBefore": 30,
+  "maximumAdditionalRequests": 18,
+  "exposedControl": {
+    "UI": "reference",
+    "mappings": [
+      "A",
+      "B"
+    ],
+    "replicates": 1,
+    "initialFixation": {
+      "x": 960,
+      "y": 675
+    },
+    "maxCalls": 1,
+    "maximumRequests": 2,
+    "endpoint": "first mapping-correct choice with cue initially exposed; API_LIMIT and no subjective completion expected; not autonomous acquisition"
+  },
+  "preservation": {
+    "UI": "reference",
+    "mappings": [
+      "A",
+      "B"
+    ],
+    "replicates": 2,
+    "initialFixation": {
+      "x": 640,
+      "y": 450
+    },
+    "maxCalls": 4,
+    "maximumRequests": 16,
+    "goal": "画面表示の設定は一度も変更せずに、メール通知だけを停止して、停止したことを確認したい",
+    "oracle": "mail stopped AND display change count equals zero, even if wrong setting later restored",
+    "endpoint": "autonomous cue acquisition and first correct choice without changing display"
+  },
+  "noPoolingWithPrimary": true,
+  "noSavedPayloadReplay": true,
+  "allocationReason": "Keep positive control minimal (one initial decision for each reversed mapping) and allocate 16 remaining calls to four autonomous preservation trials. Fixed before any follow-up calls."
+}

@@ -110,3 +110,22 @@ test('identical initial raw pixels cannot verify the reversed routing manipulati
 test('all complete no-choice runs have a zero strict endpoint and exact p=1 in both tests',()=>{
  const a=compareSemanticRuns(all(()=>null));assert.equal(a.counts.noChoice,12);assert.equal(a.counts.strictSuccesses,0);assert.equal(a.mappingTest.pValue,1);assert.equal(a.uiTest.pValue,1);
 });
+
+test('mixed initial fixations or objective policies cannot be pooled with the primary experiment',()=>{
+ const explicitDefaults=all();
+ explicitDefaults[0].config.initialFixation={x:640,y:450};
+ explicitDefaults[0].semantic!.objectivePolicy='mail-only';
+ assert.equal(compareSemanticRuns(explicitDefaults).mappingTest.status,'available');
+ for(const changed of ['fixation','objective-policy']){
+  const results=all();
+  if(changed==='fixation')results[0].config.initialFixation={x:960,y:675};
+  else results[0].semantic!.objectivePolicy='mail-and-display-preserved';
+  const a=compareSemanticRuns(results);
+  assert.ok(a.issues.includes('NON_UI_EXPERIMENT_SETTINGS_DIFFER'),changed);
+  assert.equal(a.mappingTest.status,'unavailable');assert.equal(a.uiTest.status,'unavailable');
+ }
+ const initiallyVisible=all();for(const r of initiallyVisible){r.config.initialFixation={x:960,y:675};r.steps[0].vision!.clearRect={...revealed};}
+ assert.equal(compareSemanticRuns(initiallyVisible).mappingTest.status,'unavailable');
+ const fiveCalls=all();for(const r of fiveCalls)r.config.maxAPICalls=5;
+ assert.equal(compareSemanticRuns(fiveCalls).mappingTest.status,'unavailable');
+});
