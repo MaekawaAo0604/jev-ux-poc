@@ -113,3 +113,20 @@ helper 42 件と既存予算 3 件、human wrapper 5 件、型と build が成�
 過去の間欠的な保存障害の OS 原因は未特定。
 独立 16 件と通常/明示 pin の各 2 件も成功。判断と根拠の整合性、画像差への経路認識、保存前 preview の完了誤認を継続する。
 詳細は budget-diagnostics.md。
+
+## 判断と根拠の結合（2026-10-29）
+
+基準 dbbae0b、最終製品固定版 7861582。
+新 reviewMode=grounded-choice / experience-reason-grounded を opt-in で追加し、原根拠、後続の実添付、世代、画像の検査を維持した。
+既存の二段階と画像上限を揃え、reason-grounding で新旧 12 試行、188/288 要求、基盤障害 0、初期 6 pair 整合、旧 58 台帳不変、新 12 replay 成功。
+新方式は必要再訪 4 件で changed_o5 による最初のレビュー解除が成立したが、全体成功は旧 5/6、新 4/6。
+alpha 反復 2 のみ 9→7 UI、他の必要再訪は全て 7 UI。
+通知設定は全 4 件で理由レビューを使わず、旧 1/2、新 0/2 だった。
+
+関連 122 件と独立最終 9 件、型、build、旧 24 replay、最新の既存 4 条件 mock が成功。
+独立レビューで比較 plan の返却 mapping が共有される不具合を再現し、1 行のコピー修正後に再検証した。
+実モデル結果は別途 raw artifact と画像を独立監査した。
+未変更・無関係画像での誤解除、人間一致は未測定。
+次は通知設定の行き詰まり、scroll / hover 後の同一画面認識と探索候補の扱いを実観察から切り分け、負例のモデル対照を追加する。
+preview の完了誤認も未解決。
+詳細は deferral-grounding.md / results.json / independent-review.md。

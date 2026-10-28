@@ -12,10 +12,10 @@ Parent owns shared type/config/profile/core/replay integration, parent tests, fr
 
 ## Comparison and acceptance
 
-- [ ] RED/GREEN for config validation/profile-only difference, actual grounded questions, coherent decomposition, bad/old/unattached/unchanged/unknown/generation cases, legacy equivalence.
-- [ ] Core and offline replay reconstruct the same declared form; all raw choices and selected actions remain distinct. Bad grounding and tampering must fail closed.
-- [ ] reason-grounding comparison old=experience-reason-excursion vs new=experience-reason-grounded, same12 schedule (3scenarios x2reps x2conditions), only id/reviewMode excluded from pair config check, old comparisons unchanged. Preserve predecessor58 ledgers if present.
-- [ ] Independent verification with real browser/fetch stub, legacy/basis unchanged controls, exact actual input and action, no secrets/human/API by verifier. Fix/recheck at most3rounds.
-- [ ] Related regressions/type/build, legacy saved replay. Freeze source/revision before live. No edits during live.
-- [ ] Real12 bounded trials: max24requests/trial, max288phase,12judgments/15UI/3looks/180sec pertrial,20minphase,parallel1, oneattempt. Normal runner only with fictional local data, no old inputs or human data sent. Existing unlimited user authorization; caps remain explicit. Compare actual review latency/release/route/UI/success and false-release examples, not structural disappearance of changed+none as evidence of understanding.
-- [ ] Report exact counts/faults/pair integrity/replay/prior ledger preservation/limits, independent audit, next semantic and identity/preview work. Commit and push feature only. Active goal remains ongoing.
+- [x] RED/GREEN for config validation/profile-only difference, actual grounded questions, coherent decomposition, bad/old/unattached/unchanged/unknown/generation cases, legacy equivalence.
+- [x] Core and offline replay reconstruct the same declared form; all raw choices and selected actions remain distinct. Bad grounding and tampering must fail closed.
+- [x] reason-grounding comparison old=experience-reason-excursion vs new=experience-reason-grounded, same12 schedule (3scenarios x2reps x2conditions), only id/reviewMode excluded from pair config check, old comparisons unchanged. Preserve predecessor58 ledgers if present.
+- [x] Independent verification with real browser/fetch stub, legacy/basis unchanged controls, exact actual input and action, no secrets/human/API by verifier. Fix/recheck at most3rounds.
+- [x] Related regressions/type/build, legacy saved replay. Freeze source/revision before live. No edits during live.
+- [x] Real12 bounded trials: max24requests/trial, max288phase,12judgments/15UI/3looks/180sec pertrial,20minphase,parallel1, oneattempt. Normal runner only with fictional local data, no old inputs or human data sent. Existing unlimited user authorization; caps remain explicit. Compare actual review latency/release/route/UI/success and false-release examples, not structural disappearance of changed+none as evidence of understanding.
+- [x] Report exact counts/faults/pair integrity/replay/prior ledger preservation/limits, independent audit, next semantic and identity/preview work. Commit and push feature only. Active goal remains ongoing.
