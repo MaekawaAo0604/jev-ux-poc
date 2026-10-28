@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "phase": "experience-evidence-basis-2026-10-28",
+  "previous": {
+    "revision": "c4024c620b35bb45bcb30bcc498e75513445609f",
+    "trials": 2,
+    "requests": 48,
+    "outcome": "both DECISION_LIMIT objective false",
+    "rawProgress": {
+      "neutral": 20,
+      "unknown": 2
+    },
+    "rawExpectation": {
+      "supported": 6,
+      "not_supported": 5,
+      "unknown": 11
+    },
+    "evidenceNone": 22
+  },
+  "hypothesis": "Evidence instruction can be read as proof of successful goal/prediction rather than the source used to judge a result. Clarify this interpretation only; do not accept unsupported claims.",
+  "change": "Opt-in experience.evidenceMode=basis changes only experienceEvidence question wording, with identical candidate IDs, source/result attachment check, none option, distributions, admission and action policy.",
+  "mode": "experience-basis",
+  "transport": {
+    "longContext": true,
+    "maxAttemptsPerRequest": 1
+  },
+  "limits": {
+    "trials": 1,
+    "maxJudgments": 12,
+    "maxRequests": 24,
+    "aggregateIncludingPrevious": 72,
+    "maxRunMs": 180000,
+    "parallel": 1
+  },
+  "acceptance": "Retain none and all evidence guards. Record raw/corrected claims and route; count direct goal success separately from actual post-return switching. No general causal effect or human validity claim.",
+  "budget": "Fresh24 ledger under ongoing authorization, no old ledger reset"
+}

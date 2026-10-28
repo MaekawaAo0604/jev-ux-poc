@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {beginExperience,arriveExperience,experienceQuestions,admitExperience,experienceContext,experienceCriteria,experienceInstructions} from '../jev/virtual-beta/experience.js';
-import type {ExperienceMemory,ExperienceSource,ExperienceTransition} from '../jev/virtual-beta/experience-contracts.js';
+import type {ExperienceConfig,ExperienceMemory,ExperienceSource,ExperienceTransition} from '../jev/virtual-beta/experience-contracts.js';
 import type {BetaAction,UserObservation} from '../jev/virtual-beta/contracts.js';
 import type {DeliberationAssessment} from '../jev/virtual-beta/deliberation-contracts.js';
 import type {ChoiceAnswers} from '../jev/client.js';
@@ -186,4 +186,71 @@ test('retained unknown, duplicate or oversized adjustment records fail closed',(
   assert.throws(()=>arriveExperience(corrupt,undefined,observation('2'),'unchanged',config));
   assert.throws(()=>experienceCriteria({e1:'original'},corrupt,observation('1')));
  }
+});
+
+
+
+// Catches altering saved legacy request text when the new evidence interpretation is not selected.
+test('omitted evidence mode keeps the legacy evidence question text and descriptions exactly',()=>{
+ const legacy=experienceQuestions(memory(),[source('1'),source('2')]);
+ assert.deepEqual(experienceQuestions(memory(),[source('1'),source('2')],undefined),legacy);
+ assert.deepEqual(legacy.experienceEvidence,{type:'choice',instructions:experienceInstructions+' Select only the current result observation supporting both judgments; otherwise choose none.',criteria:{'2':'The attached current result image supports these judgments.',none:'There is no admitted current result evidence supporting these judgments.'}});
+});
+
+// Catches a basis mode that changes result choices, adds progress guidance, or equates evidence with success.
+test('basis mode changes only evidence explanations while preserving all question and distribution keys',()=>{
+ const sources=[source('1'),source('2')],legacy=experienceQuestions(memory(),sources),basis=experienceQuestions(memory(),sources,'basis');
+ assert.deepEqual(Object.keys(basis),Object.keys(legacy));
+ assert.deepEqual(basis.experienceProgress,legacy.experienceProgress);assert.deepEqual(basis.experienceExpectation,legacy.experienceExpectation);
+ assert.equal(basis.experienceEvidence.type,legacy.experienceEvidence.type);assert.deepEqual(Object.keys(basis.experienceEvidence.criteria),['2','none']);
+ assert.notEqual(basis.experienceEvidence.instructions,legacy.experienceEvidence.instructions);
+ assert.notEqual(basis.experienceEvidence.criteria['2'],legacy.experienceEvidence.criteria['2']);assert.notEqual(basis.experienceEvidence.criteria.none,legacy.experienceEvidence.criteria.none);
+ assert.match(basis.experienceEvidence.instructions,/basis/i);assert.match(basis.experienceEvidence.instructions,/source.*result/i);assert.match(basis.experienceEvidence.instructions,/not proof of goal completion/i);assert.match(basis.experienceEvidence.instructions,/prior prediction/i);
+ for(const category of ['neutral','conflicts','not_supported','unknown'])assert.ok(basis.experienceEvidence.instructions.toLowerCase().includes(category));
+ assert.match(basis.experienceEvidence.instructions,/not visible|cannot be identified/i);assert.match(basis.experienceEvidence.instructions,/none/);
+ assert.doesNotMatch(basis.experienceEvidence.instructions,/must (?:select|choose) (?:the )?current|always (?:select|choose)|notification|settings route/i);
+});
+
+// Catches changing admitted semantics rather than just the evidence question wording.
+test('basis and legacy modes admit the same grounded progress and expectation distributions',()=>{
+ const sources=[source('1'),source('2')];
+ for(const [progress,expectation] of [['neutral','not_supported'],['conflicts','not_supported'],['unknown','unknown'],['advances','supported']]){
+  const response=answer({experienceProgress:progress,experienceExpectation:expectation}),before=structuredClone(response);
+  const legacy=admitExperience(response,memory(),sources),basis=admitExperience(response,memory(),sources,'basis');
+  assert.deepEqual(basis,legacy);assert.deepEqual(response,before);assert.equal(basis.transitions[0].judgment!.progress,progress);assert.equal(basis.transitions[0].judgment!.expectation,expectation);
+ }
+});
+
+// Catches coercing none into a result citation or making unknown prior predictions suddenly supported.
+test('basis mode preserves none downgrades and unknown-prediction adjustments',()=>{
+ const sources=[source('1'),source('2')],noEvidence=answer({experienceProgress:'neutral',experienceExpectation:'not_supported',experienceEvidence:'none'});
+ const legacy=admitExperience(noEvidence,memory(),sources),basis=admitExperience(noEvidence,memory(),sources,'basis');
+ assert.deepEqual(basis,legacy);assert.deepEqual(basis.transitions[0].judgment,{kind:'model-assessment-not-fact',progress:'unknown',expectation:'unknown',adjustments:['NO_ADMITTED_EVIDENCE:progress=neutral->unknown','NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown']});
+ const unknown=memory();unknown.transitions[0].intent.prediction='unknown';
+ const response=answer({experienceProgress:'neutral',experienceExpectation:'supported'});
+ assert.deepEqual(admitExperience(response,unknown,sources,'basis'),admitExperience(response,unknown,sources));
+ assert.equal(admitExperience(response,unknown,sources,'basis').transitions[0].judgment!.expectation,'unknown');
+});
+
+// Catches an unrecognized mode silently selecting either evidence interpretation or a budget path.
+test('unknown evidence modes fail closed at question, admission and arrival boundaries',()=>{
+ for(const mode of ['legacy','unknown','',null,true,{},['basis']]){
+  assert.throws(()=>experienceQuestions(memory(),[source('1'),source('2')],mode as never));
+  assert.throws(()=>admitExperience(answer(),memory(),[source('1'),source('2')],mode as never));
+  const invalidConfig={...config,evidenceMode:mode} as ExperienceConfig;
+  assert.throws(()=>arriveExperience(undefined,undefined,observation('1'),'unchanged',invalidConfig));
+ }
+});
+
+// Catches admitting unattached/future evidence under the more permissive wording.
+test('basis mode still requires both exact attached endpoints and result-only valid distributions',()=>{
+ for(const sources of [[],[source('1')],[source('2')],[source('1'),source('2','wrong')]]){
+  assert.deepEqual(experienceQuestions(memory(),sources,'basis'),{});assert.throws(()=>admitExperience(answer(),memory(),sources,'basis'));
+ }
+ const sources=[source('1'),source('2'),source('future')];
+ assert.deepEqual(Object.keys(experienceQuestions(memory(),sources,'basis').experienceEvidence.criteria),['2','none']);
+ for(const evidence of ['1','future'])assert.throws(()=>admitExperience(answer({experienceEvidence:evidence}),memory(),sources,'basis'));
+ const malformed=answer();malformed.answers.experienceEvidence.probabilities={'2':0.5,none:0.25};assert.throws(()=>admitExperience(malformed,memory(),sources,'basis'));
+ const basisConfig={...config,evidenceMode:'basis'} as ExperienceConfig;
+ assert.deepEqual(arriveExperience(undefined,undefined,observation('1'),'unchanged',basisConfig),{schemaVersion:1,transitions:[]});
 });

@@ -55,12 +55,12 @@ export async function replayDirectory(directory:string){
      experience=arriveExperience(experience,pending,current,execution,result.config.experience);pending=undefined;
      if(JSON.stringify((d.modelInput.userState as any)?.experience)!==JSON.stringify(experience)||JSON.stringify(d.modelInput.experienceContext)!==JSON.stringify(experienceContext(experience,current)))throw new Error('EXPERIENCE_ARRIVAL_MISMATCH');
     }
-    const outcomeQuestions=experience?experienceQuestions(experience,sources):{};
+    const outcomeQuestions=experience?experienceQuestions(experience,sources,result.config.experience?.evidenceMode):{};
     for(const [key,question] of Object.entries(outcomeQuestions))if(JSON.stringify(d.questions[key])!==JSON.stringify(question))throw new Error('EXPERIENCE_QUESTION_MISMATCH');
     const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)))};
     const assessment=admitAssessment(response,candidates,current,sources);
     if(experience){
-     if(Object.keys(outcomeQuestions).length)experience=admitExperience(d.response,experience,sources);
+     if(Object.keys(outcomeQuestions).length)experience=admitExperience(d.response,experience,sources,result.config.experience?.evidenceMode);
      if(JSON.stringify(step.userState.experience)!==JSON.stringify(experience)||JSON.stringify((step.modelInput?.userState as any)?.experience)!==JSON.stringify(experience)||JSON.stringify(step.modelInput?.experienceContext)!==JSON.stringify(experienceContext(experience,current)))throw new Error('EXPERIENCE_JUDGMENT_MISMATCH');
     }
     if(JSON.stringify(assessment)!==JSON.stringify(d.assessment))throw new Error('ASSESSMENT_RECORD_MISMATCH');assessments++;

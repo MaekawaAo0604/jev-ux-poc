@@ -51,3 +51,20 @@ test('executed excursion is remembered beyond image buffer, judged in existing s
   const file=join(saved.root,'exploration/result.json'),tampered=JSON.parse(await readFile(file,'utf8'));tampered.steps[3].userState.experience.transitions[0].intent.prediction='conflicts';await writeFile(file,JSON.stringify(tampered));await assert.rejects(replayDirectory(join(saved.root,'exploration')),/EXPERIENCE/);
  }finally{assert.ok(dir.startsWith(join(tmpdir(),'jev-experience-')));await rm(dir,{recursive:true,force:true});}
 });
+
+
+test('basis wording is a declared opt-in; all limits, candidates and none admission remain unchanged',async()=>{
+ const previous=humanJevProfile('experience'),next=humanJevProfile('experience-basis' as any);
+ assert.deepEqual(next.config.experience,{enabled:true,capacity:8,evidenceMode:'basis'});
+ const {id,experience,...unchanged}=next.config;const {id:previousId,experience:previousExperience,...old}=previous.config;assert.deepEqual(unchanged,old);
+ const dir=await mkdtemp(join(tmpdir(),'jev-experience-basis-'));let calls=0;
+ try{
+  const saved=await runHumanJev({out:join(dir,'trial'),mock:true,mode:'experience-basis' as any},async request=>{
+   if(request.questions.nextAction)calls++;
+   if(request.questions.experienceEvidence){assert.deepEqual(Object.keys(request.questions.experienceEvidence.criteria),[(request.input.observation as any).id,'none']);assert.match(request.questions.experienceEvidence.instructions,/basis/i);}
+   return answer(request,calls<2?'wait':'done');
+  });
+  assert.equal(saved.result.apiCalls,4);assert.equal(saved.result.uiActions,0);assert.equal(saved.result.termination,'SUBJECTIVE_DONE');assert.equal(saved.result.objectiveSuccess,false);
+  assert.equal((await replayDirectory(join(saved.root,'exploration'))).assessments,2);
+ }finally{assert.ok(dir.startsWith(join(tmpdir(),'jev-experience-basis-')));await rm(dir,{recursive:true,force:true});}
+});
