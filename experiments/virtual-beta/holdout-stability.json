@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "phase": "holdout-stability-2026-10-28",
+  "baselineRevision": "4a67772b872c8b7893550295072177ea17c8de6a",
+  "hypothesis": "Frozen temporary deferral should transfer beyond the notification screen, preserve required revisits, and not disturb direct tasks.",
+  "schedule": [
+    {
+      "id": "switch-alpha-r1-control",
+      "task": "switch",
+      "variant": "alpha",
+      "replicate": 1,
+      "condition": "control"
+    },
+    {
+      "id": "switch-alpha-r1-policy",
+      "task": "switch",
+      "variant": "alpha",
+      "replicate": 1,
+      "condition": "policy"
+    },
+    {
+      "id": "switch-beta-r1-policy",
+      "task": "switch",
+      "variant": "beta",
+      "replicate": 1,
+      "condition": "policy"
+    },
+    {
+      "id": "switch-beta-r1-control",
+      "task": "switch",
+      "variant": "beta",
+      "replicate": 1,
+      "condition": "control"
+    },
+    {
+      "id": "revisit-alpha-r1-control",
+      "task": "revisit",
+      "variant": "alpha",
+      "replicate": 1,
+      "condition": "control"
+    },
+    {
+      "id": "revisit-alpha-r1-policy",
+      "task": "revisit",
+      "variant": "alpha",
+      "replicate": 1,
+      "condition": "policy"
+    },
+    {
+      "id": "revisit-beta-r1-policy",
+      "task": "revisit",
+      "variant": "beta",
+      "replicate": 1,
+      "condition": "policy"
+    },
+    {
+      "id": "revisit-beta-r1-control",
+      "task": "revisit",
+      "variant": "beta",
+      "replicate": 1,
+      "condition": "control"
+    },
+    {
+      "id": "direct-alpha-r1-control",
+      "task": "direct",
+      "variant": "alpha",
+      "replicate": 1,
+      "condition": "control"
+    },
+    {
+      "id": "direct-alpha-r1-policy",
+      "task": "direct",
+      "variant": "alpha",
+      "replicate": 1,
+      "condition": "policy"
+    },
+    {
+      "id": "direct-beta-r1-policy",
+      "task": "direct",
+      "variant": "beta",
+      "replicate": 1,
+      "condition": "policy"
+    },
+    {
+      "id": "direct-beta-r1-control",
+      "task": "direct",
+      "variant": "beta",
+      "replicate": 1,
+      "condition": "control"
+    },
+    {
+      "id": "switch-alpha-r2-policy",
+      "task": "switch",
+      "variant": "alpha",
+      "replicate": 2,
+      "condition": "policy"
+    },
+    {
+      "id": "switch-alpha-r2-control",
+      "task": "switch",
+      "variant": "alpha",
+      "replicate": 2,
+      "condition": "control"
+    },
+    {
+      "id": "switch-beta-r2-control",
+      "task": "switch",
+      "variant": "beta",
+      "replicate": 2,
+      "condition": "control"
+    },
+    {
+      "id": "switch-beta-r2-policy",
+      "task": "switch",
+      "variant": "beta",
+      "replicate": 2,
+      "condition": "policy"
+    },
+    {
+      "id": "revisit-alpha-r2-policy",
+      "task": "revisit",
+      "variant": "alpha",
+      "replicate": 2,
+      "condition": "policy"
+    },
+    {
+      "id": "revisit-alpha-r2-control",
+      "task": "revisit",
+      "variant": "alpha",
+      "replicate": 2,
+      "condition": "control"
+    },
+    {
+      "id": "revisit-beta-r2-control",
+      "task": "revisit",
+      "variant": "beta",
+      "replicate": 2,
+      "condition": "control"
+    },
+    {
+      "id": "revisit-beta-r2-policy",
+      "task": "revisit",
+      "variant": "beta",
+      "replicate": 2,
+      "condition": "policy"
+    },
+    {
+      "id": "direct-alpha-r2-policy",
+      "task": "direct",
+      "variant": "alpha",
+      "replicate": 2,
+      "condition": "policy"
+    },
+    {
+      "id": "direct-alpha-r2-control",
+      "task": "direct",
+      "variant": "alpha",
+      "replicate": 2,
+      "condition": "control"
+    },
+    {
+      "id": "direct-beta-r2-control",
+      "task": "direct",
+      "variant": "beta",
+      "replicate": 2,
+      "condition": "control"
+    },
+    {
+      "id": "direct-beta-r2-policy",
+      "task": "direct",
+      "variant": "beta",
+      "replicate": 2,
+      "condition": "policy"
+    }
+  ],
+  "fixtures": [
+    {
+      "version": 1,
+      "task": "switch",
+      "variant": "alpha",
+      "goal": "定期便のお届け曜日を、現在の水曜日から土曜日に変更してください。",
+      "title": "定期便マイページ",
+      "objectiveText": "定期便のお届け曜日を土曜日に変更しました"
+    },
+    {
+      "version": 1,
+      "task": "switch",
+      "variant": "beta",
+      "goal": "定期便のお届け曜日を、現在の水曜日から土曜日に変更してください。",
+      "title": "定期便マイページ",
+      "objectiveText": "定期便のお届け曜日を土曜日に変更しました"
+    },
+    {
+      "version": 1,
+      "task": "revisit",
+      "variant": "alpha",
+      "goal": "アルバム「旅の記録」の共有リンクを無効にしてください。",
+      "title": "アルバム管理",
+      "objectiveText": "共有リンクを無効にしました"
+    },
+    {
+      "version": 1,
+      "task": "revisit",
+      "variant": "beta",
+      "goal": "アルバム「旅の記録」の共有リンクを無効にしてください。",
+      "title": "アルバム管理",
+      "objectiveText": "共有リンクを無効にしました"
+    },
+    {
+      "version": 1,
+      "task": "direct",
+      "variant": "alpha",
+      "goal": "次回のスタジオ予約を2026年11月14日に変更してください。",
+      "title": "予約マイページ",
+      "objectiveText": "次回の予約を2026年11月14日に変更しました"
+    },
+    {
+      "version": 1,
+      "task": "direct",
+      "variant": "beta",
+      "goal": "次回のスタジオ予約を2026年11月14日に変更してください。",
+      "title": "予約マイページ",
+      "objectiveText": "次回の予約を2026年11月14日に変更しました"
+    }
+  ],
+  "fixed": {
+    "model": "jev-1.14.0",
+    "longContext": true,
+    "attempts": 1,
+    "persona": null,
+    "memoryImages": 3,
+    "experienceCapacity": 8,
+    "selection": "argmax",
+    "seed": 20261028,
+    "deferral": {
+      "capacity": 8,
+      "weight": 0.01,
+      "minAlternativeProbability": 0.01
+    },
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "locale": "ja-JP",
+    "timezoneId": "Asia/Tokyo"
+  },
+  "limits": {
+    "trials": 24,
+    "totalRequests": 576,
+    "requestsPerTrial": 24,
+    "judgmentsPerTrial": 12,
+    "uiActionsPerTrial": 15,
+    "looksPerTrial": 3,
+    "trialMs": 180000,
+    "phaseMs": 1200000,
+    "parallel": 1,
+    "reviewRequests": 0
+  },
+  "frozenPolicyHashes": {
+    "jev/virtual-beta/deferral.ts": "9594327a8e57b08c28349ac377a88af97bcd7078b8ff90d99ab1f9ca09ba6141",
+    "jev/virtual-beta/deferral-contracts.ts": "15607d9339753b70a0fee38c10abeef2b7c76fac51ffe1e13529da8691e3f024",
+    "jev/virtual-beta/selection.ts": "9bfdf29b4073a2bb9239a13b2a27f9f046e757d548c070469fdb0537f51b4582",
+    "jev/virtual-beta/experience.ts": "883a02201e6821f8d64a0d652465076c7d2fe140753ac85319da78e9d2f3a400",
+    "jev/virtual-beta/deliberation.ts": "d346b812fc4f47317d47081b0aeffc8e222969caaab87314a4628036a6b42e83",
+    "runner/human-jev-profiles.ts": "44ca26684250fbb926fac903b3126d1b833f78641d6f26b2057b841205261224"
+  },
+  "engineeringAcceptance": [
+    "All six fixtures independently reachable and reset; revisit requires prerequisite and actual return",
+    "All pairs match initial unnumbered image, code revision/source, charter/persona and config except id/deferral",
+    "No audit/reference path/fixture assignment/DOM/oracle enters model boundary",
+    "Every completed saved run replays offline; ledger counts agree; infrastructure failures separated"
+  ],
+  "capabilityInterpretation": [
+    "Report each task/variant/condition successes out of two attempts, real switching after a failed excursion, required revisit and direct-task detours",
+    "If any policy trial fails, stable completion across this bounded matrix is not established",
+    "If switch goals succeed directly without a failed excursion, count success but do not claim demonstrated recovery for those trials",
+    "All successes in this matrix are only a small screening result, not a reliability estimate, human validation, or causal effect"
+  ],
+  "nonGoals": [
+    "Policy tuning on holdout outcomes",
+    "Prompting correct route",
+    "Persona comparison or UI quality causal claim",
+    "Training or adding visual identity model",
+    "Human raw data or stored-input API replay"
+  ]
+}

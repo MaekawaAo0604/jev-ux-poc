@@ -1,3 +1,4 @@
+import {holdoutDefinition,holdoutQuery,type HoldoutFixture} from '../app/holdout-fixture.js';
 import {chromium} from 'playwright';
 import {createServer} from 'vite';
 import {mkdir,readFile,writeFile} from 'node:fs/promises';
@@ -14,7 +15,7 @@ import {sourceIdentity} from './virtual-beta-source.js';
 import {buildBlindReview,validateBlindReview,type ReviewFrame} from './human-jev-review.js';
 
 export const humanJevConfig=humanJevProfile().config;
-type Options={out:string;mock:boolean;phaseBudget?:string;envFile?:string;mode?:HumanJevMode;longContext?:boolean};
+type Options={out:string;mock:boolean;phaseBudget?:string;envFile?:string;mode?:HumanJevMode;longContext?:boolean;holdoutFixture?:HoldoutFixture;runId?:string;deadlineEpochMs?:number};
 function failureEvidence(error:unknown){
  const f=safeRequestFailure(error);
  const code=['HTTP_ERROR','TIMEOUT','REQUEST_FAILED','MISSING_CREDENTIALS','INVALID_RESPONSE'].includes(f.code)?f.code:'REQUEST_FAILED';
@@ -36,9 +37,10 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
  const root=resolve(options.out),dir=join(root,'exploration');let calls=0,outputCreated=false;
  try{
   if(budget){const snapshot=budget.snapshot();if(snapshot.newMaximum!==profile.maximumRequests||snapshot.perRunMaximum!==profile.perRunMaximum)throw new Error('EXPECTED_APPROVED_'+profile.maximumRequests+'_REQUEST_PHASE');}
-  await mkdir(root);outputCreated=true;const charter=parseCharter(JSON.parse(await readFile('experiments/persona/charter.json','utf8')));
+  await mkdir(root);outputCreated=true;const originalCharter=JSON.parse(await readFile('experiments/persona/charter.json','utf8'));
+  const charter=parseCharter(options.holdoutFixture?{...originalCharter,id:'holdout-task',targetWebsite:'local:good',goal:holdoutDefinition(options.holdoutFixture).goal,initialState:{...originalCharter.initialState,description:'架空サービスの初期画面。毎回新しいブラウザーで開始する。'},scope:['同じローカル検証サイトで、目的の設定変更と保存確認を行う']}:originalCharter);
   const code=await sourceIdentity();
-  const manifest={schemaVersion:1,mode,transport:{longContext:options.longContext===true,maxAttemptsPerRequest:1},createdAtUTC:new Date().toISOString(),...code,mock:options.mock,model:options.mock?'MOCK_SCRIPTED_FIXTURE':'jev-1.14.0',charter,config,persona:null,humanInputsRead:false,actualAPIRequests:0,maximumRequests:profile.maximumRequests,explorationMaximum:profile.explorationMaximum,reviewMaximum:profile.reviewMaximum,viewport:{width:1280,height:900},locale:'ja-JP',timezoneId:'Asia/Tokyo',comparisonLimits:['Baseline goal policy, not a fitted participant persona','Full viewport images with number markers; human used unnumbered native screen','Current runner memory3; human memory and gaze unmeasured','Prompted categorical review, not unprompted free-text discovery'],reviewFramePolicy:'First four and last four distinct delivered images, maximum8, chronological order; no participant-conditioned selection',phaseBudgetBefore:budget?.snapshot()??null};
+  const manifest={schemaVersion:1,mode,...(options.holdoutFixture?{holdoutFixture:structuredClone(options.holdoutFixture)}:{}),transport:{longContext:options.longContext===true,maxAttemptsPerRequest:1},createdAtUTC:new Date().toISOString(),...code,mock:options.mock,model:options.mock?'MOCK_SCRIPTED_FIXTURE':'jev-1.14.0',charter,config,persona:null,humanInputsRead:false,actualAPIRequests:0,maximumRequests:profile.maximumRequests,explorationMaximum:profile.explorationMaximum,reviewMaximum:profile.reviewMaximum,viewport:{width:1280,height:900},locale:'ja-JP',timezoneId:'Asia/Tokyo',comparisonLimits:['Baseline goal policy, not a fitted participant persona','Full viewport images with number markers; human used unnumbered native screen','Current runner memory3; human memory and gaze unmeasured','Prompted categorical review, not unprompted free-text discovery'],reviewFramePolicy:'First four and last four distinct delivered images, maximum8, chronological order; no participant-conditioned selection',phaseBudgetBefore:budget?.snapshot()??null};
   await writeFile(join(root,'manifest.json'),JSON.stringify(manifest,null,2));
   server=await createServer({server:{host:'127.0.0.1',port:0},logLevel:'error'});await server.listen();
   const address=server.httpServer!.address();if(!address||typeof address==='string')throw new Error('NO_LOCAL_PORT');
@@ -48,10 +50,11 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
   await context.tracing.start({screenshots:true,snapshots:true,sources:false});
   const page=await context.newPage();page.on('download',d=>{safety=true;void d.cancel();});
   // Capture the unnumbered, unoperated UI; runBeta then reloads and starts its own trial.
-  await page.goto(baseURL+'/bad/',{waitUntil:'networkidle'});const initial=await page.screenshot();await writeFile(join(root,'initial-product.png'),initial);
+  await page.goto(baseURL+(options.holdoutFixture?'/good/'+holdoutQuery(options.holdoutFixture):'/bad/'),{waitUntil:'networkidle'});const initial=await page.screenshot();await writeFile(join(root,'initial-product.png'),initial);
   await writeFile(join(root,'initial-product.json'),JSON.stringify({sha256:sha(initial),capture:'preparatory unoperated load; exploration reloads the same initial UI'},null,2));
   const frames:ReviewFrame[]=[];
   const dispatch:BetaEvaluator=async request=>{
+   if(options.deadlineEpochMs!==undefined){const remaining=options.deadlineEpochMs-Date.now();if(remaining<=0)throw new BetaBudgetError('TIME_LIMIT');request={...request,timeoutMs:Math.min(request.timeoutMs,remaining)};}
    if(safety)throw new BetaBudgetError('TIME_LIMIT');
    const stage=request.questions.nextAction?(mode!=='baseline'?'action':'exploration'):request.questions.knowledge?'assessment':'review';
    if(stage==='assessment'&&mode==='baseline'||stage==='review'&&profile.reviewMaximum===0)throw new Error('PROFILE_STAGE_NOT_ALLOWED');
@@ -73,7 +76,7 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
    if(request.questions.nextAction){const o=request.input.observation as {id:string;candidateIds:string[]};const image=request.images.current;if(!image)throw new Error('CURRENT_IMAGE_MISSING');const imageSha256=sha(Buffer.from(image.data,'base64'));if(!frames.some(f=>f.imageSha256===imageSha256))frames.push({observationId:o.id,imageSha256,image:structuredClone(image),candidateIds:[...o.candidateIds]});}
    return response;
   };
-  const result=await runBeta(page,{runId:'exploration',dir,baseURL,charter,config,evaluate,code:{revision:code.revision,sourceHash:code.sourceHash},isSafetyStopped:()=>safety});
+  const result=await runBeta(page,{runId:options.runId??'exploration',dir,baseURL,charter,config,evaluate,...(options.holdoutFixture?{holdoutFixture:options.holdoutFixture}:{}),code:{revision:code.revision,sourceHash:code.sourceHash},isSafetyStopped:()=>safety});
   await context.tracing.stop({path:join(dir,'trace.zip')});await context.close();
   const selected=frames.length<=8?frames:[...frames.slice(0,4),...frames.slice(-4)];
   let review:Record<string,unknown>={status:'NOT_RUN',reason:profile.reviewMaximum===0?'PROFILE_DISABLED':safety?'SAFETY_STOP':selected.length?'BUDGET_UNAVAILABLE':'NO_VALID_DELIVERED_FRAMES'};

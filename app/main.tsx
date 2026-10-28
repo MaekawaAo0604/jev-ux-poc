@@ -1,3 +1,5 @@
+import {parseHoldoutFixture} from './holdout-fixture.js';
+import {HoldoutFixtureView} from './HoldoutFixture.js';
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
@@ -38,4 +40,5 @@ function App() {
   {route!=='home' && <a className="home-link" href="#home">マイページへ戻る</a>}<footer>暮らしクラウド　·　デモアカウント</footer></main></div></>;
 }
 const semanticFixture=location.pathname.startsWith('/good/')?parseSemanticFixture(location.search):undefined;
-createRoot(document.getElementById('root')!).render(semanticFixture?<SemanticFixtureView fixture={semanticFixture}/>:<App/>);
+const holdoutFixture=location.pathname.startsWith('/good/')?parseHoldoutFixture(location.search):undefined;
+createRoot(document.getElementById('root')!).render(holdoutFixture?<HoldoutFixtureView fixture={holdoutFixture}/>:semanticFixture?<SemanticFixtureView fixture={semanticFixture}/>:<App/>);
