@@ -18,6 +18,7 @@ import {replaySelection} from '../jev/virtual-beta/selection.js';
 import {sha,offeredCandidates,type BetaResult} from './virtual-beta-core.js';
 const isRecord=(value:unknown):value is Record<string,unknown>=>value!==null&&typeof value==='object'&&!Array.isArray(value);
 const equal=(a:unknown,b:unknown)=>JSON.stringify(a)===JSON.stringify(b);
+const hasCorrespondence=(input:Record<string,unknown>|undefined)=>['correspondenceContext','correspondenceObservations','correspondenceAssessment'].some(key=>input?.[key]!==undefined);
 /** Only model-input image references backed by the verified attached assets admit sources. */
 function assessmentSources(input:Record<string,unknown>,assets:Record<string,{file:string;sha256:string}>,current:UserObservation):AdmittedObservationSource[]{
  const observation=input.observation;
@@ -72,6 +73,8 @@ export async function replayDirectory(directory:string){
    const refs=[...((input.memoryObservations??[]) as any[]),...((input.reasonObservations??[]) as any[])];
    const baseKeys=new Set(['current',...refs.map(r=>r.image)]),baseAssets=Object.fromEntries(Object.entries(assets).filter(([key])=>baseKeys.has(key)));
    const frame={source:{observationId:current.id,imageSha256:current.imageSha256},bytes:await readFile(join(directory,assets.current.file)),file:assets.current.file,clickCandidateIds:Object.keys(correspondenceCandidates).filter(id=>correspondenceCandidates![id].action.type==='click')};
+   const expectedCurrent={id:'o'+step.number,imageSha256:sha(frame.bytes),visibleText:result.config.vision.mode==='full'?[...step.audit!.screen.text]:[],fixation:{...step.vision.fixation},candidateIds:Object.keys(correspondenceCandidates)};
+   if(!equal(current,expectedCurrent)||!equal((input.userState as any)?.lastObservation,expectedCurrent)||!equal((step.modelInput?.userState as any)?.lastObservation,expectedCurrent)||!equal((input.observation as any)?.candidateIds,expectedCurrent.candidateIds)||!equal((step.modelInput?.observation as any)?.candidateIds,expectedCurrent.candidateIds))throw Error('CORRESPONDENCE_OBSERVATION_MISMATCH');
    const arriving=result.config.experience?.enabled?arriveExperience(experience,pending,current,execution,result.config.experience):undefined;
    const proposal=archive.prepare(frame,arriving,Object.values(baseAssets).map(asset=>asset.sha256));correspondenceContext=proposal.preparation.context;
    archive.remember(frame);
@@ -80,8 +83,8 @@ export async function replayDirectory(directory:string){
     const expected=[{observationId:prior.source.observationId,image,imageSha256:prior.source.imageSha256}];
     if(!equal(input.correspondenceContext,correspondenceContext)||!equal(input.correspondenceObservations,expected)||!equal(baseAssets,assets))throw Error('CORRESPONDENCE_IMAGE_INPUT_MISMATCH');
     if(!equal(step.modelInput?.correspondenceContext,correspondenceContext)||!equal(step.modelInput?.correspondenceObservations,expected)||!equal(step.assetFiles,assets))throw Error('CORRESPONDENCE_ACTION_INPUT_MISMATCH');
-   }else if(input.correspondenceContext!==undefined||input.correspondenceObservations!==undefined||input.correspondenceAssessment!==undefined||step.correspondence?.record!==undefined||step.correspondence?.annotations!==undefined||!equal(baseAssets,assets))throw Error('UNEXPECTED_CORRESPONDENCE_INPUT');
-  }else if(!archive&&(step.correspondence!==undefined||step.modelInput?.correspondenceContext!==undefined||d?.modelInput.correspondenceContext!==undefined))throw Error('UNCONFIGURED_CORRESPONDENCE');
+   }else if(hasCorrespondence(input)||hasCorrespondence(step.modelInput)||step.correspondence?.record!==undefined||step.correspondence?.annotations!==undefined||!equal(baseAssets,assets))throw Error('UNEXPECTED_CORRESPONDENCE_INPUT');
+  }else if(!archive&&(step.correspondence!==undefined||hasCorrespondence(step.modelInput)||hasCorrespondence(d?.modelInput)))throw Error('UNCONFIGURED_CORRESPONDENCE');
   if(d){
    if(d.inputSha256!==sha(JSON.stringify({input:d.modelInput,questions:d.questions,assets:d.assetFiles})))throw new Error('ASSESSMENT_INPUT_HASH_MISMATCH');
    for(const asset of Object.values(d.assetFiles)){if(asset.file!==asset.file.split(/[\\/]/).at(-1))throw new Error('UNSAFE_IMAGE_PATH');if(sha(await readFile(join(directory,asset.file)))!==asset.sha256)throw new Error('ASSESSMENT_IMAGE_HASH_MISMATCH');images++;}
