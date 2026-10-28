@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "human-blind-comparison-20261028",
+  "status": "FIXED_BEFORE_NEW_MODEL_REQUESTS",
+  "authorization": {
+    "newMaximum": 13,
+    "explorationMaximum": 12,
+    "reviewMaximum": 1,
+    "priorRemainingReservationsUntouched": true
+  },
+  "site": "local:bad",
+  "charter": "experiments/persona/charter.json",
+  "policy": {
+    "persona": null,
+    "behavior": "goal",
+    "selection": "argmax",
+    "seed": 20261028,
+    "observation": "full viewport image-only, numbered targets, crop clear4096x4096",
+    "memoryCapacity": 3,
+    "maxDecisions": 12,
+    "maxUIActions": 15,
+    "maxLooks": 3,
+    "maxAPICalls": 12,
+    "maxRunMs": 180000
+  },
+  "review": {
+    "maximumRequests": 1,
+    "frames": "first4 plus last4 unique delivered image hashes, maximum8, chronological",
+    "categories": [
+      "none",
+      "readability",
+      "organization",
+      "wording",
+      "response",
+      "other",
+      "insufficient"
+    ],
+    "slots": 3,
+    "noHumanResults": true,
+    "noParticipantFeedback": true,
+    "noDOM": true,
+    "noOracle": true,
+    "transport": "new post-exploration review assembled from current run in-memory observed images; no saved request replay"
+  },
+  "humanReference": "reports/human-first-20261028-153854",
+  "comparison": {
+    "firstClick": "first performed model click label versus first recorded human click label; first action and reason are distinct",
+    "fontIssue": "readability category plus cited target whose observed visible label first line equals その他",
+    "organizationIssue": "organization category plus cited target whose observed visible label first line equals 各種設定 or その他; only partial conceptual alignment, not evidence of the same expectation",
+    "unsupported": "same category without matching target is nonspecific; none/error/missing must not be promoted to agreement",
+    "operationCounts": "report clicks, scroll events, back separately; do not compare human6 clicks to aggregate model UI actions"
+  },
+  "limits": [
+    "One participant and one new model trial",
+    "Post-hoc comparison protocol informed by participant reports; no prospective prediction validity claim",
+    "Fixed generic categories elicit review, not spontaneous free-text discovery",
+    "Human native unnumbered full viewport versus model numbered full viewport",
+    "Participant persona and gaze unmeasured; model uses baseline policy",
+    "Human initial source identity not captured at acquisition; independently compare saved initial PNG to fresh unoperated UI"
+  ]
+}
