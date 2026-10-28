@@ -22,7 +22,7 @@ export async function evaluateBetaRequest(request:ModelRequest):Promise<ChoiceAn
   if(captured&&error instanceof ChoiceRequestError&&error.failure.code==='INVALID_RESPONSE'){
    const response={...captured,...(error.request?{request:error.request}:{})};
    if(response.model!=='jev-1.14.0')throw new BetaResponseError('API_ERROR','MODEL_MISMATCH',answerEvidence(response,request));
-   try{validateChoice(response.answers?.nextAction,request.questions.nextAction.criteria);}catch{throw new BetaResponseError('INVALID_DISTRIBUTION','INVALID_DISTRIBUTION',answerEvidence(response,request));}
+   try{for(const id of request.questions.nextAction?['nextAction']:Object.keys(request.questions))validateChoice(response.answers?.[id],request.questions[id].criteria);}catch{throw new BetaResponseError('INVALID_DISTRIBUTION','INVALID_DISTRIBUTION',answerEvidence(response,request));}
    throw new BetaResponseError('API_ERROR','INVALID_RESPONSE',answerEvidence(response,request));
   }
   throw error;

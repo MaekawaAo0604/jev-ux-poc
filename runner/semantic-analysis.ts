@@ -123,7 +123,7 @@ export function compareSemanticRuns(results:SemanticResult[]){
  if(new Set(pairs.map(p=>p.pairId).filter(nonempty)).size!==6)issues.push('PAIR_IDS_NOT_UNIQUE');
  if(pairs.some(p=>p.initialInputSha256Equal!==true||p.initialImageSha256Equal!==true))issues.push('PAIRED_INITIAL_MODEL_INPUT_NOT_IDENTICAL');
  if(pairs.some(p=>p.initialRawSourceSha256Equal===true))issues.push('REVERSED_MAPPING_RAW_IMAGE_NOT_DIFFERENT');
- const invariant=(r:SemanticResult)=>JSON.stringify({vision:r.config.vision,state:r.config.state,selectionMode:r.config.selection.mode,behavior:r.config.behavior,initialFixation:r.config.initialFixation??{x:640,y:450},objectivePolicy:r.semantic?.objectivePolicy??'mail-only',maxAPICalls:r.config.maxAPICalls,maxDecisions:r.config.maxDecisions,maxUIActions:r.config.maxUIActions,maxLooks:r.config.maxLooks,maxRunMs:r.config.maxRunMs,input:r.input,code:r.code??null});
+ const invariant=(r:SemanticResult)=>JSON.stringify({vision:r.config.vision,state:r.config.state,selectionMode:r.config.selection.mode,behavior:r.config.behavior,deliberation:r.config.deliberation??null,initialFixation:r.config.initialFixation??{x:640,y:450},objectivePolicy:r.semantic?.objectivePolicy??'mail-only',maxAPICalls:r.config.maxAPICalls,maxDecisions:r.config.maxDecisions,maxUIActions:r.config.maxUIActions,maxLooks:r.config.maxLooks,maxRunMs:r.config.maxRunMs,input:r.input,code:r.code??null});
  if(new Set(results.map(invariant)).size>1)issues.push('NON_UI_EXPERIMENT_SETTINGS_DIFFER');
  const byUI=uis.map(ui=>{
   const cells=slots.filter(s=>s.ui===ui),recorded=cells.flatMap(s=>s.matches);

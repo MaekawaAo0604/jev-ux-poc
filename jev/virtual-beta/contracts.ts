@@ -1,3 +1,4 @@
+import type {DeliberationConfig,DeliberationMemory} from './deliberation-contracts.js';
 import type {Action} from '../types.js';
 import type {Persona,ExplorationCharter} from '../persona.js';
 export type Point={x:number;y:number};
@@ -11,10 +12,10 @@ export type VisionObservation={bytes:Buffer;sourceSha256:string;imageSha256:stri
 /** These are the ONLY observation fields admitted to simulated user memory. */
 export type UserObservation={id:string;imageSha256:string;visibleText:string[];fixation:Point;candidateIds:string[]};
 export type UserMemory={observationId:string;imageSha256:string;visibleText:string[];action?:BetaAction;outcome?:'performed'|'failed'|'unchanged'};
-export type UserState={schemaVersion:1;revision:number;fixation:Point;memory:UserMemory[];lastObservation?:UserObservation;expectations:string[]};
+export type UserState={schemaVersion:1;revision:number;fixation:Point;memory:UserMemory[];lastObservation?:UserObservation;expectations:string[];deliberation?:DeliberationMemory};
 export type StateConfig={enabled:boolean;memoryCapacity:number};
 export type SelectionConfig={mode:'argmax'|'sample';seed:number};
 export type SelectionRecord={modelChoice:string;raw:Record<string,number>;normalized:Record<string,number>;normalization:{rawTotal:number;filteredTotal:number};filtered:Record<string,number>;adjustments:{candidate:string;reason:string}[];mode:SelectionConfig['mode'];seed:number;drawIndex:number;draw:number|null;selected:string};
-export type BetaConfig={schemaVersion:1;initialFixation?:Point;id:string;vision:VisionConfig;state:StateConfig;selection:SelectionConfig;behavior:'goal'|'user';maxUIActions:number;maxLooks:number;maxDecisions:number;maxAPICalls:number;maxRunMs:number;modeledActionMs:number|null};
+export type BetaConfig={schemaVersion:1;initialFixation?:Point;deliberation?:DeliberationConfig;id:string;vision:VisionConfig;state:StateConfig;selection:SelectionConfig;behavior:'goal'|'user';maxUIActions:number;maxLooks:number;maxDecisions:number;maxAPICalls:number;maxRunMs:number;modeledActionMs:number|null};
 export type BetaInput={persona?:Persona;charter:ExplorationCharter};
 export type Termination='OBJECTIVE_SUCCESS'|'SUBJECTIVE_DONE'|'ABANDONED'|'STUCK'|'UI_ACTION_LIMIT'|'LOOK_LIMIT'|'DECISION_LIMIT'|'API_LIMIT'|'TIME_LIMIT'|'SAFETY_STOP'|'API_ERROR'|'INVALID_DISTRIBUTION'|'ACTION_ERROR'|'OBSERVATION_ERROR';

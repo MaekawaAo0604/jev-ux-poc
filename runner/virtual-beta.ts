@@ -1,3 +1,4 @@
+import {analyzeDeliberationRun} from './deliberation-analysis.js';
 import {chromium} from 'playwright';
 import {createServer} from 'vite';
 import {mkdir,readFile,writeFile} from 'node:fs/promises';
@@ -62,7 +63,7 @@ export async function main(args=process.argv.slice(2)){
   const dir=join(root,runId),context=await browser.newContext({viewport:manifest.viewport,locale:manifest.locale,timezoneId:manifest.timezoneId,acceptDownloads:false});let safety=false;
   await context.route('**/*',route=>{const request=route.request();const url=new URL(request.url());if(url.hostname==='fonts.googleapis.com'&&request.resourceType()==='stylesheet')return route.fulfill({contentType:'text/css',body:''});if(url.origin===baseURL&&['GET','HEAD'].includes(request.method()))return route.continue();safety=true;return route.abort();});
   const page=await context.newPage();page.on('download',download=>{safety=true;void download.cancel();});await context.tracing.start({screenshots:true,snapshots:true,sources:false});
-  const fake=semanticTrial?semanticMockEvaluator(semanticTrial.fixture.mapping):mockEvaluator(),evaluate:BetaEvaluator=async request=>{if(totalCalls>=maxTotalAPI)throw new BetaBudgetError('API_LIMIT');if(mock){totalCalls++;return fake(request);}
+  const fake=semanticTrial?semanticMockEvaluator(semanticTrial.fixture.mapping):mockEvaluator(),evaluate:BetaEvaluator=async request=>{if(totalCalls>=maxTotalAPI)throw new BetaBudgetError('API_LIMIT');if(mock){totalCalls++;if(request.questions.knowledge)return {model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(request.questions).map(([id,q])=>{const choice=id==='knowledge'?'insufficient':id==='goal'?'uncertain':id.startsWith('effect_')?'unknown':'none';return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,k===choice?1:0]))}];}))};return fake(request);}
    const dispatchDeadline=performance.now()+request.timeoutMs;
    const reservation=phaseBudget?await phaseBudget.reserve({runKey:root+'/'+runId,condition:config.id,revision:manifest.revision,sourceHash:manifest.sourceHash,...((semanticTrial||uiVersion)?{uiVersion:semanticTrial?.fixture.ui??uiVersion!.id}:{})}):undefined;
    const remaining=Math.floor(dispatchDeadline-performance.now());
@@ -83,7 +84,9 @@ export async function main(args=process.argv.slice(2)){
  const initialStateGroups=groupKeys.map(key=>{const group=results.filter(r=>(r.semantic?r.semantic.trial.fixture.ui+'-'+r.semantic.trial.fixture.mapping:r.uiVersion?.id??'legacy')===key);return {uiVersion:key,count:group.length,fingerprints:[...new Set(group.map(r=>r.initialFingerprint))],match:group.length>0&&group.every(r=>!!r.initialFingerprint)&&new Set(group.map(r=>r.initialFingerprint)).size===1};});
  const semanticComparison=semanticMode?{...compareSemanticRuns(results),dataSource:mock?'SCRIPTED_FIXTURE_NOT_MODEL_PERFORMANCE':'REAL_JEV'}:null;
  if(semanticComparison)await writeFile(join(root,'semantic-comparison.json'),JSON.stringify(semanticComparison,null,2));
- const summary={schemaVersion:1,semanticComparison,mock,actualAPIRequests:mock?0:totalCalls,analyses,initialStateGroups,crossUIFingerprintMatchRequired:false,sourceHash:manifest.sourceHash,model:manifest.model,totalCalls,initialStatesMatch:initialStateGroups.every(g=>g.match),runs:results.map(({steps,...r})=>r),humanValidity:'UNVERIFIED',probabilitiesAreHumanFrequencies:false};
+ const deliberationAnalyses=results.map(analyzeDeliberationRun);
+ if(results.some(r=>r.config.deliberation?.enabled))await writeFile(join(root,'deliberation-comparison.json'),JSON.stringify({schemaVersion:1,dataSource:mock?'SCRIPTED_FIXTURE_NOT_MODEL_PERFORMANCE':'REAL_JEV',analyses:deliberationAnalyses},null,2));
+ const summary={schemaVersion:1,semanticComparison,deliberationAnalyses,mock,actualAPIRequests:mock?0:totalCalls,analyses,initialStateGroups,crossUIFingerprintMatchRequired:false,sourceHash:manifest.sourceHash,model:manifest.model,totalCalls,initialStatesMatch:initialStateGroups.every(g=>g.match),runs:results.map(({steps,...r})=>r),humanValidity:'UNVERIFIED',probabilitiesAreHumanFrequencies:false};
  await writeFile(join(root,'comparison.json'),JSON.stringify(summary,null,2));
  const cols=['ui','artifactValidity','behavior','terminalBudgetInfluenced','runId','condition','objectiveSuccess','perceivedDone','termination','uiActions','looks','decisions','apiCalls','apiMs','uiMs','modeledUserMs','validForComparison'] as const;
  await writeFile(join(root,'comparison.csv'),cols.join(',')+'\n'+results.map((r,i)=>{const row={...r,ui:r.semantic?.trial.fixture.ui??r.uiVersion?.id??'legacy',artifactValidity:analyses[i].classification.artifactValidity,behavior:analyses[i].classification.behavior,terminalBudgetInfluenced:analyses[i].budgetInfluence.terminalBudgetInfluenced};return cols.map(c=>row[c]??'').join(',');}).join('\n')+'\n');

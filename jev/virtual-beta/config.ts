@@ -6,6 +6,7 @@ export function validateConfig(c:BetaConfig):BetaConfig {
  if(!Number.isSafeInteger(c.maxLooks)||c.maxLooks<0||c.maxLooks>30)throw new Error('INVALID_CONFIG_maxLooks');
  if(!['goal','user'].includes(c.behavior)||!['argmax','sample'].includes(c.selection.mode)||!Number.isSafeInteger(c.selection.seed)||c.selection.seed<0||c.selection.seed>0xffffffff)throw new Error('INVALID_SELECTION_CONFIG');
  if(typeof c.state.enabled!=='boolean'||!Number.isSafeInteger(c.state.memoryCapacity)||c.state.memoryCapacity<0||c.state.memoryCapacity>8)throw new Error('INVALID_STATE_CONFIG');
+ if(c.deliberation!==undefined&&(!c.deliberation||typeof c.deliberation.enabled!=='boolean'||!Number.isSafeInteger(c.deliberation.memoryCapacity)||c.deliberation.memoryCapacity<1||c.deliberation.memoryCapacity>8||c.deliberation.enabled&&!c.state.enabled))throw new Error('INVALID_DELIBERATION_CONFIG');
  if(!['full','crop','foveated'].includes(c.vision.mode)||!Number.isSafeInteger(c.vision.clearWidth)||c.vision.clearWidth<1||c.vision.clearWidth>4096||!Number.isSafeInteger(c.vision.clearHeight)||c.vision.clearHeight<1||c.vision.clearHeight>4096||!Number.isSafeInteger(c.vision.blurRadius)||c.vision.blurRadius<0||c.vision.blurRadius>64||(c.vision.mode==='foveated'&&c.vision.blurRadius===0))throw new Error('INVALID_VISION_CONFIG');
  if(c.modeledActionMs!==null&&(!Number.isFinite(c.modeledActionMs)||c.modeledActionMs<0||c.modeledActionMs>60000))throw new Error('INVALID_MODELED_TIME');
  return structuredClone(c);

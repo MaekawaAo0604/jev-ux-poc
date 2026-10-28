@@ -1,0 +1,15 @@
+# Deliberation assessments
+
+The optional deliberation stage records bounded model hypotheses about missing information, goal status, and expected UI effects. A record has `kind: model-assessment-not-fact`; it is not evidence of user understanding or an objective success judgment.
+
+`assessmentQuestions(candidates, sources)` creates fixed choice questions for knowledge (`sufficient`, `insufficient`, `conflicting`), goal status (`satisfied`, `unsatisfied`, `uncertain`), and a goal evidence citation. Each current click, scroll, or back candidate receives an effect question (`advances`, `neutral`, `conflicts`, `unknown`) and an evidence question. Look, reread, wait, and terminal choices do not receive effect questions. More than 24 UI candidates or an unsupported action type fails closed. The builder never copies candidate labels, geometry, DOM, paths, ROI, or oracle output into questions.
+
+Evidence choice IDs are admitted `observationId` values plus the reserved `none` choice. Each ID identifies one attached admitted crop through its `imageSha256`; duplicate IDs, empty identities, and an observation ID of `none` are rejected. The caller must derive the source list from images actually admitted to that request. The module does not inspect audits or fetch images.
+
+`admitAssessment(response, candidates, current, sources)` requires the exact requested answer IDs, a string choice from each allowlist, and a complete valid distribution for every answer through `validateChoice`. The current observation ID and hash must be among the attached sources. Unknown evidence or candidate IDs are rejected. The parser retains only categories, admitted source identities, and controlled adjustment records. It discards provider metadata, confidence, explanations, and arbitrary response fields. A non-uncertain goal claim with `none` becomes `uncertain`; a non-unknown effect with `none` becomes `unknown`. Each downgrade records `NO_ADMITTED_EVIDENCE`.
+
+`carryDeliberation(previous, current, config)` keeps a record only while its own observation and every evidence citation remain in the current user memory or last observation, matching both ID and image hash. Expiry drops the entire record. `recordAssessment` applies the same rule before appending a record. Both retain the newest records up to `memoryCapacity` (an integer from 1 through 8), return independent copies, and leave inputs unchanged. Disabled deliberation omits its memory property. No process-global memory is used.
+
+`actionDeliberationInstructions` asks the ordinary action selection stage to weigh acquiring missing information alongside predicted effects and side effects. It keeps assessments fallible, preserves the configured distinction between goal and user behavior, and leaves all offered candidates available. This module does not force a look, prescribe coordinates or a route, filter or reweight actions, or block done.
+
+Verification: `npx tsx --test tests/virtual-beta-deliberation.test.ts` covers evidence downgrades, full answer validation, identity mismatch, source expiry, candidate bounds, independent state copies, capacity, and opt-out behavior. No API calls are needed.
