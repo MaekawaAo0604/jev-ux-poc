@@ -1,3 +1,5 @@
+import {goalSearchQuestions,admitGoalSearch,rememberGoalSearch,goalSearchCriteria} from '../jev/virtual-beta/goal-search.js';
+import type {GoalSearchMemory} from '../jev/virtual-beta/goal-search-contracts.js';
 import {createCorrespondenceArchive,correspondenceQuestions,admitCorrespondence,correspondenceCriteria} from '../jev/virtual-beta/correspondence.js';
 import type {CorrespondenceContext} from '../jev/virtual-beta/correspondence-contracts.js';
 import {candidatesFor} from '../jev/types.js';
@@ -59,12 +61,24 @@ export async function replayDirectory(directory:string){
  let deferrals=result.config.deferral?.enabled?copyDeferrals(undefined,result.config.deferral):undefined,effectiveDeferrals=deferrals;
  let experience:ExperienceMemory|undefined,pending:ExperienceIntent|undefined,execution:'performed'|'unchanged'='unchanged';
  let reasonMemory:DeferralReasonMemory|undefined;
+ let searchMemory:GoalSearchMemory|undefined=result.config.goalSearch?.enabled?{schemaVersion:1,entries:[]}:undefined;
  const seen=new Map<string,string>();
  const archive=result.config.correspondence?.enabled?createCorrespondenceArchive(result.config.correspondence):undefined;
  for(const step of result.steps){
   const d=step.deliberation,current=step.userState?.lastObservation;
   if(current)seen.set(current.id,current.imageSha256);
-  let correspondenceContext:CorrespondenceContext|undefined,correspondenceCandidates:BetaCandidates|undefined;
+  let correspondenceContext:CorrespondenceContext|undefined,correspondenceCandidates:BetaCandidates|undefined,searchCandidates:BetaCandidates|undefined;
+  const searchPresent=step.goalSearch!==undefined||(step.modelInput?.userState as any)?.goalSearch!==undefined||(d?.modelInput.userState as any)?.goalSearch!==undefined||Object.keys(d?.questions??{}).some(k=>k.startsWith('goalSearch_'))||Object.keys(d?.response?.answers??{}).some(k=>k.startsWith('goalSearch_'));
+  if(!result.config.goalSearch?.enabled&&searchPresent)throw Error('UNCONFIGURED_GOAL_SEARCH');
+  if(result.config.goalSearch?.enabled&&(step.modelInput||d||step.goalSearch)){
+   if(!current||!step.vision||!step.assetFiles||!step.questions||!step.audit||!step.goalSearch||(!d?.assessment&&(step.selection||step.goalSearch.record||step.goalSearch.annotations)))throw Error('GOAL_SEARCH_METADATA_MISSING');
+   const bytes=await readFile(join(directory,step.assetFiles.current.file)),raw=filterCandidates(candidatesFor(step.audit.screen,Object.hasOwn(step.questions.nextAction.criteria,'back')),step.audit.screen,result.input.charter);
+   searchCandidates=offeredCandidates(raw,{...step.vision,bytes},result.config);
+   const expectedCurrent={id:'o'+step.number,imageSha256:sha(bytes),visibleText:result.config.vision.mode==='full'?[...step.audit.screen.text]:[],fixation:{...step.vision.fixation},candidateIds:Object.keys(searchCandidates)};
+   if(!equal(current,expectedCurrent)||!equal(((d?.modelInput??step.modelInput)?.userState as any)?.lastObservation,expectedCurrent)||!equal((step.modelInput?.userState as any)?.lastObservation,expectedCurrent)||!equal(((d?.modelInput??step.modelInput)?.observation as any)?.candidateIds,expectedCurrent.candidateIds)||!equal((step.modelInput?.observation as any)?.candidateIds,expectedCurrent.candidateIds)||!equal(Object.keys(step.questions.nextAction.criteria),expectedCurrent.candidateIds))throw Error('GOAL_SEARCH_OBSERVATION_MISMATCH');
+   const searchInput=d?.modelInput??step.modelInput!,searchAssets=d?.assetFiles??step.assetFiles,sourceList=assessmentSources(searchInput,searchAssets,current),expected=goalSearchQuestions(result.input.charter.goal,current,searchCandidates,sourceList);
+   if(d&&!equal(Object.fromEntries(Object.entries(d.questions).filter(([key])=>key.startsWith('goalSearch_'))),expected)||!equal((searchInput.userState as any)?.goalSearch,searchMemory))throw Error('GOAL_SEARCH_ARRIVAL_OR_QUESTION_MISMATCH');
+  }
   if(archive&&(step.modelInput||d||step.correspondence)&&(!current||!step.vision||!step.assetFiles||!step.questions||!step.audit||!step.correspondence))throw Error('CORRESPONDENCE_METADATA_MISSING');
   if(archive&&current&&step.vision&&step.assetFiles&&step.questions){
    const raw=filterCandidates(candidatesFor(step.audit!.screen,Object.hasOwn(step.questions.nextAction.criteria,'back')),step.audit!.screen,result.input.charter);
@@ -112,18 +126,26 @@ export async function replayDirectory(directory:string){
     for(const [key,question] of Object.entries(reasonRequest))if(!equal(d.questions[key],question))throw new Error('REASON_QUESTION_MISMATCH');
     const correspondenceRequest=correspondenceContext?correspondenceQuestions(correspondenceContext):{};
     for(const [key,question]of Object.entries(correspondenceRequest))if(!equal(d.questions[key],question))throw Error('CORRESPONDENCE_QUESTION_MISMATCH');
-    const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)&&!Object.hasOwn(reasonRequest,key)&&!Object.hasOwn(correspondenceRequest,key)))};
+    const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)&&!Object.hasOwn(reasonRequest,key)&&!Object.hasOwn(correspondenceRequest,key)&&!key.startsWith('goalSearch_')))};
     const assessment=admitAssessment(response,candidates,current,sources);
     if(experience){
      if(Object.keys(outcomeQuestions).length)experience=admitExperience(d.response,experience,sources,result.config.experience?.evidenceMode);
      if(!equal(step.userState.experience,experience)||!equal((step.modelInput?.userState as any)?.experience,experience)||!equal(step.modelInput?.experienceContext,experienceContext(experience,current)))throw new Error('EXPERIENCE_JUDGMENT_MISMATCH');
     }
+    let expectedCriteria:Record<string,string>|undefined;
+    if(correspondenceContext||result.config.goalSearch?.enabled){const offered=searchCandidates??correspondenceCandidates!;expectedCriteria=Object.fromEntries(Object.entries(offered).map(([id,c])=>[id,c.label]));if(result.config.deliberation?.candidateEffects)expectedCriteria=assessedCriteria(offered,assessment);if(experience)expectedCriteria=experienceCriteria(expectedCriteria,experience,current);}
     if(correspondenceContext){
      const record=admitCorrespondence(d.response,correspondenceContext);if(!equal(step.correspondence?.record,record))throw Error('CORRESPONDENCE_RECORD_MISMATCH');const {rawChoices,...admitted}=record;if(!equal(step.modelInput?.correspondenceAssessment,admitted)||d.modelInput.correspondenceAssessment!==undefined)throw Error('CORRESPONDENCE_ASSESSMENT_INPUT_MISMATCH');
-     let before=Object.fromEntries(Object.entries(correspondenceCandidates!).map(([id,c])=>[id,c.label]));if(result.config.deliberation?.candidateEffects)before=assessedCriteria(correspondenceCandidates!,assessment);if(experience)before=experienceCriteria(before,experience,current);
-     const after=correspondenceCriteria(before,record,experience),annotations=Object.keys(before).filter(id=>before[id]!==after[id]).map(candidateId=>({candidateId,before:before[candidateId],after:after[candidateId]}));
-     if(!equal(step.correspondence?.annotations,annotations)||!equal(step.questions?.nextAction.criteria,after))throw Error('CORRESPONDENCE_ANNOTATION_MISMATCH');
+     const before=expectedCriteria!,after=correspondenceCriteria(before,record,experience),annotations=Object.keys(before).filter(id=>before[id]!==after[id]).map(candidateId=>({candidateId,before:before[candidateId],after:after[candidateId]}));
+     if(!equal(step.correspondence?.annotations,annotations))throw Error('CORRESPONDENCE_ANNOTATION_MISMATCH');expectedCriteria=after;
     }
+    if(result.config.goalSearch?.enabled){
+     const record=admitGoalSearch(d.response,result.input.charter.goal,current,searchCandidates!,sources);searchMemory=rememberGoalSearch(searchMemory,record,result.config.goalSearch);
+     if(!equal(step.goalSearch?.record,record)||!equal(step.goalSearch?.memory,searchMemory)||!equal(step.userState.goalSearch,searchMemory)||!equal((step.modelInput?.userState as any)?.goalSearch,searchMemory))throw Error('GOAL_SEARCH_RECORD_OR_MEMORY_MISMATCH');
+     const before=expectedCriteria!,after=goalSearchCriteria(before,searchMemory,result.input.charter.goal,current,experience,step.correspondence?.record),annotations=Object.keys(before).filter(id=>before[id]!==after[id]).map(candidateId=>({candidateId,before:before[candidateId],after:after[candidateId]}));
+     if(!equal(step.goalSearch?.annotations,annotations))throw Error('GOAL_SEARCH_ANNOTATION_MISMATCH');expectedCriteria=after;
+    }
+    if(expectedCriteria&&!equal(step.questions?.nextAction.criteria,expectedCriteria))throw Error('FINAL_ASSESSED_CRITERIA_MISMATCH');
     if(!equal(assessment,d.assessment))throw new Error('ASSESSMENT_RECORD_MISMATCH');
     if(result.config.deferral?.enabled){deferrals=updateDeferrals(deferrals,experience!,current,assessment,result.config.deferral);effectiveDeferrals=deferrals;if(!equal(step.deferral?.state,deferrals))throw new Error('DEFERRAL_STATE_MISMATCH');}
     if(reasonContext){
@@ -139,6 +161,7 @@ export async function replayDirectory(directory:string){
     assessments++;
    }
   }
+  if(result.config.goalSearch?.enabled&&(!d||!d.assessment)&&step.goalSearch&&(!equal(step.goalSearch?.memory,searchMemory)||step.goalSearch?.record!==undefined||step.goalSearch?.annotations!==undefined||!equal((step.modelInput?.userState as any)?.goalSearch,searchMemory)||!equal(step.userState?.goalSearch,searchMemory)))throw Error('GOAL_SEARCH_PARTIAL_STATE_MISMATCH');
   if(step.modelInput&&step.questions&&step.assetFiles&&step.inputSha256!==sha(JSON.stringify({input:step.modelInput,questions:step.questions,assets:step.assetFiles})))throw new Error('MODEL_INPUT_HASH_MISMATCH');
   for(const source of Object.values(step.assetFiles??{})){if(source.file!==source.file.split(/[\\/]/).at(-1))throw new Error('UNSAFE_IMAGE_PATH');if(sha(await readFile(join(directory,source.file)))!==source.sha256)throw new Error('IMAGE_HASH_MISMATCH');images++;}
   if(result.config.experience?.enabled&&step.selection&&step.action&&['UI_PERFORMED','FIXATION_MOVED','REREAD','WAIT_NO_UI'].includes(step.outcome??'')){
