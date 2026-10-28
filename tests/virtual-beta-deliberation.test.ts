@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {assessmentQuestions,admitAssessment,carryDeliberation,recordAssessment,actionDeliberationInstructions} from '../jev/virtual-beta/deliberation.js';
+import {assessmentQuestions,admitAssessment,carryDeliberation,recordAssessment,actionDeliberationInstructions,assessedCriteria} from '../jev/virtual-beta/deliberation.js';
 import type {ChoiceAnswers} from '../jev/client.js';
 import type {BetaCandidates,UserObservation,UserState} from '../jev/virtual-beta/contracts.js';
 import type {AdmittedObservationSource,DeliberationAssessment,DeliberationMemory} from '../jev/virtual-beta/deliberation-contracts.js';
@@ -127,3 +127,35 @@ test('disabled deliberation clears assessments without mutating either input and
  assert.throws(()=>recordAssessment(previous,assessment(),{enabled:'yes' as never,memoryCapacity:2}));
 });
 
+
+// Catches hiding or reordering a control when a hypothesis predicts conflicts or unknown effects.
+test('assessed criteria retain every key and original label while displaying fallible local predictions',()=>{
+ const choices:BetaCandidates={b:candidates.b,a:candidates.a,done:candidates.done,look:candidates.look,reread:{action:{type:'reread'},label:'Read again'},wait:candidates.wait,back:candidates.back,scroll:candidates.scroll,leave:{action:{type:'abandon'},label:'Leave'}};
+ const hypotheses=assessment(),before=structuredClone(choices),beforeAssessment=structuredClone(hypotheses);
+ const criteria=assessedCriteria(choices,hypotheses);
+ assert.deepEqual(Object.keys(criteria),Object.keys(choices));
+ for(const [id,candidate] of Object.entries(choices)){
+  assert.ok(criteria[id].startsWith(candidate.label),id);
+  assert.match(criteria[id],/model hypothes/i,id);
+  assert.match(criteria[id],/knowledge=insufficient/,id);
+ }
+ assert.match(criteria.a,/effect=conflicts/);assert.match(criteria.a,/evidence=1/);
+ assert.match(criteria.b,/effect=advances/);assert.match(criteria.back,/effect=neutral/);
+ assert.match(criteria.scroll,/effect=unknown/);assert.match(criteria.scroll,/evidence=none/);
+ assert.match(criteria.scroll,/neither safety nor danger|does not establish safety or danger/i);
+ assert.match(criteria.done,/goal=unsatisfied/);
+ for(const id of ['look','reread','wait'])assert.match(criteria[id],/observation-only\/no UI changes/);
+ assert.deepEqual(choices,before);assert.deepEqual(hypotheses,beforeAssessment);
+ criteria.a='edited';assert.deepEqual(assessedCriteria(choices,hypotheses).a,assessedCriteria(before,beforeAssessment).a);
+});
+
+// Catches copying response explanations, image hashes, or unrelated action effects into labels.
+test('assessed criteria admit only model categories and evidence source IDs alongside original labels',()=>{
+ const hypotheses=assessment();Object.assign(hypotheses,{reason:'SECRET EXPLANATION'});Object.assign(hypotheses.effects.a,{reason:'SECRET EXPLANATION'});Object.assign(hypotheses.effects.a.evidence!,{reason:'SECRET EXPLANATION'});
+ const criteria=assessedCriteria(candidates,hypotheses),serialized=JSON.stringify(criteria);
+ assert.ok(!serialized.includes('SECRET EXPLANATION'));assert.ok(!serialized.includes('image-1'));
+ assert.ok(!criteria.look.includes('effect='));assert.ok(!criteria.done.includes('effect='));
+ const missing=structuredClone(hypotheses);delete missing.effects.a;
+ assert.match(assessedCriteria(candidates,missing).a,/effect=unknown/);
+ assert.match(assessedCriteria(candidates,missing).a,/evidence=none/);
+});

@@ -1,4 +1,4 @@
-import {assessmentQuestions,admitAssessment,carryDeliberation,recordAssessment,actionDeliberationInstructions} from '../jev/virtual-beta/deliberation.js';
+import {assessmentQuestions,admitAssessment,carryDeliberation,recordAssessment,assessedCriteria,actionDeliberationInstructions} from '../jev/virtual-beta/deliberation.js';
 import type {DeliberationAssessment} from '../jev/virtual-beta/deliberation-contracts.js';
 import type {Page} from 'playwright';
 import {mkdir,writeFile} from 'node:fs/promises';
@@ -106,6 +106,7 @@ export async function runBeta(page:Page,args:{runId:string;dir:string;baseURL:st
     finally{d.apiCalls=assessmentAdmitted?1:0;const ms=assessmentAdmitted?performance.now()-assessmentBefore:0;d.timing={apiMs:ms};apiMs+=ms;step.timing={apiMs:ms,uiMs:0,modeledUserMs:config.modeledActionMs};}
     if(performance.now()-started>=config.maxRunMs){termination='TIME_LIMIT';step.outcome='ASSESSMENT_AFTER_DEADLINE';break;}
     try{d.assessment=admitAssessment(d.response!,candidates,observation,sources);user=recordAssessment(user,d.assessment,config.deliberation);}catch{termination='INVALID_DISTRIBUTION';d.error={code:'INVALID_ASSESSMENT'};step.error=d.error;step.outcome='ASSESSMENT_ERROR';break;}
+    if(config.deliberation.candidateEffects)next.criteria=assessedCriteria(candidates,d.assessment!);
     wire.userState=structuredClone(user);step.userState=structuredClone(user);step.inputSha256=sha(JSON.stringify({input:wire,questions,assets:assetFiles}));
     if(args.isSafetyStopped?.()){termination='SAFETY_STOP';step.outcome=termination;break;}
     if(apiCalls>=config.maxAPICalls){termination='API_LIMIT';step.outcome='ASSESSMENT_ONLY_API_LIMIT';break;}

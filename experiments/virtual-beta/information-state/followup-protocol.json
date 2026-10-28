@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "usedBefore": 15,
+  "newMaximum": 32,
+  "previousLedger": "reports/semantic-controls-2026-10-28/api-budget.json",
+  "previousLedgerSha256": "74715fa358ad9243592be5ada54361bf1bce25f52a538202806b253cc0e63a49",
+  "observedReason": "Original two-stage delivered insufficient/unknown assessments to action state but chose blind controls; one final unsatisfied assessment was followed by done. Preserve original baseline2+two-stage2 negative diagnostics.",
+  "change": "candidateEffects opt-in projects exactly the same model hypotheses into per-candidate descriptions; original keys/order/candidates/sampler unchanged, no forced gaze or oracle",
+  "priorityBatch": {
+    "id": "two-stage-candidates",
+    "ui": "reference",
+    "mappings": [
+      "A",
+      "B"
+    ],
+    "replicates": 1,
+    "maxDecisions": 4,
+    "maxAPICallsPerRun": 8,
+    "maximumBatchRequests": 16
+  },
+  "conditionalControl": {
+    "id": "exposed",
+    "runOnlyIfRemainingAtLeast": 4,
+    "ifInsufficient": "Both controls not executed, budget reason; no replacement of hidden trials",
+    "mappings": [
+      "A",
+      "B"
+    ],
+    "maxDecisions": 1,
+    "maxAPICallsPerRun": 2,
+    "maximumBatchRequests": 4,
+    "initialFixation": {
+      "x": 960,
+      "y": 675
+    }
+  },
+  "reason": "Prioritize complete hidden acquisition→selection path; independent positive controls use only first action. Aggregate32 remains hardcap.",
+  "noPoolingWithOriginal": true,
+  "noSavedPayloadReplay": true
+}

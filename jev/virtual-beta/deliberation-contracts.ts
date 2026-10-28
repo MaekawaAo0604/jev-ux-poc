@@ -1,4 +1,4 @@
-export type DeliberationConfig={enabled:boolean;memoryCapacity:number};
+export type DeliberationConfig={enabled:boolean;memoryCapacity:number;candidateEffects?:boolean};
 export type AdmittedObservationSource={observationId:string;imageSha256:string};
 export type DeliberationAssessment={
  schemaVersion:1;kind:'model-assessment-not-fact';observationId:string;imageSha256:string;

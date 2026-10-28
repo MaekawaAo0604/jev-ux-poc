@@ -1,10 +1,41 @@
 import {admitAssessment} from '../jev/virtual-beta/deliberation.js';
-import type {BetaCandidates} from '../jev/virtual-beta/contracts.js';
+import type {BetaCandidates,UserObservation} from '../jev/virtual-beta/contracts.js';
+import type {AdmittedObservationSource} from '../jev/virtual-beta/deliberation-contracts.js';
 import {readFile} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {replaySelection} from '../jev/virtual-beta/selection.js';
 import {sha,type BetaResult} from './virtual-beta-core.js';
+const isRecord=(value:unknown):value is Record<string,unknown>=>value!==null&&typeof value==='object'&&!Array.isArray(value);
+
+/** Only model-input image references backed by the verified attached assets admit sources. */
+function assessmentSources(input:Record<string,unknown>,assets:Record<string,{file:string;sha256:string}>,current:UserObservation):AdmittedObservationSource[]{
+ const observation=input.observation;
+ if(!isRecord(observation)||typeof observation.id!=='string'||observation.id!==current.id)throw new Error('ASSESSMENT_CURRENT_SOURCE_MISMATCH');
+ const imageHash=(image:unknown):string=>{
+  if(typeof image!=='string'||!Object.hasOwn(assets,image))throw new Error('ASSESSMENT_SOURCE_IMAGE_NOT_ATTACHED');
+  return assets[image].sha256;
+ };
+ const currentHash=imageHash(observation.image);
+ if(currentHash!==current.imageSha256||(Object.hasOwn(observation,'imageSha256')&&observation.imageSha256!==currentHash))throw new Error('ASSESSMENT_CURRENT_IMAGE_MISMATCH');
+ const memory=input.memoryObservations===undefined?[]:input.memoryObservations;
+ if(!Array.isArray(memory))throw new Error('ASSESSMENT_MEMORY_SOURCE_INVALID');
+ const sources=new Map<string,AdmittedObservationSource>();
+ const add=(observationId:unknown,imageSha256:string)=>{
+  if(typeof observationId!=='string'||!observationId.trim()||observationId==='none')throw new Error('ASSESSMENT_SOURCE_ID_INVALID');
+  const prior=sources.get(observationId);
+  if(prior&&prior.imageSha256!==imageSha256)throw new Error('ASSESSMENT_SOURCE_ID_CONFLICT');
+  sources.set(observationId,{observationId,imageSha256});
+ };
+ for(const entry of memory){
+  if(!isRecord(entry))throw new Error('ASSESSMENT_MEMORY_SOURCE_INVALID');
+  const hash=imageHash(entry.image);
+  if(entry.imageSha256!==hash)throw new Error('ASSESSMENT_MEMORY_SOURCE_IMAGE_MISMATCH');
+  add(entry.observationId,hash);
+ }
+ add(observation.id,currentHash);
+ return [...sources.values()];
+}
 export async function replayDirectory(directory:string){
  const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));let choices=0,images=0,assessments=0;
  for(const step of result.steps){
@@ -14,7 +45,7 @@ export async function replayDirectory(directory:string){
    for(const asset of Object.values(d.assetFiles)){if(asset.file!==asset.file.split(/[\\/]/).at(-1))throw new Error('UNSAFE_IMAGE_PATH');if(sha(await readFile(join(directory,asset.file)))!==asset.sha256)throw new Error('ASSESSMENT_IMAGE_HASH_MISMATCH');images++;}
    if(d.assessment){
     if(!d.response||!step.userState?.lastObservation)throw new Error('ASSESSMENT_RESPONSE_MISSING');
-    const input=d.modelInput as any,sources=[...new Map([...(input.memoryObservations??[]).map((m:any)=>({observationId:m.observationId,imageSha256:m.imageSha256})),{observationId:input.observation.id,imageSha256:d.assetFiles.current.sha256}].map((v:any)=>[v.observationId,v])).values()] as {observationId:string;imageSha256:string}[];
+    const sources=assessmentSources(d.modelInput,d.assetFiles,step.userState.lastObservation);
     const candidates:BetaCandidates=Object.fromEntries(Object.keys(d.questions).filter(k=>k.startsWith('effect_')).map(k=>{const id=k.slice(7);return [id,{action:{type:'click',elementId:id},label:id}];}));
     const assessment=admitAssessment(d.response,candidates,step.userState.lastObservation,sources);
     if(JSON.stringify(assessment)!==JSON.stringify(d.assessment))throw new Error('ASSESSMENT_RECORD_MISMATCH');assessments++;

@@ -19,8 +19,8 @@
     "behavior": "goal",
     "maxUIActions": 4,
     "maxLooks": 3,
-    "maxDecisions": 2,
-    "maxAPICalls": 4,
+    "maxDecisions": 1,
+    "maxAPICalls": 2,
     "maxRunMs": 90000,
     "modeledActionMs": null,
     "initialFixation": {
@@ -48,8 +48,8 @@
     "behavior": "goal",
     "maxUIActions": 4,
     "maxLooks": 3,
-    "maxDecisions": 2,
-    "maxAPICalls": 4,
+    "maxDecisions": 1,
+    "maxAPICalls": 2,
     "maxRunMs": 90000,
     "modeledActionMs": null,
     "initialFixation": {
@@ -77,8 +77,8 @@
     "behavior": "user",
     "maxUIActions": 4,
     "maxLooks": 3,
-    "maxDecisions": 2,
-    "maxAPICalls": 4,
+    "maxDecisions": 1,
+    "maxAPICalls": 2,
     "maxRunMs": 90000,
     "modeledActionMs": null,
     "initialFixation": {
@@ -106,8 +106,8 @@
     "behavior": "goal",
     "maxUIActions": 4,
     "maxLooks": 3,
-    "maxDecisions": 2,
-    "maxAPICalls": 4,
+    "maxDecisions": 1,
+    "maxAPICalls": 2,
     "maxRunMs": 90000,
     "modeledActionMs": null,
     "initialFixation": {
@@ -116,7 +116,8 @@
     },
     "deliberation": {
       "enabled": true,
-      "memoryCapacity": 3
+      "memoryCapacity": 3,
+      "candidateEffects": true
     }
   }
 ]

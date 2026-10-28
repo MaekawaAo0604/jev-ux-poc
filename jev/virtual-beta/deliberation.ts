@@ -118,3 +118,24 @@ export function recordAssessment(state:UserState,assessment:DeliberationAssessme
 
 export const actionDeliberationInstructions='The deliberation entries are fallible model hypotheses, not facts or verified understanding. Use only the admitted images and observation memory to reconsider them. Consider the value of acquiring missing goal-relevant information alongside predicted action effects and side effects, using the entire Goal and its constraints. Unknown predictions leave actions available and do not establish that an action is safe or unsafe. Preserve the configured behavior mode: in user behavior mode, assessments inform the simulated user without overriding persona tendencies or uncertainty with automatic goal optimization. Choose among all currently offered candidates; an assessment does not force a look, prescribe a path, or automatically block done.';
 
+
+/** Make the same fallible assessment visible locally without changing candidate membership or order. */
+export function assessedCriteria(candidates:BetaCandidates,assessment:DeliberationAssessment):Record<string,string>{
+ const known=Object.keys(knowledge).find(value=>value===assessment.knowledge);
+ const goal=Object.keys(goals).find(value=>value===assessment.goal);
+ if(!known||!goal)throw new Error('Invalid model assessment category');
+ return Object.fromEntries(Object.entries(candidates).map(([id,candidate])=>{
+  let local=`Model hypothesis: knowledge=${known}`;
+  if(['click','scroll','back'].includes(candidate.action.type)){
+   const effect=Object.hasOwn(assessment.effects,id)?assessment.effects[id]:undefined;
+   const prediction=effect?Object.keys(effects).find(value=>value===effect.prediction):'unknown';
+   if(!prediction)throw new Error('Invalid model effect category');
+   const evidence=effect?.evidence?.observationId??'none';
+   if(typeof evidence!=='string')throw new Error('Invalid model evidence source ID');
+   local+=`; effect=${prediction}; evidence=${evidence}`;
+   if(prediction==='unknown')local+='; unknown does not establish safety or danger';
+  }else if(candidate.action.type==='done')local+=`; goal=${goal}`;
+  else if(['look','reread','wait'].includes(candidate.action.type))local+='; operation meaning: observation-only/no UI changes';
+  return [id,`${candidate.label} [${local}]`];
+ }));
+}
