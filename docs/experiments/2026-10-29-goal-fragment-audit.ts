@@ -5,6 +5,9 @@ import {fileURLToPath, pathToFileURL} from 'node:url';
 import {isDeepStrictEqual} from 'node:util';
 import {validateChoice} from '../../jev/client.js';
 import {ImageJudgmentMemory} from '../../jev/image-judgments.js';
+import {goalSearchCriteria} from '../../jev/virtual-beta/goal-search.js';
+import type {GoalSearchMemory} from '../../jev/virtual-beta/goal-search-contracts.js';
+import type {UserObservation} from '../../jev/virtual-beta/contracts.js';
 import type {BetaResult} from '../../runner/virtual-beta-core.js';
 import {replayDirectory} from '../../runner/virtual-beta-replay.js';
 import {sourceIdentity} from '../../runner/virtual-beta-source.js';
@@ -26,6 +29,20 @@ const source=(value:unknown)=>{const s=object(value);return {observationId:typeo
 const fragmentKeys=(value:unknown)=>ownKeys(value).filter(key=>key.startsWith('goalSearch_image_check_')).sort();
 const statuses=['observed','not_shown','context','contradicted','uncertain'];
 function literalFragments(goal:string){const reader=new ImageJudgmentMemory();reader.bind(goal);return reader.view().requirements.map(({id,text})=>({id,text}));}
+/** Reuse the existing GoalSearch contract for structure; equality alone proves no legality. */
+function memoryStructureValid(value:unknown,goal:string,current:unknown,capacity:unknown){
+ const memory=object(value);
+ if(!memory||memory.schemaVersion!==1||!Array.isArray(memory.entries)||typeof capacity!=='number'||!Number.isSafeInteger(capacity)||capacity<1||capacity>8||memory.entries.length>capacity)return false;
+ try{goalSearchCriteria({},memory as GoalSearchMemory,goal,current as UserObservation,undefined);return true;}catch{return false;}
+}
+function memoryStructureChecks(step:ObjectValue,goal:string,capacity:unknown){
+ const current=step.userState?.lastObservation;
+ return {recordedMemoryStructureValid:memoryStructureValid(step.goalSearch?.memory,goal,current,capacity),actionMemoryStructureValid:memoryStructureValid(step.modelInput?.userState?.goalSearch,goal,current,capacity),userStateMemoryStructureValid:memoryStructureValid(step.userState?.goalSearch,goal,current,capacity),assessmentMemoryStructureValid:memoryStructureValid(step.deliberation?.modelInput?.userState?.goalSearch,goal,current,capacity)};
+}
+function stageSourceMatches(input:unknown,assets:unknown,current:ReturnType<typeof source>){
+ const observation=object(object(input)?.observation),attached=object(assets);
+ return current.observationId!==null&&current.imageSha256!==null&&observation?.id===current.observationId&&typeof observation?.image==='string'&&attached!==undefined&&Object.hasOwn(attached,observation.image)&&attached[observation.image]?.sha256===current.imageSha256&&attached.current?.sha256===current.imageSha256;
+}
 function validateRubric(value:unknown,goalSha256:string,fragments:{id:string;text:string}[],records:unknown[]):GoalRoleRubric {
  const bad=():never=>{throw Error('INVALID_GOAL_ROLE_RUBRIC');};
  const rubric=object(value);
@@ -71,8 +88,10 @@ export function auditGoalFragments(result:BetaResult,rubric?:unknown){
   const memory=object(step.goalSearch?.memory),actionMemory=object(step.modelInput?.userState?.goalSearch),userMemory=object(step.userState?.goalSearch);
   const entries=Array.isArray(actionMemory?.entries)?actionMemory.entries:[];
   const recordSourceEntries=entries.filter((e:any)=>same(source(e?.source),current));
-  const sourceMatchesCurrent=record!==undefined&&current.observationId!==null&&current.imageSha256!==null&&same(current,observation)&&d.modelInput?.observation?.id===current.observationId&&d.assetFiles?.[d.modelInput?.observation?.image]?.sha256===current.imageSha256;
-  const consistency={sourceMatchesCurrent,recordGoalMatches:record?.goalSha256===goalSha256,recordFragmentsMatchLiteral:same(requirements.map((r:any)=>({id:r?.id,text:r?.text})),literal),actionMemoryMatchesRecorded:memory!==undefined&&actionMemory!==undefined&&same(memory,actionMemory),userStateMemoryMatchesRecorded:memory!==undefined&&userMemory!==undefined&&same(memory,userMemory),currentRecordInActionMemory:record!==undefined&&recordSourceEntries.length===1&&same(recordSourceEntries[0],record)};
+  const assessmentSourceMatchesCurrent=stageSourceMatches(d.modelInput,d.assetFiles,current),actionSourceMatchesCurrent=stageSourceMatches(step.modelInput,step.assetFiles,current);
+  const sourceMatchesCurrent=record!==undefined&&current.observationId===`o${step.number}`&&same(current,observation)&&assessmentSourceMatchesCurrent&&actionSourceMatchesCurrent;
+  const currentRecordStructureValid=memoryStructureValid({schemaVersion:1,entries:[record]},goal,step.userState?.lastObservation,8);
+  const consistency={sourceMatchesCurrent,assessmentSourceMatchesCurrent,actionSourceMatchesCurrent,currentRecordStructureValid,...memoryStructureChecks(step,goal,result.config.goalSearch?.capacity),recordGoalMatches:record?.goalSha256===goalSha256,recordFragmentsMatchLiteral:same(requirements.map((r:any)=>({id:r?.id,text:r?.text})),literal),actionMemoryMatchesRecorded:memory!==undefined&&actionMemory!==undefined&&same(memory,actionMemory),userStateMemoryMatchesRecorded:memory!==undefined&&userMemory!==undefined&&same(memory,userMemory),currentRecordInActionMemory:record!==undefined&&recordSourceEntries.length===1&&same(recordSourceEntries[0],record)};
   if(!record)issues.push('CURRENT_RECORD_MISSING');
   if(!same(fragmentKeys(d.questions),[...keys].sort()))issues.push('FRAGMENT_QUESTION_COVERAGE_MISMATCH');
   if(!same(fragmentKeys(answers),[...keys].sort()))issues.push('FRAGMENT_ANSWER_COVERAGE_MISMATCH');
@@ -87,9 +106,15 @@ export function auditGoalFragments(result:BetaResult,rubric?:unknown){
   });
   const wholeRaw=rawChoice(answers.goal,d.questions?.goal?.criteria,['satisfied','unsatisfied','uncertain']),admittedChoice=typeof d.assessment?.goal==='string'?d.assessment.goal:null;
   if(!wholeRaw.validation.valid)issues.push('INVALID_WHOLE_GOAL_DISTRIBUTION');
-  return {step:step.number,responseEvidence:responseEvidence(step),source:current,scope:typeof record?.scope==='string'?record.scope:null,fragments,wholeGoal:{raw:wholeRaw,admittedChoice},goalPreservation:preserved,consistency,issues};
+  const admittedChoiceValid=admittedChoice!==null&&['satisfied','unsatisfied','uncertain'].includes(admittedChoice);
+  if(!admittedChoiceValid)issues.push('INVALID_ADMITTED_WHOLE_GOAL_STATUS');
+  return {step:step.number,responseEvidence:responseEvidence(step),source:current,scope:typeof record?.scope==='string'?record.scope:null,fragments,wholeGoal:{raw:wholeRaw,admittedChoice,admittedChoiceValid},goalPreservation:preserved,consistency,issues};
  });
- const faultSteps=steps.filter(s=>s.error!==undefined||s.deliberation?.error!==undefined||(!s.deliberation?.response&&(s.goalSearch?.record!==undefined||fragmentKeys(s.deliberation?.questions).length>0))).map(step=>({step:step.number,responseEvidence:responseEvidence(step),outcome:typeof step.outcome==='string'?step.outcome:null,assessmentResponsePresent:object(step.deliberation?.response)!==undefined,currentRecordPresent:step.goalSearch?.record!==undefined,carriedMemoryEntryCount:Array.isArray(step.goalSearch?.memory?.entries)?step.goalSearch.memory.entries.length:0,error:safeError(step.deliberation?.error??step.error),goalPreservation:goalPreservation(step,goal)}));
+ const faultSteps=steps.filter(s=>s.error!==undefined||s.deliberation?.error!==undefined||(!s.deliberation?.response&&(s.goalSearch?.record!==undefined||fragmentKeys(s.deliberation?.questions).length>0))).map(step=>{
+  const consistency:Partial<ReturnType<typeof memoryStructureChecks>>=step.goalSearch===undefined?{}:memoryStructureChecks(step,goal,result.config.goalSearch?.capacity),issues=Object.entries(consistency).filter(([,valid])=>!valid).map(([key])=>'INCONSISTENT:'+key);
+  if(step.goalSearch?.record!==undefined&&!memoryStructureValid({schemaVersion:1,entries:[step.goalSearch.record]},goal,step.userState?.lastObservation,8))issues.push('INVALID_CURRENT_RECORD_STRUCTURE');
+  return {step:step.number,responseEvidence:responseEvidence(step),outcome:typeof step.outcome==='string'?step.outcome:null,assessmentResponsePresent:object(step.deliberation?.response)!==undefined,currentRecordPresent:step.goalSearch?.record!==undefined,carriedMemoryEntryCount:Array.isArray(step.goalSearch?.memory?.entries)?step.goalSearch.memory.entries.length:0,error:safeError(step.deliberation?.error??step.error),goalPreservation:goalPreservation(step,goal),consistency,issues};
+ });
  const aggregateFragments=frames.length?literal.map((f,i)=>{const rows=frames.map(frame=>frame.fragments[i]),valid=rows.filter(row=>row.raw.validation.valid);return {...f,classifiedCount:rows.length,validDistributionCount:valid.length,invalidDistributionCount:rows.length-valid.length,selections:Object.fromEntries([...new Set(rows.map(r=>r.raw.choice).filter((c):c is string=>c!==null))].map(choice=>[choice,rows.filter(r=>r.raw.choice===choice).length])),contextProbabilities:rows.map(r=>r.raw.probabilities?.context).filter((p):p is number=>typeof p==='number'),requiredContextConflicts:rows.filter(r=>r.rubricComparison==='RUBRIC_CONFLICT').length,undeterminedRoleCount:rows.filter(r=>r.expectedRole==='undetermined').length,rawRecordMismatchCount:rows.filter(r=>!r.rawMatchesRecord).length};}):[];
  return {schemaVersion:1,kind:'saved-goal-fragment-audit',runId:result.runId,goal,goalSha256,producer:identity(result.code),humanFidelityEvaluated:false,causalEffectEvaluated:false,savedInputsResent:false,classification:{status:frames.length?'AVAILABLE':'ABSENT',classifiedFrames:frames.length,unclassifiedSteps:steps.length-frames.length,interpretation:frames.length?'Current saved responses only; carried memory is not a new classification.':'No saved fragment classifications; semantic comparison is unavailable.'},rubric:{status:!authored?'NOT_PROVIDED':frames.length?'APPLIED':'NOT_APPLICABLE',interpretation:'Independently authored role expectations, not model input, rendered-view ground truth, or an automatic global correctness score.'},success:{objectiveSuccess:result.objectiveSuccess,perceivedDone:result.perceivedDone,objectiveAssessment:result.objectiveAssessment?{status:result.objectiveAssessment.status,value:result.objectiveAssessment.value,...(result.objectiveAssessment.code?{code:result.objectiveAssessment.code}:{})}:null,termination:result.termination,validForComparison:result.validForComparison},frames,faultSteps,aggregates:{fragments:aggregateFragments,framesWithIssues:frames.filter(f=>f.issues.length>0).length,requiredContextAndWholeGoalUnsatisfied:frames.filter(f=>f.wholeGoal.raw.validation.valid&&f.wholeGoal.raw.choice==='unsatisfied'&&f.fragments.some(r=>r.rubricComparison==='RUBRIC_CONFLICT')).length},limitations:['Saved model inputs document preserved preparation; request transmission cannot be established from those fields, and a missing response does not establish whether transmission occurred.','Literal fragments are not a complete decomposition of the whole Goal.','Required+context is a conflict with an authored rubric, not proof of global semantic failure or a cause of repeated actions.','Context probability values are original raw values, not normalized, calibrated confidence, or independent samples.','Whole-Goal raw choice and admitted choice can differ; original subjective/objective/termination fields remain separate.','Source consistency and replay compatibility do not prove semantic correctness, human fidelity, performance, or identical producer code.']};
 }

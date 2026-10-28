@@ -111,3 +111,23 @@ test('recorded action response is distinguished from preserved prepared action i
  const r=fixture();r.steps[0].response={model:'synthetic',answers:{nextAction:{choice:'done',probabilities:{done:1}}}};
  const frame=auditGoalFragments(r).frames[0];assert.deepEqual(frame.responseEvidence,{assessmentResponseRecorded:true,actionResponseRecorded:true});assert.equal(frame.goalPreservation.actionGoal,true);
 });
+
+for(const part of ['observation','attached-image'] as const)test('both model-input stages verify current source: action '+part,()=>{
+ const r=fixture(),step=r.steps[0];if(part==='observation')step.modelInput.observation.id='o99';else step.assetFiles.current.sha256=sha('other action image');
+ const frame=auditGoalFragments(r).frames[0];assert.equal(frame.consistency.sourceMatchesCurrent,false);assert.equal(frame.consistency.actionSourceMatchesCurrent,false);assert.ok(frame.issues.includes('INCONSISTENT:sourceMatchesCurrent'));
+});
+for(const kind of ['kind','scope','schema','capacity','entry-count','source-id','source-hash','goal-hash','literal-text','status','finding','target-id','chronology'] as const)test('memory structure diagnostics are independent of equal copies: '+kind,()=>{
+ const r=fixture(),step=r.steps[0],copies=[step.goalSearch.memory,step.modelInput.userState.goalSearch,step.userState.goalSearch,step.deliberation.modelInput.userState.goalSearch];
+ for(const memory of copies){if(kind==='schema')memory.schemaVersion=99;if(kind==='entry-count')memory.entries.push(structuredClone(memory.entries[0]));if(kind==='chronology'){const prior=structuredClone(memory.entries[0]);prior.source.observationId='o2';memory.entries.unshift(prior);}const e=memory.entries.at(-1);if(kind==='kind')e.kind='fact';if(kind==='scope')e.scope='all-history';if(kind==='source-id')e.source.observationId='o01';if(kind==='source-hash')e.source.imageSha256='not-a-hash';if(kind==='goal-hash')e.goalSha256=sha('other goal');if(kind==='literal-text')e.requirements[0].text='other fragment';if(kind==='status')e.requirements[0].assessment='alien';if(kind==='finding')e.finding={kind:'all-information'};if(kind==='target-id')e.finding={kind:'target',candidateId:'secret'};}
+ if(kind==='capacity')r.config.goalSearch.capacity=0;if(kind==='kind')step.goalSearch.record.kind='fact';if(kind==='scope')step.goalSearch.record.scope='all-history';
+ const before=structuredClone(r),frame=auditGoalFragments(r).frames[0];assert.deepEqual(r,before);assert.equal(frame.consistency.actionMemoryMatchesRecorded,true);assert.equal(frame.consistency.userStateMemoryMatchesRecorded,true);assert.equal(frame.consistency.recordedMemoryStructureValid,false);assert.equal(frame.consistency.actionMemoryStructureValid,false);assert.equal(frame.consistency.userStateMemoryStructureValid,false);assert.equal(frame.consistency.assessmentMemoryStructureValid,false);assert.ok(frame.issues.includes('INCONSISTENT:recordedMemoryStructureValid'));
+ if(kind==='kind'||kind==='scope')assert.equal(frame.consistency.currentRecordStructureValid,false);
+});
+test('admitted whole-Goal enum is validated while raw unsatisfied and admitted uncertain remain legal',()=>{
+ const r=fixture();let frame=auditGoalFragments(r).frames[0];assert.equal(frame.wholeGoal.admittedChoiceValid,true);assert.ok(!frame.issues.includes('INVALID_ADMITTED_WHOLE_GOAL_STATUS'));
+ r.steps[0].deliberation.assessment.goal='alien';frame=auditGoalFragments(r).frames[0];assert.equal(frame.wholeGoal.admittedChoice,'alien');assert.equal(frame.wholeGoal.admittedChoiceValid,false);assert.ok(frame.issues.includes('INVALID_ADMITTED_WHOLE_GOAL_STATUS'));
+});
+test('fault carried memory structure is diagnosed without inventing a current classification',()=>{
+ const r=fixture(),step=r.steps[0];delete step.deliberation.response;delete step.goalSearch.record;step.error={code:'HTTP_ERROR',statusCode:402};step.goalSearch.memory.schemaVersion=99;step.modelInput.userState.goalSearch.schemaVersion=99;step.userState.goalSearch.schemaVersion=99;step.deliberation.modelInput.userState.goalSearch.schemaVersion=99;
+ const report=auditGoalFragments(r);assert.equal(report.frames.length,0);assert.equal(report.faultSteps[0].consistency.recordedMemoryStructureValid,false);assert.ok(report.faultSteps[0].issues.includes('INCONSISTENT:recordedMemoryStructureValid'));
+});
