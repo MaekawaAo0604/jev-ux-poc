@@ -65,6 +65,7 @@ export async function replayDirectory(directory:string){
   const d=step.deliberation,current=step.userState?.lastObservation;
   if(current)seen.set(current.id,current.imageSha256);
   let correspondenceContext:CorrespondenceContext|undefined,correspondenceCandidates:BetaCandidates|undefined;
+  if(archive&&(step.modelInput||d||step.correspondence)&&(!current||!step.vision||!step.assetFiles||!step.questions||!step.audit||!step.correspondence))throw Error('CORRESPONDENCE_METADATA_MISSING');
   if(archive&&current&&step.vision&&step.assetFiles&&step.questions){
    const raw=filterCandidates(candidatesFor(step.audit!.screen,Object.hasOwn(step.questions.nextAction.criteria,'back')),step.audit!.screen,result.input.charter);
    correspondenceCandidates=offeredCandidates(raw,{...step.vision,bytes:await readFile(join(directory,step.assetFiles.current.file))},result.config);
