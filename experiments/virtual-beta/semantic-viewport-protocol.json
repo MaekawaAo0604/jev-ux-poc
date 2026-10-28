@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "usedBefore": 42,
+  "maximumAdditionalRequests": 6,
+  "reason": "Complete source viewport dimensions and generic image-to-viewport coordinate contract, without directing gaze to any specific point. Not established as the cause of previous zero-look behavior.",
+  "ui": "reference",
+  "mappings": [
+    "A",
+    "B"
+  ],
+  "replicates": 1,
+  "orderSeed": 313977649,
+  "config": "experiments/virtual-beta/semantic-viewport-recheck.json",
+  "charter": "experiments/persona/charter-semantic.json",
+  "objectivePolicy": "mail-only",
+  "maxCallsPerRun": 3,
+  "noPoolingWithPrevious": true,
+  "noSavedPayloadReplay": true,
+  "endpoint": "Autonomous cue acquisition before first mapping-correct choice; retain all terminations and no-choice cases"
+}
