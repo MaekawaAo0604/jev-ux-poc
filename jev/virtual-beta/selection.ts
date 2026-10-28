@@ -24,7 +24,7 @@ function drawAt(seed:number,drawIndex:number):number {
  return createHash('sha256').update(`jev-virtual-beta-selection:v1:${seed}:${drawIndex}`,'utf8').digest().readUInt32BE(0)/0x100000000;
 }
 
-function selectAt(config:SelectionConfig,drawIndex:number,modelChoice:string,raw:Record<string,number>,candidates:BetaCandidates,excluded:Record<string,string>):SelectionRecord {
+function selectAt(config:SelectionConfig,drawIndex:number,modelChoice:string,raw:Record<string,number>,candidates:BetaCandidates,excluded:Record<string,string>,weights?:Record<string,number>):SelectionRecord {
  validateConfig(config);
  if(!Number.isSafeInteger(drawIndex)||drawIndex<0)invalid('Draw index must be a nonnegative safe integer');
  if(!isRecord(candidates)||!Object.keys(candidates).length)invalid('Candidates must be a nonempty record');
@@ -42,7 +42,17 @@ function selectAt(config:SelectionConfig,drawIndex:number,modelChoice:string,raw
  const adjustments=Object.keys(excluded).sort().map(candidate=>({candidate,reason:excluded[candidate]}));
  if(!Number.isFinite(filteredTotal))invalid('Nonfinite probability mass remains after filtering');
  if(filteredTotal<=0)invalid('No positive probability mass remains after filtering',{stage:'filter',reason:'ZERO_SURVIVING_MASS',raw:copiedRaw,normalized,filteredWeights,normalization:{rawTotal,filteredTotal},adjustments});
- const filtered=Object.fromEntries(keys.map(key=>[key,filteredWeights[key]/filteredTotal]));
+ let filtered=Object.fromEntries(keys.map(key=>[key,filteredWeights[key]/filteredTotal]));
+ let policy:SelectionRecord['policy'];
+ if(weights!==undefined){
+  if(!isRecord(weights)||Object.keys(weights).length!==keys.length||keys.some(key=>!Object.hasOwn(weights,key)||typeof weights[key]!=='number'||!Number.isFinite(weights[key])||weights[key]<=0||weights[key]>1))invalid('Policy weights must contain every candidate with finite positive weights at most one');
+  const before={...filtered},copiedWeights=Object.fromEntries(keys.map(key=>[key,weights[key]])),weighted=Object.fromEntries(keys.map(key=>[key,before[key]*copiedWeights[key]]));
+  if(keys.some(key=>before[key]>0&&weighted[key]===0))invalid('Policy underflow erased positive mass');
+  const weightedTotal=keys.reduce((sum,key)=>sum+weighted[key],0);
+  if(!Number.isFinite(weightedTotal)||weightedTotal<=0)invalid('Invalid policy total');
+  if(keys.some(key=>copiedWeights[key]!==1))filtered=Object.fromEntries(keys.map(key=>[key,weighted[key]/weightedTotal]));
+  policy={kind:'temporary-deferral',weights:copiedWeights,before,weightedTotal};
+ }
  const draw=config.mode==='sample'?drawAt(config.seed,drawIndex):null;
  let selected:string;
  if(draw===null){
@@ -54,7 +64,7 @@ function selectAt(config:SelectionConfig,drawIndex:number,modelChoice:string,raw
   let cumulative=0;
   for(const key of keys){cumulative+=filtered[key];if(draw<cumulative){selected=key;break;}}
  }
- return {modelChoice,raw:copiedRaw,normalized,filtered,normalization:{rawTotal,filteredTotal},adjustments,mode:config.mode,seed:config.seed,drawIndex,draw,selected};
+ return {...(policy?{policy}:{}),modelChoice,raw:copiedRaw,normalized,filtered,normalization:{rawTotal,filteredTotal},adjustments,mode:config.mode,seed:config.seed,drawIndex,draw,selected};
 }
 
 /** Each instance owns its counter. Invalid decisions do not consume a draw. */
@@ -62,8 +72,8 @@ export function createSampler(config:SelectionConfig){
  validateConfig(config);
  const fixedConfig={mode:config.mode,seed:config.seed};
  let drawIndex=0;
- return {select(modelChoice:string,raw:Record<string,number>,candidates:BetaCandidates,excluded:Record<string,string>={}):SelectionRecord {
-  const record=selectAt(fixedConfig,drawIndex,modelChoice,raw,candidates,excluded);
+ return {select(modelChoice:string,raw:Record<string,number>,candidates:BetaCandidates,excluded:Record<string,string>={},weights?:Record<string,number>):SelectionRecord {
+  const record=selectAt(fixedConfig,drawIndex,modelChoice,raw,candidates,excluded,weights);
   drawIndex++;
   return record;
  }};
@@ -77,7 +87,7 @@ export function replaySelection(record:SelectionRecord,candidates:BetaCandidates
   return [adjustment.candidate,adjustment.reason];
  }));
  if(Object.keys(excluded).length!==record.adjustments.length)invalid('Duplicate recorded exclusion');
- const replayed=selectAt({mode:record.mode,seed:record.seed},record.drawIndex,record.modelChoice,record.raw,candidates,excluded);
+ const replayed=selectAt({mode:record.mode,seed:record.seed},record.drawIndex,record.modelChoice,record.raw,candidates,excluded,record.policy?.weights);
  if(!isDeepStrictEqual(record,replayed))invalid('Selection record does not match deterministic replay');
  return replayed;
 }

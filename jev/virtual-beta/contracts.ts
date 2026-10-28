@@ -1,3 +1,4 @@
+import type {DeferralConfig} from './deferral-contracts.js';
 import type {ExperienceConfig,ExperienceMemory} from './experience-contracts.js';
 import type {DeliberationConfig,DeliberationMemory} from './deliberation-contracts.js';
 import type {Action} from '../types.js';
@@ -16,7 +17,7 @@ export type UserMemory={observationId:string;imageSha256:string;visibleText:stri
 export type UserState={schemaVersion:1;revision:number;fixation:Point;memory:UserMemory[];lastObservation?:UserObservation;expectations:string[];experience?:ExperienceMemory;deliberation?:DeliberationMemory};
 export type StateConfig={enabled:boolean;memoryCapacity:number};
 export type SelectionConfig={mode:'argmax'|'sample';seed:number};
-export type SelectionRecord={modelChoice:string;raw:Record<string,number>;normalized:Record<string,number>;normalization:{rawTotal:number;filteredTotal:number};filtered:Record<string,number>;adjustments:{candidate:string;reason:string}[];mode:SelectionConfig['mode'];seed:number;drawIndex:number;draw:number|null;selected:string};
-export type BetaConfig={schemaVersion:1;initialFixation?:Point;experience?:ExperienceConfig;deliberation?:DeliberationConfig;id:string;vision:VisionConfig;state:StateConfig;selection:SelectionConfig;behavior:'goal'|'user';maxUIActions:number;maxLooks:number;maxDecisions:number;maxAPICalls:number;maxRunMs:number;modeledActionMs:number|null};
+export type SelectionRecord={policy?:{kind:'temporary-deferral';weights:Record<string,number>;before:Record<string,number>;weightedTotal:number};modelChoice:string;raw:Record<string,number>;normalized:Record<string,number>;normalization:{rawTotal:number;filteredTotal:number};filtered:Record<string,number>;adjustments:{candidate:string;reason:string}[];mode:SelectionConfig['mode'];seed:number;drawIndex:number;draw:number|null;selected:string};
+export type BetaConfig={schemaVersion:1;initialFixation?:Point;deferral?:DeferralConfig;experience?:ExperienceConfig;deliberation?:DeliberationConfig;id:string;vision:VisionConfig;state:StateConfig;selection:SelectionConfig;behavior:'goal'|'user';maxUIActions:number;maxLooks:number;maxDecisions:number;maxAPICalls:number;maxRunMs:number;modeledActionMs:number|null};
 export type BetaInput={persona?:Persona;charter:ExplorationCharter};
 export type Termination='OBJECTIVE_SUCCESS'|'SUBJECTIVE_DONE'|'ABANDONED'|'STUCK'|'UI_ACTION_LIMIT'|'LOOK_LIMIT'|'DECISION_LIMIT'|'API_LIMIT'|'TIME_LIMIT'|'SAFETY_STOP'|'API_ERROR'|'INVALID_DISTRIBUTION'|'ACTION_ERROR'|'OBSERVATION_ERROR';

@@ -1,3 +1,4 @@
+import {copyDeferrals,updateDeferrals,deferralDecision} from '../jev/virtual-beta/deferral.js';
 import {arriveExperience,beginExperience,experienceQuestions,admitExperience,experienceContext} from '../jev/virtual-beta/experience.js';
 import type {ExperienceMemory,ExperienceIntent} from '../jev/virtual-beta/experience-contracts.js';
 import {admitAssessment} from '../jev/virtual-beta/deliberation.js';
@@ -40,6 +41,7 @@ function assessmentSources(input:Record<string,unknown>,assets:Record<string,{fi
 }
 export async function replayDirectory(directory:string){
  const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));let choices=0,images=0,assessments=0;
+ let deferrals=result.config.deferral?.enabled?copyDeferrals(undefined,result.config.deferral):undefined;
  let experience:ExperienceMemory|undefined,pending:ExperienceIntent|undefined,execution:'performed'|'unchanged'='unchanged';
  for(const step of result.steps){
   const d=step.deliberation;
@@ -63,13 +65,21 @@ export async function replayDirectory(directory:string){
      if(Object.keys(outcomeQuestions).length)experience=admitExperience(d.response,experience,sources,result.config.experience?.evidenceMode);
      if(JSON.stringify(step.userState.experience)!==JSON.stringify(experience)||JSON.stringify((step.modelInput?.userState as any)?.experience)!==JSON.stringify(experience)||JSON.stringify(step.modelInput?.experienceContext)!==JSON.stringify(experienceContext(experience,current)))throw new Error('EXPERIENCE_JUDGMENT_MISMATCH');
     }
-    if(JSON.stringify(assessment)!==JSON.stringify(d.assessment))throw new Error('ASSESSMENT_RECORD_MISMATCH');assessments++;
+    if(JSON.stringify(assessment)!==JSON.stringify(d.assessment))throw new Error('ASSESSMENT_RECORD_MISMATCH');
+    if(result.config.deferral?.enabled){deferrals=updateDeferrals(deferrals,experience!,current,assessment,result.config.deferral);if(JSON.stringify(step.deferral?.state)!==JSON.stringify(deferrals))throw new Error('DEFERRAL_STATE_MISMATCH');}
+    assessments++;
    }
   }
   if(step.modelInput&&step.questions&&step.assetFiles&&step.inputSha256!==sha(JSON.stringify({input:step.modelInput,questions:step.questions,assets:step.assetFiles})))throw new Error('MODEL_INPUT_HASH_MISMATCH');
   for(const source of Object.values(step.assetFiles??{})){if(source.file!==source.file.split(/[\\/]/).at(-1))throw new Error('UNSAFE_IMAGE_PATH');if(sha(await readFile(join(directory,source.file)))!==source.sha256)throw new Error('IMAGE_HASH_MISMATCH');images++;}
   if(result.config.experience?.enabled&&step.selection&&step.action&&['UI_PERFORMED','FIXATION_MOVED','REREAD','WAIT_NO_UI'].includes(step.outcome??'')){
    pending=beginExperience(step.userState!.lastObservation!,step.selection.selected,step.action,step.deliberation?.assessment);execution=step.outcome==='UI_PERFORMED'?'performed':'unchanged';
+  }
+  if(step.selection&&result.config.deferral?.enabled){
+   const candidates:BetaCandidates=Object.fromEntries(Object.keys(step.questions!.nextAction.criteria).map(id=>[id,{action:/^e\d+$/.test(id)?{type:'click',elementId:id}:{type:'stuck'},label:id}]));
+   const decision=deferralDecision(deferrals,step.userState!.lastObservation!,candidates,step.deliberation!.assessment!,step.selection.raw,result.config.deferral);
+   if(JSON.stringify(step.deferral?.decision)!==JSON.stringify(decision))throw new Error('DEFERRAL_DECISION_MISMATCH');
+   if(JSON.stringify(step.selection.policy?.weights)!==JSON.stringify(Object.fromEntries(Object.keys(decision.weights).sort().map(id=>[id,decision.weights[id]]))))throw new Error('DEFERRAL_WEIGHT_MISMATCH');
   }
   if(step.selection){const candidates=Object.fromEntries(Object.keys(step.selection.raw).map(k=>[k,{action:{type:'stuck' as const},label:k}]));const selected=replaySelection(step.selection,candidates);if(selected.selected!==step.selection.selected)throw new Error('SELECTION_MISMATCH');choices++;}
  }

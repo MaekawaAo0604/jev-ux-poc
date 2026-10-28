@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "phase": "temporary-deferral-2026-10-28",
+  "baselineRevision": "dfa2360c23482252e36851422c461caad6a42567",
+  "hypothesis": "Temporarily deprioritize a grounded non-progress entry while other model-plausible entries remain; revisit after alternatives are also deferred.",
+  "conditions": [
+    "experience-basis",
+    "experience-defer"
+  ],
+  "order": "control then policy, fresh browser context each",
+  "sameSettings": {
+    "ui": "local:bad",
+    "charter": "experiments/persona/charter.json",
+    "persona": null,
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "locale": "ja-JP",
+    "timezone": "Asia/Tokyo",
+    "memoryImages": 3,
+    "experienceCapacity": 8,
+    "behavior": "goal",
+    "selection": "argmax",
+    "seed": 20261028,
+    "transport": "longContext true, attempts1"
+  },
+  "policy": {
+    "capacity": 8,
+    "weight": 0.01,
+    "minAlternativeProbability": 0.01,
+    "uncalibrated": true
+  },
+  "limits": {
+    "trials": 2,
+    "requestsPerTrial": 24,
+    "totalRequests": 48,
+    "judgmentsPerTrial": 12,
+    "maxRunMs": 180000,
+    "parallel": 1,
+    "uxRequests": 0
+  },
+  "modelBoundary": "Policy state and weights not injected into gateway input; only admitted existing experience and images. No human feedback/route, DOM/oracle, scripted correct target, or stored-input resubmission.",
+  "outcomes": [
+    "Raw argmax vs corrected chosen action using the same saved raw distribution",
+    "Actual post-return branch change, not a different link to same destination",
+    "Alternative exploration vs direct success vs subjective completion vs objective goal",
+    "Release when all plausible alternatives deferred, retaining positive revisit mass"
+  ],
+  "limitsOfInference": "One fresh run per condition is not a causal estimate, rate, or human validation. The policy is an explicit configurable heuristic, not evidence Jev understood history. Exact-image identity can miss a same page after scrolling."
+}
