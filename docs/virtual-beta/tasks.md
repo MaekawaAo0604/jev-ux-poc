@@ -90,3 +90,11 @@ ea27c3cで通常bad/同Charter/全viewport画像のみ/Personaなしgoal baselin
 実行後にemptyhash/#homeの同じUIを別routeとした集計不具合を、専用aliasと20回帰追加で修正。旧summary/result/manifestを保持し同じ24件をoffline再集計、API追加0。旧126＋新47＋独立9=182関連検証、型/build、全実保存監査を記録。詳細はholdout-stability.md/holdout-stability-results.json/holdout-independent-review.md。
 
 次のP0：変更予定・プレビューと保存済み現在状態を区別する完了評価。P0：観測した前提変更に応じて保留理由を再評価し、必要な再訪を遅らせない。P1：描画差の観察同一性。今回はここを結果に合わせて修正せず、先に固定版の能力限界を確定した。ペルソナ差・人間への一致・公開製品での安定性は次段階。
+
+## 保留理由と前提変化の固定版比較（2026-10-28）
+
+基準a106214、製品凍結0898405。理由担当が世代に結ぶモデル仮説と原画像参照、比較担当が12固定枠と会計、親がprofile/config/core/replayを接続し、別コンテキストの独立担当が通常アダプターのfetchスタブと実ブラウザーを確認した。旧experience-deferを維持し、新experience-reasonだけ有効化。追加API段階0、recency3に理由元画像最大1を追加する宣言済み比較。
+
+12試行208/288要求、旧34台帳不変、6組の初期条件一致。旧4/6、新4/6で全体改善は未確認。beta反復1でprerequisite/o2→本人確認済みo5→basis_changed→raw保持/effective解除→実再訪が成立し7UI、旧方式は古い重みで迂回して9UIだった。理由の質問14回に対し受理1・レビュー1・解除1のみ。alphaでは妥当なo2でも旧非進展evidenceに含まれず拒否する例があり、通知停止の新2件はunknown/noneのまま未達。成否と理由更新を分けた結果はdeferral-reason.md/deferral-reason-results.json、独立記録はdeferral-reason-independent-review.md。
+
+関連114+独立6件、型/build、旧24と今回12のoffline再生を確認。次はP0:非進展の根拠と阻害理由の根拠の分離、P0:切替と観察同一性の独立検査、P1:未変更/無関係な変化を含むモデルの解除判断の評価。今回結果に合わせた受理条件や重みの変更はしない。保存前プレビューの完了誤認は別の未解決P0、人間の再現と一般的安定性は未検証。

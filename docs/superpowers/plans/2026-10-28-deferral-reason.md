@@ -14,8 +14,8 @@ Existing raw deferral memory remains intact; record effective memory and the per
 
 ## Acceptance and tasks
 
-- [ ] RED/GREEN pure reason capture/review/caps/isolation/malformed; parent config/profile and actualbrowser scripted changed/stillblocked integration+replay/tamper.
-- [ ] Related regression/type/build; old live artifacts remain replayable and old wire unchanged. Fresh independent verifier on frozen source, fix/reverify<=3rounds.
-- [ ] Fixed live12 schedule: originalnotificationbad, revisit-alpha, revisit-beta ×old/new ×2repeats, reverse pairedorder. Same goals/UI/personanone/argmaxseed20261028/recency3/deferralweight0.01, new reason basis image max1. Each12judgments/24requests/180sec, total288requests, phase20min, sequential1, longContexttrue, attempts1, UXcalls0. New pertrial24ledger, preserve old34 ledgers. No saved-input API replay or human records.
-- [ ] Independently audit all saved live runs, actual source/initial equality/configdiff, capture/review/release basis and actual choices/paths/objective/faults/replay. Distinguish review success, reason never learned, no matching evidence, semantic false release, and merely prompt-induced response differences.
-- [ ] Document counts, limits, exact commands, priority of unresolved behavior; commit/push authorized feature branch after checks. No human reproduction/general reliability claim.
+- [x] RED/GREEN pure reason capture/review/caps/isolation/malformed; parent config/profile and actualbrowser scripted changed/stillblocked integration+replay/tamper.
+- [x] Related regression/type/build; old live artifacts remain replayable and old wire unchanged. Fresh independent verifier on frozen source, fix/reverify<=3rounds.
+- [x] Fixed live12 schedule: originalnotificationbad, revisit-alpha, revisit-beta ×old/new ×2repeats, reverse pairedorder. Same goals/UI/personanone/argmaxseed20261028/recency3/deferralweight0.01, new reason basis image max1. Each12judgments/24requests/180sec, total288requests, phase20min, sequential1, longContexttrue, attempts1, UXcalls0. New pertrial24ledger, preserve old34 ledgers. No saved-input API replay or human records.
+- [x] Independently audit all saved live runs, actual source/initial equality/configdiff, capture/review/release basis and actual choices/paths/objective/faults/replay. Distinguish review success, reason never learned, no matching evidence, semantic false release, and merely prompt-induced response differences.
+- [x] Document counts, limits, exact commands, priority of unresolved behavior; commit/push authorized feature branch after checks. No human reproduction/general reliability claim.

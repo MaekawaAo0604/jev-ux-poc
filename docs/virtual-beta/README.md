@@ -81,3 +81,7 @@ manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.j
 [semantic-verification.md](semantic-verification.md) に実装、20試行と47/48要求の実測、コマンド、制約を保存した。個別の結果は [semantic-results.json](semantic-results.json)、独立検証は [semantic-independent-review.md](semantic-independent-review.md)。初期に案内が隠れる18件は注視移動0、案内が初めから見える対照2件は対応A/Bを選び分けた。自律的な情報取得は今回成立していない。人間記録は基盤のみ実装し、実参加者の測定はユーザー指定で後日に行う。
 
 `--semantic`、`--order-seed`、設定の `initialFixation`、表示維持の独立目的判定 `--preserve-display` を追加した。既存の4条件・Persona/Charter分離・分布保存とreplayを維持する。新規実験はgoal/argmaxで能力を切り分けており、従来combinedや人間再現モードとは混ぜない。
+
+## 保留理由の再評価（2026-10-28）
+
+[deferral-reason.md](deferral-reason.md) に、experience-reasonの設定、旧方式との12試行比較、実行方法、独立検証と残る課題を記録した。既存experience-deferを維持し、原画像と後続根拠に結び付く理由仮説を既存評価要求へ追加する。根拠の意味精度と人間への一致は別途検証が必要。
