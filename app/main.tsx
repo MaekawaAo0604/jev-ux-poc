@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
 import {comparisonUIFromSearch} from './virtual-beta-ui.js';
+import {parseSemanticFixture} from './semantic-fixture.js';
+import {SemanticFixtureView} from './SemanticFixture.js';
 
 function App() {
   const bad = location.pathname.startsWith('/bad');
@@ -35,4 +37,5 @@ function App() {
   {['activity','campaign','help'].includes(route) && <section className="panel"><h2>{route==='activity'?'今月のご利用状況':route==='campaign'?'季節のキャンペーン':'サポート窓口'}</h2><p>{route==='activity'?'今月は12回サービスをご利用いただいています。':route==='campaign'?'新しい特典は近日公開予定です。':'受付時間：平日 10:00〜18:00'}</p></section>}
   {route!=='home' && <a className="home-link" href="#home">マイページへ戻る</a>}<footer>暮らしクラウド　·　デモアカウント</footer></main></div></>;
 }
-createRoot(document.getElementById('root')!).render(<App/>);
+const semanticFixture=location.pathname.startsWith('/good/')?parseSemanticFixture(location.search):undefined;
+createRoot(document.getElementById('root')!).render(semanticFixture?<SemanticFixtureView fixture={semanticFixture}/>:<App/>);

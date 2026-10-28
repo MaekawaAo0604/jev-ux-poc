@@ -15,13 +15,15 @@ import {validateConfig} from '../jev/virtual-beta/config.js';
 import type {BetaAction,BetaCandidates,BetaConfig,BetaInput,SelectionRecord,VisionTarget,Termination,UserObservation,UserState,VisionObservation} from '../jev/virtual-beta/contracts.js';
 export const sha=(v:string|Buffer)=>createHash('sha256').update(v).digest('hex');
 import type {AuditROI,BetaUIIdentity} from '../jev/virtual-beta/ui-types.js';
+import type {SemanticTrial,SemanticRunAudit} from '../jev/virtual-beta/semantic-types.js';
+import {semanticQuery,semanticDefinition,semanticROIs} from '../app/semantic-fixture.js';
 export type ModelRequest={input:Record<string,unknown>;questions:Record<string,ChoiceQuestion>;timeoutMs:number;images:Record<string,{mediaType:'image/png';data:string}>};
 export class BetaBudgetError extends Error{constructor(public kind:'API_LIMIT'|'TIME_LIMIT'){super(kind);}}
 export class BetaAdmissionError extends Error{readonly code='BUDGET_ADMISSION_ERROR';constructor(){super('BUDGET_ADMISSION_ERROR');}}
 export class BetaResponseError extends Error{constructor(public kind:'API_ERROR'|'INVALID_DISTRIBUTION',public code:'MODEL_MISMATCH'|'INVALID_RESPONSE'|'INVALID_DISTRIBUTION',public response:ChoiceAnswers){super(code);}}
 export type BetaEvaluator=(request:ModelRequest)=>Promise<ChoiceAnswers>;
 export type BetaStep={number:number;observationId?:string;audit?:{screen:Observation;url:string;rawScreenshot:string;sourceSha256:string;targets?:VisionTarget[];regionsOfInterest?:AuditROI[]};vision?:Omit<VisionObservation,'bytes'>;userState?:UserState;modelInput?:Record<string,unknown>;questions?:Record<string,ChoiceQuestion>;assetFiles?:Record<string,{file:string;sha256:string}>;inputSha256?:string;response?:ChoiceAnswers;selection?:SelectionRecord;selectionFailure?:SelectionFailureDetails;reasonEvidence?:{category:string;observationId:string;kind:'model-self-report';proposedChoice:string;selectedChoice:string};action?:BetaAction;outcome?:string;error?:unknown;objectiveSuccess?:boolean;counts?:{looks:number;uiActions:number};timing?:{apiMs:number;uiMs:number;modeledUserMs:number|null}};
-export type BetaResult={schemaVersion:1;runId:string;condition:string;code?:{revision:string;sourceHash:string};uiVersion?:BetaUIIdentity;config:BetaConfig;input:BetaInput;initialFingerprint:string|null;objectiveSuccess:boolean;perceivedDone:boolean;termination:Termination;looks:number;uiActions:number;decisions:number;apiCalls:number;apiMs:number;uiMs:number;modeledUserMs:number|null;elapsedMs:number;terminalObservation:{status:'RECORDED'|'ERROR';code?:'OBSERVATION_ERROR'};objectiveAssessment:{status:'OK'|'ERROR';value:boolean|null;code?:'ORACLE_ERROR'};validForComparison:boolean;steps:BetaStep[]};
+export type BetaResult={schemaVersion:1;runId:string;condition:string;code?:{revision:string;sourceHash:string};uiVersion?:BetaUIIdentity;semantic?:SemanticRunAudit;config:BetaConfig;input:BetaInput;initialFingerprint:string|null;objectiveSuccess:boolean;perceivedDone:boolean;termination:Termination;looks:number;uiActions:number;decisions:number;apiCalls:number;apiMs:number;uiMs:number;modeledUserMs:number|null;elapsedMs:number;terminalObservation:{status:'RECORDED'|'ERROR';code?:'OBSERVATION_ERROR'};objectiveAssessment:{status:'OK'|'ERROR';value:boolean|null;code?:'ORACLE_ERROR'};validForComparison:boolean;steps:BetaStep[]};
 const reasonQuestion:ChoiceQuestion={type:'choice',instructions:'Report a short category explaining the proposed nextAction using this observation. This is a self report, not a record of internal reasoning. Do not change the action to fit the category.',criteria:{goal:'Goal relevance',clarity:'Readable explanation',efficiency:'Fewer operations',confirmation:'Checking safety or result',uncertainty:'Unclear next step',other:'Other'}};
 /** Allowlist boundary: never spread audit State, raw screen, targets or history into constrained input. */
 export function modelInput(input:BetaInput,vision:VisionObservation,observation:UserObservation,state:UserState,config:BetaConfig,screen:Observation,history:State['history']):Record<string,unknown>{
@@ -39,16 +41,19 @@ export async function executeBetaAction(pom:LocalExplorationPage,action:BetaActi
  if(['reread','wait','done','stuck','abandon'].includes(action.type))return {ui:false,look:false,fixation:{...state.fixation}};
  await pom.act(action as Action);return {ui:true,look:false,fixation:{...state.fixation}};
 }
-export async function runBeta(page:Page,args:{runId:string;dir:string;baseURL:string;charter:Charter;persona?:Persona;config:BetaConfig;evaluate:BetaEvaluator;uiVersion?:BetaUIIdentity;roiSelectors?:Record<string,string>;code?:{revision:string;sourceHash:string};isSafetyStopped?:()=>boolean}):Promise<BetaResult>{
+export async function runBeta(page:Page,args:{runId:string;dir:string;baseURL:string;charter:Charter;persona?:Persona;config:BetaConfig;evaluate:BetaEvaluator;semanticTrial?:SemanticTrial;uiVersion?:BetaUIIdentity;roiSelectors?:Record<string,string>;code?:{revision:string;sourceHash:string};isSafetyStopped?:()=>boolean}):Promise<BetaResult>{
  const config=validateConfig(args.config),input=publicExploration({charter:args.charter,...(args.persona?{persona:args.persona}:{})});
- if(args.uiVersion){if(args.charter.targetWebsite!=='local:good')throw new Error('COMPARISON_UI_REQUIRES_LOCAL_GOOD');input.charter={...input.charter,id:'notification-task',targetWebsite:'local:demo'};}
+ if(args.uiVersion||args.semanticTrial){if(args.uiVersion&&args.semanticTrial)throw new Error('CONFLICTING_FIXTURES');if(args.charter.targetWebsite!=='local:good')throw new Error('COMPARISON_UI_REQUIRES_LOCAL_GOOD');input.charter={...input.charter,id:'notification-task',targetWebsite:'local:demo'};}
  await mkdir(args.dir,{recursive:true});
  const pom=new LocalExplorationPage(page,true,true),sampler=createSampler(config.selection),steps:BetaStep[]=[],started=performance.now();
  let user=createUserState(args.persona,{x:640,y:450}),history:State['history']=[],looks=0,uiActions=0,apiCalls=0,apiMs=0,uiMs=0,objectiveSuccess=false,perceivedDone=false,initialFingerprint:string|null=null,termination:Termination='DECISION_LIMIT';
  const memoryImages=new Map<string,{bytes:Buffer;file:string}>();
  let pendingEvent:{action:BetaAction;outcome:'performed'|'failed'|'unchanged'}|undefined;
+ let semantic:SemanticRunAudit|undefined;
+ const auditROIs=args.semanticTrial?semanticROIs:args.roiSelectors;
  try{
- await page.goto(args.baseURL+'/'+(args.charter.targetWebsite==='local:good'?'good':'bad')+'/'+(args.uiVersion?'?betaUI='+args.uiVersion.token:''),{waitUntil:'networkidle',timeout:10000});
+ await page.goto(args.baseURL+'/'+(args.charter.targetWebsite==='local:good'?'good':'bad')+'/'+(args.semanticTrial?semanticQuery(args.semanticTrial.fixture):args.uiVersion?'?betaUI='+args.uiVersion.token:''),{waitUntil:'networkidle',timeout:10000});
+ if(args.semanticTrial){const file='initial-product.png',bytes=await page.screenshot();await writeFile(join(args.dir,file),bytes);semantic={trial:structuredClone(args.semanticTrial),definitionHash:sha(JSON.stringify(semanticDefinition(args.semanticTrial.fixture))),initialProductImage:{file,sha256:sha(bytes)}};}
  for(let number=1;number<=config.maxDecisions;number++){
   if(args.isSafetyStopped?.()){termination='SAFETY_STOP';break;}
   if(performance.now()-started>=config.maxRunMs){termination='TIME_LIMIT';break;}
@@ -59,8 +64,8 @@ export async function runBeta(page:Page,args:{runId:string;dir:string;baseURL:st
    const screen=await pom.observe(false),rawCandidates=filterCandidates(candidatesFor(screen,pom.canGoBack),screen,args.charter);
    const capture=await pom.captureDecisionScreenshot(screen,rawCandidates),rawFile='audit-'+number+'.png';await writeFile(join(args.dir,rawFile),capture.bytes);
    const regionsOfInterest:AuditROI[]=[];
-   for(const [id,selector] of Object.entries(args.roiSelectors??{})){const locator=page.locator(selector);const count=await locator.count();if(count>1)throw new Error('AMBIGUOUS_AUDIT_ROI');if(count===1&&await locator.isVisible()){const rect=await locator.boundingBox();if(rect)regionsOfInterest.push({id,rect,definition:'element-client-rect'});}}
-   step.audit={screen,url:page.url(),rawScreenshot:rawFile,sourceSha256:sha(capture.bytes),targets:capture.targets.map(t=>({id:t.id,x:t.x,y:t.y,width:t.width,height:t.height,...(t.badge?{badge:{...t.badge}}:{})})),...(args.roiSelectors?{regionsOfInterest}:{})};
+   for(const [id,selector] of Object.entries(auditROIs??{})){const locator=page.locator(selector);const count=await locator.count();if(count>1)throw new Error('AMBIGUOUS_AUDIT_ROI');if(count===1&&await locator.isVisible()){const rect=await locator.boundingBox();if(rect)regionsOfInterest.push({id,rect,definition:'element-client-rect'});}}
+   step.audit={screen,url:page.url(),rawScreenshot:rawFile,sourceSha256:sha(capture.bytes),targets:capture.targets.map(t=>({id:t.id,x:t.x,y:t.y,width:t.width,height:t.height,...(t.badge?{badge:{...t.badge}}:{})})),...(auditROIs?{regionsOfInterest}:{})};
    const vision=transformVision(capture.bytes,config.vision,user.fixation,capture.targets),{bytes,...metadata}=vision;
    step.vision=metadata;
    const imageFile='input-'+number+'.png';await writeFile(join(args.dir,imageFile),bytes);
@@ -120,6 +125,6 @@ export async function runBeta(page:Page,args:{runId:string;dir:string;baseURL:st
  let terminalObservation:BetaResult['terminalObservation'];
  try{await page.screenshot({path:join(args.dir,'final.png')});terminalObservation={status:'RECORDED'};}catch{terminalObservation={status:'ERROR',code:'OBSERVATION_ERROR'};}
  const validForComparison=objectiveAssessment.status==='OK'&&terminalObservation.status==='RECORDED'&&!['API_ERROR','INVALID_DISTRIBUTION','ACTION_ERROR','OBSERVATION_ERROR','SAFETY_STOP'].includes(termination);
- const result:BetaResult={schemaVersion:1,runId:args.runId,condition:config.id,...(args.uiVersion?{uiVersion:structuredClone(args.uiVersion)}:{}),...(args.code?{code:{...args.code}}:{}),config,input,initialFingerprint,objectiveSuccess,perceivedDone,termination,looks,uiActions,decisions:steps.length,apiCalls,apiMs,uiMs,modeledUserMs:config.modeledActionMs===null?null:config.modeledActionMs*steps.filter(s=>s.action).length,elapsedMs:performance.now()-started,terminalObservation,objectiveAssessment,validForComparison,steps};
+ const result:BetaResult={schemaVersion:1,runId:args.runId,condition:config.id,...(args.uiVersion?{uiVersion:structuredClone(args.uiVersion)}:{}),...(args.code?{code:{...args.code}}:{}),...(semantic?{semantic}:{}),config,input,initialFingerprint,objectiveSuccess,perceivedDone,termination,looks,uiActions,decisions:steps.length,apiCalls,apiMs,uiMs,modeledUserMs:config.modeledActionMs===null?null:config.modeledActionMs*steps.filter(s=>s.action).length,elapsedMs:performance.now()-started,terminalObservation,objectiveAssessment,validForComparison,steps};
  await writeFile(join(args.dir,'result.json'),JSON.stringify(result,null,2));return result;
 }

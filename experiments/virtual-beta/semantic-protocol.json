@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "id": "semantic-controls-2026-10-28",
+  "assignmentSeed": 313977649,
+  "assignment": "Complete factorial treatments randomly assigned to twelve pre-existing fresh-context slots before any outcome; seeded Fisher-Yates",
+  "model": "jev-1.14.0",
+  "conditions": "semantic-capability",
+  "persona": "experiments/persona/persona-a.json",
+  "charter": "experiments/persona/charter-semantic.json",
+  "config": "experiments/virtual-beta/semantic-capability.json",
+  "maximumRequests": 48,
+  "perTrialMaximum": 4,
+  "preregisteredEndpoints": [
+    "cue-supported mapping-correct first choice with both choices available before and after look",
+    "UI omnibus range of cue-supported first-choice accuracy"
+  ],
+  "statisticalAssumptions": [
+    "Conditional assignment/exchangeability under sharp null",
+    "No interference between fresh stateless requests",
+    "No unrecorded outcome-based exclusions or endpoint changes"
+  ],
+  "humanData": "deferred by user; recording foundation only",
+  "trials": [
+    {
+      "id": "semantic-01-reference-a-r1",
+      "pairId": "reference-r1",
+      "replicate": 1,
+      "fixture": {
+        "version": 1,
+        "ui": "reference",
+        "mapping": "A"
+      },
+      "slot": 1
+    },
+    {
+      "id": "semantic-02-reference-b-r2",
+      "pairId": "reference-r2",
+      "replicate": 2,
+      "fixture": {
+        "version": 1,
+        "ui": "reference",
+        "mapping": "B"
+      },
+      "slot": 2
+    },
+    {
+      "id": "semantic-03-position-only-a-r1",
+      "pairId": "position-only-r1",
+      "replicate": 1,
+      "fixture": {
+        "version": 1,
+        "ui": "position-only",
+        "mapping": "A"
+      },
+      "slot": 3
+    },
+    {
+      "id": "semantic-04-wording-only-b-r1",
+      "pairId": "wording-only-r1",
+      "replicate": 1,
+      "fixture": {
+        "version": 1,
+        "ui": "wording-only",
+        "mapping": "B"
+      },
+      "slot": 4
+    },
+    {
+      "id": "semantic-05-position-only-a-r2",
+      "pairId": "position-only-r2",
+      "replicate": 2,
+      "fixture": {
+        "version": 1,
+        "ui": "position-only",
+        "mapping": "A"
+      },
+      "slot": 5
+    },
+    {
+      "id": "semantic-06-reference-a-r2",
+      "pairId": "reference-r2",
+      "replicate": 2,
+      "fixture": {
+        "version": 1,
+        "ui": "reference",
+        "mapping": "A"
+      },
+      "slot": 6
+    },
+    {
+      "id": "semantic-07-wording-only-a-r1",
+      "pairId": "wording-only-r1",
+      "replicate": 1,
+      "fixture": {
+        "version": 1,
+        "ui": "wording-only",
+        "mapping": "A"
+      },
+      "slot": 7
+    },
+    {
+      "id": "semantic-08-reference-b-r1",
+      "pairId": "reference-r1",
+      "replicate": 1,
+      "fixture": {
+        "version": 1,
+        "ui": "reference",
+        "mapping": "B"
+      },
+      "slot": 8
+    },
+    {
+      "id": "semantic-09-wording-only-a-r2",
+      "pairId": "wording-only-r2",
+      "replicate": 2,
+      "fixture": {
+        "version": 1,
+        "ui": "wording-only",
+        "mapping": "A"
+      },
+      "slot": 9
+    },
+    {
+      "id": "semantic-10-position-only-b-r1",
+      "pairId": "position-only-r1",
+      "replicate": 1,
+      "fixture": {
+        "version": 1,
+        "ui": "position-only",
+        "mapping": "B"
+      },
+      "slot": 10
+    },
+    {
+      "id": "semantic-11-position-only-b-r2",
+      "pairId": "position-only-r2",
+      "replicate": 2,
+      "fixture": {
+        "version": 1,
+        "ui": "position-only",
+        "mapping": "B"
+      },
+      "slot": 11
+    },
+    {
+      "id": "semantic-12-wording-only-b-r2",
+      "pairId": "wording-only-r2",
+      "replicate": 2,
+      "fixture": {
+        "version": 1,
+        "ui": "wording-only",
+        "mapping": "B"
+      },
+      "slot": 12
+    }
+  ]
+}

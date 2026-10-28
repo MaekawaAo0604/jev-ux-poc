@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "notification-semantic",
+  "targetWebsite": "local:good",
+  "goal": "初めて利用する暮らしクラウドで、メール通知を停止し、停止したことを確認したい",
+  "initialState": {
+    "description": "デモアカウントの設定一覧。メールは受信中。毎回、新しいブラウザーコンテキストで開始する。",
+    "currentDate": "2026-09-19"
+  },
+  "scope": [
+    "同じローカル検証サイト内の画面を探索する",
+    "デモアカウントのメール通知を停止する操作を許可する"
+  ],
+  "prohibitedActions": {
+    "actionTypes": [],
+    "controlTexts": [],
+    "downloads": true
+  },
+  "maxActions": 15,
+  "oracle": "notifications"
+}

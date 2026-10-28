@@ -1,0 +1,102 @@
+[
+  {
+    "schemaVersion": 1,
+    "id": "current",
+    "vision": {
+      "mode": "full",
+      "clearWidth": 640,
+      "clearHeight": 480,
+      "blurRadius": 12
+    },
+    "state": {
+      "enabled": false,
+      "memoryCapacity": 3
+    },
+    "selection": {
+      "mode": "argmax",
+      "seed": 20261028
+    },
+    "behavior": "goal",
+    "maxUIActions": 4,
+    "maxLooks": 3,
+    "maxDecisions": 4,
+    "maxAPICalls": 4,
+    "maxRunMs": 90000,
+    "modeledActionMs": null
+  },
+  {
+    "schemaVersion": 1,
+    "id": "vision",
+    "vision": {
+      "mode": "foveated",
+      "clearWidth": 640,
+      "clearHeight": 480,
+      "blurRadius": 12
+    },
+    "state": {
+      "enabled": false,
+      "memoryCapacity": 3
+    },
+    "selection": {
+      "mode": "argmax",
+      "seed": 20261028
+    },
+    "behavior": "goal",
+    "maxUIActions": 4,
+    "maxLooks": 3,
+    "maxDecisions": 4,
+    "maxAPICalls": 4,
+    "maxRunMs": 90000,
+    "modeledActionMs": null
+  },
+  {
+    "schemaVersion": 1,
+    "id": "state",
+    "vision": {
+      "mode": "full",
+      "clearWidth": 640,
+      "clearHeight": 480,
+      "blurRadius": 12
+    },
+    "state": {
+      "enabled": true,
+      "memoryCapacity": 3
+    },
+    "selection": {
+      "mode": "sample",
+      "seed": 20261028
+    },
+    "behavior": "user",
+    "maxUIActions": 4,
+    "maxLooks": 3,
+    "maxDecisions": 4,
+    "maxAPICalls": 4,
+    "maxRunMs": 90000,
+    "modeledActionMs": null
+  },
+  {
+    "schemaVersion": 1,
+    "id": "semantic-capability",
+    "vision": {
+      "mode": "crop",
+      "clearWidth": 640,
+      "clearHeight": 480,
+      "blurRadius": 12
+    },
+    "state": {
+      "enabled": true,
+      "memoryCapacity": 3
+    },
+    "selection": {
+      "mode": "argmax",
+      "seed": 20261028
+    },
+    "behavior": "goal",
+    "maxUIActions": 4,
+    "maxLooks": 3,
+    "maxDecisions": 4,
+    "maxAPICalls": 4,
+    "maxRunMs": 90000,
+    "modeledActionMs": null
+  }
+]
