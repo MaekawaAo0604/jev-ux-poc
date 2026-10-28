@@ -131,7 +131,7 @@ export async function runBeta(page:Page,args:{runId:string;dir:string;baseURL:st
    if(config.deliberation?.enabled){
     const sources=[...new Map([...user.memory.map(m=>({observationId:m.observationId,imageSha256:m.imageSha256})),...reasonBasis,{observationId:observation.id,imageSha256:observation.imageSha256}].map(s=>[s.observationId,s])).values()];
     const outcomeQuestions=user.experience?experienceQuestions(user.experience,sources,config.experience?.evidenceMode):{};
-    const reasonRequest=reasonContext?reasonQuestions(reasonContext,sources):{};
+    const reasonRequest=reasonContext?reasonQuestions(reasonContext,sources,config.deferralReason?.reviewMode):{};
     const assessmentRequest={...assessmentQuestions(candidates,sources),...outcomeQuestions,...reasonRequest},assessmentInput=structuredClone(wire),assessmentAssets=structuredClone(assetFiles);
     if(config.experience?.enabled)for(const [key,question] of Object.entries(assessmentRequest))if(!Object.hasOwn(outcomeQuestions,key)&&!Object.hasOwn(reasonRequest,key))question.instructions+=' Use experienceContext to compare prior predicted effects with observed results for this screen and candidate; reassess unsupported hypotheses. A returned route is not automatically a failure.';
     const d:NonNullable<BetaStep['deliberation']>={modelInput:assessmentInput,questions:assessmentRequest,assetFiles:assessmentAssets,inputSha256:sha(JSON.stringify({input:assessmentInput,questions:assessmentRequest,assets:assessmentAssets})),apiCalls:0};step.deliberation=d;

@@ -1,5 +1,5 @@
 import type {ExperienceSource} from './experience-contracts.js';
-export type DeferralReasonConfig={enabled:boolean;capacity:number;maxReasonImages:number;basisAdmission?:'negative-evidence'|'excursion-evidence'};
+export type DeferralReasonConfig={enabled:boolean;capacity:number;maxReasonImages:number;basisAdmission?:'negative-evidence'|'excursion-evidence';reviewMode?:'separate'|'grounded-choice'};
 export type ReasonIdentity={imageSha256:string;candidateId:string;fromObservationId:string;toObservationId:string};
 export type ReasonCategory='prerequisite'|'information_only'|'missing_information'|'unavailable_control'|'constraint'|'unknown';
 export type ReasonStatus='still_blocks'|'basis_changed'|'unknown';

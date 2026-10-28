@@ -77,7 +77,7 @@ export async function replayDirectory(directory:string){
      checkReasonSources(d.modelInput,reasonContext,result.config.deferralReason);
     }
     const outcomeQuestions=experience?experienceQuestions(experience,sources,result.config.experience?.evidenceMode):{};
-    const reasonRequest=reasonContext?reasonQuestions(reasonContext,sources):{};
+    const reasonRequest=reasonContext?reasonQuestions(reasonContext,sources,result.config.deferralReason?.reviewMode):{};
     for(const [key,question] of Object.entries(outcomeQuestions))if(!equal(d.questions[key],question))throw new Error('EXPERIENCE_QUESTION_MISMATCH');
     for(const [key,question] of Object.entries(reasonRequest))if(!equal(d.questions[key],question))throw new Error('REASON_QUESTION_MISMATCH');
     const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)&&!Object.hasOwn(reasonRequest,key)))};

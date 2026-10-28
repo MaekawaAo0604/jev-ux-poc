@@ -8,13 +8,14 @@ import {sha,type BetaResult} from './virtual-beta-core.js';
 import {replayDirectory} from './virtual-beta-replay.js';
 import type {HoldoutFixture} from '../app/holdout-fixture.js';
 
-export type ReasonComparison='deferral-reason'|'reason-admission';
+export type ReasonComparison='deferral-reason'|'reason-admission'|'reason-grounding';
 type Options={out:string;mock:boolean;envFile?:string;limit?:number;comparison?:ReasonComparison};
 export type ReasonSlot={id:string;scenario:'notifications'|'revisit-alpha'|'revisit-beta';replicate:1|2;condition:'old'|'reason'};
 type RunRecord=ReasonSlot&{initialImageSha256:string;result:BetaResult};
 const legacyModes={old:'experience-defer',reason:'experience-reason'} as const;
 const admissionModes={old:'experience-reason',reason:'experience-reason-excursion'} as const;
-function validateComparison(comparison:unknown):asserts comparison is ReasonComparison{if(comparison!=='deferral-reason'&&comparison!=='reason-admission')throw new Error('UNKNOWN_REASON_COMPARISON');}
+const groundingModes={old:'experience-reason-excursion',reason:'experience-reason-grounded'} as const;
+function validateComparison(comparison:unknown):asserts comparison is ReasonComparison{if(comparison!=='deferral-reason'&&comparison!=='reason-admission'&&comparison!=='reason-grounding')throw new Error('UNKNOWN_REASON_COMPARISON');}
 const object=(value:unknown):Record<string,unknown>|undefined=>value!==null&&typeof value==='object'&&!Array.isArray(value)?value as Record<string,unknown>:undefined;
 const sum=(values:number[])=>values.reduce((a,b)=>a+b,0);
 const mean=(values:number[])=>values.length?sum(values)/values.length:null;
@@ -35,11 +36,22 @@ export function reasonSchedule():ReasonSlot[]{
  }
  return slots;
 }
+/** Fixed comparison declaration shared by pure audit tests and the ordinary runner. */
+export function reasonComparisonPlan(comparison:ReasonComparison='deferral-reason',limit=12){
+ validateReasonExperimentOptions({out:'comparison-plan',mock:true,comparison,limit});
+ const modes=comparison==='reason-grounding'?groundingModes:comparison==='reason-admission'?admissionModes:legacyModes;
+ const phase=comparison==='reason-grounding'?'deferral-reason-grounding-comparison':comparison==='reason-admission'?'deferral-reason-admission-comparison':'deferral-reason-comparison';
+ const ledgerPhase=comparison==='reason-grounding'?'deferral-reason-grounding':comparison==='reason-admission'?'deferral-reason-admission':'deferral-reason';
+ const fullSchedule=reasonSchedule(),schedule=fullSchedule.slice(0,limit);
+ const limits={trials:schedule.length,maxRequests:schedule.length*24,phaseMaximumRequests:288,maxRequestsPerTrial:24,maxJudgmentsPerTrial:12,maxUIActionsPerTrial:15,maxLooksPerTrial:3,maxRunMs:180000,phaseMs:20*60*1000,parallel:1};
+ const inputComponents:Record<'shared'|'old'|'reason',Record<string,unknown>>=comparison==='reason-grounding'?{shared:{fullViewport:true,recencyImages:3,experienceCapacity:8,longContext:true,attempts:1,additionalAPIStages:0},old:{mode:modes.old,memoryCapacity:8,maxOriginalReasonImages:1,maxUniqueImages:4,basisAdmission:'excursion-evidence',reviewMode:'separate'},reason:{mode:modes.reason,memoryCapacity:8,maxOriginalReasonImages:1,maxUniqueImages:4,basisAdmission:'excursion-evidence',reviewMode:'grounded-choice',declaredDifference:'Only the review question form joins status and attached evidence choice; same actual images and API stages'}}:comparison==='reason-admission'?{shared:{fullViewport:true,recencyImages:3,experienceCapacity:8,longContext:true,attempts:1,additionalAPIStages:0},old:{mode:modes.old,memoryCapacity:8,maxOriginalReasonImages:1,maxUniqueImages:4,basisAdmission:'negative-evidence'},reason:{mode:modes.reason,memoryCapacity:8,maxOriginalReasonImages:1,maxUniqueImages:4,basisAdmission:'excursion-evidence',declaredDifference:'Only blocker-basis admission from the same performed excursion; no extra API stage or prompt change'}}:{shared:{fullViewport:true,recencyImages:3,experienceCapacity:8,longContext:true,additionalAPIStages:0},old:{mode:modes.old,fixedTemporaryDeferral:true,maxUniqueImages:3},reason:{mode:modes.reason,memoryCapacity:8,maxOriginalReasonImages:1,maxUniqueImages:4,declaredDifference:'Reason memory, source evidence image when needed, and capture/review questions within the existing assessment'}};
+ return {modes,phase,ledgerPhase,fullSchedule,schedule,limits,inputComponents};
+}
 async function json(path:string){return JSON.parse(await readFile(path,'utf8'));}
-/** Hash only the two known predecessor manifests' ledgers; absent local reports are recorded honestly. */
+/** Hash only the known predecessor manifests' ledgers; absent local reports are recorded honestly. */
 export async function snapshotReasonPriorLedgers(comparison:ReasonComparison='deferral-reason',workspaceRoot=process.cwd()){
  validateComparison(comparison);
- const manifestPath=comparison==='reason-admission'?'reports/deferral-reason-2026-10-28/live/manifest.json':'reports/holdout-stability-2026-10-28/live/manifest.json';let paths:string[]=[];
+ const manifestPath=comparison==='reason-grounding'?'reports/deferral-admission-2026-10-29/live/manifest.json':comparison==='reason-admission'?'reports/deferral-reason-2026-10-28/live/manifest.json':'reports/holdout-stability-2026-10-28/live/manifest.json';let paths:string[]=[];
  try{
   const manifest=await json(resolve(workspaceRoot,manifestPath));
   paths=(manifest.priorLedgers??[]).map((item:{path:string})=>item.path);
@@ -56,10 +68,35 @@ function localURL(value:string|undefined){
 function comparableConfig(config:BetaResult['config'],comparison:ReasonComparison){
  const {id:_id,...rest}=config;
  if(comparison==='deferral-reason')delete rest.deferralReason;
- else if(rest.deferralReason){const {basisAdmission:_basisAdmission,...reason}=rest.deferralReason;rest.deferralReason=reason;}
+ else if(rest.deferralReason){if(comparison==='reason-grounding'){const {reviewMode:_reviewMode,...reason}=rest.deferralReason;rest.deferralReason=reason;}else{const {basisAdmission:_basisAdmission,...reason}=rest.deferralReason;rest.deferralReason=reason;}}
  return rest;
 }
-function runSummary(record:RunRecord){
+function groundingMetrics(result:BetaResult){
+ let statusChangedWithoutCitation=0,groundedQuestionCount=0,groundedResponseCount=0;
+ type Latency={identity:{imageSha256:string;candidateId:string;fromObservationId:string;toObservationId:string};firstReviewStep:number;firstReleaseStep:number|null;delaySteps:number|null;reviewCount:number};
+ const generations=new Map<string,Latency>();
+ for(const step of result.steps){
+  groundedQuestionCount+=Object.keys(step.deliberation?.questions??{}).filter(key=>/^reasonReview\d+Grounded$/.test(key)).length;
+  const record=object(object((step as unknown as Record<string,unknown>).deferralReason)?.record),raw=object(record?.rawChoices)??{};
+  for(const [key,value] of Object.entries(raw)){
+   if(/^reasonReview\d+Grounded$/.test(key))groundedResponseCount++;
+   if(/^reasonReview\d+Status$/.test(key)&&object(value)?.choice==='basis_changed'&&object(raw[key.replace(/Status$/,'Evidence')])?.choice==='none')statusChangedWithoutCitation++;
+  }
+  for(const value of Array.isArray(record?.reviews)?record.reviews:[]){
+   const review=object(value),id=object(review?.identity);
+   if(!id||!['imageSha256','candidateId','fromObservationId','toObservationId'].every(key=>typeof id[key]==='string'))continue;
+   const identity={imageSha256:id.imageSha256 as string,candidateId:id.candidateId as string,fromObservationId:id.fromObservationId as string,toObservationId:id.toObservationId as string},key=JSON.stringify(Object.values(identity));
+   const entry=generations.get(key)??{identity,firstReviewStep:step.number,firstReleaseStep:null,delaySteps:null,reviewCount:0};
+   entry.reviewCount++;entry.firstReviewStep=Math.min(entry.firstReviewStep,step.number);
+   if(review?.released===true)entry.firstReleaseStep=entry.firstReleaseStep===null?step.number:Math.min(entry.firstReleaseStep,step.number);
+   entry.delaySteps=entry.firstReleaseStep===null?null:entry.firstReleaseStep-entry.firstReviewStep;
+   generations.set(key,entry);
+  }
+ }
+ const entries=[...generations.values()],delays=entries.flatMap(entry=>entry.delaySteps===null?[]:[entry.delaySteps]);
+ return {statusChangedWithoutCitation,groundedQuestionCount,groundedResponseCount,completedReviewLatency:{definition:'Per exact image/candidate/from/to generation; firstReviewStep records a completed admitted review, excluding question-only or failed assessment opportunities. Delay is measured in recorded model steps, not time or UI operations.',entries,meanReleasedDelaySteps:mean(delays),unreleasedGenerations:entries.filter(entry=>entry.firstReleaseStep===null).length}};
+}
+function runSummary(record:RunRecord,comparison:ReasonComparison){
  const r=record.result;
  const fault=faults.has(r.termination)||r.objectiveAssessment.status!=='OK'||r.terminalObservation.status!=='RECORDED';
  const valid=r.validForComparison&&!fault&&typeof r.objectiveAssessment.value==='boolean'&&r.objectiveSuccess===r.objectiveAssessment.value;
@@ -80,14 +117,14 @@ function runSummary(record:RunRecord){
  const captures=reasonDetails.flatMap(value=>object(value.capture)?[object(value.capture)!]:[]),reviews=reasonDetails.flatMap(value=>Array.isArray(value.reviews)?value.reviews.map(object).filter((entry):entry is Record<string,unknown>=>entry!==undefined):[]);
  const reasonMetrics={reasonCaptures:captures.length,admittedReasonCaptures:captures.filter(value=>value.admitted===true).length,reasonReviews:reviews.length,reasonBasisChangedReports:reviews.filter(value=>value.status==='basis_changed').length,actualReasonReleases:reviews.filter(value=>value.released===true).length};
  const deferralDecisions=r.steps.flatMap(step=>step.deferral?.decision?[{step:step.number,...step.deferral.decision}]:[]);
- return {id:record.id,scenario:record.scenario,replicate:record.replicate,condition:record.condition,valid,fault,objectiveAssessment:r.objectiveAssessment,success:valid&&r.objectiveAssessment.value===true,falseDone:valid&&r.perceivedDone&&r.objectiveAssessment.value===false,termination:r.termination,perceivedDone:r.perceivedDone,uiActions:r.uiActions,decisions:r.decisions,looks:r.looks,requests:r.apiCalls,timing:{apiMs:r.apiMs,uiMs:r.uiMs,elapsedMs:r.elapsedMs,humanTimeMs:null},policyChanges:policySelections.filter(s=>s.changed).length,policySelections,deferralDecisions,reasonRecords,...reasonMetrics,temporaryAlternativeExhaustionSteps:deferralDecisions.filter(d=>d.reason==='ALTERNATIVES_EXHAUSTED').length,route:{identity:'actual-audited-local-pathname-search-hash; no semantic aliases',edges},sameObservationEvidence:r.steps.flatMap(step=>{
+ return {id:record.id,scenario:record.scenario,replicate:record.replicate,condition:record.condition,valid,fault,objectiveAssessment:r.objectiveAssessment,success:valid&&r.objectiveAssessment.value===true,falseDone:valid&&r.perceivedDone&&r.objectiveAssessment.value===false,termination:r.termination,perceivedDone:r.perceivedDone,uiActions:r.uiActions,decisions:r.decisions,looks:r.looks,requests:r.apiCalls,timing:{apiMs:r.apiMs,uiMs:r.uiMs,elapsedMs:r.elapsedMs,humanTimeMs:null},policyChanges:policySelections.filter(s=>s.changed).length,policySelections,deferralDecisions,reasonRecords,...reasonMetrics,...(comparison==='reason-grounding'?groundingMetrics(r):{}),temporaryAlternativeExhaustionSteps:deferralDecisions.filter(d=>d.reason==='ALTERNATIVES_EXHAUSTED').length,route:{identity:'actual-audited-local-pathname-search-hash; no semantic aliases',edges},sameObservationEvidence:r.steps.flatMap(step=>{
   const context=object(step.modelInput?.experienceContext);return context?.returnedRoutes?[{step:step.number,observationId:step.observationId,returnedRoutes:context.returnedRoutes}]:[];
  })};
 }
 /** Descriptive only: model reasons are saved self-reports; route changes do not establish recovery. */
 export function analyzeReasonRuns(records:RunRecord[],comparison:ReasonComparison='deferral-reason'){
  validateComparison(comparison);
- const runs=records.map(runSummary),pairs=[];
+ const runs=records.map(record=>runSummary(record,comparison)),pairs=[];
  for(const scenario of ['notifications','revisit-alpha','revisit-beta'])for(const replicate of [1,2]){
   const group=records.filter(r=>r.scenario===scenario&&r.replicate===replicate);if(!group.length)continue;
   const old=group.filter(r=>r.condition==='old'),reason=group.filter(r=>r.condition==='reason'),errors:string[]=[];
@@ -108,19 +145,19 @@ export function analyzeReasonRuns(records:RunRecord[],comparison:ReasonCompariso
  for(const scenario of ['notifications','revisit-alpha','revisit-beta'])for(const condition of ['old','reason']){
   const group=runs.filter(r=>r.scenario===scenario&&r.condition===condition);if(!group.length)continue;
   const valid=group.filter(r=>r.valid);
-  cells.push({scenario,condition,n:group.length,valid:valid.length,successes:valid.filter(r=>r.success).length,faults:group.filter(r=>r.fault).length,falseDone:valid.filter(r=>r.falseDone).length,meanUIActions:mean(valid.map(r=>r.uiActions)),meanDecisions:mean(valid.map(r=>r.decisions)),policyChanges:sum(valid.map(r=>r.policyChanges)),reasonRecordSteps:sum(valid.map(r=>r.reasonRecords.length)),reasonCaptures:sum(valid.map(r=>r.reasonCaptures)),admittedReasonCaptures:sum(valid.map(r=>r.admittedReasonCaptures)),reasonReviews:sum(valid.map(r=>r.reasonReviews)),reasonBasisChangedReports:sum(valid.map(r=>r.reasonBasisChangedReports)),actualReasonReleases:sum(valid.map(r=>r.actualReasonReleases)),temporaryAlternativeExhaustionSteps:sum(valid.map(r=>r.temporaryAlternativeExhaustionSteps))});
+  cells.push({scenario,condition,n:group.length,valid:valid.length,successes:valid.filter(r=>r.success).length,faults:group.filter(r=>r.fault).length,falseDone:valid.filter(r=>r.falseDone).length,meanUIActions:mean(valid.map(r=>r.uiActions)),meanDecisions:mean(valid.map(r=>r.decisions)),policyChanges:sum(valid.map(r=>r.policyChanges)),reasonRecordSteps:sum(valid.map(r=>r.reasonRecords.length)),reasonCaptures:sum(valid.map(r=>r.reasonCaptures)),admittedReasonCaptures:sum(valid.map(r=>r.admittedReasonCaptures)),reasonReviews:sum(valid.map(r=>r.reasonReviews)),reasonBasisChangedReports:sum(valid.map(r=>r.reasonBasisChangedReports)),actualReasonReleases:sum(valid.map(r=>r.actualReasonReleases)),temporaryAlternativeExhaustionSteps:sum(valid.map(r=>r.temporaryAlternativeExhaustionSteps)),...(comparison==='reason-grounding'?{statusChangedWithoutCitation:sum(valid.map(r=>r.statusChangedWithoutCitation??0)),groundedQuestionCount:sum(valid.map(r=>r.groundedQuestionCount??0)),groundedResponseCount:sum(valid.map(r=>r.groundedResponseCount??0)),meanCompletedReviewReleaseDelaySteps:mean(valid.flatMap(r=>r.completedReviewLatency?.entries.flatMap(entry=>entry.delaySteps===null?[]:[entry.delaySteps])??[])),unreleasedReviewedGenerations:sum(valid.map(r=>r.completedReviewLatency?.unreleasedGenerations??0))}:{})});
  }
- return {schemaVersion:1,kind:comparison==='reason-admission'?'offline-deferral-reason-admission-descriptive-comparison':'offline-deferral-reason-descriptive-comparison',...(comparison==='reason-admission'?{comparison}:{}),expectedTrials:12,received:records.length,runs,cells,pairs,limitations:['Two replicates per scenario and condition are descriptive, with no reliability or generalization estimate.','Model reason captures and reviews are self-reports. Actual release records and actual selected actions remain separate.','Images establish input equality only, not semantic identity or goal equivalence.','Only a subsequent audited observation establishes a performed action destination.','Mock scripted done output is a connectivity check and supplies no performance evidence.',comparison==='reason-admission'?'Source, initial image, goal, persona, and config are paired with only config id and deferralReason.basisAdmission excluded.':'Source, initial image, goal, persona, and config are paired with only config id and the declared deferralReason component excluded.']};
+ return {schemaVersion:1,kind:comparison==='reason-grounding'?'offline-deferral-reason-grounding-descriptive-comparison':comparison==='reason-admission'?'offline-deferral-reason-admission-descriptive-comparison':'offline-deferral-reason-descriptive-comparison',...(comparison!=='deferral-reason'?{comparison}:{}),expectedTrials:12,received:records.length,runs,cells,pairs,limitations:['Two replicates per scenario and condition are descriptive, with no reliability or generalization estimate.','Model reason captures and reviews are self-reports. Actual release records and actual selected actions remain separate.','Images establish input equality only, not semantic identity or goal equivalence.','Only a subsequent audited observation establishes a performed action destination.','Mock scripted done output is a connectivity check and supplies no performance evidence.',comparison==='reason-grounding'?'Source, initial image, goal, persona, and config are paired with only config id and deferralReason.reviewMode excluded.':comparison==='reason-admission'?'Source, initial image, goal, persona, and config are paired with only config id and deferralReason.basisAdmission excluded.':'Source, initial image, goal, persona, and config are paired with only config id and the declared deferralReason component excluded.',...(comparison==='reason-grounding'?['The syntactic absence of changed-without-citation answers is enforced by the choice interface; it is not evidence of improved semantic understanding.','Review delay covers completed record.reviews by exact generation; it excludes question-only and failed assessment opportunities and does not measure all eligible opportunities.','groundedQuestionCount counts saved assessment question definitions, not independently confirmed delivery; groundedResponseCount counts recorded raw answers.','No completed review or release opportunity leaves false-release accuracy untested; a zero count is not evidence of correctness.']:[])]};
 }
 /** Uses the ordinary wrapper; never resends old inputs, changes prior ledgers, or adds an API stage. */
 export async function runDeferralReasonExperiment(options:Options){
  validateReasonExperimentOptions(options);
- const comparison=options.comparison??'deferral-reason',modes=comparison==='reason-admission'?admissionModes:legacyModes;
- const phase=comparison==='reason-admission'?'deferral-reason-admission-comparison':'deferral-reason-comparison',ledgerPhase=comparison==='reason-admission'?'deferral-reason-admission':'deferral-reason';
+ const comparison=options.comparison??'deferral-reason';
+ const {phase,ledgerPhase,modes,fullSchedule,schedule,limits,inputComponents}=reasonComparisonPlan(comparison,options.limit??12);
  const root=resolve(options.out);await mkdir(dirname(root),{recursive:true});await mkdir(root);
- const code=await sourceIdentity(),prior=await snapshotReasonPriorLedgers(comparison),fullSchedule=reasonSchedule(),schedule=fullSchedule.slice(0,options.limit??12);
+ const code=await sourceIdentity(),prior=await snapshotReasonPriorLedgers(comparison);
  const started=Date.now(),deadlineEpochMs=started+20*60*1000;
- const manifest={schemaVersion:1,phase,...(comparison==='reason-admission'?{comparison}:{}),...code,mock:options.mock,performanceEvidence:!options.mock,model:options.mock?'MOCK_SCRIPTED_DONE':'jev-1.14.0',modes,fullSchedule,schedule,limits:{trials:schedule.length,maxRequests:schedule.length*24,phaseMaximumRequests:288,maxRequestsPerTrial:24,maxJudgmentsPerTrial:12,maxUIActionsPerTrial:15,maxLooksPerTrial:3,maxRunMs:180000,phaseMs:20*60*1000,parallel:1},fixedPolicy:{capacity:8,weight:0.01,minAlternativeProbability:0.01},inputComponents:comparison==='reason-admission'?{shared:{fullViewport:true,recencyImages:3,experienceCapacity:8,longContext:true,attempts:1,additionalAPIStages:0},old:{mode:modes.old,memoryCapacity:8,maxOriginalReasonImages:1,maxUniqueImages:4,basisAdmission:'negative-evidence'},reason:{mode:modes.reason,memoryCapacity:8,maxOriginalReasonImages:1,maxUniqueImages:4,basisAdmission:'excursion-evidence',declaredDifference:'Only blocker-basis admission from the same performed excursion; no extra API stage or prompt change'}}:{shared:{fullViewport:true,recencyImages:3,experienceCapacity:8,longContext:true,additionalAPIStages:0},old:{mode:modes.old,fixedTemporaryDeferral:true,maxUniqueImages:3},reason:{mode:modes.reason,memoryCapacity:8,maxOriginalReasonImages:1,maxUniqueImages:4,declaredDifference:'Reason memory, source evidence image when needed, and capture/review questions within the existing assessment'}},humanInputsRead:false,oldSourceInputsReplayed:false,startedAtUTC:new Date(started).toISOString(),deadlineEpochMs,priorLedgers:prior,budgetLedgers:[] as {id:string;path:string;used:number}[],requestAccounting:{used:0,maximum:schedule.length*24,source:options.mock?'mock-zero':'fresh-trial-ledgers-including-incomplete'},records:[] as (ReasonSlot&{dir:string;resultPath:string;initialImageSha256:string;requests:number;replayPath:string})[],status:'RUNNING'};
+ const manifest={schemaVersion:1,phase,...(comparison!=='deferral-reason'?{comparison}:{}),...code,mock:options.mock,performanceEvidence:!options.mock,model:options.mock?'MOCK_SCRIPTED_DONE':'jev-1.14.0',modes,fullSchedule,schedule,limits,fixedPolicy:{capacity:8,weight:0.01,minAlternativeProbability:0.01},inputComponents,humanInputsRead:false,oldSourceInputsReplayed:false,startedAtUTC:new Date(started).toISOString(),deadlineEpochMs,priorLedgers:prior,budgetLedgers:[] as {id:string;path:string;used:number}[],requestAccounting:{used:0,maximum:schedule.length*24,source:options.mock?'mock-zero':'fresh-trial-ledgers-including-incomplete'},records:[] as (ReasonSlot&{dir:string;resultPath:string;initialImageSha256:string;requests:number;replayPath:string})[],status:'RUNNING'};
  const save=()=>writeFile(join(root,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');await save();
  const records:RunRecord[]=[];
  try{
