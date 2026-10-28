@@ -2,7 +2,7 @@ import {validateChoice,type ChoiceAnswers,type ChoiceQuestion} from '../client.j
 import type {BetaCandidates,UserObservation} from './contracts.js';
 import type {DeferralMemory,DeferralEntry} from './deferral-contracts.js';
 import type {ExperienceMemory,ExperienceSource} from './experience-contracts.js';
-import type {DeferralReasonConfig,ReasonIdentity,ReasonCategory,ReasonStatus,DeferralReasonEntry,DeferralReasonMemory,DeferralReasonContext,DeferralReasonRecord} from './deferral-reason-contracts.js';
+import type {DeferralReasonConfig,ReasonIdentity,ReasonCategory,ReasonStatus,DeferralReasonEntry,DeferralReasonMemory,DeferralReasonContext,DeferralReasonRecord,CaptureProvenance} from './deferral-reason-contracts.js';
 import {experienceContext} from './experience.js';
 const categories:ReasonCategory[]=['prerequisite','information_only','missing_information','unavailable_control','constraint','unknown'];
 const statuses:ReasonStatus[]=['still_blocks','basis_changed','unknown'];
@@ -12,13 +12,27 @@ const nonempty=(v:unknown):v is string=>typeof v==='string'&&v.trim().length>0;
 function order(id:string):number{if(!/^o[1-9]\d*$/.test(id)||!Number.isSafeInteger(Number(id.slice(1))))throw Error('INVALID_REASON_OBSERVATION_ORDER');return Number(id.slice(1));}
 function source(value:ExperienceSource):ExperienceSource{if(!value||!nonempty(value.imageSha256))throw Error('INVALID_REASON_SOURCE');order(value.observationId);return {observationId:value.observationId,imageSha256:value.imageSha256};}
 function identity(value:ReasonIdentity):ReasonIdentity{if(!value||!nonempty(value.imageSha256)||!nonempty(value.candidateId)||order(value.fromObservationId)>=order(value.toObservationId))throw Error('INVALID_REASON_IDENTITY');return {imageSha256:value.imageSha256,candidateId:value.candidateId,fromObservationId:value.fromObservationId,toObservationId:value.toObservationId};}
-function validateConfig(config:DeferralReasonConfig){if(!config||typeof config.enabled!=='boolean'||!Number.isSafeInteger(config.capacity)||config.capacity<1||config.capacity>8||config.maxReasonImages!==1)throw Error('INVALID_DEFERRAL_REASON_CONFIG');}
+function validateConfig(config:DeferralReasonConfig){if(!config||typeof config.enabled!=='boolean'||!Number.isSafeInteger(config.capacity)||config.capacity<1||config.capacity>8||config.maxReasonImages!==1||config.basisAdmission!==undefined&&!['negative-evidence','excursion-evidence'].includes(config.basisAdmission))throw Error('INVALID_DEFERRAL_REASON_CONFIG');}
+function provenanceSources(values:ExperienceSource[]):ExperienceSource[]{
+ if(!Array.isArray(values)||values.length<1||values.length>8)throw Error('INVALID_REASON_CAPTURE_PROVENANCE');
+ const copied=values.map(source);
+ if(new Set(copied.map(s=>s.observationId)).size!==copied.length)throw Error('DUPLICATE_REASON_PROVENANCE_SOURCE');
+ return copied;
+}
+function provenanceCopy(value:CaptureProvenance,id:ReasonIdentity,basis:ExperienceSource):CaptureProvenance{
+ if(!value||value.kind!=='excursion-evidence')throw Error('INVALID_REASON_CAPTURE_PROVENANCE');
+ const negativeEvidence=provenanceSources(value.negativeEvidence),excursionEvidence=provenanceSources(value.excursionEvidence);
+ if(negativeEvidence.some(s=>order(s.observationId)>order(id.toObservationId))||excursionEvidence.some((s,i)=>order(s.observationId)<=order(id.fromObservationId)||order(s.observationId)>=order(id.toObservationId)||s.imageSha256===id.imageSha256||i>0&&order(excursionEvidence[i-1].observationId)>=order(s.observationId))||!excursionEvidence.some(s=>same(s,basis)))throw Error('INVALID_REASON_CAPTURE_PROVENANCE');
+ attachedSources([{observationId:id.fromObservationId,imageSha256:id.imageSha256},{observationId:id.toObservationId,imageSha256:id.imageSha256},...negativeEvidence,...excursionEvidence]);
+ return {kind:'excursion-evidence',negativeEvidence,excursionEvidence};
+}
 function entryCopy(value:DeferralReasonEntry):DeferralReasonEntry{
  const id=identity(value),basis=source(value.basis),capturedAt=source(value.capturedAt);
  if(value.kind!=='model-hypothesis-not-fact'||!categories.includes(value.category)||capturedAt.observationId!==id.toObservationId||capturedAt.imageSha256!==id.imageSha256||order(basis.observationId)<=order(id.fromObservationId)||order(basis.observationId)>order(id.toObservationId)||basis.imageSha256===id.imageSha256)throw Error('INVALID_DEFERRAL_REASON_ENTRY');
  let release:DeferralReasonEntry['release'];
  if(value.release){const r=value.release,newEvidence=source(r.newEvidence),reviewedAt=source(r.reviewedAt);if(r.status!=='basis_changed'||value.category==='unknown'||!same(source(r.basis),basis)||order(newEvidence.observationId)<=order(id.toObservationId)||order(newEvidence.observationId)>order(reviewedAt.observationId)||newEvidence.imageSha256===id.imageSha256||newEvidence.imageSha256===basis.imageSha256||reviewedAt.imageSha256!==id.imageSha256)throw Error('INVALID_REASON_RELEASE');release={status:'basis_changed',basis:source(basis),newEvidence,reviewedAt};}
- return {...id,kind:'model-hypothesis-not-fact',category:value.category,basis,capturedAt,...(release?{release}:{})};
+ const captureProvenance=value.captureProvenance===undefined?undefined:provenanceCopy(value.captureProvenance,id,basis);
+ return {...id,kind:'model-hypothesis-not-fact',category:value.category,basis,capturedAt,...(captureProvenance?{captureProvenance}:{}),...(release?{release}:{})};
 }
 function memoryCopy(memory:DeferralReasonMemory|undefined,capacity=8):DeferralReasonMemory{if(memory===undefined)return {schemaVersion:1,entries:[]};if(!memory||memory.schemaVersion!==1||!Array.isArray(memory.entries))throw Error('INVALID_DEFERRAL_REASON_MEMORY');const entries=memory.entries.slice(-capacity).map(entryCopy);if(new Set(entries.map(key)).size!==entries.length)throw Error('DUPLICATE_DEFERRAL_REASON');return {schemaVersion:1,entries};}
 function deferralCopy(memory:DeferralMemory):DeferralMemory{if(!memory||memory.schemaVersion!==1||!Array.isArray(memory.entries)||memory.entries.length>8)throw Error('INVALID_REASON_DEFERRALS');return {schemaVersion:1,entries:memory.entries.map(e=>({...identity(e),evidence:e.evidence.map(source)}))};}
@@ -29,7 +43,21 @@ export function prepareReasonContext(memory:DeferralReasonMemory|undefined,defer
  const eligible=(entry:ReasonIdentity)=>entry.imageSha256===currentSource.imageSha256&&Object.hasOwn(candidates,entry.candidateId)&&candidates[entry.candidateId].action.type==='click';
  const reviews=config.enabled?copied.entries.filter(e=>eligible(e)&&!e.release&&raw.entries.some(d=>key(d)===key(e))).map(entryCopy):[];
  let capture:DeferralReasonContext['capture'];
- if(config.enabled){const experienceView=experienceContext(experience,current);for(const route of experienceView.returnedRoutes){const first=experienceView.transitions.at(-route.path.length),last=route.path.at(-1);if(route.path.length<2||!first||first.execution!=='performed'||first.intent.action.type!=='click'||first.intent.action.elementId!==first.intent.candidateId||!last||!same(last.result,currentSource))continue;const id=identity({imageSha256:first.intent.source.imageSha256,candidateId:first.intent.candidateId,fromObservationId:first.intent.source.observationId,toObservationId:current.id});if(!eligible(id)||copied.entries.some(e=>key(e)===key(id)))continue;capture={identity:id,evidenceCandidates:route.path.map(step=>source(step.result)).filter(s=>s.imageSha256!==id.imageSha256)};break;}}
+ if(config.enabled){
+  const experienceView=experienceContext(experience,current);
+  for(const route of experienceView.returnedRoutes){
+   const transitions=experienceView.transitions.slice(-route.path.length),first=transitions[0],last=route.path.at(-1);
+   if(route.path.length<2||!first||first.execution!=='performed'||first.intent.action.type!=='click'||first.intent.action.elementId!==first.intent.candidateId||!last||!same(last.result,currentSource))continue;
+   const id=identity({imageSha256:first.intent.source.imageSha256,candidateId:first.intent.candidateId,fromObservationId:first.intent.source.observationId,toObservationId:current.id});
+   if(!eligible(id)||copied.entries.some(e=>key(e)===key(id)))continue;
+   let evidenceCandidates:ExperienceSource[];
+   if(config.basisAdmission==='excursion-evidence'){
+    if(transitions.length!==route.path.length||transitions.some((transition,i)=>!same(transition.intent.source,route.path[i].source)||transition.intent.candidateId!==route.path[i].candidateId||!same(transition.result,route.path[i].result)||i>0&&!same(transitions[i-1].result,transition.intent.source)||order(transition.intent.source.observationId)>=order(transition.result.observationId)||order(transition.result.observationId)>order(current.id)))continue;
+    evidenceCandidates=transitions.filter(t=>t.execution==='performed').map(t=>source(t.result)).filter(s=>s.imageSha256!==id.imageSha256&&order(s.observationId)<order(id.toObservationId));
+   }else evidenceCandidates=route.path.map(step=>source(step.result)).filter(s=>s.imageSha256!==id.imageSha256);
+   capture={identity:id,evidenceCandidates};break;
+  }
+ }
  return {kind:'bounded-model-deferral-reasons-not-fact',memory:copied,current:currentSource,reviews,...(capture?{capture}:{})};
 }
 export function requiredReasonSources(context:DeferralReasonContext,config:DeferralReasonConfig):ExperienceSource[]{validateConfig(config);if(!config.enabled)return [];const refs:ExperienceSource[]=[];for(const review of context.reviews){const basis=source(review.basis);if(!refs.some(s=>same(s,basis)))refs.push(basis);if(refs.length===config.maxReasonImages)break;}return refs;}
@@ -45,14 +73,17 @@ export function admitReasons(response:ChoiceAnswers,context:DeferralReasonContex
  if(!config.enabled)return {memory,record,effectiveDeferrals:actual};
  for(const [id,question] of Object.entries(questions)){const answer=validateChoice(response?.answers?.[id],question.criteria);record.rawChoices[id]={choice:answer.choice,probabilities:{...answer.probabilities}};}
  const choice=(id:string)=>record.rawChoices[id].choice,find=(id:string)=>admitted.find(s=>s.observationId===id),has=(s:ExperienceSource)=>admitted.some(a=>same(a,s));
- if(context.capture){const id=identity(context.capture.identity),category=choice('reasonCaptureCategory') as ReasonCategory,selected=find(choice('reasonCaptureEvidence')),learned=actual.entries.find(e=>key(e)===key(id));let basis:ExperienceSource|undefined;
+ if(context.capture){const id=identity(context.capture.identity),category=choice('reasonCaptureCategory') as ReasonCategory,selected=find(choice('reasonCaptureEvidence')),learned=actual.entries.find(e=>key(e)===key(id));let basis:ExperienceSource|undefined,captureProvenance:CaptureProvenance|undefined;
   if(!learned)record.adjustments.push('CAPTURE_NOT_LEARNED');
   else if(!selected)record.adjustments.push('CAPTURE_NO_ADMITTED_BASIS');
-  else if(!context.capture.evidenceCandidates.some(s=>same(s,selected))||!learned.evidence.some(s=>same(s,selected))||selected.imageSha256===id.imageSha256||order(selected.observationId)<=order(id.fromObservationId)||order(selected.observationId)>order(id.toObservationId))record.adjustments.push('CAPTURE_BASIS_NOT_MATCHING_LEARNED_EVIDENCE');
-  else basis=source(selected);
+  else if(!context.capture.evidenceCandidates.some(s=>same(s,selected))||config.basisAdmission!=='excursion-evidence'&&!learned.evidence.some(s=>same(s,selected))||selected.imageSha256===id.imageSha256||order(selected.observationId)<=order(id.fromObservationId)||order(selected.observationId)>order(id.toObservationId))record.adjustments.push('CAPTURE_BASIS_NOT_MATCHING_LEARNED_EVIDENCE');
+  else {
+   basis=source(selected);
+   if(config.basisAdmission==='excursion-evidence')captureProvenance=provenanceCopy({kind:'excursion-evidence',negativeEvidence:learned.evidence,excursionEvidence:context.capture.evidenceCandidates.filter(has)},id,basis);
+  }
   if(category==='unknown')record.adjustments.push('CAPTURE_CATEGORY_UNKNOWN');
-  record.capture={identity:id,category,...(basis?{basis:source(basis)}:{}),admitted:!!basis};
-  if(basis){const entry=entryCopy({...id,kind:'model-hypothesis-not-fact',category,basis,capturedAt:context.current});memory.entries=[...memory.entries.filter(e=>key(e)!==key(entry)),entry].slice(-config.capacity);}
+  record.capture={identity:id,category,...(basis?{basis:source(basis)}:{}),admitted:!!basis,...(captureProvenance?{captureProvenance:provenanceCopy(captureProvenance,id,basis!)}:{})};
+  if(basis){const entry=entryCopy({...id,kind:'model-hypothesis-not-fact',category,basis,capturedAt:context.current,...(captureProvenance?{captureProvenance}:{})});memory.entries=[...memory.entries.filter(e=>key(e)!==key(entry)),entry].slice(-config.capacity);}
  }
  context.reviews.forEach((review,i)=>{const id=identity(review),status=choice(`reasonReview${i}Status`) as ReasonStatus,selected=find(choice(`reasonReview${i}Evidence`)),basis=has(review.basis)?source(review.basis):undefined,entry=memory.entries.find(e=>key(e)===key(id));let released=false,newEvidence:ExperienceSource|undefined;
   if(status==='unknown')record.adjustments.push(`REVIEW_${i}_STATUS_UNKNOWN`);
@@ -70,4 +101,3 @@ export function admitReasons(response:ChoiceAnswers,context:DeferralReasonContex
  });
  return {memory,record,effectiveDeferrals:effectiveFromReasons(memory,actual)};
 }
-
