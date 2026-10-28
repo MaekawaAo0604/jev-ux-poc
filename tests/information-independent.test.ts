@@ -138,7 +138,7 @@ test('independent: criteria projection changes only descriptions and retains ord
  const seen:ModelRequest[][]=[[],[]];
  for(const [i,candidateEffects] of [false,true].entries()){
   const c=config();c.deliberation={...memoryConfig,candidateEffects};
-  const r=await runBeta(page,{runId:'independent-criteria',dir:join(dir,String(candidateEffects)),baseURL,charter,config:c,evaluate:async request=>{
+  const r=await runBeta(page,{runId:'independent-criteria',dir:join(dir,String(candidateEffects)),baseURL,charter,config:c,semanticTrial:{id:'independent',pairId:'independent',replicate:1,fixture:{version:1,ui:'reference',mapping:'A'}},preserveDisplay:true,evaluate:async request=>{
    seen[i].push(structuredClone(request));const response=reply(request,'done',{goal:'unsatisfied'});
    if(request.questions.nextAction)response.answers.nextAction.probabilities=Object.fromEntries(Object.keys(request.questions.nextAction.criteria).map(id=>[id,id==='done'?0.6:id==='e1'?0.4:0]));
    return response;

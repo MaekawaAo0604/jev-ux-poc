@@ -54,27 +54,39 @@ test('phase2 independent: persistence failure rejects admission before caller ca
 
 
 
-test('phase2 independent: slow durable reservation must not start gateway HTTP after absolute run deadline',async()=>{
- const {dir,file}=await ledger(1,1),previousFetch=globalThis.fetch,previousKey=process.env.AI_GATEWAY_API_KEY,originalReserve=PhaseBudget.prototype.reserve;let requests=0;process.env.AI_GATEWAY_API_KEY='INDEPENDENT_LOCAL_STUB';
+test('phase2 independent: slow durable reservation must not start gateway HTTP after absolute run deadline',async(t)=>{
+ const {dir,file}=await ledger(1,1),previousFetch=globalThis.fetch,previousKey=process.env.AI_GATEWAY_API_KEY,originalReserve=PhaseBudget.prototype.reserve,runBudget=90000,originalNow=performance.now.bind(performance);let requests=0,reachedReservations=0,clockOffset=0;process.env.AI_GATEWAY_API_KEY='INDEPENDENT_LOCAL_STUB';
+ const clock=t.mock.method(performance,'now',()=>originalNow()+clockOffset);
  try{
-  const configs=JSON.parse(await readFile('experiments/virtual-beta/phase2-diagnostic.json','utf8'));for(const config of configs)config.maxRunMs=3000;const configPath=join(dir,'config.json');await writeFile(configPath,JSON.stringify(configs));
-  PhaseBudget.prototype.reserve=async function(info){const id=await originalReserve.call(this,info);await new Promise(resolve=>setTimeout(resolve,3100));return id;};
+  const configs=JSON.parse(await readFile('experiments/virtual-beta/phase2-diagnostic.json','utf8'));for(const config of configs)config.maxRunMs=runBudget;const configPath=join(dir,'config.json');await writeFile(configPath,JSON.stringify(configs));
+  PhaseBudget.prototype.reserve=async function(info){
+   const id=await originalReserve.call(this,info);reachedReservations++;
+   const saved=JSON.parse(await readFile(file,'utf8'));assert.equal(reachedReservations,1);assert.equal(saved.used,1);assert.equal(saved.attempts[0].status,'RESERVED');
+   clockOffset=runBudget+1;return id;
+  };
   globalThis.fetch=async(_url,options)=>{requests++;return reply(JSON.parse(String(options!.body)));};
   const result=await main(['--env-file',join(dir,'ABSENT'),'--config',configPath,'--phase-budget',file,'--conditions','current','--ui','reference','--max-total-api','1','--out',join(dir,'slow-admission')]);
+  assert.equal(reachedReservations,1,'The real durable reservation must complete before expiring the dispatch deadline');
   assert.equal(result!.results[0].termination,'TIME_LIMIT');assert.equal(requests,0,'No HTTP may start after the run deadline expired while awaiting reservation');assert.equal(result!.results[0].apiCalls,0);assert.equal(result!.results[0].uiActions,0);const saved=JSON.parse(await readFile(file,'utf8'));assert.equal(saved.used,1);assert.equal(saved.attempts[0].status,'ERROR');assert.equal(saved.attempts[0].metadata.attempts,0);assert.equal(saved.attempts[0].metadata.failureCode,'DEADLINE_BEFORE_REQUEST');const comparison=JSON.parse(await readFile(join(dir,'slow-admission','comparison.json'),'utf8'));assert.equal(comparison.actualAPIRequests,0);assert.equal(comparison.totalCalls,0);
- }finally{PhaseBudget.prototype.reserve=originalReserve;globalThis.fetch=previousFetch;if(previousKey===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=previousKey;}
+ }finally{clock.mock.restore();PhaseBudget.prototype.reserve=originalReserve;globalThis.fetch=previousFetch;if(previousKey===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=previousKey;}
 });
 
 
-test('phase2 independent: untransmitted settlement persistence failure stays API0 and releases phase lock',async()=>{
- const {dir,file}=await ledger(1,1),previousFetch=globalThis.fetch,previousKey=process.env.AI_GATEWAY_API_KEY,originalReserve=PhaseBudget.prototype.reserve,originalSettle=PhaseBudget.prototype.settle;let requests=0;process.env.AI_GATEWAY_API_KEY='INDEPENDENT_LOCAL_STUB';
+test('phase2 independent: untransmitted settlement persistence failure stays API0 and releases phase lock',async(t)=>{
+ const {dir,file}=await ledger(1,1),previousFetch=globalThis.fetch,previousKey=process.env.AI_GATEWAY_API_KEY,originalReserve=PhaseBudget.prototype.reserve,originalSettle=PhaseBudget.prototype.settle,runBudget=90000,originalNow=performance.now.bind(performance);let requests=0,reachedReservations=0,clockOffset=0;process.env.AI_GATEWAY_API_KEY='INDEPENDENT_LOCAL_STUB';
+ const clock=t.mock.method(performance,'now',()=>originalNow()+clockOffset);
  try{
-  const configs=JSON.parse(await readFile('experiments/virtual-beta/phase2-diagnostic.json','utf8'));for(const config of configs)config.maxRunMs=3000;const configPath=join(dir,'config.json');await writeFile(configPath,JSON.stringify(configs));
-  PhaseBudget.prototype.reserve=async function(info){const id=await originalReserve.call(this,info);await new Promise(resolve=>setTimeout(resolve,3100));return id;};
+  const configs=JSON.parse(await readFile('experiments/virtual-beta/phase2-diagnostic.json','utf8'));for(const config of configs)config.maxRunMs=runBudget;const configPath=join(dir,'config.json');await writeFile(configPath,JSON.stringify(configs));
+  PhaseBudget.prototype.reserve=async function(info){
+   const id=await originalReserve.call(this,info);reachedReservations++;
+   const saved=JSON.parse(await readFile(file,'utf8'));assert.equal(reachedReservations,1);assert.equal(saved.used,1);assert.equal(saved.attempts[0].status,'RESERVED');
+   clockOffset=runBudget+1;return id;
+  };
   PhaseBudget.prototype.settle=async()=>{throw new Error('INDEPENDENT_SETTLEMENT_PERSIST_FAILURE');};
   globalThis.fetch=async(_url,options)=>{requests++;return reply(JSON.parse(String(options!.body)));};
   const result=await main(['--env-file',join(dir,'ABSENT'),'--config',configPath,'--phase-budget',file,'--conditions','current','--ui','reference','--max-total-api','1','--out',join(dir,'settlement-error')]);
+  assert.equal(reachedReservations,1,'The real durable reservation must complete before settlement can fail');
   const run=result!.results[0];assert.equal(requests,0);assert.equal(run.apiCalls,0);assert.equal(run.termination,'API_ERROR');assert.equal(run.validForComparison,false);assert.equal(run.uiActions,0);assert.deepEqual(run.steps[0].error,{code:'BUDGET_ADMISSION_ERROR'});
   const saved=JSON.parse(await readFile(file,'utf8'));assert.equal(saved.used,1);assert.equal(saved.attempts[0].status,'RESERVED');const comparison=JSON.parse(await readFile(join(dir,'settlement-error','comparison.json'),'utf8'));assert.equal(comparison.actualAPIRequests,0);assert.equal(comparison.totalCalls,0);const reopened=await PhaseBudget.open(file);await reopened.close();
- }finally{PhaseBudget.prototype.reserve=originalReserve;PhaseBudget.prototype.settle=originalSettle;globalThis.fetch=previousFetch;if(previousKey===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=previousKey;}
+ }finally{clock.mock.restore();PhaseBudget.prototype.reserve=originalReserve;PhaseBudget.prototype.settle=originalSettle;globalThis.fetch=previousFetch;if(previousKey===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=previousKey;}
 });
