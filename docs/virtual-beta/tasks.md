@@ -79,3 +79,14 @@ ea27c3cで通常bad/同Charter/全viewport画像のみ/Personaなしgoal baselin
 関連145件、型/build、旧3実験と今回2実験のoffline replay成功。独立fixture初回失敗はhover差による画像不一致を確認し、実ホームリンクでの同画像帰還へfixtureを修正。全候補保留後の実再訪はscripted browserで成立、live成功経路では未観測。詳細・設定・実行コマンドはtemporary-deferral.md、匿名測定temporary-deferral-results.json、独立記録temporary-deferral-independent-review.md。
 
 次の優先事項：1) 正解ラベルやIDに依存しない別配置・別課題/複数seedで、切替・必要な再訪・誤保留を固定版で反復測定する。2) hover/描画差でも同じ画面と扱う観察同一性を、誤った同一視の負例込みで設計する。3) 閾値/重みを、較正用と評価用を分けた人間記録で検証する。モデル確率0の代替先は今回探索できない制約も対象にする。追加モデル学習や意味理解の解決は今回未実装。
+
+
+## 別課題・画面の固定版比較（2026-10-28）
+
+76d687bで3課題×2画面×2反復×2条件の比較runner/fixture/分析を追加。実行前の独立REDでnative Backによる正当なホーム帰還が前提成立に反映されないfixture不具合を修正し、5798717へ固定。方策・重み・profileは4a67772から不変。24試行244/576要求、全API1attempt/longContext、0fault、24replayと12組の初期条件一致、旧10台帳不変を独立確認した。
+
+結果：対照10/12・保留10/12。必要再訪と直接操作は全16試行達成、配送alphaは全4試行が保存前doneで未達、beta全4達成。保留ありrevisit-alphaでは確認済みの前提が変わっても古い保留が残り、必要な共有設定への再訪を妨げて各2操作増えた。後で候補枯渇解除により達成した。人間の頻度やUI変更の因果効果には読み替えない。
+
+実行後にemptyhash/#homeの同じUIを別routeとした集計不具合を、専用aliasと20回帰追加で修正。旧summary/result/manifestを保持し同じ24件をoffline再集計、API追加0。旧126＋新47＋独立9=182関連検証、型/build、全実保存監査を記録。詳細はholdout-stability.md/holdout-stability-results.json/holdout-independent-review.md。
+
+次のP0：変更予定・プレビューと保存済み現在状態を区別する完了評価。P0：観測した前提変更に応じて保留理由を再評価し、必要な再訪を遅らせない。P1：描画差の観察同一性。今回はここを結果に合わせて修正せず、先に固定版の能力限界を確定した。ペルソナ差・人間への一致・公開製品での安定性は次段階。

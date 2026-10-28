@@ -4,6 +4,8 @@
 
 ## 最新の検証
 
+別課題・画面の24試行は [holdout-stability.md](holdout-stability.md)、匿名値は [holdout-stability-results.json](holdout-stability-results.json)。配送変更・必要再訪・直接操作を2画面×2反復×保留有無で比較し、244要求・基盤障害0。再訪8/8、直接8/8、配送4/8（alpha全4未達・beta全4達成）、両方式10/12だった。保存前の主観的完了4件と、前提変更後も古い保留が残り必要再訪を遅らせた2件を確認。安定完了は未達。native Backのfixture不具合を実行前に修正し、実行後のURL alias集計も原本を保持して修正した。関連182件・型/build・独立監査を実施。
+
 失敗経路の一時保留を [temporary-deferral.md](temporary-deferral.md) に追加した。実モデルの同じローカル課題で、対照は12判断で反復・未達、保留ありは帰還後に別カテゴリへ切り替わり6 UI操作・7判断で客観達成した。計38/48要求、関連145件・型/build・独立検証成功。元の入口を提案したモデル分布を明示方策が補正した1例であり、人間の再現や一般的改善率は未検証。補正時は別クリックとスクロールが同率で既存tie-breakが働いた。個別値は [temporary-deferral-results.json](temporary-deferral-results.json)。
 
 経験状態の追加と実モデル3試行は [experience-recovery.md](experience-recovery.md)、設定・個別結果は [experience-recovery-results.json](experience-recovery-results.json)。出発画像・対象・予想・到達・結果評価を独立容量8で結び、既存の評価/行動へ接続した。最初の2試行と根拠説明だけの追加1試行は計72要求。根拠付きの進展なし/予想不支持が届いても同経路を反復し、切替と目的達成は未達。関連127件と独立検証、型/buildは成功。人間一致とは区別する。

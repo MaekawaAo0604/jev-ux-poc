@@ -17,12 +17,16 @@ Two repetitions per cell are a bounded cross-task stability check, not a statist
 
 ## Tasks
 
-- [ ] Worker RED/GREEN fixtures and analyzer; parent RED/GREEN typed integration and batch bounds.
-- [ ] Integrate, run related regression/type/build, freeze source and protocol; independently accept before live execution.
-- [ ] Execute bounded24 actual trials via normal runner, fresh browser each, no human-derived inputs. Save all inputs/images/weights/actions/termination and ledger.
-- [ ] Offline replay every completed run; independently audit source/config/reset/ledgers/timing and metrics. Fix instrumentation only with RED/regression/review; do not tune frozen policy or erase failures.
-- [ ] Save anonymous report with counts, actual branch changes/necessary revisits/direct success, limits and next tasks. Commit/push authorized feature branch, remote-check.
+- [x] Worker RED/GREEN fixtures and analyzer; parent RED/GREEN typed integration and batch bounds.
+- [x] Integrate, run related regression/type/build, freeze source and protocol; independently accept before live execution.
+- [x] Execute bounded24 actual trials via normal runner, fresh browser each, no human-derived inputs. Save all inputs/images/weights/actions/termination and ledger.
+- [x] Offline replay every completed run; independently audit source/config/reset/ledgers/timing and metrics. Fix instrumentation only with RED/regression/review; do not tune frozen policy or erase failures.
+- [x] Save anonymous report with counts, actual branch changes/necessary revisits/direct success, limits and next tasks. Commit/push authorized feature branch, remote-check.
 
 ## Preflight ruling
 
 The UI fixture used onClick-only prerequisite transitions and did not admit native Back as a legitimate home return. Fix the fixture by observing actual route transitions, add RED native-Back regression, reverify all six fixtures/reset/image identity, then refreeze source before any live request. Policy and parameters remain fixed. The initial integration log140 had139 passes/one mount-heading failure while UI was incomplete; final new26 tests pass and resolve that case. Old126 cases passed. Initial independent frozen-policy blob-vs-worktree equality needed newline normalization, not a policy code change.
+
+## Completion evidence
+
+Execution frozen5798717/source dace005dbf214f7df94c6afdd4cf1b4f8085d6ad68bd87f9fd3238adec2a9b91 after native-Back fixture RED/GREEN.24 trials/244of576 requests/all1attempt/0fault, objective20true+4false; both conditions10of12. Revisit/direct each8of8; deliveryalpha0of4/beta4of4. Both policyalpha revisits postponed correct model-proposed sharing return and later released, adding2UI actions each. Independent original-source113files,24inputs/images/traces/replays,12pairs/all4initialimagesperfixture,old10ledgers accepted. Post-run analysis alias repaired with20extra regressions,31analysis cases pass, no API replay. Only changed execution-source file is runner/holdout-analysis.ts; originalsummary/manifest/24results retained. Old126+new47+independent9=182 selectedtests, type/build pass. Independent portable9finalpass and alias RED/GREEN/repair audit accepted. See holdout-stability.md/results/independent-review. Capability screening is not stable; nextP0 current-vs-proposed completion and prerequisite-aware deferral reevaluation. Authorized feature-branch publication follows final diff/commit checks; final response records receipt.

@@ -98,3 +98,51 @@ test('path uniqueness ignores candidate names but refuses to treat unknown termi
  let cell=analyzeHoldoutRuns([a,b]).cells[0];assert.equal(cell.pathUniqueness.uniquePaths,1);assert.equal(cell.pathUniqueness.consistent,true);
  b.result.steps.pop();cell=analyzeHoldoutRuns([a,b]).cells[0];assert.equal(cell.pathUniqueness.completeValidN,1);assert.equal(cell.pathUniqueness.unknownPathN,1);assert.equal(cell.pathUniqueness.consistent,null);
 });
+
+// The actual holdout fixture resolves both the initial empty hash and #home to
+// home. Equal image hashes below reproduce the independent live audit finding;
+// this alias is fixture semantics, never a general same-image route heuristic.
+function homeAliasRun(firstURL:string,returnedURL:string):HoldoutRunRecord {
+ const run=record('policy');
+ const first=step(1,firstURL,{type:'click',elementId:'old'});
+ const away=step(2,'/good/?holdout=s1a#primary',{type:'click',elementId:'header-home'});
+ const back=step(3,returnedURL,{type:'click',elementId:'alternative'});
+ back.assetFiles!.current.sha256=first.assetFiles!.current.sha256;
+ returned(back,first,away);
+ run.result.steps=[first,away,back,step(4,'/good/?holdout=s1a#alternative')];
+ return run;
+}
+
+for(const token of ['s1a','s1b','r1a','r1b','d1a','d1b'])for(const direction of ['empty-to-home','home-to-empty'] as const){
+ test(`holdout home alias ${token}: ${direction} counts the observed different destination after return`,()=>{
+  const empty='/good/?holdout='+token,home=empty+'#home';
+  const run=homeAliasRun(direction==='empty-to-home'?empty:home,direction==='empty-to-home'?home:empty);
+  run.result.steps[1].audit!.url='http://localhost:4217'+empty+'#primary';
+  run.result.steps[3].audit!.url='http://127.0.0.1:6000'+empty+'#alternative';
+  const view=analyzeHoldoutRuns([run]).runs[0];
+  assert.equal(view.postReturnBranches[0].status,'changed-destination');
+  assert.equal(view.metrics.postReturnBranchChanges,1);
+  assert.equal(view.route.edges[0].from,'/good/#home');
+  assert.equal(view.route.edges[1].to,'/good/#home');
+  assert.equal(view.route.edges[2].from,'/good/#home');
+  assert.equal(view.metrics.revisits,1);
+ });
+}
+
+for(const [name,firstURL,returnedURL] of [
+ ['other actual route','/good/?holdout=s1a','/good/?holdout=s1a#account'],
+ ['custom fake UI','/custom/?holdout=s1a','/custom/?holdout=s1a#home'],
+ ['non-good app path','/bad/?holdout=s1a','/bad/?holdout=s1a#home'],
+ ['ordinary good UI','/good/','/good/#home'],
+ ['unsupported fixture token','/good/?holdout=unknown','/good/?holdout=unknown#home'],
+ ['ambiguous duplicate token','/good/?holdout=s1a&holdout=s1a','/good/?holdout=s1a&holdout=s1a#home'],
+ ['conflicting semantic fixture','/good/?holdout=s1a&semanticFixture=x','/good/?holdout=s1a&semanticFixture=x#home'],
+ ['conflicting beta fixture','/good/?holdout=s1a&betaUI=x','/good/?holdout=s1a&betaUI=x#home'],
+] as const){
+ test(`holdout home alias must not conflate ${name}`,()=>{
+  const view=analyzeHoldoutRuns([homeAliasRun(firstURL,returnedURL)]).runs[0];
+  assert.equal(view.postReturnBranches[0].status,'source-mismatch');
+  assert.equal(view.metrics.postReturnBranchChanges,0);
+  assert.notEqual(view.route.edges[0].from,view.route.edges[2].from);
+ });
+}
