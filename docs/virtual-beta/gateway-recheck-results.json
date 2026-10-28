@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "status": "INDEPENDENT_REAL_GATEWAY_STOP_AUDIT_VERIFIED",
+  "source": {
+    "before": {
+      "revision": "0dba7490a18bda81ff7b441e329202cde45a41bb",
+      "sourceHash": "1b8c483b2b89c4f9fea113d2529d902ace425ec1a2a75e207109affa81b084c9"
+    },
+    "after": {
+      "revision": "0dba7490a18bda81ff7b441e329202cde45a41bb",
+      "sourceHash": "1b8c483b2b89c4f9fea113d2529d902ace425ec1a2a75e207109affa81b084c9"
+    },
+    "identical": true
+  },
+  "scope": "Read-only saved evidence. No browser/UI operation, credentials, environment file, human operation record, API or network access by this auditor.",
+  "auditorCalls": {
+    "realModel": 0,
+    "fakeModel": 0,
+    "network": 0,
+    "UIOperations": 0
+  },
+  "recordedRun": {
+    "status": "GATEWAY_HTTP_402",
+    "requestedModel": "jev-1.14.0",
+    "recordedRequests": 1,
+    "successfulModelResponses": 0,
+    "ERROR": 1,
+    "RESERVED": 0,
+    "attemptsPerRequest": 1,
+    "finishedRecords": 1,
+    "validTrials": 0,
+    "validPairs": 0,
+    "uiActions": 0,
+    "looks": 0,
+    "termination": "API_ERROR",
+    "validForComparison": false,
+    "perceivedDone": false,
+    "objectiveSuccess": false,
+    "gatewayFailure": {
+      "code": "HTTP_ERROR",
+      "statusCode": 402,
+      "step": 1,
+      "stage": "assessment",
+      "runId": "notifications-r1-old",
+      "resultPath": "notifications-r1-old/exploration/result.json"
+    }
+  },
+  "checks": {
+    "fullProducerSourceSnapshotMatches": true,
+    "finallyAccountingMatchesLedger": true,
+    "ledgerErrorFinalized": true,
+    "nextTrialAndLedgerAbsent": true,
+    "safeErrorAllowlistExact": true,
+    "providerMessageBodyCauseHeaderOrSecretFieldsAbsent": true,
+    "actualImageHashesVerified": true,
+    "assetReferencesVerified": 2,
+    "requestedModelTagRecordedButNoSuccessfulResponse": true,
+    "replay": {
+      "runId": "notifications-r1-old",
+      "choices": 0,
+      "assessments": 0,
+      "images": 2,
+      "verified": true,
+      "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+    },
+    "trace": {
+      "archiveCRCValid": true,
+      "events": 193,
+      "actualClickCalls": 0,
+      "actualScrollCalls": 0,
+      "readOnlyZIPInspection": true
+    },
+    "priorLedgerChecks": 94,
+    "oldRawBaseline": "reports/goal-semantics-2026-10-29/independent-before-round2.json",
+    "oldRawFilesByteIdentical": 215,
+    "newRawFilesByteIdentical": 16
+  },
+  "interpretation": {
+    "operationalStop": "The recorded first assessment HTTP402 stopped the batch before creating the next trial. Finally accounting persisted used1 and ERROR1.",
+    "cause": "HTTP402 is established from safe recorded error fields; the provider cause, credit balance and whether it can be resolved are not established.",
+    "performance": "No successful model response or user action occurred. Model behavior performance, GoalSearch effects and valid paired comparison are unmeasured.",
+    "manifestPerformanceEvidenceFlag": "The producer flag selects the real-run mode; it does not establish successful model behavior. This audit explicitly records successfulResponses0 and validPairs0."
+  },
+  "findings": [
+    {
+      "severity": "blocking",
+      "category": "external gateway failure",
+      "status": "OBSERVED_UNRESOLVED",
+      "reproduction": "Read first assessment step.error and durable ledger final ERROR metadata in the cited result and ledger.",
+      "expected": "A successful model response is required to resume behavioral comparison.",
+      "actual": "HTTP_ERROR/402 on request1, zero accepted responses, no next trial.",
+      "evidence": [
+        "reports\\goal-search-recheck-2026-10-29\\live\\notifications-r1-old\\exploration\\result.json",
+        "reports\\goal-search-recheck-2026-10-29\\live\\notifications-r1-old-budget.json"
+      ]
+    }
+  ],
+  "limitations": [
+    "Only saved local evidence was audited; no new remote request or provider account inspection was performed.",
+    "The cause of HTTP402 is unknown; no funding diagnosis is made.",
+    "The old ee/d3e raw baseline and historical independent reports remain unchanged.",
+    "Human reproduction and GoalSearch behavior performance remain unverified."
+  ],
+  "newRawHashes": {
+    "reports/goal-search-recheck-2026-10-29/live/manifest.json": "9e5073d0d9e6fae37dc4e2a8aa27bee6ef986fbf4f297a9a319b43b7246c26bf",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old/exploration/audit-1.png": "3296017eca59bc0056ad20c20376c569dc0a145b2a396223d1a432ad6837473a",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old/exploration/final.png": "03b74136e02c8889c4f07cf73846ad67d9ee1f0516bbee1283b5694e6126bae0",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old/exploration/input-1.png": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old/exploration/result.json": "51011058cf417370b0d1e6f61584b1e4a6528a105c6991a90e7687b6e93421e4",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old/exploration/step-1.json": "963de5c9f4992507429cf015cdebcc05d9303716de462fea6099d15994f8bd51",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old/exploration/trace.zip": "f453464bcef0994faed8dfa92d4c09ec69076b763582d50cd1cef1498929b76c",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old/initial-product.json": "9c5ef6f1a807249191ac20f301c8644428d181e6fd97f6dcd4194c11baa1c2a2",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old/initial-product.png": "03b74136e02c8889c4f07cf73846ad67d9ee1f0516bbee1283b5694e6126bae0",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old/manifest.json": "0045511d976663068d90885adbfba20a858fb5aa4a272b954be3560617d14c7b",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old/offline-replay.json": "760be98e1297cae69780cafd3792f0945733084a4ffaed35193fb2d892d0d33c",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old/phase-budget-after.json": "8ec9c6e337b14613b724a03f7e38f2b23e1444a8fe16d1a2a440949efaeab8d3",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old/review.json": "745e4da92b45c4e97478dc7644357529356c5a186c8a47f2084d7ed7aeaab4c7",
+    "reports/goal-search-recheck-2026-10-29/live/notifications-r1-old-budget.json": "29c952f018940f28080347f133d524e1456445ccc9c4f6cc3afd82fa43ae4028",
+    "reports/goal-search-recheck-2026-10-29/live/prior-ledger-check.json": "a67eeb35a831b9ed6cffb23cd9fd86d3d59992288227853c90c6ec8867de1444",
+    "reports/goal-search-recheck-2026-10-29/live/summary.json": "9b704df0b9d34b41abbbba2c89d834941d0ad9cb4dcadf80b8ad05791071f884"
+  }
+}

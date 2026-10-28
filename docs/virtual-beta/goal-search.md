@@ -80,7 +80,7 @@ npm run replay:virtual-beta -- reports/goal-search-new/notifications-r1-reason/e
 
 ## HTTP402停止の運用修正
 
-実モデル記録を保存・独立監査した後、比較runnerだけにHTTP402で次試行へ進まない共通停止処理を追加した。最新版のab71a150はee8fe221からrunner12行追加の差分があり、元の実モデル結果のproducerは引き続きee8fe221。新停止処理の実モデル再確認は外部復旧待ち、通常runner＋完全stubでの検査は [gateway-stop.md](gateway-stop.md)。
+実モデル記録を保存・独立監査した後、比較runnerだけにHTTP402で次試行へ進まない共通停止処理を追加した。最新版のab71a150はee8fe221からrunner12行追加の差分があり、元の実モデル結果のproducerは引き続きee8fe221。停止処理は約1時間後の通常runner再開でも実HTTP402の1要求で停止し、使用数を正常確定できた。正常な実モデル応答による性能比較は引き続き外部復旧待ち。実サービスと完全stubの検査を区別して [gateway-stop.md](gateway-stop.md) に記録する。
 
 独立raw監査コードは実producer ee8fe221の全製品hashを厳格に検証する。後から停止処理を追加した最新版から原実験の同一版を装って監査し直さない。原記録の追試はproducer版の作業ツリーへ当該解析コードだけを配置し、保存済みreportsを指定して --interrupted で行う。解析コードはモデルやUIを再実行しない。新しい12試行が完了した場合は上記の汎用goal-search-auditコマンドを用いる。
 
