@@ -1,0 +1,9 @@
+import type {ExperienceSource} from './experience-contracts.js';
+export type DeferralReasonConfig={enabled:boolean;capacity:number;maxReasonImages:number};
+export type ReasonIdentity={imageSha256:string;candidateId:string;fromObservationId:string;toObservationId:string};
+export type ReasonCategory='prerequisite'|'information_only'|'missing_information'|'unavailable_control'|'constraint'|'unknown';
+export type ReasonStatus='still_blocks'|'basis_changed'|'unknown';
+export type DeferralReasonEntry=ReasonIdentity&{kind:'model-hypothesis-not-fact';category:ReasonCategory;basis:ExperienceSource;capturedAt:ExperienceSource;release?:{status:'basis_changed';basis:ExperienceSource;newEvidence:ExperienceSource;reviewedAt:ExperienceSource}};
+export type DeferralReasonMemory={schemaVersion:1;entries:DeferralReasonEntry[]};
+export type DeferralReasonContext={kind:'bounded-model-deferral-reasons-not-fact';memory:DeferralReasonMemory;current:ExperienceSource;reviews:DeferralReasonEntry[];capture?:{identity:ReasonIdentity;evidenceCandidates:ExperienceSource[]}};
+export type DeferralReasonRecord={kind:'model-hypothesis-not-fact';rawChoices:Record<string,{choice:string;probabilities:Record<string,number>}>;capture?:{identity:ReasonIdentity;category:ReasonCategory;basis?:ExperienceSource;admitted:boolean};reviews:{identity:ReasonIdentity;status:ReasonStatus;basis?:ExperienceSource;newEvidence?:ExperienceSource;released:boolean}[];adjustments:string[];releasedCandidates:string[]};
