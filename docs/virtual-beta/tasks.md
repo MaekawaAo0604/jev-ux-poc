@@ -63,3 +63,10 @@ ea27c3cで通常bad/同Charter/全viewport画像のみ/Personaなしgoal baselin
 ## Deliberation recovery（2026-10-28）
 
 既存二段階をsame bad/同目的へ接続（6981925）。初回7要求でdecision4 assessmentのmax_tokens_exceeded。長文脈を最初から明示するopt-in接続だけを68f4455へ固定、画像/本文/候補・方策不変・1attemptで再実行24要求全OK。12判断で3画面4循環、目的false/DECISION_LIMIT、切替未達。独立監査で評価→選択入力・全画像・候補・台帳一致、関連44件/型/build成功。都度API許可を聞かない指示を保存し、旧枠は保持。次はsource scene+target+prediction+observed outcomeを結ぶ経験状態、再訪が必要な正例を含む受入条件。単に訪問済みを禁止したり、根拠なしのgoal自己申告を事実にしない。結果はdeliberation-recovery.md。
+
+## 経験状態と選択の切り分け（2026-10-28）
+
+- 実装済み：画像bufferと独立した経験容量、出発画像+候補ID+予想+実結果の対応、根拠付き結果評価、現在の同画像/同候補への提示、保存経験のreplay。旧モード維持。
+- 確認済み：関連127件、独立検証、型/build、実モデル2+1試行72要求。根拠説明は別opt-inで固定し、旧結果と台帳を保持。
+- 未達：3試行とも同3画面を反復、12判断で未達。最新では根拠付きneutral/not_supportedがあってもe4を再選択し、履歴の接続だけでは不十分だった。詳細experience-recovery.md。
+- 次のP0：自己評価と次行動分布の矛盾を扱う再計画/選択方策の比較。反証された期待と合法な再訪を両方含むホールドアウト課題で検証する。P1：自己評価の意味精度、P2：別参加者・別課題の人間記録による較正。今回は未実装・未検証。

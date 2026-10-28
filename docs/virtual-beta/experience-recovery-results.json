@@ -1,0 +1,3024 @@
+{
+  "schemaVersion": 1,
+  "status": "IMPLEMENTED_EXPERIENCE_CAPABILITY_RECOVERY_NOT_OBSERVED",
+  "baselineRevision": "18213173ce7ce370cc6bab61b251a2593d4c13c1",
+  "totalActualRequests": 72,
+  "phases": [
+    {
+      "name": "experience",
+      "maxRequests": 48,
+      "usedRequests": 48
+    },
+    {
+      "name": "experience-basis",
+      "maxRequests": 24,
+      "usedRequests": 24
+    }
+  ],
+  "oldFiveLedgersUnchanged": true,
+  "oldSevenLedgersUnchangedAtBasisTrial": true,
+  "results": [
+    {
+      "trial": 1,
+      "revision": "c4024c620b35bb45bcb30bcc498e75513445609f",
+      "sourceHash": "967e0e84cb86b6d75b48a103ae3033879775503c1f0cd662c387b632c67f2cc7",
+      "config": {
+        "schemaVersion": 1,
+        "id": "human-screen-experience",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 4096,
+          "clearHeight": 4096,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 15,
+        "maxLooks": 3,
+        "maxDecisions": 12,
+        "maxAPICalls": 24,
+        "maxRunMs": 180000,
+        "modeledActionMs": null,
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        },
+        "experience": {
+          "enabled": true,
+          "capacity": 8
+        }
+      },
+      "requests": 24,
+      "ledgerUsed": 24,
+      "ledgerRemaining": 0,
+      "termination": "DECISION_LIMIT",
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "validForComparison": true,
+      "decisions": 12,
+      "uiActions": 12,
+      "looks": 0,
+      "apiMs": 28646.20820000001,
+      "elapsedMs": 33705.0179,
+      "initialMatchesArchivedDeliberation": true,
+      "replay": {
+        "runId": "exploration",
+        "choices": 12,
+        "assessments": 12,
+        "images": 66,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "returns": [
+        {
+          "decision": 4,
+          "from": "o1",
+          "to": "o4",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o1",
+              "action": "e4",
+              "to": "o2",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o2",
+              "action": "e4",
+              "to": "o3",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o3",
+              "action": "e2",
+              "to": "o4",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.91,
+            "e5": 0.02,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.04,
+            "stuck": 0.03,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 5,
+          "from": "o2",
+          "to": "o5",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o2",
+              "action": "e4",
+              "to": "o3",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o3",
+              "action": "e2",
+              "to": "o4",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o4",
+              "action": "e4",
+              "to": "o5",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.02,
+            "e3": 0.11,
+            "e4": 0.76,
+            "e5": 0.01,
+            "look_0": 0.01,
+            "look_1": 0.04,
+            "look_2": 0,
+            "look_3": 0.01,
+            "reread": 0,
+            "stuck": 0.03,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 6,
+          "from": "o3",
+          "to": "o6",
+          "previousEntry": "e2",
+          "selected": "e2",
+          "previousExcursion": [
+            {
+              "from": "o3",
+              "action": "e2",
+              "to": "o4",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o4",
+              "action": "e4",
+              "to": "o5",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o5",
+              "action": "e4",
+              "to": "o6",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0.02,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.74,
+            "e3": 0.18,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.04,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 7,
+          "from": "o4",
+          "to": "o7",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o4",
+              "action": "e4",
+              "to": "o5",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o5",
+              "action": "e4",
+              "to": "o6",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o6",
+              "action": "e2",
+              "to": "o7",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.95,
+            "e5": 0.02,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.02,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 8,
+          "from": "o5",
+          "to": "o8",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o5",
+              "action": "e4",
+              "to": "o6",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o6",
+              "action": "e2",
+              "to": "o7",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o7",
+              "action": "e4",
+              "to": "o8",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0.01,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.02,
+            "e3": 0.08,
+            "e4": 0.78,
+            "e5": 0.02,
+            "look_0": 0.01,
+            "look_1": 0.03,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.04,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 9,
+          "from": "o6",
+          "to": "o9",
+          "previousEntry": "e2",
+          "selected": "e2",
+          "previousExcursion": [
+            {
+              "from": "o6",
+              "action": "e2",
+              "to": "o7",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o7",
+              "action": "e4",
+              "to": "o8",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o8",
+              "action": "e4",
+              "to": "o9",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0.02,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.89,
+            "e3": 0.05,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.03,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 10,
+          "from": "o7",
+          "to": "o10",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o7",
+              "action": "e4",
+              "to": "o8",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o8",
+              "action": "e4",
+              "to": "o9",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o9",
+              "action": "e2",
+              "to": "o10",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.93,
+            "e5": 0.02,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.02,
+            "stuck": 0.02,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 11,
+          "from": "o8",
+          "to": "o11",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o8",
+              "action": "e4",
+              "to": "o9",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o9",
+              "action": "e2",
+              "to": "o10",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o10",
+              "action": "e4",
+              "to": "o11",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0.01,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.03,
+            "e3": 0.13,
+            "e4": 0.67,
+            "e5": 0.02,
+            "look_0": 0.02,
+            "look_1": 0.03,
+            "look_2": 0,
+            "look_3": 0.01,
+            "reread": 0.01,
+            "stuck": 0.06,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 12,
+          "from": "o9",
+          "to": "o12",
+          "previousEntry": "e2",
+          "selected": "e2",
+          "previousExcursion": [
+            {
+              "from": "o9",
+              "action": "e2",
+              "to": "o10",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o10",
+              "action": "e4",
+              "to": "o11",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o11",
+              "action": "e4",
+              "to": "o12",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.89,
+            "e3": 0.060000000000000005,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.03,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        }
+      ],
+      "choices": [
+        {
+          "step": 1,
+          "observationId": "o1",
+          "sourceImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "各種設定\nアカウントを自分らしく",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 0,
+          "latestExperience": null
+        },
+        {
+          "step": 2,
+          "observationId": "o2",
+          "sourceImage": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "お知らせ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 1,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+            ]
+          }
+        },
+        {
+          "step": 3,
+          "observationId": "o3",
+          "sourceImage": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+          "candidate": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "マイページ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 2,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+              "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+            ]
+          }
+        },
+        {
+          "step": 4,
+          "observationId": "o4",
+          "sourceImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "各種設定\nアカウントを自分らしく",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 3,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        },
+        {
+          "step": 5,
+          "observationId": "o5",
+          "sourceImage": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "お知らせ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 4,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        },
+        {
+          "step": 6,
+          "observationId": "o6",
+          "sourceImage": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+          "candidate": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "マイページ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 5,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        },
+        {
+          "step": 7,
+          "observationId": "o7",
+          "sourceImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "各種設定\nアカウントを自分らしく",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 6,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+              "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+            ]
+          }
+        },
+        {
+          "step": 8,
+          "observationId": "o8",
+          "sourceImage": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "お知らせ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 7,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+              "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+            ]
+          }
+        },
+        {
+          "step": 9,
+          "observationId": "o9",
+          "sourceImage": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+          "candidate": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "マイページ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 8,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        },
+        {
+          "step": 10,
+          "observationId": "o10",
+          "sourceImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "各種設定\nアカウントを自分らしく",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 8,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+              "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+            ]
+          }
+        },
+        {
+          "step": 11,
+          "observationId": "o11",
+          "sourceImage": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "お知らせ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 8,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+              "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+            ]
+          }
+        },
+        {
+          "step": 12,
+          "observationId": "o12",
+          "sourceImage": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+          "candidate": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "マイページ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 8,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        }
+      ],
+      "experienceJudgments": {
+        "rawProgress": {
+          "unknown": 1,
+          "neutral": 10
+        },
+        "rawExpectation": {
+          "supported": 3,
+          "not_supported": 3,
+          "unknown": 5
+        },
+        "evidenceSourceCount": 0,
+        "evidenceNoneCount": 11,
+        "admittedProgress": {
+          "unknown": 11
+        },
+        "admittedExpectation": {
+          "unknown": 11
+        },
+        "adjustments": 16
+      }
+    },
+    {
+      "trial": 2,
+      "revision": "c4024c620b35bb45bcb30bcc498e75513445609f",
+      "sourceHash": "967e0e84cb86b6d75b48a103ae3033879775503c1f0cd662c387b632c67f2cc7",
+      "config": {
+        "schemaVersion": 1,
+        "id": "human-screen-experience",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 4096,
+          "clearHeight": 4096,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 15,
+        "maxLooks": 3,
+        "maxDecisions": 12,
+        "maxAPICalls": 24,
+        "maxRunMs": 180000,
+        "modeledActionMs": null,
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        },
+        "experience": {
+          "enabled": true,
+          "capacity": 8
+        }
+      },
+      "requests": 24,
+      "ledgerUsed": 24,
+      "ledgerRemaining": 0,
+      "termination": "DECISION_LIMIT",
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "validForComparison": true,
+      "decisions": 12,
+      "uiActions": 12,
+      "looks": 0,
+      "apiMs": 33146.25880000002,
+      "elapsedMs": 38034.123,
+      "initialMatchesArchivedDeliberation": true,
+      "replay": {
+        "runId": "exploration",
+        "choices": 12,
+        "assessments": 12,
+        "images": 66,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "returns": [
+        {
+          "decision": 4,
+          "from": "o1",
+          "to": "o4",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o1",
+              "action": "e4",
+              "to": "o2",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o2",
+              "action": "e4",
+              "to": "o3",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o3",
+              "action": "e2",
+              "to": "o4",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.92,
+            "e5": 0.03,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.04,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 5,
+          "from": "o2",
+          "to": "o5",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o2",
+              "action": "e4",
+              "to": "o3",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o3",
+              "action": "e2",
+              "to": "o4",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o4",
+              "action": "e4",
+              "to": "o5",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.01,
+            "e3": 0.06,
+            "e4": 0.87,
+            "e5": 0,
+            "look_0": 0.01,
+            "look_1": 0.02,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.02,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 6,
+          "from": "o3",
+          "to": "o6",
+          "previousEntry": "e2",
+          "selected": "e2",
+          "previousExcursion": [
+            {
+              "from": "o3",
+              "action": "e2",
+              "to": "o4",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o4",
+              "action": "e4",
+              "to": "o5",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o5",
+              "action": "e4",
+              "to": "o6",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0.03,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.75,
+            "e3": 0.16,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.05,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 7,
+          "from": "o4",
+          "to": "o7",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o4",
+              "action": "e4",
+              "to": "o5",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o5",
+              "action": "e4",
+              "to": "o6",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o6",
+              "action": "e2",
+              "to": "o7",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.91,
+            "e5": 0.02,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.04,
+            "stuck": 0.03,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 8,
+          "from": "o5",
+          "to": "o8",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o5",
+              "action": "e4",
+              "to": "o6",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o6",
+              "action": "e2",
+              "to": "o7",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o7",
+              "action": "e4",
+              "to": "o8",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.01,
+            "e3": 0.06,
+            "e4": 0.86,
+            "e5": 0.01,
+            "look_0": 0.01,
+            "look_1": 0.02,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.03,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 9,
+          "from": "o6",
+          "to": "o9",
+          "previousEntry": "e2",
+          "selected": "e2",
+          "previousExcursion": [
+            {
+              "from": "o6",
+              "action": "e2",
+              "to": "o7",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o7",
+              "action": "e4",
+              "to": "o8",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o8",
+              "action": "e4",
+              "to": "o9",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.85,
+            "e3": 0.09999999999999999,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.03,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 10,
+          "from": "o7",
+          "to": "o10",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o7",
+              "action": "e4",
+              "to": "o8",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o8",
+              "action": "e4",
+              "to": "o9",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o9",
+              "action": "e2",
+              "to": "o10",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.9,
+            "e5": 0.02,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.04,
+            "stuck": 0.04,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 11,
+          "from": "o8",
+          "to": "o11",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o8",
+              "action": "e4",
+              "to": "o9",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o9",
+              "action": "e2",
+              "to": "o10",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o10",
+              "action": "e4",
+              "to": "o11",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0.01,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.01,
+            "e3": 0.09,
+            "e4": 0.79,
+            "e5": 0.01,
+            "look_0": 0.01,
+            "look_1": 0.03,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.04,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 12,
+          "from": "o9",
+          "to": "o12",
+          "previousEntry": "e2",
+          "selected": "e2",
+          "previousExcursion": [
+            {
+              "from": "o9",
+              "action": "e2",
+              "to": "o10",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o10",
+              "action": "e4",
+              "to": "o11",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o11",
+              "action": "e4",
+              "to": "o12",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.89,
+            "e3": 0.06999999999999999,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.03,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        }
+      ],
+      "choices": [
+        {
+          "step": 1,
+          "observationId": "o1",
+          "sourceImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "各種設定\nアカウントを自分らしく",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 0,
+          "latestExperience": null
+        },
+        {
+          "step": 2,
+          "observationId": "o2",
+          "sourceImage": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "お知らせ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 1,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+            ]
+          }
+        },
+        {
+          "step": 3,
+          "observationId": "o3",
+          "sourceImage": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+          "candidate": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "マイページ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 2,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+              "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+            ]
+          }
+        },
+        {
+          "step": 4,
+          "observationId": "o4",
+          "sourceImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "各種設定\nアカウントを自分らしく",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 3,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        },
+        {
+          "step": 5,
+          "observationId": "o5",
+          "sourceImage": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "お知らせ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 4,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        },
+        {
+          "step": 6,
+          "observationId": "o6",
+          "sourceImage": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+          "candidate": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "マイページ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 5,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        },
+        {
+          "step": 7,
+          "observationId": "o7",
+          "sourceImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "各種設定\nアカウントを自分らしく",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 6,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+              "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+            ]
+          }
+        },
+        {
+          "step": 8,
+          "observationId": "o8",
+          "sourceImage": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "お知らせ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 7,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        },
+        {
+          "step": 9,
+          "observationId": "o9",
+          "sourceImage": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+          "candidate": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "マイページ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 8,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        },
+        {
+          "step": 10,
+          "observationId": "o10",
+          "sourceImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "各種設定\nアカウントを自分らしく",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 8,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+              "NO_ADMITTED_EVIDENCE:expectation=supported->unknown"
+            ]
+          }
+        },
+        {
+          "step": 11,
+          "observationId": "o11",
+          "sourceImage": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "お知らせ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 8,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+              "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+            ]
+          }
+        },
+        {
+          "step": 12,
+          "observationId": "o12",
+          "sourceImage": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+          "candidate": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "マイページ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 8,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        }
+      ],
+      "experienceJudgments": {
+        "rawProgress": {
+          "unknown": 1,
+          "neutral": 10
+        },
+        "rawExpectation": {
+          "supported": 3,
+          "not_supported": 2,
+          "unknown": 6
+        },
+        "evidenceSourceCount": 0,
+        "evidenceNoneCount": 11,
+        "admittedProgress": {
+          "unknown": 11
+        },
+        "admittedExpectation": {
+          "unknown": 11
+        },
+        "adjustments": 15
+      }
+    },
+    {
+      "trial": "basis",
+      "revision": "b01161b8b04e371792e521ec75b3bd6866d3f512",
+      "sourceHash": "8c364708de992c135d344953f5a3abb52e90e728cf0bf3710ac52f0ab78591f7",
+      "config": {
+        "schemaVersion": 1,
+        "id": "human-screen-experience-basis",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 4096,
+          "clearHeight": 4096,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 15,
+        "maxLooks": 3,
+        "maxDecisions": 12,
+        "maxAPICalls": 24,
+        "maxRunMs": 180000,
+        "modeledActionMs": null,
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        },
+        "experience": {
+          "enabled": true,
+          "capacity": 8,
+          "evidenceMode": "basis"
+        }
+      },
+      "requests": 24,
+      "ledgerUsed": 24,
+      "ledgerRemaining": 0,
+      "termination": "DECISION_LIMIT",
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "validForComparison": true,
+      "decisions": 12,
+      "uiActions": 12,
+      "looks": 0,
+      "apiMs": 27336.1054,
+      "elapsedMs": 32095.5222,
+      "initialMatchesArchivedDeliberation": true,
+      "replay": {
+        "runId": "exploration",
+        "choices": 12,
+        "assessments": 12,
+        "images": 66,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "returns": [
+        {
+          "decision": 4,
+          "from": "o1",
+          "to": "o4",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o1",
+              "action": "e4",
+              "to": "o2",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "supported",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o2",
+              "action": "e4",
+              "to": "o3",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o3",
+              "action": "e2",
+              "to": "o4",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.93,
+            "e5": 0.03,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.02,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 5,
+          "from": "o2",
+          "to": "o5",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o2",
+              "action": "e4",
+              "to": "o3",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+                  "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o3",
+              "action": "e2",
+              "to": "o4",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o4",
+              "action": "e4",
+              "to": "o5",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "unknown",
+                "evidence": {
+                  "observationId": "o5",
+                  "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+                },
+                "adjustments": []
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.01,
+            "e3": 0.08,
+            "e4": 0.81,
+            "e5": 0.01,
+            "look_0": 0.01,
+            "look_1": 0.04,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.02,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 6,
+          "from": "o3",
+          "to": "o6",
+          "previousEntry": "e2",
+          "selected": "e2",
+          "previousExcursion": [
+            {
+              "from": "o3",
+              "action": "e2",
+              "to": "o4",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            },
+            {
+              "from": "o4",
+              "action": "e4",
+              "to": "o5",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "unknown",
+                "evidence": {
+                  "observationId": "o5",
+                  "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o5",
+              "action": "e4",
+              "to": "o6",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "unknown",
+                "evidence": {
+                  "observationId": "o6",
+                  "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+                },
+                "adjustments": []
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0.02,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.72,
+            "e3": 0.2,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.04,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 7,
+          "from": "o4",
+          "to": "o7",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o4",
+              "action": "e4",
+              "to": "o5",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "unknown",
+                "evidence": {
+                  "observationId": "o5",
+                  "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o5",
+              "action": "e4",
+              "to": "o6",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "unknown",
+                "evidence": {
+                  "observationId": "o6",
+                  "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o6",
+              "action": "e2",
+              "to": "o7",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "unknown",
+                "evidence": {
+                  "observationId": "o7",
+                  "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+                },
+                "adjustments": []
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.95,
+            "e5": 0.01,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.03,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 8,
+          "from": "o5",
+          "to": "o8",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o5",
+              "action": "e4",
+              "to": "o6",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "unknown",
+                "evidence": {
+                  "observationId": "o6",
+                  "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o6",
+              "action": "e2",
+              "to": "o7",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "unknown",
+                "evidence": {
+                  "observationId": "o7",
+                  "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o7",
+              "action": "e4",
+              "to": "o8",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "not_supported",
+                "evidence": {
+                  "observationId": "o8",
+                  "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+                },
+                "adjustments": []
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0.01,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.02,
+            "e3": 0.09,
+            "e4": 0.78,
+            "e5": 0.01,
+            "look_0": 0.01,
+            "look_1": 0.03,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.04,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 9,
+          "from": "o6",
+          "to": "o9",
+          "previousEntry": "e2",
+          "selected": "e2",
+          "previousExcursion": [
+            {
+              "from": "o6",
+              "action": "e2",
+              "to": "o7",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "unknown",
+                "evidence": {
+                  "observationId": "o7",
+                  "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o7",
+              "action": "e4",
+              "to": "o8",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "not_supported",
+                "evidence": {
+                  "observationId": "o8",
+                  "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o8",
+              "action": "e4",
+              "to": "o9",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "unknown",
+                "evidence": {
+                  "observationId": "o9",
+                  "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+                },
+                "adjustments": []
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.88,
+            "e3": 0.07,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.03,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 10,
+          "from": "o7",
+          "to": "o10",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o7",
+              "action": "e4",
+              "to": "o8",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "not_supported",
+                "evidence": {
+                  "observationId": "o8",
+                  "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o8",
+              "action": "e4",
+              "to": "o9",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "unknown",
+                "evidence": {
+                  "observationId": "o9",
+                  "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o9",
+              "action": "e2",
+              "to": "o10",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "supported",
+                "evidence": {
+                  "observationId": "o10",
+                  "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+                },
+                "adjustments": []
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.89,
+            "e5": 0.03,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.04,
+            "stuck": 0.04,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 11,
+          "from": "o8",
+          "to": "o11",
+          "previousEntry": "e4",
+          "selected": "e4",
+          "previousExcursion": [
+            {
+              "from": "o8",
+              "action": "e4",
+              "to": "o9",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "unknown",
+                "evidence": {
+                  "observationId": "o9",
+                  "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o9",
+              "action": "e2",
+              "to": "o10",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "supported",
+                "evidence": {
+                  "observationId": "o10",
+                  "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o10",
+              "action": "e4",
+              "to": "o11",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "not_supported",
+                "evidence": {
+                  "observationId": "o11",
+                  "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+                },
+                "adjustments": []
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0.01,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.01,
+            "e3": 0.12,
+            "e4": 0.75,
+            "e5": 0.01,
+            "look_0": 0.01,
+            "look_1": 0.04,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0.01,
+            "stuck": 0.04,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        },
+        {
+          "decision": 12,
+          "from": "o9",
+          "to": "o12",
+          "previousEntry": "e2",
+          "selected": "e2",
+          "previousExcursion": [
+            {
+              "from": "o9",
+              "action": "e2",
+              "to": "o10",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "supported",
+                "evidence": {
+                  "observationId": "o10",
+                  "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o10",
+              "action": "e4",
+              "to": "o11",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "neutral",
+                "expectation": "not_supported",
+                "evidence": {
+                  "observationId": "o11",
+                  "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+                },
+                "adjustments": []
+              }
+            },
+            {
+              "from": "o11",
+              "action": "e4",
+              "to": "o12",
+              "judgment": {
+                "kind": "model-assessment-not-fact",
+                "progress": "unknown",
+                "expectation": "unknown",
+                "adjustments": [
+                  "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+                ]
+              }
+            }
+          ],
+          "differentEntryExecuted": false,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.88,
+            "e3": 0.06999999999999999,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.03,
+            "wait": 0
+          },
+          "goal": "uncertain"
+        }
+      ],
+      "choices": [
+        {
+          "step": 1,
+          "observationId": "o1",
+          "sourceImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "各種設定\nアカウントを自分らしく",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 0,
+          "latestExperience": null
+        },
+        {
+          "step": 2,
+          "observationId": "o2",
+          "sourceImage": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "お知らせ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 1,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "supported",
+            "evidence": {
+              "observationId": "o2",
+              "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+            },
+            "adjustments": []
+          }
+        },
+        {
+          "step": 3,
+          "observationId": "o3",
+          "sourceImage": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+          "candidate": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "マイページ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 2,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown",
+              "NO_ADMITTED_EVIDENCE:expectation=not_supported->unknown"
+            ]
+          }
+        },
+        {
+          "step": 4,
+          "observationId": "o4",
+          "sourceImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "各種設定\nアカウントを自分らしく",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 3,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        },
+        {
+          "step": 5,
+          "observationId": "o5",
+          "sourceImage": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "お知らせ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 4,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "neutral",
+            "expectation": "unknown",
+            "evidence": {
+              "observationId": "o5",
+              "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+            },
+            "adjustments": []
+          }
+        },
+        {
+          "step": 6,
+          "observationId": "o6",
+          "sourceImage": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+          "candidate": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "マイページ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 5,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "neutral",
+            "expectation": "unknown",
+            "evidence": {
+              "observationId": "o6",
+              "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+            },
+            "adjustments": []
+          }
+        },
+        {
+          "step": 7,
+          "observationId": "o7",
+          "sourceImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "各種設定\nアカウントを自分らしく",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 6,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "neutral",
+            "expectation": "unknown",
+            "evidence": {
+              "observationId": "o7",
+              "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+            },
+            "adjustments": []
+          }
+        },
+        {
+          "step": 8,
+          "observationId": "o8",
+          "sourceImage": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "お知らせ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 7,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "neutral",
+            "expectation": "not_supported",
+            "evidence": {
+              "observationId": "o8",
+              "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+            },
+            "adjustments": []
+          }
+        },
+        {
+          "step": 9,
+          "observationId": "o9",
+          "sourceImage": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+          "candidate": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "マイページ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 8,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "neutral",
+            "expectation": "unknown",
+            "evidence": {
+              "observationId": "o9",
+              "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+            },
+            "adjustments": []
+          }
+        },
+        {
+          "step": 10,
+          "observationId": "o10",
+          "sourceImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "各種設定\nアカウントを自分らしく",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 8,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "neutral",
+            "expectation": "supported",
+            "evidence": {
+              "observationId": "o10",
+              "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+            },
+            "adjustments": []
+          }
+        },
+        {
+          "step": 11,
+          "observationId": "o11",
+          "sourceImage": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+          "candidate": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "お知らせ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 8,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "neutral",
+            "expectation": "not_supported",
+            "evidence": {
+              "observationId": "o11",
+              "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+            },
+            "adjustments": []
+          }
+        },
+        {
+          "step": 12,
+          "observationId": "o12",
+          "sourceImage": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+          "candidate": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "マイページ",
+          "outcome": "UI_PERFORMED",
+          "goal": "uncertain",
+          "knowledge": "insufficient",
+          "experienceEntries": 8,
+          "latestExperience": {
+            "kind": "model-assessment-not-fact",
+            "progress": "unknown",
+            "expectation": "unknown",
+            "adjustments": [
+              "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+            ]
+          }
+        }
+      ],
+      "experienceJudgments": {
+        "rawProgress": {
+          "unknown": 1,
+          "neutral": 10
+        },
+        "rawExpectation": {
+          "supported": 2,
+          "not_supported": 3,
+          "unknown": 6
+        },
+        "evidenceSourceCount": 8,
+        "evidenceNoneCount": 3,
+        "admittedProgress": {
+          "unknown": 4,
+          "neutral": 7
+        },
+        "admittedExpectation": {
+          "supported": 2,
+          "unknown": 7,
+          "not_supported": 2
+        },
+        "adjustments": 4
+      }
+    }
+  ],
+  "verification": {
+    "relatedUniqueTests": 127,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "Selected regression94 + experience unit23 + integration3 + independent7; not the entire project suite",
+    "typeCheckAndBuild": true,
+    "independentPreflight": "Both source snapshots passed; wording-only gateway body equality verified",
+    "independentSavedAudit": "PASS: both frozen stages, 72 requests / 681 answers / 198 image references, 36 action selections + 36 assessments replayed; all prior ledger hashes unchanged"
+  },
+  "limitations": [
+    "No recovery observed in these three trials; implementation correctness does not establish model capability",
+    "No causal effect estimate from these small uncontrolled-generation comparisons",
+    "No new human data or human validation",
+    "UX extraction disabled; no UX requests sent",
+    "Exact image equality is a sufficient match for recurrence; visual variation can hide recurrence; goal inference remains model self-report"
+  ],
+  "scriptedUIControl": {
+    "kind": "SCRIPTED_KNOWN_PATH_CONTROL_NOT_AUTONOMOUS_OR_HUMAN",
+    "apiCalls": 0,
+    "initialMatchesModel": true,
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "steps": [
+      "その他",
+      "お知らせの管理",
+      "メール通知を停止する"
+    ],
+    "uiActions": 3,
+    "objectiveAssessment": {
+      "status": "OK",
+      "value": true
+    },
+    "modelInputContamination": false,
+    "note": "Executed only after the final model run; no control path was provided to Jev."
+  }
+}

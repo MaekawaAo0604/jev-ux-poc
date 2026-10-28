@@ -8,15 +8,15 @@ Architecture: bounded (8 transitions) allowlisted experience memory, independent
 Tech stack: existing TypeScript, Jev choice gateway, Playwright and SHA256. No dependencies or trained model.
 
 ## Acceptance
-- [ ] Source action/prediction/result/assessment linked; e4 on different images not conflated.
-- [ ] Experience survives the image buffer but is explicitly bounded, fallible, and never reattaches unseen old image content.
-- [ ] Both pre/post images required for a new outcome judgment; none evidence downgrades to unknown and is logged.
-- [ ] Existing baseline and deliberation profiles unchanged. Experience is opt-in; all offered candidates/revisit/done retained.
-- [ ] Assessment and action use updated experience; raw distributions, normalization, actual action, and termination saved; replay validates new state.
-- [ ] State isolated per trial; malformed distributions fail as invalid rather than success/abandonment.
-- [ ] Independent verification and current type/build checks completed before actual experiments.
-- [ ] Actual model: max two trials, each 12 judgments/24 requests/180 sec, concurrency1. New ledgers; prior ledgers unchanged. Same UI/goal as archived deliberation, long-context on. No separate UX request.
-- [ ] Count recovery only when a previously explored route returns and a subsequent different entry is actually selected/executed. Direct success before a stall is a separate result. No claim of human validity.
+- [x] Source action/prediction/result/assessment linked; e4 on different images not conflated.
+- [x] Experience survives the image buffer but is explicitly bounded, fallible, and never reattaches unseen old image content.
+- [x] Both pre/post images required for a new outcome judgment; none evidence downgrades to unknown and is logged.
+- [x] Existing baseline and deliberation profiles unchanged. Experience is opt-in; all offered candidates/revisit/done retained.
+- [x] Assessment and action use updated experience; raw distributions, normalization, actual action, and termination saved; replay validates new state.
+- [x] State isolated per trial; malformed distributions fail as invalid rather than success/abandonment.
+- [x] Independent verification and current type/build checks completed before actual experiments.
+- [x] Actual model: max two trials, each 12 judgments/24 requests/180 sec, concurrency1. New ledgers; prior ledgers unchanged. Same UI/goal as archived deliberation, long-context on. No separate UX request.
+- [x] Count recovery only when a previously explored route returns and a subsequent different entry is actually selected/executed. Direct success before a stall is a separate result. No claim of human validity.
 
 ## Tasks and ownership
 1. Implementation worker owns experience-contracts.ts, experience.ts and its unit tests: test RED then bounded pure functions GREEN; no shared edits.
@@ -29,3 +29,5 @@ Partial observations; image-id changes; same candidate id across pages; evidence
 
 Ruling: reuse isolated existing worktree and worker ownership rather than new checkout; original working tree remains untouched.
 Ruling: API permission persists; self-limit new phase48; no approval prompt or old-ledger reset.
+
+Implementation/validation complete; capability result negative. First fixed48 requests retained; separate evidence-wording amendment fixed24 more (aggregate72). This is not a successful-recovery claim. Runtime snapshots c4024c6/b01161b, related127 tests, independent audits and details: docs/virtual-beta/experience-recovery.md.
