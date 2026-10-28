@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "human-deliberation-20261028",
+  "status": "FIXED_BEFORE_MODEL_REQUESTS",
+  "authorization": {
+    "scope": "User explicitly authorizes ongoing Jev validation API use without per-run approval questions",
+    "selfImposedFirstTrialMaximum": 24,
+    "maximumDecisionCount": 12,
+    "maximumRounds": 2,
+    "selfImposedTotalAcrossRounds": 48,
+    "retryRule": "No outcome-driven request replay. A second bounded run may verify an identified infrastructure repair or check repeatability, keeping all outcomes."
+  },
+  "baseline": {
+    "productRevision": "ea27c3cd197f873c50f72d465bc6c285811913e2",
+    "result": "reports/human-jev-2026-10-28/live/exploration/result.json",
+    "decisions": 12,
+    "API": 12,
+    "reviewExcluded": true
+  },
+  "treatment": {
+    "mode": "deliberation",
+    "existingAssessment": true,
+    "candidateEffects": true,
+    "assessmentMemoryCapacity": 3,
+    "maxDecisions": 12,
+    "maxAPI": 24,
+    "separateStageRunKeys": [
+      "assessment",
+      "action"
+    ],
+    "stageMaximum": 12,
+    "UXReviewRequests": 0
+  },
+  "invariants": [
+    "UI app source unchanged",
+    "Same local:bad notifications charter",
+    "No participant actions or feedback in model inputs",
+    "No persona fitting",
+    "Same full viewport image-only observation and memory3",
+    "Same goal policy and argmax selection",
+    "Same UI15/look3/time180000 limits",
+    "No forced alternative, banned revisit or automatic done rewrite"
+  ],
+  "criteria": {
+    "recoveryOpportunity": "A chosen route fails to attain the goal and the model returns to an earlier observed screen before changing its route",
+    "recoveryObserved": "After that opportunity, actual actions select another branch and new goal-relevant information is observed; success is measured separately",
+    "directSuccess": "A direct correct route without a failed route does not establish recovery",
+    "repeatPath": "Report observed exact cycles and selected/effect assessments without declaring a LOOP termination unless triggered",
+    "subjectiveOutcome": "Model done/abandon/stuck is distinct from objective notifications oracle",
+    "APIError": "Infrastructure failure is not user uncertainty, abandonment or failure to discover UX problems"
+  },
+  "limits": [
+    "Single archived baseline; model generation seed is not controllable",
+    "More API calls per decision are an explicit policy change",
+    "Human unnumbered native rendering differs; this tests current mode capability, not human reproduction",
+    "Only model assessment self-reports; no hidden expectation or understanding claim"
+  ]
+}

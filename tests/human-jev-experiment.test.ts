@@ -77,3 +77,30 @@ test('review transport failures preserve allowlisted diagnostic evidence without
   assert.equal(review.findings,undefined);
  }finally{assert.ok(dir.startsWith(join(tmpdir(),'human-jev-runner-')));await rm(dir,{recursive:true,force:true});}
 });
+
+test('deliberation profile sends the existing assessment into action selection without gating done or calling UX review',async()=>{
+ const dir=await mkdtemp(join(tmpdir(),'human-jev-runner-'));let assessments=0,actions=0,observedImage='';
+ try{
+  const saved=await runHumanJev({out:join(dir,'result'),mock:true,mode:'deliberation'} as any,async request=>{
+   const assessment=!!request.questions.knowledge;
+   if(assessment){assessments++;observedImage=request.images.current.data;}
+   else{
+    assert.ok(request.questions.nextAction,'Exploration-only profile must never invoke a UX review');actions++;
+    assert.equal(assessments,1);assert.equal(request.images.current.data,observedImage);
+    const state=request.input.userState as any;assert.equal(state.deliberation.assessments[0].goal,'unsatisfied');
+    assert.match(request.questions.nextAction.criteria.done,/unsatisfied/);
+    assert.equal((request.input.observation as any).screen,undefined);
+    assert.equal((request.input.exploration as any).persona,undefined);
+   }
+   return {model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(request.questions).map(([id,q])=>{
+    const choice=id==='knowledge'?'insufficient':id==='goal'?'unsatisfied':id==='goalEvidence'?(request.input.observation as any).id:id.startsWith('effect_')?'unknown':id==='nextAction'?'done':id==='decisionBasis'?'goal':'none';
+    assert.ok(choice in q.criteria);return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,k===choice?1:0]))}];
+   }))};
+  });
+  assert.equal(assessments,1);assert.equal(actions,1);assert.equal(saved.result.apiCalls,2);assert.equal(saved.result.decisions,1);
+  assert.equal(saved.result.perceivedDone,true);assert.equal(saved.result.objectiveSuccess,false);
+  assert.equal(saved.result.config.deliberation?.candidateEffects,true);assert.equal(saved.result.config.maxDecisions,12);assert.equal(saved.result.config.maxAPICalls,24);
+  const manifest=JSON.parse(await readFile(join(saved.root,'manifest.json'),'utf8'));assert.equal(manifest.maximumRequests,24);assert.equal(manifest.reviewMaximum,0);assert.equal(manifest.actualAPIRequests,0);
+  assert.equal(saved.review.status,'NOT_RUN');assert.equal(saved.review.reason,'PROFILE_DISABLED');
+ }finally{assert.ok(dir.startsWith(join(tmpdir(),'human-jev-runner-')));await rm(dir,{recursive:true,force:true});}
+});
