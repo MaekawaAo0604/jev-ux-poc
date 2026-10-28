@@ -4,6 +4,8 @@
 
 ## 最新の検証
 
+人間の手動試行との比較は [human-comparison.md](human-comparison.md)、匿名の結果は [human-comparison-results.json](human-comparison-results.json)。同じ目的の画像のみbaselineを新規13要求で実行した。最初のクリック先は各種設定で一致したが、その後Jevは同じ経路を4反復し12判断で未達。人間は別カテゴリから達成した。UXレビュー1要求はエラーで未測定、初期画像にも4.35%の画素差があるため完全同条件・人間再現の実証とはしない。
+
 最新の判断部改善は [information-verification.md](information-verification.md)、実測8試行は [information-results.json](information-results.json)、独立記録は [information-independent-review.md](information-independent-review.md)。評価状態と各候補への自己評価提示を設定で追加し、実Jevで自律注視2回→案内取得→正解操作→独立した目的達成の1例を確認した。新規31/32要求。安定した改善・人間一致は未確認で、案内未取得の正解も別計上している。以下のsemantic phaseはその前の別版・別予算の結果。
 
 最新の意味・案内取得の実験は [semantic-verification.md](semantic-verification.md)、個別結果は [semantic-results.json](semantic-results.json)、独立記録は [semantic-independent-review.md](semantic-independent-review.md) に保存した。新規47/48要求を使用。案内が隠れた18試行は注視移動0で、自律取得は未達。可視対照2件の選び分けと、人間再現の未検証を区別している。下記Phase 2は前フェーズの別予算・別版の結果。

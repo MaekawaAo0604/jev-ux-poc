@@ -53,3 +53,8 @@ T04 round1 再検証完了: 新しい独立検証サブが固定製品版9218366
 a064e98から新ブランチfeature/virtual-beta-information-stateへ分離。親共通接続、information_stateモジュール、information_analysis解析、fresh information_verify独立検証。初版b4d6a36の状態提示のみでは、不足→盲目的クリック、未達評価→doneが実モデルで発生した。候補説明にも同じ仮説を提示するcandidateEffectsを任意追加。最終製品6b3c418では、1件が自律注視2→新案内→正解B→done・表示維持oracle true、もう1件は案内未取得でA正解。全8試行31/32要求、以前の47台帳は別保存。独立P2はreplayの記憶画像参照の結合不足で、RED再現→修正→GREEN。結果・設定・コマンドはinformation-verification.md、個別値information-results.json。安定性・因果効果・人間一致は今回の少数例から結論しない。
 
 次の実装・検証は同最終版反復、評価と選択の不整合の比較、人間実測の3件。新しい無根拠スコアや強制注視・正解候補フィルタで未達を隠さない。
+
+
+## Human comparison（2026-10-28）
+
+ea27c3cで通常bad/同Charter/全viewport画像のみ/Personaなしgoal baselineを固定し、人間の操作・感想を入力せず1回実行。最初のカテゴリは各種設定で一致したが、各種設定→お知らせ→マイページを4反復しDECISION_LIMIT/objectivefalse。本人は別カテゴリから達成。新規13要求=探索12OK+レビュー1ERROR、以前の残り枠は保持。新wrapperの会計・出力再利用を独立RED→修正→GREEN、レビュー診断不足も事後に修正し実API再確認は未実施。初期画素4.35%差・有限記憶・番号の差があり、人間一般や内的期待の一致は未検証。人間の原文・rawログはローカルのみ。結果と次の優先事項はhuman-comparison.md。
