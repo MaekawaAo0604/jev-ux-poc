@@ -100,3 +100,10 @@ manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.j
 [deferral-grounding.md](deferral-grounding.md) に実装、12 実モデル試行 188 要求、独立検証と再実行コマンドを保存した。
 新方式は再訪の正例 4 件で最初のレビューから根拠付き解除につながったが、全体達成は旧 5/6、新 4/6 で性能向上は未確認。
 通知設定の探索失敗とモデルの意味精度は継続して検証する。
+
+## 再訪補正と終了の区分（2026-10-29）
+
+[deferral-scope.md](deferral-scope.md) に opt-in の `selectionScope=ui-conditional`、独立検証・修正、実モデル 12 試行 224 要求と再現コマンドを保存した。
+過去 3 件では再訪補正が戻る操作を弱めて stuck を押し上げており、同一分布の再計算と通常 gateway stub の実操作で修正を確認した。
+実比較は旧 4/6、新 4/6。必要再訪 8 件は全 7 UI で達成、通知設定 4 件は全て上限終了で未達。探索の切り替えは継続課題。
+[結果 JSON](deferral-scope-results.json)、[独立検証](deferral-scope-independent-review.md) を参照する。

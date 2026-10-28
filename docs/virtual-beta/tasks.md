@@ -130,3 +130,20 @@ alpha 反復 2 のみ 9→7 UI、他の必要再訪は全て 7 UI。
 次は通知設定の行き詰まり、scroll / hover 後の同一画面認識と探索候補の扱いを実観察から切り分け、負例のモデル対照を追加する。
 preview の完了誤認も未解決。
 詳細は deferral-grounding.md / results.json / independent-review.md。
+
+## UI 操作内に再訪補正を限定（2026-10-29）
+
+基準4197971、製品初回29b3a0b、最終e432f18。
+旧通知失敗3件のraw戻る .86/.83/.86 とstuck .04/.05/.04を確認し、global補正によるcontroller停止と訂正した。
+新experience-reason-conditionalはid/selectionScopeだけをgroundedから変更。補正前UI選択ならUI内補正、非UI選択は保持し、marginal/条件付き分布/実型によるscope/replayを保存。
+独立検証が形状検査不足を検出、親もdisabled scope不具合を再現し、最小修正後に独立13件と型/buildが成功。関連159種類（修正後の関係70件を再実行）、旧36replay、既存4条件mockも成功した。
+独立の全段画像一致試験はo6の描画差で成立せず、exact初期10要求と画像参照以外の契約比較を別に保存した。
+
+実12試行224/288要求、旧70台帳不変、6pair整合、12replay、基盤障害0。旧4/6・新4/6、必要再訪8件全7UI成功、通知4件は12判断の上限終了。
+今回の実モデルでcontroller停止昇格は新旧0件で、新通知2件では同じraw/weightをglobal再計算するとSTUCK、実conditionalはBack実操作となることを独立照合した（目的改善とは別）。過去3件offlineと独立stubでも確認。新56scopeと補正前done保持4件を記録した。
+意味理解や成功率の改善、人間一致を確認したとは扱わない。
+
+次のP0は、hover/scrollと候補ID変化を跨ぐ、実際に観察した候補と操作結果の対応付け。前提や文字の変化を誤統合しない対照を用意する。
+P0:通過操作と目的操作の保留理由、preview保存前完了、未変更/無関係な変更での誤解除。
+P1:ペルソナ差・人間の探索切替・別製品の安定性。新たな比較では今回を含む旧82台帳を保全する。
+詳細はdeferral-scope.md / deferral-scope-results.json / deferral-scope-independent-review.md。
