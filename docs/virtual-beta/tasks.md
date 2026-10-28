@@ -98,3 +98,9 @@ ea27c3cで通常bad/同Charter/全viewport画像のみ/Personaなしgoal baselin
 12試行208/288要求、旧34台帳不変、6組の初期条件一致。旧4/6、新4/6で全体改善は未確認。beta反復1でprerequisite/o2→本人確認済みo5→basis_changed→raw保持/effective解除→実再訪が成立し7UI、旧方式は古い重みで迂回して9UIだった。理由の質問14回に対し受理1・レビュー1・解除1のみ。alphaでは妥当なo2でも旧非進展evidenceに含まれず拒否する例があり、通知停止の新2件はunknown/noneのまま未達。成否と理由更新を分けた結果はdeferral-reason.md/deferral-reason-results.json、独立記録はdeferral-reason-independent-review.md。
 
 関連114+独立6件、型/build、旧24と今回12のoffline再生を確認。次はP0:非進展の根拠と阻害理由の根拠の分離、P0:切替と観察同一性の独立検査、P1:未変更/無関係な変化を含むモデルの解除判断の評価。今回結果に合わせた受理条件や重みの変更はしない。保存前プレビューの完了誤認は別の未解決P0、人間の再現と一般的安定性は未検証。
+
+## 阻害理由と非進展根拠の分離（2026-10-29）
+
+基準aed3dcd、製品凍結959c5de。新experience-reason-excursionで同世代・同じ連続経路の添付済み画像を理由として受理し、negativeEvidenceとexcursionEvidenceを別記録。旧reasonと12試行204要求で比較、旧46台帳保全・6pair一致・12replay・基盤障害0。旧4/6、新5/6だが、増えた通知停止には理由記憶がなく因果効果とは扱わない。新方式は有効な共有prerequisite4件を保持、レビューのbasis_changed/noneやstill_blocksにより不要往復が残った。詳細deferral-admission.md/results/independent-review。
+
+106関連＋独立6件、型/build、旧保存12の互換を確認。追加の独立反復でpersist境界の基盤エラーがあり、一時ファイルを保全、最終6件と500回probeは成功したがOS原因は未特定。次に判断/根拠の結合、台帳write/replace診断、見え方が変わった同経路の認識を改善する。人間一致や探索安定化の目標は未達で継続。

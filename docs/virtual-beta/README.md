@@ -85,3 +85,7 @@ manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.j
 ## 保留理由の再評価（2026-10-28）
 
 [deferral-reason.md](deferral-reason.md) に、experience-reasonの設定、旧方式との12試行比較、実行方法、独立検証と残る課題を記録した。既存experience-deferを維持し、原画像と後続根拠に結び付く理由仮説を既存評価要求へ追加する。根拠の意味精度と人間への一致は別途検証が必要。
+
+## 阻害理由の根拠を分離（2026-10-29）
+
+[deferral-admission.md](deferral-admission.md) に、旧非進展根拠と同じ経路の阻害画像を別に保持するopt-in、12実モデル試行204要求、独立検証と次の改善を記録した。受理漏れは修正できたが、根拠なしの変更判断や遅れた解除が残り、探索の安定化は継続中。

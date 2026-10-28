@@ -18,9 +18,9 @@ Separate admission counts, same-generation reason capture, reviews, releases, ac
 
 ## Acceptance
 
-- [ ] RED proves valid same-excursion o2 rejected by legacy and admitted by opt-in even if negative citation only homeo3; raw deferral unchanged, separate provenance and replay tamper rejection.
-- [ ] Negative cases: source not attached, out-of-route, future/home/duplicate/conflicting/invalid path, wrong generation, missing actual learning; bounds/isolation, prior release guards and old wire unchanged.
-- [ ] Scripted actual browser captures under unknown/supported o2 + neutral homeo3, then attaches o2 at review and acts on effective distribution; still_blocks control retains deferral.
-- [ ] Related regressions/type/build; frozen source; fresh independent validation and <=3 fix rounds.
-- [ ] Run fixed live12; independently audit requests/images/46 old ledgers/source/config/pairs/replays/capture/review/release; document outcomes without claiming human reproduction or overall goal completion.
-- [ ] Commit/push feature branch, preserve raw logs, continue next evidence-backed deficiency while goal remains active.
+- [x] RED proves valid same-excursion o2 rejected by legacy and admitted by opt-in even if negative citation only homeo3; raw deferral unchanged, separate provenance and replay tamper rejection.
+- [x] Negative cases: source not attached, out-of-route, future/home/duplicate/conflicting/invalid path, wrong generation, missing actual learning; bounds/isolation, prior release guards and old wire unchanged.
+- [x] Scripted actual browser captures under unknown/supported o2 + neutral homeo3, then attaches o2 at review and acts on effective distribution; still_blocks control retains deferral.
+- [x] Related regressions/type/build; frozen source; fresh independent validation and <=3 fix rounds.
+- [x] Run fixed live12; independently audit requests/images/46 old ledgers/source/config/pairs/replays/capture/review/release; document outcomes without claiming human reproduction or overall goal completion.
+- [x] Commit/push feature branch, preserve raw logs, continue next evidence-backed deficiency while goal remains active.
