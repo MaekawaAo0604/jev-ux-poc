@@ -4,6 +4,8 @@
 
 ## 最新の検証
 
+既存二段階判断での経路切替は [deliberation-recovery.md](deliberation-recovery.md)、個別結果は [deliberation-recovery-results.json](deliberation-recovery-results.json)。同bad課題で有効化した。初回は文脈上限エラーで中断、長文脈転送接続の修正後は24要求すべて成功したが、12判断で同じ3画面を4循環し未達。評価が届いても期待と実観察を照合した見立ての更新は未実装。今回31要求、関連44件成功。API利用の都度確認不要という明示指示と自己上限運用は [api-usage-policy.md](api-usage-policy.md)。
+
 人間の手動試行との比較は [human-comparison.md](human-comparison.md)、匿名の結果は [human-comparison-results.json](human-comparison-results.json)。同じ目的の画像のみbaselineを新規13要求で実行した。最初のクリック先は各種設定で一致したが、その後Jevは同じ経路を4反復し12判断で未達。人間は別カテゴリから達成した。UXレビュー1要求はエラーで未測定、初期画像にも4.35%の画素差があるため完全同条件・人間再現の実証とはしない。
 
 最新の判断部改善は [information-verification.md](information-verification.md)、実測8試行は [information-results.json](information-results.json)、独立記録は [information-independent-review.md](information-independent-review.md)。評価状態と各候補への自己評価提示を設定で追加し、実Jevで自律注視2回→案内取得→正解操作→独立した目的達成の1例を確認した。新規31/32要求。安定した改善・人間一致は未確認で、案内未取得の正解も別計上している。以下のsemantic phaseはその前の別版・別予算の結果。

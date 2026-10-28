@@ -58,3 +58,8 @@ a064e98から新ブランチfeature/virtual-beta-information-stateへ分離。�
 ## Human comparison（2026-10-28）
 
 ea27c3cで通常bad/同Charter/全viewport画像のみ/Personaなしgoal baselineを固定し、人間の操作・感想を入力せず1回実行。最初のカテゴリは各種設定で一致したが、各種設定→お知らせ→マイページを4反復しDECISION_LIMIT/objectivefalse。本人は別カテゴリから達成。新規13要求=探索12OK+レビュー1ERROR、以前の残り枠は保持。新wrapperの会計・出力再利用を独立RED→修正→GREEN、レビュー診断不足も事後に修正し実API再確認は未実施。初期画素4.35%差・有限記憶・番号の差があり、人間一般や内的期待の一致は未検証。人間の原文・rawログはローカルのみ。結果と次の優先事項はhuman-comparison.md。
+
+
+## Deliberation recovery（2026-10-28）
+
+既存二段階をsame bad/同目的へ接続（6981925）。初回7要求でdecision4 assessmentのmax_tokens_exceeded。長文脈を最初から明示するopt-in接続だけを68f4455へ固定、画像/本文/候補・方策不変・1attemptで再実行24要求全OK。12判断で3画面4循環、目的false/DECISION_LIMIT、切替未達。独立監査で評価→選択入力・全画像・候補・台帳一致、関連44件/型/build成功。都度API許可を聞かない指示を保存し、旧枠は保持。次はsource scene+target+prediction+observed outcomeを結ぶ経験状態、再訪が必要な正例を含む受入条件。単に訪問済みを禁止したり、根拠なしのgoal自己申告を事実にしない。結果はdeliberation-recovery.md。

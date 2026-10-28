@@ -1,0 +1,691 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "EXECUTED_CURRENT_DELIBERATION_RECOVERY_NOT_OBSERVED",
+  "authorization": "Ongoing Jev API validation authorized without per-run approval; self-imposed total48 across2 rounds",
+  "budget": {
+    "round1": {
+      "used": 7,
+      "remaining": 17,
+      "OK": 6,
+      "ERROR": 1
+    },
+    "round2": {
+      "used": 24,
+      "remaining": 0,
+      "OK": 24,
+      "ERROR": 0
+    },
+    "totalUsed": 31,
+    "cap": 48,
+    "implicitRetries": 0,
+    "oldLedgers": "All four previous ledger hashes unchanged, independently verified"
+  },
+  "baseline": {
+    "code": {
+      "revision": "ea27c3cd197f873c50f72d465bc6c285811913e2",
+      "sourceHash": "edd41005912aab855443f8038efafc8af569c70b5f90efa164889a5d477ae869"
+    },
+    "objectiveSuccess": false,
+    "decisions": 12,
+    "apiCalls": 12,
+    "UI": 12,
+    "policy": "goal/argmax, no deliberation",
+    "pathPattern": [
+      "各種設定",
+      "お知らせ",
+      "マイページ"
+    ],
+    "repetitions": 4
+  },
+  "round1": {
+    "code": {
+      "revision": "6981925cd013277cdec53cd797955d10b3024d93",
+      "sourceHash": "a0c1bb5f5fca86aa1f0752918dea7d4d90f20b7e9df203e209f5a3bd043463b4"
+    },
+    "config": {
+      "schemaVersion": 1,
+      "id": "human-screen-deliberation",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 4096,
+        "clearHeight": 4096,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261028
+      },
+      "behavior": "goal",
+      "maxUIActions": 15,
+      "maxLooks": 3,
+      "maxDecisions": 12,
+      "maxAPICalls": 24,
+      "maxRunMs": 180000,
+      "modeledActionMs": null,
+      "deliberation": {
+        "enabled": true,
+        "memoryCapacity": 3,
+        "candidateEffects": true
+      }
+    },
+    "termination": "API_ERROR",
+    "objectiveAssessment": {
+      "status": "OK",
+      "value": false
+    },
+    "perceivedDone": false,
+    "validForComparison": false,
+    "decisions": 4,
+    "uiActions": 3,
+    "looks": 0,
+    "apiCalls": 7,
+    "steps": [
+      {
+        "number": 1,
+        "observationId": "o1",
+        "action": {
+          "type": "click",
+          "elementId": "e4"
+        },
+        "label": "各種設定",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          },
+          {
+            "field": "effect_e2",
+            "from": "neutral",
+            "to": "unknown",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": false,
+        "actionLongContext": false
+      },
+      {
+        "number": 2,
+        "observationId": "o2",
+        "action": {
+          "type": "click",
+          "elementId": "e4"
+        },
+        "label": "お知らせ",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": false,
+        "actionLongContext": false
+      },
+      {
+        "number": 3,
+        "observationId": "o3",
+        "action": {
+          "type": "click",
+          "elementId": "e3"
+        },
+        "label": "マイページへ戻る",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": false,
+        "actionLongContext": false
+      },
+      {
+        "number": 4,
+        "observationId": "o4",
+        "action": null,
+        "label": null,
+        "knowledge": null,
+        "rawGoal": null,
+        "admittedGoal": null,
+        "adjustments": [],
+        "assessmentError": {
+          "code": "HTTP_ERROR",
+          "statusCode": 400,
+          "providerCode": "max_tokens_exceeded"
+        },
+        "actionResponsePresent": false,
+        "assessmentResponsePresent": false,
+        "assessmentLongContext": false,
+        "actionLongContext": false
+      }
+    ]
+  },
+  "round2": {
+    "code": {
+      "revision": "68f4455ef2dbacba47d22c2a8cbb1977c0372b0f",
+      "sourceHash": "bb6892e00f44e9f8c80e1f329c0d42f1b6de41977085cd35636866c5ff3b2b4e"
+    },
+    "config": {
+      "schemaVersion": 1,
+      "id": "human-screen-deliberation",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 4096,
+        "clearHeight": 4096,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261028
+      },
+      "behavior": "goal",
+      "maxUIActions": 15,
+      "maxLooks": 3,
+      "maxDecisions": 12,
+      "maxAPICalls": 24,
+      "maxRunMs": 180000,
+      "modeledActionMs": null,
+      "deliberation": {
+        "enabled": true,
+        "memoryCapacity": 3,
+        "candidateEffects": true
+      }
+    },
+    "termination": "DECISION_LIMIT",
+    "objectiveAssessment": {
+      "status": "OK",
+      "value": false
+    },
+    "perceivedDone": false,
+    "validForComparison": true,
+    "decisions": 12,
+    "uiActions": 12,
+    "looks": 0,
+    "apiCalls": 24,
+    "steps": [
+      {
+        "number": 1,
+        "observationId": "o1",
+        "action": {
+          "type": "click",
+          "elementId": "e4"
+        },
+        "label": "各種設定",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "unsatisfied",
+        "adjustments": [
+          {
+            "field": "effect_e2",
+            "from": "neutral",
+            "to": "unknown",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": true,
+        "actionLongContext": true
+      },
+      {
+        "number": 2,
+        "observationId": "o2",
+        "action": {
+          "type": "click",
+          "elementId": "e4"
+        },
+        "label": "お知らせ",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          },
+          {
+            "field": "effect_e2",
+            "from": "neutral",
+            "to": "unknown",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": true,
+        "actionLongContext": true
+      },
+      {
+        "number": 3,
+        "observationId": "o3",
+        "action": {
+          "type": "click",
+          "elementId": "e3"
+        },
+        "label": "マイページへ戻る",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": true,
+        "actionLongContext": true
+      },
+      {
+        "number": 4,
+        "observationId": "o4",
+        "action": {
+          "type": "click",
+          "elementId": "e4"
+        },
+        "label": "各種設定",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          },
+          {
+            "field": "effect_e2",
+            "from": "neutral",
+            "to": "unknown",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": true,
+        "actionLongContext": true
+      },
+      {
+        "number": 5,
+        "observationId": "o5",
+        "action": {
+          "type": "click",
+          "elementId": "e4"
+        },
+        "label": "お知らせ",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          },
+          {
+            "field": "effect_e2",
+            "from": "neutral",
+            "to": "unknown",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": true,
+        "actionLongContext": true
+      },
+      {
+        "number": 6,
+        "observationId": "o6",
+        "action": {
+          "type": "click",
+          "elementId": "e2"
+        },
+        "label": "マイページ",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          },
+          {
+            "field": "effect_e2",
+            "from": "advances",
+            "to": "unknown",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          },
+          {
+            "field": "effect_back",
+            "from": "neutral",
+            "to": "unknown",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": true,
+        "actionLongContext": true
+      },
+      {
+        "number": 7,
+        "observationId": "o7",
+        "action": {
+          "type": "click",
+          "elementId": "e4"
+        },
+        "label": "各種設定",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": true,
+        "actionLongContext": true
+      },
+      {
+        "number": 8,
+        "observationId": "o8",
+        "action": {
+          "type": "click",
+          "elementId": "e4"
+        },
+        "label": "お知らせ",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": true,
+        "actionLongContext": true
+      },
+      {
+        "number": 9,
+        "observationId": "o9",
+        "action": {
+          "type": "click",
+          "elementId": "e2"
+        },
+        "label": "マイページ",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          },
+          {
+            "field": "effect_back",
+            "from": "neutral",
+            "to": "unknown",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": true,
+        "actionLongContext": true
+      },
+      {
+        "number": 10,
+        "observationId": "o10",
+        "action": {
+          "type": "click",
+          "elementId": "e4"
+        },
+        "label": "各種設定",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": true,
+        "actionLongContext": true
+      },
+      {
+        "number": 11,
+        "observationId": "o11",
+        "action": {
+          "type": "click",
+          "elementId": "e4"
+        },
+        "label": "お知らせ",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          },
+          {
+            "field": "effect_e2",
+            "from": "neutral",
+            "to": "unknown",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": true,
+        "actionLongContext": true
+      },
+      {
+        "number": 12,
+        "observationId": "o12",
+        "action": {
+          "type": "click",
+          "elementId": "e2"
+        },
+        "label": "マイページ",
+        "knowledge": "insufficient",
+        "rawGoal": "unsatisfied",
+        "admittedGoal": "uncertain",
+        "adjustments": [
+          {
+            "field": "goal",
+            "from": "unsatisfied",
+            "to": "uncertain",
+            "reason": "NO_ADMITTED_EVIDENCE"
+          }
+        ],
+        "assessmentError": null,
+        "actionResponsePresent": true,
+        "assessmentResponsePresent": true,
+        "assessmentLongContext": true,
+        "actionLongContext": true
+      }
+    ]
+  },
+  "comparison": {
+    "sameGoal": true,
+    "sameUI": true,
+    "initialBaselinePixelsEqual": true,
+    "primaryRecoveryOpportunities": [
+      {
+        "step": 4,
+        "selected": "e4",
+        "currentImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+        "e4Prediction": {
+          "prediction": "advances",
+          "evidence": {
+            "observationId": "o2",
+            "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+          }
+        },
+        "e5Prediction": {
+          "prediction": "unknown"
+        },
+        "e4Offered": true,
+        "e5Offered": true,
+        "rawE4": 0.9400000000000001,
+        "rawE5": 0.01,
+        "filteredE4": 0.9494949494949495,
+        "filteredE5": 0.0101010101010101,
+        "adjustments": []
+      },
+      {
+        "step": 7,
+        "selected": "e4",
+        "currentImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+        "e4Prediction": {
+          "prediction": "advances",
+          "evidence": {
+            "observationId": "o5",
+            "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+          }
+        },
+        "e5Prediction": {
+          "prediction": "unknown"
+        },
+        "e4Offered": true,
+        "e5Offered": true,
+        "rawE4": 0.95,
+        "rawE5": 0.02,
+        "filteredE4": 0.95,
+        "filteredE5": 0.02,
+        "adjustments": []
+      },
+      {
+        "step": 10,
+        "selected": "e4",
+        "currentImage": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+        "e4Prediction": {
+          "prediction": "advances",
+          "evidence": {
+            "observationId": "o8",
+            "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+          }
+        },
+        "e5Prediction": {
+          "prediction": "unknown"
+        },
+        "e4Offered": true,
+        "e5Offered": true,
+        "rawE4": 0.9400000000000001,
+        "rawE5": 0.01,
+        "filteredE4": 0.9494949494949496,
+        "filteredE5": 0.010101010101010102,
+        "adjustments": []
+      }
+    ],
+    "recoveryObserved": false,
+    "alternateBranchTaken": false,
+    "goalAchieved": false,
+    "knowledgeInsufficient": 12,
+    "rawGoalUnsatisfied": 12,
+    "admittedGoal": {
+      "unsatisfied": 1,
+      "uncertain": 11
+    },
+    "infrastructureFaultAfterRepair": false,
+    "recoveryCapability": "Not demonstrated in this one completed latest-mode trial",
+    "causalImprovementEstimate": "Unavailable; one archived baseline and one completed treatment with uncontrolled model generation",
+    "humanValidity": "Unverified; human native rendering and model numbered images differ"
+  },
+  "findings": {
+    "observed": "The assessment and action stages complete, but the previously chosen root route is repeatedly assessed as advancing the goal and selected again",
+    "hypothesis": "Assessment is not a prediction-versus-outcome belief update; recent images and performed markers do not explicitly bind a route expectation to its observed contradiction",
+    "notEstablished": "Memory size alone, argmax alone, assessment alone or text size as the isolated cause"
+  },
+  "verification": {
+    "focused": {
+      "tests": 44,
+      "passed": 44,
+      "failed": 0,
+      "skipped": 0,
+      "durationMs": 95730.1665,
+      "log": "reports/human-deliberation-2026-10-28/final-focused.log"
+    },
+    "buildExitCode": 0,
+    "typescriptExitCode": 0,
+    "independent": "Round1 and round2 saved-artifact audits passed; latest 24 requests/66 asset references/13,824,000 pixels, all choices and ledger hashes verified"
+  },
+  "artifacts": {
+    "round1": "reports/human-deliberation-2026-10-28/live-round1",
+    "round2": "reports/human-deliberation-2026-10-28/live-round2",
+    "protocol": "experiments/virtual-beta/human-comparison/deliberation-protocol.json",
+    "repair": "experiments/virtual-beta/human-comparison/deliberation-transport-repair.json"
+  }
+}
