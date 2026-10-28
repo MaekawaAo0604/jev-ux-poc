@@ -5,8 +5,9 @@ import {resolve,join} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {performance} from 'node:perf_hooks';
 import {parseCharter} from '../jev/persona.js';
+import {safeRequestFailure,safeProviderType,ChoiceRequestError} from '../jev/client.js';
 import {validateConfig} from '../jev/virtual-beta/config.js';
-import {runBeta,sha,BetaBudgetError,BetaAdmissionError,type BetaEvaluator,type ModelRequest} from './virtual-beta-core.js';
+import {runBeta,sha,BetaBudgetError,BetaAdmissionError,BetaResponseError,type BetaEvaluator,type ModelRequest} from './virtual-beta-core.js';
 import {evaluateBetaRequest} from './virtual-beta-evaluator.js';
 import {PhaseBudget} from './virtual-beta-budget.js';
 import {sourceIdentity} from './virtual-beta-source.js';
@@ -14,6 +15,13 @@ import {buildBlindReview,validateBlindReview,type ReviewFrame} from './human-jev
 
 export const humanJevConfig=validateConfig({schemaVersion:1,id:'human-screen-baseline',vision:{mode:'crop',clearWidth:4096,clearHeight:4096,blurRadius:12},state:{enabled:true,memoryCapacity:3},selection:{mode:'argmax',seed:20261028},behavior:'goal',maxUIActions:15,maxLooks:3,maxDecisions:12,maxAPICalls:12,maxRunMs:180000,modeledActionMs:null});
 type Options={out:string;mock:boolean;phaseBudget?:string;envFile?:string};
+function failureEvidence(error:unknown){
+ const f=safeRequestFailure(error);
+ const code=['HTTP_ERROR','TIMEOUT','REQUEST_FAILED','MISSING_CREDENTIALS','INVALID_RESPONSE'].includes(f.code)?f.code:'REQUEST_FAILED';
+ const providerType=safeProviderType(f.providerType),attempts=error instanceof ChoiceRequestError?error.request?.attempts:error instanceof BetaResponseError?error.response.request?.attempts:undefined;
+ return {code,...(Number.isInteger(f.statusCode)&&f.statusCode!>=400&&f.statusCode!<=599?{statusCode:f.statusCode}:{}),...(providerType?{providerType}:{}),...(f.providerCode==='max_tokens_exceeded'?{providerCode:f.providerCode}:{}),...(Number.isSafeInteger(attempts)&&attempts!>=0&&attempts!<=1?{attempts}:{} )};
+}
+
 /** One ordinary baseline exploration, followed by a separate prompted categorical review.
  * This module never opens participant records or accepts participant expectations.
  */
@@ -53,7 +61,7 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
    calls++;
    let response;
    try{response=await evaluateBetaRequest({...request,timeoutMs:remaining});}
-   catch(error){await budget!.settle(reservation,'ERROR',{attempts:1,failureCode:'REQUEST_FAILED'});throw error;}
+   catch(error){await budget!.settle(reservation,'ERROR',{attempts:1,failureCode:failureEvidence(error).code});throw error;}
    try{await budget!.settle(reservation,'OK',{attempts:response.request?.attempts??1});}catch{throw new Error('BUDGET_SETTLEMENT_AFTER_REQUEST');}
    return response;
   };
@@ -70,10 +78,14 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
    const request=buildBlindReview(selected,charter.goal);
    const assets=Object.fromEntries(selected.map(frame=>[frame.observationId,{file:'exploration/input-'+frame.observationId.slice(1)+'.png',sha256:frame.imageSha256}]));
    await writeFile(join(root,'review-input.json'),JSON.stringify({input:request.input,questions:request.questions,assets,inputSha256:sha(JSON.stringify({input:request.input,questions:request.questions,assets}))},null,2));
+   let stage='REQUEST';
    try{
     const response=await dispatch(request);await writeFile(join(root,'review-response.json'),JSON.stringify(response,null,2));
-    review={status:'OK',...validateBlindReview(response,request)};
-   }catch(error){review={status:'ERROR',code:typeof (error as any)?.code==='string'?(error as any).code:'REVIEW_INVALID_OR_REQUEST_FAILED'};}
+    stage='VALIDATION';review={status:'OK',...validateBlindReview(response,request)};
+   }catch(error){
+    if(error instanceof BetaResponseError)await writeFile(join(root,'review-response.json'),JSON.stringify(error.response,null,2));
+    const evidence=failureEvidence(error);review={status:'ERROR',stage,code:stage==='VALIDATION'?'INVALID_REVIEW':error instanceof BetaResponseError?error.code:evidence.code,error:evidence};
+   }
   }
   await writeFile(join(root,'review.json'),JSON.stringify(review,null,2));
   manifest.actualAPIRequests=options.mock?0:calls;await writeFile(join(root,'manifest.json'),JSON.stringify({...manifest,totalEvaluatorCalls:calls},null,2));

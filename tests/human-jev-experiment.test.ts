@@ -4,6 +4,7 @@ import {mkdtemp,readFile,rm,mkdir,writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {runHumanJev} from '../runner/human-jev-experiment.js';
+import {ChoiceRequestError} from '../jev/client.js';
 
 test('human comparison runner leaves the action policy intact, passes no human/DOM data, and reviews only delivered frames',async()=>{
  const dir=await mkdtemp(join(tmpdir(),'human-jev-runner-'));let actionCalls=0,reviewCalls=0;
@@ -57,4 +58,22 @@ test('live mode cannot bypass the durable approved phase ledger with an injected
   assert.equal(await readFile(saved,'utf8'),'preserve original artifact');
   assert.equal(JSON.parse(await readFile(budget,'utf8')).used,0);
  }finally{if(previous===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=previous;assert.ok(dir.startsWith(join(tmpdir(),'human-jev-runner-')));await rm(dir,{recursive:true,force:true});}
+});
+
+test('review transport failures preserve allowlisted diagnostic evidence without provider messages or headers',async()=>{
+ const dir=await mkdtemp(join(tmpdir(),'human-jev-runner-'));
+ try{
+  const saved=await runHumanJev({out:join(dir,'result'),mock:true},async request=>{
+   if(!request.questions.nextAction){
+    const error=new ChoiceRequestError({code:'HTTP_ERROR',statusCode:400,providerCode:'max_tokens_exceeded'},{attempts:1,failures:[{code:'HTTP_ERROR',statusCode:400}]});
+    Object.assign(error.failure,{headers:{Authorization:'DO_NOT_SAVE_SECRET'},message:'DO_NOT_SAVE_SECRET'});throw error;
+   }
+   return {model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(request.questions).map(([id,q])=>{const choice=id==='nextAction'?'done':'goal';return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,k===choice?1:0]))}];}))};
+  });
+  const review=JSON.parse(await readFile(join(saved.root,'review.json'),'utf8'));
+  assert.equal(review.status,'ERROR');assert.equal(review.stage,'REQUEST');
+  assert.deepEqual(review.error,{code:'HTTP_ERROR',statusCode:400,providerCode:'max_tokens_exceeded',attempts:1});
+  assert.ok(!JSON.stringify(review).includes('DO_NOT_SAVE_SECRET'));
+  assert.equal(review.findings,undefined);
+ }finally{assert.ok(dir.startsWith(join(tmpdir(),'human-jev-runner-')));await rm(dir,{recursive:true,force:true});}
 });
