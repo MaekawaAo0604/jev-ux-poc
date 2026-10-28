@@ -21,10 +21,12 @@ Action criteria may quote current finding + literal requirement status and histo
 Comparison goal-search: oldcorrespondence/newsearch, existing12slots3scenarios×2rep×2arms, max24/trial288phase,parallel1,no retries,12decisions15UI3looks180s,20min. Preserve94 prior ledgers. Component bundles current question+memory+criteria, not individual causal attribution. Initial model inputs/questions intentionally differ; source/UI/goal/persona/seed/initialconditions fixed.
 
 ## Acceptance / execution
-- [ ] Read-only diagnosis with source paths, existing ImageJudgmentMemory/Choice contract and actual source neutral.
-- [ ] WorkerA RED→GREEN: existing definitions reused, no labels/DOM, actualclick target validation, no/unseen/future sources, invalidprobabilities/unknownkeys, oversize goal, chronology/goal mismatch/copy/capacity/isolation, changed/unknown/progress-not-fact/revisit preserved.
-- [ ] Parent RED→GREEN config/profile/core/replay: no extra images/stage, exact question+source+memory+criteria reconstruction; disabled unchanged; no silent malformed normality. Existing correspondence annotation check accounts for the later search decoration.
-- [ ] WorkerB RED→GREEN pairedcomponent,94prior ledgers,12schedule/reverseorder/caps/fault accounting/actual raw annotation&selection metrics.
-- [ ] Freeze product commit/hash; fresh independent browser+normalgatewaystub; current4mock and previous60saved replays; types/build; fix/reverify max3rounds.
-- [ ] Real12 max288 fresh requests through normal runner, no saved input resend/humanrecord/env logging. Trace/actualpixel/input/response/selection/action/outcome audit. Do not count limits/faults as success.
-- [ ] Independent raw/visual audit; docs/results/commands/open tasks; feature commit/push. Human fidelity remains unverified. If no improvement, reconsider representation/actor coupling rather than hiding loops with bans.
+- [x] Read-only diagnosis with source paths, existing ImageJudgmentMemory/Choice contract and actual source neutral.
+- [x] WorkerA RED→GREEN: existing definitions reused, no labels/DOM, actualclick target validation, no/unseen/future sources, invalidprobabilities/unknownkeys, oversize goal, chronology/goal mismatch/copy/capacity/isolation, changed/unknown/progress-not-fact/revisit preserved.
+- [x] Parent RED→GREEN config/profile/core/replay: no extra images/stage, exact question+source+memory+criteria reconstruction; disabled unchanged; no silent malformed normality. Existing correspondence annotation check accounts for the later search decoration.
+- [x] WorkerB RED→GREEN pairedcomponent,94prior ledgers,12schedule/reverseorder/caps/fault accounting/actual raw annotation&selection metrics.
+- [x] Freeze product commit/hash; fresh independent browser+normalgatewaystub; current4mock and previous60saved replays; types/build; fix/reverify max3rounds.
+- [ ] Real12 interrupted by HTTP402 after38 durable requests (34OK/4ERROR), validpair0; remains incomplete. Original manifests/ledgers preserved. Real12 max288 fresh requests through normal runner, no saved input resend/humanrecord/env logging. Trace/actualpixel/input/response/selection/action/outcome audit. Do not count limits/faults as success.
+- [x] Independent partial raw/visual audit: 5 replay/trace, 214 raw files and 94 prior ledgers unchanged, zero valid pairs. Docs/results/commands/open tasks prepared.
+- [x] HTTP402 operational stop: 12-line runner change, independent assessment/action/500 controls, five fake requests, real0, offline recheck5/5, build success.
+- [x] Final reports/test delivery prepared and verified: integrated87/87, independent-code19/19, operational offline5/5, build success. Feature delivery is recorded in Git; full real12 and human fidelity remain unverified. No revisit bans or manufactured success.
