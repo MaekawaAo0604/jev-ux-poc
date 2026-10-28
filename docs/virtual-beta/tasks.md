@@ -47,3 +47,9 @@ T04 round1 再検証完了: 新しい独立検証サブが固定製品版9218366
 親とsemantic_ui/semantic_analysisが、意味を示す案内だけを隠し、両A/B操作を常に候補に残す反転課題と固定12枠の比較を実装した。新規実API47/48、20試行。可視対照は2/2選び分け、自律取得は初期非可視18件すべて注視0。表示維持追試2件では主観的doneと独立結果が不一致。座標契約の補完後も注視0。実装・API・UI・状態・分布の追跡と、人間記録器の接続を追加し、能力未達と区別した。基準・各版・修正・個別結果はsemantic-verification.mdとsemantic-results.json。
 
 次の優先順位はsemantic-verification.md末尾の3件に限定：観察に根拠を持つ未取得情報/副作用の判断部品、同じ最終版での可視対照と自律取得の反復、その後の人間比較。新しい実APIは既存台帳をリセットせず別の承認枠で実行する。
+
+## Information state（2026-10-28）
+
+a064e98から新ブランチfeature/virtual-beta-information-stateへ分離。親共通接続、information_stateモジュール、information_analysis解析、fresh information_verify独立検証。初版b4d6a36の状態提示のみでは、不足→盲目的クリック、未達評価→doneが実モデルで発生した。候補説明にも同じ仮説を提示するcandidateEffectsを任意追加。最終製品6b3c418では、1件が自律注視2→新案内→正解B→done・表示維持oracle true、もう1件は案内未取得でA正解。全8試行31/32要求、以前の47台帳は別保存。独立P2はreplayの記憶画像参照の結合不足で、RED再現→修正→GREEN。結果・設定・コマンドはinformation-verification.md、個別値information-results.json。安定性・因果効果・人間一致は今回の少数例から結論しない。
+
+次の実装・検証は同最終版反復、評価と選択の不整合の比較、人間実測の3件。新しい無根拠スコアや強制注視・正解候補フィルタで未達を隠さない。

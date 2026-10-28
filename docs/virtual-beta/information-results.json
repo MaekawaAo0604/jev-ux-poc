@@ -1,0 +1,1591 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "verification": "Final full regression PASS: 752 tests / 749 passed / 0 failed / 3 opt-in skipped; build and TypeScript pass; independent saved-model audit covers all8 trials and31 actual requests",
+  "budget": {
+    "newMaximum": 32,
+    "used": 31,
+    "remaining": 1,
+    "perRunMaximum": 8,
+    "previousPhaseConsumed": 47,
+    "previousPhaseSeparate": true,
+    "statuses": {
+      "OK": 31
+    },
+    "noSavedPayloadReplay": true
+  },
+  "interpretation": "One autonomous observation-to-cue-to-choice chain observed in the final hidden condition; not a stable improvement, internal understanding or human validity. Original twelve-trial strict scores/tests are inapplicable and not redefined.",
+  "batches": [
+    {
+      "name": "baseline",
+      "revision": "b4d6a36d7228d71c6b2f79e12a250c21a1c0871c",
+      "sourceHash": "6321583c95843cd5b7da84f1518d24a467668b004cc355ff14653c8658dc2111",
+      "model": "jev-1.14.0",
+      "config": {
+        "schemaVersion": 1,
+        "id": "information-baseline",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 640,
+          "clearHeight": 480,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 4,
+        "maxLooks": 3,
+        "maxDecisions": 4,
+        "maxAPICalls": 8,
+        "maxRunMs": 90000,
+        "modeledActionMs": null,
+        "initialFixation": {
+          "x": 640,
+          "y": 450
+        }
+      },
+      "goal": "画面表示の設定は一度も変更せずに、メール通知だけを停止して、停止したことを確認したい",
+      "personaId": "A",
+      "actualAPICalls": 5,
+      "runs": [
+        {
+          "runId": "semantic-01-reference-a-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "A"
+          },
+          "objectivePolicy": "mail-and-display-preserved",
+          "objective": {
+            "status": "OK",
+            "value": false
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "apiCalls": 3,
+          "assessmentAPICalls": 0,
+          "actionAPICalls": 3,
+          "looks": 0,
+          "uiActions": 2,
+          "firstChoice": "B",
+          "firstChoiceCorrect": false,
+          "cue": {
+            "initialWhollyAbsent": true,
+            "acquiredBeforeOrAtFirstChoice": false,
+            "firstFullyVisibleDecision": null,
+            "rawScreenStableBeforeChoice": true,
+            "interpretation": "Whole-ROI clear-image availability only; does not prove reading or internal understanding."
+          },
+          "observedCueSupportedChoice": false,
+          "originalTwelveTrialProtocolEligibility": {
+            "artifactValidity": "artifact-valid",
+            "semanticValidity": "design-invalid",
+            "eligible": false,
+            "censored": false,
+            "reasons": [
+              "FIXED_CONDITION_MISMATCH"
+            ]
+          },
+          "originalProtocolScore": 0,
+          "initialImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+          "initialRawSha256": "76989e5ec499bcc32abdfa84cf41285cfe76e8db74c11dcc216a3776b29d2382",
+          "modelAssessmentContradiction": null,
+          "subjectiveDoneContradiction": true,
+          "result": "reports/information-state-2026-10-28/baseline/semantic-01-reference-a-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": null,
+              "assessmentInputSha256": null,
+              "actionInputSha256": "73c1c02f2bf59e742f65fc19f6819c41cb544b97b17383c823576a71c67a8f93",
+              "proposal": "e2",
+              "selected": "e2",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "outcome": "UI_PERFORMED",
+              "objectiveSuccess": false,
+              "reason": {
+                "category": "uncertainty",
+                "observationId": "o1",
+                "kind": "model-self-report",
+                "proposedChoice": "e2",
+                "selectedChoice": "e2"
+              },
+              "image": "reports/information-state-2026-10-28/baseline/semantic-01-reference-a-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": null,
+              "assessmentInputSha256": null,
+              "actionInputSha256": "ab453a667805e466eb1c8fec5869a4e89a96fde9bbf7d20e725fa8abc4f81600",
+              "proposal": "e1",
+              "selected": "e1",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "outcome": "UI_PERFORMED",
+              "objectiveSuccess": false,
+              "reason": {
+                "category": "confirmation",
+                "observationId": "o2",
+                "kind": "model-self-report",
+                "proposedChoice": "e1",
+                "selectedChoice": "e1"
+              },
+              "image": "reports/information-state-2026-10-28/baseline/semantic-01-reference-a-r1/input-2.png"
+            },
+            {
+              "number": 3,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": null,
+              "assessmentInputSha256": null,
+              "actionInputSha256": "208aebbd106c07be5bafe4f12836ccca413fc9b9533c003ebe3ba7f0c601ec2e",
+              "proposal": "done",
+              "selected": "done",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "done"
+              },
+              "outcome": "SUBJECTIVE_DONE",
+              "objectiveSuccess": null,
+              "reason": {
+                "category": "confirmation",
+                "observationId": "o3",
+                "kind": "model-self-report",
+                "proposedChoice": "done",
+                "selectedChoice": "done"
+              },
+              "image": "reports/information-state-2026-10-28/baseline/semantic-01-reference-a-r1/input-3.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-02-reference-b-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "B"
+          },
+          "objectivePolicy": "mail-and-display-preserved",
+          "objective": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "apiCalls": 2,
+          "assessmentAPICalls": 0,
+          "actionAPICalls": 2,
+          "looks": 0,
+          "uiActions": 1,
+          "firstChoice": "B",
+          "firstChoiceCorrect": true,
+          "cue": {
+            "initialWhollyAbsent": true,
+            "acquiredBeforeOrAtFirstChoice": false,
+            "firstFullyVisibleDecision": null,
+            "rawScreenStableBeforeChoice": true,
+            "interpretation": "Whole-ROI clear-image availability only; does not prove reading or internal understanding."
+          },
+          "observedCueSupportedChoice": false,
+          "originalTwelveTrialProtocolEligibility": {
+            "artifactValidity": "artifact-valid",
+            "semanticValidity": "design-invalid",
+            "eligible": false,
+            "censored": false,
+            "reasons": [
+              "FIXED_CONDITION_MISMATCH"
+            ]
+          },
+          "originalProtocolScore": 0,
+          "initialImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+          "initialRawSha256": "b87e3b856b4869dea236323029e5524403b1be2dd61d2c6c2f921ed6f6f2a4b9",
+          "modelAssessmentContradiction": null,
+          "subjectiveDoneContradiction": false,
+          "result": "reports/information-state-2026-10-28/baseline/semantic-02-reference-b-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": null,
+              "assessmentInputSha256": null,
+              "actionInputSha256": "73c1c02f2bf59e742f65fc19f6819c41cb544b97b17383c823576a71c67a8f93",
+              "proposal": "e2",
+              "selected": "e2",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "outcome": "UI_PERFORMED",
+              "objectiveSuccess": true,
+              "reason": {
+                "category": "uncertainty",
+                "observationId": "o1",
+                "kind": "model-self-report",
+                "proposedChoice": "e2",
+                "selectedChoice": "e2"
+              },
+              "image": "reports/information-state-2026-10-28/baseline/semantic-02-reference-b-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": null,
+              "assessmentInputSha256": null,
+              "actionInputSha256": "e0ee91899c634596ed7eca468d3bf7e082dfb68159c3f67bb18a6f2d359038af",
+              "proposal": "done",
+              "selected": "done",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "done"
+              },
+              "outcome": "SUBJECTIVE_DONE",
+              "objectiveSuccess": null,
+              "reason": {
+                "category": "confirmation",
+                "observationId": "o2",
+                "kind": "model-self-report",
+                "proposedChoice": "done",
+                "selectedChoice": "done"
+              },
+              "image": "reports/information-state-2026-10-28/baseline/semantic-02-reference-b-r1/input-2.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "two-stage",
+      "revision": "b4d6a36d7228d71c6b2f79e12a250c21a1c0871c",
+      "sourceHash": "6321583c95843cd5b7da84f1518d24a467668b004cc355ff14653c8658dc2111",
+      "model": "jev-1.14.0",
+      "config": {
+        "schemaVersion": 1,
+        "id": "information-two-stage",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 640,
+          "clearHeight": 480,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 4,
+        "maxLooks": 3,
+        "maxDecisions": 4,
+        "maxAPICalls": 8,
+        "maxRunMs": 90000,
+        "modeledActionMs": null,
+        "initialFixation": {
+          "x": 640,
+          "y": 450
+        },
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3
+        }
+      },
+      "goal": "画面表示の設定は一度も変更せずに、メール通知だけを停止して、停止したことを確認したい",
+      "personaId": "A",
+      "actualAPICalls": 10,
+      "runs": [
+        {
+          "runId": "semantic-01-reference-a-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "A"
+          },
+          "objectivePolicy": "mail-and-display-preserved",
+          "objective": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "apiCalls": 4,
+          "assessmentAPICalls": 2,
+          "actionAPICalls": 2,
+          "looks": 0,
+          "uiActions": 1,
+          "firstChoice": "A",
+          "firstChoiceCorrect": true,
+          "cue": {
+            "initialWhollyAbsent": true,
+            "acquiredBeforeOrAtFirstChoice": false,
+            "firstFullyVisibleDecision": null,
+            "rawScreenStableBeforeChoice": true,
+            "interpretation": "Whole-ROI clear-image availability only; does not prove reading or internal understanding."
+          },
+          "observedCueSupportedChoice": false,
+          "originalTwelveTrialProtocolEligibility": {
+            "artifactValidity": "artifact-valid",
+            "semanticValidity": "design-invalid",
+            "eligible": false,
+            "censored": false,
+            "reasons": [
+              "FIXED_CONDITION_MISMATCH"
+            ]
+          },
+          "originalProtocolScore": 0,
+          "initialImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+          "initialRawSha256": "76989e5ec499bcc32abdfa84cf41285cfe76e8db74c11dcc216a3776b29d2382",
+          "modelAssessmentContradiction": false,
+          "subjectiveDoneContradiction": false,
+          "result": "reports/information-state-2026-10-28/two-stage/semantic-01-reference-a-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o1",
+                "imageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+                "knowledge": "insufficient",
+                "goal": "uncertain",
+                "effects": {
+                  "e1": {
+                    "prediction": "unknown"
+                  },
+                  "e2": {
+                    "prediction": "unknown"
+                  }
+                },
+                "adjustments": [
+                  {
+                    "field": "goal",
+                    "from": "unsatisfied",
+                    "to": "uncertain",
+                    "reason": "NO_ADMITTED_EVIDENCE"
+                  }
+                ]
+              },
+              "assessmentInputSha256": "e813ddd175e478b259efbbfb4778a710767ae3cc7e0fb513582436a1a70b2d29",
+              "actionInputSha256": "a4ece9c0cb0e296099b7f569c192a677f746d973b1bfe46a914c3f97fb398e1c",
+              "proposal": "e1",
+              "selected": "e1",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "outcome": "UI_PERFORMED",
+              "objectiveSuccess": true,
+              "reason": {
+                "category": "uncertainty",
+                "observationId": "o1",
+                "kind": "model-self-report",
+                "proposedChoice": "e1",
+                "selectedChoice": "e1"
+              },
+              "image": "reports/information-state-2026-10-28/two-stage/semantic-01-reference-a-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o2",
+                "imageSha256": "283d3940163e0e0d7493fbfdcd125359065042cd4d983cb88f50b5a01b95aad1",
+                "knowledge": "sufficient",
+                "goal": "satisfied",
+                "goalEvidence": {
+                  "observationId": "o2",
+                  "imageSha256": "283d3940163e0e0d7493fbfdcd125359065042cd4d983cb88f50b5a01b95aad1"
+                },
+                "effects": {
+                  "e1": {
+                    "prediction": "advances",
+                    "evidence": {
+                      "observationId": "o2",
+                      "imageSha256": "283d3940163e0e0d7493fbfdcd125359065042cd4d983cb88f50b5a01b95aad1"
+                    }
+                  },
+                  "e2": {
+                    "prediction": "unknown"
+                  }
+                },
+                "adjustments": []
+              },
+              "assessmentInputSha256": "2d8ed69c09e2eadedcd184e1eff891fb48b902d612221a93cd7606da5bb606af",
+              "actionInputSha256": "09a9af2cf6151eeb23871f15ada6e6fb357c497a207e33a1980d0ebaa2cf23f1",
+              "proposal": "done",
+              "selected": "done",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "done"
+              },
+              "outcome": "SUBJECTIVE_DONE",
+              "objectiveSuccess": null,
+              "reason": {
+                "category": "confirmation",
+                "observationId": "o2",
+                "kind": "model-self-report",
+                "proposedChoice": "done",
+                "selectedChoice": "done"
+              },
+              "image": "reports/information-state-2026-10-28/two-stage/semantic-01-reference-a-r1/input-2.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-02-reference-b-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "B"
+          },
+          "objectivePolicy": "mail-and-display-preserved",
+          "objective": {
+            "status": "OK",
+            "value": false
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "apiCalls": 6,
+          "assessmentAPICalls": 3,
+          "actionAPICalls": 3,
+          "looks": 0,
+          "uiActions": 2,
+          "firstChoice": "A",
+          "firstChoiceCorrect": false,
+          "cue": {
+            "initialWhollyAbsent": true,
+            "acquiredBeforeOrAtFirstChoice": false,
+            "firstFullyVisibleDecision": null,
+            "rawScreenStableBeforeChoice": true,
+            "interpretation": "Whole-ROI clear-image availability only; does not prove reading or internal understanding."
+          },
+          "observedCueSupportedChoice": false,
+          "originalTwelveTrialProtocolEligibility": {
+            "artifactValidity": "artifact-valid",
+            "semanticValidity": "design-invalid",
+            "eligible": false,
+            "censored": false,
+            "reasons": [
+              "FIXED_CONDITION_MISMATCH"
+            ]
+          },
+          "originalProtocolScore": 0,
+          "initialImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+          "initialRawSha256": "b87e3b856b4869dea236323029e5524403b1be2dd61d2c6c2f921ed6f6f2a4b9",
+          "modelAssessmentContradiction": false,
+          "subjectiveDoneContradiction": true,
+          "result": "reports/information-state-2026-10-28/two-stage/semantic-02-reference-b-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o1",
+                "imageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+                "knowledge": "insufficient",
+                "goal": "uncertain",
+                "effects": {
+                  "e1": {
+                    "prediction": "unknown"
+                  },
+                  "e2": {
+                    "prediction": "unknown"
+                  }
+                },
+                "adjustments": [
+                  {
+                    "field": "goal",
+                    "from": "unsatisfied",
+                    "to": "uncertain",
+                    "reason": "NO_ADMITTED_EVIDENCE"
+                  }
+                ]
+              },
+              "assessmentInputSha256": "e813ddd175e478b259efbbfb4778a710767ae3cc7e0fb513582436a1a70b2d29",
+              "actionInputSha256": "a4ece9c0cb0e296099b7f569c192a677f746d973b1bfe46a914c3f97fb398e1c",
+              "proposal": "e1",
+              "selected": "e1",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "outcome": "UI_PERFORMED",
+              "objectiveSuccess": false,
+              "reason": {
+                "category": "uncertainty",
+                "observationId": "o1",
+                "kind": "model-self-report",
+                "proposedChoice": "e1",
+                "selectedChoice": "e1"
+              },
+              "image": "reports/information-state-2026-10-28/two-stage/semantic-02-reference-b-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o2",
+                "imageSha256": "07e058e520a2895a45ae972e3096dbc1f50d178f73d6a22a5f03590c387744e3",
+                "knowledge": "conflicting",
+                "goal": "uncertain",
+                "effects": {
+                  "e1": {
+                    "prediction": "conflicts",
+                    "evidence": {
+                      "observationId": "o2",
+                      "imageSha256": "07e058e520a2895a45ae972e3096dbc1f50d178f73d6a22a5f03590c387744e3"
+                    }
+                  },
+                  "e2": {
+                    "prediction": "unknown"
+                  }
+                },
+                "adjustments": [
+                  {
+                    "field": "goal",
+                    "from": "unsatisfied",
+                    "to": "uncertain",
+                    "reason": "NO_ADMITTED_EVIDENCE"
+                  }
+                ]
+              },
+              "assessmentInputSha256": "af28c6da0a819b87b5f5932c745c1924606206c37ece5b0c5ad04735d7104c92",
+              "actionInputSha256": "61b373b0ebb1e22c173739dd8ed92df806fd3fb8755bf9e74ae0732f76abfbc0",
+              "proposal": "e2",
+              "selected": "e2",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "outcome": "UI_PERFORMED",
+              "objectiveSuccess": false,
+              "reason": {
+                "category": "uncertainty",
+                "observationId": "o2",
+                "kind": "model-self-report",
+                "proposedChoice": "e2",
+                "selectedChoice": "e2"
+              },
+              "image": "reports/information-state-2026-10-28/two-stage/semantic-02-reference-b-r1/input-2.png"
+            },
+            {
+              "number": 3,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o3",
+                "imageSha256": "23f0488e3cb25b3c9b59914b80b27859348ef6c34a3816e5f8ee0957f4ebd2b3",
+                "knowledge": "conflicting",
+                "goal": "unsatisfied",
+                "goalEvidence": {
+                  "observationId": "o3",
+                  "imageSha256": "23f0488e3cb25b3c9b59914b80b27859348ef6c34a3816e5f8ee0957f4ebd2b3"
+                },
+                "effects": {
+                  "e1": {
+                    "prediction": "conflicts",
+                    "evidence": {
+                      "observationId": "o2",
+                      "imageSha256": "07e058e520a2895a45ae972e3096dbc1f50d178f73d6a22a5f03590c387744e3"
+                    }
+                  },
+                  "e2": {
+                    "prediction": "conflicts",
+                    "evidence": {
+                      "observationId": "o3",
+                      "imageSha256": "23f0488e3cb25b3c9b59914b80b27859348ef6c34a3816e5f8ee0957f4ebd2b3"
+                    }
+                  }
+                },
+                "adjustments": []
+              },
+              "assessmentInputSha256": "1ca7a16f59d3c351fb88242f5df8690b0454ac260a44dc360afb8dccdfbd411f",
+              "actionInputSha256": "229abd6ce68f991381168bb66b93c5f30fa3b8eb28d44369929376b9ba4aeee0",
+              "proposal": "done",
+              "selected": "done",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "done"
+              },
+              "outcome": "SUBJECTIVE_DONE",
+              "objectiveSuccess": null,
+              "reason": {
+                "category": "confirmation",
+                "observationId": "o3",
+                "kind": "model-self-report",
+                "proposedChoice": "done",
+                "selectedChoice": "done"
+              },
+              "image": "reports/information-state-2026-10-28/two-stage/semantic-02-reference-b-r1/input-3.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "two-stage-candidates",
+      "revision": "6b3c418baf8bb89496ae3ce023cfb76586aec356",
+      "sourceHash": "c18306347c31b0e511feb619e2e9145d2485d0ff717625c1431d7e2cae5f6641",
+      "model": "jev-1.14.0",
+      "config": {
+        "schemaVersion": 1,
+        "id": "information-candidates",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 640,
+          "clearHeight": 480,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 4,
+        "maxLooks": 3,
+        "maxDecisions": 4,
+        "maxAPICalls": 8,
+        "maxRunMs": 90000,
+        "modeledActionMs": null,
+        "initialFixation": {
+          "x": 640,
+          "y": 450
+        },
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        }
+      },
+      "goal": "画面表示の設定は一度も変更せずに、メール通知だけを停止して、停止したことを確認したい",
+      "personaId": "A",
+      "actualAPICalls": 12,
+      "runs": [
+        {
+          "runId": "semantic-01-reference-a-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "A"
+          },
+          "objectivePolicy": "mail-and-display-preserved",
+          "objective": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "apiCalls": 4,
+          "assessmentAPICalls": 2,
+          "actionAPICalls": 2,
+          "looks": 0,
+          "uiActions": 1,
+          "firstChoice": "A",
+          "firstChoiceCorrect": true,
+          "cue": {
+            "initialWhollyAbsent": true,
+            "acquiredBeforeOrAtFirstChoice": false,
+            "firstFullyVisibleDecision": null,
+            "rawScreenStableBeforeChoice": true,
+            "interpretation": "Whole-ROI clear-image availability only; does not prove reading or internal understanding."
+          },
+          "observedCueSupportedChoice": false,
+          "originalTwelveTrialProtocolEligibility": {
+            "artifactValidity": "artifact-valid",
+            "semanticValidity": "design-invalid",
+            "eligible": false,
+            "censored": false,
+            "reasons": [
+              "FIXED_CONDITION_MISMATCH"
+            ]
+          },
+          "originalProtocolScore": 0,
+          "initialImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+          "initialRawSha256": "76989e5ec499bcc32abdfa84cf41285cfe76e8db74c11dcc216a3776b29d2382",
+          "modelAssessmentContradiction": false,
+          "subjectiveDoneContradiction": false,
+          "result": "reports/information-state-2026-10-28/two-stage-candidates/semantic-01-reference-a-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o1",
+                "imageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+                "knowledge": "insufficient",
+                "goal": "uncertain",
+                "effects": {
+                  "e1": {
+                    "prediction": "unknown"
+                  },
+                  "e2": {
+                    "prediction": "unknown"
+                  }
+                },
+                "adjustments": [
+                  {
+                    "field": "goal",
+                    "from": "unsatisfied",
+                    "to": "uncertain",
+                    "reason": "NO_ADMITTED_EVIDENCE"
+                  }
+                ]
+              },
+              "assessmentInputSha256": "e813ddd175e478b259efbbfb4778a710767ae3cc7e0fb513582436a1a70b2d29",
+              "actionInputSha256": "7a9a239336bf2613dd1f50d858beaec124d36453b0d450b79d8151e50f191919",
+              "proposal": "e1",
+              "selected": "e1",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "outcome": "UI_PERFORMED",
+              "objectiveSuccess": true,
+              "reason": {
+                "category": "uncertainty",
+                "observationId": "o1",
+                "kind": "model-self-report",
+                "proposedChoice": "e1",
+                "selectedChoice": "e1"
+              },
+              "image": "reports/information-state-2026-10-28/two-stage-candidates/semantic-01-reference-a-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o2",
+                "imageSha256": "283d3940163e0e0d7493fbfdcd125359065042cd4d983cb88f50b5a01b95aad1",
+                "knowledge": "sufficient",
+                "goal": "satisfied",
+                "goalEvidence": {
+                  "observationId": "o2",
+                  "imageSha256": "283d3940163e0e0d7493fbfdcd125359065042cd4d983cb88f50b5a01b95aad1"
+                },
+                "effects": {
+                  "e1": {
+                    "prediction": "advances",
+                    "evidence": {
+                      "observationId": "o2",
+                      "imageSha256": "283d3940163e0e0d7493fbfdcd125359065042cd4d983cb88f50b5a01b95aad1"
+                    }
+                  },
+                  "e2": {
+                    "prediction": "unknown"
+                  }
+                },
+                "adjustments": []
+              },
+              "assessmentInputSha256": "2d8ed69c09e2eadedcd184e1eff891fb48b902d612221a93cd7606da5bb606af",
+              "actionInputSha256": "c509ec35284074a3dcd6f3c303e747f5c1c2d8f702cd43315ac582eed07dd0db",
+              "proposal": "done",
+              "selected": "done",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "done"
+              },
+              "outcome": "SUBJECTIVE_DONE",
+              "objectiveSuccess": null,
+              "reason": {
+                "category": "confirmation",
+                "observationId": "o2",
+                "kind": "model-self-report",
+                "proposedChoice": "done",
+                "selectedChoice": "done"
+              },
+              "image": "reports/information-state-2026-10-28/two-stage-candidates/semantic-01-reference-a-r1/input-2.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-02-reference-b-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "B"
+          },
+          "objectivePolicy": "mail-and-display-preserved",
+          "objective": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "apiCalls": 8,
+          "assessmentAPICalls": 4,
+          "actionAPICalls": 4,
+          "looks": 2,
+          "uiActions": 1,
+          "firstChoice": "B",
+          "firstChoiceCorrect": true,
+          "cue": {
+            "initialWhollyAbsent": true,
+            "acquiredBeforeOrAtFirstChoice": true,
+            "firstFullyVisibleDecision": 3,
+            "rawScreenStableBeforeChoice": true,
+            "interpretation": "Whole-ROI clear-image availability only; does not prove reading or internal understanding."
+          },
+          "observedCueSupportedChoice": true,
+          "originalTwelveTrialProtocolEligibility": {
+            "artifactValidity": "artifact-valid",
+            "semanticValidity": "design-invalid",
+            "eligible": false,
+            "censored": false,
+            "reasons": [
+              "FIXED_CONDITION_MISMATCH"
+            ]
+          },
+          "originalProtocolScore": 0,
+          "initialImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+          "initialRawSha256": "b87e3b856b4869dea236323029e5524403b1be2dd61d2c6c2f921ed6f6f2a4b9",
+          "modelAssessmentContradiction": false,
+          "subjectiveDoneContradiction": false,
+          "result": "reports/information-state-2026-10-28/two-stage-candidates/semantic-02-reference-b-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o1",
+                "imageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+                "knowledge": "insufficient",
+                "goal": "uncertain",
+                "effects": {
+                  "e1": {
+                    "prediction": "unknown"
+                  },
+                  "e2": {
+                    "prediction": "unknown"
+                  }
+                },
+                "adjustments": [
+                  {
+                    "field": "goal",
+                    "from": "unsatisfied",
+                    "to": "uncertain",
+                    "reason": "NO_ADMITTED_EVIDENCE"
+                  }
+                ]
+              },
+              "assessmentInputSha256": "e813ddd175e478b259efbbfb4778a710767ae3cc7e0fb513582436a1a70b2d29",
+              "actionInputSha256": "7a9a239336bf2613dd1f50d858beaec124d36453b0d450b79d8151e50f191919",
+              "proposal": "look_0",
+              "selected": "look_0",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 320,
+                  "y": 225
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "objectiveSuccess": false,
+              "reason": {
+                "category": "uncertainty",
+                "observationId": "o1",
+                "kind": "model-self-report",
+                "proposedChoice": "look_0",
+                "selectedChoice": "look_0"
+              },
+              "image": "reports/information-state-2026-10-28/two-stage-candidates/semantic-02-reference-b-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 320,
+                "y": 225
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 640,
+                "height": 465
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o2",
+                "imageSha256": "62df5d4e7455da2942e179a7c1cd80f35c9353916ff004eb3ddfde90201592af",
+                "knowledge": "insufficient",
+                "goal": "uncertain",
+                "effects": {},
+                "adjustments": [
+                  {
+                    "field": "goal",
+                    "from": "unsatisfied",
+                    "to": "uncertain",
+                    "reason": "NO_ADMITTED_EVIDENCE"
+                  }
+                ]
+              },
+              "assessmentInputSha256": "076558468d137ef7b925ff700541f79c17d32c93b04c63fb3483dafabbd08ed3",
+              "actionInputSha256": "7629610438fe98482e47a7b150da5b51ab4cc8584c3ed8a07b8be1718a4ac1e5",
+              "proposal": "look_3",
+              "selected": "look_3",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "objectiveSuccess": false,
+              "reason": {
+                "category": "uncertainty",
+                "observationId": "o2",
+                "kind": "model-self-report",
+                "proposedChoice": "look_3",
+                "selectedChoice": "look_3"
+              },
+              "image": "reports/information-state-2026-10-28/two-stage-candidates/semantic-02-reference-b-r1/input-2.png"
+            },
+            {
+              "number": 3,
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 640,
+                "y": 435,
+                "width": 640,
+                "height": 465
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o3",
+                "imageSha256": "936409a462c02f50a005aeb94f25245df47ddc3552adeebbbfd58258bf972737",
+                "knowledge": "sufficient",
+                "goal": "uncertain",
+                "effects": {
+                  "e1": {
+                    "prediction": "conflicts",
+                    "evidence": {
+                      "observationId": "o3",
+                      "imageSha256": "936409a462c02f50a005aeb94f25245df47ddc3552adeebbbfd58258bf972737"
+                    }
+                  },
+                  "e2": {
+                    "prediction": "advances",
+                    "evidence": {
+                      "observationId": "o3",
+                      "imageSha256": "936409a462c02f50a005aeb94f25245df47ddc3552adeebbbfd58258bf972737"
+                    }
+                  }
+                },
+                "adjustments": [
+                  {
+                    "field": "goal",
+                    "from": "unsatisfied",
+                    "to": "uncertain",
+                    "reason": "NO_ADMITTED_EVIDENCE"
+                  }
+                ]
+              },
+              "assessmentInputSha256": "fd8747fd7692f7913be54fccbdab6a71839bc38dafc8edb16086acaeeac25846",
+              "actionInputSha256": "56d1ab873e31efd77fbca1d1b6026bfd51fd5f0ca1c4d82fc4c2a4d0c3d69224",
+              "proposal": "e2",
+              "selected": "e2",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "outcome": "UI_PERFORMED",
+              "objectiveSuccess": true,
+              "reason": {
+                "category": "goal",
+                "observationId": "o3",
+                "kind": "model-self-report",
+                "proposedChoice": "e2",
+                "selectedChoice": "e2"
+              },
+              "image": "reports/information-state-2026-10-28/two-stage-candidates/semantic-02-reference-b-r1/input-3.png"
+            },
+            {
+              "number": 4,
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 640,
+                "y": 435,
+                "width": 640,
+                "height": 465
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o4",
+                "imageSha256": "b67f7597a8c4dc0ab2fd8f0eb327f13bd11af91ed69426dfc8708e1e666d1efe",
+                "knowledge": "sufficient",
+                "goal": "satisfied",
+                "goalEvidence": {
+                  "observationId": "o4",
+                  "imageSha256": "b67f7597a8c4dc0ab2fd8f0eb327f13bd11af91ed69426dfc8708e1e666d1efe"
+                },
+                "effects": {
+                  "e1": {
+                    "prediction": "conflicts",
+                    "evidence": {
+                      "observationId": "o4",
+                      "imageSha256": "b67f7597a8c4dc0ab2fd8f0eb327f13bd11af91ed69426dfc8708e1e666d1efe"
+                    }
+                  },
+                  "e2": {
+                    "prediction": "advances",
+                    "evidence": {
+                      "observationId": "o4",
+                      "imageSha256": "b67f7597a8c4dc0ab2fd8f0eb327f13bd11af91ed69426dfc8708e1e666d1efe"
+                    }
+                  }
+                },
+                "adjustments": []
+              },
+              "assessmentInputSha256": "1ebe59265cd14215f37765f9d56ad392e6744b3ec179a1fc80e31c387cdb2fb5",
+              "actionInputSha256": "559997c580226c3986d7671223ee5db6998ae7461a7312fa1bd691b051c83529",
+              "proposal": "done",
+              "selected": "done",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "done"
+              },
+              "outcome": "SUBJECTIVE_DONE",
+              "objectiveSuccess": null,
+              "reason": {
+                "category": "confirmation",
+                "observationId": "o4",
+                "kind": "model-self-report",
+                "proposedChoice": "done",
+                "selectedChoice": "done"
+              },
+              "image": "reports/information-state-2026-10-28/two-stage-candidates/semantic-02-reference-b-r1/input-4.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exposed",
+      "revision": "6b3c418baf8bb89496ae3ce023cfb76586aec356",
+      "sourceHash": "c18306347c31b0e511feb619e2e9145d2485d0ff717625c1431d7e2cae5f6641",
+      "model": "jev-1.14.0",
+      "config": {
+        "schemaVersion": 1,
+        "id": "information-exposed",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 640,
+          "clearHeight": 480,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 4,
+        "maxLooks": 3,
+        "maxDecisions": 1,
+        "maxAPICalls": 2,
+        "maxRunMs": 90000,
+        "modeledActionMs": null,
+        "initialFixation": {
+          "x": 960,
+          "y": 675
+        },
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        }
+      },
+      "goal": "画面表示の設定は一度も変更せずに、メール通知だけを停止して、停止したことを確認したい",
+      "personaId": "A",
+      "actualAPICalls": 4,
+      "runs": [
+        {
+          "runId": "semantic-01-reference-a-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "A"
+          },
+          "objectivePolicy": "mail-and-display-preserved",
+          "objective": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": false,
+          "termination": "DECISION_LIMIT",
+          "apiCalls": 2,
+          "assessmentAPICalls": 1,
+          "actionAPICalls": 1,
+          "looks": 0,
+          "uiActions": 1,
+          "firstChoice": "A",
+          "firstChoiceCorrect": true,
+          "cue": {
+            "initialWhollyAbsent": false,
+            "acquiredBeforeOrAtFirstChoice": true,
+            "firstFullyVisibleDecision": 1,
+            "rawScreenStableBeforeChoice": true,
+            "interpretation": "Whole-ROI clear-image availability only; does not prove reading or internal understanding."
+          },
+          "observedCueSupportedChoice": false,
+          "originalTwelveTrialProtocolEligibility": {
+            "artifactValidity": "artifact-valid",
+            "semanticValidity": "design-invalid",
+            "eligible": false,
+            "censored": true,
+            "reasons": [
+              "CUE_NOT_WHOLELY_ABSENT_INITIALLY"
+            ]
+          },
+          "originalProtocolScore": 0,
+          "initialImageSha256": "5d73b2aaf96bccec65506a2c3eaee8fc6884a7fb560a95b70e91055d1b403e04",
+          "initialRawSha256": "76989e5ec499bcc32abdfa84cf41285cfe76e8db74c11dcc216a3776b29d2382",
+          "modelAssessmentContradiction": null,
+          "subjectiveDoneContradiction": false,
+          "result": "reports/information-state-2026-10-28/exposed/semantic-01-reference-a-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 640,
+                "y": 435,
+                "width": 640,
+                "height": 465
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o1",
+                "imageSha256": "5d73b2aaf96bccec65506a2c3eaee8fc6884a7fb560a95b70e91055d1b403e04",
+                "knowledge": "insufficient",
+                "goal": "uncertain",
+                "effects": {
+                  "e1": {
+                    "prediction": "advances",
+                    "evidence": {
+                      "observationId": "o1",
+                      "imageSha256": "5d73b2aaf96bccec65506a2c3eaee8fc6884a7fb560a95b70e91055d1b403e04"
+                    }
+                  },
+                  "e2": {
+                    "prediction": "conflicts",
+                    "evidence": {
+                      "observationId": "o1",
+                      "imageSha256": "5d73b2aaf96bccec65506a2c3eaee8fc6884a7fb560a95b70e91055d1b403e04"
+                    }
+                  }
+                },
+                "adjustments": [
+                  {
+                    "field": "goal",
+                    "from": "unsatisfied",
+                    "to": "uncertain",
+                    "reason": "NO_ADMITTED_EVIDENCE"
+                  }
+                ]
+              },
+              "assessmentInputSha256": "0f79d96aa9bd56c1c8eb0adac94e6c4ddd621df7cef3ecfc4d7b33ff7b770d9e",
+              "actionInputSha256": "a8fa4f9b33ed0cf3354ebe2b424d37efff90b424593f5901ced64c38193008c2",
+              "proposal": "e1",
+              "selected": "e1",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "outcome": "UI_PERFORMED",
+              "objectiveSuccess": true,
+              "reason": {
+                "category": "goal",
+                "observationId": "o1",
+                "kind": "model-self-report",
+                "proposedChoice": "e1",
+                "selectedChoice": "e1"
+              },
+              "image": "reports/information-state-2026-10-28/exposed/semantic-01-reference-a-r1/input-1.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-02-reference-b-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "B"
+          },
+          "objectivePolicy": "mail-and-display-preserved",
+          "objective": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": false,
+          "termination": "DECISION_LIMIT",
+          "apiCalls": 2,
+          "assessmentAPICalls": 1,
+          "actionAPICalls": 1,
+          "looks": 0,
+          "uiActions": 1,
+          "firstChoice": "B",
+          "firstChoiceCorrect": true,
+          "cue": {
+            "initialWhollyAbsent": false,
+            "acquiredBeforeOrAtFirstChoice": true,
+            "firstFullyVisibleDecision": 1,
+            "rawScreenStableBeforeChoice": true,
+            "interpretation": "Whole-ROI clear-image availability only; does not prove reading or internal understanding."
+          },
+          "observedCueSupportedChoice": false,
+          "originalTwelveTrialProtocolEligibility": {
+            "artifactValidity": "artifact-valid",
+            "semanticValidity": "design-invalid",
+            "eligible": false,
+            "censored": true,
+            "reasons": [
+              "CUE_NOT_WHOLELY_ABSENT_INITIALLY"
+            ]
+          },
+          "originalProtocolScore": 0,
+          "initialImageSha256": "936409a462c02f50a005aeb94f25245df47ddc3552adeebbbfd58258bf972737",
+          "initialRawSha256": "b87e3b856b4869dea236323029e5524403b1be2dd61d2c6c2f921ed6f6f2a4b9",
+          "modelAssessmentContradiction": null,
+          "subjectiveDoneContradiction": false,
+          "result": "reports/information-state-2026-10-28/exposed/semantic-02-reference-b-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 640,
+                "y": 435,
+                "width": 640,
+                "height": 465
+              },
+              "assessment": {
+                "schemaVersion": 1,
+                "kind": "model-assessment-not-fact",
+                "observationId": "o1",
+                "imageSha256": "936409a462c02f50a005aeb94f25245df47ddc3552adeebbbfd58258bf972737",
+                "knowledge": "insufficient",
+                "goal": "uncertain",
+                "effects": {
+                  "e1": {
+                    "prediction": "conflicts",
+                    "evidence": {
+                      "observationId": "o1",
+                      "imageSha256": "936409a462c02f50a005aeb94f25245df47ddc3552adeebbbfd58258bf972737"
+                    }
+                  },
+                  "e2": {
+                    "prediction": "advances",
+                    "evidence": {
+                      "observationId": "o1",
+                      "imageSha256": "936409a462c02f50a005aeb94f25245df47ddc3552adeebbbfd58258bf972737"
+                    }
+                  }
+                },
+                "adjustments": [
+                  {
+                    "field": "goal",
+                    "from": "unsatisfied",
+                    "to": "uncertain",
+                    "reason": "NO_ADMITTED_EVIDENCE"
+                  }
+                ]
+              },
+              "assessmentInputSha256": "1ceec37eafc5684444d9a4e3157c366fcf035838e4f463e4e485fe9ae5007dec",
+              "actionInputSha256": "f428f73c53e05bbf0882a37fe0d2a9946742e02425e780e637f918c623597a43",
+              "proposal": "e2",
+              "selected": "e2",
+              "selectionAdjustments": [],
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "outcome": "UI_PERFORMED",
+              "objectiveSuccess": true,
+              "reason": {
+                "category": "goal",
+                "observationId": "o1",
+                "kind": "model-self-report",
+                "proposedChoice": "e2",
+                "selectedChoice": "e2"
+              },
+              "image": "reports/information-state-2026-10-28/exposed/semantic-02-reference-b-r1/input-1.png"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hiddenPairConsistency": [
+    {
+      "batch": "baseline",
+      "initialObservedImageEqual": true,
+      "initialAssessmentInputEqual": null,
+      "initialAdmittedAssessmentEqual": null,
+      "initialActionInputEqual": true,
+      "initialActionDistributionEqual": false,
+      "firstActions": {
+        "A": {
+          "type": "click",
+          "elementId": "e2"
+        },
+        "B": {
+          "type": "click",
+          "elementId": "e2"
+        }
+      }
+    },
+    {
+      "batch": "two-stage",
+      "initialObservedImageEqual": true,
+      "initialAssessmentInputEqual": true,
+      "initialAdmittedAssessmentEqual": true,
+      "initialActionInputEqual": true,
+      "initialActionDistributionEqual": false,
+      "firstActions": {
+        "A": {
+          "type": "click",
+          "elementId": "e1"
+        },
+        "B": {
+          "type": "click",
+          "elementId": "e1"
+        }
+      }
+    },
+    {
+      "batch": "two-stage-candidates",
+      "initialObservedImageEqual": true,
+      "initialAssessmentInputEqual": true,
+      "initialAdmittedAssessmentEqual": true,
+      "initialActionInputEqual": true,
+      "initialActionDistributionEqual": false,
+      "firstActions": {
+        "A": {
+          "type": "click",
+          "elementId": "e1"
+        },
+        "B": {
+          "type": "look",
+          "point": {
+            "x": 320,
+            "y": 225
+          }
+        }
+      }
+    }
+  ],
+  "initialFullRegression": {
+    "tests": 752,
+    "passed": 747,
+    "failed": 2,
+    "skipped": 3,
+    "log": "reports/information-state-2026-10-28/verification-final-full.log",
+    "diagnosis": "Both old deadline test fixtures spent3000ms budget before durable reserve, so intended reservation/settlement boundary not reached; product deadline guard behaved as designed"
+  },
+  "fixtureRepair": {
+    "revision": "00a4ad07b0717682ce3d8652b58b4ac8c5a5330c",
+    "runtimeChanged": false,
+    "focusedPassed": 25,
+    "independentFocusedPassed": 2,
+    "scope": "Only two existing deadline test fixtures plus independent fixture correction; real durable reservation asserted before scoped clock jump",
+    "log": "reports/information-state-2026-10-28/fixture-repair-focused.log"
+  },
+  "finalFullRegression": {
+    "revision": "00a4ad07b0717682ce3d8652b58b4ac8c5a5330c",
+    "productRevision": "6b3c418baf8bb89496ae3ce023cfb76586aec356",
+    "sourceHash": "c18306347c31b0e511feb619e2e9145d2485d0ff717625c1431d7e2cae5f6641",
+    "tests": 752,
+    "passed": 749,
+    "failed": 0,
+    "skipped": 3,
+    "exitCode": 0,
+    "durationMs": 685800.2835,
+    "log": "reports/information-state-2026-10-28/verification-final-full2.log",
+    "status": "reports/information-state-2026-10-28/verification-final-full2-status.json",
+    "skipReasons": [
+      "Opt-in real local OCR: RUN_OCR_INTEGRATION unset",
+      "Opt-in live composite: JEV_LIVE_COMPOSITE unset",
+      "Opt-in live semantics: JEV_LIVE_SEMANTICS unset"
+    ],
+    "buildExitCode": 0,
+    "typescriptExitCode": 0
+  }
+}
