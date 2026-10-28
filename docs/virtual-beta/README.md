@@ -107,3 +107,9 @@ manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.j
 過去 3 件では再訪補正が戻る操作を弱めて stuck を押し上げており、同一分布の再計算と通常 gateway stub の実操作で修正を確認した。
 実比較は旧 4/6、新 4/6。必要再訪 8 件は全 7 UI で達成、通知設定 4 件は全て上限終了で未達。探索の切り替えは継続課題。
 [結果 JSON](deferral-scope-results.json)、[独立検証](deferral-scope-independent-review.md) を参照する。
+
+## 過去の観察との候補対応（2026-10-29）
+
+[observation-correspondence.md](observation-correspondence.md) に、実際に提示した過去画像の検索と、モデルによる候補対応の仮説を既存2段階判断へ接続するopt-inを記録した。過去の画像hashを書き換えず、再訪禁止や新しい確率補正も加えない。実モデルの結果・独立監査を同文書に追記する。
+
+実モデル12試行・224要求では旧4/6、新4/6。候補へ過去結果が接続された後にも再選択が続いた。対応付けを実装しただけで探索の切り替えが成立したとは言えない。次は、目的に関して何を探し何が得られなかったかの意味記憶を別部品として検証する。結果の詳細は [observation-correspondence.md](observation-correspondence.md)。

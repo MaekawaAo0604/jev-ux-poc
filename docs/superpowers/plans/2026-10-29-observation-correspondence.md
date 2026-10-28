@@ -18,8 +18,9 @@ New profile experience-reason-correspondence clones conditional except id+config
 
 ## Acceptance
 
-- [ ] moduleTDD: stable ranking, boundedcopiedmemory/cross-trial isolation, actualpixels/hash guards, no labels/DOM, questionlimits, none/changed/unchanged, badprobability/unknownsources/noninjective, archivedoldnotfalsecurrentfact.
-- [ ] parent config/profile/integration RED→GREEN, source image actuallyattached in both stages <=4images, directexperienceannotation, archive/candidate/current/source/question/link/asset tamper rejected; legacy absent/disabled unchanged.
-- [ ] independent freshcontext fixedversion actualbrowser+gatewaystub, current4mock, old48saved replay, type/build.
-- [ ] normal real12 max288requests after independentacceptance; perrun24/12decisions/15UI/3looks/180s,20minphase. No humanrecords/envlogs/savedinputresend. Record retrievedsources/modelcorrespondence/outcome and whether correct prereqchanges remainseparate. No success inflation on API/tool fault.
-- [ ] independent rawaudit, report unresolvedmodel/semantic/history limits, commands+research/tasks/results, featurecommit/push. Goal remainsactive.
+- [x] moduleTDD: stable ranking, boundedcopiedmemory/cross-trial isolation, actualpixels/hash guards, no labels/DOM, questionlimits, none/changed/unchanged, badprobability/unknownsources/noninjective, archivedoldnotfalsecurrentfact.
+- [x] parent config/profile/integration RED→GREEN, source image actuallyattached in both stages <=4images, directexperienceannotation, archive/candidate/current/source/question/link/asset tamper rejected; legacy absent/disabled unchanged.
+- [x] independent freshcontext fixedversion actualbrowser+gatewaystub, current4mock, old48saved replay, type/build.
+- [x] normal real12 max288requests after independentacceptance; perrun24/12decisions/15UI/3looks/180s,20minphase. No humanrecords/envlogs/savedinputresend. Record retrievedsources/modelcorrespondence/outcome and whether correct prereqchanges remainseparate. No success inflation on API/tool fault.
+- [x] independent rawaudit, report unresolvedmodel/semantic/history limits, commands+research/tasks/results.
+- [ ] featurecommit/push. Goal remainsactive.
