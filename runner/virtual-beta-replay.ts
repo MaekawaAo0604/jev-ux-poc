@@ -20,6 +20,7 @@ import {replaySelection} from '../jev/virtual-beta/selection.js';
 import {sha,offeredCandidates,type BetaResult} from './virtual-beta-core.js';
 const isRecord=(value:unknown):value is Record<string,unknown>=>value!==null&&typeof value==='object'&&!Array.isArray(value);
 const equal=(a:unknown,b:unknown)=>JSON.stringify(a)===JSON.stringify(b);
+const unexpectedGoalSearch=(input:Record<string,unknown>|undefined)=>Object.keys(input??{}).some(key=>key.startsWith('goalSearch'))||(isRecord(input?.userState)&&Object.keys(input.userState).some(key=>key.startsWith('goalSearch')&&key!=='goalSearch'));
 const hasCorrespondence=(input:Record<string,unknown>|undefined)=>['correspondenceContext','correspondenceObservations','correspondenceAssessment'].some(key=>input?.[key]!==undefined);
 /** Only model-input image references backed by the verified attached assets admit sources. */
 function assessmentSources(input:Record<string,unknown>,assets:Record<string,{file:string;sha256:string}>,current:UserObservation):AdmittedObservationSource[]{
@@ -66,6 +67,7 @@ export async function replayDirectory(directory:string){
  const archive=result.config.correspondence?.enabled?createCorrespondenceArchive(result.config.correspondence):undefined;
  for(const step of result.steps){
   const d=step.deliberation,current=step.userState?.lastObservation;
+  if(unexpectedGoalSearch(step.modelInput)||unexpectedGoalSearch(d?.modelInput)||unexpectedGoalSearch({userState:step.userState})||Object.keys(step).some(key=>key.startsWith('goalSearch')&&key!=='goalSearch'))throw Error('UNEXPECTED_GOAL_SEARCH_FIELD');
   if(current)seen.set(current.id,current.imageSha256);
   let correspondenceContext:CorrespondenceContext|undefined,correspondenceCandidates:BetaCandidates|undefined,searchCandidates:BetaCandidates|undefined;
   const searchPresent=step.goalSearch!==undefined||(step.modelInput?.userState as any)?.goalSearch!==undefined||(d?.modelInput.userState as any)?.goalSearch!==undefined||Object.keys(d?.questions??{}).some(k=>k.startsWith('goalSearch_'))||Object.keys(d?.response?.answers??{}).some(k=>k.startsWith('goalSearch_'));
