@@ -11,10 +11,10 @@ function answerEvidence(response:ChoiceAnswers,request:ModelRequest):ChoiceAnswe
  return {model:response.model==='jev-1.14.0'?response.model:'UNEXPECTED_MODEL',answers,...(response.request?{request:response.request}:{}),...(response.usage?{usage:response.usage}:{}),...(response.costUSD===undefined?{}:{costUSD:response.costUSD})};
 }
 /** Capture only the client's answer fields, never a raw provider error or headers. */
-export async function evaluateBetaRequest(request:ModelRequest):Promise<ChoiceAnswers>{
+export async function evaluateBetaRequest(request:ModelRequest,options:{longContext?:boolean}={}):Promise<ChoiceAnswers>{
  let captured:ChoiceAnswers|undefined;
  try{
-  const response=await evaluateChoices(request.input,request.questions,{maxAttempts:1,maxElapsedMs:request.timeoutMs},{images:request.images,model:'jev-1.14.0',gatewayHTTP:true,onResponse:response=>{captured=response;}});
+  const response=await evaluateChoices(request.input,request.questions,{maxAttempts:1,maxElapsedMs:request.timeoutMs},{images:request.images,model:'jev-1.14.0',gatewayHTTP:true,...(options.longContext===true?{longContext:true}:{}),onResponse:response=>{captured=response;}});
   if(response.model!=='jev-1.14.0')throw new BetaResponseError('API_ERROR','MODEL_MISMATCH',answerEvidence(response,request));
   return answerEvidence(response,request);
  }catch(error){

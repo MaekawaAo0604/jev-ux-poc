@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "status": "FIXED_BEFORE_SECOND_MODEL_RUN",
+  "round1": {
+    "revision": "6981925",
+    "requests": 7,
+    "OK": 6,
+    "ERROR": 1,
+    "UIActions": 3,
+    "termination": "API_ERROR",
+    "failedStage": "assessment at decision4",
+    "failure": {
+      "code": "HTTP_ERROR",
+      "statusCode": 400,
+      "providerCode": "max_tokens_exceeded"
+    },
+    "recoveryMeasured": false
+  },
+  "change": {
+    "longContextOptIn": true,
+    "header": "TypeSafe-Danger-Zone-Long-Context",
+    "modelBodyChanged": false,
+    "imagesReduced": false,
+    "questionsChanged": false,
+    "goalPolicyChanged": false,
+    "maximumAttemptsPerRequest": 1,
+    "automaticRetry": false
+  },
+  "round2": {
+    "mode": "deliberation",
+    "maximumRequests": 24,
+    "maxDecisions": 12,
+    "stageCap": 12,
+    "separateStageKeys": true,
+    "newBrowserContext": true,
+    "savedRequestsReplayed": false,
+    "UXReviewRequests": 0
+  },
+  "bounds": {
+    "maximumRounds": 2,
+    "totalSelfImposed": 48,
+    "maximumCombinedActualAfterRound1": 31
+  },
+  "retained": "Keep original failed run and unused17; new phase ledger is separate under ongoing user authorization"
+}

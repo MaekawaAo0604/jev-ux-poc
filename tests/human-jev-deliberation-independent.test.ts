@@ -85,3 +85,16 @@ test('independent deliberation wrapper: unsatisfied goal and conflicting predict
   assert.equal(calls,2);assert.equal(saved.result.apiCalls,2);assert.equal(saved.result.termination,'SUBJECTIVE_DONE');assert.equal(saved.result.perceivedDone,true);assert.equal(saved.result.objectiveSuccess,false);assert.equal(saved.result.uiActions,0);assert.equal(saved.result.looks,0);assert.equal(saved.result.steps[0].selection!.raw.done,1);assert.equal(saved.result.steps[0].selection!.filtered.done,1);assert.deepEqual(saved.result.steps[0].selection!.adjustments,[]);assert.deepEqual(saved.review,{status:'NOT_RUN',reason:'PROFILE_DISABLED'});
  });
 });
+
+test('independent deliberation wrapper: long-context is explicit on both stages, defaults absent, and never adds a retry or changes body/budget',async()=>{
+ const captures:Array<Array<{body:any;header:string|null}>>=[[],[]];
+ for(const [index,longContext] of [false,true].entries()){
+  const {dir,ledger}=await fixture(),oldFetch=globalThis.fetch,oldKey=process.env.AI_GATEWAY_API_KEY;process.env.AI_GATEWAY_API_KEY='LOCAL_TEST_ONLY';
+  globalThis.fetch=async(url,options)=>{assert.equal(String(url),'https://ai-gateway.vercel.sh/typesafe/v1/systemone');const body=JSON.parse(String(options!.body)),header=new Headers(options!.headers).get('TypeSafe-Danger-Zone-Long-Context');captures[index].push({body,header});assert.ok(body.questions.knowledge||body.questions.nextAction,'No UX review in this profile');return response(body,'done');};
+  try{
+   const saved=await runHumanJev({out:join(dir,'run'),mock:false,phaseBudget:ledger,mode:'deliberation',...(longContext?{longContext:true}:{})} as any),l=await json(ledger);
+   assert.equal(saved.result.termination,'SUBJECTIVE_DONE');assert.equal(saved.result.apiCalls,2);assert.equal(l.used,2);assert.equal(l.remaining,22);assert.equal(l.attempts.length,2);assert.ok(l.attempts.every((a:any)=>a.metadata.attempts===1));assert.deepEqual(l.attempts.map((a:any)=>a.runKey.split('/').at(-1)),['assessment','action']);assert.equal((await json(join(saved.root,'manifest.json'))).actualAPIRequests,2);assert.deepEqual(saved.review,{status:'NOT_RUN',reason:'PROFILE_DISABLED'});
+  }finally{globalThis.fetch=oldFetch;if(oldKey===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=oldKey;}
+ }
+ assert.equal(captures[0].length,2);assert.equal(captures[1].length,2);assert.ok(captures[0].every(c=>c.header===null),'Existing default must keep the header absent');assert.ok(captures[1].every(c=>c.header==='true'),'Explicit opt-in must reach assessment and action requests');assert.deepEqual(captures[1].map(c=>c.body),captures[0].map(c=>c.body),'Only the header opt-in changes; model body and images stay identical');
+});

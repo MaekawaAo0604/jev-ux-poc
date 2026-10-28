@@ -4,7 +4,7 @@ import {randomUUID} from 'node:crypto';
 export type ChoiceQuestion={type:'choice';instructions:string;criteria:Record<string,string>};
 export type ChoiceAnswers={model:string;answers:Record<string,{choice:string;probabilities:Record<string,number>;confidence?:number}>;request?:RequestTrace;usage?:{inputTokens?:number;outputTokens?:number};costUSD?:number};
 export type ImageInput={mediaType:'image/png'|'image/jpeg';data:string};
-export type ChoiceInputOptions={onResponse?:(response:ChoiceAnswers)=>void;image?:ImageInput;images?:Record<string,ImageInput>;model?:string;gatewayHTTP?:boolean;recoverContextLimit?:boolean};
+export type ChoiceInputOptions={onResponse?:(response:ChoiceAnswers)=>void;image?:ImageInput;images?:Record<string,ImageInput>;model?:string;gatewayHTTP?:boolean;recoverContextLimit?:boolean;longContext?:boolean};
 export type ChoiceEvaluator=(state:unknown,questions:Record<string,ChoiceQuestion>)=>Promise<ChoiceAnswers>;
 export type RequestFailure={code:'HTTP_ERROR'|'TIMEOUT'|'REQUEST_FAILED'|'MISSING_CREDENTIALS'|'INVALID_RESPONSE';statusCode?:number;providerType?:string;providerCode?:'max_tokens_exceeded'};
 export const safeProviderType=(value:unknown)=>typeof value==='string'&&['internal_server_error','rate_limit_exceeded','authentication_error','invalid_request_error','model_not_found','timeout_error','failed_dependency','forbidden','not_found','response_error'].includes(value)?value:undefined;
@@ -109,7 +109,7 @@ const evaluateOnce=async(state:unknown,questions:Record<string,ChoiceQuestion>,t
 export const evaluateChoices=async(state:unknown,questions:Record<string,ChoiceQuestion>,policy?:RetryPolicy,input?:ChoiceInputOptions):Promise<ChoiceAnswers>=>{
  if(policy&&(!Number.isSafeInteger(policy.maxAttempts)||policy.maxAttempts<1||policy.maxAttempts>10||!Number.isSafeInteger(policy.maxElapsedMs)||policy.maxElapsedMs<1||policy.maxElapsedMs>300000||policy.retryDelaysMs&&(!policy.retryDelaysMs.length||policy.retryDelaysMs.some(n=>!Number.isSafeInteger(n)||n<0||n>60000))))throw new Error('Invalid inference recovery policy');
  const started=performance.now(),maxAttempts=policy?.maxAttempts??3;
- let invalidResponseRetried=false,longContext=false,longContextUsed=false;
+ let invalidResponseRetried=false,longContext=input?.longContext===true,longContextUsed=false;
  const remaining=()=>policy?policy.maxElapsedMs-(performance.now()-started):Infinity;
  const failures:RequestFailure[]=[];
  const trace=(attempts:number,budgetExhausted=false):RequestTrace=>({attempts,failures:[...failures],...(longContextUsed?{longContext:true as const}:{}),...(policy?{elapsedMs:performance.now()-started,...(budgetExhausted?{budgetExhausted:true}:{})}:{})});
