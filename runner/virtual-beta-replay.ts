@@ -1,3 +1,5 @@
+import {arriveExperience,beginExperience,experienceQuestions,admitExperience,experienceContext} from '../jev/virtual-beta/experience.js';
+import type {ExperienceMemory,ExperienceIntent} from '../jev/virtual-beta/experience-contracts.js';
 import {admitAssessment} from '../jev/virtual-beta/deliberation.js';
 import type {BetaCandidates,UserObservation} from '../jev/virtual-beta/contracts.js';
 import type {AdmittedObservationSource} from '../jev/virtual-beta/deliberation-contracts.js';
@@ -38,6 +40,7 @@ function assessmentSources(input:Record<string,unknown>,assets:Record<string,{fi
 }
 export async function replayDirectory(directory:string){
  const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));let choices=0,images=0,assessments=0;
+ let experience:ExperienceMemory|undefined,pending:ExperienceIntent|undefined,execution:'performed'|'unchanged'='unchanged';
  for(const step of result.steps){
   const d=step.deliberation;
   if(d){
@@ -47,12 +50,27 @@ export async function replayDirectory(directory:string){
     if(!d.response||!step.userState?.lastObservation)throw new Error('ASSESSMENT_RESPONSE_MISSING');
     const sources=assessmentSources(d.modelInput,d.assetFiles,step.userState.lastObservation);
     const candidates:BetaCandidates=Object.fromEntries(Object.keys(d.questions).filter(k=>k.startsWith('effect_')).map(k=>{const id=k.slice(7);return [id,{action:{type:'click',elementId:id},label:id}];}));
-    const assessment=admitAssessment(d.response,candidates,step.userState.lastObservation,sources);
+    const current=step.userState.lastObservation;
+    if(result.config.experience?.enabled){
+     experience=arriveExperience(experience,pending,current,execution,result.config.experience);pending=undefined;
+     if(JSON.stringify((d.modelInput.userState as any)?.experience)!==JSON.stringify(experience)||JSON.stringify(d.modelInput.experienceContext)!==JSON.stringify(experienceContext(experience,current)))throw new Error('EXPERIENCE_ARRIVAL_MISMATCH');
+    }
+    const outcomeQuestions=experience?experienceQuestions(experience,sources):{};
+    for(const [key,question] of Object.entries(outcomeQuestions))if(JSON.stringify(d.questions[key])!==JSON.stringify(question))throw new Error('EXPERIENCE_QUESTION_MISMATCH');
+    const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)))};
+    const assessment=admitAssessment(response,candidates,current,sources);
+    if(experience){
+     if(Object.keys(outcomeQuestions).length)experience=admitExperience(d.response,experience,sources);
+     if(JSON.stringify(step.userState.experience)!==JSON.stringify(experience)||JSON.stringify((step.modelInput?.userState as any)?.experience)!==JSON.stringify(experience)||JSON.stringify(step.modelInput?.experienceContext)!==JSON.stringify(experienceContext(experience,current)))throw new Error('EXPERIENCE_JUDGMENT_MISMATCH');
+    }
     if(JSON.stringify(assessment)!==JSON.stringify(d.assessment))throw new Error('ASSESSMENT_RECORD_MISMATCH');assessments++;
    }
   }
   if(step.modelInput&&step.questions&&step.assetFiles&&step.inputSha256!==sha(JSON.stringify({input:step.modelInput,questions:step.questions,assets:step.assetFiles})))throw new Error('MODEL_INPUT_HASH_MISMATCH');
   for(const source of Object.values(step.assetFiles??{})){if(source.file!==source.file.split(/[\\/]/).at(-1))throw new Error('UNSAFE_IMAGE_PATH');if(sha(await readFile(join(directory,source.file)))!==source.sha256)throw new Error('IMAGE_HASH_MISMATCH');images++;}
+  if(result.config.experience?.enabled&&step.selection&&step.action&&['UI_PERFORMED','FIXATION_MOVED','REREAD','WAIT_NO_UI'].includes(step.outcome??'')){
+   pending=beginExperience(step.userState!.lastObservation!,step.selection.selected,step.action,step.deliberation?.assessment);execution=step.outcome==='UI_PERFORMED'?'performed':'unchanged';
+  }
   if(step.selection){const candidates=Object.fromEntries(Object.keys(step.selection.raw).map(k=>[k,{action:{type:'stuck' as const},label:k}]));const selected=replaySelection(step.selection,candidates);if(selected.selected!==step.selection.selected)throw new Error('SELECTION_MISMATCH');choices++;}
  }
  return {runId:result.runId,choices,assessments,images,verified:true,scope:'Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted'};

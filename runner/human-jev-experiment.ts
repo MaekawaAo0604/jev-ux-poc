@@ -53,10 +53,10 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
   const frames:ReviewFrame[]=[];
   const dispatch:BetaEvaluator=async request=>{
    if(safety)throw new BetaBudgetError('TIME_LIMIT');
-   const stage=request.questions.nextAction?(mode==='deliberation'?'action':'exploration'):request.questions.knowledge?'assessment':'review';
-   if(stage==='assessment'&&mode!=='deliberation'||stage==='review'&&profile.reviewMaximum===0)throw new Error('PROFILE_STAGE_NOT_ALLOWED');
+   const stage=request.questions.nextAction?(mode!=='baseline'?'action':'exploration'):request.questions.knowledge?'assessment':'review';
+   if(stage==='assessment'&&mode==='baseline'||stage==='review'&&profile.reviewMaximum===0)throw new Error('PROFILE_STAGE_NOT_ALLOWED');
    if(calls>=profile.maximumRequests)throw new BetaBudgetError('API_LIMIT');
-   if(options.mock){calls++;return injected?injected(request):{model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(request.questions).map(([id,q])=>{const choice=id==='nextAction'?'done':id==='decisionBasis'?'goal':id==='knowledge'?'insufficient':id==='goal'?'uncertain':id.startsWith('effect_')?'unknown':'none';return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,k===choice?1:0]))}];}))};}
+   if(options.mock){calls++;return injected?injected(request):{model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(request.questions).map(([id,q])=>{const choice=id==='nextAction'?'done':id==='decisionBasis'?'goal':id==='experienceProgress'||id==='experienceExpectation'?'unknown':id==='knowledge'?'insufficient':id==='goal'?'uncertain':id.startsWith('effect_')?'unknown':'none';return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,k===choice?1:0]))}];}))};}
    const deadline=performance.now()+request.timeoutMs;
    const reservation=await budget!.reserve({runKey:root+'/'+stage,condition:stage==='review'?'blind-categorical-review':config.id,revision:code.revision,sourceHash:code.sourceHash});
    const remaining=Math.floor(deadline-performance.now());
