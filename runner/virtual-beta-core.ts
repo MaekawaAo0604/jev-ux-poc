@@ -161,7 +161,7 @@ export async function runBeta(page:Page,args:{runId:string;dir:string;baseURL:st
    let selection:SelectionRecord;
    try{const answer=response.answers.nextAction;let weights:Record<string,number>|undefined;
     if(config.deferral?.enabled){const decision=deferralDecision(effectiveDeferrals,observation,candidates,step.deliberation!.assessment!,answer?.probabilities,config.deferral);step.deferral!.decision=decision;weights=decision.weights;}
-    selection=sampler.select(answer?.choice,answer?.probabilities,candidates,excluded,weights);}catch(error){termination='INVALID_DISTRIBUTION';step.error={code:'INVALID_DISTRIBUTION'};if(error instanceof InvalidDistributionError&&error.details)step.selectionFailure=error.details;break;}
+    selection=sampler.select(answer?.choice,answer?.probabilities,candidates,excluded,weights,config.deferral?.selectionScope);}catch(error){termination='INVALID_DISTRIBUTION';step.error={code:'INVALID_DISTRIBUTION'};if(error instanceof InvalidDistributionError&&error.details)step.selectionFailure=error.details;break;}
    step.selection=selection;
    try{const basis=validateChoice(response.answers.decisionBasis,reasonQuestion.criteria);step.reasonEvidence={category:basis.choice,observationId:observation.id,kind:'model-self-report',proposedChoice:selection.modelChoice,selectedChoice:selection.selected};}catch{step.error={code:'REASON_UNAVAILABLE'};}
    if(args.isSafetyStopped?.()){termination='SAFETY_STOP';step.outcome=termination;break;}

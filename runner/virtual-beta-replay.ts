@@ -1,3 +1,4 @@
+import {reconstructReplayCandidates} from './virtual-beta-replay-candidates.js';
 import {copyDeferrals,updateDeferrals,deferralDecision} from '../jev/virtual-beta/deferral.js';
 import {arriveExperience,beginExperience,experienceQuestions,admitExperience,experienceContext} from '../jev/virtual-beta/experience.js';
 import {prepareReasonContext,requiredReasonSources,reasonQuestions,admitReasons} from '../jev/virtual-beta/deferral-reason.js';
@@ -112,7 +113,13 @@ export async function replayDirectory(directory:string){
    if(!equal(step.deferral?.decision,decision))throw new Error('DEFERRAL_DECISION_MISMATCH');
    if(!equal(step.selection.policy?.weights,Object.fromEntries(Object.keys(decision.weights).sort().map(id=>[id,decision.weights[id]]))))throw new Error('DEFERRAL_WEIGHT_MISMATCH');
   }
-  if(step.selection){const candidates=Object.fromEntries(Object.keys(step.selection.raw).map(k=>[k,{action:{type:'stuck' as const},label:k}]));const selected=replaySelection(step.selection,candidates);if(selected.selected!==step.selection.selected)throw new Error('SELECTION_MISMATCH');choices++;}
+  if(step.selection){
+   const conditional=result.config.deferral?.selectionScope==='ui-conditional';
+   if(conditional?step.selection.policy?.scope?.kind!=='ui-conditional-v1':step.selection.policy?.scope!==undefined)throw Error('DEFERRAL_SCOPE_MISMATCH');
+   const candidates=conditional?reconstructReplayCandidates(step.audit!.screen,Object.keys(step.selection.raw)):Object.fromEntries(Object.keys(step.selection.raw).map(k=>[k,{action:{type:'stuck' as const},label:k}]));
+   const selected=replaySelection(step.selection,candidates);if(selected.selected!==step.selection.selected)throw new Error('SELECTION_MISMATCH');
+   if(conditional&&step.action&&!equal(step.action,candidates[selected.selected].action))throw Error('CONDITIONAL_ACTION_MISMATCH');choices++;
+  }
  }
  return {runId:result.runId,choices,assessments,images,verified:true,scope:'Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted'};
 }

@@ -1,6 +1,6 @@
 import {createHash} from 'node:crypto';
 import {isDeepStrictEqual} from 'node:util';
-import type {BetaCandidates,SelectionConfig,SelectionRecord} from './contracts.js';
+import type {BetaCandidates,SelectionConfig,SelectionRecord,SelectionPolicyScope} from './contracts.js';
 
 /** Safe, validated probability/filter evidence; intentionally has no selected action. */
 export type SelectionFailureDetails={
@@ -24,8 +24,57 @@ function drawAt(seed:number,drawIndex:number):number {
  return createHash('sha256').update(`jev-virtual-beta-selection:v1:${seed}:${drawIndex}`,'utf8').digest().readUInt32BE(0)/0x100000000;
 }
 
-function selectAt(config:SelectionConfig,drawIndex:number,modelChoice:string,raw:Record<string,number>,candidates:BetaCandidates,excluded:Record<string,string>,weights?:Record<string,number>):SelectionRecord {
+function choose(keys:string[],distribution:Record<string,number>,draw:number|null):string {
+ if(draw===null){let selected=keys[0];for(const key of keys)if(distribution[key]>distribution[selected])selected=key;return selected;}
+ let selected=keys.filter(key=>distribution[key]>0).at(-1)!;
+ let cumulative=0;
+ for(const key of keys){cumulative+=distribution[key];if(draw<cumulative){selected=key;break;}}
+ return selected;
+}
+/** Keep a mapped sample inside its original UI CDF interval despite rounding at an endpoint. */
+function conditionalQuantile(keys:string[],ui:Set<string>,before:Record<string,number>,baseline:string,uiMass:number,draw:number):number {
+ let rawPrefix=0,uiPrefix=0;
+ for(const key of keys){if(key===baseline)break;rawPrefix+=before[key];if(ui.has(key))uiPrefix+=before[key]/uiMass;}
+ const upper=Math.min(1,uiPrefix+before[baseline]/uiMass);
+ if(!(upper>uiPrefix))invalid('Conditional probability interval underflow');
+ const bits=new DataView(new ArrayBuffer(8));bits.setFloat64(0,upper);bits.setBigUint64(0,bits.getBigUint64(0)-1n);
+ const quantile=Math.max(uiPrefix,Math.min(bits.getFloat64(0),uiPrefix+(draw-rawPrefix)/uiMass));
+ if(!Number.isFinite(quantile)||quantile<0||quantile>=1)invalid('Invalid conditional draw');
+ return quantile;
+}
+function conditionalPolicy(keys:string[],candidates:BetaCandidates,policy:NonNullable<SelectionRecord['policy']>,globalFiltered:Record<string,number>,draw:number|null):{filtered:Record<string,number>;selected:string}{
+ const uiCandidates=keys.filter(key=>{
+  const action=candidates[key]?.action;
+  if(!isRecord(action)||!['click','back','scroll','done','stuck','look','reread','wait','abandon'].includes(action.type as string))invalid('Unsupported conditional candidate action type');
+  return ['click','back','scroll'].includes(action.type);
+ });
+ const ui=new Set(uiCandidates),before=policy.before,weights=policy.weights;
+ if(keys.some(key=>!ui.has(key)&&weights[key]!==1))invalid('Conditional policy requires non-UI weights to be one');
+ const baselineSelected=choose(keys,before,draw),baselineClass=ui.has(baselineSelected)?'ui' as const:'non-ui' as const;
+ const uiMass=uiCandidates.reduce((mass,key)=>mass+before[key],0),weightedUIMass=uiCandidates.reduce((mass,key)=>mass+before[key]*weights[key],0);
+ if(!Number.isFinite(uiMass)||!Number.isFinite(weightedUIMass)||uiMass>0&&weightedUIMass<=0)invalid('Invalid conditional UI mass');
+ const uniform=uiCandidates.every(key=>weights[key]===weights[uiCandidates[0]]);
+ const marginal=Object.fromEntries(keys.map(key=>[key,!ui.has(key)||uniform||uiMass===0?before[key]:(before[key]*weights[key]/weightedUIMass)*uiMass]));
+ if(keys.some(key=>!Number.isFinite(marginal[key])||marginal[key]<0||before[key]>0&&marginal[key]===0))invalid('Conditional policy underflow erased positive marginal mass');
+ let filtered:Record<string,number>,conditionalDraw:number|null=null;
+ if(baselineClass==='non-ui')filtered=Object.fromEntries(keys.map(key=>[key,Number(key===baselineSelected)]));
+ else {
+  const onlyUI=keys.every(key=>ui.has(key)||before[key]===0);
+  filtered=onlyUI?{...globalFiltered}:Object.fromEntries(keys.map(key=>[key,!ui.has(key)?0:uniform?before[key]/uiMass:before[key]*weights[key]/weightedUIMass]));
+  if(draw!==null){
+   if(onlyUI)conditionalDraw=draw;
+   else conditionalDraw=conditionalQuantile(keys,ui,before,baselineSelected,uiMass,draw);
+   if(!Number.isFinite(conditionalDraw))invalid('Invalid conditional draw');
+  }
+ }
+ policy.scope={kind:'ui-conditional-v1',baselineSelected,baselineClass,uiCandidates:[...uiCandidates],uiMass,weightedUIMass,marginal,conditionalDraw};
+ return {filtered,selected:choose(keys,filtered,baselineClass==='ui'?conditionalDraw:draw)};
+}
+
+function selectAt(config:SelectionConfig,drawIndex:number,modelChoice:string,raw:Record<string,number>,candidates:BetaCandidates,excluded:Record<string,string>,weights?:Record<string,number>,scope?:SelectionPolicyScope):SelectionRecord {
  validateConfig(config);
+ if(scope!==undefined&&scope!=='global'&&scope!=='ui-conditional')invalid('Unsupported selection policy scope');
+ if(scope==='ui-conditional'&&weights===undefined)invalid('Conditional policy requires weights');
  if(!Number.isSafeInteger(drawIndex)||drawIndex<0)invalid('Draw index must be a nonnegative safe integer');
  if(!isRecord(candidates)||!Object.keys(candidates).length)invalid('Candidates must be a nonempty record');
  const keys=Object.keys(candidates).sort();
@@ -55,15 +104,8 @@ function selectAt(config:SelectionConfig,drawIndex:number,modelChoice:string,raw
  }
  const draw=config.mode==='sample'?drawAt(config.seed,drawIndex):null;
  let selected:string;
- if(draw===null){
-  selected=keys[0];
-  for(const key of keys)if(filtered[key]>filtered[selected])selected=key;
- }else{
-  // The final positive interval includes floating point accumulation residue.
-  selected=keys.filter(key=>filtered[key]>0).at(-1)!;
-  let cumulative=0;
-  for(const key of keys){cumulative+=filtered[key];if(draw<cumulative){selected=key;break;}}
- }
+ if(scope==='ui-conditional'){const conditional=conditionalPolicy(keys,candidates,policy!,filtered,draw);filtered=conditional.filtered;selected=conditional.selected;}
+ else selected=choose(keys,filtered,draw);
  return {...(policy?{policy}:{}),modelChoice,raw:copiedRaw,normalized,filtered,normalization:{rawTotal,filteredTotal},adjustments,mode:config.mode,seed:config.seed,drawIndex,draw,selected};
 }
 
@@ -72,8 +114,8 @@ export function createSampler(config:SelectionConfig){
  validateConfig(config);
  const fixedConfig={mode:config.mode,seed:config.seed};
  let drawIndex=0;
- return {select(modelChoice:string,raw:Record<string,number>,candidates:BetaCandidates,excluded:Record<string,string>={},weights?:Record<string,number>):SelectionRecord {
-  const record=selectAt(fixedConfig,drawIndex,modelChoice,raw,candidates,excluded,weights);
+ return {select(modelChoice:string,raw:Record<string,number>,candidates:BetaCandidates,excluded:Record<string,string>={},weights?:Record<string,number>,scope?:SelectionPolicyScope):SelectionRecord {
+  const record=selectAt(fixedConfig,drawIndex,modelChoice,raw,candidates,excluded,weights,scope);
   drawIndex++;
   return record;
  }};
@@ -87,7 +129,9 @@ export function replaySelection(record:SelectionRecord,candidates:BetaCandidates
   return [adjustment.candidate,adjustment.reason];
  }));
  if(Object.keys(excluded).length!==record.adjustments.length)invalid('Duplicate recorded exclusion');
- const replayed=selectAt({mode:record.mode,seed:record.seed},record.drawIndex,record.modelChoice,record.raw,candidates,excluded,record.policy?.weights);
+ const scope=record.policy?.scope;
+ if(scope!==undefined&&(!isRecord(scope)||scope.kind!=='ui-conditional-v1'))invalid('Unsupported recorded selection policy scope');
+ const replayed=selectAt({mode:record.mode,seed:record.seed},record.drawIndex,record.modelChoice,record.raw,candidates,excluded,record.policy?.weights,scope===undefined?undefined:'ui-conditional');
  if(!isDeepStrictEqual(record,replayed))invalid('Selection record does not match deterministic replay');
  return replayed;
 }

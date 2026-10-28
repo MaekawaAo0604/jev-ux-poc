@@ -10,7 +10,7 @@ const nonempty=(value:unknown):value is string=>typeof value==='string'&&value.t
 const sameSource=(a:ExperienceSource,b:ExperienceSource)=>a.observationId===b.observationId&&a.imageSha256===b.imageSha256;
 const entryKey=(entry:Pick<DeferralEntry,'imageSha256'|'candidateId'>)=>JSON.stringify([entry.imageSha256,entry.candidateId]);
 function validateConfig(config:DeferralConfig){
- if(!config||typeof config.enabled!=='boolean'||!Number.isSafeInteger(config.capacity)||config.capacity<1||config.capacity>8||!Number.isFinite(config.weight)||config.weight<=0||config.weight>=1||!Number.isFinite(config.minAlternativeProbability)||config.minAlternativeProbability<0||config.minAlternativeProbability>1)throw new Error('INVALID_DEFERRAL_CONFIG');
+ if(!config||typeof config.enabled!=='boolean'||!Number.isSafeInteger(config.capacity)||config.capacity<1||config.capacity>8||!Number.isFinite(config.weight)||config.weight<=0||config.weight>=1||!Number.isFinite(config.minAlternativeProbability)||config.minAlternativeProbability<0||config.minAlternativeProbability>1||config.selectionScope!==undefined&&!['global','ui-conditional'].includes(config.selectionScope))throw new Error('INVALID_DEFERRAL_CONFIG');
 }
 function sourceCopy(source:ExperienceSource):ExperienceSource{
  if(!source||!nonempty(source.observationId)||source.observationId==='none'||!nonempty(source.imageSha256))throw new Error('INVALID_DEFERRAL_EVIDENCE');
