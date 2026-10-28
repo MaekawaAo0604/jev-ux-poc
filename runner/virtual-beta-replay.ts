@@ -1,17 +1,21 @@
+import {createCorrespondenceArchive,correspondenceQuestions,admitCorrespondence,correspondenceCriteria} from '../jev/virtual-beta/correspondence.js';
+import type {CorrespondenceContext} from '../jev/virtual-beta/correspondence-contracts.js';
+import {candidatesFor} from '../jev/types.js';
+import {filterCandidates} from '../jev/persona.js';
 import {reconstructReplayCandidates} from './virtual-beta-replay-candidates.js';
 import {copyDeferrals,updateDeferrals,deferralDecision} from '../jev/virtual-beta/deferral.js';
-import {arriveExperience,beginExperience,experienceQuestions,admitExperience,experienceContext} from '../jev/virtual-beta/experience.js';
+import {arriveExperience,beginExperience,experienceQuestions,admitExperience,experienceContext,experienceCriteria} from '../jev/virtual-beta/experience.js';
 import {prepareReasonContext,requiredReasonSources,reasonQuestions,admitReasons} from '../jev/virtual-beta/deferral-reason.js';
 import type {DeferralReasonMemory,DeferralReasonContext} from '../jev/virtual-beta/deferral-reason-contracts.js';
 import type {ExperienceMemory,ExperienceIntent} from '../jev/virtual-beta/experience-contracts.js';
-import {admitAssessment} from '../jev/virtual-beta/deliberation.js';
+import {admitAssessment,assessedCriteria} from '../jev/virtual-beta/deliberation.js';
 import type {BetaCandidates,UserObservation} from '../jev/virtual-beta/contracts.js';
 import type {AdmittedObservationSource} from '../jev/virtual-beta/deliberation-contracts.js';
 import {readFile} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {replaySelection} from '../jev/virtual-beta/selection.js';
-import {sha,type BetaResult} from './virtual-beta-core.js';
+import {sha,offeredCandidates,type BetaResult} from './virtual-beta-core.js';
 const isRecord=(value:unknown):value is Record<string,unknown>=>value!==null&&typeof value==='object'&&!Array.isArray(value);
 const equal=(a:unknown,b:unknown)=>JSON.stringify(a)===JSON.stringify(b);
 /** Only model-input image references backed by the verified attached assets admit sources. */
@@ -26,7 +30,8 @@ function assessmentSources(input:Record<string,unknown>,assets:Record<string,{fi
  if(currentHash!==current.imageSha256||(Object.hasOwn(observation,'imageSha256')&&observation.imageSha256!==currentHash))throw new Error('ASSESSMENT_CURRENT_IMAGE_MISMATCH');
  const memory=input.memoryObservations===undefined?[]:input.memoryObservations;
  const reasons=input.reasonObservations===undefined?[]:input.reasonObservations;
- if(!Array.isArray(memory)||!Array.isArray(reasons))throw new Error('ASSESSMENT_MEMORY_SOURCE_INVALID');
+ const correspondence=input.correspondenceObservations===undefined?[]:input.correspondenceObservations;
+ if(!Array.isArray(memory)||!Array.isArray(reasons)||!Array.isArray(correspondence))throw new Error('ASSESSMENT_MEMORY_SOURCE_INVALID');
  const sources=new Map<string,AdmittedObservationSource>();
  const add=(observationId:unknown,imageSha256:string)=>{
   if(typeof observationId!=='string'||!observationId.trim()||observationId==='none')throw new Error('ASSESSMENT_SOURCE_ID_INVALID');
@@ -34,7 +39,7 @@ function assessmentSources(input:Record<string,unknown>,assets:Record<string,{fi
   if(prior&&prior.imageSha256!==imageSha256)throw new Error('ASSESSMENT_SOURCE_ID_CONFLICT');
   sources.set(observationId,{observationId,imageSha256});
  };
- for(const entry of [...memory,...reasons]){
+ for(const entry of [...memory,...reasons,...correspondence]){
   if(!isRecord(entry))throw new Error('ASSESSMENT_MEMORY_SOURCE_INVALID');
   const hash=imageHash(entry.image);
   if(entry.imageSha256!==hash)throw new Error('ASSESSMENT_MEMORY_SOURCE_IMAGE_MISMATCH');
@@ -54,9 +59,29 @@ export async function replayDirectory(directory:string){
  let experience:ExperienceMemory|undefined,pending:ExperienceIntent|undefined,execution:'performed'|'unchanged'='unchanged';
  let reasonMemory:DeferralReasonMemory|undefined;
  const seen=new Map<string,string>();
+ const archive=result.config.correspondence?.enabled?createCorrespondenceArchive(result.config.correspondence):undefined;
  for(const step of result.steps){
   const d=step.deliberation,current=step.userState?.lastObservation;
   if(current)seen.set(current.id,current.imageSha256);
+  let correspondenceContext:CorrespondenceContext|undefined,correspondenceCandidates:BetaCandidates|undefined;
+  if(archive&&current&&step.vision&&step.assetFiles&&step.questions){
+   const raw=filterCandidates(candidatesFor(step.audit!.screen,Object.hasOwn(step.questions.nextAction.criteria,'back')),step.audit!.screen,result.input.charter);
+   correspondenceCandidates=offeredCandidates(raw,{...step.vision,bytes:await readFile(join(directory,step.assetFiles.current.file))},result.config);
+   if(!equal(Object.keys(correspondenceCandidates),Object.keys(step.questions.nextAction.criteria)))throw Error('CORRESPONDENCE_CANDIDATES_MISMATCH');
+   const input=d?.modelInput??step.modelInput!,assets=d?.assetFiles??step.assetFiles;
+   const refs=[...((input.memoryObservations??[]) as any[]),...((input.reasonObservations??[]) as any[])];
+   const baseKeys=new Set(['current',...refs.map(r=>r.image)]),baseAssets=Object.fromEntries(Object.entries(assets).filter(([key])=>baseKeys.has(key)));
+   const frame={source:{observationId:current.id,imageSha256:current.imageSha256},bytes:await readFile(join(directory,assets.current.file)),file:assets.current.file,clickCandidateIds:Object.keys(correspondenceCandidates).filter(id=>correspondenceCandidates![id].action.type==='click')};
+   const arriving=result.config.experience?.enabled?arriveExperience(experience,pending,current,execution,result.config.experience):undefined;
+   const proposal=archive.prepare(frame,arriving,Object.values(baseAssets).map(asset=>asset.sha256));correspondenceContext=proposal.preparation.context;
+   archive.remember(frame);
+   if(!equal(step.correspondence?.preparation,proposal.preparation)||!equal(step.correspondence?.archive,archive.snapshot()))throw Error('CORRESPONDENCE_PREPARATION_MISMATCH');
+   if(correspondenceContext&&proposal.frame){const prior=proposal.frame;if(seen.get(prior.source.observationId)!==prior.source.imageSha256)throw Error('CORRESPONDENCE_SOURCE_NOT_OBSERVED');let image=Object.keys(baseAssets).find(key=>baseAssets[key].sha256===prior.source.imageSha256);if(!image){image='correspondence_0';baseAssets[image]={file:prior.file,sha256:prior.source.imageSha256};}
+    const expected=[{observationId:prior.source.observationId,image,imageSha256:prior.source.imageSha256}];
+    if(!equal(input.correspondenceContext,correspondenceContext)||!equal(input.correspondenceObservations,expected)||!equal(baseAssets,assets))throw Error('CORRESPONDENCE_IMAGE_INPUT_MISMATCH');
+    if(!equal(step.modelInput?.correspondenceContext,correspondenceContext)||!equal(step.modelInput?.correspondenceObservations,expected)||!equal(step.assetFiles,assets))throw Error('CORRESPONDENCE_ACTION_INPUT_MISMATCH');
+   }else if(input.correspondenceContext!==undefined||input.correspondenceObservations!==undefined||input.correspondenceAssessment!==undefined||step.correspondence?.record!==undefined||step.correspondence?.annotations!==undefined||!equal(baseAssets,assets))throw Error('UNEXPECTED_CORRESPONDENCE_INPUT');
+  }else if(!archive&&(step.correspondence!==undefined||step.modelInput?.correspondenceContext!==undefined||d?.modelInput.correspondenceContext!==undefined))throw Error('UNCONFIGURED_CORRESPONDENCE');
   if(d){
    if(d.inputSha256!==sha(JSON.stringify({input:d.modelInput,questions:d.questions,assets:d.assetFiles})))throw new Error('ASSESSMENT_INPUT_HASH_MISMATCH');
    for(const asset of Object.values(d.assetFiles)){if(asset.file!==asset.file.split(/[\\/]/).at(-1))throw new Error('UNSAFE_IMAGE_PATH');if(sha(await readFile(join(directory,asset.file)))!==asset.sha256)throw new Error('ASSESSMENT_IMAGE_HASH_MISMATCH');images++;}
@@ -81,11 +106,19 @@ export async function replayDirectory(directory:string){
     const reasonRequest=reasonContext?reasonQuestions(reasonContext,sources,result.config.deferralReason?.reviewMode):{};
     for(const [key,question] of Object.entries(outcomeQuestions))if(!equal(d.questions[key],question))throw new Error('EXPERIENCE_QUESTION_MISMATCH');
     for(const [key,question] of Object.entries(reasonRequest))if(!equal(d.questions[key],question))throw new Error('REASON_QUESTION_MISMATCH');
-    const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)&&!Object.hasOwn(reasonRequest,key)))};
+    const correspondenceRequest=correspondenceContext?correspondenceQuestions(correspondenceContext):{};
+    for(const [key,question]of Object.entries(correspondenceRequest))if(!equal(d.questions[key],question))throw Error('CORRESPONDENCE_QUESTION_MISMATCH');
+    const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)&&!Object.hasOwn(reasonRequest,key)&&!Object.hasOwn(correspondenceRequest,key)))};
     const assessment=admitAssessment(response,candidates,current,sources);
     if(experience){
      if(Object.keys(outcomeQuestions).length)experience=admitExperience(d.response,experience,sources,result.config.experience?.evidenceMode);
      if(!equal(step.userState.experience,experience)||!equal((step.modelInput?.userState as any)?.experience,experience)||!equal(step.modelInput?.experienceContext,experienceContext(experience,current)))throw new Error('EXPERIENCE_JUDGMENT_MISMATCH');
+    }
+    if(correspondenceContext){
+     const record=admitCorrespondence(d.response,correspondenceContext);if(!equal(step.correspondence?.record,record))throw Error('CORRESPONDENCE_RECORD_MISMATCH');const {rawChoices,...admitted}=record;if(!equal(step.modelInput?.correspondenceAssessment,admitted)||d.modelInput.correspondenceAssessment!==undefined)throw Error('CORRESPONDENCE_ASSESSMENT_INPUT_MISMATCH');
+     let before=Object.fromEntries(Object.entries(correspondenceCandidates!).map(([id,c])=>[id,c.label]));if(result.config.deliberation?.candidateEffects)before=assessedCriteria(correspondenceCandidates!,assessment);if(experience)before=experienceCriteria(before,experience,current);
+     const after=correspondenceCriteria(before,record,experience),annotations=Object.keys(before).filter(id=>before[id]!==after[id]).map(candidateId=>({candidateId,before:before[candidateId],after:after[candidateId]}));
+     if(!equal(step.correspondence?.annotations,annotations)||!equal(step.questions?.nextAction.criteria,after))throw Error('CORRESPONDENCE_ANNOTATION_MISMATCH');
     }
     if(!equal(assessment,d.assessment))throw new Error('ASSESSMENT_RECORD_MISMATCH');
     if(result.config.deferral?.enabled){deferrals=updateDeferrals(deferrals,experience!,current,assessment,result.config.deferral);effectiveDeferrals=deferrals;if(!equal(step.deferral?.state,deferrals))throw new Error('DEFERRAL_STATE_MISMATCH');}

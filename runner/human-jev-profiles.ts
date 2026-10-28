@@ -1,10 +1,11 @@
 import type {BetaConfig} from '../jev/virtual-beta/contracts.js';
 import {validateConfig} from '../jev/virtual-beta/config.js';
 
-export type HumanJevMode='baseline'|'deliberation'|'experience'|'experience-basis'|'experience-defer'|'experience-reason'|'experience-reason-excursion'|'experience-reason-grounded'|'experience-reason-conditional';
+export type HumanJevMode='baseline'|'deliberation'|'experience'|'experience-basis'|'experience-defer'|'experience-reason'|'experience-reason-excursion'|'experience-reason-grounded'|'experience-reason-conditional'|'experience-reason-correspondence';
 
 /** Same screen, goal policy and decision limit; only the declared deliberation stage adds requests. */
 export function humanJevProfile(mode:HumanJevMode='baseline'):{config:BetaConfig;maximumRequests:number;explorationMaximum:number;reviewMaximum:number;perRunMaximum:12}{
+ if(mode==='experience-reason-correspondence'){const previous=humanJevProfile('experience-reason-conditional');return {...previous,config:validateConfig({...previous.config,id:'human-screen-experience-correspondence',correspondence:{enabled:true,capacity:8,maxCurrentCandidates:8,maxPastCandidates:12,maxUniqueImages:4}})};}
  if(mode==='experience-reason-conditional'){const previous=humanJevProfile('experience-reason-grounded');return {...previous,config:validateConfig({...previous.config,id:'human-screen-experience-conditional',deferral:{...previous.config.deferral!,selectionScope:'ui-conditional'}})};}
  if(mode!=='baseline'&&mode!=='deliberation'&&mode!=='experience'&&mode!=='experience-basis'&&mode!=='experience-defer'&&mode!=='experience-reason'&&mode!=='experience-reason-excursion'&&mode!=='experience-reason-grounded')throw new Error('UNKNOWN_HUMAN_JEV_MODE');
  const config:BetaConfig={schemaVersion:1,id:'human-screen-baseline',vision:{mode:'crop',clearWidth:4096,clearHeight:4096,blurRadius:12},state:{enabled:true,memoryCapacity:3},selection:{mode:'argmax',seed:20261028},behavior:'goal',maxUIActions:15,maxLooks:3,maxDecisions:12,maxAPICalls:12,maxRunMs:180000,modeledActionMs:null};

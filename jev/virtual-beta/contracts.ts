@@ -1,3 +1,4 @@
+import type {CorrespondenceConfig} from './correspondence-contracts.js';
 import type {DeferralReasonConfig} from './deferral-reason-contracts.js';
 import type {DeferralConfig} from './deferral-contracts.js';
 import type {ExperienceConfig,ExperienceMemory} from './experience-contracts.js';
@@ -21,6 +22,6 @@ export type SelectionConfig={mode:'argmax'|'sample';seed:number};
 export type SelectionPolicyScope='global'|'ui-conditional';
 export type UIConditionalPolicyRecord={kind:'ui-conditional-v1';baselineSelected:string;baselineClass:'ui'|'non-ui';uiCandidates:string[];uiMass:number;weightedUIMass:number;marginal:Record<string,number>;conditionalDraw:number|null};
 export type SelectionRecord={policy?:{kind:'temporary-deferral';weights:Record<string,number>;before:Record<string,number>;weightedTotal:number;scope?:UIConditionalPolicyRecord};modelChoice:string;raw:Record<string,number>;normalized:Record<string,number>;normalization:{rawTotal:number;filteredTotal:number};filtered:Record<string,number>;adjustments:{candidate:string;reason:string}[];mode:SelectionConfig['mode'];seed:number;drawIndex:number;draw:number|null;selected:string};
-export type BetaConfig={schemaVersion:1;initialFixation?:Point;deferral?:DeferralConfig;deferralReason?:DeferralReasonConfig;experience?:ExperienceConfig;deliberation?:DeliberationConfig;id:string;vision:VisionConfig;state:StateConfig;selection:SelectionConfig;behavior:'goal'|'user';maxUIActions:number;maxLooks:number;maxDecisions:number;maxAPICalls:number;maxRunMs:number;modeledActionMs:number|null};
+export type BetaConfig={schemaVersion:1;correspondence?:CorrespondenceConfig;initialFixation?:Point;deferral?:DeferralConfig;deferralReason?:DeferralReasonConfig;experience?:ExperienceConfig;deliberation?:DeliberationConfig;id:string;vision:VisionConfig;state:StateConfig;selection:SelectionConfig;behavior:'goal'|'user';maxUIActions:number;maxLooks:number;maxDecisions:number;maxAPICalls:number;maxRunMs:number;modeledActionMs:number|null};
 export type BetaInput={persona?:Persona;charter:ExplorationCharter};
 export type Termination='OBJECTIVE_SUCCESS'|'SUBJECTIVE_DONE'|'ABANDONED'|'STUCK'|'UI_ACTION_LIMIT'|'LOOK_LIMIT'|'DECISION_LIMIT'|'API_LIMIT'|'TIME_LIMIT'|'SAFETY_STOP'|'API_ERROR'|'INVALID_DISTRIBUTION'|'ACTION_ERROR'|'OBSERVATION_ERROR';
