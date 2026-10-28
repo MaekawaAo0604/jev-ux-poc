@@ -46,6 +46,9 @@ function conditionalPolicy(keys:string[],candidates:BetaCandidates,policy:NonNul
  const uiCandidates=keys.filter(key=>{
   const action=candidates[key]?.action;
   if(!isRecord(action)||!['click','back','scroll','done','stuck','look','reread','wait','abandon'].includes(action.type as string))invalid('Unsupported conditional candidate action type');
+  if(action.type==='click'&&(typeof action.elementId!=='string'||!action.elementId.trim()))invalid('Invalid conditional click action');
+  if(action.type==='scroll'&&!['up','down'].includes(action.direction))invalid('Invalid conditional scroll action');
+  if(action.type==='look'&&(!isRecord(action.point)||typeof action.point.x!=='number'||typeof action.point.y!=='number'||!Number.isFinite(action.point.x)||!Number.isFinite(action.point.y)||action.point.x<0||action.point.y<0))invalid('Invalid conditional look action');
   return ['click','back','scroll'].includes(action.type);
  });
  const ui=new Set(uiCandidates),before=policy.before,weights=policy.weights;

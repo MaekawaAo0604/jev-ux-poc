@@ -23,3 +23,16 @@ test('UI-conditional scope prevents controller-induced stuck and retains a subse
  }
  }
 });
+
+test('disabled deferral ignores a retained conditional scope in execution and saved replay',async()=>{
+ const {chromium}=await import('playwright'),{createServer}=await import('vite'),{runBeta}=await import('../runner/virtual-beta-core.js'),{parseCharter}=await import('../jev/persona.js'),{comparisonConfigs}=await import('../jev/virtual-beta/config.js');
+ const dir='reports/notification-switch-2026-10-29/disabled-'+Date.now();
+ const charter=parseCharter(JSON.parse(await readFile('experiments/persona/charter.json','utf8'))),base=comparisonConfigs()[0];
+ const config={...base,deferral:{enabled:false,capacity:8,weight:.01,minAlternativeProbability:.01,selectionScope:'ui-conditional' as const}};
+ const server=await createServer({server:{host:'127.0.0.1',port:0},logLevel:'error'});await server.listen();let browser;
+ try{const address=server.httpServer!.address();assert.ok(address&&typeof address!=='string');const baseURL='http://127.0.0.1:'+address.port;browser=await chromium.launch({headless:true});const context=await browser.newContext({viewport:{width:1280,height:900}});
+ await context.route('**/*',route=>new URL(route.request().url()).origin===baseURL?route.continue():route.abort());
+ const result=await runBeta(await context.newPage(),{runId:'disabled-scope',dir,baseURL,charter,config,evaluate:async request=>({model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(request.questions).map(([id,q])=>{const choice=id==='nextAction'?'done':'goal';return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,Number(k===choice)]))}];}))})});
+ assert.equal(result.termination,'SUBJECTIVE_DONE');assert.equal(result.steps[0].selection!.policy,undefined);assert.equal((await replayDirectory(dir)).verified,true);
+ }finally{await browser?.close();await server.close();}
+});
