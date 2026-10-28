@@ -1,3 +1,4 @@
+import {BudgetPersistenceError} from './budget-persistence.js';
 import {analyzeDeliberationRun} from './deliberation-analysis.js';
 import {chromium} from 'playwright';
 import {createServer} from 'vite';
@@ -18,7 +19,7 @@ import {parsePersona,parseCharter} from '../jev/persona.js';
 import {evaluateBetaRequest} from './virtual-beta-evaluator.js';
 import {comparisonConfigs,validateConfig} from '../jev/virtual-beta/config.js';
 import type {BetaConfig} from '../jev/virtual-beta/contracts.js';
-import {runBeta,sha,BetaBudgetError,BetaAdmissionError,type BetaEvaluator,type BetaResult} from './virtual-beta-core.js';
+import {runBeta,sha,BetaBudgetError,BetaAdmissionError,BetaSettlementError,type BetaEvaluator,type BetaResult} from './virtual-beta-core.js';
 function parseArgs(args:string[]){const values=new Map<string,string>(),flags=new Set<string>();for(let i=0;i<args.length;i++){const k=args[i];if(['--mock','--headed','--help','--semantic','--preserve-display'].includes(k)){flags.add(k);continue;}if(!['--charter','--persona','--config','--out','--seed','--vision','--env-file','--repeat','--max-total-api','--conditions','--ui','--phase-budget','--order-seed'].includes(k)||!args[i+1]||args[i+1].startsWith('--')||values.has(k))throw new Error('INVALID_OPTION '+k);values.set(k,args[++i]);}return {values,flags};}
 export function mockEvaluator():BetaEvaluator{
  let n=0;return async({questions,input})=>{const options=questions.nextAction.criteria;const constrained=!(input.observation as any)?.screen;const script=constrained?['look_3','e5','look_2','e3','done']:['e5','e3','done'];let choice=script[n]??'done';n++;if(!(choice in options))choice=Object.keys(options).find(k=>/^e[1-9]\d*$/.test(k))??'done';return {model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(questions).map(([key,q])=>{const selected=key==='nextAction'?choice:'goal';return [key,{choice:selected,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,k===selected?1:0]))}];}))};};
@@ -69,12 +70,12 @@ export async function main(args=process.argv.slice(2)){
    const remaining=Math.floor(dispatchDeadline-performance.now());
    if(remaining<=0){
     // Keep the durable debit conservative, but record that no HTTP started.
-    if(phaseBudget&&reservation)try{await phaseBudget.settle(reservation,'ERROR',{attempts:0,failureCode:'DEADLINE_BEFORE_REQUEST'});}catch{throw new BetaAdmissionError();}
+    if(phaseBudget&&reservation)try{await phaseBudget.settle(reservation,'ERROR',{attempts:0,failureCode:'DEADLINE_BEFORE_REQUEST'});}catch(error){throw new BetaAdmissionError(error instanceof BudgetPersistenceError?error.details:undefined,'deadline-settlement');}
     throw new BetaBudgetError('TIME_LIMIT');
    }
    totalCalls++;
-   let response;try{response=await evaluateBetaRequest({...request,timeoutMs:remaining});}catch(error){if(phaseBudget&&reservation)await phaseBudget.settle(reservation,'ERROR',{failureCode:typeof (error as any)?.code==='string'?(error as any).code:typeof (error as any)?.failure?.code==='string'?(error as any).failure.code:'REQUEST_FAILED'});throw error;}
-   if(phaseBudget&&reservation)await phaseBudget.settle(reservation,'OK',{attempts:response.request?.attempts??1});return response;};
+   let response;try{response=await evaluateBetaRequest({...request,timeoutMs:remaining});}catch(error){if(phaseBudget&&reservation)try{await phaseBudget.settle(reservation,'ERROR',{failureCode:typeof (error as any)?.code==='string'?(error as any).code:typeof (error as any)?.failure?.code==='string'?(error as any).failure.code:'REQUEST_FAILED'});}catch(persistenceError){throw new BetaSettlementError(persistenceError instanceof BudgetPersistenceError?persistenceError.details:undefined,'error');}throw error;}
+   if(phaseBudget&&reservation)try{await phaseBudget.settle(reservation,'OK',{attempts:response.request?.attempts??1});}catch(error){throw new BetaSettlementError(error instanceof BudgetPersistenceError?error.details:undefined,'response');}return response;};
   try{const result=await runBeta(page,{runId,dir,baseURL,charter,persona,config,evaluate,...(semanticTrial?{semanticTrial,preserveDisplay}:{}),...(uiVersion?{uiVersion,roiSelectors}:{}),code:{revision:manifest.revision,sourceHash:manifest.sourceHash},isSafetyStopped:()=>safety});results.push(result);console.log(runId+': '+result.termination+' objective='+result.objectiveSuccess+' UI='+result.uiActions+' looks='+result.looks+' API='+result.apiCalls);}
   finally{await context.tracing.stop({path:join(dir,'trace.zip')});await context.close();}
  }

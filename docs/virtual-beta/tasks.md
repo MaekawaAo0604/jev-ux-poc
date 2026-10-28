@@ -104,3 +104,12 @@ ea27c3cで通常bad/同Charter/全viewport画像のみ/Personaなしgoal baselin
 基準aed3dcd、製品凍結959c5de。新experience-reason-excursionで同世代・同じ連続経路の添付済み画像を理由として受理し、negativeEvidenceとexcursionEvidenceを別記録。旧reasonと12試行204要求で比較、旧46台帳保全・6pair一致・12replay・基盤障害0。旧4/6、新5/6だが、増えた通知停止には理由記憶がなく因果効果とは扱わない。新方式は有効な共有prerequisite4件を保持、レビューのbasis_changed/noneやstill_blocksにより不要往復が残った。詳細deferral-admission.md/results/independent-review。
 
 106関連＋独立6件、型/build、旧保存12の互換を確認。追加の独立反復でpersist境界の基盤エラーがあり、一時ファイルを保全、最終6件と500回probeは成功したがOS原因は未特定。次に判断/根拠の結合、台帳write/replace診断、見え方が変わった同経路の認識を改善する。人間一致や探索安定化の目標は未達で継続。
+
+## 予算保存の診断（2026-10-29）
+
+予約と送信後の台帳保存失敗を分け、write-temp / replace-ledger と許可リスト内の OS コードを記録する最小修正を完了。
+helper 42 件と既存予算 3 件、human wrapper 5 件、型と build が成功。
+関連回帰の初回 2 件は初期 navigation timeout で失敗し、trace を保全した後の直列 7 件は成功した。
+過去の間欠的な保存障害の OS 原因は未特定。
+独立 16 件と通常/明示 pin の各 2 件も成功。判断と根拠の整合性、画像差への経路認識、保存前 preview の完了誤認を継続する。
+詳細は budget-diagnostics.md。

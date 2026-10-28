@@ -1,3 +1,4 @@
+import {BudgetPersistenceError} from './budget-persistence.js';
 import {holdoutDefinition,holdoutQuery,type HoldoutFixture} from '../app/holdout-fixture.js';
 import {chromium} from 'playwright';
 import {createServer} from 'vite';
@@ -8,7 +9,7 @@ import {performance} from 'node:perf_hooks';
 import {parseCharter} from '../jev/persona.js';
 import {safeRequestFailure,safeProviderType,ChoiceRequestError} from '../jev/client.js';
 import {humanJevProfile,type HumanJevMode} from './human-jev-profiles.js';
-import {runBeta,sha,BetaBudgetError,BetaAdmissionError,BetaResponseError,type BetaEvaluator,type ModelRequest} from './virtual-beta-core.js';
+import {runBeta,sha,BetaBudgetError,BetaAdmissionError,BetaSettlementError,betaBudgetFailureEvidence,BetaResponseError,type BetaEvaluator,type ModelRequest} from './virtual-beta-core.js';
 import {evaluateBetaRequest} from './virtual-beta-evaluator.js';
 import {PhaseBudget} from './virtual-beta-budget.js';
 import {sourceIdentity} from './virtual-beta-source.js';
@@ -17,6 +18,7 @@ import {buildBlindReview,validateBlindReview,type ReviewFrame} from './human-jev
 export const humanJevConfig=humanJevProfile().config;
 type Options={out:string;mock:boolean;phaseBudget?:string;envFile?:string;mode?:HumanJevMode;longContext?:boolean;holdoutFixture?:HoldoutFixture;runId?:string;deadlineEpochMs?:number};
 function failureEvidence(error:unknown){
+ if(error instanceof BetaAdmissionError||error instanceof BetaSettlementError)return betaBudgetFailureEvidence(error);
  const f=safeRequestFailure(error);
  const code=['HTTP_ERROR','TIMEOUT','REQUEST_FAILED','MISSING_CREDENTIALS','INVALID_RESPONSE'].includes(f.code)?f.code:'REQUEST_FAILED';
  const providerType=safeProviderType(f.providerType),attempts=error instanceof ChoiceRequestError?error.request?.attempts:error instanceof BetaResponseError?error.response.request?.attempts:undefined;
@@ -63,12 +65,12 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
    const deadline=performance.now()+request.timeoutMs;
    const reservation=await budget!.reserve({runKey:root+'/'+stage,condition:stage==='review'?'blind-categorical-review':config.id,revision:code.revision,sourceHash:code.sourceHash});
    const remaining=Math.floor(deadline-performance.now());
-   if(remaining<=0){try{await budget!.settle(reservation,'ERROR',{attempts:0,failureCode:'DEADLINE_BEFORE_REQUEST'});}catch{throw new BetaAdmissionError();}throw new BetaBudgetError('TIME_LIMIT');}
+   if(remaining<=0){try{await budget!.settle(reservation,'ERROR',{attempts:0,failureCode:'DEADLINE_BEFORE_REQUEST'});}catch(error){throw new BetaAdmissionError(error instanceof BudgetPersistenceError?error.details:undefined,'deadline-settlement');}throw new BetaBudgetError('TIME_LIMIT');}
    calls++;
    let response;
    try{response=await evaluateBetaRequest({...request,timeoutMs:remaining},{longContext:options.longContext===true});}
-   catch(error){await budget!.settle(reservation,'ERROR',{attempts:1,failureCode:failureEvidence(error).code});throw error;}
-   try{await budget!.settle(reservation,'OK',{attempts:response.request?.attempts??1});}catch{throw new Error('BUDGET_SETTLEMENT_AFTER_REQUEST');}
+   catch(error){try{await budget!.settle(reservation,'ERROR',{attempts:1,failureCode:failureEvidence(error).code});}catch(persistenceError){throw new BetaSettlementError(persistenceError instanceof BudgetPersistenceError?persistenceError.details:undefined,'error');}throw error;}
+   try{await budget!.settle(reservation,'OK',{attempts:response.request?.attempts??1});}catch(error){throw new BetaSettlementError(error instanceof BudgetPersistenceError?error.details:undefined,'response');}
    return response;
   };
   const evaluate:BetaEvaluator=async request=>{

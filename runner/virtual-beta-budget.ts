@@ -1,4 +1,5 @@
-import {open,readFile,writeFile,rename,unlink,type FileHandle} from 'node:fs/promises';
+import {persistBudgetSnapshot,BudgetPersistenceError} from './budget-persistence.js';
+import {open,readFile,unlink,type FileHandle} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {randomUUID} from 'node:crypto';
 import {BetaBudgetError,BetaAdmissionError} from './virtual-beta-core.js';
@@ -15,10 +16,10 @@ export class PhaseBudget{
  get used(){return this.data.used;}
  get remaining(){return this.data.newMaximum-this.data.used;}
  snapshot(){return structuredClone({...this.data,remaining:this.remaining});}
- private async persist(){const temporary=this.file+'.tmp-'+randomUUID();await writeFile(temporary,JSON.stringify({...this.data,remaining:this.remaining},null,2)+'\n',{flag:'wx'});await rename(temporary,this.file);}
+ private async persist(){await persistBudgetSnapshot(this.file,{...this.data,remaining:this.remaining});}
  async reserve(info:ReservationInfo){
  if(this.remaining<1||this.data.attempts.filter(r=>r.runKey===info.runKey).length>=this.data.perRunMaximum)throw new BetaBudgetError('API_LIMIT');
- const entry:Entry={...info,id:randomUUID(),ordinal:this.data.used+1,status:'RESERVED',reservedAt:new Date().toISOString()};this.data.attempts.push(entry);this.data.used++;try{await this.persist();}catch{throw new BetaAdmissionError();}return entry.id;
+ const entry:Entry={...info,id:randomUUID(),ordinal:this.data.used+1,status:'RESERVED',reservedAt:new Date().toISOString()};this.data.attempts.push(entry);this.data.used++;try{await this.persist();}catch(error){throw new BetaAdmissionError(error instanceof BudgetPersistenceError?error.details:undefined);}return entry.id;
  }
  async settle(id:string,status:'OK'|'ERROR',metadata:Entry['metadata']={}){const entry=this.data.attempts.find(r=>r.id===id);if(!entry||entry.status!=='RESERVED')throw new Error('INVALID_BUDGET_SETTLEMENT');entry.status=status;entry.finishedAt=new Date().toISOString();entry.metadata={...(metadata.attempts===undefined?{}:{attempts:metadata.attempts}),...(metadata.failureCode?{failureCode:metadata.failureCode}:{})};await this.persist();}
  async close(){await this.lock.close();await unlink(this.file+'.lock');}

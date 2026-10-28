@@ -22,7 +22,7 @@ test('separate excursion blocker from home-only negative judgment, execute revie
  for(const condition of ['legacy','changed','still'] as const){
   const mode=condition==='legacy'?'experience-reason':'experience-reason-excursion';
   const saved=await runHumanJev({out:root+'/'+condition,mock:true,mode,longContext:true,holdoutFixture:{task:'revisit',variant:'alpha'}},async req=>{
-   const n=Number((req.input.observation as any).id.slice(1)),action=['','e2','e1','e3','e2','e1','e2','e2','done'][n];
+   const n=Number((req.input.observation as any).id.slice(1)),action=condition!=='changed'&&n>=7?'done':['','e2','e1','e3','e2','e1','e2','e2','done'][n];
    if(n===6&&condition!=='legacy'){assert.deepEqual((req.input.reasonObservations as any[]).map(s=>s.observationId),['o2']);assert.ok(Object.keys(req.images).length<=4);}
    return {model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(req.questions).map(([id,q])=>{
     const choice=id==='nextAction'?action:id==='decisionBasis'?'goal':id==='knowledge'?'sufficient':id==='goal'?(n===8?'satisfied':'unsatisfied'):id==='goalEvidence'||id.startsWith('evidence_')||id==='experienceEvidence'?'o'+n:id.startsWith('effect_')?'advances':id==='experienceProgress'?(n===5?'advances':n===2?'unknown':'neutral'):id==='experienceExpectation'?'supported':id==='reasonCaptureCategory'?'prerequisite':id==='reasonCaptureEvidence'?(Object.hasOwn(q.criteria,'o2')?'o2':'none'):id.startsWith('reasonReview')&&id.endsWith('Status')?(condition==='still'?'still_blocks':'basis_changed'):id.startsWith('reasonReview')&&id.endsWith('Evidence')?'o5':'none';
@@ -40,6 +40,7 @@ test('separate excursion blocker from home-only negative judgment, execute revie
   }
   assert.equal(review.selection!.selected,condition==='changed'?'e2':'e3');
   if(condition==='changed'){assert.equal(saved.result.objectiveAssessment.value,true);assert.equal(saved.result.uiActions,7);assert.deepEqual(review.deferralReason!.record.releasedCandidates,['e2']);}
+  assert.equal(saved.result.termination,'SUBJECTIVE_DONE');if(condition!=='changed')assert.equal(saved.result.objectiveAssessment.value,false);
   const dir=root+'/'+condition+'/exploration';assert.equal((await replayDirectory(dir)).verified,true);
   if(condition==='changed'){
    const path=dir+'/result.json',original=await readFile(path,'utf8'),modified=JSON.parse(original);
