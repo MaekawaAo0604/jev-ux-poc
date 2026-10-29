@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "RAW_ARTIFACT_INTEGRITY_ONLY",
+  "overallGoalStatus": "NOT_COMPLETE",
+  "measurementAcceptance": "FAIL_FINAL_HTTP_TIMEOUT_UNRECORDED",
+  "comparisonStatus": "INCOMPLETE_TWO_OF_FOUR_INFRASTRUCTURE_TERMINATIONS",
+  "performanceAcceptance": "NOT_ESTABLISHED",
+  "humanAgreementAcceptance": "NOT_EVALUATED",
+  "createdAt": "2026-10-29T21:38:25.551Z",
+  "identity": {
+    "revision": "43f2f062e98f7e8892c48c1ec93a6f8d96ba1c8f",
+    "runtimeSourceHash": "b1f1f204df8779617f4f2b19a39720e3544a219d5d3b09c864b0cbaba1c28b4b",
+    "sourceFiles": 154,
+    "archiveSha256": "b58f83807ee82db0d5b96180584e925e8a725a35bc0e11fb91e746e4aa0c32e5",
+    "archiveExact154": true,
+    "manifestSha256": "2ef732b7bae28d60488c2ea8ecafa9d0e9292c6032946c788c0111a0cf13c1d6",
+    "liveInventorySha256": "06fa4d8fa3ec976ab8ec773fbfa96f275ae6b8e1cf1dd06a344f3430561a87b9",
+    "priorSnapshotSha256": "af926b827f25a5f1aa8702a7241adae1cf3d465cc10f4866c9422875501b4d65"
+  },
+  "result": {
+    "terminal": "CONSECUTIVE_INFRASTRUCTURE_FAILURES",
+    "planned": 4,
+    "attempted": 2,
+    "validForComparison": 0,
+    "infrastructureTerminated": 2,
+    "notAttempted": 2,
+    "missing": "Both workshop/unchanged actors were unattempted, without replacement.",
+    "chargedRequests": 48,
+    "native": {
+      "attempted": 17,
+      "admitted": 16,
+      "timeouts": 1,
+      "knownHTTPReceipts": 16
+    },
+    "jevAssessment": {
+      "attempted": 16,
+      "successful": 15,
+      "timeouts": 1,
+      "knownHTTPReceipts": 15
+    },
+    "jevAction": {
+      "attempted": 15,
+      "successful": 15,
+      "timeouts": 0,
+      "knownHTTPReceipts": 15
+    },
+    "knownHTTPAttempts": 48,
+    "knownHTTPReceipts": 46,
+    "receiptUnconfirmedChargedRequests": 2,
+    "retriesObserved": 0,
+    "costUSD": null,
+    "humanTimeMs": null,
+    "failures": [
+      {
+        "actor": "experience-visual-conditions-retention",
+        "step": 8,
+        "stage": "native",
+        "attempts": 1,
+        "status": "TIMEOUT",
+        "admitted": false,
+        "httpReceived": false,
+        "elapsedMs": 18075.35089999999,
+        "budgetExhausted": false,
+        "coreTimeoutMs": 19778,
+        "finalHTTPTimeoutMs": null
+      },
+      {
+        "actor": "experience-visual-conditions-continuity",
+        "step": 9,
+        "stage": "assessment",
+        "attempts": 1,
+        "status": "TIMEOUT",
+        "admitted": false,
+        "httpReceived": false,
+        "elapsedMs": 278.65989999996964,
+        "budgetExhausted": true,
+        "coreTimeoutMs": null,
+        "finalHTTPTimeoutMs": null
+      }
+    ],
+    "runs": [
+      {
+        "actor": "experience-visual-conditions-retention",
+        "requests": 22,
+        "uiActions": 7,
+        "looks": 0,
+        "judgments": 8,
+        "termination": "API_ERROR",
+        "objectiveAssessment": {
+          "status": "OK",
+          "value": false
+        },
+        "actualSelectionChanges": [
+          {
+            "step": 7,
+            "modelChoice": "e2",
+            "selected": "e3"
+          }
+        ]
+      },
+      {
+        "actor": "experience-visual-conditions-continuity",
+        "requests": 26,
+        "uiActions": 8,
+        "looks": 0,
+        "judgments": 9,
+        "termination": "API_ERROR",
+        "objectiveAssessment": {
+          "status": "OK",
+          "value": false
+        },
+        "actualSelectionChanges": [
+          {
+            "step": 7,
+            "modelChoice": "e2",
+            "selected": "e3"
+          }
+        ]
+      }
+    ],
+    "budget": {
+      "priorActual": 130,
+      "newActual": 48,
+      "totalActual": 178,
+      "originalMaximum": 288,
+      "newMaximum": 144,
+      "newRemainingUnspent": 96,
+      "declaredCombinedMaximum": 274,
+      "unusedOutsideDeclaredNewMaximum": 14,
+      "oldExperimentSlotsReplaced": 0
+    }
+  },
+  "verifiedScope": {
+    "sourceBoundToArchiveAndCommittedProducer": true,
+    "all75SealedRawHashesVerifiedBeforeAndAfter": true,
+    "allLedgers": {
+      "count": 2,
+      "totalUsed": 48,
+      "OK": 46,
+      "ERROR": 2,
+      "RESERVED": 0,
+      "perTrialMaximum": 36,
+      "requestCountsAgreeWithResult": true
+    },
+    "accounting": "Stage traces independently enumerated; step.error mirrors of prior-stage errors were excluded. Two TIMEOUTs occurred at different stages: retention o8 native and recent o9 Jev assessment.",
+    "replay": {
+      "runs": 2,
+      "allVerified": true,
+      "choices": 15,
+      "successfulAssessments": 15,
+      "imageReferences": 81,
+      "scope": "Offline saved-input/source/distribution replay only; no UI or APIs reexecuted."
+    },
+    "actorFrameArtifacts": {
+      "checked": 33,
+      "validCurrentFrame": 33,
+      "successfulResponseFrameArtifacts": 30,
+      "qualification": "33 is the saved assessment/action frame artifact count, including pending/failed-stage inputs; it is not33 dispatched requests. Jev actual attempts31, success30."
+    },
+    "nativePixelAndRequestBodies": {
+      "checked": 17,
+      "initialBodiesExactlyIdentical": true,
+      "initialBodySha256": "259904b6aa739de25def18dd5250a38294fe7dc51a7206c0221c2656440ecd27"
+    },
+    "continuity": {
+      "records": 16,
+      "transitions": 42,
+      "capacityEvictions": 28,
+      "newPolicyRecords": 7,
+      "rankingEntriesIndependentlyRecomputed": 32,
+      "boundedCapacity": 3,
+      "selectionAndEvictionOriginalOrderVerified": true,
+      "historicalUnobservedRemainsUncertain": true
+    },
+    "projection": {
+      "savedInputsChecked": true,
+      "nativePolicyMetadataAbsent": true,
+      "actorPolicyAndRankingMetadataAbsent": true,
+      "DOMOracleHumanAuditKeysAbsent": true,
+      "qualification": "Saved actor inputs are checked even where downstream stages were not actually dispatched; no false delivery claim is made for pending action input after assessment failure."
+    },
+    "actualUI": {
+      "actions": 15,
+      "consistentActionStateTransitions": 15,
+      "consistentObservationOnlyTerminalTransitions": 2,
+      "actualSelectionCorrections": 2,
+      "qualification": "One existing policy changes the model choice at step7 in each run. This is not a zero-correction experiment."
+    },
+    "initialComparison": {
+      "libraryPairMatched": true,
+      "workshopPairMissing": true,
+      "fixturesPersonaSeedLimitsAndSourceFixed": true
+    },
+    "preselectedImages": {
+      "plannedSlots": 8,
+      "present": 4,
+      "missing": 4,
+      "allHashesAndSourceBytesVerified": true,
+      "all4PresentImagesVisuallyInspected": true,
+      "missingReasonsPreserved": true
+    },
+    "exporterReproduction": {
+      "exitCode": 0,
+      "files": 6,
+      "JSONCSVAnd4PNGExactlyMatch": true,
+      "APIRequests": 0
+    },
+    "priorWork": "Round1 339 scoped +6 independent, project typecheck/build and Round2 targeted15+4 exporter/typecheck are preserved earlier evidence, not asserted as rerun during this terminal audit."
+  },
+  "findings": [
+    {
+      "id": "LIVE-MEASUREMENT-001",
+      "severity": "P1",
+      "status": "OPEN_REQUIREMENT_NOT_MET",
+      "title": "Saved core timeout plan is not the final native HTTP timeout",
+      "source": [
+        "runner/virtual-beta-core.ts:182-191",
+        "runner/human-jev-experiment.ts:92-102",
+        "runner/openai-visual-hypotheses.ts:85"
+      ],
+      "repro": "The exact frozen extract adapter closure was TypeScript-transpiled and run with deterministic local clocks, a budget stub and a native-extractor spy. A30000ms core request became22000ms after outer deadline clamp, then21950ms after50ms reservation delay; original core request remained30000ms.",
+      "expected": "Preserve the final timeout actually passed by the adapter to the native HTTP AbortSignal.timeout, separately from the earlier core/extractor client plan, including applicable clock/budget boundaries.",
+      "actual": "Only timing.dispatch from the core plan is saved. Adapter clamps before dispatch and again after durable budget reservation, but does not return/store the final value. Actual new-run final HTTP values cannot be recovered. Retention o8 core timeout19778ms is not a measured final HTTP timeout; observed core apiMs18075.3509ms does not establish that final timeout.",
+      "impact": "The original final-dispatch measurement requirement remains unmet, so this raw-integrity PASS cannot certify the timing requirement or overall task completion.",
+      "evidence": [
+        "timeout-adapter-witness.json",
+        "timeout-adapter-witness.log",
+        "accounting.json",
+        "raw-audit.json"
+      ],
+      "requiredFollowup": "A separate minimal version should record final adapter/native timeout without rewriting these frozen results; offline replay cannot fill missing actual timing."
+    }
+  ],
+  "rawIntegrityFindings": [],
+  "interpretation": {
+    "retention": "The new policy mechanically retains stable o1_c3 through admitted o1-o7, preserving lastGrounded while current status is uncertain when unobserved. Recent drops its o1_c3 at o3. This does not establish policy effect on task success because model mappings, descriptions, history and outputs differ.",
+    "actions": "Recent o8 actually chooses e2 My Page from records (raw probability0.88 versus reconcile0.04), leaving reconciliation count0 and eligibility false. Both runs terminate from infrastructure conditions, not a valid human-failure denominator.",
+    "statistics": "Zero valid comparisons, two infrastructure terminations and two unattempted slots; do not treat objective false as two valid task failures or claim new policy superiority.",
+    "timing": "Client-supplied core plan and extraction elapsed time are known; final native HTTP timeout, receipt time and provider processing start are not known.",
+    "humans": "No human logs or executions inspected; human agreement/reproduction unverified."
+  },
+  "preservation": {
+    "source154Unchanged": true,
+    "frozen937Unchanged": true,
+    "protected89Unchanged": true,
+    "old5709Unchanged": true,
+    "new75Unchanged": true,
+    "combined5784Unchanged": true,
+    "producerArtifactsUnchanged": true,
+    "allRound1Evidence101Unchanged": true,
+    "allRound2Evidence23Unchanged": true,
+    "round1GateSha256": "9d573bc2f7a62e00df059749f2bbc35fb7fd1974e0b658e978e48724370e3162",
+    "round2GateSha256": "f948b96871a996c5e3c977eed6aa5772d11caf735293c7911a474dc77cb885f8",
+    "existingExport6Unchanged": true
+  },
+  "auditActions": {
+    "externalAPIRequests": 0,
+    "credentialOrEnvironmentFilesRead": 0,
+    "humanLogsRead": 0,
+    "productEdits": 0,
+    "existingDocumentEdits": 0,
+    "sealedRawEdits": 0,
+    "GitCommitOrPush": 0,
+    "newEvidenceRoot": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\condition-retention-2026-10-30\\independent-live"
+  },
+  "harnessNotes": [
+    "The initial helper typecheck needed an explicit any[] annotation; the initial diagnostic log is retained.",
+    "The timeout adapter witness first needed TypeScript transpilation for non-null assertion syntax, then passed with unchanged product source.",
+    "A supplementary checker initially counted terminal observation-only transitions as UI actions; it was corrected to actualUI transitions, yielding15 actualUI plus2 terminal records. Product/raw logs were never changed."
+  ],
+  "evidenceSha256": {
+    "PREPARATION.json": "3bb52c6fde8a7399dc070d47c7755e1c9707d9d9778f6f1437fc42f87b91dc98",
+    "archive-check.json": "61d7fa90b868f73deeab7ca72712b1146e55286c89838f2e2479067302e7bf0d",
+    "before-preservation.json": "8e2e688ee6e8525312d83cee34c5bc3da3b85b66db235f16e919a628690918fa",
+    "after-preservation.json": "a929903392e3e6601e4375eff7cd8f032a5346e7a8efe06daa304f84f0c517e1",
+    "terminal-before-preservation.json": "27c44081acb9af47a2a8a8130cb080bfd745e1bef2d232f050a6cd98bd05dcf6",
+    "terminal-after-preservation.json": "15476a128545bc86912e0b7ca1dc83a9063026cd61f855db2c58a22e43d2fabd",
+    "raw-audit.json": "3566326f14942cd744b8bb0d34b36aec9cd2aecc84796adce452e3813568f67d",
+    "raw-audit.log": "cb1c3953961af90033c42c6560448e5582490dcf965536030321b4492580d223",
+    "accounting.json": "06c85009920e64f5a49eecd3aebfd9834d01e2bb8a9f43c61e58374d84d7ba39",
+    "state-review.mjs": "9ad89e7be6bd4303572ebb2da4426b2f332e1747cf7d4a28ed9be559066faebb",
+    "state-selection-image-review.json": "890c36389b0c57324d1125b2df2c6d9c71e525226f30f3b242c29db1155cb216",
+    "audit-raw.ts": "297f000085366a696b4c343b64e396bc92f2460056b3b3eccc2c3ab40f6ea1b4",
+    "audit-script-typecheck.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "initial-native-body-check.mjs": "07a89cba4a18dde5744787848c5b300dc6996a40c144356260b6102f74cc93ef",
+    "initial-native-body-check.json": "109fa4471bd0e4b5e1e257e5ea167c27871999dc1259d0a4d764e4b525aad87f",
+    "timeout-adapter-witness.mjs": "5c13a862c345b37d532212af52dbef2c3dc30da59a313cde12357951396c515c",
+    "timeout-adapter-witness.json": "9c2ada5644a2b8fcd1b00976fddc80478414ad54ecd2a2d2dfdf2e91a5e2d128",
+    "timeout-adapter-witness.log": "264907241ab5876718634f60900c575a04b82fac06ab1fe20e721ee6c80cfc5d",
+    "reexport.log": "89212945df2bfbb26bfd04448d8bd43ec894f4dc179038506b7eecc36c5f60bf",
+    "reexport-check.json": "9c700fa0c224866190a3f11857cdb80238a63fedd2b8e61aa9f54cd41874b5a6",
+    "sealed-check.mjs": "bb1486f4d9f9a0aff75f9afcc1e1ab9ca94254b8cda39de31a9843d632e53d1c",
+    "preserve.ts": "f0d2f6d05379fdc0897c02947d4fb61ebdc821a02e957c5dfebf787d59c1f156"
+  },
+  "editingStoppedAfterThisGate": true
+}

@@ -167,3 +167,8 @@ manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.j
 
 
 後続版d488a9aでは、蓄積した保存資料のVite監視による起動遅延を修正し、[独立回帰16件](visual-conditions-runtime-review.json)を通過した。[新規3方式の疎通確認](visual-conditions-watch-smoke-results.json)も全3件が目的達成（28要求）。これは1課題のみで、元18枠の未達条件や人間再現の解決は未確認。版・分母・実行コマンドは [visual-conditions.md](visual-conditions.md) に分けて保存した。
+
+
+## 未解決条件の保持方式と計測の残課題
+
+[実装・実行方法・結果](condition-retention.md)、[個別JSON](condition-retention-results.json)、[独立原本監査](condition-retention-review-live.json)。過去根拠を優先保持する任意設定を追加し、関連339件と独立検証を実施した。実モデルは予定4枠中2枠・48要求で連続タイムアウト停止、残2枠未実行。保持は実ログで確認したが、探索性能の優位性は未認定。最終HTTP timeoutの記録漏れも独立再現し、基盤全体は未完了。以前の130と合わせ178/288要求。上記の以前の結果・版は保持する。
