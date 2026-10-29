@@ -78,7 +78,7 @@ export async function replayDirectory(directory:string){
    searchCandidates=offeredCandidates(raw,{...step.vision,bytes},result.config);
    const expectedCurrent={id:'o'+step.number,imageSha256:sha(bytes),visibleText:result.config.vision.mode==='full'?[...step.audit.screen.text]:[],fixation:{...step.vision.fixation},candidateIds:Object.keys(searchCandidates)};
    if(!equal(current,expectedCurrent)||!equal(((d?.modelInput??step.modelInput)?.userState as any)?.lastObservation,expectedCurrent)||!equal((step.modelInput?.userState as any)?.lastObservation,expectedCurrent)||!equal(((d?.modelInput??step.modelInput)?.observation as any)?.candidateIds,expectedCurrent.candidateIds)||!equal((step.modelInput?.observation as any)?.candidateIds,expectedCurrent.candidateIds)||!equal(Object.keys(step.questions.nextAction.criteria),expectedCurrent.candidateIds))throw Error('GOAL_SEARCH_OBSERVATION_MISMATCH');
-   const searchInput=d?.modelInput??step.modelInput!,searchAssets=d?.assetFiles??step.assetFiles,sourceList=assessmentSources(searchInput,searchAssets,current),expected=goalSearchQuestions(result.input.charter.goal,current,searchCandidates,sourceList,result.config.goalSearch?.interpretation);
+   const searchInput=d?.modelInput??step.modelInput!,searchAssets=d?.assetFiles??step.assetFiles,sourceList=assessmentSources(searchInput,searchAssets,current),expected=goalSearchQuestions(result.input.charter.goal,current,searchCandidates,sourceList,result.config.goalSearch?.interpretation,{mode:result.config.goalSearch?.evidenceMode,prior:searchMemory});
    if(d&&!equal(Object.fromEntries(Object.entries(d.questions).filter(([key])=>key.startsWith('goalSearch_'))),expected)||!equal((searchInput.userState as any)?.goalSearch,searchMemory))throw Error('GOAL_SEARCH_ARRIVAL_OR_QUESTION_MISMATCH');
   }
   if(archive&&(step.modelInput||d||step.correspondence)&&(!current||!step.vision||!step.assetFiles||!step.questions||!step.audit||!step.correspondence))throw Error('CORRESPONDENCE_METADATA_MISSING');
@@ -142,7 +142,7 @@ export async function replayDirectory(directory:string){
      if(!equal(step.correspondence?.annotations,annotations))throw Error('CORRESPONDENCE_ANNOTATION_MISMATCH');expectedCriteria=after;
     }
     if(result.config.goalSearch?.enabled){
-     const record=admitGoalSearch(d.response,result.input.charter.goal,current,searchCandidates!,sources,result.config.goalSearch?.interpretation);searchMemory=rememberGoalSearch(searchMemory,record,result.config.goalSearch);
+     const record=admitGoalSearch(d.response,result.input.charter.goal,current,searchCandidates!,sources,result.config.goalSearch?.interpretation,{mode:result.config.goalSearch?.evidenceMode,prior:searchMemory});searchMemory=rememberGoalSearch(searchMemory,record,result.config.goalSearch);
      if(!equal(step.goalSearch?.record,record)||!equal(step.goalSearch?.memory,searchMemory)||!equal(step.userState.goalSearch,searchMemory)||!equal((step.modelInput?.userState as any)?.goalSearch,searchMemory))throw Error('GOAL_SEARCH_RECORD_OR_MEMORY_MISMATCH');
      const before=expectedCriteria!,after=goalSearchCriteria(before,searchMemory,result.input.charter.goal,current,experience,step.correspondence?.record),annotations=Object.keys(before).filter(id=>before[id]!==after[id]).map(candidateId=>({candidateId,before:before[candidateId],after:after[candidateId]}));
      if(!equal(step.goalSearch?.annotations,annotations))throw Error('GOAL_SEARCH_ANNOTATION_MISMATCH');expectedCriteria=after;
