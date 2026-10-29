@@ -22,7 +22,7 @@
     "parallel": 1
   },
   "initialState": "Each actor starts a fresh browser on the same explicitly blocked primary page. No spontaneous discovery of a dead end is claimed.",
-  "pairPolicy": "Same initial product, goal, base input and images. Current candidate evidence questions and separately declared visual extraction input are tracked interventions. Rotate actor order per fixture. Later trajectories can differ.",
+  "pairPolicy": "Same initial product, goal, base input and images. Current-candidate actors also use concise self-contained role-question wording to fit the request context; legacy questions are byte-unchanged. Current evidence policy, explicit context questions and this wording are a declared combined intervention. Visual extraction adds a separately tracked input/stage. Rotate actor order per fixture; later trajectories may differ.",
   "retryPolicy": "No retries, failed-slot replacement, direct saved-input resends or human data. Stop the next trial on authentication, quota or accounting failure.",
   "extractor": {
     "model": "gpt-6-luna",

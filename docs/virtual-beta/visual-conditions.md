@@ -2,7 +2,7 @@
 
 この変更は、現在の候補に対する根拠を現在画像へ限定する修正と、具体的な条件を画像から取り出す段階を分けて比較する。
 既定の Jev 方式は維持する。
-現在は独立検証の修正後再検証中で、この版の実モデル比較は未実行である。
+初回の実行は入力の文脈上限で停止したため、失敗原本を残して質問文を短くする修正を検証している。
 
 ## 入力と判断
 
@@ -36,17 +36,17 @@ HTTP 成功後の拒否、未完了、不正 JSON、形式不正は、通信失�
 Set-Location 'C:/Users/Maekawa Ao/.codex/worktrees/virtual-beta/Ux_test'
 
 # API を使わず、先頭の三方式だけを接続確認する
-node --import tsx runner/visual-conditions-comparison.ts --mock --limit 3 --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw.json).Path --out reports/visual-conditions-mock-new
+node --import tsx runner/visual-conditions-comparison.ts --mock --limit 3 --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v2.json).Path --out reports/visual-conditions-mock-new
 
 # 新しい画像を通常 runner から取得する実モデル比較
-node --import tsx runner/visual-conditions-comparison.ts --env-file E:/ChatGPT/Ux_test/.env --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw.json).Path --out reports/visual-conditions-real-new
+node --import tsx runner/visual-conditions-comparison.ts --env-file E:/ChatGPT/Ux_test/.env --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v2.json).Path --out reports/visual-conditions-real-new
 
 node --import tsx --test --test-concurrency=1 tests/visual-hypotheses.test.ts tests/openai-visual-hypotheses.test.ts tests/visual-conditions-comparison.test.ts tests/visual-conditions-integration.test.ts
 npm run build
 ```
 
 出力先は毎回新しくする。
-過去 4,597 原本を照合する snapshot と生データは、この環境に残るローカル資料であり Git には含めない。
+初回停止を含む過去 4,642 原本を照合する snapshot と生データは、この環境に残るローカル資料であり Git には含めない。
 別の clone で同じ原本保全を確認したことにはならない。
 ブラウザーを使う検証は同時に起動せず、初期ページ読み込みのタイムアウトをモデルの失敗へ置き換えない。
 
@@ -76,3 +76,23 @@ API 待ち時間は人間の行動時間とは別に扱い、未報告の費用�
 
 この比較は各条件 1 試行なので、再現性や一般的な改善率は検証できない。
 人間との一致、転記と条件解釈の正確さ、他画面への一般化は別の検証が必要である。
+
+## 初回の実モデル停止
+
+初回 producer は `abe56582c179a3cce6c9e6e59a70f814e368e527` である。
+予定 18 試行のうち 2 件を試み、11 要求で停止した。
+旧方式の図書予約切替は 8 要求で達成したが、現在根拠方式は 3 要求目、2 判断目の評価で HTTP 400 `max_tokens_exceeded` となった。
+残る 16 件と OpenAI Responses の呼び出しは未実行で、三方式の性能比較は成立していない。
+
+失敗した評価と旧方式の同じ画面では、モデル入力、添付画像、役割以外の質問が完全一致した。
+役割を含む質問は 42 問、61,060 バイトから 47 問、73,852 バイトへ増えていた。
+公式の[文脈上限](https://docs.typesafe.ai/models)と[エラー仕様](https://docs.typesafe.ai/api/errors)では、長文脈ヘッダーでも上限があり、`max_tokens_exceeded` は文脈超過を表す。
+失敗時の正確なトークン数は取得できていない。
+
+現在根拠方式の繰り返し説明を短くし、選択肢、画像、根拠制限、質問数、行動方策を維持する。
+旧方式の質問は変更しない。
+したがって修正後の比較では、根拠制限と短い指示文を組み合わせた設定として評価し、結果の差を根拠制限だけの効果とは扱わない。
+各質問は独立した判断として読める説明を持たせ、別の質問の回答を暗黙に参照させない。
+
+初回の 45 原本を含め、修正後は 4,642 ファイルを `prior-raw-v2.json` で保全する。
+修正後の実行は別の新規ディレクトリと台帳で予定 18 件、最大 504 要求とし、初回 11 要求も累計に含める。

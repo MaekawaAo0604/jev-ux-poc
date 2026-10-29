@@ -2,7 +2,8 @@ import {readFile,writeFile,mkdir,lstat} from 'node:fs/promises';
 import {resolve,dirname,relative,isAbsolute,join} from 'node:path';
 import {createHash} from 'node:crypto';
 import {isDeepStrictEqual} from 'node:util';
-import {analyzeVisualConditionsComparison,visualConditionsActors} from '../../runner/visual-conditions-comparison.js';
+import {analyzeVisualConditionsComparison,visualConditionsActors,visualConditionsSchedule,visualConditionsLimits} from '../../runner/visual-conditions-comparison.js';
+import {humanJevProfile} from '../../runner/human-jev-profiles.js';
 import {sourceIdentity} from '../../runner/virtual-beta-source.js';
 import {readTransferLedger} from '../../runner/transfer-evaluation.js';
 const sha=(v:Buffer|string)=>createHash('sha256').update(v).digest('hex');
@@ -12,10 +13,14 @@ async function main(){
  if(inside(out))throw Error('OUTPUT_INSIDE_RAW_FORBIDDEN');
  try{await lstat(out);throw Error('OUTPUT_EXISTS');}catch(e){if((e as NodeJS.ErrnoException).code!=='ENOENT')throw e;}
  const bytes=await readFile(manifestFile);if(sha(bytes)!==expected)throw Error('MANIFEST_HASH_MISMATCH');const m=JSON.parse(bytes.toString('utf8'));
- if(m.mock||m.phase!=='visual-conditions-2026-10-30'||m.status==='RUNNING'||!Array.isArray(m.records)||m.records.length>18||m.sourceHash!==(await sourceIdentity()).sourceHash||m.humanInputsRead!==false||m.preservationBefore?.unchanged!==true||m.preservationAfter?.unchanged!==true)throw Error('EXACT_COMPLETED_PRODUCER_REQUIRED');
+ const terminal=['COMPLETED','INCOMPLETE','BATCH_ERROR','PHASE_TIME_LIMIT','BATCH_REQUEST_LIMIT','PROVIDER_UNAVAILABLE','BUDGET_ACCOUNTING_FAILURE','MODEL_OUTPUT_FAILURE','PAIR_INITIAL_EVIDENCE_MISMATCH','CONSECUTIVE_INFRASTRUCTURE_FAILURES'];
+ if(m.mock||m.phase!=='visual-conditions-2026-10-30'||!terminal.includes(m.status)||!Array.isArray(m.records)||m.records.length>18||m.sourceHash!==(await sourceIdentity()).sourceHash||m.humanInputsRead!==false||m.preservationBefore?.unchanged!==true||m.preservationAfter?.unchanged!==true)throw Error('EXACT_COMPLETED_PRODUCER_REQUIRED');
+ const protocolFile='experiments/virtual-beta/visual-conditions-comparison.json',profiles=Object.fromEntries(visualConditionsActors.map(actor=>[actor,humanJevProfile(actor)]));
+ if(!/^[a-f0-9]{40}$/.test(m.revision)||!isDeepStrictEqual(m.limits,visualConditionsLimits)||!isDeepStrictEqual(m.schedule,visualConditionsSchedule())||!isDeepStrictEqual(m.method,{extractor:{model:'gpt-6-luna',endpoint:'https://api.openai.com/v1/responses',maxAttemptsPerRequest:1},actors:visualConditionsActors,profiles,persona:null,longContext:true,maxAttemptsPerRequest:1})||!isDeepStrictEqual(m.protocol,{file:protocolFile,sha256:sha(await readFile(protocolFile))})||m.charterSha256!==sha(await readFile('experiments/persona/charter.json'))||!Number.isSafeInteger(m.executionTrialLimit)||m.executionTrialLimit<1||m.executionTrialLimit>18)throw Error('PRODUCER_PROTOCOL_OR_PROFILE_MISMATCH');
+ for(const actor of visualConditionsActors)if(m.configSha256?.[actor]!==sha(JSON.stringify(profiles[actor].config)))throw Error('CONFIG_HASH_MISMATCH');
  for(const r of m.records){
   if(!inside(resolve(r.resultPath))||!inside(resolve(r.ledger)))throw Error('RAW_PATH_OUTSIDE_MANIFEST_ROOT');
-  if(r.result){const actual=JSON.parse(await readFile(r.resultPath,'utf8'));if(!isDeepStrictEqual(actual,r.result))throw Error('RAW_RESULT_MISMATCH');}
+  if(r.result){if(!isDeepStrictEqual(r.result.code,{revision:m.revision,sourceHash:m.sourceHash}))throw Error('RESULT_PRODUCER_MISMATCH');const actual=JSON.parse(await readFile(r.resultPath,'utf8'));if(!isDeepStrictEqual(actual,r.result))throw Error('RAW_RESULT_MISMATCH');}
   const maximum=m.method.profiles[r.actor]?.maximumRequests;if(![24,36].includes(maximum))throw Error('INVALID_PROFILE_REQUEST_CAP');const ledger=await readTransferLedger(r.ledger,maximum);if(!isDeepStrictEqual(ledger,r.ledgerEvidence)||r.requests!==Math.max(ledger.used,r.result?.apiCalls??0))throw Error('LEDGER_MISMATCH');
  }
  const analysis=analyzeVisualConditionsComparison(m.records);

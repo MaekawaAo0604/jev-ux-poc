@@ -227,3 +227,44 @@ test('current-policy questions avoid candidate labels, text, geometry and arbitr
  const record=admitCurrentPolicy(r);(record.candidates.e1.contextEvidence as any).text='RECORD_SECRET';
  assert.ok(!JSON.stringify(actionRelationCriteria(criteria(),record,goal,current())).includes('RECORD_SECRET'));
 });
+
+const jsonBytes=(value:unknown)=>Buffer.byteLength(JSON.stringify(value),'utf8');
+function accountFixture(){
+ const c=candidates();delete c.scroll_down;c.e3={action:{type:'click',elementId:'e3'},label:'PRIVATE LABEL THREE'};c.e4={action:{type:'click',elementId:'e4'},label:'PRIVATE LABEL FOUR'};
+ return {c,o:{...current(),candidateIds:Object.keys(c)}};
+}
+
+test('compact current-policy text does not exceed legacy role bytes for the same five-UI account fixture',()=>{
+ const {c,o}=accountFixture();const literalGoal='予約図書「川沿いの暮らし」の受取館を中央図書館から東分館へ変更し、保存されたことを確認してください。';
+ const legacy=actionRelationQuestions(literalGoal,o,c,sources()),compact=actionRelationQuestions(literalGoal,o,c,sources(),'current-candidate');
+ assert.equal(Object.keys(compact).length,22);assert.equal(Object.keys(legacy).length,17);
+ assert.ok(jsonBytes(compact)<=jsonBytes(legacy),`current ${jsonBytes(compact)} > legacy ${jsonBytes(legacy)}`);
+ assert.ok(jsonBytes(compact)<=26000,`five UI question payload ${jsonBytes(compact)} exceeds fixed fixture cap`);
+});
+
+test('maximum24 UI and five-source four-image current-policy question bytes have an explicit goal-dependent bound',()=>{
+ const c=Object.fromEntries(Array.from({length:24},(_,i)=>['e'+(i+1),{action:{type:'click',elementId:'e'+(i+1)},label:'PRIVATE'}])) as BetaCandidates;
+ const o={...current(),id:'o5',imageSha256:hash('o4'),candidateIds:Object.keys(c)},basis=[source('o1'),source('o2'),source('o3'),source('o4'),{observationId:'o5',imageSha256:hash('o4')}];
+ const q=actionRelationQuestions(goal,o,c,basis,'current-candidate');assert.equal(Object.keys(q).length,98);
+ assert.ok(jsonBytes(q)<=100000+98*Buffer.byteLength(JSON.stringify(goal),'utf8'),`maximum fixture payload ${jsonBytes(q)} exceeds size bound`);
+ assert.ok(jsonBytes(q)<=jsonBytes(actionRelationQuestions(goal,o,c,basis)),'24 UI payload exceeds the same legacy fixture');
+});
+
+test('every compact independent question contains the full goal current identity and hypothesis boundaries',()=>{
+ const q=currentPolicyQuestions();
+ for(const [id,question] of Object.entries(q)){
+  assert.ok(question.instructions.includes(JSON.stringify(goal)),id+' lost literal whole goal');
+  assert.ok(question.instructions.includes(current().id),id+' lost current observation identity');
+  assert.match(question.instructions,/hypothes/i);assert.match(question.instructions,/images/i);assert.match(question.instructions,/memory/i);assert.match(question.instructions,/persona/i);assert.match(question.instructions,/unknown/i);assert.match(question.instructions,/context/i);assert.match(question.instructions,/not.*guarantee|not.*proof/i);
+  const candidateId=id.match(/^actionRelation_(?:role|evidence|contextEvidence|verify)_(.+)$/)?.[1];
+  if(candidateId)assert.ok(question.instructions.includes(candidateId),id+' depends on hidden question ID');
+  assert.ok(Buffer.byteLength(question.instructions,'utf8')<=1000+Buffer.byteLength(JSON.stringify(goal),'utf8'),id+' instructions exceed concise per-question bound');
+ }
+});
+
+test('compaction preserves current-policy choices record metadata annotations and corrections exactly',()=>{
+ const q=currentPolicyQuestions(),record=admitCurrentPolicy();
+ assert.equal(hash(JSON.stringify(Object.fromEntries(Object.entries(q).map(([id,q])=>[id,{type:q.type,criteria:q.criteria}])))),'b476c99c29e331b84afc53d9847779faaaf4e660d61019ea9ec8b9e8fb1ac647');
+ assert.equal(hash(JSON.stringify(record)),'bc482d0abc588520f59030d73a255d5392494d943ee3a0c4f939ddf5208a9af2');
+ assert.equal(hash(JSON.stringify(actionRelationCriteria(criteria(),record,goal,current()))),'9f348f96dd904d87bfca4b1b7eff1cdf2781c4c6a8932f82fd9587ca1ee9324b');
+});

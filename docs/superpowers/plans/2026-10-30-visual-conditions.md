@@ -38,3 +38,9 @@ https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=respon
 https://developers.openai.com/api/docs/models/gpt-6-luna
 https://developers.openai.com/api/docs/guides/images-vision
 Official guides fetched; model/account access and extraction accuracy not proven by docs. No external research weights or code adopted.
+
+## Real-run context failure and bounded repair
+
+Producer abe5658 phase1 stopped after2/18trials and11charged requests. Legacy library/switch achieved in8; current-candidate actor used3 then step2assessment HTTP400/max_tokens_exceeded. OpenAI Responses not reached. Preserved45rawfiles and4597prior; newprior snapshot4642. At failed same screen, modelInput, actual assets and non-role questions exactly matched the successful legacy run (input SHA34b7cf7cf1c723eb01d27d5176a56dbe858a4a1adfd3ccacda5e0a32e949d94e). Questions42/61060bytes vs47/73852bytes; role-only28927 vs41719bytes. Successful traces longContexttrue; exact failed token count unavailable. Official https://docs.typesafe.ai/models and /api/errors confirm context-limited400; header raises limits, not unlimited.
+
+Repair only current-candidate question wording, preserving criteria, source binding, counts, admission, selection and unconfigured legacy JSON. Each question remains self-contained (question IDs/other answers not assumed visible). No image/history removal, arbitrary truncation, split calls, service bypass or saved-input resend. The textual encoding is an additional declared difference of the current-candidate actor; semantic/model-output equivalence is not proven by shorter text. Fresh producer/independent check then new18-slot phase, max504requests; first11 remain charged (combined self-cap515), no replacement or modification of first-run records. New prior-raw-v2 protects4642files. Public conversion also independently checks revision/result source, terminal status and protocol/profile identity.
