@@ -14,7 +14,7 @@ export function transferFixtures():TransferFixture[]{return Object.values(assign
 export function transferQuery(f:TransferFixture):string{return '?transfer='+token(f);}
 export function parseTransferFixture(search:string):TransferFixture|undefined{
  const p=new URLSearchParams(search),values=p.getAll('transfer');
- if(values.length!==1||['holdout','semanticFixture','betaUI'].some(k=>p.has(k))||!Object.hasOwn(assignments,values[0]))return undefined;
+ if(values.length!==1||['holdout','semanticFixture','betaUI','recovery'].some(k=>p.has(k))||!Object.hasOwn(assignments,values[0]))return undefined;
  return {...assignments[values[0]]};
 }
 export function transferDefinition(f:TransferFixture):TransferDefinition{

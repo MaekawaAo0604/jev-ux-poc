@@ -1,3 +1,5 @@
+import {parseRecoveryFixture} from './recovery-fixture.js';
+import {RecoveryFixtureView} from './RecoveryFixture.js';
 import {parseTransferFixture} from './transfer-fixture.js';
 import {TransferFixtureView} from './TransferFixture.js';
 import {parseHoldoutFixture} from './holdout-fixture.js';
@@ -44,4 +46,5 @@ function App() {
 const semanticFixture=location.pathname.startsWith('/good/')?parseSemanticFixture(location.search):undefined;
 const transferFixture=location.pathname.startsWith('/good/')?parseTransferFixture(location.search):undefined;
 const holdoutFixture=location.pathname.startsWith('/good/')?parseHoldoutFixture(location.search):undefined;
-createRoot(document.getElementById('root')!).render(transferFixture?<TransferFixtureView fixture={transferFixture}/>:holdoutFixture?<HoldoutFixtureView fixture={holdoutFixture}/>:semanticFixture?<SemanticFixtureView fixture={semanticFixture}/>:<App/>);
+const recoveryFixture=location.pathname.startsWith('/good/')?parseRecoveryFixture(location.search):undefined;
+createRoot(document.getElementById('root')!).render(recoveryFixture?<RecoveryFixtureView fixture={recoveryFixture}/>: transferFixture?<TransferFixtureView fixture={transferFixture}/>:holdoutFixture?<HoldoutFixtureView fixture={holdoutFixture}/>:semanticFixture?<SemanticFixtureView fixture={semanticFixture}/>:<App/>);

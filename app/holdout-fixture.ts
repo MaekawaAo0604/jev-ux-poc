@@ -11,7 +11,7 @@ export function holdoutQuery(fixture:HoldoutFixture):string{return '?holdout='+f
 /** Local opt-in only. Ambiguous fixture selectors fail closed. */
 export function parseHoldoutFixture(search:string):HoldoutFixture|undefined{
  const params=new URLSearchParams(search),tokens=params.getAll('holdout');
- if(tokens.length!==1||params.has('semanticFixture')||params.has('betaUI')||params.has('transfer'))return undefined;
+ if(tokens.length!==1||params.has('semanticFixture')||params.has('betaUI')||params.has('transfer')||params.has('recovery'))return undefined;
  const fixture=Object.hasOwn(assignments,tokens[0])?assignments[tokens[0]]:undefined;return fixture?{...fixture}:undefined;
 }
 export function holdoutDefinition(fixture:HoldoutFixture):{version:1;task:HoldoutTask;variant:HoldoutVariant;goal:string;title:string;objectiveText:string}{
