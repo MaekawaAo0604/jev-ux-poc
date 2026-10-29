@@ -57,3 +57,10 @@ test('duplicate cell actual run identity exact profile and source mismatches inv
 test('objective true with wrong saved target or complete flag never becomes a valid success',()=>{
  for(const mutate of [(r:RecoveryRunRecord)=>{r.result!.recovery!.terminalSnapshot!.savedValue='wrong';},(r:RecoveryRunRecord)=>{r.result!.recovery!.terminalSnapshot!.complete=false;}]){const r=changed();mutate(r);const report=api.analyzeRecoveryRuns([r]);assert.equal(report.completeness.valid,0);assert.equal(report.totals.objectiveSuccesses,0);}
 });
+
+test('explicit relation actor analysis validates its own profile without weakening the default control',()=>{
+ const r=changed();r.result!.config=humanJevProfile('experience-action-relations' as any).config;r.result!.condition=r.result!.config.id;
+ assert.equal(api.analyzeRecoveryRuns([r]).completeness.valid,0);
+ assert.equal(api.analyzeRecoveryRuns([r],{mode:'experience-action-relations'}).completeness.valid,1);
+ assert.throws(()=>api.analyzeRecoveryRuns([r],{mode:'unknown'}));
+});

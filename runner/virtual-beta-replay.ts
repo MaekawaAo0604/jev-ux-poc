@@ -1,3 +1,5 @@
+import {actionRelationQuestions,admitActionRelations,actionRelationCriteria} from '../jev/virtual-beta/action-relations.js';
+import {validateConfig} from '../jev/virtual-beta/config.js';
 import {goalSearchQuestions,admitGoalSearch,rememberGoalSearch,goalSearchCriteria} from '../jev/virtual-beta/goal-search.js';
 import type {GoalSearchMemory} from '../jev/virtual-beta/goal-search-contracts.js';
 import {createCorrespondenceArchive,correspondenceQuestions,admitCorrespondence,correspondenceCriteria} from '../jev/virtual-beta/correspondence.js';
@@ -58,7 +60,7 @@ function checkReasonSources(input:Record<string,unknown>,context:DeferralReasonC
  if(!Array.isArray(refs)||refs.length!==expected.length||refs.some((ref,i)=>!isRecord(ref)||ref.observationId!==expected[i].observationId||ref.imageSha256!==expected[i].imageSha256))throw Error('REASON_SOURCE_REFERENCE_MISMATCH');
 }
 export async function replayDirectory(directory:string){
- const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));let choices=0,images=0,assessments=0;
+ const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));if(result.config.actionRelations!==undefined)validateConfig(result.config);let choices=0,images=0,assessments=0;
  let deferrals=result.config.deferral?.enabled?copyDeferrals(undefined,result.config.deferral):undefined,effectiveDeferrals=deferrals;
  let experience:ExperienceMemory|undefined,pending:ExperienceIntent|undefined,execution:'performed'|'unchanged'='unchanged';
  let reasonMemory:DeferralReasonMemory|undefined;
@@ -80,6 +82,17 @@ export async function replayDirectory(directory:string){
    if(!equal(current,expectedCurrent)||!equal(((d?.modelInput??step.modelInput)?.userState as any)?.lastObservation,expectedCurrent)||!equal((step.modelInput?.userState as any)?.lastObservation,expectedCurrent)||!equal(((d?.modelInput??step.modelInput)?.observation as any)?.candidateIds,expectedCurrent.candidateIds)||!equal((step.modelInput?.observation as any)?.candidateIds,expectedCurrent.candidateIds)||!equal(Object.keys(step.questions.nextAction.criteria),expectedCurrent.candidateIds))throw Error('GOAL_SEARCH_OBSERVATION_MISMATCH');
    const searchInput=d?.modelInput??step.modelInput!,searchAssets=d?.assetFiles??step.assetFiles,sourceList=assessmentSources(searchInput,searchAssets,current),expected=goalSearchQuestions(result.input.charter.goal,current,searchCandidates,sourceList,result.config.goalSearch?.interpretation,{mode:result.config.goalSearch?.evidenceMode,prior:searchMemory});
    if(d&&!equal(Object.fromEntries(Object.entries(d.questions).filter(([key])=>key.startsWith('goalSearch_'))),expected)||!equal((searchInput.userState as any)?.goalSearch,searchMemory))throw Error('GOAL_SEARCH_ARRIVAL_OR_QUESTION_MISMATCH');
+  }
+  const relationKeys=(v:Record<string,unknown>|undefined)=>Object.keys(v??{}).some(k=>k.startsWith('actionRelation'));
+  const extraRelationKeys=(v:Record<string,unknown>|undefined)=>Object.keys(v??{}).some(k=>k.startsWith('actionRelation')&&k!=='actionRelations');
+  if(extraRelationKeys(step.modelInput)||extraRelationKeys(step as unknown as Record<string,unknown>)||relationKeys(step.userState as unknown as Record<string,unknown>)||relationKeys(step.modelInput?.userState as Record<string,unknown>)||relationKeys(d?.modelInput.userState as Record<string,unknown>))throw Error('UNEXPECTED_ACTION_RELATIONS_FIELD');
+  const relationPresent=relationKeys(step.modelInput)||relationKeys(d?.modelInput)||relationKeys(d?.questions)||relationKeys(d?.response?.answers)||relationKeys(step as unknown as Record<string,unknown>);
+  if(!result.config.actionRelations?.enabled&&relationPresent)throw Error('UNCONFIGURED_ACTION_RELATIONS');
+  if(result.config.actionRelations?.enabled&&(d||relationPresent)){
+   if(!d||!current||!searchCandidates||relationKeys(d.modelInput))throw Error('ACTION_RELATIONS_STAGE_MISMATCH');
+   const expected=actionRelationQuestions(result.input.charter.goal,current,searchCandidates,assessmentSources(d.modelInput,d.assetFiles,current));
+   if(!equal(Object.fromEntries(Object.entries(d.questions).filter(([key])=>key.startsWith('actionRelation'))),expected))throw Error('ACTION_RELATIONS_QUESTION_MISMATCH');
+   if(!d.assessment&&(step.actionRelations!==undefined||relationKeys(step.modelInput)))throw Error('ACTION_RELATIONS_PARTIAL_MISMATCH');
   }
   if(archive&&(step.modelInput||d||step.correspondence)&&(!current||!step.vision||!step.assetFiles||!step.questions||!step.audit||!step.correspondence))throw Error('CORRESPONDENCE_METADATA_MISSING');
   if(archive&&current&&step.vision&&step.assetFiles&&step.questions){
@@ -128,7 +141,7 @@ export async function replayDirectory(directory:string){
     for(const [key,question] of Object.entries(reasonRequest))if(!equal(d.questions[key],question))throw new Error('REASON_QUESTION_MISMATCH');
     const correspondenceRequest=correspondenceContext?correspondenceQuestions(correspondenceContext):{};
     for(const [key,question]of Object.entries(correspondenceRequest))if(!equal(d.questions[key],question))throw Error('CORRESPONDENCE_QUESTION_MISMATCH');
-    const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)&&!Object.hasOwn(reasonRequest,key)&&!Object.hasOwn(correspondenceRequest,key)&&!key.startsWith('goalSearch_')))};
+    const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)&&!Object.hasOwn(reasonRequest,key)&&!Object.hasOwn(correspondenceRequest,key)&&!key.startsWith('goalSearch_')&&!key.startsWith('actionRelation_')))};
     const assessment=admitAssessment(response,candidates,current,sources);
     if(experience){
      if(Object.keys(outcomeQuestions).length)experience=admitExperience(d.response,experience,sources,result.config.experience?.evidenceMode);
@@ -146,6 +159,12 @@ export async function replayDirectory(directory:string){
      if(!equal(step.goalSearch?.record,record)||!equal(step.goalSearch?.memory,searchMemory)||!equal(step.userState.goalSearch,searchMemory)||!equal((step.modelInput?.userState as any)?.goalSearch,searchMemory))throw Error('GOAL_SEARCH_RECORD_OR_MEMORY_MISMATCH');
      const before=expectedCriteria!,after=goalSearchCriteria(before,searchMemory,result.input.charter.goal,current,experience,step.correspondence?.record),annotations=Object.keys(before).filter(id=>before[id]!==after[id]).map(candidateId=>({candidateId,before:before[candidateId],after:after[candidateId]}));
      if(!equal(step.goalSearch?.annotations,annotations))throw Error('GOAL_SEARCH_ANNOTATION_MISMATCH');expectedCriteria=after;
+    }
+    if(result.config.actionRelations?.enabled){
+     const record=admitActionRelations(d.response,result.input.charter.goal,current,searchCandidates!,sources);
+     if(!equal(step.actionRelations?.record,record)||!equal(step.modelInput?.actionRelations,record))throw Error('ACTION_RELATIONS_RECORD_MISMATCH');
+     const before=expectedCriteria!,after=actionRelationCriteria(before,record,result.input.charter.goal,current),annotations=Object.keys(before).filter(id=>before[id]!==after[id]).map(candidateId=>({candidateId,before:before[candidateId],after:after[candidateId]}));
+     if(!equal(step.actionRelations?.annotations,annotations))throw Error('ACTION_RELATIONS_ANNOTATION_MISMATCH');expectedCriteria=after;
     }
     if(expectedCriteria&&!equal(step.questions?.nextAction.criteria,expectedCriteria))throw Error('FINAL_ASSESSED_CRITERIA_MISMATCH');
     if(!equal(assessment,d.assessment))throw new Error('ASSESSMENT_RECORD_MISMATCH');
