@@ -1,0 +1,1933 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "kind": "PUBLICATION_COPY_AND_CLAIM_AUDIT",
+  "createdAt": "2026-10-29T20:44:25.974Z",
+  "scope": "Fixed37 documentation/publication files, source-bound provenance, exact copy/export/links/claims audit. This is not a new feature implementation, API experiment, full test-suite certification, behavioral performance pass or human-model validation.",
+  "snapshot": {
+    "publicationFreeze": "reports/condition-continuity-2026-10-30/publication-freeze.json",
+    "publicationFreezeSha256": "f5c4619bd9f2eb89c04c826977fb361ff1a0f15809c27101fc6339ba5289eb9d",
+    "publicationFiles": 37,
+    "publicationFilesBeforeAfterEqual": true,
+    "workingDiffExactlyFrozen37": true,
+    "runtimeRevision": "71989e7e2f914f79f73dbc5316dd7e6ee3909a00",
+    "runtimeSourceHash": "d7bdc1dda5b4202a784a8106f907e88ec3e39a4cad5ddcd42417dca7e7e49e2f",
+    "runtimeSourceFiles": 153,
+    "runtimeBeforeAfterEqual": true,
+    "producerVersusPublicationRevision": "Final trial producer is71989e7/sourceD7bd. A later docs-only publication commit is not the data producer and is not assigned as such."
+  },
+  "preservation": {
+    "priorSnapshot": "reports/condition-continuity-2026-10-30/prior-raw-v4.json",
+    "priorCount": 5709,
+    "priorShaBefore": "4536a8e2289ab01911b4423110203fdccf4da9794af8ea85f9a29199be7c5775",
+    "priorShaAfter": "4536a8e2289ab01911b4423110203fdccf4da9794af8ea85f9a29199be7c5775",
+    "rawChanges": [],
+    "additionalPreviouslyAuditedProtectedFiles": 53,
+    "additionalChanges": [],
+    "oldVisualConditionsPublishedFiles": [
+      {
+        "path": "docs/experiments/2026-10-30-visual-conditions-report.ts",
+        "expected": "537f20d0cb6748c4ba69e1a50a147ce29c9a30b4518e32cda345593829f241ee",
+        "actual": "537f20d0cb6748c4ba69e1a50a147ce29c9a30b4518e32cda345593829f241ee",
+        "matched": true
+      },
+      {
+        "path": "docs/superpowers/plans/2026-10-30-visual-conditions.md",
+        "expected": "d1b2318ff3c27279933943670d444475ecac9676bc75be12a4f9010c59cd780a",
+        "actual": "d1b2318ff3c27279933943670d444475ecac9676bc75be12a4f9010c59cd780a",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-audit-evidence.json",
+        "expected": "3d0774fc186dbd0b1773fe26e3c48693cfa60fda2735f2eaa1b0d91d50a39555",
+        "actual": "3d0774fc186dbd0b1773fe26e3c48693cfa60fda2735f2eaa1b0d91d50a39555",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/library-changed-o1.png",
+        "expected": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "actual": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/library-changed-o2.png",
+        "expected": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "actual": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/library-switch-o1.png",
+        "expected": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+        "actual": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/library-switch-o2.png",
+        "expected": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+        "actual": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/library-unchanged-o1.png",
+        "expected": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "actual": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/library-unchanged-o2.png",
+        "expected": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "actual": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/library-unchanged-o4.png",
+        "expected": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+        "actual": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/library-unchanged-o5.png",
+        "expected": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "actual": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/library-unchanged-o6.png",
+        "expected": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "actual": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/workshop-changed-o1.png",
+        "expected": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+        "actual": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/workshop-changed-o2.png",
+        "expected": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+        "actual": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/workshop-switch-o1.png",
+        "expected": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+        "actual": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/workshop-switch-o2.png",
+        "expected": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+        "actual": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/workshop-unchanged-o1.png",
+        "expected": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+        "actual": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-evidence/workshop-unchanged-o2.png",
+        "expected": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+        "actual": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-independent-review.json",
+        "expected": "6c9140e743ab7365bea94066af33029e4afebdf3d6fac21b2ca308ef096bda13",
+        "actual": "6c9140e743ab7365bea94066af33029e4afebdf3d6fac21b2ca308ef096bda13",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-independent-review.md",
+        "expected": "823a99f041c486e31502661ca5e83f6d538dcd29d736faee323451407da2487e",
+        "actual": "823a99f041c486e31502661ca5e83f6d538dcd29d736faee323451407da2487e",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-prior-stops.json",
+        "expected": "8c104fd0d5983ba3da8d99172f3d751ba2d313b06ff5372114f2c0f4ef232d9b",
+        "actual": "8c104fd0d5983ba3da8d99172f3d751ba2d313b06ff5372114f2c0f4ef232d9b",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-publication-review.json",
+        "expected": "d522d73c05e0676347f2525dcaccbf9696f249de43d4084b8fa943ffb4d0a2e1",
+        "actual": "d522d73c05e0676347f2525dcaccbf9696f249de43d4084b8fa943ffb4d0a2e1",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-results.csv",
+        "expected": "153f7bcf7771e7025f43e4e6c8a1d99a751f6e853161cc1233f82053215ba622",
+        "actual": "153f7bcf7771e7025f43e4e6c8a1d99a751f6e853161cc1233f82053215ba622",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-results.json",
+        "expected": "08b5e7c3185e7518410de45111be812ec4ed39acab67943eab9c33303ddaaf44",
+        "actual": "08b5e7c3185e7518410de45111be812ec4ed39acab67943eab9c33303ddaaf44",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-runtime-review.json",
+        "expected": "76a274957a9ea8ee94ecdad751f28a3743b435e8f108917de919472dfdfaa299",
+        "actual": "76a274957a9ea8ee94ecdad751f28a3743b435e8f108917de919472dfdfaa299",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-watch-smoke-results.csv",
+        "expected": "30d144e7dc5ef67b89426aeb07eeb8956af819892f392135c214f35aaa20d1de",
+        "actual": "30d144e7dc5ef67b89426aeb07eeb8956af819892f392135c214f35aaa20d1de",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-watch-smoke-results.json",
+        "expected": "566807fe46c81b9eeade882e8a0010052a46964daf7677324ac0d1798b7e4d7e",
+        "actual": "566807fe46c81b9eeade882e8a0010052a46964daf7677324ac0d1798b7e4d7e",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions-watch-smoke-review.json",
+        "expected": "a7df4da95c89d19593da1e47da9d8771157d57f0b8c7cd2f586e0a3934ad292b",
+        "actual": "a7df4da95c89d19593da1e47da9d8771157d57f0b8c7cd2f586e0a3934ad292b",
+        "matched": true
+      },
+      {
+        "path": "docs/virtual-beta/visual-conditions.md",
+        "expected": "c147514e63c7320491003851238b1d7f8c85d21708df18eaf344bcf3cf09e331",
+        "actual": "c147514e63c7320491003851238b1d7f8c85d21708df18eaf344bcf3cf09e331",
+        "matched": true
+      }
+    ],
+    "oldPublishedFileCount": 29,
+    "allBeforeAfterUnchanged": true
+  },
+  "checks": [
+    {
+      "name": "GATE byte exact condition-continuity-review-round1.json",
+      "passed": true
+    },
+    {
+      "name": "GATE byte exact condition-continuity-review-round2.json",
+      "passed": true
+    },
+    {
+      "name": "GATE byte exact condition-continuity-review-round3.json",
+      "passed": true
+    },
+    {
+      "name": "GATE byte exact condition-continuity-review-prompt-preflight.json",
+      "passed": true
+    },
+    {
+      "name": "GATE byte exact condition-continuity-review-provider-stop.json",
+      "passed": true
+    },
+    {
+      "name": "GATE byte exact condition-continuity-review-schema-stop.json",
+      "passed": true
+    },
+    {
+      "name": "GATE byte exact condition-continuity-review-live.json",
+      "passed": true
+    },
+    {
+      "name": "round1 FAIL preserved",
+      "passed": true
+    },
+    {
+      "name": "result only independentAudit differs stopped-public",
+      "passed": true
+    },
+    {
+      "name": "independent audit link/status/hash exact stopped-public",
+      "passed": true
+    },
+    {
+      "name": "CSV byte exact stopped-public",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact stopped-public/library-changed-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact stopped-public/library-changed-control-o1.png",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact stopped-public/library-changed-control-o2.png",
+      "passed": true
+    },
+    {
+      "name": "result only independentAudit differs schema-fixed-public",
+      "passed": true
+    },
+    {
+      "name": "independent audit link/status/hash exact schema-fixed-public",
+      "passed": true
+    },
+    {
+      "name": "CSV byte exact schema-fixed-public",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact schema-fixed-public/library-changed-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact schema-fixed-public/library-changed-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "result only independentAudit differs prompt-fixed-public",
+      "passed": true
+    },
+    {
+      "name": "independent audit link/status/hash exact prompt-fixed-public",
+      "passed": true
+    },
+    {
+      "name": "CSV byte exact prompt-fixed-public",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact prompt-fixed-public/library-changed-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact prompt-fixed-public/library-changed-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact prompt-fixed-public/library-changed-control-o1.png",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact prompt-fixed-public/library-changed-control-o2.png",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact prompt-fixed-public/library-unchanged-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact prompt-fixed-public/library-unchanged-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact prompt-fixed-public/library-unchanged-control-o1.png",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact prompt-fixed-public/library-unchanged-control-o2.png",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact prompt-fixed-public/workshop-changed-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "PNG byte exact prompt-fixed-public/workshop-changed-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "posthoc byte exact analysis.json",
+      "passed": true
+    },
+    {
+      "name": "posthoc byte exact records.png",
+      "passed": true
+    },
+    {
+      "name": "version all fields derive from fixed manifest/summary provider-stop",
+      "passed": true
+    },
+    {
+      "name": "version archive bytes provider-stop",
+      "passed": true
+    },
+    {
+      "name": "version ledger ordinal/count consistent provider-stop/1",
+      "passed": true
+    },
+    {
+      "name": "version ledger ordinal/count consistent provider-stop/2",
+      "passed": true
+    },
+    {
+      "name": "version requests equal ledger total provider-stop",
+      "passed": true
+    },
+    {
+      "name": "version all fields derive from fixed manifest/summary schema-stop",
+      "passed": true
+    },
+    {
+      "name": "version archive bytes schema-stop",
+      "passed": true
+    },
+    {
+      "name": "version ledger ordinal/count consistent schema-stop/1",
+      "passed": true
+    },
+    {
+      "name": "version requests equal ledger total schema-stop",
+      "passed": true
+    },
+    {
+      "name": "version all fields derive from fixed manifest/summary prompt-fixed",
+      "passed": true
+    },
+    {
+      "name": "version archive bytes prompt-fixed",
+      "passed": true
+    },
+    {
+      "name": "version ledger ordinal/count consistent prompt-fixed/1",
+      "passed": true
+    },
+    {
+      "name": "version ledger ordinal/count consistent prompt-fixed/2",
+      "passed": true
+    },
+    {
+      "name": "version ledger ordinal/count consistent prompt-fixed/3",
+      "passed": true
+    },
+    {
+      "name": "version ledger ordinal/count consistent prompt-fixed/4",
+      "passed": true
+    },
+    {
+      "name": "version ledger ordinal/count consistent prompt-fixed/5",
+      "passed": true
+    },
+    {
+      "name": "version requests equal ledger total prompt-fixed",
+      "passed": true
+    },
+    {
+      "name": "versions130of288 remaining158 performance no pooling",
+      "passed": true
+    },
+    {
+      "name": "versions raw5709 exact and final audit source binding",
+      "passed": true
+    },
+    {
+      "name": "regeneration exactly12 file set publication-regenerated",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact publication-regenerated/condition-continuity-evidence/library-changed-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact publication-regenerated/condition-continuity-evidence/library-changed-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact publication-regenerated/condition-continuity-evidence/library-changed-control-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact publication-regenerated/condition-continuity-evidence/library-changed-control-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact publication-regenerated/condition-continuity-evidence/library-unchanged-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact publication-regenerated/condition-continuity-evidence/library-unchanged-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact publication-regenerated/condition-continuity-evidence/library-unchanged-control-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact publication-regenerated/condition-continuity-evidence/library-unchanged-control-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact publication-regenerated/condition-continuity-evidence/workshop-changed-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact publication-regenerated/condition-continuity-evidence/workshop-changed-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact publication-regenerated/results.csv",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact publication-regenerated/results.json",
+      "passed": true
+    },
+    {
+      "name": "regeneration exactly12 file set independent-publication/regenerated",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated/condition-continuity-evidence/library-changed-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated/condition-continuity-evidence/library-changed-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated/condition-continuity-evidence/library-changed-control-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated/condition-continuity-evidence/library-changed-control-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated/condition-continuity-evidence/library-unchanged-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated/condition-continuity-evidence/library-unchanged-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated/condition-continuity-evidence/library-unchanged-control-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated/condition-continuity-evidence/library-unchanged-control-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated/condition-continuity-evidence/workshop-changed-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated/condition-continuity-evidence/workshop-changed-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated/results.csv",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated/results.json",
+      "passed": true
+    },
+    {
+      "name": "regeneration exactly12 file set independent-publication/regenerated-verified",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated-verified/condition-continuity-evidence/library-changed-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated-verified/condition-continuity-evidence/library-changed-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated-verified/condition-continuity-evidence/library-changed-control-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated-verified/condition-continuity-evidence/library-changed-control-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated-verified/condition-continuity-evidence/library-unchanged-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated-verified/condition-continuity-evidence/library-unchanged-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated-verified/condition-continuity-evidence/library-unchanged-control-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated-verified/condition-continuity-evidence/library-unchanged-control-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated-verified/condition-continuity-evidence/workshop-changed-continuity-o1.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated-verified/condition-continuity-evidence/workshop-changed-continuity-o2.png",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated-verified/results.csv",
+      "passed": true
+    },
+    {
+      "name": "regeneration byte exact independent-publication/regenerated-verified/results.json",
+      "passed": true
+    },
+    {
+      "name": "independent regeneration API/env0 exit0",
+      "passed": true
+    },
+    {
+      "name": "independent publication typecheck0",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→condition-continuity.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→condition-continuity-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→condition-continuity-review-live.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→provider-comparison.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→provider-comparison-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→provider-comparison-independent-review.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→recovery-transfer.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→recovery-transfer-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→recovery-transfer-independent-review.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→transfer-evaluation.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→transfer-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→transfer-independent-review.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→holdout-stability.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→holdout-stability-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→temporary-deferral.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→temporary-deferral-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→experience-recovery.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→experience-recovery-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→deliberation-recovery.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→deliberation-recovery-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→api-usage-policy.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→human-comparison.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→human-comparison-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→information-verification.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→information-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→information-independent-review.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→semantic-verification.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→semantic-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→semantic-independent-review.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→phase2-verification.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→phase2-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→phase2-independent-review.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→semantic-verification.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→semantic-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→semantic-independent-review.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→deferral-reason.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→deferral-admission.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→budget-diagnostics.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→deferral-grounding.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→deferral-scope.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→deferral-scope-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→deferral-scope-independent-review.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→observation-correspondence.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→observation-correspondence.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→goal-search.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→goal-fragment-audit.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→goal-search-resumed.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→goal-search-semantics.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→goal-search-evidence.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→budget-replace-retry.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→action-relations.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→action-relations-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→action-relations-results.csv",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→action-relations-independent-review.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→visual-conditions.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→visual-conditions.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→visual-conditions-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→visual-conditions-independent-review.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→visual-conditions-runtime-review.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→visual-conditions-watch-smoke-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/README.md→visual-conditions.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/research.md→observation-correspondence.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/research.md→goal-search.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/research.md→goal-fragment-audit.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/research.md→goal-search-semantics.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/research.md→goal-search-evidence.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/research.md→budget-replace-retry.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/research.md→transfer-evaluation.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/research.md→recovery-transfer.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/research.md→recovery-transfer-independent-review.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/research.md→provider-comparison.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/research.md→visual-conditions.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/research.md→condition-continuity.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/tasks.md→gateway-stop.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/tasks.md→goal-search-resumed.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/tasks.md→recovery-transfer.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/tasks.md→provider-comparison.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/tasks.md→action-relations.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/tasks.md→action-relations-independent-review.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/tasks.md→visual-conditions.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/tasks.md→visual-conditions.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/tasks.md→condition-continuity.md",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-results.csv",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-versions.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-posthoc/analysis.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-review-round1.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-review-round2.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-stops/provider/results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-review-provider-stop.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-review-round3.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-stops/schema/results.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-review-schema-stop.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-review-prompt-preflight.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-review-live.json",
+      "passed": true
+    },
+    {
+      "name": "local Markdown link docs/virtual-beta/condition-continuity.md→condition-continuity-posthoc/records.png",
+      "passed": true
+    },
+    {
+      "name": "main producer719/sourceD7 and incomplete counts explicit",
+      "passed": true
+    },
+    {
+      "name": "single repetition and human/causal limits explicit",
+      "passed": true
+    },
+    {
+      "name": "dedicated capacity loss not allhistory loss explicit",
+      "passed": true
+    },
+    {
+      "name": "prediction versus actualeffect caveat",
+      "passed": true
+    },
+    {
+      "name": "test suite scope no fullsuite guarantee",
+      "passed": true
+    },
+    {
+      "name": "README/tasks/research/plan limits consistent",
+      "passed": true
+    },
+    {
+      "name": "one trial selectioncorrection documented accurately",
+      "passed": true
+    },
+    {
+      "name": "changed task action sequence matches bothactors",
+      "passed": true
+    },
+    {
+      "name": "argmax persona and seed documented exact",
+      "passed": true
+    },
+    {
+      "name": "replay npm script command real",
+      "passed": true
+    },
+    {
+      "name": "documented command path real runner/condition-continuity-comparison.ts",
+      "passed": true
+    },
+    {
+      "name": "documented command path real docs/experiments/2026-10-30-condition-continuity-report.ts",
+      "passed": true
+    },
+    {
+      "name": "documented command path real tests/condition-continuity.test.ts",
+      "passed": true
+    },
+    {
+      "name": "documented new output/prior/cap command coherent",
+      "passed": true
+    },
+    {
+      "name": "no stale pending marker main",
+      "passed": true
+    }
+  ],
+  "findings": [],
+  "gateCopies": [
+    {
+      "source": "reports/condition-continuity-2026-10-30/independent-round1/GATE.json",
+      "copy": "docs/virtual-beta/condition-continuity-review-round1.json",
+      "sha256": "2c83057fd557874cebd173809abf6d149ebd139335eb3ccba03a4f393cdda3e4",
+      "status": "FAIL"
+    },
+    {
+      "source": "reports/condition-continuity-2026-10-30/independent-round2/GATE.json",
+      "copy": "docs/virtual-beta/condition-continuity-review-round2.json",
+      "sha256": "69b50aa132062a15111ddf30739385f158e88072d66f71c7617312b0d67eb2ae",
+      "status": "PASS"
+    },
+    {
+      "source": "reports/condition-continuity-2026-10-30/independent-round3/GATE.json",
+      "copy": "docs/virtual-beta/condition-continuity-review-round3.json",
+      "sha256": "a5c1209b9f523ebdae19d57eef55f45e1e887d5f208602750fc5829239e26f3e",
+      "status": "PASS"
+    },
+    {
+      "source": "reports/condition-continuity-2026-10-30/independent-prompt-v1/GATE.json",
+      "copy": "docs/virtual-beta/condition-continuity-review-prompt-preflight.json",
+      "sha256": "b5999ecad2d383e7d91bd7f4d9115191c198c3ee2a2c754c20ed16da6a22c941",
+      "status": "PASS"
+    },
+    {
+      "source": "reports/condition-continuity-2026-10-30/independent-live/STOPPED-GATE.json",
+      "copy": "docs/virtual-beta/condition-continuity-review-provider-stop.json",
+      "sha256": "82fcc0954e2ce939de70885fe6a0f8967e6efc8829f001c44d62002840798131",
+      "status": "PASS_STOPPED_EVIDENCE_AUDIT"
+    },
+    {
+      "source": "reports/condition-continuity-2026-10-30/independent-schema-live/GATE.json",
+      "copy": "docs/virtual-beta/condition-continuity-review-schema-stop.json",
+      "sha256": "c7f64251d868cf130c1d5d4898ee8bc7cd0424c8895f37ec59c56791d59a4e1e",
+      "status": "PASS_STOPPED_MODEL_OUTPUT_EVIDENCE_AUDIT"
+    },
+    {
+      "source": "reports/condition-continuity-2026-10-30/independent-prompt-live/GATE.json",
+      "copy": "docs/virtual-beta/condition-continuity-review-live.json",
+      "sha256": "a9c7ba41d6e11e50027180cdf14e62dc3e362a90ddce0a02781ba67d1b981783",
+      "status": "PASS_EVIDENCE_AUDIT_WITH_RETENTION_LIMITATION"
+    }
+  ],
+  "resultCopies": [
+    {
+      "raw": "stopped-public",
+      "copy": "docs/virtual-beta/condition-continuity-stops/provider/results.json",
+      "diffPaths": [
+        "independentAudit.status",
+        "independentAudit.file",
+        "independentAudit.sha256",
+        "independentAudit.scope"
+      ],
+      "PNGCount": 3,
+      "auditPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-review-provider-stop.json"
+    },
+    {
+      "raw": "schema-fixed-public",
+      "copy": "docs/virtual-beta/condition-continuity-stops/schema/results.json",
+      "diffPaths": [
+        "independentAudit.status",
+        "independentAudit.file",
+        "independentAudit.sha256",
+        "independentAudit.scope"
+      ],
+      "PNGCount": 2,
+      "auditPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-review-schema-stop.json"
+    },
+    {
+      "raw": "prompt-fixed-public",
+      "copy": "docs/virtual-beta/condition-continuity-results.json",
+      "diffPaths": [
+        "independentAudit.status",
+        "independentAudit.file",
+        "independentAudit.sha256",
+        "independentAudit.scope"
+      ],
+      "PNGCount": 10,
+      "auditPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-review-live.json"
+    }
+  ],
+  "versions": [
+    {
+      "id": "provider-stop",
+      "producer": "dd8527b876f61489bdec7fcf0b5df9483ce0e817",
+      "sourceHash": "075a0df4e844e7076beceaf1f2c597b70950943439f3a64359ce3add752344d4",
+      "manifestSha256": "45f2a57b535151d80760d1c085d74d895780f65f6a601049358e4d697d1bca96",
+      "status": "PROVIDER_UNAVAILABLE",
+      "planned": 8,
+      "attempted": 2,
+      "notAttempted": 6,
+      "valid": 1,
+      "invalid": 1,
+      "requests": 22,
+      "executionMaximumRequests": 288,
+      "firstActor": "experience-visual-conditions",
+      "protocolSha256": "eaedf956b40ad4ccb051330d1e0f564d7e6ca85587207213889b8b8616e820c1",
+      "priorCount": 5479,
+      "archive": {
+        "file": "producer-source-075a0df4.zip",
+        "sha256": "d0e1b557908a43c99f48289a3453930ee2554dc33e9dd530eea83ccb6396600a",
+        "fileCount": 153
+      },
+      "measurements": {
+        "chargedRequests": 22,
+        "knownHTTPAttempts": 22,
+        "knownHTTPReceipts": 22,
+        "receiptUnconfirmedChargedRequests": 0,
+        "httpAttemptCountsComplete": true,
+        "costUSD": null,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "schema-stop",
+      "producer": "39e36adcc3d47bcf7ba0737f8f2831c35208a6e0",
+      "sourceHash": "5243a14bda8b046f6e567078e0edbc4f03d53d6c6796dd64b6f6055a408ae3e6",
+      "manifestSha256": "29e980a8f507f7b53c5a65ea60e066877e384c19313c609562b2739c4929cd21",
+      "status": "MODEL_OUTPUT_FAILURE",
+      "planned": 8,
+      "attempted": 1,
+      "notAttempted": 7,
+      "valid": 0,
+      "invalid": 1,
+      "requests": 4,
+      "executionMaximumRequests": 266,
+      "firstActor": "experience-visual-conditions-continuity",
+      "protocolSha256": "2a3020a6234ed4f6f4e0e1ca3d8e9727fdf7d9c4c1d46d0bfc8d7edd51cdfa0a",
+      "priorCount": 5527,
+      "archive": {
+        "file": "producer-source-5243a14b.zip",
+        "sha256": "ed14e25ff3ecbfb9805c635aef3c2b9ac4caa943022e8e680a9939564a4f2634",
+        "fileCount": 153
+      },
+      "measurements": {
+        "chargedRequests": 4,
+        "knownHTTPAttempts": 4,
+        "knownHTTPReceipts": 4,
+        "receiptUnconfirmedChargedRequests": 0,
+        "httpAttemptCountsComplete": true,
+        "costUSD": null,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "prompt-fixed",
+      "producer": "71989e7e2f914f79f73dbc5316dd7e6ee3909a00",
+      "sourceHash": "d7bdc1dda5b4202a784a8106f907e88ec3e39a4cad5ddcd42417dca7e7e49e2f",
+      "manifestSha256": "3ad5053d4b94851cecc672da646511636357b111b7b497b4c483473134aaef5e",
+      "status": "CONSECUTIVE_INFRASTRUCTURE_FAILURES",
+      "planned": 8,
+      "attempted": 5,
+      "notAttempted": 3,
+      "valid": 3,
+      "invalid": 2,
+      "requests": 104,
+      "executionMaximumRequests": 262,
+      "firstActor": "experience-visual-conditions-continuity",
+      "protocolSha256": "7cf97166aa6d2a2cf8507595139f01dbc7036a37106e5d35da80e2b22cba0961",
+      "priorCount": 5547,
+      "archive": {
+        "file": "producer-source-d7bdc1dd.zip",
+        "sha256": "19f2974faaed92624e5daae9c20e8c8d021475c257dcc7939a0191fac8c00727",
+        "fileCount": 153
+      },
+      "measurements": {
+        "chargedRequests": 104,
+        "knownHTTPAttempts": 104,
+        "knownHTTPReceipts": 102,
+        "receiptUnconfirmedChargedRequests": 2,
+        "httpAttemptCountsComplete": true,
+        "costUSD": null,
+        "humanTimeMs": null
+      }
+    }
+  ],
+  "regeneration": [
+    {
+      "directory": "reports/condition-continuity-2026-10-30/publication-regenerated",
+      "files": 12,
+      "allExact": true
+    },
+    {
+      "directory": "reports/condition-continuity-2026-10-30/independent-publication/regenerated",
+      "files": 12,
+      "allExact": true
+    },
+    {
+      "directory": "reports/condition-continuity-2026-10-30/independent-publication/regenerated-verified",
+      "files": 12,
+      "allExact": true
+    }
+  ],
+  "independentRegenerationReceipt": {
+    "APIRequests": 0,
+    "environmentFilesRead": 0,
+    "exitCode": 0,
+    "output": "reports/condition-continuity-2026-10-30/independent-publication/regenerated-verified"
+  },
+  "independentTypecheck": {
+    "finishedAt": "2026-10-30T05:40:24.1588101+09:00",
+    "exitCode": 0,
+    "scope": "publication exporter and current TS source type check, not test suite",
+    "command": "npx tsc --noEmit"
+  },
+  "links": {
+    "localFilesChecked": 96,
+    "localChecks": [
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "condition-continuity.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "condition-continuity-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "condition-continuity-review-live.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-review-live.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "provider-comparison.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\provider-comparison.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "provider-comparison-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\provider-comparison-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "provider-comparison-independent-review.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\provider-comparison-independent-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "recovery-transfer.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\recovery-transfer.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "recovery-transfer-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\recovery-transfer-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "recovery-transfer-independent-review.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\recovery-transfer-independent-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "transfer-evaluation.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\transfer-evaluation.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "transfer-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\transfer-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "transfer-independent-review.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\transfer-independent-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "holdout-stability.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\holdout-stability.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "holdout-stability-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\holdout-stability-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "temporary-deferral.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\temporary-deferral.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "temporary-deferral-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\temporary-deferral-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "experience-recovery.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\experience-recovery.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "experience-recovery-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\experience-recovery-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "deliberation-recovery.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\deliberation-recovery.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "deliberation-recovery-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\deliberation-recovery-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "api-usage-policy.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\api-usage-policy.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "human-comparison.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\human-comparison.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "human-comparison-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\human-comparison-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "information-verification.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\information-verification.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "information-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\information-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "information-independent-review.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\information-independent-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "semantic-verification.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\semantic-verification.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "semantic-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\semantic-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "semantic-independent-review.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\semantic-independent-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "phase2-verification.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\phase2-verification.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "phase2-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\phase2-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "phase2-independent-review.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\phase2-independent-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "semantic-verification.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\semantic-verification.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "semantic-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\semantic-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "semantic-independent-review.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\semantic-independent-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "deferral-reason.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\deferral-reason.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "deferral-admission.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\deferral-admission.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "budget-diagnostics.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\budget-diagnostics.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "deferral-grounding.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\deferral-grounding.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "deferral-scope.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\deferral-scope.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "deferral-scope-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\deferral-scope-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "deferral-scope-independent-review.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\deferral-scope-independent-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "observation-correspondence.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\observation-correspondence.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "observation-correspondence.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\observation-correspondence.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "goal-search.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\goal-search.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "goal-fragment-audit.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\goal-fragment-audit.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "goal-search-resumed.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\goal-search-resumed.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "goal-search-semantics.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\goal-search-semantics.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "goal-search-evidence.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\goal-search-evidence.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "budget-replace-retry.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\budget-replace-retry.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "action-relations.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\action-relations.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "action-relations-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\action-relations-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "action-relations-results.csv",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\action-relations-results.csv",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "action-relations-independent-review.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\action-relations-independent-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "visual-conditions.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\visual-conditions.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "visual-conditions.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\visual-conditions.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "visual-conditions-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\visual-conditions-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "visual-conditions-independent-review.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\visual-conditions-independent-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "visual-conditions-runtime-review.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\visual-conditions-runtime-review.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "visual-conditions-watch-smoke-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\visual-conditions-watch-smoke-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "target": "visual-conditions.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\visual-conditions.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "observation-correspondence.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\observation-correspondence.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "goal-search.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\goal-search.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "goal-fragment-audit.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\goal-fragment-audit.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "goal-search-semantics.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\goal-search-semantics.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "goal-search-evidence.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\goal-search-evidence.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "budget-replace-retry.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\budget-replace-retry.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "transfer-evaluation.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\transfer-evaluation.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "recovery-transfer.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\recovery-transfer.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "recovery-transfer-independent-review.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\recovery-transfer-independent-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "provider-comparison.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\provider-comparison.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "visual-conditions.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\visual-conditions.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "condition-continuity.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/tasks.md",
+        "target": "gateway-stop.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\gateway-stop.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/tasks.md",
+        "target": "goal-search-resumed.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\goal-search-resumed.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/tasks.md",
+        "target": "recovery-transfer.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\recovery-transfer.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/tasks.md",
+        "target": "provider-comparison.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\provider-comparison.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/tasks.md",
+        "target": "action-relations.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\action-relations.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/tasks.md",
+        "target": "action-relations-independent-review.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\action-relations-independent-review.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/tasks.md",
+        "target": "visual-conditions.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\visual-conditions.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/tasks.md",
+        "target": "visual-conditions.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\visual-conditions.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/tasks.md",
+        "target": "condition-continuity.md",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity.md",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-results.csv",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-results.csv",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-versions.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-versions.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-posthoc/analysis.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-posthoc\\analysis.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-review-round1.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-review-round1.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-review-round2.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-review-round2.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-stops/provider/results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-stops\\provider\\results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-review-provider-stop.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-review-provider-stop.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-review-round3.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-review-round3.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-stops/schema/results.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-stops\\schema\\results.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-review-schema-stop.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-review-schema-stop.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-review-prompt-preflight.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-review-prompt-preflight.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-review-live.json",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-review-live.json",
+        "exists": true
+      },
+      {
+        "file": "docs/virtual-beta/condition-continuity.md",
+        "target": "condition-continuity-posthoc/records.png",
+        "resolved": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\condition-continuity-posthoc\\records.png",
+        "exists": true
+      }
+    ],
+    "externalSyntaxOnly": [
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "https://github.com/pngjs/pngjs",
+        "scope": "syntax only; no network"
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "https://nodejs.org/api/crypto.html#cryptocreatehashalgorithm-options",
+        "scope": "syntax only; no network"
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "https://playwright.dev/docs/trace-viewer",
+        "scope": "syntax only; no network"
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "https://developers.openai.com/api/docs/guides/decisions",
+        "scope": "syntax only; no network"
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "https://developers.openai.com/api/reference/resources/decisions/methods/create",
+        "scope": "syntax only; no network"
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "https://developers.openai.com/api/docs/guides/decisions",
+        "scope": "syntax only; no network"
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "https://developers.openai.com/api/docs/guides/structured-outputs",
+        "scope": "syntax only; no network"
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+        "scope": "syntax only; no network"
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "https://docs.typesafe.ai/images",
+        "scope": "syntax only; no network"
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+        "scope": "syntax only; no network"
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "https://developers.openai.com/api/docs/guides/deployment-checklist",
+        "scope": "syntax only; no network"
+      },
+      {
+        "file": "docs/virtual-beta/research.md",
+        "target": "https://developers.openai.com/api/docs/guides/structured-outputs",
+        "scope": "syntax only; no network"
+      }
+    ],
+    "externalNetworkValidation": false,
+    "fragmentTargets": []
+  },
+  "manualReview": {
+    "files": [
+      "docs/superpowers/plans/2026-10-30-condition-continuity.md",
+      "docs/virtual-beta/README.md",
+      "docs/virtual-beta/research.md",
+      "docs/virtual-beta/tasks.md",
+      "docs/virtual-beta/condition-continuity.md"
+    ],
+    "assessment": "Claims of incomplete8-slot execution,3valid2infrastructure3missing, no human/causal/generalized improvement, dedicated-memory-only eviction limitation, separate model predictions/actualstate, and limited239 scoped tests are supported by fixed raw/GATE records.",
+    "publicationRevision": "Current producer HEAD71989e7 is reported as the data producer. A future docs-only publication commit is not mislabeled as the trial producer.",
+    "commands": "Names/scripts/options/source profiles are consistent; actual API-bearing example commands were not run."
+  },
+  "evidenceSummary": {
+    "gates": 7,
+    "round1FAILPreserved": true,
+    "resultJSONCopies": 3,
+    "allowedJSONDifference": "independentAudit references only; status/hash/scope/relative link all resolve to matching copied raw GATE",
+    "CSVAndPNG": "all byte-identical to corresponding stopped/schema/prompt original exporters",
+    "posthoc": "analysis.json and records.png byte-identical, prespecified sample separated from posthoc diagnosis",
+    "versions": "3 manifests/source hashes/archive hashes/ledgers recomputed:22+4+104=130of288,remaining158; no performance pooling or failed-slot replacement",
+    "finalCounts": "5attempted/3valid/2infrastructure/3missing of8planned;104attempts,102knownreceipts,2unconfirmed",
+    "retention": "Dedicated continuity-memory eviction of3 oldclaims is explicitly distinguished from other bounded visual/user/attached history. Improvement remains unproven.",
+    "recordsCase": "Identical image differs in full inputs/history; same information roles and no selection correction at the two posthoc points. Actualstate effect is separated from native expectedResult.",
+    "testing": "239scoped regression tests/type/build are attributed to prior preflight; new exporter independently typechecked and executed. No whole-suite success statement."
+  },
+  "harnessCalibration": "First preservation git-show exceeded default1MiB on older published JSON. Increased read buffer only, then repeated fullbefore snapshot and second fresh regeneration. No product/docs edits.",
+  "commandsRun": [
+    "node --import tsx reports/condition-continuity-2026-10-30/independent-publication/preservation.ts before",
+    "node --import tsx reports/condition-continuity-2026-10-30/independent-publication/regenerate.ts",
+    "node --import tsx reports/condition-continuity-2026-10-30/independent-publication/regenerate-verified.ts",
+    "npx tsc --noEmit",
+    "node --import tsx reports/condition-continuity-2026-10-30/independent-publication/audit.ts",
+    "node --import tsx reports/condition-continuity-2026-10-30/independent-publication/preservation.ts after",
+    "node --import tsx reports/condition-continuity-2026-10-30/independent-publication/finalize-gate.ts"
+  ],
+  "boundaries": {
+    "APIRequests": 0,
+    "environmentFilesRead": 0,
+    "humanRecordContentsRead": 0,
+    "productEdits": 0,
+    "documentationEdits": 0,
+    "sourceRawEdits": 0,
+    "newFeatureChanges": 0,
+    "outputsOnlyInsideIndependentPublication": true
+  },
+  "limitations": [
+    "External URLs were checked as published references without network requests; live availability was not verified. Local96 target files resolve.",
+    "No new239-test run or full repository suite during publication audit; the copied original preflight evidence is preserved and fresh publication typecheck exited0.",
+    "No independent read of credential files or comparison against actual credential values; parent supplied zero-match scan metadata is not reinterpreted as independent credential inspection.",
+    "ThisGATE covers the fixed37 files. Any later document edits or added audit-copy file should be separately identified when finalizing publication.",
+    "Underlying experiment remains incomplete and retention improvement unproved, as stated in the publication."
+  ],
+  "decision": "PASS for the frozen37-file publication difference and exact exporter. No corrections required. Independent verifier stops edits; parent owns any final docs-only commit/push."
+}

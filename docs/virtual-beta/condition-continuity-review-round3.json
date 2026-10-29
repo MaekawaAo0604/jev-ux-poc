@@ -1,0 +1,888 @@
+{
+  "schemaVersion": 1,
+  "role": "independent-verifier-not-implementer",
+  "round": 3,
+  "status": "PASS",
+  "createdAt": "2026-10-29T20:00:15.511Z",
+  "scope": "Frozen client software, strict input/data flow, bounded error diagnostics, offline request equivalence, replay and accounting gate. No real-provider acceptance or behavioral-effect certification.",
+  "snapshot": {
+    "revision": "dd8527b876f61489bdec7fcf0b5df9483ce0e817",
+    "sourceHash": "5243a14bda8b046f6e567078e0edbc4f03d53d6c6796dd64b6f6055a408ae3e6",
+    "sourceFiles": 153,
+    "freeze": "freeze-round3.json",
+    "freezeSha256": "c529318da5637ec32e1cbacfee54e59df29cea99d16c721b1ab479bd439d6f7d",
+    "freezeFiles": 897,
+    "changedFromRound2": [
+      "docs/superpowers/plans/2026-10-30-condition-continuity.md",
+      "experiments/virtual-beta/condition-continuity-comparison.json",
+      "jev/virtual-beta/condition-continuity.ts",
+      "jev/virtual-beta/visual-hypotheses-contracts.ts",
+      "runner/condition-continuity-comparison.ts",
+      "runner/openai-visual-hypotheses.ts",
+      "runner/virtual-beta-replay.ts",
+      "tests/condition-continuity-comparison.test.ts",
+      "tests/condition-continuity-integration.test.ts",
+      "tests/condition-continuity-transport.test.ts",
+      "tests/condition-continuity.test.ts"
+    ],
+    "declaredChangesMatch": true,
+    "sourceBeforeAfterEqual": true,
+    "freezeChanges": []
+  },
+  "preservation": {
+    "priorSnapshot": "reports/condition-continuity-2026-10-30/prior-raw-v2.json",
+    "priorCount": 5527,
+    "priorShaBefore": "7e3071c3477854a4fd83627caab78b3ec79b2098221967bbb4caf0f54157d7ab",
+    "priorShaAfter": "7e3071c3477854a4fd83627caab78b3ec79b2098221967bbb4caf0f54157d7ab",
+    "priorChanges": [],
+    "extraProtectedFiles": [
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\action-relations-2026-10-29\\producer-source-233752d2.zip",
+        "expected": "2f96b1255aff3fc2d26c6b5df026be0660eb815c192c060f167515d98462496b",
+        "actual": "2f96b1255aff3fc2d26c6b5df026be0660eb815c192c060f167515d98462496b",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\goal-search-2026-10-29\\producer-source-ee8fe221.zip",
+        "expected": "473736d2a13167cd95e258115948ec3bb9bef9035e5bcd36cadb70b39ca64ab6",
+        "actual": "473736d2a13167cd95e258115948ec3bb9bef9035e5bcd36cadb70b39ca64ab6",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\goal-search-evidence-2026-10-29\\producer-source-ea90b28.zip",
+        "expected": "2709d6cd6646173d6962b832fe1c5a36038b4c6401c8bdeeb9a0c9dd2cdfc840",
+        "actual": "2709d6cd6646173d6962b832fe1c5a36038b4c6401c8bdeeb9a0c9dd2cdfc840",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\goal-search-evidence-persistence-fixed-2026-10-29\\producer-source-5120f9a.zip",
+        "expected": "35a87393b0d9881856d05889279f1524c9d3896cf7cb3fc9bb3d0a82858c327c",
+        "actual": "35a87393b0d9881856d05889279f1524c9d3896cf7cb3fc9bb3d0a82858c327c",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\goal-search-semantics-2026-10-29\\producer-source-9c6207a.zip",
+        "expected": "d61614fa8b032d25779fc3c8c2a1806486391c50bc6f127255b7f554977ce9ad",
+        "actual": "d61614fa8b032d25779fc3c8c2a1806486391c50bc6f127255b7f554977ce9ad",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\provider-comparison-2026-10-29\\producer-source-8cf3d166.zip",
+        "expected": "79884247cc30bb7230a8dafc0ff9d78c79c3a20a86353be258a74743acaa7c33",
+        "actual": "79884247cc30bb7230a8dafc0ff9d78c79c3a20a86353be258a74743acaa7c33",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\recovery-transfer-2026-10-29\\producer-source-16ab01b.zip",
+        "expected": "30251289d3d95f1d90b88b692f9d439cc0bc872911d37719ff700637beed2ede",
+        "actual": "30251289d3d95f1d90b88b692f9d439cc0bc872911d37719ff700637beed2ede",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\transfer-evaluation-2026-10-29\\frozen-producer.zip",
+        "expected": "7aa425deea04a16691df60faf01d34efc1b9bd662b0a3f1bda2e36139cc1d80d",
+        "actual": "7aa425deea04a16691df60faf01d34efc1b9bd662b0a3f1bda2e36139cc1d80d",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\producer-source-6162dce0.zip",
+        "expected": "01377149bef116163a0db7737f4762937949865767da455225aec458aea93e35",
+        "actual": "01377149bef116163a0db7737f4762937949865767da455225aec458aea93e35",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\producer-source-7e27d09a.zip",
+        "expected": "e2d88f1a8aa58f84fccdb7fa9fb1d6235eabdc96c637e5e9bd139ceb8854f3c9",
+        "actual": "e2d88f1a8aa58f84fccdb7fa9fb1d6235eabdc96c637e5e9bd139ceb8854f3c9",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\producer-source-a1643a44.zip",
+        "expected": "133ea53fa7a87fff72a80c2d7840f4673f742172854b59be8f356515278b775a",
+        "actual": "133ea53fa7a87fff72a80c2d7840f4673f742172854b59be8f356515278b775a",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\producer-source-d36dd19f.zip",
+        "expected": "97e862e1b39cae33b44ed98e17ece07b4854169f12adbab82bb89186a4aee762",
+        "actual": "97e862e1b39cae33b44ed98e17ece07b4854169f12adbab82bb89186a4aee762",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\producer-source-de20ac6b.zip",
+        "expected": "f196f353130a972a8f9c41ae77ad1ee3093b13eb0a47bc1cb44da82e04d1e644",
+        "actual": "f196f353130a972a8f9c41ae77ad1ee3093b13eb0a47bc1cb44da82e04d1e644",
+        "matched": true
+      },
+      {
+        "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\producer-source-dffaab9d.zip",
+        "expected": "df0631f28d9fb99f46e29277927cccdb0b66427ab03652b2e0797b3c19ca1761",
+        "actual": "df0631f28d9fb99f46e29277927cccdb0b66427ab03652b2e0797b3c19ca1761",
+        "matched": true
+      },
+      {
+        "path": "reports/condition-continuity-2026-10-30/producer-source-075a0df4.zip",
+        "expected": "d0e1b557908a43c99f48289a3453930ee2554dc33e9dd530eea83ccb6396600a",
+        "actual": "d0e1b557908a43c99f48289a3453930ee2554dc33e9dd530eea83ccb6396600a",
+        "matched": true
+      },
+      {
+        "path": "reports/condition-continuity-2026-10-30/round1-source-cf07c7a0.zip",
+        "expected": "7bb9635a8fda935aef22e05799c9e737abc1e39102d6b5d94fc9be2ffc348a53",
+        "actual": "7bb9635a8fda935aef22e05799c9e737abc1e39102d6b5d94fc9be2ffc348a53",
+        "matched": true
+      },
+      {
+        "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\condition-continuity-evidence\\library-changed-continuity-o1.png",
+        "expected": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "actual": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "matched": true
+      },
+      {
+        "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\condition-continuity-evidence\\library-changed-control-o1.png",
+        "expected": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "actual": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "matched": true
+      },
+      {
+        "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\condition-continuity-evidence\\library-changed-control-o2.png",
+        "expected": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "actual": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "matched": true
+      },
+      {
+        "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\results.csv",
+        "expected": "a5235fe7e125e395fe3b75c8a1ed5f7d8e0176e6ece5b73e47c096a4ae026f9a",
+        "actual": "a5235fe7e125e395fe3b75c8a1ed5f7d8e0176e6ece5b73e47c096a4ae026f9a",
+        "matched": true
+      },
+      {
+        "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\results.json",
+        "expected": "9ef431e326e5373f328f35f660bdf0606a05e98d37d74b0bd81067e33699c4b7",
+        "actual": "9ef431e326e5373f328f35f660bdf0606a05e98d37d74b0bd81067e33699c4b7",
+        "matched": true
+      },
+      {
+        "path": "reports/condition-continuity-2026-10-30/independent-round1/GATE.json",
+        "expected": "2c83057fd557874cebd173809abf6d149ebd139335eb3ccba03a4f393cdda3e4",
+        "actual": "2c83057fd557874cebd173809abf6d149ebd139335eb3ccba03a4f393cdda3e4",
+        "matched": true
+      },
+      {
+        "path": "reports/condition-continuity-2026-10-30/independent-round2/GATE.json",
+        "expected": "69b50aa132062a15111ddf30739385f158e88072d66f71c7617312b0d67eb2ae",
+        "actual": "69b50aa132062a15111ddf30739385f158e88072d66f71c7617312b0d67eb2ae",
+        "matched": true
+      },
+      {
+        "path": "reports/condition-continuity-2026-10-30/independent-live/STOPPED-GATE.json",
+        "expected": "82fcc0954e2ce939de70885fe6a0f8967e6efc8829f001c44d62002840798131",
+        "actual": "82fcc0954e2ce939de70885fe6a0f8967e6efc8829f001c44d62002840798131",
+        "matched": true
+      },
+      {
+        "path": "reports/condition-continuity-2026-10-30/freeze-round2.json",
+        "expected": "95e08a48ffed299ce99ee51facca871b5cf149626c2f5610a38b8a743d6e519c",
+        "actual": "95e08a48ffed299ce99ee51facca871b5cf149626c2f5610a38b8a743d6e519c",
+        "matched": true
+      }
+    ],
+    "extraProtectedFileCount": 25,
+    "details": "14 earlier producer ZIPs,075 producerZIP,failedround1 archive,round1FAIL/round2PASS/STOPPED GATEs,freeze2 metadata and5 stopped-public files are unchanged.",
+    "allPreviouslyBaselinedFilesUnchanged": true
+  },
+  "execution": {
+    "scopedTests": {
+      "exitCode": 0,
+      "command": "node --import tsx --test --test-concurrency=1 tests/condition-continuity.test.ts tests/condition-continuity-transport.test.ts tests/condition-continuity-comparison.test.ts tests/condition-continuity-integration.test.ts tests/visual-hypotheses.test.ts tests/openai-visual-hypotheses.test.ts tests/visual-conditions-integration.test.ts tests/recovery-transport.test.ts tests/visual-conditions-comparison.test.ts",
+      "finishedAt": "2026-10-30T04:56:59.4942001+09:00",
+      "tests": 234,
+      "passed": 234,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "durationMs": 80913.422,
+      "log": "scoped-tests.log"
+    },
+    "typecheck": {
+      "exitCode": 0,
+      "finishedAt": "2026-10-30T04:56:59.3619764+09:00",
+      "command": "npx tsc --noEmit"
+    },
+    "build": {
+      "finishedAt": "2026-10-30T04:58:38.1545128+09:00",
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    "independentCommands": [
+      "node --import tsx reports/condition-continuity-2026-10-30/independent-round3/adversarial.ts",
+      "node --import tsx reports/condition-continuity-2026-10-30/independent-round3/source-conflict.ts",
+      "node --import tsx reports/condition-continuity-2026-10-30/independent-round3/measurement-source.ts",
+      "node --import tsx reports/condition-continuity-2026-10-30/independent-round3/delivery-chain-prestop.ts",
+      "node --import tsx reports/condition-continuity-2026-10-30/independent-round3/offline-body-order-cap.ts",
+      "node --import tsx reports/condition-continuity-2026-10-30/independent-round3/independent-diagnostic.ts",
+      "node --import tsx runner/condition-continuity-comparison.ts --out reports/condition-continuity-2026-10-30/independent-round3/cli-max35 --mock --prior-snapshot [absolute prior-raw-v2.json] --limit1 --max-requests35",
+      "node --import tsx reports/condition-continuity-2026-10-30/independent-round3/preservation.ts before",
+      "node --import tsx reports/condition-continuity-2026-10-30/independent-round3/preservation.ts after",
+      "node --import tsx reports/condition-continuity-2026-10-30/independent-round3/finalize-gate.ts"
+    ],
+    "actualAPIRequests": 0,
+    "environmentFilesRead": 0,
+    "humanRecordContentsRead": 0,
+    "browserParallelMaximum": 1,
+    "sourceProductTestPublicDocEdits": 0,
+    "environment": "Windows PowerShell login=false; Node v24.14.0; existing installed dependencies.",
+    "newReportDirectories": [
+      "reports/condition-continuity-2026-10-30/independent-round3/before-chain-copy",
+      "reports/condition-continuity-2026-10-30/independent-round3/cli-max35",
+      "reports/condition-continuity-2026-10-30/independent-round3/diagnostic-copy",
+      "reports/condition-continuity-2026-10-30/independent-round3/diagnostic-old-copy",
+      "reports/condition-continuity-2026-10-30/independent-round3/output-error-copy",
+      "reports/condition-continuity-2026-10-30/independent-round3/prestop-run",
+      "reports/condition-continuity-2026-10-30/parent/diagnostic-1793303759144",
+      "reports/condition-continuity-2026-10-30/parent/diagnostic-1793303759144/exploration",
+      "reports/condition-continuity-2026-10-30/parent/diagnostic-1793303759144-legacy",
+      "reports/condition-continuity-2026-10-30/parent/diagnostic-1793303759144-legacy/exploration",
+      "reports/condition-continuity-2026-10-30/parent/integration-1793303747738",
+      "reports/condition-continuity-2026-10-30/parent/mock-1793303739796",
+      "reports/condition-continuity-2026-10-30/parent/mock-1793303739796/batch",
+      "reports/condition-continuity-2026-10-30/parent/mock-1793303739796/batch/recovery-library-changed-r1-experience-visual-conditions",
+      "reports/condition-continuity-2026-10-30/parent/mock-1793303739796/batch/recovery-library-changed-r1-experience-visual-conditions/exploration",
+      "reports/condition-continuity-2026-10-30/parent/mock-1793303739796/batch/recovery-library-changed-r1-experience-visual-conditions-continuity",
+      "reports/condition-continuity-2026-10-30/parent/mock-1793303739796/batch/recovery-library-changed-r1-experience-visual-conditions-continuity/exploration",
+      "reports/condition-continuity-2026-10-30/parent/wrapper-1793303750522-0",
+      "reports/condition-continuity-2026-10-30/parent/wrapper-1793303750522-0/exploration",
+      "reports/condition-continuity-2026-10-30/parent/wrapper-1793303750522-1",
+      "reports/condition-continuity-2026-10-30/parent/wrapper-1793303750522-1/exploration",
+      "reports/condition-continuity-2026-10-30/parent/wrapper-1793303750522-error",
+      "reports/condition-continuity-2026-10-30/parent/wrapper-1793303750522-error/exploration",
+      "reports/recovery-transfer-2026-10-29/compat-0cEgjp",
+      "reports/recovery-transfer-2026-10-29/compat-0cEgjp/help",
+      "reports/recovery-transfer-2026-10-29/compat-0cEgjp/help/exploration",
+      "reports/recovery-transfer-2026-10-29/compat-UYKMZm",
+      "reports/recovery-transfer-2026-10-29/compat-UYKMZm/sentinel",
+      "reports/recovery-transfer-2026-10-29/compat-UYKMZm/sentinel/exploration",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/hooks",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/info",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/logs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/logs/refs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/logs/refs/heads",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/logs/refs/heads/feature",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/logs/refs/remotes",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/logs/refs/remotes/origin",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/objects",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/objects/info",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/objects/pack",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/refs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/refs/heads",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/refs/heads/feature",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/refs/remotes",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/refs/remotes/origin",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.git/refs/tags",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.github",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/.github/workflows",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/app",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/experiments",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/experiments/fixtures",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/experiments/jev-fx-spike",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/qiita",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/qiita/assets",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/sales",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/superpowers",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/superpowers/plans",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/superpowers/specs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/virtual-beta",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/virtual-beta/action-relations-evidence",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/virtual-beta/provider-evidence",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/virtual-beta/recovery-evidence",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/docs/virtual-beta/visual-conditions-evidence",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/experiments",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/experiments/persona",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/experiments/virtual-beta",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/experiments/virtual-beta/human-comparison",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/experiments/virtual-beta/information-state",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/generated",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/generated/raw",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/jev",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/jev/virtual-beta",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/pages",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/public-site",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/runner",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/tests",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/tests/fixtures",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/caller-with-env/tests/regression",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current/run",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current/run/exploration",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/hooks",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/info",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/logs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/logs/refs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/logs/refs/heads",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/logs/refs/heads/feature",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/logs/refs/remotes",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/logs/refs/remotes/origin",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/objects",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/objects/info",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/objects/pack",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/refs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/refs/heads",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/refs/heads/feature",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/refs/remotes",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/refs/remotes/origin",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.git/refs/tags",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.github",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/.github/workflows",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/app",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/experiments",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/experiments/fixtures",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/experiments/jev-fx-spike",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/qiita",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/qiita/assets",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/sales",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/superpowers",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/superpowers/plans",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/superpowers/specs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/virtual-beta",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/virtual-beta/action-relations-evidence",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/virtual-beta/provider-evidence",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/virtual-beta/recovery-evidence",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/docs/virtual-beta/visual-conditions-evidence",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/experiments",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/experiments/persona",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/experiments/virtual-beta",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/experiments/virtual-beta/human-comparison",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/experiments/virtual-beta/information-state",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/generated",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/generated/raw",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/jev",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/jev/virtual-beta",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/node_modules",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/node_modules/.vite",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/node_modules/.vite/deps",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/pages",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/public-site",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/runner",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/tests",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/tests/fixtures",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/current-producer/tests/regression",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old/run",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old/run/exploration",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/hooks",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/info",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/logs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/logs/refs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/logs/refs/heads",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/logs/refs/heads/feature",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/logs/refs/remotes",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/logs/refs/remotes/origin",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/objects",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/objects/info",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/objects/pack",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/refs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/refs/heads",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/refs/heads/feature",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/refs/remotes",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/refs/remotes/origin",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.git/refs/tags",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.github",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/.github/workflows",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/app",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/docs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/docs/experiments",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/docs/experiments/fixtures",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/docs/experiments/jev-fx-spike",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/docs/qiita",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/docs/qiita/assets",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/docs/sales",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/docs/superpowers",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/docs/superpowers/plans",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/docs/superpowers/specs",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/docs/virtual-beta",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/experiments",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/experiments/persona",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/experiments/virtual-beta",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/experiments/virtual-beta/human-comparison",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/experiments/virtual-beta/information-state",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/generated",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/generated/raw",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/jev",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/jev/virtual-beta",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/node_modules",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/node_modules/.vite",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/node_modules/.vite/deps",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/pages",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/public-site",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/runner",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/tests",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/tests/fixtures",
+      "reports/recovery-transfer-2026-10-29/legacy-behavior-uYDKNY/comparison/old-producer/tests/regression",
+      "reports/recovery-transfer-2026-10-29/transport-2UR8Se",
+      "reports/recovery-transfer-2026-10-29/transport-2UR8Se/changed",
+      "reports/recovery-transfer-2026-10-29/transport-2UR8Se/changed/exploration",
+      "reports/recovery-transfer-2026-10-29/transport-2UR8Se/unchanged",
+      "reports/recovery-transfer-2026-10-29/transport-2UR8Se/unchanged/exploration",
+      "reports/visual-conditions-2026-10-30/parent/errors-1793303812166-0",
+      "reports/visual-conditions-2026-10-30/parent/errors-1793303812166-0/exploration",
+      "reports/visual-conditions-2026-10-30/parent/errors-1793303812166-1",
+      "reports/visual-conditions-2026-10-30/parent/errors-1793303812166-1/exploration",
+      "reports/visual-conditions-2026-10-30/parent/integration-1793303801514",
+      "reports/visual-conditions-2026-10-30/parent/ledger-1793303800232",
+      "reports/visual-conditions-2026-10-30/parent/prestop-1793303817831",
+      "reports/visual-conditions-2026-10-30/parent/wrapper-1793303803678-0-experience-visual-conditions",
+      "reports/visual-conditions-2026-10-30/parent/wrapper-1793303803678-0-experience-visual-conditions/exploration",
+      "reports/visual-conditions-2026-10-30/parent/wrapper-1793303803678-1-experience-visual-conditions",
+      "reports/visual-conditions-2026-10-30/parent/wrapper-1793303803678-1-experience-visual-conditions/exploration",
+      "reports/visual-conditions-2026-10-30/parent/wrapper-1793303803678-2-experience-action-relations-current",
+      "reports/visual-conditions-2026-10-30/parent/wrapper-1793303803678-2-experience-action-relations-current/exploration"
+    ],
+    "buildGeneratedDirectory": "dist"
+  },
+  "findings": [],
+  "priorFindingDisposition": [
+    {
+      "id": "CC-R1-01",
+      "status": "STILL_FIXED",
+      "evidence": "adversarial-results.json and delivery-chain-prestop-results.json"
+    },
+    {
+      "id": "CC-R1-02",
+      "status": "STILL_FIXED",
+      "evidence": "adversarial-results.json; missing input integrity false/valid1"
+    },
+    {
+      "id": "CC-R1-03",
+      "status": "STILL_FIXED",
+      "evidence": "source-conflict-result.json and measurement-source-results.json"
+    }
+  ],
+  "checks": {
+    "canonicalExplanation": "No lookaround emitted. Tested schema/admission cases agree on first nonwhitespace character, no control characters, nonempty/max160, leading whitespace rejected and raw strings unchanged. This is an explicit contract tightening; no trimming.",
+    "nativeOldBody": "Pinned f43ee86d9780c73b274975d468963224c21362481170d7f42dbff97588592e4a fixture passes. Old stopped control actual initial body is byte-identical to isolated075 producer builder.",
+    "nativeCorrectedBody": "Offline reconstruction from stopped continuity first extraction shows only two explanation.pattern differences; model/instructions/images/schema remainder/request content unchanged. No saved request was sent.",
+    "boundedDiagnostic": "Independent multibyte exact8192 accepted; over8192 by bytes and cross-chunk8193 canceled with unknown diagnostic. Original5ms deadline timeout remains HTTP_ERROR400, attempts1, receivedtrue, without raw provider text.",
+    "diagnosticClosure": "New diagnostic only allowlisted four fields. Independent extra rawText, unrecognizedparameter and nonboolean marker reject; old actor diagnostic injection rejects while old HTTP400 without diagnostic replays.",
+    "legacyTransport": "Scoped old mode400/401 and new non400 errors never read body and keep old shape; successful200 request body difference limited to explanationpattern.",
+    "continuitySafety": "Unseen current uncertainty/history retained, mapping identity/bounds/source checks, actual both-stage delivery, fresh trial isolation, capacity evictions and rehashed before/after/partial/prestop replay checks pass.",
+    "accounting": "Independent10 receipt/source probes preserve mirrored-error deduplication, knownreceipt versus reservation separation and mock0.",
+    "budgetAndOrder": "Offset1 has continuity first in pairs1/3 and control first in pairs2/4.8 fixedslots/4fixtures/2actors/1repeat. CLI numeric max266 accepted; independent actual CLI35 exits REQUEST_LIMIT before any trial/API. Caller must pass explicit --max-requests266 for prior22+new<=288.",
+    "stoppedEvidence": "Stopped075 source/raw22requests and public outputs remain separate and unchanged; no old control pooling or failure-slot replacement."
+  },
+  "offlineBodyComparison": {
+    "results": [
+      {
+        "actor": "experience-visual-conditions",
+        "oldBodySha256": "5ffe5c756e6255a490fc08cbb633d486c791855ee960e60c05d1965bce2e60a4",
+        "currentBodySha256": "5ffe5c756e6255a490fc08cbb633d486c791855ee960e60c05d1965bce2e60a4",
+        "differences": [],
+        "networkSent": false
+      },
+      {
+        "actor": "experience-visual-conditions-continuity",
+        "oldBodySha256": "45f9e3716f756c78eabcee29bde2170aef5e39d3e6e1438e2db57f51a227af11",
+        "currentBodySha256": "41cd944c19dd0a43270e362f2c6d07eca2fad2a226c7151f48e150f094886f5b",
+        "differences": [
+          {
+            "path": "text.format.schema.properties.continuity.items.anyOf.0.properties.explanation.pattern",
+            "before": "^(?=[^\\u0000-\\u001f\\u007f-\\u009f]*\\S)[^\\u0000-\\u001f\\u007f-\\u009f]{1,160}$",
+            "after": "^[^\\s\\u0000-\\u001f\\u007f-\\u009f][^\\u0000-\\u001f\\u007f-\\u009f]{0,159}$"
+          },
+          {
+            "path": "text.format.schema.properties.continuity.items.anyOf.1.properties.explanation.pattern",
+            "before": "^(?=[^\\u0000-\\u001f\\u007f-\\u009f]*\\S)[^\\u0000-\\u001f\\u007f-\\u009f]{1,160}$",
+            "after": "^[^\\s\\u0000-\\u001f\\u007f-\\u009f][^\\u0000-\\u001f\\u007f-\\u009f]{0,159}$"
+          }
+        ],
+        "networkSent": false
+      }
+    ],
+    "schedule": [
+      {
+        "sequence": 1,
+        "actor": "experience-visual-conditions-continuity",
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "changed"
+        }
+      },
+      {
+        "sequence": 2,
+        "actor": "experience-visual-conditions",
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "changed"
+        }
+      },
+      {
+        "sequence": 3,
+        "actor": "experience-visual-conditions",
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "unchanged"
+        }
+      },
+      {
+        "sequence": 4,
+        "actor": "experience-visual-conditions-continuity",
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "unchanged"
+        }
+      },
+      {
+        "sequence": 5,
+        "actor": "experience-visual-conditions-continuity",
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "changed"
+        }
+      },
+      {
+        "sequence": 6,
+        "actor": "experience-visual-conditions",
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "changed"
+        }
+      },
+      {
+        "sequence": 7,
+        "actor": "experience-visual-conditions",
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "unchanged"
+        }
+      },
+      {
+        "sequence": 8,
+        "actor": "experience-visual-conditions-continuity",
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "unchanged"
+        }
+      }
+    ],
+    "capAcceptance": [
+      1,
+      35,
+      266,
+      288
+    ],
+    "capRejection": [
+      "0",
+      "289",
+      "1.5",
+      "NaN",
+      "Infinity"
+    ],
+    "remainingBudget": {
+      "previousRequests": 22,
+      "newMaximum": 266,
+      "totalMaximum": 288
+    },
+    "APIRequests": 0
+  },
+  "cliCapProbe": {
+    "attempted": 0,
+    "firstActor": "experience-visual-conditions-continuity",
+    "totalRequests": 0,
+    "executionMaximumRequests": 35,
+    "actorOrderOffset": 1,
+    "exitCode": 0,
+    "status": "REQUEST_LIMIT"
+  },
+  "independentEvidence": {
+    "adversarial": {
+      "findings": [
+        {
+          "name": "top-level",
+          "accepted": false,
+          "error": "Error: CONDITION_CONTINUITY_PARTIAL_MISMATCH"
+        },
+        {
+          "name": "nested-empty",
+          "accepted": false,
+          "error": "Error: CONDITION_CONTINUITY_STATE_MISMATCH"
+        },
+        {
+          "name": "nested-foreign-goal",
+          "accepted": false,
+          "error": "Error: CONDITION_CONTINUITY_STATE_MISMATCH"
+        }
+      ],
+      "initial": {
+        "intact": {
+          "present": true,
+          "evidenceAvailable": true,
+          "matched": true,
+          "reasons": []
+        },
+        "missing": {
+          "present": true,
+          "evidenceAvailable": false,
+          "matched": false,
+          "reasons": [
+            "MISSING_INITIAL_EXTRACTION_INPUT"
+          ]
+        },
+        "analysisIntegrity": {
+          "ok": false,
+          "errors": [
+            {
+              "code": "INITIAL_PAIR_MISMATCH",
+              "ids": [
+                "2247898a-ffcf-4b3d-b578-d48941ab28be-1",
+                "2247898a-ffcf-4b3d-b578-d48941ab28be-2"
+              ]
+            }
+          ]
+        },
+        "valid": 1
+      },
+      "receiptSummaryKeys": [
+        "schemaVersion",
+        "kind",
+        "completeness",
+        "integrity",
+        "totals",
+        "cells",
+        "runs",
+        "limitations"
+      ],
+      "source": "reports/condition-continuity-2026-10-30/parent/wrapper-1793303248167-error/exploration"
+    },
+    "sourceConflict": {
+      "accepted": false,
+      "error": "Error: INVALID_VISUAL_HYPOTHESIS_DATA"
+    },
+    "measurementCases": {
+      "assertions": 10,
+      "result": [
+        {
+          "name": "mirrored native HTTP200 read timeout charged once",
+          "charged": 1,
+          "attempts": 1,
+          "receipts": 1,
+          "unconfirmed": 0,
+          "apiReached": true
+        },
+        {
+          "name": "assessment network error mirrored at step adds no phantom receipt",
+          "charged": 2,
+          "attempts": 2,
+          "receipts": 1,
+          "unconfirmed": 1,
+          "apiReached": true
+        },
+        {
+          "name": "native and assessment success plus actual action HTTP500",
+          "charged": 3,
+          "attempts": 3,
+          "receipts": 3,
+          "unconfirmed": 0,
+          "apiReached": true
+        },
+        {
+          "name": "HTTP status proves one receipt even without attempts count",
+          "charged": 1,
+          "attempts": 0,
+          "receipts": 1,
+          "unconfirmed": 0,
+          "apiReached": true
+        },
+        {
+          "name": "mock scripted success is zero actual calls and receipts",
+          "charged": 0,
+          "attempts": 0,
+          "receipts": 0,
+          "unconfirmed": 0,
+          "apiReached": false
+        },
+        {
+          "name": "reservation alone is unconfirmed, not receipt",
+          "charged": 1,
+          "attempts": 0,
+          "receipts": 0,
+          "unconfirmed": 1,
+          "apiReached": null
+        },
+        {
+          "name": "unattached old grounding retained with current uncertainty",
+          "accepted": true
+        },
+        {
+          "name": "attached old source conflict",
+          "rejected": true
+        },
+        {
+          "name": "visual memory source conflict",
+          "rejected": true
+        },
+        {
+          "name": "current conflicting source",
+          "rejected": true
+        }
+      ]
+    },
+    "deliveryChainPrestop": {
+      "checks": 6,
+      "results": [
+        {
+          "name": "exact continuity and guidance reach both real core decision stages",
+          "observations": 4,
+          "verified": true
+        },
+        {
+          "name": "rehashed extraction before-chain description",
+          "rejected": true,
+          "error": "Error: VISUAL_HYPOTHESES_INPUT_MISMATCH"
+        },
+        {
+          "name": "rehashed after-chain nested stage state",
+          "rejected": true,
+          "error": "Error: CONDITION_CONTINUITY_DELIVERY_MISMATCH"
+        },
+        {
+          "name": "rehashed admitted transition record",
+          "rejected": true,
+          "error": "Error: CONDITION_CONTINUITY_RECORD_MISMATCH"
+        },
+        {
+          "name": "continuity-specific actual pre-extractor safety stop",
+          "apiCalls": 0,
+          "verified": true
+        },
+        {
+          "name": "rehashed prestop nested foreign-goal memory",
+          "rejected": true,
+          "error": "Error: CONDITION_CONTINUITY_PRESTOP_MISMATCH"
+        }
+      ]
+    },
+    "diagnosticCases": {
+      "cases": 10,
+      "results": [
+        {
+          "name": "multibyte exact8192-byte diagnostic accepted",
+          "evidence": {
+            "code": "HTTP_ERROR",
+            "attempts": 1,
+            "httpReceived": true,
+            "statusCode": 400,
+            "diagnostic": {
+              "schemaVersion": 1,
+              "code": "invalid_json_schema",
+              "parameter": "text.format.schema",
+              "lookaroundMentioned": true
+            }
+          }
+        },
+        {
+          "name": "multibyte over8192bytes rejected despite fewer characters",
+          "evidence": {
+            "code": "HTTP_ERROR",
+            "attempts": 1,
+            "httpReceived": true,
+            "statusCode": 400,
+            "diagnostic": {
+              "schemaVersion": 1,
+              "code": "unknown",
+              "parameter": "unknown",
+              "lookaroundMentioned": false
+            }
+          }
+        },
+        {
+          "name": "cross-chunk8193bytes cancels without partial classification",
+          "evidence": {
+            "code": "HTTP_ERROR",
+            "attempts": 1,
+            "httpReceived": true,
+            "statusCode": 400,
+            "diagnostic": {
+              "schemaVersion": 1,
+              "code": "unknown",
+              "parameter": "unknown",
+              "lookaroundMentioned": false
+            }
+          }
+        },
+        {
+          "name": "original5ms deadline yields unknown HTTP400 receipt",
+          "evidence": {
+            "code": "HTTP_ERROR",
+            "attempts": 1,
+            "httpReceived": true,
+            "statusCode": 400,
+            "diagnostic": {
+              "schemaVersion": 1,
+              "code": "unknown",
+              "parameter": "unknown",
+              "lookaroundMentioned": false
+            }
+          }
+        },
+        {
+          "name": "old HTTP400 never reads body nor adds diagnostic",
+          "evidence": {
+            "code": "HTTP_ERROR",
+            "attempts": 1,
+            "httpReceived": true,
+            "statusCode": 400
+          }
+        },
+        {
+          "name": "closed allowlisted new-mode diagnostic replay",
+          "verified": true
+        },
+        {
+          "name": "extra raw string",
+          "rejected": true
+        },
+        {
+          "name": "unknown parameter",
+          "rejected": true
+        },
+        {
+          "name": "wrong lookaround type",
+          "rejected": true
+        },
+        {
+          "name": "old-mode diagnostic injection rejects; old HTTP400 without diagnostic replays",
+          "verified": true
+        }
+      ],
+      "stubbedFetchCalls": 5,
+      "actualAPIRequests": 0,
+      "environmentFilesRead": 0
+    }
+  },
+  "limitations": [
+    "Corrected exact provider schema acceptance has not been exercised; an independent client-software PASS cannot establish upstream support.",
+    "Stopped075 HTTP400 exact reason remains UNKNOWN; lookahead incompatibility is only a hypothesis because original body was not retained. New diagnostic observations must not retroactively determine old cause.",
+    "No real model condition semantics, quote accuracy, action-effect improvement, causal inference or human agreement was certified.",
+    "No full repository suite; specified9-file scoped suite/type/build only. Windows only.",
+    "Corrected run must use separate producer/raw and explicit cap266; prior22 plus new<=266 remains within authorized phase288. Historical367/554 separate.",
+    "Potential future HTTP400 is infrastructure/provider failure, not user abandonment or semantic navigation failure."
+  ],
+  "decision": "PASS for frozen Round3 software gate. Preserve all old FAIL/PASS/stopped evidence. Independent verifier stops product/report edits; parent owns subsequent commit/archive and separately authorized ordinary fresh real execution."
+}

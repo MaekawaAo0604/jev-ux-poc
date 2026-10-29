@@ -1,5 +1,9 @@
 # Jev 仮想βテスト基盤
 
+## 未解決条件の継続記憶：最新の実測
+
+[実装・結果・実行方法](condition-continuity.md)、[個別JSON](condition-continuity-results.json)、[独立証拠監査](condition-continuity-review-live.json)。条件の更新と過去根拠を追う部品を追加し、実モデル5/8枠・104要求を実行した。従来方式は2件達成、新方式は1件達成・2件タイムアウト、3枠未実行。連続基盤障害で比較は未完了。関連239件・型・build・独立394チェックを通過したが、専用記憶から古い条件が容量破棄される限界を確認しており、保持・行動・人間再現の改善は未認定。停止した旧2版も保存し、累計130/288要求。以下は以前の検証。
+
 ## Jev / OpenAI Decisions 比較の最新実測
 
 [provider-comparison.md](provider-comparison.md)、[24試行JSON](provider-comparison-results.json)、[独立検証](provider-comparison-independent-review.md)。同じUI・目的・actorで判断APIのみを切り替え、並列2・各12試行を完走。Jev8/12、OpenAI4/12達成、408 OK・障害0。OpenAIは前提変更に到達しても元画面へ戻らない4未達があり、照合条件は両モデル全4未達。既定Jevを維持し、OpenAIは明示backendで利用できます。モデル全般の優劣・人間再現は結論しません。以下は前の検証です。

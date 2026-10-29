@@ -1,0 +1,717 @@
+{
+  "schemaVersion": 1,
+  "producer": "71989e7e2f914f79f73dbc5316dd7e6ee3909a00",
+  "sourceHash": "d7bdc1dda5b4202a784a8106f907e88ec3e39a4cad5ddcd42417dca7e7e49e2f",
+  "manifestSha256": "3ad5053d4b94851cecc672da646511636357b111b7b497b4c483473134aaef5e",
+  "sample": "Posthoc selected records-screen comparison, separate from predefined16 frames; not a quotation accuracy or human-behavior sample.",
+  "cases": [
+    {
+      "sequence": 4,
+      "actor": "experience-visual-conditions-continuity",
+      "number": 8,
+      "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+      "nativeConditions": [
+        {
+          "id": "c1",
+          "description": "変更対象の予約図書が「川沿いの暮らし」である。",
+          "status": "satisfied",
+          "evidence": {
+            "observationId": "o8",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+            "quote": "予約図書　川沿いの暮らし",
+            "quoteStatus": "model-transcribed-unverified"
+          },
+          "uncertainty": "画面上で対象の書名を確認できます。"
+        },
+        {
+          "id": "c2",
+          "description": "予約図書「川沿いの暮らし」の保存済み受取館が東分館になっている。",
+          "status": "unmet",
+          "evidence": {
+            "observationId": "o8",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+            "quote": "保存済みの受取館　中央図書館",
+            "quoteStatus": "model-transcribed-unverified"
+          },
+          "uncertainty": "表示されている保存済み受取館は中央図書館です。"
+        },
+        {
+          "id": "c3",
+          "description": "受取館が東分館に変更され、保存されたことを確認できる。",
+          "status": "uncertain",
+          "evidence": null,
+          "uncertainty": "現在の画面に変更後の保存完了を示す表示はありません。"
+        }
+      ],
+      "nativeRelations": [
+        {
+          "candidateId": "e1",
+          "conditionIds": [
+            "c3"
+          ],
+          "relation": "information",
+          "currentEvidence": {
+            "observationId": "o8",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+            "quote": "予約記録を照合する",
+            "quoteStatus": "model-transcribed-unverified"
+          },
+          "expectedResult": null
+        },
+        {
+          "candidateId": "e2",
+          "conditionIds": [
+            "c2",
+            "c3"
+          ],
+          "relation": "navigation",
+          "currentEvidence": {
+            "observationId": "o8",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+            "quote": "マイページへ",
+            "quoteStatus": "model-transcribed-unverified"
+          },
+          "expectedResult": null
+        },
+        {
+          "candidateId": "back",
+          "conditionIds": [],
+          "relation": "unknown",
+          "currentEvidence": null,
+          "expectedResult": null
+        }
+      ],
+      "jevRoles": {
+        "e1": {
+          "role": "information",
+          "evidence": {
+            "observationId": "o8",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3"
+          },
+          "verify": "no-goal-change"
+        },
+        "e2": {
+          "role": "navigation",
+          "evidence": {
+            "observationId": "o8",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3"
+          },
+          "verify": "navigation"
+        },
+        "back": {
+          "role": "unknown",
+          "verify": "unknown"
+        }
+      },
+      "raw": {
+        "abandon": 0.03,
+        "back": 0.02,
+        "done": 0,
+        "e1": 0.02,
+        "e2": 0.86,
+        "look_0": 0.01,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0.06,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0.022222222222222223,
+        "done": 0,
+        "e1": 0.022222222222222223,
+        "e2": 0.9555555555555555,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "selected": "e2",
+      "modelChoice": "e2",
+      "adjustments": [],
+      "weights": {
+        "abandon": 1,
+        "back": 1,
+        "done": 1,
+        "e1": 1,
+        "e2": 1,
+        "look_0": 1,
+        "look_1": 1,
+        "look_2": 1,
+        "look_3": 1,
+        "reread": 1,
+        "stuck": 1,
+        "wait": 1
+      },
+      "action": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "before": {
+        "schemaVersion": 1,
+        "route": "records",
+        "eligible": false,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "after": {
+        "schemaVersion": 1,
+        "route": "home",
+        "eligible": false,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "imageFile": "records.png"
+    },
+    {
+      "sequence": 3,
+      "actor": "experience-visual-conditions",
+      "number": 6,
+      "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+      "nativeConditions": [
+        {
+          "id": "c1",
+          "description": "変更対象の予約図書が「川沿いの暮らし」である。",
+          "status": "satisfied",
+          "evidence": {
+            "observationId": "o6",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+            "quote": "予約図書　川沿いの暮らし",
+            "quoteStatus": "model-transcribed-unverified"
+          },
+          "uncertainty": "画面上の予約記録表示に基づく判定です。"
+        },
+        {
+          "id": "c2",
+          "description": "「川沿いの暮らし」の受取館が中央図書館から東分館へ変更されている。",
+          "status": "unmet",
+          "evidence": {
+            "observationId": "o6",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+            "quote": "保存済みの受取館　中央図書館",
+            "quoteStatus": "model-transcribed-unverified"
+          },
+          "uncertainty": "現在表示されている保存済みの受取館は中央図書館です。"
+        },
+        {
+          "id": "c3",
+          "description": "東分館への変更が保存されたことを確認できている。",
+          "status": "uncertain",
+          "evidence": null,
+          "uncertainty": "記録照合後の結果はまだ表示されていません。"
+        }
+      ],
+      "nativeRelations": [
+        {
+          "candidateId": "e1",
+          "conditionIds": [
+            "c3"
+          ],
+          "relation": "information",
+          "currentEvidence": {
+            "observationId": "o6",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+            "quote": "予約記録を照合する",
+            "quoteStatus": "model-transcribed-unverified"
+          },
+          "expectedResult": "照合結果に、受取館が東分館として保存されているか表示されるか確認する。"
+        },
+        {
+          "candidateId": "e2",
+          "conditionIds": [],
+          "relation": "navigation",
+          "currentEvidence": {
+            "observationId": "o6",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+            "quote": "マイページへ",
+            "quoteStatus": "model-transcribed-unverified"
+          },
+          "expectedResult": "マイページが表示されるか確認する。"
+        },
+        {
+          "candidateId": "back",
+          "conditionIds": [],
+          "relation": "unknown",
+          "currentEvidence": null,
+          "expectedResult": null
+        }
+      ],
+      "jevRoles": {
+        "e1": {
+          "role": "information",
+          "evidence": {
+            "observationId": "o6",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3"
+          },
+          "verify": "information"
+        },
+        "e2": {
+          "role": "navigation",
+          "evidence": {
+            "observationId": "o6",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3"
+          },
+          "verify": "navigation"
+        },
+        "back": {
+          "role": "unknown",
+          "verify": "unknown"
+        }
+      },
+      "raw": {
+        "abandon": 0.04,
+        "back": 0.03,
+        "done": 0,
+        "e1": 0.44,
+        "e2": 0.37,
+        "look_0": 0,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0.08,
+        "wait": 0.03
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0.03571428571428571,
+        "done": 0,
+        "e1": 0.5238095238095238,
+        "e2": 0.44047619047619047,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "selected": "e1",
+      "modelChoice": "e1",
+      "adjustments": [],
+      "weights": {
+        "abandon": 1,
+        "back": 1,
+        "done": 1,
+        "e1": 1,
+        "e2": 1,
+        "look_0": 1,
+        "look_1": 1,
+        "look_2": 1,
+        "look_3": 1,
+        "reread": 1,
+        "stuck": 1,
+        "wait": 1
+      },
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "before": {
+        "schemaVersion": 1,
+        "route": "records",
+        "eligible": false,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "after": {
+        "schemaVersion": 1,
+        "route": "records",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 1,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "imageFile": "records.png"
+    }
+  ],
+  "continuityRetention": {
+    "schemaVersion": 1,
+    "selection": "Posthoc structural review of first finished continuity trial; not preselected image semantic sample",
+    "producer": "71989e7e2f914f79f73dbc5316dd7e6ee3909a00",
+    "sourceHash": "d7bdc1dda5b4202a784a8106f907e88ec3e39a4cad5ddcd42417dca7e7e49e2f",
+    "runId": "ca23b592-76df-4524-8d0d-0e0d42bf9a83-1",
+    "steps": [
+      {
+        "number": 1,
+        "beforeIds": [],
+        "transitions": [],
+        "after": [
+          {
+            "id": "o1_c1",
+            "currentStatus": "unmet",
+            "lastGroundedSource": "o1"
+          },
+          {
+            "id": "o1_c2",
+            "currentStatus": "unmet",
+            "lastGroundedSource": "o1"
+          },
+          {
+            "id": "o1_c3",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          }
+        ],
+        "evictions": []
+      },
+      {
+        "number": 2,
+        "beforeIds": [
+          "o1_c1",
+          "o1_c2",
+          "o1_c3"
+        ],
+        "transitions": [
+          {
+            "priorId": "o1_c1",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "現在の画面には利用情報の確認が必要という表示がなく、この過去の主張を現状として確認できません。"
+          },
+          {
+            "priorId": "o1_c2",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "現在の画面では受取館の保存値が表示されず、東分館への変更状況を確認できません。"
+          },
+          {
+            "priorId": "o1_c3",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "現在の画面には変更後の保存結果が表示されていません。"
+          }
+        ],
+        "after": [
+          {
+            "id": "o2_c1",
+            "currentStatus": "satisfied",
+            "lastGroundedSource": "o2"
+          },
+          {
+            "id": "o2_c2",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          },
+          {
+            "id": "o2_c3",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          }
+        ],
+        "evictions": [
+          {
+            "id": "o1_c1",
+            "reason": "capacity"
+          },
+          {
+            "id": "o1_c2",
+            "reason": "capacity"
+          },
+          {
+            "id": "o1_c3",
+            "reason": "capacity"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "beforeIds": [
+          "o2_c1",
+          "o2_c2",
+          "o2_c3"
+        ],
+        "transitions": [
+          {
+            "priorId": "o2_c1",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "現在の画面には予約図書のタイトルが表示されておらず、対象が「川沿いの暮らし」か確認できません。"
+          },
+          {
+            "priorId": "o2_c2",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "現在の画面には受取館や東分館への変更結果が表示されていません。"
+          },
+          {
+            "priorId": "o2_c3",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "現在の画面には変更の保存結果が表示されていません。"
+          }
+        ],
+        "after": [
+          {
+            "id": "o3_c1",
+            "currentStatus": "unmet",
+            "lastGroundedSource": "o3"
+          },
+          {
+            "id": "o3_c2",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          },
+          {
+            "id": "o3_c3",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          }
+        ],
+        "evictions": [
+          {
+            "id": "o2_c1",
+            "reason": "capacity"
+          },
+          {
+            "id": "o2_c2",
+            "reason": "capacity"
+          },
+          {
+            "id": "o2_c3",
+            "reason": "capacity"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "beforeIds": [
+          "o3_c1",
+          "o3_c2",
+          "o3_c3"
+        ],
+        "transitions": [
+          {
+            "priorId": "o3_c1",
+            "conditionId": "c1",
+            "change": "resolved",
+            "explanation": "現在の画面に「確認申請（受付番号：R-001）を確認しました。予約内容の変更を利用できます。」と表示されています。"
+          },
+          {
+            "priorId": "o3_c2",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "現在の画面には対象図書や受取館が表示されず、変更状態を判断できません。"
+          },
+          {
+            "priorId": "o3_c3",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "現在の画面には東分館への変更が保存されたことを示す表示がありません。"
+          }
+        ],
+        "after": [
+          {
+            "id": "o3_c3",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          },
+          {
+            "id": "o4_c2",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          },
+          {
+            "id": "o4_c3",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          }
+        ],
+        "evictions": [
+          {
+            "id": "o3_c1",
+            "reason": "capacity"
+          },
+          {
+            "id": "o3_c2",
+            "reason": "capacity"
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "beforeIds": [
+          "o3_c3",
+          "o4_c2",
+          "o4_c3"
+        ],
+        "transitions": [
+          {
+            "priorId": "o3_c3",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "現在の画面には保存結果の表示がなく、確認できません。"
+          },
+          {
+            "priorId": "o4_c2",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "現在の画面は受取館の変更前後の値を示していません。"
+          },
+          {
+            "priorId": "o4_c3",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "現在の画面に変更が保存されたとの表示はありません。"
+          }
+        ],
+        "after": [
+          {
+            "id": "o5_c1",
+            "currentStatus": "satisfied",
+            "lastGroundedSource": "o5"
+          },
+          {
+            "id": "o5_c2",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          },
+          {
+            "id": "o5_c3",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          }
+        ],
+        "evictions": [
+          {
+            "id": "o3_c3",
+            "reason": "capacity"
+          },
+          {
+            "id": "o4_c2",
+            "reason": "capacity"
+          },
+          {
+            "id": "o4_c3",
+            "reason": "capacity"
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "beforeIds": [
+          "o5_c1",
+          "o5_c2",
+          "o5_c3"
+        ],
+        "transitions": [
+          {
+            "priorId": "o5_c1",
+            "conditionId": "c1",
+            "change": "resolved",
+            "explanation": "現在の画面に対象図書名「川沿いの暮らし」が表示されています。"
+          },
+          {
+            "priorId": "o5_c2",
+            "conditionId": "c2",
+            "change": "revised",
+            "explanation": "変更先は東分館と表示されていますが、保存済みの受取館は中央図書館です。"
+          },
+          {
+            "priorId": "o5_c3",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "現在の画面には保存完了を示す結果が表示されていません。"
+          }
+        ],
+        "after": [
+          {
+            "id": "o5_c2",
+            "currentStatus": "unmet",
+            "lastGroundedSource": "o6"
+          },
+          {
+            "id": "o5_c3",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          },
+          {
+            "id": "o6_c3",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          }
+        ],
+        "evictions": [
+          {
+            "id": "o5_c1",
+            "reason": "capacity"
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "beforeIds": [
+          "o5_c2",
+          "o5_c3",
+          "o6_c3"
+        ],
+        "transitions": [
+          {
+            "priorId": "o5_c2",
+            "conditionId": "c2",
+            "change": "resolved",
+            "explanation": "The current image shows the saved pickup location as 東分館, resolving the previously unmet change claim."
+          },
+          {
+            "priorId": "o5_c3",
+            "conditionId": "c3",
+            "change": "resolved",
+            "explanation": "The current success message explicitly confirms that the pickup location was saved as 東分館."
+          },
+          {
+            "priorId": "o6_c3",
+            "conditionId": null,
+            "change": "unobserved",
+            "explanation": "This recollection duplicates the saved-confirmation claim already mapped; no distinct current condition can be assigned to it."
+          }
+        ],
+        "after": [
+          {
+            "id": "o5_c3",
+            "currentStatus": "satisfied",
+            "lastGroundedSource": "o7"
+          },
+          {
+            "id": "o6_c3",
+            "currentStatus": "uncertain",
+            "lastGroundedSource": null
+          },
+          {
+            "id": "o7_c1",
+            "currentStatus": "satisfied",
+            "lastGroundedSource": "o7"
+          }
+        ],
+        "evictions": [
+          {
+            "id": "o5_c2",
+            "reason": "capacity"
+          }
+        ]
+      }
+    ],
+    "fact": "o2 logs unobserved for all3 priors and capacity evicts all3; new per-observation conditions occupy all3 slots. Dedicated continuity memory therefore no longer contains o1 stable IDs or their historical grounding after o2.",
+    "scope": "Does not claim every other bounded memory or attached historical image lost the same evidence, does not infer internal understanding or causal action effect.",
+    "nextHypothesis": "Reassess representation for linking an uncertain current description to a prior claim without asserting current-image evidence; separate identity continuity from current confirmation.",
+    "currentBatchChanged": false
+  },
+  "limitations": [
+    "Same product image; observationIDs, histories, continuity context and complete model inputs differ.",
+    "Both native and Jev classify e1 as information; no evidence that role classification alone caused the action difference.",
+    "Expected results are predictions, not proof of actual operation effect.",
+    "o1 historical grounding is lost from the dedicated continuity memory after o2, not necessarily from all other user memory or attached historical images.",
+    "No human participant or causal/generalized effect claim."
+  ]
+}
