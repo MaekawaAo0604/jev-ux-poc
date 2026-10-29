@@ -21,7 +21,7 @@ import {sourceIdentity} from './virtual-beta-source.js';
 import {buildBlindReview,validateBlindReview,type ReviewFrame} from './human-jev-review.js';
 
 export const humanJevConfig=humanJevProfile().config;
-type Options={out:string;mock:boolean;phaseBudget?:string;envFile?:string;mode?:HumanJevMode;longContext?:boolean;holdoutFixture?:HoldoutFixture;transferFixture?:TransferFixture;recoveryFixture?:RecoveryFixture;runId?:string;deadlineEpochMs?:number;decisionBackend?:DecisionBackend};
+type Options={out:string;mock:boolean;phaseBudget?:string;maximumRequests?:number;envFile?:string;mode?:HumanJevMode;longContext?:boolean;holdoutFixture?:HoldoutFixture;transferFixture?:TransferFixture;recoveryFixture?:RecoveryFixture;runId?:string;deadlineEpochMs?:number;decisionBackend?:DecisionBackend};
 function failureEvidence(error:unknown){
  if(error instanceof BetaAdmissionError||error instanceof BetaSettlementError)return betaBudgetFailureEvidence(error);
  const f=safeRequestFailure(error);
@@ -35,6 +35,8 @@ function failureEvidence(error:unknown){
  */
 export async function runHumanJev(options:Options,injected?:BetaEvaluator,injectedExtractor?:VisualHypothesisExtractor){
  const mode=options.mode??'baseline',profile=humanJevProfile(mode),config=profile.config;
+ const maximumRequests=options.maximumRequests===undefined?profile.maximumRequests:options.maximumRequests;
+ if(!Number.isSafeInteger(maximumRequests)||maximumRequests<1||maximumRequests>profile.maximumRequests)throw Error('INVALID_MAXIMUM_REQUESTS');
  const backend=resolveDecisionBackend(options.decisionBackend),evaluateBetaRequest=decisionEvaluator(backend);
  const recoveryDefinitionValue=options.recoveryFixture?recoveryDefinition(options.recoveryFixture):undefined;
  if(options.recoveryFixture&&(options.holdoutFixture||options.transferFixture))throw Error('CONFLICTING_FIXTURES');
@@ -48,11 +50,11 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator,inject
  let server:Awaited<ReturnType<typeof createServer>>|undefined,browser:Awaited<ReturnType<typeof chromium.launch>>|undefined;
  const root=resolve(options.out),dir=join(root,'exploration');let calls=0,outputCreated=false;
  try{
-  if(budget){const snapshot=budget.snapshot();if(snapshot.newMaximum!==profile.maximumRequests||snapshot.perRunMaximum!==profile.perRunMaximum)throw new Error('EXPECTED_APPROVED_'+profile.maximumRequests+'_REQUEST_PHASE');}
+  if(budget){const snapshot=budget.snapshot();if(snapshot.newMaximum!==maximumRequests||snapshot.perRunMaximum!==profile.perRunMaximum)throw new Error('EXPECTED_APPROVED_'+maximumRequests+'_REQUEST_PHASE');}
   await mkdir(root);outputCreated=true;const originalCharter=JSON.parse(await readFile('experiments/persona/charter.json','utf8'));
   const charter=parseCharter(options.holdoutFixture||options.transferFixture||options.recoveryFixture?{...originalCharter,id:options.recoveryFixture?'recovery-task':'holdout-task',targetWebsite:'local:good',goal:recoveryDefinitionValue?.goal??transferDefinitionValue?.goal??holdoutDefinition(options.holdoutFixture!).goal,initialState:{...originalCharter.initialState,description:options.recoveryFixture?'架空サービスの変更画面が利用できない状態。毎回新しいブラウザーで開始する。':'架空サービスの初期画面。毎回新しいブラウザーで開始する。'},scope:options.transferFixture||options.recoveryFixture?['同じローカル検証サイト内で目的を達成する']:['同じローカル検証サイトで、目的の設定変更と保存確認を行う']}:originalCharter);
   const code=await sourceIdentity();
-  const manifest={schemaVersion:1,mode,...(config.visualHypotheses?.enabled?{visualExtractor:{model:'gpt-6-luna',endpoint:'https://api.openai.com/v1/responses',maxAttemptsPerRequest:1,schemaContract:config.visualHypotheses.continuity?'condition-continuity-v1':'evidence-conditional-v1'}}:{}),...(options.recoveryFixture?{recoveryFixture:structuredClone(options.recoveryFixture),recoveryDefinitionHash:sha(JSON.stringify(recoveryDefinitionValue))}:{}),...(options.holdoutFixture?{holdoutFixture:structuredClone(options.holdoutFixture)}:{}),...(options.transferFixture?{transferFixture:structuredClone(options.transferFixture),transferDefinitionHash:sha(JSON.stringify(transferDefinitionValue))}:{}),transport:{longContext:options.longContext===true,maxAttemptsPerRequest:1,...(!options.mock&&backend==='jev'?{imageReferencePolicy:'opaque-v1'}:{})},createdAtUTC:new Date().toISOString(),...code,mock:options.mock,model:options.mock?'MOCK_SCRIPTED_FIXTURE':decisionBackendInfo[backend].model,decisionBackend:{id:backend,...decisionBackendInfo[backend],credential:undefined},charter,config,persona:null,humanInputsRead:false,actualAPIRequests:0,maximumRequests:profile.maximumRequests,explorationMaximum:profile.explorationMaximum,reviewMaximum:profile.reviewMaximum,viewport:{width:1280,height:900},locale:'ja-JP',timezoneId:'Asia/Tokyo',comparisonLimits:['Baseline goal policy, not a fitted participant persona','Full viewport images with number markers; human used unnumbered native screen','Current runner memory3; human memory and gaze unmeasured','Prompted categorical review, not unprompted free-text discovery'],reviewFramePolicy:'First four and last four distinct delivered images, maximum8, chronological order; no participant-conditioned selection',phaseBudgetBefore:budget?.snapshot()??null};
+  const manifest={schemaVersion:1,mode,...(config.visualHypotheses?.enabled?{visualExtractor:{model:'gpt-6-luna',endpoint:'https://api.openai.com/v1/responses',maxAttemptsPerRequest:1,schemaContract:config.visualHypotheses.continuity?'condition-continuity-v1':'evidence-conditional-v1'}}:{}),...(options.recoveryFixture?{recoveryFixture:structuredClone(options.recoveryFixture),recoveryDefinitionHash:sha(JSON.stringify(recoveryDefinitionValue))}:{}),...(options.holdoutFixture?{holdoutFixture:structuredClone(options.holdoutFixture)}:{}),...(options.transferFixture?{transferFixture:structuredClone(options.transferFixture),transferDefinitionHash:sha(JSON.stringify(transferDefinitionValue))}:{}),transport:{longContext:options.longContext===true,maxAttemptsPerRequest:1,...(!options.mock&&backend==='jev'?{imageReferencePolicy:'opaque-v1'}:{})},createdAtUTC:new Date().toISOString(),...code,mock:options.mock,model:options.mock?'MOCK_SCRIPTED_FIXTURE':decisionBackendInfo[backend].model,decisionBackend:{id:backend,...decisionBackendInfo[backend],credential:undefined},charter,config,persona:null,humanInputsRead:false,actualAPIRequests:0,maximumRequests,...(options.maximumRequests===undefined?{}:{profileMaximumRequests:profile.maximumRequests}),explorationMaximum:Math.min(profile.explorationMaximum,maximumRequests),reviewMaximum:profile.reviewMaximum,viewport:{width:1280,height:900},locale:'ja-JP',timezoneId:'Asia/Tokyo',comparisonLimits:['Baseline goal policy, not a fitted participant persona','Full viewport images with number markers; human used unnumbered native screen','Current runner memory3; human memory and gaze unmeasured','Prompted categorical review, not unprompted free-text discovery'],reviewFramePolicy:'First four and last four distinct delivered images, maximum8, chronological order; no participant-conditioned selection',phaseBudgetBefore:budget?.snapshot()??null};
   await writeFile(join(root,'manifest.json'),JSON.stringify(manifest,null,2));
   server=await createServer({server:{host:'127.0.0.1',port:0},logLevel:'error'});await server.listen();
   const address=server.httpServer!.address();if(!address||typeof address==='string')throw new Error('NO_LOCAL_PORT');
@@ -70,7 +72,7 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator,inject
    if(safety)throw new BetaBudgetError('TIME_LIMIT');
    const stage=request.questions.nextAction?(mode!=='baseline'?'action':'exploration'):request.questions.knowledge?'assessment':'review';
    if(stage==='assessment'&&mode==='baseline'||stage==='review'&&profile.reviewMaximum===0)throw new Error('PROFILE_STAGE_NOT_ALLOWED');
-   if(calls>=profile.maximumRequests)throw new BetaBudgetError('API_LIMIT');
+   if(calls>=maximumRequests)throw new BetaBudgetError('API_LIMIT');
    if(options.mock){calls++;return injected?injected(request):{model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(request.questions).map(([id,q])=>{const choice=id==='nextAction'?'done':id.startsWith('goalSearch_')?'uncertain':id.startsWith('actionRelation_')?(id==='actionRelation_availabilityEvidence'||id.startsWith('actionRelation_evidence_')||id.startsWith('actionRelation_contextEvidence_')?'none':'unknown'):id==='decisionBasis'?'goal':id==='experienceProgress'||id==='experienceExpectation'?'unknown':id==='knowledge'?'insufficient':id==='goal'?'uncertain':id.startsWith('effect_')?'unknown':'none';return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,k===choice?1:0]))}];}))};}
    const deadline=performance.now()+request.timeoutMs;
    const reservation=await budget!.reserve({runKey:root+'/'+stage,condition:stage==='review'?'blind-categorical-review':config.id,revision:code.revision,sourceHash:code.sourceHash});
@@ -93,7 +95,7 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator,inject
    const receivedTimeoutMs=request.timeoutMs,externalRemainingMs=options.deadlineEpochMs===undefined?null:options.deadlineEpochMs-Date.now();
    if(externalRemainingMs!==null){if(externalRemainingMs<=0)throw new BetaBudgetError('TIME_LIMIT');request={...request,timeoutMs:Math.min(request.timeoutMs,externalRemainingMs)};}
    if(safety)throw new BetaBudgetError('TIME_LIMIT');
-   if(calls>=profile.maximumRequests)throw new BetaBudgetError('API_LIMIT');
+   if(calls>=maximumRequests)throw new BetaBudgetError('API_LIMIT');
    if(options.mock){calls++;if(injectedExtractor)return injectedExtractor(request,audit);const output={...(request.conditionContinuity?{continuity:request.conditionContinuity.memory.entries.map(entry=>({priorId:entry.id,conditionId:null,change:'unobserved',explanation:'Scripted mock has no visible condition evidence.'}))}:{}),conditions:[],relations:request.candidates.map(c=>({candidateId:c.id,conditionIds:[],relation:'unknown',currentEvidence:null,expectedResult:null})),unknowns:[]};return {model:'gpt-6-luna',status:'completed',rawText:JSON.stringify(output),output,request:{attempts:1,httpReceived:true,statusCode:200},costUSD:null};}
    const adapterStartedMs=performance.now(),deadline=adapterStartedMs+request.timeoutMs;
    const reservation=await budget!.reserve({runKey:root+'/visual-hypotheses',condition:config.id,revision:code.revision,sourceHash:code.sourceHash});
@@ -110,7 +112,7 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator,inject
   await context.tracing.stop({path:join(dir,'trace.zip')});await context.close();
   const selected=frames.length<=8?frames:[...frames.slice(0,4),...frames.slice(-4)];
   let review:Record<string,unknown>={status:'NOT_RUN',reason:profile.reviewMaximum===0?'PROFILE_DISABLED':safety?'SAFETY_STOP':selected.length?'BUDGET_UNAVAILABLE':'NO_VALID_DELIVERED_FRAMES'};
-  if(profile.reviewMaximum>0&&!safety&&selected.length&&calls<profile.maximumRequests&&(options.mock||budget!.remaining>0)){
+  if(profile.reviewMaximum>0&&!safety&&selected.length&&calls<maximumRequests&&(options.mock||budget!.remaining>0)){
    const request=buildBlindReview(selected,charter.goal);
    const assets=Object.fromEntries(selected.map(frame=>[frame.observationId,{file:'exploration/input-'+frame.observationId.slice(1)+'.png',sha256:frame.imageSha256}]));
    await writeFile(join(root,'review-input.json'),JSON.stringify({input:request.input,questions:request.questions,assets,inputSha256:sha(JSON.stringify({input:request.input,questions:request.questions,assets}))},null,2));
@@ -133,7 +135,7 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator,inject
 }
 async function main(){
  const args=process.argv.slice(2),options:Options={out:'',mock:false};
- for(let i=0;i<args.length;i++){const key=args[i];if(key==='--mock'){options.mock=true;continue;}if(key==='--long-context'){options.longContext=true;continue;}if(!['--out','--phase-budget','--env-file','--mode','--backend'].includes(key)||!args[i+1]||args[i+1].startsWith('--'))throw new Error('INVALID_OPTION');const value=args[++i];if(key==='--out')options.out=value;if(key==='--phase-budget')options.phaseBudget=value;if(key==='--env-file')options.envFile=value;if(key==='--mode')options.mode=value as HumanJevMode;if(key==='--backend')options.decisionBackend=resolveDecisionBackend(value);}
+ for(let i=0;i<args.length;i++){const key=args[i];if(key==='--mock'){options.mock=true;continue;}if(key==='--long-context'){options.longContext=true;continue;}if(!['--out','--phase-budget','--env-file','--mode','--backend','--maximum-requests'].includes(key)||!args[i+1]||args[i+1].startsWith('--'))throw new Error('INVALID_OPTION');const value=args[++i];if(key==='--out')options.out=value;if(key==='--phase-budget')options.phaseBudget=value;if(key==='--maximum-requests')options.maximumRequests=Number(value);if(key==='--env-file')options.envFile=value;if(key==='--mode')options.mode=value as HumanJevMode;if(key==='--backend')options.decisionBackend=resolveDecisionBackend(value);}
  if(!options.out)throw new Error('NEW_OUTPUT_DIRECTORY_REQUIRED');
  const saved=await runHumanJev(options);console.log(JSON.stringify({root:saved.root,termination:saved.result.termination,objectiveSuccess:saved.result.objectiveAssessment.value,reviewStatus:saved.review.status}));
 }
