@@ -1,3 +1,5 @@
+import {conditionContinuityUserRecord} from './condition-continuity-guidance.js';
+import {validateVisualDispatch} from './visual-dispatch-timing.js';
 import {emptyConditionContinuity,admitConditionContinuity,type ConditionContinuityMemory} from '../jev/virtual-beta/condition-continuity.js';
 import {verifyJevImageBindings} from './jev-image-references.js';
 import {visualHypothesisInput} from './visual-hypothesis-input.js';
@@ -72,7 +74,7 @@ function checkVisualResponse(value:unknown){
  if(value.usage!==undefined){closedKeys(value.usage,['inputTokens','outputTokens','totalTokens']);if(Object.values(value.usage).some(n=>!Number.isSafeInteger(n)||Number(n)<0)||value.usage.totalTokens!==value.usage.inputTokens+value.usage.outputTokens)throw Error('VISUAL_HYPOTHESES_USAGE_INVALID');}
 }
 function checkVisualStage(step:BetaResult['steps'][number],termination:BetaResult['termination']){
- const v=step.visualHypotheses!;closedKeys(v,['request','assetFiles','inputSha256','apiCalls','timing'],['response','record','memory','error']);closedKeys(v.timing,['apiMs']);if(!Number.isFinite(v.timing.apiMs)||v.timing.apiMs<0||![0,1].includes(v.apiCalls))throw Error('VISUAL_HYPOTHESES_ACCOUNTING_INVALID');
+ const v=step.visualHypotheses!;closedKeys(v,['request','assetFiles','inputSha256','apiCalls','timing'],['response','record','memory','error']);closedKeys(v.timing,['apiMs'],['dispatch']);if(!Number.isFinite(v.timing.apiMs)||v.timing.apiMs<0||![0,1].includes(v.apiCalls))throw Error('VISUAL_HYPOTHESES_ACCOUNTING_INVALID');
  if(v.response!==undefined)checkVisualResponse(v.response);
  if(v.record!==undefined){if(v.apiCalls!==1||!v.response||v.response.status!=='completed'||v.error!==undefined||!v.memory)throw Error('VISUAL_HYPOTHESES_COMPLETE_EVIDENCE_INVALID');return;}
  if(v.memory!==undefined||step.deliberation||step.selection)throw Error('VISUAL_HYPOTHESES_PARTIAL_MISMATCH');
@@ -91,7 +93,7 @@ function checkVisualStage(step:BetaResult['steps'][number],termination:BetaResul
  if(!['MISSING_CREDENTIALS','HTTP_ERROR','TIMEOUT','REQUEST_FAILED'].includes(e.code as string)||v.apiCalls!==1||!Number.isSafeInteger(e.attempts)||![0,1].includes(e.attempts as number)||typeof e.httpReceived!=='boolean'||e.httpReceived!==Object.hasOwn(e,'statusCode')||e.statusCode!==undefined&&(!Number.isInteger(e.statusCode)||Number(e.statusCode)<100||Number(e.statusCode)>599)||e.attempts===0&&e.httpReceived||e.code==='HTTP_ERROR'&&(e.attempts!==1||e.httpReceived!==true||e.statusCode===200)||e.code==='MISSING_CREDENTIALS'&&(e.attempts!==0||e.httpReceived!==false))throw Error('VISUAL_HYPOTHESES_FAILURE_EVIDENCE_INVALID');
 }
 export async function replayDirectory(directory:string){
- const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));if(result.config.actionRelations!==undefined||result.config.visualHypotheses!==undefined)validateConfig(result.config);let choices=0,images=0,assessments=0;
+ const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));if(result.config.actionRelations!==undefined||result.config.visualHypotheses!==undefined)validateConfig(result.config);if(result.measurement!==undefined){closedKeys(result.measurement,['visualDispatch']);if(result.measurement.visualDispatch!=='client-timeout-v1'||!result.config.visualHypotheses?.enabled)throw Error('INVALID_VISUAL_DISPATCH_MEASUREMENT');}let choices=0,images=0,assessments=0;
  let deferrals=result.config.deferral?.enabled?copyDeferrals(undefined,result.config.deferral):undefined,effectiveDeferrals=deferrals;
  let experience:ExperienceMemory|undefined,pending:ExperienceIntent|undefined,execution:'performed'|'unchanged'='unchanged';
  let reasonMemory:DeferralReasonMemory|undefined;
@@ -140,10 +142,12 @@ export async function replayDirectory(directory:string){
    const v=step.visualHypotheses;
    if(!v||!current||!step.assetFiles||!searchCandidates)throw Error('VISUAL_HYPOTHESES_METADATA_MISSING');
    checkVisualStage(step,result.termination);
+   if(v.timing&&Object.hasOwn(v.timing,'dispatch')){if(!result.measurement)throw Error('UNDECLARED_VISUAL_DISPATCH_MEASUREMENT');validateVisualDispatch(v.timing.dispatch,result.config.maxRunMs);}else if(result.measurement)throw Error('VISUAL_DISPATCH_TIMING_MISSING');
+   if(result.config.visualHypotheses.continuity?.retentionPolicy==='grounded-unresolved'&&!result.measurement)throw Error('VISUAL_DISPATCH_MEASUREMENT_MISSING');
    const imageData:VisualHypothesisRequest['images']={};
    for(const [id,asset] of Object.entries(v.assetFiles)){if(asset.file!==asset.file.split(/[\\/]/).at(-1))throw Error('UNSAFE_IMAGE_PATH');const bytes=await readFile(join(directory,asset.file));if(sha(bytes)!==asset.sha256)throw Error('VISUAL_IMAGE_HASH_MISMATCH');imageData[id]={mediaType:'image/png',data:bytes.toString('base64')};}
    const sourceInput=d?.modelInput??step.modelInput;
-   const request=visualHypothesisInput({goal:result.input.charter.goal,currentDate:result.input.charter.initialState.currentDate,...(result.input.persona?{persona:result.input.persona}:{}),current:{observationId:current.id,imageSha256:current.imageSha256},sources:assessmentSources(sourceInput,v.assetFiles,current),candidates:searchCandidates,user:{...step.userState!,...(continuityMemory?{conditionContinuity:continuityMemory}:{}),experience:result.config.experience?.enabled?arriveExperience(experience,pending,current,execution,result.config.experience):undefined,visualHypotheses:visualMemory},images:imageData,assets:v.assetFiles,timeoutMs:30000,...(result.config.visualHypotheses.continuity?{continuityCapacity:result.config.visualHypotheses.continuity.capacity}:{})});
+   const request=visualHypothesisInput({goal:result.input.charter.goal,currentDate:result.input.charter.initialState.currentDate,...(result.input.persona?{persona:result.input.persona}:{}),current:{observationId:current.id,imageSha256:current.imageSha256},sources:assessmentSources(sourceInput,v.assetFiles,current),candidates:searchCandidates,user:{...step.userState!,...(continuityMemory?{conditionContinuity:continuityMemory}:{}),experience:result.config.experience?.enabled?arriveExperience(experience,pending,current,execution,result.config.experience):undefined,visualHypotheses:visualMemory},images:imageData,assets:v.assetFiles,timeoutMs:v.timing?.dispatch?.timeoutMs??30000,...(result.config.visualHypotheses.continuity?{continuityCapacity:result.config.visualHypotheses.continuity.capacity,...(result.config.visualHypotheses.continuity.retentionPolicy!==undefined?{continuityRetentionPolicy:result.config.visualHypotheses.continuity.retentionPolicy}:{})}:{})});
    if((v.error as any)?.diagnostic!==undefined&&!request.conditionContinuity)throw Error('UNCONFIGURED_VISUAL_PROVIDER_DIAGNOSTIC');
    const {images:_images,timeoutMs:_timeout,...metadata}=request;
    if(!equal(v.assetFiles,step.assetFiles)||!equal(v.request,metadata)||v.inputSha256!==sha(JSON.stringify({input:metadata,assets:v.assetFiles})))throw Error('VISUAL_HYPOTHESES_INPUT_MISMATCH');
@@ -154,7 +158,7 @@ export async function replayDirectory(directory:string){
      const expected=admitConditionContinuity((v.response.output as any).continuity,request.conditionContinuity,record);
      if(!equal(step.conditionContinuity,expected))throw Error('CONDITION_CONTINUITY_RECORD_MISMATCH');
      continuityMemory=expected.after;
-     for(const input of [step.modelInput,...(d?[d.modelInput]:[])])if(!equal(input.conditionContinuity,expected)||!equal((input.userState as any)?.conditionContinuity,continuityMemory))throw Error('CONDITION_CONTINUITY_DELIVERY_MISMATCH');
+     for(const input of [step.modelInput,...(d?[d.modelInput]:[])])if(!equal(input.conditionContinuity,conditionContinuityUserRecord(expected))||!equal((input.userState as any)?.conditionContinuity,continuityMemory))throw Error('CONDITION_CONTINUITY_DELIVERY_MISMATCH');
     }
     if(!equal(v.record,record)||!equal(v.memory,visualMemory))throw Error('VISUAL_HYPOTHESES_RECORD_MISMATCH');
     for(const input of [step.modelInput,...(d?[d.modelInput]:[])])if(!equal(input.visualHypotheses,record)||!equal((input.userState as any)?.visualHypotheses,visualMemory))throw Error('VISUAL_HYPOTHESES_DELIVERY_MISMATCH');

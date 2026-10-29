@@ -1,1 +1,5 @@
+import type {ConditionContinuityRecord} from '../jev/virtual-beta/condition-continuity.js';
 export const conditionContinuityGuidance='conditionContinuity explicitly reassesses bounded fallible condition hypotheses. lastGrounded is historical, while currentStatus is the latest image-based assessment; uncertain or unobserved does not erase prior evidence and does not prove the condition remains unmet or is resolved. Compare the enabling condition, current candidates and expected observable changes before repeating an execution. Resolution needs current evidence. These are model hypotheses, not facts, forced actions, a correct route or a revisit ban. Preserve the fixed persona and configured likely-user versus goal policy.';
+
+/** Memory-selection diagnostics are audit data, never an extra actor hint. */
+export function conditionContinuityUserRecord(record:ConditionContinuityRecord):Omit<ConditionContinuityRecord,'retention'>{const {retention:_audit,...user}=record;return structuredClone(user);}

@@ -10,7 +10,8 @@ type Content={type:'input_text';text:string}|{type:'input_image';image_url:strin
 /** Native Responses request; only the validated user-side allowlist and actual attached images are serialized. */
 export function buildOpenAIVisualHypothesisRequest(request:VisualHypothesisRequest){
  const req=validateVisualHypothesisRequest(request);
- const input={goal:req.goal,currentDate:req.currentDate,...(req.persona?{persona:req.persona}:{}),current:req.current,sources:req.sources,candidates:req.candidates,...(req.experience?{experience:req.experience}:{}),...(req.memory?{memory:req.memory}:{}),...(req.conditionContinuity?{conditionContinuity:req.conditionContinuity}:{})};
+ const userContinuity=req.conditionContinuity?{schemaVersion:req.conditionContinuity.schemaVersion,capacity:req.conditionContinuity.capacity,memory:req.conditionContinuity.memory}:undefined;
+ const input={goal:req.goal,currentDate:req.currentDate,...(req.persona?{persona:req.persona}:{}),current:req.current,sources:req.sources,candidates:req.candidates,...(req.experience?{experience:req.experience}:{}),...(req.memory?{memory:req.memory}:{}),...(userContinuity?{conditionContinuity:userContinuity}:{})};
  const content:Content[]=[{type:'input_text',text:JSON.stringify(input)}];
  for(const [id,image]of Object.entries(req.images))content.push({type:'input_text',text:'Image asset ID: '+JSON.stringify(id)},{type:'input_image',image_url:`data:${image.mediaType};base64,${image.data}`});
  return {model,store:false,max_output_tokens:4000,instructions:req.conditionContinuity?instructions+continuityInstructions:instructions,input:[{role:'user' as const,content}],text:{format:{type:'json_schema' as const,name:'visual_hypotheses',strict:true,schema:visualHypothesisSchema(req)}}};

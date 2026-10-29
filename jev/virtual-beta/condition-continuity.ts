@@ -4,9 +4,10 @@ import type {VisualEvidence,VisualHypothesisRecord} from './visual-hypotheses-co
 
 export type ConditionClaim={id:string;description:string;lastGrounded:{status:'unmet'|'satisfied';evidence:VisualEvidence}|null;currentStatus:'unmet'|'satisfied'|'uncertain';lastAssessed:ExperienceSource;transition:'introduced'|'persists'|'revised'|'resolved'|'unobserved'};
 export type ConditionContinuityMemory={schemaVersion:1;goalSha256:string;lastObservation:ExperienceSource|null;entries:ConditionClaim[]};
-export type ConditionContinuityContext={schemaVersion:1;capacity:number;memory:ConditionContinuityMemory};
+export type ConditionRetentionPolicy='recent'|'grounded-unresolved';
+export type ConditionContinuityContext={schemaVersion:1;capacity:number;memory:ConditionContinuityMemory;retentionPolicy?:ConditionRetentionPolicy};
 export type ConditionContinuityTransition={priorId:string;conditionId:'c1'|'c2'|'c3'|null;change:'persists'|'revised'|'resolved'|'unobserved';explanation:string};
-export type ConditionContinuityRecord={schemaVersion:1;current:ExperienceSource;goalSha256:string;before:ConditionContinuityMemory;transitions:ConditionContinuityTransition[];after:ConditionContinuityMemory;evictions:{id:string;reason:'capacity'}[]};
+export type ConditionContinuityRecord={schemaVersion:1;current:ExperienceSource;goalSha256:string;before:ConditionContinuityMemory;transitions:ConditionContinuityTransition[];after:ConditionContinuityMemory;evictions:{id:string;reason:'capacity'}[];retention?:{policy:'grounded-unresolved';ranking:{id:string;priority:'current-unmet'|'historical-unmet'|'other';selected:boolean}[]}};
 const hash=(value:string)=>createHash('sha256').update(value).digest('hex');
 const object=(value:unknown):value is Record<string,any>=>value!==null&&typeof value==='object'&&!Array.isArray(value);
 const hashPattern=/^[a-f0-9]{64}$/;
@@ -30,7 +31,9 @@ function goalHash(goal:string){if(typeof goal!=='string'||!goal.trim()||goal.len
 /** Empty recollection has no product state, shared objects, or implied success. */
 export function emptyConditionContinuity(goal:string):ConditionContinuityMemory{return {schemaVersion:1,goalSha256:goalHash(goal),lastObservation:null,entries:[]};}
 function contextCopy(value:unknown,current?:ExperienceSource,expectedGoal?:string):ConditionContinuityContext{
- exact(value,['schemaVersion','capacity','memory']);if(value.schemaVersion!==1||!Number.isSafeInteger(value.capacity)||value.capacity<1||value.capacity>3)fail();
+ const hasPolicy=object(value)&&Object.hasOwn(value,'retentionPolicy');
+ exact(value,['schemaVersion','capacity','memory',...(hasPolicy?['retentionPolicy']:[])]);if(value.schemaVersion!==1||!Number.isSafeInteger(value.capacity)||value.capacity<1||value.capacity>3)fail();
+ const retentionPolicy=hasPolicy?category(value.retentionPolicy,['recent','grounded-unresolved']):undefined;
  const memory=value.memory;exact(memory,['schemaVersion','goalSha256','lastObservation','entries']);if(memory.schemaVersion!==1||typeof memory.goalSha256!=='string'||!hashPattern.test(memory.goalSha256)||expectedGoal!==undefined&&memory.goalSha256!==expectedGoal)fail();
  const last=memory.lastObservation===null?null:source(memory.lastObservation),sources=new Map<string,ExperienceSource>();if(current)register(sources,current);if(last){register(sources,last);if(current&&number(last.observationId)>=number(current.observationId))fail();}
  const entries=array(memory.entries,value.capacity).map(raw=>{
@@ -46,7 +49,7 @@ function contextCopy(value:unknown,current?:ExperienceSource,expectedGoal?:strin
   return {id:raw.id,description:text(raw.description,200),lastGrounded,currentStatus,lastAssessed,transition};
  });
  if(new Set(entries.map(entry=>entry.id)).size!==entries.length)fail();
- return {schemaVersion:1,capacity:value.capacity,memory:{schemaVersion:1,goalSha256:memory.goalSha256,lastObservation:last,entries}};
+ return {schemaVersion:1,capacity:value.capacity,memory:{schemaVersion:1,goalSha256:memory.goalSha256,lastObservation:last,entries},...(retentionPolicy!==undefined?{retentionPolicy}:{})};
 }
 /** Strict bounded projection. Cross-run whole-memory substitution requires the caller's source/before-chain checks. */
 export function validateConditionContinuityContext(value:unknown,current:ExperienceSource,goal:string):ConditionContinuityContext{return contextCopy(value,source(current),goalHash(goal));}
@@ -82,7 +85,15 @@ export function admitConditionContinuity(raw:unknown,context:ConditionContinuity
   return {id:entry.id,description:condition.description,lastGrounded:condition.status==='uncertain'?structuredClone(entry.lastGrounded):{status:condition.status,evidence:structuredClone(condition.evidence!)},currentStatus:condition.status,lastAssessed:{...current},transition:transition.change};
  });
  for(const condition of conditions.filter(condition=>!referenced.includes(condition.id))){const grounded=condition.status!=='uncertain'&&condition.evidence?{status:condition.status,evidence:structuredClone(condition.evidence)}:null;updated.push({id:current.observationId+'_'+condition.id,description:condition.description,lastGrounded:grounded,currentStatus:condition.evidence&&same(condition.evidence,current)?condition.status:'uncertain',lastAssessed:{...current},transition:'introduced'});}
- const removed=updated.slice(0,Math.max(0,updated.length-ctx.capacity)),after={schemaVersion:1 as const,goalSha256:before.goalSha256,lastObservation:{...current},entries:updated.slice(-ctx.capacity)};
+ let removed=updated.slice(0,Math.max(0,updated.length-ctx.capacity)),retained=updated.slice(-ctx.capacity),retention:ConditionContinuityRecord['retention'];
+ if(ctx.retentionPolicy==='grounded-unresolved'){
+  const labels=['current-unmet','historical-unmet','other'] as const;
+  const ranking=updated.map((entry,index)=>({id:entry.id,index,priority:entry.currentStatus==='unmet'?0:entry.currentStatus==='uncertain'&&entry.lastGrounded?.status==='unmet'?1:2}));
+  const selected=new Set([...ranking].sort((a,b)=>a.priority-b.priority||b.index-a.index).slice(0,ctx.capacity).map(entry=>entry.index));
+  retained=updated.filter((_,index)=>selected.has(index));removed=updated.filter((_,index)=>!selected.has(index));
+  retention={policy:'grounded-unresolved',ranking:ranking.map(entry=>({id:entry.id,priority:labels[entry.priority],selected:selected.has(entry.index)}))};
+ }
+ const after={schemaVersion:1 as const,goalSha256:before.goalSha256,lastObservation:{...current},entries:retained};
  const checked=contextCopy({schemaVersion:1,capacity:ctx.capacity,memory:after}).memory;
- return {schemaVersion:1,current:{...current},goalSha256:before.goalSha256,before:structuredClone(before),transitions:structuredClone(ordered),after:checked,evictions:removed.map(entry=>({id:entry.id,reason:'capacity'}))};
+ return {schemaVersion:1,current:{...current},goalSha256:before.goalSha256,before:structuredClone(before),transitions:structuredClone(ordered),after:checked,evictions:removed.map(entry=>({id:entry.id,reason:'capacity'})),...(retention?{retention}:{})};
 }

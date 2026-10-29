@@ -110,3 +110,55 @@ for(const [name,explanation,accepted]of [
 test('admission rejects leading whitespace directly and never silently trims the raw explanation',()=>{
  for(const explanation of [' 仮説','\u3000仮説','\u00a0仮説']){const raw=[{...transition(),explanation}],original=structuredClone(raw);assert.throws(()=>api.admitConditionContinuity(raw,context(),record()),/^Error: INVALID_CONDITION_CONTINUITY_DATA$/);assert.deepEqual(raw,original);}
 });
+
+const unknownCondition=(id='c1',n=2)=>({...condition(id,'uncertain',n),evidence:null});
+const retainedContext=(capacity=3)=>({...context(capacity),retentionPolicy:'grounded-unresolved'});
+const ranked=(id:string,priority:string,selected:boolean)=>({id,priority,selected});
+test('retention policy is opt-in, closed, copied and explicit recent retains old result shape',()=>{
+ const omitted=api.validateConditionContinuityContext(context(),source(2),goal);assert.equal(Object.hasOwn(omitted,'retentionPolicy'),false);
+ const recent=api.validateConditionContinuityContext({...context(),retentionPolicy:'recent'},source(2),goal);assert.equal(recent.retentionPolicy,'recent');
+ const grounded=api.validateConditionContinuityContext(retainedContext(),source(2),goal);assert.equal(grounded.retentionPolicy,'grounded-unresolved');
+ const conditions=['c1','c2','c3'].map(id=>unknownCondition(id)),raw=[transition('unobserved',null)],r=record(conditions),legacy=api.admitConditionContinuity(raw,context(),r),explicit=api.admitConditionContinuity(raw,recent,r);
+ assert.equal(JSON.stringify(explicit),JSON.stringify(legacy));assert.equal(Object.hasOwn(legacy,'retention'),false);assert.equal(Object.hasOwn(explicit,'retention'),false);
+ const expected={schemaVersion:1,current:source(2),goalSha256:hash(goal),before:memory(),transitions:raw,after:{schemaVersion:1,goalSha256:hash(goal),lastObservation:source(2),entries:['c1','c2','c3'].map(id=>({id:'o2_'+id,description:'利用条件を確認する',lastGrounded:null,currentStatus:'uncertain',lastAssessed:source(2),transition:'introduced'}))},evictions:[{id:'o1_c1',reason:'capacity'}]};assert.equal(JSON.stringify(legacy),JSON.stringify(expected));
+ assert.deepEqual(api.conditionContinuitySchema(recent),api.conditionContinuitySchema(context()));assert.deepEqual(api.conditionContinuitySchema(grounded),api.conditionContinuitySchema(context()));
+});
+for(const [name,policy]of [['unknown','future'],['empty',''],['null',null],['boolean',false],['number',1],['object',{}],['array',[]],['undefined',undefined]]as const)test('retention rejects '+name+' policy without silent fallback',()=>{
+ const ctx={...context(),retentionPolicy:policy};assert.throws(()=>api.validateConditionContinuityContext(ctx,source(2),goal),/^Error: INVALID_CONDITION_CONTINUITY_DATA$/);assert.throws(()=>api.conditionContinuitySchema(ctx),/^Error: INVALID_CONDITION_CONTINUITY_DATA$/);assert.throws(()=>api.admitConditionContinuity([transition()],ctx,record()),/^Error: INVALID_CONDITION_CONTINUITY_DATA$/);
+});
+test('grounded historical unmet survives three new unknowns and remains uncertain without losing its ID or grounding',()=>{
+ const ctx=retainedContext(),before=structuredClone(ctx),result=api.admitConditionContinuity([transition('unobserved',null)],ctx,record(['c1','c2','c3'].map(id=>unknownCondition(id))));
+ assert.deepEqual(result.after.entries.map((e:any)=>e.id),['o1_c1','o2_c2','o2_c3']);assert.equal(result.after.entries[0].currentStatus,'uncertain');assert.equal(result.after.entries[0].transition,'unobserved');assert.deepEqual(result.after.entries[0].lastGrounded,memory().entries[0].lastGrounded);
+ assert.deepEqual(result.evictions,[{id:'o2_c1',reason:'capacity'}]);assert.deepEqual(result.retention,{policy:'grounded-unresolved',ranking:[ranked('o1_c1','historical-unmet',true),ranked('o2_c1','other',false),ranked('o2_c2','other',true),ranked('o2_c3','other',true)]});assert.deepEqual(ctx,before);
+});
+test('current unmet outranks historical unmet and ungrounded conditions even at capacity one',()=>{
+ const result=api.admitConditionContinuity([transition('unobserved',null)],retainedContext(1),record([unknownCondition('c1'),condition('c2','unmet'),unknownCondition('c3')]));assert.deepEqual(result.after.entries.map((e:any)=>e.id),['o2_c2']);assert.deepEqual(result.evictions,[{id:'o1_c1',reason:'capacity'},{id:'o2_c1',reason:'capacity'},{id:'o2_c3',reason:'capacity'}]);assert.deepEqual(result.retention.ranking,[ranked('o1_c1','historical-unmet',false),ranked('o2_c1','other',false),ranked('o2_c2','current-unmet',true),ranked('o2_c3','other',false)]);
+});
+test('equal current unmet priority selects the newest original index',()=>{
+ const result=api.admitConditionContinuity([transition()],retainedContext(1),record(['c1','c2','c3'].map(id=>condition(id))));assert.deepEqual(result.after.entries.map((e:any)=>e.id),['o2_c3']);assert.deepEqual(result.evictions,[{id:'o1_c1',reason:'capacity'},{id:'o2_c2',reason:'capacity'}]);assert.deepEqual(result.retention.ranking,[ranked('o1_c1','current-unmet',false),ranked('o2_c2','current-unmet',false),ranked('o2_c3','current-unmet',true)]);
+});
+test('equal historical unmet priority selects recency without asserting that past evidence is currently true',()=>{
+ const result=api.admitConditionContinuity([transition('unobserved',null)],retainedContext(1),record(['c1','c2','c3'].map(id=>condition(id,'unmet',1))));assert.deepEqual(result.after.entries.map((e:any)=>e.id),['o2_c3']);assert.equal(result.after.entries[0].currentStatus,'uncertain');assert.deepEqual(result.retention.ranking,[ranked('o1_c1','historical-unmet',false),ranked('o2_c1','historical-unmet',false),ranked('o2_c2','historical-unmet',false),ranked('o2_c3','historical-unmet',true)]);assert.deepEqual(result.evictions.map((e:any)=>e.id),['o1_c1','o2_c1','o2_c2']);
+});
+test('resolution releases unresolved priority, and equal other priority selects the newest original index',()=>{
+ const result=api.admitConditionContinuity([transition('resolved')],retainedContext(1),record([condition('c1','satisfied'),unknownCondition('c2'),unknownCondition('c3')]));assert.deepEqual(result.after.entries.map((e:any)=>e.id),['o2_c3']);assert.deepEqual(result.retention.ranking,[ranked('o1_c1','other',false),ranked('o2_c2','other',false),ranked('o2_c3','other',true)]);assert.equal(result.transitions[0].change,'resolved');assert.deepEqual(result.evictions.map((e:any)=>e.id),['o1_c1','o2_c2']);
+});
+test('selection outputs original order rather than priority order and drops resolved claims before historical unmet',()=>{
+ const ctx=retainedContext();ctx.memory.entries.push({...structuredClone(ctx.memory.entries[0]),id:'o1_c2'},{...structuredClone(ctx.memory.entries[0]),id:'o1_c3'});
+ const result=api.admitConditionContinuity([transition(),transition('unobserved',null,'o1_c2'),transition('resolved','c2','o1_c3')],ctx,record([condition(),condition('c2','satisfied'),condition('c3')]));assert.deepEqual(result.after.entries.map((e:any)=>e.id),['o1_c1','o1_c2','o2_c3']);assert.deepEqual(result.evictions,[{id:'o1_c3',reason:'capacity'}]);assert.deepEqual(result.retention.ranking,[ranked('o1_c1','current-unmet',true),ranked('o1_c2','historical-unmet',true),ranked('o1_c3','other',false),ranked('o2_c3','current-unmet',true)]);
+});
+test('all six updated entries receive bounded audit ranking; eviction order is original order',()=>{
+ const ctx=retainedContext();ctx.memory.entries.push({...structuredClone(ctx.memory.entries[0]),id:'o1_c2'},{...structuredClone(ctx.memory.entries[0]),id:'o1_c3'});
+ const result=api.admitConditionContinuity(ctx.memory.entries.map((entry:any)=>transition('unobserved',null,entry.id)),ctx,record(['c1','c2','c3'].map(id=>unknownCondition(id))));assert.deepEqual(result.after.entries.map((e:any)=>e.id),['o1_c1','o1_c2','o1_c3']);assert.equal(result.retention.ranking.length,6);assert.deepEqual(result.evictions,[{id:'o2_c1',reason:'capacity'},{id:'o2_c2',reason:'capacity'},{id:'o2_c3',reason:'capacity'}]);assert.ok(result.retention.ranking.slice(0,3).every((r:any)=>r.priority==='historical-unmet'&&r.selected));assert.ok(result.retention.ranking.slice(3).every((r:any)=>r.priority==='other'&&!r.selected));
+});
+test('grounded retention handles empty and non-full memory without inventing claims or evictions',()=>{
+ const ctx={schemaVersion:1,capacity:3,memory:api.emptyConditionContinuity(goal),retentionPolicy:'grounded-unresolved'},empty=api.admitConditionContinuity([],ctx,record([],1));assert.deepEqual(empty.retention,{policy:'grounded-unresolved',ranking:[]});assert.deepEqual(empty.after.entries,[]);assert.deepEqual(empty.evictions,[]);
+ const one=api.admitConditionContinuity([transition()],retainedContext(),record());assert.equal(one.after.entries.length,1);assert.deepEqual(one.retention.ranking,[ranked('o1_c1','current-unmet',true)]);assert.deepEqual(one.evictions,[]);
+});
+test('retained grounding and ranking have no aliases or shared per-run state',()=>{
+ const ctx=retainedContext(),r=record(['c1','c2','c3'].map(id=>unknownCondition(id))),raw=[transition('unobserved',null)],a=api.admitConditionContinuity(raw,ctx,r),b=api.admitConditionContinuity(raw,ctx,r);
+ a.retention.ranking[0].selected=false;a.after.entries[0].lastGrounded.evidence.quote='one run only';a.before.entries[0].description='before only';assert.equal(b.retention.ranking[0].selected,true);assert.equal(b.after.entries[0].lastGrounded.evidence.quote,'条件の案内1');assert.equal(a.after.entries[0].description,'元の条件');assert.deepEqual(ctx,retainedContext());assert.equal(raw[0].explanation,'現在画像をもとに再評価した仮説');
+});
+test('ranking depends on status and grounding, not descriptive text or quote labels',()=>{
+ const ctx=retainedContext(1);ctx.memory.entries[0].description='新しい不明候補と同じ文章';ctx.memory.entries[0].lastGrounded.evidence.quote='意味に依存しない';const r=record(['c1','c2','c3'].map(id=>({...unknownCondition(id),description:'新しい不明候補と同じ文章'}))),result=api.admitConditionContinuity([transition('unobserved',null)],ctx,r);assert.deepEqual(result.after.entries.map((e:any)=>e.id),['o1_c1']);assert.equal(result.after.entries[0].currentStatus,'uncertain');assert.deepEqual(result.retention.ranking.map((e:any)=>e.priority),['historical-unmet','other','other','other']);
+});
