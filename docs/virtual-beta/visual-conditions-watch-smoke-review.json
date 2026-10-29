@@ -1,0 +1,210 @@
+{
+  "status": "PASS_SOURCE_BOUND_SMOKE_AUDIT",
+  "kind": "NEW_VERSION_THREE_SLOT_CONNECTIVITY_SMOKE_NOT_FULL_EVALUATION",
+  "producer": "d488a9ab6640fd7ce284dfa808862b2cbfcfd60c",
+  "sourceHash": "7e27d09aa2d72d36c26f3a5d583ee0ba9a6804890b01afacb96588a27ee2d5df",
+  "sourceFiles": 150,
+  "sourceArchive": {
+    "file": "producer-source-7e27d09a.zip",
+    "sha256": "e2d88f1a8aa58f84fccdb7fa9fb1d6235eabdc96c637e5e9bd139ceb8854f3c9",
+    "fileCount": 150
+  },
+  "manifestSha256": "6e83dfe03678db6508fa4bf882267b954b17751c7eb69e54cac2b9127a1b8bbf",
+  "phaseStatus": "INCOMPLETE",
+  "executionTrialLimit": 3,
+  "completeness": {
+    "planned": 18,
+    "attempted": 3,
+    "notAttempted": 15,
+    "valid": 3,
+    "invalid": 0,
+    "plannedTriplets": 6,
+    "matchedInitialTriplets": 1,
+    "complete": false
+  },
+  "actualTrialOutcome": {
+    "all3ObjectiveSuccess": true,
+    "all3SubjectiveDone": true,
+    "all3Valid": true,
+    "decisionsPerTrial": 4,
+    "UIActionsPerTrial": 3,
+    "looksPerTrial": 0,
+    "selectionAdjustmentsPerTrial": 0
+  },
+  "requests": {
+    "newCharged": 28,
+    "knownHTTPAttempts": 28,
+    "knownReceived": 28,
+    "unknownReceipt": 0,
+    "byActor": {
+      "experience-visual-conditions": 12,
+      "experience-action-relations": 8,
+      "experience-action-relations-current": 8
+    },
+    "Jev": 24,
+    "native": 4,
+    "nativeOutputsAdmitted": 4,
+    "singleAttemptOnly": true,
+    "maximumForThreeExecutedSlots": 84,
+    "configuredFullPlanMaximum": 504,
+    "episodePrior": 339,
+    "episodeNow": 367,
+    "episodeAuthorizedMaximum": 554
+  },
+  "replay": {
+    "archivedProducerOnly": true,
+    "verifiedRuns": 3
+  },
+  "initialComparison": {
+    "oneCompleteInitialTriplet": true,
+    "baseInputsAndImagesMatched": true,
+    "other5TripletsNotAttempted": true
+  },
+  "selectionAndDelivery": {
+    "rawAnswersAndSelectedActionsMatched": true,
+    "argmaxAndSeedPreserved": true,
+    "seed": 20261028,
+    "actualPNGHashesAndOpaqueUUIDBindingsVerified": true,
+    "nativeHypothesesDeliveredToBothJevStages": true,
+    "quoteStatus": "model-transcribed-unverified"
+  },
+  "trials": [
+    {
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "switch"
+      },
+      "requests": 12,
+      "decisions": 4,
+      "uiActions": 3,
+      "looks": 0,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "selectedSequence": [
+        "e1",
+        "e2",
+        "e1",
+        "done"
+      ]
+    },
+    {
+      "actor": "experience-action-relations",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "switch"
+      },
+      "requests": 8,
+      "decisions": 4,
+      "uiActions": 3,
+      "looks": 0,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "selectedSequence": [
+        "e1",
+        "e2",
+        "e1",
+        "done"
+      ]
+    },
+    {
+      "actor": "experience-action-relations-current",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "switch"
+      },
+      "requests": 8,
+      "decisions": 4,
+      "uiActions": 3,
+      "looks": 0,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "selectedSequence": [
+        "e1",
+        "e2",
+        "e1",
+        "done"
+      ]
+    }
+  ],
+  "preservation": {
+    "new75RawUnchanged": true,
+    "prior5404RawUnchanged": true,
+    "ZIP6Unchanged": true,
+    "existingPublic26UnchangedAtAuditEntry": true,
+    "immutablePublic20StillUnchanged": true,
+    "allowedLaterDocs6Only": [
+      "docs/superpowers/plans/2026-10-30-visual-conditions.md",
+      "docs/virtual-beta/README.md",
+      "docs/virtual-beta/research.md",
+      "docs/virtual-beta/tasks.md",
+      "docs/virtual-beta/visual-conditions-independent-review.md",
+      "docs/virtual-beta/visual-conditions.md"
+    ],
+    "real18ProducerStillAc2bD36dd": true
+  },
+  "originalDerivedResults": {
+    "independentSourceBoundRegenerationByteIdentical": true,
+    "originalIndependentAuditStatus": "PENDING",
+    "originalJSONAndCSVEditedByAudit": false
+  },
+  "reviewer": {
+    "kind": "independent-ai-agent",
+    "humanParticipantReview": false
+  },
+  "independentExecution": {
+    "APIRequests": 0,
+    "environmentFilesRead": 0,
+    "browserActions": 0,
+    "productEdits": 0
+  },
+  "findings": [],
+  "evidence": [
+    {
+      "file": "raw-audit.json",
+      "sha256": "d9e05ea4ecadf5860dd2a618060f8b47f6c9a6172fe75d4b604dec9c4532edb0"
+    },
+    {
+      "file": "raw-inventory-before.json",
+      "sha256": "3270767b7cee9a0726b4e375e5801da19fcdae1be969a0f535bba630b44dbced"
+    },
+    {
+      "file": "raw-inventory-after.json",
+      "sha256": "ad4bc12be6ba2585fb0faae2983068b14df322a619f508452bb8b3e81fb28c52"
+    },
+    {
+      "file": "delivery-and-selection.json",
+      "sha256": "96235fe1b42427b2efdee781971ac03c39c89ac4b03b670e37333fc1834b974c"
+    },
+    {
+      "file": "preservation-and-derivation.json",
+      "sha256": "620b07c5f715c2975a632b26b01672d25b41e6aa2bc13fafa8fc00d6d4247ccd"
+    },
+    {
+      "file": "public26-at-audit-entry.json",
+      "sha256": "1445a31ea064d3a4e512dcc2dc6b8ef3822ab0ad3e8d0d0a0d3dedfb89803931"
+    }
+  ],
+  "limitations": [
+    "Only3of18planned slots were executed; remaining15were not attempted. INCOMPLETE is preserved.",
+    "This is connectivity and runtime smoke for producer d488/source7e27, separate from the18trial ac2b/source d36dd evaluation. No pooled success rate or causal performance comparison.",
+    "HTTP200, local admission and replay establish structural receipt and consistency, not all model content being correct, global semantics or human agreement.",
+    "Native quotes retain model-transcribed-unverified. No new semantic image review was performed in this smoke audit.",
+    "Windows runtime and installed browser only; no Linux validation claim."
+  ]
+}

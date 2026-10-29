@@ -1,0 +1,358 @@
+{
+  "status": "PASS_SOURCE_BOUND_RAW_AUDIT_WITH_CONTENT_LIMITATIONS",
+  "producer": "ac2b8d792d3971f7d02526e9eb43c843d82c0ac8",
+  "sourceHash": "d36dd19f6076cff468bcafe01e71ad194c1dab44080a942d183dda30c9ba98da",
+  "manifestSha256": "58e8854facaf40fa8060d1e5e7e116ee2809b7b09e53f98673d9506b9159d179",
+  "phaseStatus": "COMPLETED",
+  "phaseStatusMeaning": "COMPLETED means all18planned slots were executed; it does not mean all18valid or all18successful.",
+  "completeness": {
+    "planned": 18,
+    "attempted": 18,
+    "notAttempted": 0,
+    "valid": 15,
+    "withResult": 18,
+    "plannedPairs": 6,
+    "matchedInitialPairs": 6,
+    "complete": true
+  },
+  "initialComparison": {
+    "plannedTriplets": 6,
+    "matchedInitialTriplets": 6,
+    "baseInputsAndImagesMatched": true,
+    "declaredRoleQuestionsAndVisualHypothesisStageDiffer": true
+  },
+  "denominators": {
+    "experience-action-relations": {
+      "planned": 6,
+      "attempted": 6,
+      "valid": 6,
+      "invalid": 0,
+      "objectiveSuccesses": 4,
+      "objectiveFailuresAmongValid": 2,
+      "objectiveDenominator": 6,
+      "infrastructure": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 4,
+        "DECISION_LIMIT": 2
+      },
+      "requests": 92
+    },
+    "experience-action-relations-current": {
+      "planned": 6,
+      "attempted": 6,
+      "valid": 6,
+      "invalid": 0,
+      "objectiveSuccesses": 4,
+      "objectiveFailuresAmongValid": 2,
+      "objectiveDenominator": 6,
+      "infrastructure": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 4,
+        "DECISION_LIMIT": 2
+      },
+      "requests": 92
+    },
+    "experience-visual-conditions": {
+      "planned": 6,
+      "attempted": 6,
+      "valid": 3,
+      "invalid": 3,
+      "objectiveSuccesses": 3,
+      "objectiveFailuresAmongValid": 0,
+      "objectiveDenominator": 3,
+      "infrastructure": 3,
+      "terminations": {
+        "SUBJECTIVE_DONE": 3,
+        "API_ERROR": 3
+      },
+      "requests": 105
+    }
+  },
+  "counts": {
+    "charged": 289,
+    "resultCalls": 289,
+    "knownHTTPAttempts": 289,
+    "knownReceived": 286,
+    "unknownReceipt": 3,
+    "jevStages": 252,
+    "visualStages": 37,
+    "successfulOutputs": 252,
+    "modelOutputFailures": 0
+  },
+  "native": {
+    "attempted": 37,
+    "receivedAndAdmitted": 34,
+    "timeouts": 3,
+    "semanticAccuracyEstablished": false
+  },
+  "replay": {
+    "archivedProducerOnly": true,
+    "verifiedRuns": 18
+  },
+  "trialRequestsSerial": true,
+  "requestsAllSingleAttempt": true,
+  "controlComparison": {
+    "cells": 6,
+    "sameSelectedSequences": 5,
+    "sameOperations": 5,
+    "ordinalAlignedDecisions": 46,
+    "differentRawDistributions": 37,
+    "differentFilteredDistributions": 33,
+    "sameCurrentImageAndChoiceDomainDecisions": 39,
+    "differentRawOnSameCurrentImageAndDomain": 30,
+    "divergentCell": "workshop/unchanged"
+  },
+  "quoteReview": {
+    "plannedFrames": 12,
+    "inspectedFrames": 12,
+    "availableOutputs": 11,
+    "noOutputFrames": 1,
+    "quoteInstances": 47,
+    "nonliteralSlashInsertions": 8,
+    "allQuotesVerbatimCertified": false,
+    "reviewer": "independent-ai-agent"
+  },
+  "posthoc": {
+    "separateDiagnostic": true,
+    "frames": 3,
+    "o4ImageAttachedAtO5": true,
+    "o4RecordRetainedAtO5": true,
+    "o5HypothesisAndMemoryDeliveredToBothJevStages": true,
+    "internalCauseEstablished": false,
+    "reviewer": "independent-ai-agent"
+  },
+  "preservation": {
+    "frozen367FilesUnchanged": true,
+    "protectedPriorFiles": 4798,
+    "protectedPriorUnchanged": true,
+    "terminalRawFiles": 606,
+    "terminalRawUnchanged": true,
+    "parentInventoryMatched": true,
+    "producerZIPsUnchanged": [
+      {
+        "file": "producer-source-6162dce0.zip",
+        "sha256": "01377149bef116163a0db7737f4762937949865767da455225aec458aea93e35",
+        "fileCount": 148
+      },
+      {
+        "file": "producer-source-a1643a44.zip",
+        "sha256": "133ea53fa7a87fff72a80c2d7840f4673f742172854b59be8f356515278b775a",
+        "fileCount": 148
+      },
+      {
+        "file": "producer-source-dffaab9d.zip",
+        "sha256": "df0631f28d9fb99f46e29277927cccdb0b66427ab03652b2e0797b3c19ca1761",
+        "fileCount": 148
+      },
+      {
+        "file": "producer-source-de20ac6b.zip",
+        "sha256": "f196f353130a972a8f9c41ae77ad1ee3093b13eb0a47bc1cb44da82e04d1e644",
+        "fileCount": 149
+      },
+      {
+        "file": "producer-source-d36dd19f.zip",
+        "sha256": "97e862e1b39cae33b44ed98e17ece07b4854169f12adbab82bb89186a4aee762",
+        "fileCount": 149
+      }
+    ]
+  },
+  "episode": {
+    "separateProducers": 5,
+    "priorRequests": 50,
+    "newRequests": 289,
+    "chargedRequests": 339,
+    "maximum": 554,
+    "noPooledPerformance": true
+  },
+  "publicOriginal": {
+    "sourceBoundReproduction": "BYTE_IDENTICAL_JSON_AND_CSV",
+    "independentAuditOriginalStatus": "PENDING",
+    "publicOriginalEditedByAudit": false
+  },
+  "findings": [
+    {
+      "id": "QUOTE_JOINER_INSERTION",
+      "severity": "model-content-limitation",
+      "actual": "Eight quote instances include U+FF0F ／ that is absent from the cited image, joining visible rows or heading/subtitle strings.",
+      "expected": "Instructions request a short literal image transcription. Visible component words do not certify an added separator.",
+      "impact": "Do not publish all quotes as verbatim or semantically verified. Preserve raw quote and model-transcribed-unverified label.",
+      "evidence": [
+        {
+          "kind": "condition",
+          "id": "c1",
+          "observationId": "o1",
+          "sourceImageSha256": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+          "quote": "参加プログラム　木の小物づくり／保存済みの希望回　午前の回",
+          "visibleWordsMatchIgnoringWhitespace": false,
+          "modelAddedSlashSeparator": true,
+          "visibleWordsAfterRemovingModelSeparator": true,
+          "storedRawQuoteUnchanged": true
+        },
+        {
+          "kind": "condition",
+          "id": "c1",
+          "observationId": "o1",
+          "sourceImageSha256": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+          "quote": "参加プログラム　木の小物づくり／保存済みの希望回　午前の回",
+          "visibleWordsMatchIgnoringWhitespace": false,
+          "modelAddedSlashSeparator": true,
+          "visibleWordsAfterRemovingModelSeparator": true,
+          "storedRawQuoteUnchanged": true
+        },
+        {
+          "kind": "relation",
+          "id": "e1",
+          "observationId": "o2",
+          "sourceImageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+          "quote": "予約内容の変更／「木の小物づくり」の希望回を管理",
+          "visibleWordsMatchIgnoringWhitespace": false,
+          "modelAddedSlashSeparator": true,
+          "visibleWordsAfterRemovingModelSeparator": true,
+          "storedRawQuoteUnchanged": true
+        },
+        {
+          "kind": "relation",
+          "id": "e2",
+          "observationId": "o2",
+          "sourceImageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+          "quote": "予約一覧／予約中の内容と変更のお手続き",
+          "visibleWordsMatchIgnoringWhitespace": false,
+          "modelAddedSlashSeparator": true,
+          "visibleWordsAfterRemovingModelSeparator": true,
+          "storedRawQuoteUnchanged": true
+        },
+        {
+          "kind": "relation",
+          "id": "e3",
+          "observationId": "o2",
+          "sourceImageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+          "quote": "利用情報の確認／登録情報と利用状況の確認",
+          "visibleWordsMatchIgnoringWhitespace": false,
+          "modelAddedSlashSeparator": true,
+          "visibleWordsAfterRemovingModelSeparator": true,
+          "storedRawQuoteUnchanged": true
+        },
+        {
+          "kind": "relation",
+          "id": "e4",
+          "observationId": "o2",
+          "sourceImageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+          "quote": "予約記録／予約情報の照合と記録の確認",
+          "visibleWordsMatchIgnoringWhitespace": false,
+          "modelAddedSlashSeparator": true,
+          "visibleWordsAfterRemovingModelSeparator": true,
+          "storedRawQuoteUnchanged": true
+        },
+        {
+          "kind": "condition",
+          "id": "c1",
+          "observationId": "o1",
+          "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "quote": "参加プログラム　木の小物づくり／保存済みの希望回　午前の回",
+          "visibleWordsMatchIgnoringWhitespace": false,
+          "modelAddedSlashSeparator": true,
+          "visibleWordsAfterRemovingModelSeparator": true,
+          "storedRawQuoteUnchanged": true
+        },
+        {
+          "kind": "condition",
+          "id": "c1",
+          "observationId": "o1",
+          "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "quote": "参加プログラム　木の小物づくり／保存済みの希望回　午前の回",
+          "visibleWordsMatchIgnoringWhitespace": false,
+          "modelAddedSlashSeparator": true,
+          "visibleWordsAfterRemovingModelSeparator": true,
+          "storedRawQuoteUnchanged": true
+        }
+      ]
+    },
+    {
+      "id": "CURRENT_LINK_EFFECT_UNPROVEN",
+      "severity": "semantic-uncertainty",
+      "actual": "library/unchanged o2 and workshop/unchanged o2 describe the management entry as execute. The viewed cards expose navigation text, with no save result or selected target value.",
+      "impact": "A valid current-source citation does not validate execute/prerequisite semantics or future expectedResult. No global role-accuracy score is assigned."
+    },
+    {
+      "id": "HYPOTHESIS_REINTERPRETATION_WITH_RETAINED_INPUT",
+      "severity": "posthoc-diagnostic",
+      "actual": "The o4 image and exact o4 record remained attached/in memory at o5 and reached both Jev stages. The newly emitted matching/precondition hypothesis weakened to uncertain and was assigned a different condition ID. This trace supports input retention plus changed interpretation; it does not demonstrate transport loss. At o5 the native model and Jev categorical judgments both labelled e1 execute/e3 information, and raw argmax preferred e1 (0.79 vs0.17). o6 visibly returned to the original blocked page. Internal reasoning, causal responsibility among stages, and human fidelity cannot be inferred."
+    },
+    {
+      "id": "TIMEOUTS_ARE_INFRASTRUCTURE_INVALID",
+      "severity": "validity-limitation",
+      "actual": "All3visual API_ERROR runs retain infrastructure-invalid classification. Two last native calls consumed remaining trial deadline, not the nominal30s cap."
+    }
+  ],
+  "evidence": [
+    {
+      "file": "raw-audit.json",
+      "sha256": "6ae10be5410262cf631281aee4f44103b8a66aabdb0f122b23c9358dcc4915b7"
+    },
+    {
+      "file": "raw-inventory-before.json",
+      "sha256": "9980f40d2e0d1ba73516009382357f9b48e7ee7a4b5d99a5b8ee735d0cf7b29c"
+    },
+    {
+      "file": "raw-inventory-after.json",
+      "sha256": "33dcc996b33f4e0185886fff5d5dfa4866f0df847f792daf22abda5b163ffc19"
+    },
+    {
+      "file": "quote-slots.json",
+      "sha256": "37ba1ebf23f8eb5f5688e280ec9f0085e1ba74dda1abc9f7a2dc3780da91b709"
+    },
+    {
+      "file": "bounded-quote-review.json",
+      "sha256": "e0fa56268bc0cd7d58fc6cc874d0085ed37d4bc7e283b70cdf161871e47be3e8"
+    },
+    {
+      "file": "posthoc-library-unchanged.json",
+      "sha256": "8a32d91cea282ba8255304f21246d3e92549720d1882bac0491670cb85bea932"
+    },
+    {
+      "file": "legacy-current-paths.json",
+      "sha256": "fd4f7964ef881548df5b3e3bb760c56b2be8f09a4242bef6af96b8ddf1645af6"
+    },
+    {
+      "file": "timeouts-and-deadlines.json",
+      "sha256": "a5ebf541b46bf68c0c2aa97aa29fd9d0207a6c4dd12243d4ca466ad7b7318945"
+    },
+    {
+      "file": "public-original-derivation.json",
+      "sha256": "78396f71a635a0d52bcc1f3be9cb690d49c9a9b93af480800af83a62d04af71a"
+    },
+    {
+      "file": "episode-summary-audit.json",
+      "sha256": "9d8c4eae2a2b7e6d83bf50634f6117e7ea426d06a0428717ddc91b422bf34322"
+    }
+  ],
+  "independentExecution": {
+    "APIRequests": 0,
+    "environmentFilesRead": 0,
+    "browserActions": 0,
+    "productEdits": 0,
+    "localPNGInspections": 15
+  },
+  "tests": {
+    "scopedRelatedPassed": 116,
+    "scopedRelatedFailed": 0,
+    "scopedRelatedSkipped": 0,
+    "priorOfflineGate": "../gate.json",
+    "broadRegressionKnown": "49PASS/4FAIL previously reported; not rerun here"
+  },
+  "limitations": [
+    "One run per actor per fixed cell; descriptive observations do not establish reproducibility, causal improvement, general semantic accuracy, or human agreement.",
+    "Visual3/3valid successes must be presented with3infrastructure-invalid of6attempted. Missing invalid outcomes are not user objective failures and cannot be silently excluded for cross-actor improvement claims.",
+    "Early revisit counts have different trajectory lengths/exposure opportunities due to visual timeouts; no improvement rate is justified.",
+    "Quote reference binding, model-admission and HTTP200 do not certify literal transcription, action semantics, or future expected effects.",
+    "Real model/server acceptance succeeded for34native outputs; the timeout3receipt remains unknown.",
+    "Future public copy with audit closure and copied PNGs has not yet been provided for independent verification."
+  ],
+  "attributionCorrection": {
+    "file": "attribution-correction.json",
+    "sha256": "f123f3d203a0f54497f2cc799d7c4d95c7d5ac1f4108d56c4b8fb32ea525c4dd",
+    "requester": "parent-agent",
+    "reviewer": "independent-ai-agent",
+    "humanSpecifiedFrames": false
+  }
+}

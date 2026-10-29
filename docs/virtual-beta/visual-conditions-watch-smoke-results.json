@@ -1,0 +1,5055 @@
+{
+  "schemaVersion": 1,
+  "kind": "ACTUAL_JEV_VISUAL_CONDITIONS_COMPARISON",
+  "producer": "d488a9ab6640fd7ce284dfa808862b2cbfcfd60c",
+  "sourceHash": "7e27d09aa2d72d36c26f3a5d583ee0ba9a6804890b01afacb96588a27ee2d5df",
+  "manifestSha256": "6e83dfe03678db6508fa4bf882267b954b17751c7eb69e54cac2b9127a1b8bbf",
+  "status": "INCOMPLETE",
+  "limits": {
+    "trials": 18,
+    "maxRequests": 504,
+    "maxRequestsPerTrial": 36,
+    "maxJudgmentsPerTrial": 12,
+    "maxUIActionsPerTrial": 15,
+    "maxLooksPerTrial": 3,
+    "maxRunMsPerTrial": 180000,
+    "phaseMs": 2400000,
+    "parallel": 1
+  },
+  "protocol": {
+    "file": "experiments/virtual-beta/visual-conditions-comparison.json",
+    "sha256": "c452d7ec48bc6c9d414a4c607914920e22fa6044f835787ad0f4d052f1a870c6"
+  },
+  "initialState": "Each actor starts a fresh browser on the same explicitly blocked primary page. No spontaneous discovery of a dead end is claimed.",
+  "profiles": {
+    "extractor": {
+      "model": "gpt-6-luna",
+      "endpoint": "https://api.openai.com/v1/responses",
+      "maxAttemptsPerRequest": 1
+    },
+    "actors": [
+      "experience-action-relations",
+      "experience-action-relations-current",
+      "experience-visual-conditions"
+    ],
+    "profiles": {
+      "experience-action-relations": {
+        "config": {
+          "schemaVersion": 1,
+          "id": "human-screen-action-relations",
+          "vision": {
+            "mode": "crop",
+            "clearWidth": 4096,
+            "clearHeight": 4096,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "argmax",
+            "seed": 20261028
+          },
+          "behavior": "goal",
+          "maxUIActions": 15,
+          "maxLooks": 3,
+          "maxDecisions": 12,
+          "maxAPICalls": 24,
+          "maxRunMs": 180000,
+          "modeledActionMs": null,
+          "deliberation": {
+            "enabled": true,
+            "memoryCapacity": 3,
+            "candidateEffects": true
+          },
+          "experience": {
+            "enabled": true,
+            "capacity": 8,
+            "evidenceMode": "basis"
+          },
+          "deferral": {
+            "enabled": true,
+            "capacity": 8,
+            "weight": 0.01,
+            "minAlternativeProbability": 0.01,
+            "selectionScope": "ui-conditional"
+          },
+          "deferralReason": {
+            "enabled": true,
+            "capacity": 8,
+            "maxReasonImages": 1,
+            "basisAdmission": "excursion-evidence",
+            "reviewMode": "grounded-choice"
+          },
+          "correspondence": {
+            "enabled": true,
+            "capacity": 8,
+            "maxCurrentCandidates": 8,
+            "maxPastCandidates": 12,
+            "maxUniqueImages": 4
+          },
+          "goalSearch": {
+            "enabled": true,
+            "capacity": 8,
+            "interpretation": "role-state-v2",
+            "evidenceMode": "source-grounded"
+          },
+          "actionRelations": {
+            "enabled": true
+          }
+        },
+        "maximumRequests": 24,
+        "explorationMaximum": 24,
+        "reviewMaximum": 0,
+        "perRunMaximum": 12
+      },
+      "experience-action-relations-current": {
+        "config": {
+          "schemaVersion": 1,
+          "id": "human-screen-action-relations-current",
+          "vision": {
+            "mode": "crop",
+            "clearWidth": 4096,
+            "clearHeight": 4096,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "argmax",
+            "seed": 20261028
+          },
+          "behavior": "goal",
+          "maxUIActions": 15,
+          "maxLooks": 3,
+          "maxDecisions": 12,
+          "maxAPICalls": 24,
+          "maxRunMs": 180000,
+          "modeledActionMs": null,
+          "deliberation": {
+            "enabled": true,
+            "memoryCapacity": 3,
+            "candidateEffects": true
+          },
+          "experience": {
+            "enabled": true,
+            "capacity": 8,
+            "evidenceMode": "basis"
+          },
+          "deferral": {
+            "enabled": true,
+            "capacity": 8,
+            "weight": 0.01,
+            "minAlternativeProbability": 0.01,
+            "selectionScope": "ui-conditional"
+          },
+          "deferralReason": {
+            "enabled": true,
+            "capacity": 8,
+            "maxReasonImages": 1,
+            "basisAdmission": "excursion-evidence",
+            "reviewMode": "grounded-choice"
+          },
+          "correspondence": {
+            "enabled": true,
+            "capacity": 8,
+            "maxCurrentCandidates": 8,
+            "maxPastCandidates": 12,
+            "maxUniqueImages": 4
+          },
+          "goalSearch": {
+            "enabled": true,
+            "capacity": 8,
+            "interpretation": "role-state-v2",
+            "evidenceMode": "source-grounded"
+          },
+          "actionRelations": {
+            "enabled": true,
+            "evidencePolicy": "current-candidate"
+          }
+        },
+        "maximumRequests": 24,
+        "explorationMaximum": 24,
+        "reviewMaximum": 0,
+        "perRunMaximum": 12
+      },
+      "experience-visual-conditions": {
+        "config": {
+          "schemaVersion": 1,
+          "id": "human-screen-visual-conditions",
+          "vision": {
+            "mode": "crop",
+            "clearWidth": 4096,
+            "clearHeight": 4096,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "argmax",
+            "seed": 20261028
+          },
+          "behavior": "goal",
+          "maxUIActions": 15,
+          "maxLooks": 3,
+          "maxDecisions": 12,
+          "maxAPICalls": 36,
+          "maxRunMs": 180000,
+          "modeledActionMs": null,
+          "deliberation": {
+            "enabled": true,
+            "memoryCapacity": 3,
+            "candidateEffects": true
+          },
+          "experience": {
+            "enabled": true,
+            "capacity": 8,
+            "evidenceMode": "basis"
+          },
+          "deferral": {
+            "enabled": true,
+            "capacity": 8,
+            "weight": 0.01,
+            "minAlternativeProbability": 0.01,
+            "selectionScope": "ui-conditional"
+          },
+          "deferralReason": {
+            "enabled": true,
+            "capacity": 8,
+            "maxReasonImages": 1,
+            "basisAdmission": "excursion-evidence",
+            "reviewMode": "grounded-choice"
+          },
+          "correspondence": {
+            "enabled": true,
+            "capacity": 8,
+            "maxCurrentCandidates": 8,
+            "maxPastCandidates": 12,
+            "maxUniqueImages": 4
+          },
+          "goalSearch": {
+            "enabled": true,
+            "capacity": 8,
+            "interpretation": "role-state-v2",
+            "evidenceMode": "source-grounded"
+          },
+          "actionRelations": {
+            "enabled": true,
+            "evidencePolicy": "current-candidate"
+          },
+          "visualHypotheses": {
+            "enabled": true,
+            "capacity": 3
+          }
+        },
+        "maximumRequests": 36,
+        "explorationMaximum": 36,
+        "reviewMaximum": 0,
+        "perRunMaximum": 12
+      }
+    },
+    "persona": null,
+    "longContext": true,
+    "maxAttemptsPerRequest": 1,
+    "imageReferencePolicy": "opaque-v1",
+    "actorOrderOffset": 2,
+    "schemaContract": "evidence-conditional-v1"
+  },
+  "completeness": {
+    "planned": 18,
+    "attempted": 3,
+    "notAttempted": 15,
+    "valid": 3,
+    "withResult": 3,
+    "plannedPairs": 6,
+    "matchedInitialPairs": 1,
+    "complete": false
+  },
+  "integrity": {
+    "ok": true,
+    "errors": []
+  },
+  "actors": {
+    "experience-action-relations": {
+      "completeness": {
+        "planned": 6,
+        "attempted": 1,
+        "withResult": 1,
+        "valid": 1,
+        "missing": [
+          "library/changed/r1",
+          "library/unchanged/r1",
+          "workshop/switch/r1",
+          "workshop/changed/r1",
+          "workshop/unchanged/r1"
+        ],
+        "complete": false
+      },
+      "totals": {
+        "planned": 6,
+        "attempted": 1,
+        "notAttempted": 5,
+        "withResult": 1,
+        "valid": 1,
+        "invalid": 0,
+        "objectiveSuccesses": 1,
+        "objectiveFailures": 0,
+        "objectiveDenominator": 1,
+        "falseDone": 0,
+        "subjectiveDone": 1,
+        "infrastructure": 0,
+        "invalidDistributions": 0,
+        "safetyStops": 0,
+        "limits": 0,
+        "abandoned": 0,
+        "stuck": 0,
+        "terminations": {
+          "SUBJECTIVE_DONE": 1
+        },
+        "requests": 8,
+        "meanUIActions": 3,
+        "meanJudgments": 4,
+        "initialBlocked": {
+          "observedRuns": 1,
+          "deliveredRuns": 1,
+          "unknownRuns": 0
+        },
+        "switchCompletedRuns": 1,
+        "prerequisite": {
+          "applicableAttempted": 0,
+          "occurredRuns": 0,
+          "deliveredRuns": 0,
+          "noOpportunityRuns": 0,
+          "unknownRuns": 0,
+          "returnedRuns": 0,
+          "completedRuns": 0
+        },
+        "unchanged": {
+          "applicableAttempted": 0,
+          "confirmedStillBlockedRuns": 0,
+          "deliveredStillBlockedRuns": 0,
+          "earlyRevisitRuns": 0,
+          "earlyRevisitEvents": 0
+        },
+        "selectionCorrections": 0
+      },
+      "cells": [
+        {
+          "key": "library/switch",
+          "fixture": {
+            "version": 1,
+            "task": "library",
+            "condition": "switch"
+          },
+          "planned": 1,
+          "attempted": 1,
+          "notAttempted": 0,
+          "withResult": 1,
+          "valid": 1,
+          "invalid": 0,
+          "objectiveSuccesses": 1,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 1,
+          "falseDone": 0,
+          "subjectiveDone": 1,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {
+            "SUBJECTIVE_DONE": 1
+          },
+          "requests": 8,
+          "meanUIActions": 3,
+          "meanJudgments": 4,
+          "initialBlocked": {
+            "observedRuns": 1,
+            "deliveredRuns": 1,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 1,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": [
+              "3f2556986576fe92b307da15ffce956a7733645efd0c960356e58427c68c7c53"
+            ]
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "library/changed",
+          "fixture": {
+            "version": 1,
+            "task": "library",
+            "condition": "changed"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "library/unchanged",
+          "fixture": {
+            "version": 1,
+            "task": "library",
+            "condition": "unchanged"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "workshop/switch",
+          "fixture": {
+            "version": 1,
+            "task": "workshop",
+            "condition": "switch"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "workshop/changed",
+          "fixture": {
+            "version": 1,
+            "task": "workshop",
+            "condition": "changed"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "workshop/unchanged",
+          "fixture": {
+            "version": 1,
+            "task": "workshop",
+            "condition": "unchanged"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        }
+      ],
+      "measurements": {
+        "chargedRequests": 8,
+        "knownHTTPAttempts": 8,
+        "httpAttemptEvidenceRequests": 8,
+        "httpAttemptCountsComplete": true,
+        "requestAttemptedRuns": 1,
+        "unknownAttemptRuns": 0,
+        "apiReachedRuns": 1,
+        "unknownReachRuns": 0,
+        "recordedResponses": 8,
+        "returnedModels": {
+          "jev-1.14.0": 8
+        },
+        "apiMs": 8271.180900000007,
+        "costUSD": null,
+        "humanTimeMs": null
+      }
+    },
+    "experience-action-relations-current": {
+      "completeness": {
+        "planned": 6,
+        "attempted": 1,
+        "withResult": 1,
+        "valid": 1,
+        "missing": [
+          "library/changed/r1",
+          "library/unchanged/r1",
+          "workshop/switch/r1",
+          "workshop/changed/r1",
+          "workshop/unchanged/r1"
+        ],
+        "complete": false
+      },
+      "totals": {
+        "planned": 6,
+        "attempted": 1,
+        "notAttempted": 5,
+        "withResult": 1,
+        "valid": 1,
+        "invalid": 0,
+        "objectiveSuccesses": 1,
+        "objectiveFailures": 0,
+        "objectiveDenominator": 1,
+        "falseDone": 0,
+        "subjectiveDone": 1,
+        "infrastructure": 0,
+        "invalidDistributions": 0,
+        "safetyStops": 0,
+        "limits": 0,
+        "abandoned": 0,
+        "stuck": 0,
+        "terminations": {
+          "SUBJECTIVE_DONE": 1
+        },
+        "requests": 8,
+        "meanUIActions": 3,
+        "meanJudgments": 4,
+        "initialBlocked": {
+          "observedRuns": 1,
+          "deliveredRuns": 1,
+          "unknownRuns": 0
+        },
+        "switchCompletedRuns": 1,
+        "prerequisite": {
+          "applicableAttempted": 0,
+          "occurredRuns": 0,
+          "deliveredRuns": 0,
+          "noOpportunityRuns": 0,
+          "unknownRuns": 0,
+          "returnedRuns": 0,
+          "completedRuns": 0
+        },
+        "unchanged": {
+          "applicableAttempted": 0,
+          "confirmedStillBlockedRuns": 0,
+          "deliveredStillBlockedRuns": 0,
+          "earlyRevisitRuns": 0,
+          "earlyRevisitEvents": 0
+        },
+        "selectionCorrections": 0
+      },
+      "cells": [
+        {
+          "key": "library/switch",
+          "fixture": {
+            "version": 1,
+            "task": "library",
+            "condition": "switch"
+          },
+          "planned": 1,
+          "attempted": 1,
+          "notAttempted": 0,
+          "withResult": 1,
+          "valid": 1,
+          "invalid": 0,
+          "objectiveSuccesses": 1,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 1,
+          "falseDone": 0,
+          "subjectiveDone": 1,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {
+            "SUBJECTIVE_DONE": 1
+          },
+          "requests": 8,
+          "meanUIActions": 3,
+          "meanJudgments": 4,
+          "initialBlocked": {
+            "observedRuns": 1,
+            "deliveredRuns": 1,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 1,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": [
+              "3f2556986576fe92b307da15ffce956a7733645efd0c960356e58427c68c7c53"
+            ]
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "library/changed",
+          "fixture": {
+            "version": 1,
+            "task": "library",
+            "condition": "changed"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "library/unchanged",
+          "fixture": {
+            "version": 1,
+            "task": "library",
+            "condition": "unchanged"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "workshop/switch",
+          "fixture": {
+            "version": 1,
+            "task": "workshop",
+            "condition": "switch"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "workshop/changed",
+          "fixture": {
+            "version": 1,
+            "task": "workshop",
+            "condition": "changed"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "workshop/unchanged",
+          "fixture": {
+            "version": 1,
+            "task": "workshop",
+            "condition": "unchanged"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        }
+      ],
+      "measurements": {
+        "chargedRequests": 8,
+        "knownHTTPAttempts": 8,
+        "httpAttemptEvidenceRequests": 8,
+        "httpAttemptCountsComplete": true,
+        "requestAttemptedRuns": 1,
+        "unknownAttemptRuns": 0,
+        "apiReachedRuns": 1,
+        "unknownReachRuns": 0,
+        "recordedResponses": 8,
+        "returnedModels": {
+          "jev-1.14.0": 8
+        },
+        "apiMs": 8587.702199999985,
+        "costUSD": null,
+        "humanTimeMs": null
+      }
+    },
+    "experience-visual-conditions": {
+      "completeness": {
+        "planned": 6,
+        "attempted": 1,
+        "withResult": 1,
+        "valid": 1,
+        "missing": [
+          "library/changed/r1",
+          "library/unchanged/r1",
+          "workshop/switch/r1",
+          "workshop/changed/r1",
+          "workshop/unchanged/r1"
+        ],
+        "complete": false
+      },
+      "totals": {
+        "planned": 6,
+        "attempted": 1,
+        "notAttempted": 5,
+        "withResult": 1,
+        "valid": 1,
+        "invalid": 0,
+        "objectiveSuccesses": 1,
+        "objectiveFailures": 0,
+        "objectiveDenominator": 1,
+        "falseDone": 0,
+        "subjectiveDone": 1,
+        "infrastructure": 0,
+        "invalidDistributions": 0,
+        "safetyStops": 0,
+        "limits": 0,
+        "abandoned": 0,
+        "stuck": 0,
+        "terminations": {
+          "SUBJECTIVE_DONE": 1
+        },
+        "requests": 12,
+        "meanUIActions": 3,
+        "meanJudgments": 4,
+        "initialBlocked": {
+          "observedRuns": 1,
+          "deliveredRuns": 1,
+          "unknownRuns": 0
+        },
+        "switchCompletedRuns": 1,
+        "prerequisite": {
+          "applicableAttempted": 0,
+          "occurredRuns": 0,
+          "deliveredRuns": 0,
+          "noOpportunityRuns": 0,
+          "unknownRuns": 0,
+          "returnedRuns": 0,
+          "completedRuns": 0
+        },
+        "unchanged": {
+          "applicableAttempted": 0,
+          "confirmedStillBlockedRuns": 0,
+          "deliveredStillBlockedRuns": 0,
+          "earlyRevisitRuns": 0,
+          "earlyRevisitEvents": 0
+        },
+        "selectionCorrections": 0
+      },
+      "cells": [
+        {
+          "key": "library/switch",
+          "fixture": {
+            "version": 1,
+            "task": "library",
+            "condition": "switch"
+          },
+          "planned": 1,
+          "attempted": 1,
+          "notAttempted": 0,
+          "withResult": 1,
+          "valid": 1,
+          "invalid": 0,
+          "objectiveSuccesses": 1,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 1,
+          "falseDone": 0,
+          "subjectiveDone": 1,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {
+            "SUBJECTIVE_DONE": 1
+          },
+          "requests": 12,
+          "meanUIActions": 3,
+          "meanJudgments": 4,
+          "initialBlocked": {
+            "observedRuns": 1,
+            "deliveredRuns": 1,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 1,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": [
+              "3f2556986576fe92b307da15ffce956a7733645efd0c960356e58427c68c7c53"
+            ]
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "library/changed",
+          "fixture": {
+            "version": 1,
+            "task": "library",
+            "condition": "changed"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "library/unchanged",
+          "fixture": {
+            "version": 1,
+            "task": "library",
+            "condition": "unchanged"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "workshop/switch",
+          "fixture": {
+            "version": 1,
+            "task": "workshop",
+            "condition": "switch"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "workshop/changed",
+          "fixture": {
+            "version": 1,
+            "task": "workshop",
+            "condition": "changed"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        },
+        {
+          "key": "workshop/unchanged",
+          "fixture": {
+            "version": 1,
+            "task": "workshop",
+            "condition": "unchanged"
+          },
+          "planned": 1,
+          "attempted": 0,
+          "notAttempted": 1,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0,
+          "initialImages": {
+            "consistent": null,
+            "hashes": []
+          },
+          "configs": {
+            "consistent": null
+          },
+          "aggregationUncertain": false
+        }
+      ],
+      "measurements": {
+        "chargedRequests": 12,
+        "knownHTTPAttempts": 12,
+        "httpAttemptEvidenceRequests": 12,
+        "httpAttemptCountsComplete": true,
+        "requestAttemptedRuns": 1,
+        "unknownAttemptRuns": 0,
+        "apiReachedRuns": 1,
+        "unknownReachRuns": 0,
+        "recordedResponses": 12,
+        "returnedModels": {
+          "gpt-6-luna": 4,
+          "jev-1.14.0": 8
+        },
+        "apiMs": 51495.6193,
+        "costUSD": null,
+        "humanTimeMs": null
+      }
+    }
+  },
+  "pairs": [
+    {
+      "slot": "library/switch/r1",
+      "ids": [
+        "0dafacb8-5adc-4c96-bec9-63b5529681b2-recovery-library-switch-r1-experience-action-relations",
+        "0dafacb8-5adc-4c96-bec9-63b5529681b2-recovery-library-switch-r1-experience-action-relations-current",
+        "0dafacb8-5adc-4c96-bec9-63b5529681b2-recovery-library-switch-r1-experience-visual-conditions"
+      ],
+      "bothPresent": true,
+      "initialEvidenceAvailable": true,
+      "matchedInitialEvidence": true,
+      "reasons": []
+    },
+    {
+      "slot": "library/changed/r1",
+      "ids": [
+        null,
+        null,
+        null
+      ],
+      "bothPresent": false,
+      "initialEvidenceAvailable": false,
+      "matchedInitialEvidence": false,
+      "reasons": [
+        "MISSING_ACTOR_TRIAL"
+      ]
+    },
+    {
+      "slot": "library/unchanged/r1",
+      "ids": [
+        null,
+        null,
+        null
+      ],
+      "bothPresent": false,
+      "initialEvidenceAvailable": false,
+      "matchedInitialEvidence": false,
+      "reasons": [
+        "MISSING_ACTOR_TRIAL"
+      ]
+    },
+    {
+      "slot": "workshop/switch/r1",
+      "ids": [
+        null,
+        null,
+        null
+      ],
+      "bothPresent": false,
+      "initialEvidenceAvailable": false,
+      "matchedInitialEvidence": false,
+      "reasons": [
+        "MISSING_ACTOR_TRIAL"
+      ]
+    },
+    {
+      "slot": "workshop/changed/r1",
+      "ids": [
+        null,
+        null,
+        null
+      ],
+      "bothPresent": false,
+      "initialEvidenceAvailable": false,
+      "matchedInitialEvidence": false,
+      "reasons": [
+        "MISSING_ACTOR_TRIAL"
+      ]
+    },
+    {
+      "slot": "workshop/unchanged/r1",
+      "ids": [
+        null,
+        null,
+        null
+      ],
+      "bothPresent": false,
+      "initialEvidenceAvailable": false,
+      "matchedInitialEvidence": false,
+      "reasons": [
+        "MISSING_ACTOR_TRIAL"
+      ]
+    }
+  ],
+  "trials": [
+    {
+      "id": "recovery-library-switch-r1",
+      "actor": "experience-visual-conditions",
+      "runId": "0dafacb8-5adc-4c96-bec9-63b5529681b2-recovery-library-switch-r1-experience-visual-conditions",
+      "sequence": 1,
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "switch"
+      },
+      "replicate": 1,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "judgments": 4,
+        "requests": 12,
+        "recordedAPICalls": 12,
+        "selectionCorrections": 0,
+        "baselineSelectionChanges": 0,
+        "earlyUnchangedRevisits": 0
+      },
+      "timing": {
+        "apiMs": 51495.6193,
+        "uiMs": 158.04060000000027,
+        "elapsedMs": 53848.083,
+        "humanTimeMs": null
+      },
+      "ledgerEvidence": {
+        "used": 12,
+        "sha256": "155c56aa3a14269065ca516dc058b2eb5255ec79c7677fb73bd71d9f2a369a41",
+        "reserved": 0,
+        "ok": 12,
+        "errors": 0
+      },
+      "initialImageSha256": "3f2556986576fe92b307da15ffce956a7733645efd0c960356e58427c68c7c53",
+      "prerequisiteEvents": [],
+      "revisits": [],
+      "saves": [
+        {
+          "step": 3,
+          "route": "alternative",
+          "delivered": true,
+          "evidence": {
+            "before": {
+              "kind": "observation",
+              "step": 3,
+              "observationId": "o3",
+              "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081",
+              "url": "/good/?recovery=p4#alternative",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "alternative",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 4,
+              "observationId": "o4",
+              "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17",
+              "url": "/good/?recovery=p4#alternative",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "alternative",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "東分館",
+                "complete": true
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "recoveryAfterChange": {
+        "applicable": false,
+        "completed": false,
+        "returns": [],
+        "evidence": []
+      },
+      "switchCompletion": {
+        "applicable": true,
+        "completed": true,
+        "evidence": [
+          {
+            "step": 3,
+            "route": "alternative",
+            "delivered": true,
+            "evidence": {
+              "before": {
+                "kind": "observation",
+                "step": 3,
+                "observationId": "o3",
+                "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081",
+                "url": "/good/?recovery=p4#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 4,
+                "observationId": "o4",
+                "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17",
+                "url": "/good/?recovery=p4#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "東分館",
+                  "complete": true
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "error": null,
+      "terminalSnapshot": {
+        "schemaVersion": 1,
+        "route": "alternative",
+        "eligible": false,
+        "verificationAttempts": 0,
+        "recordChecks": 0,
+        "savedValue": "東分館",
+        "complete": true
+      },
+      "steps": [
+        {
+          "number": 1,
+          "observationId": "o1",
+          "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+          "observedState": {
+            "schemaVersion": 1,
+            "route": "primary",
+            "eligible": false,
+            "verificationAttempts": 0,
+            "recordChecks": 0,
+            "savedValue": "中央図書館",
+            "complete": false
+          },
+          "actionRelations": {
+            "schemaVersion": 1,
+            "kind": "model-action-relations-not-fact",
+            "evidencePolicy": "current-candidate",
+            "source": {
+              "observationId": "o1",
+              "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "availability": {
+              "status": "blocked",
+              "evidence": {
+                "observationId": "o1",
+                "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+              }
+            },
+            "candidates": {
+              "e1": {
+                "role": "navigation",
+                "evidence": {
+                  "observationId": "o1",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+                },
+                "verify": "navigation"
+              }
+            },
+            "adjustments": []
+          },
+          "visualHypotheses": {
+            "schemaVersion": 1,
+            "kind": "model-visual-hypotheses-not-fact",
+            "source": {
+              "observationId": "o1",
+              "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "conditions": [
+              {
+                "id": "c1",
+                "description": "The reservation being changed is for 「川沿いの暮らし」 and its currently saved pickup library is 中央図書館.",
+                "status": "satisfied",
+                "evidence": {
+                  "observationId": "o1",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "quote": "予約図書　川沿いの暮らし／保存済みの受取館　中央図書館",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "uncertainty": "The displayed reservation details are visible, but their accuracy is not independently verified."
+              },
+              {
+                "id": "c2",
+                "description": "Reach the My Page reservation list where pickup-library changes are handled.",
+                "status": "unmet",
+                "evidence": {
+                  "observationId": "o1",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "quote": "受取館の変更は、マイページの予約一覧で受け付けています。",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "uncertainty": "The page identifies the reservation list as the place for changes; the list itself is not shown."
+              },
+              {
+                "id": "c3",
+                "description": "The saved pickup library for 「川沿いの暮らし」 is 東分館, and the saved change is confirmed.",
+                "status": "uncertain",
+                "evidence": null,
+                "uncertainty": "No displayed evidence confirms the requested new library or that it has been saved."
+              }
+            ],
+            "relations": [
+              {
+                "candidateId": "e1",
+                "conditionIds": [
+                  "c2"
+                ],
+                "relation": "navigation",
+                "currentEvidence": {
+                  "observationId": "o1",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "quote": "マイページへ",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "expectedResult": "A My Page surface, ideally its reservation list, is displayed."
+              }
+            ],
+            "unknowns": [
+              "Whether the reservation list offers a change control for this specific reservation.",
+              "Whether 東分館 can be selected and the change saved and confirmed."
+            ]
+          },
+          "jevImageBindings": {
+            "assessment": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "7cc5d19b-67ad-4a6f-8fa3-d6c818640b9c",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "action": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "e787dcc4-ee51-45f2-92b8-30c238a22228",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "jevUsage": {
+            "assessment": {
+              "inputTokens": 13942,
+              "outputTokens": 736
+            },
+            "action": {
+              "inputTokens": 14121,
+              "outputTokens": 168
+            }
+          },
+          "visualExtraction": {
+            "model": "gpt-6-luna",
+            "status": "completed",
+            "request": {
+              "attempts": 1,
+              "httpReceived": true,
+              "statusCode": 200
+            },
+            "usage": {
+              "inputTokens": 2482,
+              "outputTokens": 639,
+              "totalTokens": 3121
+            },
+            "apiCalls": 1,
+            "timing": {
+              "apiMs": 7109.3084
+            },
+            "error": null
+          },
+          "modelChoice": "e1",
+          "selected": "e1",
+          "selectedRelation": {
+            "role": "navigation",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+            },
+            "verify": "navigation"
+          },
+          "rawDistribution": {
+            "abandon": 0,
+            "done": 0,
+            "e1": 0.99,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "filteredDistribution": {
+            "abandon": 0,
+            "done": 0,
+            "e1": 1,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED"
+        },
+        {
+          "number": 2,
+          "observationId": "o2",
+          "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+          "observedState": {
+            "schemaVersion": 1,
+            "route": "home",
+            "eligible": false,
+            "verificationAttempts": 0,
+            "recordChecks": 0,
+            "savedValue": "中央図書館",
+            "complete": false
+          },
+          "actionRelations": {
+            "schemaVersion": 1,
+            "kind": "model-action-relations-not-fact",
+            "evidencePolicy": "current-candidate",
+            "source": {
+              "observationId": "o2",
+              "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "availability": {
+              "status": "ready",
+              "evidence": {
+                "observationId": "o2",
+                "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+              }
+            },
+            "candidates": {
+              "e1": {
+                "role": "navigation",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "no-goal-change"
+              },
+              "e2": {
+                "role": "prerequisite",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "availability-change"
+              },
+              "e3": {
+                "role": "unrelated",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "no-goal-change"
+              },
+              "e4": {
+                "role": "information",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "information"
+              },
+              "back": {
+                "role": "unknown",
+                "verify": "unknown"
+              }
+            },
+            "adjustments": [
+              {
+                "field": "verify_back",
+                "from": "availability-change",
+                "to": "unknown",
+                "reason": "NO_ADMITTED_EVIDENCE"
+              }
+            ]
+          },
+          "visualHypotheses": {
+            "schemaVersion": 1,
+            "kind": "model-visual-hypotheses-not-fact",
+            "source": {
+              "observationId": "o2",
+              "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "conditions": [
+              {
+                "id": "c1",
+                "description": "The reservation being changed is for 「川沿いの暮らし」 and its currently saved pickup library is 中央図書館.",
+                "status": "satisfied",
+                "evidence": {
+                  "observationId": "o1",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "quote": "予約図書　川沿いの暮らし／保存済みの受取館　中央図書館",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "uncertainty": "Historical image transcription; the displayed details are not independently verified."
+              },
+              {
+                "id": "c2",
+                "description": "Reach the reservation list where the pickup-library change can be handled.",
+                "status": "unmet",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "quote": "マイページ",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "uncertainty": "The current page is My Page, not the reservation list."
+              },
+              {
+                "id": "c3",
+                "description": "The saved pickup library for 「川沿いの暮らし」 is 東分館, and the saved change is confirmed.",
+                "status": "uncertain",
+                "evidence": null,
+                "uncertainty": "No image confirms the new pickup library or that it was saved."
+              }
+            ],
+            "relations": [
+              {
+                "candidateId": "e1",
+                "conditionIds": [
+                  "c3"
+                ],
+                "relation": "execute",
+                "currentEvidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "quote": "予約内容の変更　「川沿いの暮らし」の受取館を管理",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "expectedResult": "Inspect the reservation details for 「川沿いの暮らし」 and verify that 東分館 is shown as the saved pickup library with confirmation."
+              },
+              {
+                "candidateId": "e2",
+                "conditionIds": [
+                  "c2"
+                ],
+                "relation": "prerequisite",
+                "currentEvidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "quote": "予約一覧　予約中の内容と変更のお手続き",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "expectedResult": "Inspect whether the reservation list shows the reservation for 「川沿いの暮らし」 and provides its pickup-library change procedure."
+              },
+              {
+                "candidateId": "e3",
+                "conditionIds": [],
+                "relation": "unrelated",
+                "currentEvidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "quote": "利用情報の確認　登録情報と利用状況の確認",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "expectedResult": null
+              },
+              {
+                "candidateId": "e4",
+                "conditionIds": [
+                  "c3"
+                ],
+                "relation": "information",
+                "currentEvidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "quote": "予約記録　予約情報の照合と記録の確認",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "expectedResult": "Inspect whether reservation records confirm 東分館 as the saved pickup library."
+              },
+              {
+                "candidateId": "back",
+                "conditionIds": [],
+                "relation": "unknown",
+                "currentEvidence": null,
+                "expectedResult": null
+              }
+            ],
+            "unknowns": [
+              "Whether the reservation-change card directly allows editing and saving the pickup library, or routes to another page.",
+              "Whether 東分館 can be selected and the change saved and confirmed."
+            ]
+          },
+          "jevImageBindings": {
+            "assessment": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "7d0eaedc-c27d-454a-be48-42c3e74fc0ec",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "5531e724-290f-46cc-9869-f08e15de0fa2",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ],
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "action": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "b4a4242a-923d-4cad-a502-dbcc7f9de5df",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "222c55d3-76ad-4611-9019-c5f9ccd9c25c",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ],
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "jevUsage": {
+            "assessment": {
+              "inputTokens": 32262,
+              "outputTokens": 2167
+            },
+            "action": {
+              "inputTokens": 26359,
+              "outputTokens": 199
+            }
+          },
+          "visualExtraction": {
+            "model": "gpt-6-luna",
+            "status": "completed",
+            "request": {
+              "attempts": 1,
+              "httpReceived": true,
+              "statusCode": 200
+            },
+            "usage": {
+              "inputTokens": 4742,
+              "outputTokens": 1652,
+              "totalTokens": 6394
+            },
+            "apiCalls": 1,
+            "timing": {
+              "apiMs": 17230.123499999998
+            },
+            "error": null
+          },
+          "modelChoice": "e2",
+          "selected": "e2",
+          "selectedRelation": {
+            "role": "prerequisite",
+            "evidence": {
+              "observationId": "o2",
+              "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+            },
+            "verify": "availability-change"
+          },
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0.03,
+            "e2": 0.97,
+            "e3": 0,
+            "e4": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "filteredDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0.03,
+            "e2": 0.97,
+            "e3": 0,
+            "e4": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED"
+        },
+        {
+          "number": 3,
+          "observationId": "o3",
+          "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081",
+          "observedState": {
+            "schemaVersion": 1,
+            "route": "alternative",
+            "eligible": false,
+            "verificationAttempts": 0,
+            "recordChecks": 0,
+            "savedValue": "中央図書館",
+            "complete": false
+          },
+          "actionRelations": {
+            "schemaVersion": 1,
+            "kind": "model-action-relations-not-fact",
+            "evidencePolicy": "current-candidate",
+            "source": {
+              "observationId": "o3",
+              "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "availability": {
+              "status": "ready",
+              "evidence": {
+                "observationId": "o3",
+                "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081"
+              }
+            },
+            "candidates": {
+              "e1": {
+                "role": "execute",
+                "evidence": {
+                  "observationId": "o3",
+                  "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081"
+                },
+                "verify": "goal-change"
+              },
+              "e2": {
+                "role": "navigation",
+                "evidence": {
+                  "observationId": "o3",
+                  "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081"
+                },
+                "verify": "navigation"
+              },
+              "back": {
+                "role": "unknown",
+                "verify": "unknown"
+              }
+            },
+            "adjustments": [
+              {
+                "field": "verify_back",
+                "from": "no-goal-change",
+                "to": "unknown",
+                "reason": "NO_ADMITTED_EVIDENCE"
+              }
+            ]
+          },
+          "visualHypotheses": {
+            "schemaVersion": 1,
+            "kind": "model-visual-hypotheses-not-fact",
+            "source": {
+              "observationId": "o3",
+              "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "conditions": [
+              {
+                "id": "c1",
+                "description": "The reservation being changed is for 「川沿いの暮らし」 and its currently saved pickup library is 中央図書館.",
+                "status": "satisfied",
+                "evidence": {
+                  "observationId": "o3",
+                  "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081",
+                  "quote": "予約図書　川沿いの暮らし／保存済みの受取館　中央図書館",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "uncertainty": "The visible reservation details are a model transcription and are not independently verified."
+              },
+              {
+                "id": "c2",
+                "description": "東分館 is specified as the requested pickup-library destination for this reservation.",
+                "status": "satisfied",
+                "evidence": {
+                  "observationId": "o3",
+                  "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081",
+                  "quote": "変更先：東分館",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "uncertainty": "The destination is displayed, but this does not establish that the change has been saved."
+              },
+              {
+                "id": "c3",
+                "description": "The saved pickup library for 「川沿いの暮らし」 is 東分館 and the change is confirmed as saved.",
+                "status": "uncertain",
+                "evidence": null,
+                "uncertainty": "The current image shows a save control, but no saved result or confirmation."
+              }
+            ],
+            "relations": [
+              {
+                "candidateId": "e1",
+                "conditionIds": [
+                  "c3"
+                ],
+                "relation": "execute",
+                "currentEvidence": {
+                  "observationId": "o3",
+                  "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081",
+                  "quote": "東分館に変更して保存",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "expectedResult": "Inspect the resulting reservation details or confirmation to verify that 東分館 is saved for 「川沿いの暮らし」."
+              },
+              {
+                "candidateId": "e2",
+                "conditionIds": [],
+                "relation": "navigation",
+                "currentEvidence": {
+                  "observationId": "o3",
+                  "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081",
+                  "quote": "マイページへ",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "expectedResult": "A My Page surface is displayed."
+              },
+              {
+                "candidateId": "back",
+                "conditionIds": [],
+                "relation": "unknown",
+                "currentEvidence": null,
+                "expectedResult": null
+              }
+            ],
+            "unknowns": [
+              "Whether the change will be saved successfully and confirmed after using the save control."
+            ]
+          },
+          "jevImageBindings": {
+            "assessment": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "d0b8f5d8-b980-4b7e-9ac6-5a5d8e35fa8f",
+                  "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      2,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "9055f26d-afa2-4956-97a7-d493be7b4f59",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ],
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_1",
+                  "reference": "d90d1da6-db4b-4264-b461-21411541c02e",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "action": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "3fd4837f-be65-4e30-8aa6-8821200efd1d",
+                  "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      2,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "6a659fbb-e579-4038-889e-b3bad2e7ba2c",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ],
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_1",
+                  "reference": "de8c74d4-ba34-4449-8e15-30005985d399",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "jevUsage": {
+            "assessment": {
+              "inputTokens": 34727,
+              "outputTokens": 1554
+            },
+            "action": {
+              "inputTokens": 31051,
+              "outputTokens": 183
+            }
+          },
+          "visualExtraction": {
+            "model": "gpt-6-luna",
+            "status": "completed",
+            "request": {
+              "attempts": 1,
+              "httpReceived": true,
+              "statusCode": 200
+            },
+            "usage": {
+              "inputTokens": 7354,
+              "outputTokens": 708,
+              "totalTokens": 8062
+            },
+            "apiCalls": 1,
+            "timing": {
+              "apiMs": 7225.695899999999
+            },
+            "error": null
+          },
+          "modelChoice": "e1",
+          "selected": "e1",
+          "selectedRelation": {
+            "role": "execute",
+            "evidence": {
+              "observationId": "o3",
+              "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081"
+            },
+            "verify": "goal-change"
+          },
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 1,
+            "e2": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "filteredDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 1,
+            "e2": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED"
+        },
+        {
+          "number": 4,
+          "observationId": "o4",
+          "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17",
+          "observedState": {
+            "schemaVersion": 1,
+            "route": "alternative",
+            "eligible": false,
+            "verificationAttempts": 0,
+            "recordChecks": 0,
+            "savedValue": "東分館",
+            "complete": true
+          },
+          "actionRelations": {
+            "schemaVersion": 1,
+            "kind": "model-action-relations-not-fact",
+            "evidencePolicy": "current-candidate",
+            "source": {
+              "observationId": "o4",
+              "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "availability": {
+              "status": "completed",
+              "evidence": {
+                "observationId": "o4",
+                "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17"
+              }
+            },
+            "candidates": {
+              "e1": {
+                "role": "execute",
+                "evidence": {
+                  "observationId": "o4",
+                  "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17"
+                },
+                "verify": "no-goal-change"
+              },
+              "e2": {
+                "role": "navigation",
+                "evidence": {
+                  "observationId": "o4",
+                  "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17"
+                },
+                "verify": "navigation"
+              },
+              "back": {
+                "role": "unknown",
+                "verify": "unknown"
+              }
+            },
+            "adjustments": [
+              {
+                "field": "verify_back",
+                "from": "no-goal-change",
+                "to": "unknown",
+                "reason": "NO_ADMITTED_EVIDENCE"
+              }
+            ]
+          },
+          "visualHypotheses": {
+            "schemaVersion": 1,
+            "kind": "model-visual-hypotheses-not-fact",
+            "source": {
+              "observationId": "o4",
+              "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "conditions": [
+              {
+                "id": "c1",
+                "description": "The reservation being changed is for 「川沿いの暮らし」.",
+                "status": "satisfied",
+                "evidence": {
+                  "observationId": "o4",
+                  "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17",
+                  "quote": "予約図書　川沿いの暮らし",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "uncertainty": "The visible text is a model transcription and is not independently verified."
+              },
+              {
+                "id": "c2",
+                "description": "The saved pickup library for 「川沿いの暮らし」 is 東分館.",
+                "status": "satisfied",
+                "evidence": {
+                  "observationId": "o4",
+                  "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17",
+                  "quote": "保存済みの受取館　東分館",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "uncertainty": "The displayed saved value is not independently verified."
+              },
+              {
+                "id": "c3",
+                "description": "The pickup-library change to 東分館 was saved and confirmed.",
+                "status": "satisfied",
+                "evidence": {
+                  "observationId": "o4",
+                  "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17",
+                  "quote": "「川沿いの暮らし」の受取館を東分館に保存しました",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "uncertainty": "The displayed confirmation is not independently verified."
+              }
+            ],
+            "relations": [
+              {
+                "candidateId": "e1",
+                "conditionIds": [
+                  "c2",
+                  "c3"
+                ],
+                "relation": "execute",
+                "currentEvidence": {
+                  "observationId": "o4",
+                  "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17",
+                  "quote": "東分館に変更して保存",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "expectedResult": "Inspect the reservation details and confirmation after any operation to verify 東分館 remains saved for 「川沿いの暮らし」."
+              },
+              {
+                "candidateId": "e2",
+                "conditionIds": [],
+                "relation": "navigation",
+                "currentEvidence": {
+                  "observationId": "o4",
+                  "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17",
+                  "quote": "マイページへ",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "expectedResult": "A My Page surface is displayed."
+              },
+              {
+                "candidateId": "back",
+                "conditionIds": [],
+                "relation": "unknown",
+                "currentEvidence": null,
+                "expectedResult": null
+              }
+            ],
+            "unknowns": []
+          },
+          "jevImageBindings": {
+            "assessment": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "2701403c-fc37-4b54-bd06-1c35dd9a2ab3",
+                  "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      2,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "6f63d4b0-0d1a-4db0-bb88-47487ff28c73",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_1",
+                  "reference": "8793aa45-e479-4a4b-b7ab-75ea18288a9d",
+                  "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "correspondence_0",
+                  "reference": "ad9f4658-8c7b-44be-9cfc-33f77f0c638d",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "action": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "6e42893d-f16c-46c5-b562-dbed0ee55e62",
+                  "imageSha256": "96c7c1c994a3db95f35763afb62ba466ad1446fa62472fa238dc2a77523a0c17",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      2,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "479f4fa8-34bf-4c08-8306-849f3a43328e",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_1",
+                  "reference": "3289f09b-6f7f-469b-9d9c-35403ffde52c",
+                  "imageSha256": "fccea432998e725ddccf867fb56a2caa8ab87008453a542c85bbce5d2d7c6081",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "correspondence_0",
+                  "reference": "fb87932e-966f-4471-9e75-fc8a94d0bf22",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "jevUsage": {
+            "assessment": {
+              "inputTokens": 36714,
+              "outputTokens": 1596
+            },
+            "action": {
+              "inputTokens": 32702,
+              "outputTokens": 182
+            }
+          },
+          "visualExtraction": {
+            "model": "gpt-6-luna",
+            "status": "completed",
+            "request": {
+              "attempts": 1,
+              "httpReceived": true,
+              "statusCode": 200
+            },
+            "usage": {
+              "inputTokens": 9725,
+              "outputTokens": 997,
+              "totalTokens": 10722
+            },
+            "apiCalls": 1,
+            "timing": {
+              "apiMs": 10242.000200000002
+            },
+            "error": null
+          },
+          "modelChoice": "done",
+          "selected": "done",
+          "selectedRelation": null,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0.99,
+            "e1": 0.01,
+            "e2": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "filteredDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 1,
+            "e1": 0,
+            "e2": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE"
+        }
+      ]
+    },
+    {
+      "id": "recovery-library-switch-r1",
+      "actor": "experience-action-relations",
+      "runId": "0dafacb8-5adc-4c96-bec9-63b5529681b2-recovery-library-switch-r1-experience-action-relations",
+      "sequence": 2,
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "switch"
+      },
+      "replicate": 1,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "judgments": 4,
+        "requests": 8,
+        "recordedAPICalls": 8,
+        "selectionCorrections": 0,
+        "baselineSelectionChanges": 0,
+        "earlyUnchangedRevisits": 0
+      },
+      "timing": {
+        "apiMs": 8271.180900000007,
+        "uiMs": 161.50530000000435,
+        "elapsedMs": 10361.794000000009,
+        "humanTimeMs": null
+      },
+      "ledgerEvidence": {
+        "used": 8,
+        "sha256": "53c097177ec251bb8430f5656a6e3428824eadeb7a3adf851786135f7b31f9f3",
+        "reserved": 0,
+        "ok": 8,
+        "errors": 0
+      },
+      "initialImageSha256": "3f2556986576fe92b307da15ffce956a7733645efd0c960356e58427c68c7c53",
+      "prerequisiteEvents": [],
+      "revisits": [],
+      "saves": [
+        {
+          "step": 3,
+          "route": "alternative",
+          "delivered": true,
+          "evidence": {
+            "before": {
+              "kind": "observation",
+              "step": 3,
+              "observationId": "o3",
+              "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+              "url": "/good/?recovery=p4#alternative",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "alternative",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 4,
+              "observationId": "o4",
+              "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335",
+              "url": "/good/?recovery=p4#alternative",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "alternative",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "東分館",
+                "complete": true
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "recoveryAfterChange": {
+        "applicable": false,
+        "completed": false,
+        "returns": [],
+        "evidence": []
+      },
+      "switchCompletion": {
+        "applicable": true,
+        "completed": true,
+        "evidence": [
+          {
+            "step": 3,
+            "route": "alternative",
+            "delivered": true,
+            "evidence": {
+              "before": {
+                "kind": "observation",
+                "step": 3,
+                "observationId": "o3",
+                "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+                "url": "/good/?recovery=p4#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 4,
+                "observationId": "o4",
+                "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335",
+                "url": "/good/?recovery=p4#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "東分館",
+                  "complete": true
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "error": null,
+      "terminalSnapshot": {
+        "schemaVersion": 1,
+        "route": "alternative",
+        "eligible": false,
+        "verificationAttempts": 0,
+        "recordChecks": 0,
+        "savedValue": "東分館",
+        "complete": true
+      },
+      "steps": [
+        {
+          "number": 1,
+          "observationId": "o1",
+          "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+          "observedState": {
+            "schemaVersion": 1,
+            "route": "primary",
+            "eligible": false,
+            "verificationAttempts": 0,
+            "recordChecks": 0,
+            "savedValue": "中央図書館",
+            "complete": false
+          },
+          "actionRelations": {
+            "schemaVersion": 1,
+            "kind": "model-action-relations-not-fact",
+            "source": {
+              "observationId": "o1",
+              "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "availability": {
+              "status": "blocked",
+              "evidence": {
+                "observationId": "o1",
+                "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+              }
+            },
+            "candidates": {
+              "e1": {
+                "role": "navigation",
+                "evidence": {
+                  "observationId": "o1",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+                },
+                "verify": "navigation"
+              }
+            },
+            "adjustments": []
+          },
+          "visualHypotheses": null,
+          "jevImageBindings": {
+            "assessment": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "e56a0585-87d7-451b-a1a7-dc27b4ae5136",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "action": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "19353f47-bff3-41f1-8eb6-aaae714bba6b",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "jevUsage": {
+            "assessment": {
+              "inputTokens": 12433,
+              "outputTokens": 734
+            },
+            "action": {
+              "inputTokens": 11904,
+              "outputTokens": 168
+            }
+          },
+          "visualExtraction": null,
+          "modelChoice": "e1",
+          "selected": "e1",
+          "selectedRelation": {
+            "role": "navigation",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+            },
+            "verify": "navigation"
+          },
+          "rawDistribution": {
+            "abandon": 0,
+            "done": 0,
+            "e1": 0.99,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "filteredDistribution": {
+            "abandon": 0,
+            "done": 0,
+            "e1": 1,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED"
+        },
+        {
+          "number": 2,
+          "observationId": "o2",
+          "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+          "observedState": {
+            "schemaVersion": 1,
+            "route": "home",
+            "eligible": false,
+            "verificationAttempts": 0,
+            "recordChecks": 0,
+            "savedValue": "中央図書館",
+            "complete": false
+          },
+          "actionRelations": {
+            "schemaVersion": 1,
+            "kind": "model-action-relations-not-fact",
+            "source": {
+              "observationId": "o2",
+              "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "availability": {
+              "status": "ready",
+              "evidence": {
+                "observationId": "o1",
+                "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+              }
+            },
+            "candidates": {
+              "e1": {
+                "role": "navigation",
+                "evidence": {
+                  "observationId": "o1",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+                },
+                "verify": "navigation"
+              },
+              "e2": {
+                "role": "execute",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "navigation"
+              },
+              "e3": {
+                "role": "unknown",
+                "verify": "unknown"
+              },
+              "e4": {
+                "role": "information",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "information"
+              },
+              "back": {
+                "role": "unknown",
+                "verify": "unknown"
+              }
+            },
+            "adjustments": [
+              {
+                "field": "role_e3",
+                "from": "unrelated",
+                "to": "unknown",
+                "reason": "NO_ADMITTED_EVIDENCE"
+              },
+              {
+                "field": "verify_e3",
+                "from": "navigation",
+                "to": "unknown",
+                "reason": "NO_ADMITTED_EVIDENCE"
+              },
+              {
+                "field": "role_back",
+                "from": "execute",
+                "to": "unknown",
+                "reason": "NO_ADMITTED_EVIDENCE"
+              },
+              {
+                "field": "verify_back",
+                "from": "navigation",
+                "to": "unknown",
+                "reason": "NO_ADMITTED_EVIDENCE"
+              }
+            ]
+          },
+          "visualHypotheses": null,
+          "jevImageBindings": {
+            "assessment": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "7fa4ec0c-ab59-4ac2-b1ca-a8ec2369f480",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "bb66b1b4-9dbf-4f71-bbb2-d3ed6c590959",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ],
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "action": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "81a23adb-48c6-4e77-995c-ecd0c972cb3f",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "a9c6b2a1-45f2-4c6f-9121-cb2049f18fb3",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ],
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "jevUsage": {
+            "assessment": {
+              "inputTokens": 29896,
+              "outputTokens": 2195
+            },
+            "action": {
+              "inputTokens": 21916,
+              "outputTokens": 199
+            }
+          },
+          "visualExtraction": null,
+          "modelChoice": "e2",
+          "selected": "e2",
+          "selectedRelation": {
+            "role": "execute",
+            "evidence": {
+              "observationId": "o2",
+              "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+            },
+            "verify": "navigation"
+          },
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0.01,
+            "e2": 0.98,
+            "e3": 0,
+            "e4": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "filteredDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0.010101010101010102,
+            "e2": 0.98989898989899,
+            "e3": 0,
+            "e4": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED"
+        },
+        {
+          "number": 3,
+          "observationId": "o3",
+          "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+          "observedState": {
+            "schemaVersion": 1,
+            "route": "alternative",
+            "eligible": false,
+            "verificationAttempts": 0,
+            "recordChecks": 0,
+            "savedValue": "中央図書館",
+            "complete": false
+          },
+          "actionRelations": {
+            "schemaVersion": 1,
+            "kind": "model-action-relations-not-fact",
+            "source": {
+              "observationId": "o3",
+              "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "availability": {
+              "status": "ready",
+              "evidence": {
+                "observationId": "o3",
+                "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da"
+              }
+            },
+            "candidates": {
+              "e1": {
+                "role": "execute",
+                "evidence": {
+                  "observationId": "o3",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da"
+                },
+                "verify": "goal-change"
+              },
+              "e2": {
+                "role": "navigation",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "navigation"
+              },
+              "back": {
+                "role": "execute",
+                "evidence": {
+                  "observationId": "o3",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da"
+                },
+                "verify": "navigation"
+              }
+            },
+            "adjustments": []
+          },
+          "visualHypotheses": null,
+          "jevImageBindings": {
+            "assessment": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "8efd7b39-f103-4049-826a-452bdb68cd52",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      2,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "a1929489-c086-418a-9763-c91e883ad361",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ],
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_1",
+                  "reference": "4b43a4d0-0e02-4734-8bc8-514525aaf0f1",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "action": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "6d4a7e9b-f10e-475d-917e-3febed3f930f",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      2,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "5ba179c4-8ef8-437f-a77c-37a0498b9e55",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ],
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_1",
+                  "reference": "580caff9-f7a5-4959-ac6d-28f3ba6cfe22",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "jevUsage": {
+            "assessment": {
+              "inputTokens": 31332,
+              "outputTokens": 1600
+            },
+            "action": {
+              "inputTokens": 26016,
+              "outputTokens": 183
+            }
+          },
+          "visualExtraction": null,
+          "modelChoice": "e1",
+          "selected": "e1",
+          "selectedRelation": {
+            "role": "execute",
+            "evidence": {
+              "observationId": "o3",
+              "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da"
+            },
+            "verify": "goal-change"
+          },
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 1,
+            "e2": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "filteredDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 1,
+            "e2": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED"
+        },
+        {
+          "number": 4,
+          "observationId": "o4",
+          "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335",
+          "observedState": {
+            "schemaVersion": 1,
+            "route": "alternative",
+            "eligible": false,
+            "verificationAttempts": 0,
+            "recordChecks": 0,
+            "savedValue": "東分館",
+            "complete": true
+          },
+          "actionRelations": {
+            "schemaVersion": 1,
+            "kind": "model-action-relations-not-fact",
+            "source": {
+              "observationId": "o4",
+              "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "availability": {
+              "status": "completed",
+              "evidence": {
+                "observationId": "o4",
+                "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335"
+              }
+            },
+            "candidates": {
+              "e1": {
+                "role": "execute",
+                "evidence": {
+                  "observationId": "o3",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da"
+                },
+                "verify": "goal-change"
+              },
+              "e2": {
+                "role": "navigation",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "navigation"
+              },
+              "back": {
+                "role": "unrelated",
+                "evidence": {
+                  "observationId": "o4",
+                  "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335"
+                },
+                "verify": "no-goal-change"
+              }
+            },
+            "adjustments": []
+          },
+          "visualHypotheses": null,
+          "jevImageBindings": {
+            "assessment": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "53573cdb-bcd6-47f5-9a89-479a52aad82a",
+                  "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      2,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "e2f4979e-d55d-4ee0-a310-4a6edbb738a8",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_1",
+                  "reference": "0d90fbf5-82d2-486d-854f-ea1f5dd6d8d9",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "correspondence_0",
+                  "reference": "7e4f5732-be07-485e-b966-34b7a9629bbe",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "action": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "11d1d415-f6de-4ec9-a408-c5acfd08b464",
+                  "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      2,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "6e28ff27-e89c-4da9-8841-e17195db1746",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_1",
+                  "reference": "224c6a41-f578-4580-bc76-c7e995e31c8b",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "correspondence_0",
+                  "reference": "14d740b6-0b0c-4127-9f03-4e5a9b7be174",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "jevUsage": {
+            "assessment": {
+              "inputTokens": 32756,
+              "outputTokens": 1670
+            },
+            "action": {
+              "inputTokens": 26800,
+              "outputTokens": 182
+            }
+          },
+          "visualExtraction": null,
+          "modelChoice": "done",
+          "selected": "done",
+          "selectedRelation": null,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 1,
+            "e1": 0,
+            "e2": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "filteredDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 1,
+            "e1": 0,
+            "e2": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE"
+        }
+      ]
+    },
+    {
+      "id": "recovery-library-switch-r1",
+      "actor": "experience-action-relations-current",
+      "runId": "0dafacb8-5adc-4c96-bec9-63b5529681b2-recovery-library-switch-r1-experience-action-relations-current",
+      "sequence": 3,
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "switch"
+      },
+      "replicate": 1,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "judgments": 4,
+        "requests": 8,
+        "recordedAPICalls": 8,
+        "selectionCorrections": 0,
+        "baselineSelectionChanges": 0,
+        "earlyUnchangedRevisits": 0
+      },
+      "timing": {
+        "apiMs": 8587.702199999985,
+        "uiMs": 156.16700000000128,
+        "elapsedMs": 10656.084600000002,
+        "humanTimeMs": null
+      },
+      "ledgerEvidence": {
+        "used": 8,
+        "sha256": "25e53252976399afbafd0eb23a7b3a3cb42f7e1883b61514baa41337a10b6cba",
+        "reserved": 0,
+        "ok": 8,
+        "errors": 0
+      },
+      "initialImageSha256": "3f2556986576fe92b307da15ffce956a7733645efd0c960356e58427c68c7c53",
+      "prerequisiteEvents": [],
+      "revisits": [],
+      "saves": [
+        {
+          "step": 3,
+          "route": "alternative",
+          "delivered": true,
+          "evidence": {
+            "before": {
+              "kind": "observation",
+              "step": 3,
+              "observationId": "o3",
+              "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+              "url": "/good/?recovery=p4#alternative",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "alternative",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 4,
+              "observationId": "o4",
+              "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335",
+              "url": "/good/?recovery=p4#alternative",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "alternative",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "東分館",
+                "complete": true
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "recoveryAfterChange": {
+        "applicable": false,
+        "completed": false,
+        "returns": [],
+        "evidence": []
+      },
+      "switchCompletion": {
+        "applicable": true,
+        "completed": true,
+        "evidence": [
+          {
+            "step": 3,
+            "route": "alternative",
+            "delivered": true,
+            "evidence": {
+              "before": {
+                "kind": "observation",
+                "step": 3,
+                "observationId": "o3",
+                "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+                "url": "/good/?recovery=p4#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 4,
+                "observationId": "o4",
+                "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335",
+                "url": "/good/?recovery=p4#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "東分館",
+                  "complete": true
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "error": null,
+      "terminalSnapshot": {
+        "schemaVersion": 1,
+        "route": "alternative",
+        "eligible": false,
+        "verificationAttempts": 0,
+        "recordChecks": 0,
+        "savedValue": "東分館",
+        "complete": true
+      },
+      "steps": [
+        {
+          "number": 1,
+          "observationId": "o1",
+          "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+          "observedState": {
+            "schemaVersion": 1,
+            "route": "primary",
+            "eligible": false,
+            "verificationAttempts": 0,
+            "recordChecks": 0,
+            "savedValue": "中央図書館",
+            "complete": false
+          },
+          "actionRelations": {
+            "schemaVersion": 1,
+            "kind": "model-action-relations-not-fact",
+            "evidencePolicy": "current-candidate",
+            "source": {
+              "observationId": "o1",
+              "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "availability": {
+              "status": "blocked",
+              "evidence": {
+                "observationId": "o1",
+                "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+              }
+            },
+            "candidates": {
+              "e1": {
+                "role": "navigation",
+                "evidence": {
+                  "observationId": "o1",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+                },
+                "verify": "navigation"
+              }
+            },
+            "adjustments": []
+          },
+          "visualHypotheses": null,
+          "jevImageBindings": {
+            "assessment": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "a83cc094-96f2-460f-8727-8b79eafa242e",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "action": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "b4bf8c6d-3d2e-427f-a09d-9504699da6be",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "jevUsage": {
+            "assessment": {
+              "inputTokens": 12025,
+              "outputTokens": 734
+            },
+            "action": {
+              "inputTokens": 12036,
+              "outputTokens": 168
+            }
+          },
+          "visualExtraction": null,
+          "modelChoice": "e1",
+          "selected": "e1",
+          "selectedRelation": {
+            "role": "navigation",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21"
+            },
+            "verify": "navigation"
+          },
+          "rawDistribution": {
+            "abandon": 0,
+            "done": 0,
+            "e1": 0.99,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "filteredDistribution": {
+            "abandon": 0,
+            "done": 0,
+            "e1": 1,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED"
+        },
+        {
+          "number": 2,
+          "observationId": "o2",
+          "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+          "observedState": {
+            "schemaVersion": 1,
+            "route": "home",
+            "eligible": false,
+            "verificationAttempts": 0,
+            "recordChecks": 0,
+            "savedValue": "中央図書館",
+            "complete": false
+          },
+          "actionRelations": {
+            "schemaVersion": 1,
+            "kind": "model-action-relations-not-fact",
+            "evidencePolicy": "current-candidate",
+            "source": {
+              "observationId": "o2",
+              "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "availability": {
+              "status": "ready",
+              "evidence": {
+                "observationId": "o2",
+                "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+              }
+            },
+            "candidates": {
+              "e1": {
+                "role": "navigation",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "navigation"
+              },
+              "e2": {
+                "role": "execute",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "navigation"
+              },
+              "e3": {
+                "role": "unrelated",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "unknown"
+              },
+              "e4": {
+                "role": "information",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "unknown"
+              },
+              "back": {
+                "role": "unknown",
+                "evidence": {
+                  "observationId": "o2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+                },
+                "verify": "navigation"
+              }
+            },
+            "adjustments": []
+          },
+          "visualHypotheses": null,
+          "jevImageBindings": {
+            "assessment": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "ece50fca-1466-4a26-a8c7-8c98a308b156",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "beeb9ebc-f8dd-49b3-86f5-ff8787b7c8e8",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ],
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "action": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "33fe780a-2664-47bd-9986-e749a9b91610",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "b00dfffa-9128-49af-9304-d2c2d7837ca6",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ],
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "jevUsage": {
+            "assessment": {
+              "inputTokens": 28031,
+              "outputTokens": 2157
+            },
+            "action": {
+              "inputTokens": 21991,
+              "outputTokens": 199
+            }
+          },
+          "visualExtraction": null,
+          "modelChoice": "e2",
+          "selected": "e2",
+          "selectedRelation": {
+            "role": "execute",
+            "evidence": {
+              "observationId": "o2",
+              "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011"
+            },
+            "verify": "navigation"
+          },
+          "rawDistribution": {
+            "abandon": 0.01,
+            "back": 0,
+            "done": 0,
+            "e1": 0.01,
+            "e2": 0.97,
+            "e3": 0,
+            "e4": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "filteredDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0.010204081632653062,
+            "e2": 0.9897959183673469,
+            "e3": 0,
+            "e4": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED"
+        },
+        {
+          "number": 3,
+          "observationId": "o3",
+          "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+          "observedState": {
+            "schemaVersion": 1,
+            "route": "alternative",
+            "eligible": false,
+            "verificationAttempts": 0,
+            "recordChecks": 0,
+            "savedValue": "中央図書館",
+            "complete": false
+          },
+          "actionRelations": {
+            "schemaVersion": 1,
+            "kind": "model-action-relations-not-fact",
+            "evidencePolicy": "current-candidate",
+            "source": {
+              "observationId": "o3",
+              "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "availability": {
+              "status": "unknown"
+            },
+            "candidates": {
+              "e1": {
+                "role": "execute",
+                "evidence": {
+                  "observationId": "o3",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da"
+                },
+                "verify": "goal-change"
+              },
+              "e2": {
+                "role": "navigation",
+                "evidence": {
+                  "observationId": "o3",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da"
+                },
+                "verify": "no-goal-change"
+              },
+              "back": {
+                "role": "unknown",
+                "verify": "unknown"
+              }
+            },
+            "adjustments": [
+              {
+                "field": "availability",
+                "from": "ready",
+                "to": "unknown",
+                "reason": "NO_ADMITTED_EVIDENCE"
+              },
+              {
+                "field": "role_back",
+                "from": "execute",
+                "to": "unknown",
+                "reason": "NO_ADMITTED_EVIDENCE"
+              },
+              {
+                "field": "verify_back",
+                "from": "no-goal-change",
+                "to": "unknown",
+                "reason": "NO_ADMITTED_EVIDENCE"
+              }
+            ]
+          },
+          "visualHypotheses": null,
+          "jevImageBindings": {
+            "assessment": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "0793271e-83f1-407e-90d0-0e494e9bf4e2",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      2,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "36b29fad-a840-48e0-af8f-126921c76b02",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ],
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_1",
+                  "reference": "4449b6bc-f683-46dd-ad07-3be279441869",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "action": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "fed5c48a-0f95-4794-b7be-60110e254952",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      2,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "4ff8dc9b-26b5-44d5-b0ba-5c31019e0eec",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ],
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_1",
+                  "reference": "424647ad-42b5-42bf-a404-d64f52d1e0ad",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "jevUsage": {
+            "assessment": {
+              "inputTokens": 29827,
+              "outputTokens": 1556
+            },
+            "action": {
+              "inputTokens": 26328,
+              "outputTokens": 183
+            }
+          },
+          "visualExtraction": null,
+          "modelChoice": "e1",
+          "selected": "e1",
+          "selectedRelation": {
+            "role": "execute",
+            "evidence": {
+              "observationId": "o3",
+              "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da"
+            },
+            "verify": "goal-change"
+          },
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 1,
+            "e2": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "filteredDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 1,
+            "e2": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED"
+        },
+        {
+          "number": 4,
+          "observationId": "o4",
+          "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335",
+          "observedState": {
+            "schemaVersion": 1,
+            "route": "alternative",
+            "eligible": false,
+            "verificationAttempts": 0,
+            "recordChecks": 0,
+            "savedValue": "東分館",
+            "complete": true
+          },
+          "actionRelations": {
+            "schemaVersion": 1,
+            "kind": "model-action-relations-not-fact",
+            "evidencePolicy": "current-candidate",
+            "source": {
+              "observationId": "o4",
+              "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "availability": {
+              "status": "completed",
+              "evidence": {
+                "observationId": "o4",
+                "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335"
+              }
+            },
+            "candidates": {
+              "e1": {
+                "role": "execute",
+                "evidence": {
+                  "observationId": "o4",
+                  "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335"
+                },
+                "verify": "no-goal-change"
+              },
+              "e2": {
+                "role": "navigation",
+                "evidence": {
+                  "observationId": "o4",
+                  "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335"
+                },
+                "verify": "no-goal-change"
+              },
+              "back": {
+                "role": "unknown",
+                "verify": "unknown"
+              }
+            },
+            "adjustments": [
+              {
+                "field": "verify_back",
+                "from": "goal-change",
+                "to": "unknown",
+                "reason": "NO_ADMITTED_EVIDENCE"
+              }
+            ]
+          },
+          "visualHypotheses": null,
+          "jevImageBindings": {
+            "assessment": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "ab02c65b-88b6-4cc4-afc1-ab96ee0c8bb8",
+                  "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      2,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "be55bfe8-b04b-4415-a022-83da52a3fd98",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_1",
+                  "reference": "e2c6cdeb-e452-476f-ae0f-58aece74ba37",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "correspondence_0",
+                  "reference": "39dcf8a3-740b-41ba-9c99-39155e1dc694",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "action": {
+              "schemaVersion": 1,
+              "kind": "opaque-image-references",
+              "assets": [
+                {
+                  "logicalId": "current",
+                  "reference": "18a4bfd2-f7c5-4a72-bcde-445d804f23a6",
+                  "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335",
+                  "paths": [
+                    [
+                      "observation",
+                      "image"
+                    ],
+                    [
+                      "memoryObservations",
+                      2,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_0",
+                  "reference": "3fce7c59-4801-48de-8277-095fe6ad4ed2",
+                  "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "memory_1",
+                  "reference": "41331924-f121-4196-8537-a16599e67018",
+                  "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+                  "paths": [
+                    [
+                      "memoryObservations",
+                      1,
+                      "image"
+                    ]
+                  ]
+                },
+                {
+                  "logicalId": "correspondence_0",
+                  "reference": "2100d599-023d-4f06-8b95-3adae602fe34",
+                  "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+                  "paths": [
+                    [
+                      "correspondenceObservations",
+                      0,
+                      "image"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "jevUsage": {
+            "assessment": {
+              "inputTokens": 31008,
+              "outputTokens": 1598
+            },
+            "action": {
+              "inputTokens": 26916,
+              "outputTokens": 182
+            }
+          },
+          "visualExtraction": null,
+          "modelChoice": "done",
+          "selected": "done",
+          "selectedRelation": null,
+          "rawDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 1,
+            "e1": 0,
+            "e2": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "filteredDistribution": {
+            "abandon": 0,
+            "back": 0,
+            "done": 1,
+            "e1": 0,
+            "e2": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Three explicit actors: old role judgments, current-candidate evidence repair, and repaired actor plus native Responses visual-condition extraction. Initial product, goal, admitted base input and images match; declared extraction memory/input and candidate evidence questions intentionally differ.",
+    "The model supplies fallible categorical hypotheses, not verified UI semantics. An evidence reference does not establish that the hypothesis is correct.",
+    "One trial per actor/task/condition; no reproducibility, broad stability, human fidelity or causal claim. Later trajectories differ.",
+    "Charged reservations do not prove HTTP attempts or service receipt. API time and human time remain separate.",
+    "Mock results verify integration only and are never real-model performance evidence."
+  ],
+  "independentAudit": {
+    "status": "PASS_SOURCE_BOUND_SMOKE_AUDIT",
+    "report": "visual-conditions-watch-smoke-review.json",
+    "sha256": "a7df4da95c89d19593da1e47da9d8771157d57f0b8c7cd2f586e0a3934ad292b",
+    "sourceHash": "7e27d09aa2d72d36c26f3a5d583ee0ba9a6804890b01afacb96588a27ee2d5df",
+    "manifestSha256": "6e83dfe03678db6508fa4bf882267b954b17751c7eb69e54cac2b9127a1b8bbf",
+    "scope": "3/18 slot connectivity smoke, source, delivery, replay, selection and accounting; not full evaluation or semantic/human validation."
+  },
+  "APIRequestsByThisCommand": 0,
+  "environmentFilesReadByThisCommand": 0
+}

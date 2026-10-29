@@ -2,7 +2,9 @@
 
 この変更は、現在の候補に対する根拠を現在画像へ限定する修正と、具体的な条件を画像から取り出す段階を分けて比較する。
 既定の Jev 方式は維持する。
-三度の入力上限停止から画像参照名の衝突を特定した。修正版では既知の失敗画面を通過し、Responses の実応答も取得したが、最初の抽出は根拠条件に違反して停止した。
+画像参照名の衝突と送信スキーマの不整合を修正し、固定版 `ac2b8d7` で実モデル 18 枠を実行した。旧方式と現在根拠方式は各 4/6 達成、抽出追加方式は 3/6 達成・3 件がタイムアウトだった。追加方式の優位性や人間への一致は確認していない。
+
+[全結果 JSON](visual-conditions-results.json)、[CSV](visual-conditions-results.csv)、[独立検証](visual-conditions-independent-review.md)、[過去の停止を含む版別記録](visual-conditions-prior-stops.json)を公開する。
 
 ## 入力と判断
 
@@ -37,17 +39,17 @@ HTTP 成功後の拒否、未完了、不正 JSON、形式不正は、通信失�
 Set-Location 'C:/Users/Maekawa Ao/.codex/worktrees/virtual-beta/Ux_test'
 
 # API を使わず、先頭の三方式だけを接続確認する
-node --import tsx runner/visual-conditions-comparison.ts --mock --limit 3 --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v5.json).Path --out reports/visual-conditions-mock-new
+node --import tsx runner/visual-conditions-comparison.ts --mock --limit 3 --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v6.json).Path --out reports/visual-conditions-mock-new
 
 # 新しい画像を通常 runner から取得する実モデル比較
-node --import tsx runner/visual-conditions-comparison.ts --env-file E:/ChatGPT/Ux_test/.env --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v5.json).Path --out reports/visual-conditions-real-new
+node --import tsx runner/visual-conditions-comparison.ts --env-file E:/ChatGPT/Ux_test/.env --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v6.json).Path --out reports/visual-conditions-real-new
 
 node --import tsx --test --test-concurrency=1 tests/visual-hypotheses.test.ts tests/openai-visual-hypotheses.test.ts tests/visual-conditions-comparison.test.ts tests/visual-conditions-integration.test.ts
 npm run build
 ```
 
 出力先は毎回新しくする。
-四度の停止を含む過去 4,798 原本を照合する snapshot と生データは、この環境に残るローカル資料であり Git には含めない。
+最新比較の 606 原本と、それ以前の 4,798 原本を照合する `prior-raw-v6.json` と生データは、この環境に残るローカル資料であり Git には含めない。公開画像 15 枚は、その原本からバイト列を変えずに抜粋した。
 別の clone で同じ原本保全を確認したことにはならない。
 ブラウザーを使う検証は同時に起動せず、初期ページ読み込みのタイムアウトをモデルの失敗へ置き換えない。
 
@@ -148,7 +150,7 @@ API 待ち時間は人間の行動時間とは別に扱い、未報告の費用�
 モデル名にかかわらず、宣言済み方式の全応答へ対応表を要求するように修正し、同じ改ざんで再検証する。
 既存 8 ファイルの回帰実行は 53 件中 49 成功、4 失敗として保存した。
 うち 3 件は新しい安全な通信記録の追加に対する古い期待値であり、元記録を変更せず厳密な対応表検査へ更新したオフライン再検証 5 / 5 が通った。
-残る 1 件は過去 b7 版のソース全文と現在実装の一致を要求する既知の検査で、テスト本体と失敗証拠は変更していない。
+当時の残る 1 件は、過去 b7 版のソース全文と現在実装の一致を要求する検査だった。当時の失敗証拠は保持した。後述の実行契約比較への移行は別の版で検証している。
 全体スイート成功とは扱わず、今回の変更に関する検証結果を個別に示す。
 
 
@@ -157,6 +159,7 @@ API 待ち時間は人間の行動時間とは別に扱い、未報告の費用�
 UUID 版 producer `d6796fca744ee3b9b33f075d45eb2eda4432339f` は 3 / 18 試行、17 要求で停止した。
 旧方式と現在根拠方式の最初の図書予約課題は、各 8 要求で達成した。
 既知の失敗地点である 2 判断目の評価は、旧方式が 199,918 から 29,917 入力トークンへ減り、現在根拠方式も 28,046 トークンで通過した。
+これは同じ UI・質問・画像での観測値であり、履歴を含む論理入力全文を同一にした比較ではない。数値差を意味表現の効果として扱わない。
 同じ文字列や質問数でも、参照名による画像複製を除くことが必要だった。
 この 2 件だけで、他の課題全般の安定性や探索性能を結論しない。
 
@@ -177,3 +180,95 @@ JSON 生成と API 接続は成立したが、抽出仮説の受理、Jev への
 三方式・6 条件・各 1 回の 18 試行、最大 504 要求は維持する。
 既実行は 50 要求（Jev 49、Responses 1）で、次版との合計上限は 554 要求。
 旧 4 実行の 201 原本も含む 4,798 ファイルを `prior-raw-v5.json` で保全する。
+
+
+## 固定版 18 枠の結果
+
+producer は `ac2b8d792d3971f7d02526e9eb43c843d82c0ac8`、source hash は `d36dd19f6076cff468bcafe01e71ad194c1dab44080a942d183dda30c9ba98da`。
+各条件 1 回、ペルソナなしの三方式比較である。全 6 組で初期製品・目的・基本入力・画像が一致した。
+`COMPLETED` は予定枠の実行完了を表し、全件の成功や有効性を表さない。
+
+- 旧方式：6 有効、4 達成、2 判断上限。92 要求。
+- 現在根拠方式：6 有効、4 達成、2 判断上限。92 要求。
+- 抽出追加方式：3 有効・3 基盤無効、3 達成。105 要求。基盤無効を除いた 3/3 だけで性能を評価しない。
+
+二つの Jev 方式は入口切替と確認後の再訪を両課題で達成した。
+別途照合が必要な `unchanged` は両課題で未達で、各 12 判断に達した。
+両方式の操作列は 5/6 条件で一致し、工房の `unchanged` で分岐した。
+操作数の一致は経路の一致を意味しない。分岐後は画面・候補も異なり、分布の差をすべて同一入力の揺らぎとは扱えない。
+
+今回の 289 要求は Jev 252、Responses 37。HTTP 受領確認は 286、受領未確認はタイムアウト 3 件だった。
+Responses の出力 34 件は既存の受理処理を通過し、Jev の両段階に渡った。
+`library/changed` の o2 は約 30 秒の要求上限、両 `unchanged` の o10 は試行全体の期限により停止した。
+後者の探索時間は約 154 秒だが、180 秒の外部期限にはサーバー・ブラウザー・ページ準備も含む。
+正確な dispatch の timeoutMs は原本に保存しておらず、残時間の推定値と取得済み時刻を区別する。
+API 待ち時間は人間の行動時間ではなく、費用と人間時間は引き続き null とする。
+
+## 入力を保持していても生じた再訪
+
+独立 AI が事後診断として `library/unchanged` の o4・o5・o6 を点検した。
+o4 の画面と「予約記録との照合がまだ完了していません」という仮説は、o5 の画像と容量内の仮説記憶へ残っていた。
+それでも新しい抽出は関連条件を `uncertain` とし、変更入口を `execute`、予約記録を `information` とした。
+Jev 側も同じ役割を出し、元分布は変更入口 0.79、予約記録 0.17 で、変更入口を選んだ。
+o6 は、まだ変更できない画面への再訪だった。
+
+[未完了の表示](visual-conditions-evidence/library-unchanged-o4.png)、[次の候補](visual-conditions-evidence/library-unchanged-o5.png)、[再訪先](visual-conditions-evidence/library-unchanged-o6.png)を、モデルへ渡した元の画像のまま保存した。
+確認できたのは入力が失われていないことと、後の仮説・選択の変化である。
+内部で何を理解したか、特定の部品が再訪を引き起こしたか、人間も同じ行動をするかは確定していない。
+分類、操作の価値評価、UI 説明のどれが原因かも切り分けていない。
+
+独立 AI による事前固定 12 画像・11 出力・47 引用インスタンスの点検では、画面にない「／」を付けて行や見出しを結ぶものが 8 件あった。
+原文の引用と `model-transcribed-unverified` を残し、文字の削除によって正確な引用へ修正したことにはしない。
+これは全出力の正確率を測った標本ではなく、画面の空白・改行を含む逐字一致の認定でもない。人間参加者による点検ではない。
+
+## 次の改善と検証
+
+1. **P0：未解決条件の更新を追う。** 画像と記憶が届いても条件が弱まった例を対象に、継続・変更・解消とその根拠を別に記録する。容量による破棄を解消と扱わず、過去仮説を現在の事実へ昇格させない。操作順や再訪禁止を登録せず、別画面も含む同条件比較で中間操作と必要再訪を測る。
+2. **P1：追加推論の待ち時間を切り分ける。** 現在は effort 未指定。[公式 model 仕様](https://developers.openai.com/api/docs/models/gpt-6-luna)で既定 medium と low の対応を確認した。次は effort だけを記録して変え、同じ上限で完走率・条件の質・操作を比較する。low の効果は未実行・未検証である。
+3. **P1：引用と解釈を検証する。** 一つの可視範囲の引用と解釈を分け、結合記号を含む原出力も保持する。今回の 8 件を回帰例にするが、型検査や OCR だけで意味の正しさを認定しない。
+4. **P2：実際の要求期限を保存する。** 要求へ適用した timeoutMs、試行期限、準備時間を明示し、残時間からの推定を減らす。
+5. **P2：比較対象を増やす。** 修正済み送信の provider 比較、条件内反復、ペルソナ、人間の対象集団を分けて測る。今回の 18 枠は人間一致や未学習画面への一般化の証拠ではない。
+
+旧 4 実行は 50 要求、新版は 289 要求で、この実装フェーズは計 339 要求。既定上限 554 以内、並列 1、再試行なしだった。
+過去の停止 4 版は性能の分母へ合算せず、source と manifest hash を版別に保持する。
+
+
+## 画面起動の遅延修正と最新版の疎通確認
+
+18枠の結果を保存した後、旧方式の回帰検証でページ読み込みが30秒を超える2件を再現した。
+同じ作業ツリーの約3.9万ファイルのうち約3.8万件は `reports` の保存資料だった。
+同じUIの単変数診断では、通常起動のページ準備が約31.8秒、`reports` だけを監視対象から外すと約0.76秒だった。
+HTML探索対象だけを絞る変更では約31.9秒のままだったため、`optimizeDeps.entries` は変更していない。
+`vite.config.ts` の `server.watch.ignored: ['**/reports/**']` を追加した。アプリの実ファイルの変更は検知し、保存資料の変更は検知しないことを実際のwatcherで確認した。
+準備遅延の解消を、モデルの中間操作の理解が改善した証拠とは扱わない。
+
+新しいコード版は `d488a9ab6640fd7ce284dfa808862b2cbfcfd60c`、source150は `7e27d09aa2d72d36c26f3a5d583ee0ba9a6804890b01afacb96588a27ee2d5df`。
+新しいコンテキストの独立検証で、watcher・旧方式の実行契約・通信・比較基盤の関連16件が成功した。失敗・skipは0。
+旧版の期待値は旧版だけで作成し、現在の変更を隔離コピーに取り込んで比較した。元4件と独立追加8件の改ざんを拒否し、環境ファイルの除外も検証した。
+以前の広い回帰実行49成功・4失敗、移行時のページ読み込み2失敗は原本として残す。対象16件の成功を全体スイートの成功とは表現しない。
+[独立した回帰ゲート](visual-conditions-runtime-review.json)に対象版、コマンド、結果、未検証項目を保存する。
+
+この版を固定したまま、図書予約の `switch` だけを通常runnerで新規実行した。
+抽出追加、旧、現在根拠の順で各1回、3件とも有効・客観的達成・主観的完了だった。
+旧方式8要求、現在根拠方式8要求、抽出追加方式12要求の計28要求で、HTTP・会計・基盤エラーはなかった。
+各3 UI操作・4判断・0注視で、初期条件は1組一致した。
+抽出追加方式のAPI待ちは約51.5秒、旧は約8.3秒、現在根拠は約8.6秒。人間の操作時間ではなく、1試行ずつの値である。
+
+[最新版3枠のJSON](visual-conditions-watch-smoke-results.json)、[CSV](visual-conditions-watch-smoke-results.csv)、[独立監査](visual-conditions-watch-smoke-review.json)を18枠の結果とは別に保存する。
+manifest SHA-256は `6e83dfe03678db6508fa4bf882267b954b17751c7eb69e54cac2b9127a1b8bbf`。
+`--limit 3` で予定18枠の先頭だけを実行したため、batchは `INCOMPLETE`、残る15枠は未実行である。
+新たな反復試験全体の完了や、18枠で未達だった `unchanged` の改善を主張しない。
+元の18枠は旧producer ac2b8d7/source d36ddのままで、新版の実行として付け替えていない。
+このフェーズの要求は旧339＋今回28＝367、事前上限554以内。再試行・保存入力の直接再送・人間記録の送信はない。
+原本は旧5404件＋新75件。新原本は `reports/visual-conditions-2026-10-30/watch-fixed-smoke` に保持する。次の実行用の `prior-raw-v7.json` は旧5404件と新75件の計5479件を保全する。
+
+```powershell
+# 同じ環境で、別の新規出力先へ先頭3枠を実行する
+node --import tsx runner/visual-conditions-comparison.ts --env-file E:/ChatGPT/Ux_test/.env --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v7.json).Path --limit 3 --out reports/visual-conditions-smoke-new
+
+# 今回修正した範囲のオフライン回帰確認（API要求なし）
+node --import tsx --test --test-concurrency=1 tests/vite-artifact-watch.test.ts tests/recovery-transport.test.ts tests/visual-conditions-comparison.test.ts
+```
+
+次の改善は前節P0の未解決条件の継続・更新である。必要再訪を禁止せず、照合によって何が変わったか、候補がその条件を変えそうかを分けて検証する。
+今回の起動修正や3件の達成で、この未解決部分を解決済みにしない。

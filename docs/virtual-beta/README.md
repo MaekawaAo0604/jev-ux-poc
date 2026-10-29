@@ -157,3 +157,9 @@ manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.j
 画像から具体的な条件を抽出する任意部品、現在候補の根拠制限、三方式の比較は [visual-conditions.md](visual-conditions.md) を参照。
 実モデルでの三度の入力上限停止を分析し、短い画像参照名が説明文に衝突する送信不具合を特定した。
 旧スコアの原本を保持し、修正済み送信と抽出部品の実行確認を分けて記録する。
+
+
+修正済み固定版の18枠比較は [visual-conditions.md](visual-conditions.md) と[全結果](visual-conditions-results.json)に保存した。旧方式と現在根拠方式は各4/6達成、Responses追加方式は3/6達成・3タイムアウト。[独立検証](visual-conditions-independent-review.md)は会計・リプレイ・実配信を確認した一方、引用の結合記号不整合と、入力保持後の解釈変化を残した。一般的な改善や人間一致は未検証。
+
+
+後続版d488a9aでは、蓄積した保存資料のVite監視による起動遅延を修正し、[独立回帰16件](visual-conditions-runtime-review.json)を通過した。[新規3方式の疎通確認](visual-conditions-watch-smoke-results.json)も全3件が目的達成（28要求）。これは1課題のみで、元18枠の未達条件や人間再現の解決は未確認。版・分母・実行コマンドは [visual-conditions.md](visual-conditions.md) に分けて保存した。

@@ -74,3 +74,19 @@ Producer d679/source de20 opaque-live endedMODEL_OUTPUT_FAILURE after3/18,17requ
 B owns4schema/adapter/testfiles: represent existing evidence invariant via supported nestedanyOf (condition2branches; relation3branches), explicitlyprompt uncertain/noevidence whenunseen, no consumer/dataCopy/decoder/memoryrelaxation or fallback. Test9condition and36relation combinations against independent literal expectedtable and test-onlyclosed JSONschema subset evaluator, realbadoutput stays schema+consumerrejected, oldraw untouched. Official structuredoutputs guide fetched: rootobject, allrequired/additionalPropertiesfalse, nestedanyOf supported; no if/then/else/not.
 
 Parent declares schemaContract evidence-conditional-v1 and actorOrderOffset2 in protocol/method/wrapper/converter, native-first balancedrotation to fail early on format rather than spending two controls first. This is a new18trial plan, not replacing failedslot or savedinput resend; every actor still2first/2second/2third across6fixtures. Same24/24/36caps,504newmax, totalselfcap554including50consumed. Freeze149source+alltests/contracts/docs before independentpreflight; source fixed whilelive. Minimal change scope schema+instructions, protocol/order metadata/tests/docs. New raw model-output failure remains outside user confusion/abandonment counts.
+
+
+## 固定版の実行と独立監査完了
+
+ac2b8d7/source d36ddを固定し、18枠/289要求を実行。15有効/3基盤無効、旧4/6・現在根拠4/6・追加抽出3/6達成。全6初期組が一致し、18 replayと252 Jev stage、37 native stageの会計を独立照合した。型適合34出力の配信を確認したが、引用の結合記号不整合8件、入力保持後の解釈変化、時間切れ3件は未解決として残す。事後診断の選定主体は親AI、画像点検主体は独立AIで、人間参加者はいない。
+
+367凍結ファイル、過去4798原本、新606原本、5producer ZIPは監査終了まで不変。公開copyだけに独立監査closureを付け、converter原本とrawは変更しない。最新606を加えた5404原本の次回保全snapshotはprior-raw-v6.json。過去4版50要求を含む計339要求は上限554以内。実行完了、基盤受理、意味理解、人間一致を区別する。
+
+
+## 後続版の回帰修正と3枠確認
+
+旧b7全文一致テストを隔離old-only実行から得た契約との比較へ移行し、変換したUUID・画像・論理入力・分布・実操作・台帳・replayの一致を独立確認。元4件＋独立8件の改ざんを拒否。移行中の隣接2テストが30秒ページ読み込みで失敗したため、原本を保持して原因を切り分けた。
+
+通常root約31.8秒、HTML entriesのみ制限約31.9秒、reports監視除外のみ約0.76秒。root vite.config.tsでwatch.ignoredだけを追加し、sourceIdentityへ同configを含めた。アプリ変更の検知とreports非検知を実watcherで検証。関連3ファイル16件を独立round2で全件成功、type/buildも成功。モデル選択ロジック・UI・依存・entries設定は変更していない。
+
+d488a9ab6640fd7ce284dfa808862b2cbfcfd60c/source150=7e27d09aa2d72d36c26f3a5d583ee0ba9a6804890b01afacb96588a27ee2d5dfを凍結。ZIP e2d88f1a8aa58f84fccdb7fa9fb1d6235eabdc96c637e5e9bd139ceb8854f3c9を保存。事前limit3/max84/parallel1/retry0でswitch三方式を新規実行。全3有効・客観的達成、native12＋旧8＋現在8=28要求、manifest6e83dfe03678db6508fa4bf882267b954b17751c7eb69e54cac2b9127a1b8bbf、INCOMPLETE/残15未実行。元18試行source d36ddは保持。旧339＋新28=367<=554、75新原本を追加。新3枠と旧18枠は別版・別分母として公開し、未達unchangedや人間一致を解決済みとしない。

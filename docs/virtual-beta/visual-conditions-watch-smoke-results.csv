@@ -1,0 +1,4 @@
+actor,id,task,condition,replicate,valid,objective,perceivedDone,termination,requests,uiActions,looks,judgments,earlyUnchangedRevisits
+"experience-visual-conditions","recovery-library-switch-r1","library","switch",1,true,true,true,"SUBJECTIVE_DONE",12,3,0,4,0
+"experience-action-relations","recovery-library-switch-r1","library","switch",1,true,true,true,"SUBJECTIVE_DONE",8,3,0,4,0
+"experience-action-relations-current","recovery-library-switch-r1","library","switch",1,true,true,true,"SUBJECTIVE_DONE",8,3,0,4,0
