@@ -1,3 +1,4 @@
+import type {ConditionContinuityMemory} from './condition-continuity.js';
 import type {VisualHypothesisMemory} from './visual-hypotheses-contracts.js';
 import type {GoalSearchConfig,GoalSearchMemory} from './goal-search-contracts.js';
 import type {CorrespondenceConfig} from './correspondence-contracts.js';
@@ -18,12 +19,12 @@ export type VisionObservation={bytes:Buffer;sourceSha256:string;imageSha256:stri
 /** These are the ONLY observation fields admitted to simulated user memory. */
 export type UserObservation={id:string;imageSha256:string;visibleText:string[];fixation:Point;candidateIds:string[]};
 export type UserMemory={observationId:string;imageSha256:string;visibleText:string[];action?:BetaAction;outcome?:'performed'|'failed'|'unchanged'};
-export type UserState={schemaVersion:1;revision:number;fixation:Point;memory:UserMemory[];lastObservation?:UserObservation;expectations:string[];visualHypotheses?:VisualHypothesisMemory;goalSearch?:GoalSearchMemory;experience?:ExperienceMemory;deliberation?:DeliberationMemory};
+export type UserState={schemaVersion:1;revision:number;fixation:Point;memory:UserMemory[];lastObservation?:UserObservation;expectations:string[];visualHypotheses?:VisualHypothesisMemory;conditionContinuity?:ConditionContinuityMemory;goalSearch?:GoalSearchMemory;experience?:ExperienceMemory;deliberation?:DeliberationMemory};
 export type StateConfig={enabled:boolean;memoryCapacity:number};
 export type SelectionConfig={mode:'argmax'|'sample';seed:number};
 export type SelectionPolicyScope='global'|'ui-conditional';
 export type UIConditionalPolicyRecord={kind:'ui-conditional-v1';baselineSelected:string;baselineClass:'ui'|'non-ui';uiCandidates:string[];uiMass:number;weightedUIMass:number;marginal:Record<string,number>;conditionalDraw:number|null};
 export type SelectionRecord={policy?:{kind:'temporary-deferral';weights:Record<string,number>;before:Record<string,number>;weightedTotal:number;scope?:UIConditionalPolicyRecord};modelChoice:string;raw:Record<string,number>;normalized:Record<string,number>;normalization:{rawTotal:number;filteredTotal:number};filtered:Record<string,number>;adjustments:{candidate:string;reason:string}[];mode:SelectionConfig['mode'];seed:number;drawIndex:number;draw:number|null;selected:string};
-export type BetaConfig={schemaVersion:1;actionRelations?:{enabled:boolean;evidencePolicy?:'current-candidate'};visualHypotheses?:{enabled:boolean;capacity:number};goalSearch?:GoalSearchConfig;correspondence?:CorrespondenceConfig;initialFixation?:Point;deferral?:DeferralConfig;deferralReason?:DeferralReasonConfig;experience?:ExperienceConfig;deliberation?:DeliberationConfig;id:string;vision:VisionConfig;state:StateConfig;selection:SelectionConfig;behavior:'goal'|'user';maxUIActions:number;maxLooks:number;maxDecisions:number;maxAPICalls:number;maxRunMs:number;modeledActionMs:number|null};
+export type BetaConfig={schemaVersion:1;actionRelations?:{enabled:boolean;evidencePolicy?:'current-candidate'};visualHypotheses?:{enabled:boolean;capacity:number;continuity?:{capacity:number}};goalSearch?:GoalSearchConfig;correspondence?:CorrespondenceConfig;initialFixation?:Point;deferral?:DeferralConfig;deferralReason?:DeferralReasonConfig;experience?:ExperienceConfig;deliberation?:DeliberationConfig;id:string;vision:VisionConfig;state:StateConfig;selection:SelectionConfig;behavior:'goal'|'user';maxUIActions:number;maxLooks:number;maxDecisions:number;maxAPICalls:number;maxRunMs:number;modeledActionMs:number|null};
 export type BetaInput={persona?:Persona;charter:ExplorationCharter};
 export type Termination='OBJECTIVE_SUCCESS'|'SUBJECTIVE_DONE'|'ABANDONED'|'STUCK'|'UI_ACTION_LIMIT'|'LOOK_LIMIT'|'DECISION_LIMIT'|'API_LIMIT'|'TIME_LIMIT'|'SAFETY_STOP'|'API_ERROR'|'INVALID_DISTRIBUTION'|'ACTION_ERROR'|'OBSERVATION_ERROR';

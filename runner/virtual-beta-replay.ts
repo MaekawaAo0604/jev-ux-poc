@@ -1,3 +1,4 @@
+import {emptyConditionContinuity,admitConditionContinuity,type ConditionContinuityMemory} from '../jev/virtual-beta/condition-continuity.js';
 import {verifyJevImageBindings} from './jev-image-references.js';
 import {visualHypothesisInput} from './visual-hypothesis-input.js';
 import {admitVisualHypotheses,rememberVisualHypotheses} from '../jev/virtual-beta/visual-hypotheses.js';
@@ -93,6 +94,7 @@ export async function replayDirectory(directory:string){
  let deferrals=result.config.deferral?.enabled?copyDeferrals(undefined,result.config.deferral):undefined,effectiveDeferrals=deferrals;
  let experience:ExperienceMemory|undefined,pending:ExperienceIntent|undefined,execution:'performed'|'unchanged'='unchanged';
  let reasonMemory:DeferralReasonMemory|undefined;
+ let continuityMemory:ConditionContinuityMemory|undefined=result.config.visualHypotheses?.continuity?emptyConditionContinuity(result.input.charter.goal):undefined;
  let visualMemory:VisualHypothesisMemory|undefined=result.config.visualHypotheses?.enabled?{schemaVersion:1,records:[]}:undefined;
  let searchMemory:GoalSearchMemory|undefined=result.config.goalSearch?.enabled?{schemaVersion:1,entries:[]}:undefined;
  const seen=new Map<string,string>();
@@ -123,11 +125,15 @@ export async function replayDirectory(directory:string){
    const searchInput=d?.modelInput??step.modelInput!,searchAssets=d?.assetFiles??step.assetFiles,sourceList=assessmentSources(searchInput,searchAssets,current),expected=goalSearchQuestions(result.input.charter.goal,current,searchCandidates,sourceList,result.config.goalSearch?.interpretation,{mode:result.config.goalSearch?.evidenceMode,prior:searchMemory});
    if(d&&!equal(Object.fromEntries(Object.entries(d.questions).filter(([key])=>key.startsWith('goalSearch_'))),expected)||!equal((searchInput.userState as any)?.goalSearch,searchMemory))throw Error('GOAL_SEARCH_ARRIVAL_OR_QUESTION_MISMATCH');
   }
+  const continuityInputs=[step as any,step.modelInput,d?.modelInput,step.userState,step.modelInput?.userState,d?.modelInput.userState];
+  for(const v of continuityInputs)if(Object.keys(v??{}).some(k=>k.startsWith('conditionContinuity')&&k!=='conditionContinuity'))throw Error('UNEXPECTED_CONDITION_CONTINUITY_FIELD');
+  if(!result.config.visualHypotheses?.continuity&&continuityInputs.some(v=>Object.hasOwn(v??{},'conditionContinuity')))throw Error('UNCONFIGURED_CONDITION_CONTINUITY');
   const visualKeys=(v:Record<string,unknown>|undefined)=>Object.keys(v??{}).filter(k=>k.startsWith('visualHypoth'));
   for(const v of [step as unknown as Record<string,unknown>,step.modelInput,d?.modelInput,step.userState as unknown as Record<string,unknown>,step.modelInput?.userState as Record<string,unknown>,d?.modelInput.userState as Record<string,unknown>])if(visualKeys(v).some(k=>k!=='visualHypotheses'))throw Error('UNEXPECTED_VISUAL_HYPOTHESES_FIELD');
   const visualPresent=[step as unknown as Record<string,unknown>,step.modelInput,d?.modelInput,step.userState as unknown as Record<string,unknown>,step.modelInput?.userState as Record<string,unknown>,d?.modelInput.userState as Record<string,unknown>].some(v=>visualKeys(v).length);
   if(!result.config.visualHypotheses?.enabled&&visualPresent)throw Error('UNCONFIGURED_VISUAL_HYPOTHESES');
   const visualPreStop=result.config.visualHypotheses?.enabled&&step.modelInput&&!step.visualHypotheses&&!d&&!step.selection&&!step.error&&((step.outcome==='SAFETY_STOP'&&result.termination==='SAFETY_STOP')||(['DEADLINE_BEFORE_VISUAL_EXTRACTION','DEADLINE_BEFORE_INFERENCE'].includes(step.outcome??'')&&result.termination==='TIME_LIMIT'));
+  if(visualPreStop&&result.config.visualHypotheses?.continuity&&(!equal(step.userState?.conditionContinuity,continuityMemory)||!equal((step.modelInput?.userState as any)?.conditionContinuity,continuityMemory)||step.conditionContinuity!==undefined||step.modelInput?.conditionContinuity!==undefined))throw Error('CONDITION_CONTINUITY_PRESTOP_MISMATCH');
   if(visualPreStop&&(!equal(step.userState?.visualHypotheses,visualMemory)||!equal((step.modelInput?.userState as any)?.visualHypotheses,visualMemory)||step.modelInput?.visualHypotheses!==undefined))throw Error('VISUAL_HYPOTHESES_PRESTOP_STATE_MISMATCH');
   if(result.config.visualHypotheses?.enabled&&step.modelInput&&!visualPreStop){
    const v=step.visualHypotheses;
@@ -136,15 +142,22 @@ export async function replayDirectory(directory:string){
    const imageData:VisualHypothesisRequest['images']={};
    for(const [id,asset] of Object.entries(v.assetFiles)){if(asset.file!==asset.file.split(/[\\/]/).at(-1))throw Error('UNSAFE_IMAGE_PATH');const bytes=await readFile(join(directory,asset.file));if(sha(bytes)!==asset.sha256)throw Error('VISUAL_IMAGE_HASH_MISMATCH');imageData[id]={mediaType:'image/png',data:bytes.toString('base64')};}
    const sourceInput=d?.modelInput??step.modelInput;
-   const request=visualHypothesisInput({goal:result.input.charter.goal,currentDate:result.input.charter.initialState.currentDate,...(result.input.persona?{persona:result.input.persona}:{}),current:{observationId:current.id,imageSha256:current.imageSha256},sources:assessmentSources(sourceInput,v.assetFiles,current),candidates:searchCandidates,user:{...step.userState!,experience:result.config.experience?.enabled?arriveExperience(experience,pending,current,execution,result.config.experience):undefined,visualHypotheses:visualMemory},images:imageData,assets:v.assetFiles,timeoutMs:30000});
+   const request=visualHypothesisInput({goal:result.input.charter.goal,currentDate:result.input.charter.initialState.currentDate,...(result.input.persona?{persona:result.input.persona}:{}),current:{observationId:current.id,imageSha256:current.imageSha256},sources:assessmentSources(sourceInput,v.assetFiles,current),candidates:searchCandidates,user:{...step.userState!,...(continuityMemory?{conditionContinuity:continuityMemory}:{}),experience:result.config.experience?.enabled?arriveExperience(experience,pending,current,execution,result.config.experience):undefined,visualHypotheses:visualMemory},images:imageData,assets:v.assetFiles,timeoutMs:30000,...(result.config.visualHypotheses.continuity?{continuityCapacity:result.config.visualHypotheses.continuity.capacity}:{})});
    const {images:_images,timeoutMs:_timeout,...metadata}=request;
    if(!equal(v.assetFiles,step.assetFiles)||!equal(v.request,metadata)||v.inputSha256!==sha(JSON.stringify({input:metadata,assets:v.assetFiles})))throw Error('VISUAL_HYPOTHESES_INPUT_MISMATCH');
    if(v.record){
     if(!v.response||v.error)throw Error('VISUAL_HYPOTHESES_RESPONSE_MISSING');
     const record=admitVisualHypotheses(v.response,request);visualMemory=rememberVisualHypotheses(visualMemory,record,result.config.visualHypotheses.capacity);
+    if(request.conditionContinuity){
+     const expected=admitConditionContinuity((v.response.output as any).continuity,request.conditionContinuity,record);
+     if(!equal(step.conditionContinuity,expected))throw Error('CONDITION_CONTINUITY_RECORD_MISMATCH');
+     continuityMemory=expected.after;
+     for(const input of [step.modelInput,...(d?[d.modelInput]:[])])if(!equal(input.conditionContinuity,expected)||!equal((input.userState as any)?.conditionContinuity,continuityMemory))throw Error('CONDITION_CONTINUITY_DELIVERY_MISMATCH');
+    }
     if(!equal(v.record,record)||!equal(v.memory,visualMemory))throw Error('VISUAL_HYPOTHESES_RECORD_MISMATCH');
     for(const input of [step.modelInput,...(d?[d.modelInput]:[])])if(!equal(input.visualHypotheses,record)||!equal((input.userState as any)?.visualHypotheses,visualMemory))throw Error('VISUAL_HYPOTHESES_DELIVERY_MISMATCH');
-   }else{if(step.modelInput.visualHypotheses!==undefined)throw Error('VISUAL_HYPOTHESES_PARTIAL_MISMATCH');if(v.error&&(v.error as any).code==='INVALID_VISUAL_HYPOTHESES'){let invalid=false;try{admitVisualHypotheses(v.response!,request);}catch{invalid=true;}if(!invalid)throw Error('VISUAL_HYPOTHESES_VALID_OUTPUT_HIDDEN_AS_FAILURE');}}
+   }else{if(result.config.visualHypotheses.continuity&&(step.conditionContinuity!==undefined||step.modelInput.conditionContinuity!==undefined||d?.modelInput.conditionContinuity!==undefined))throw Error('CONDITION_CONTINUITY_PARTIAL_MISMATCH');if(step.modelInput.visualHypotheses!==undefined)throw Error('VISUAL_HYPOTHESES_PARTIAL_MISMATCH');if(v.error&&(v.error as any).code==='INVALID_VISUAL_HYPOTHESES'){let invalid=false;try{admitVisualHypotheses(v.response!,request);}catch{invalid=true;}if(!invalid)throw Error('VISUAL_HYPOTHESES_VALID_OUTPUT_HIDDEN_AS_FAILURE');}}
+   if(result.config.visualHypotheses.continuity&&(!equal(step.userState?.conditionContinuity,continuityMemory)||!equal((step.modelInput.userState as any)?.conditionContinuity,continuityMemory)||d&&!equal((d.modelInput.userState as any)?.conditionContinuity,continuityMemory)||!v.record&&step.conditionContinuity!==undefined))throw Error('CONDITION_CONTINUITY_STATE_MISMATCH');
    if(!equal(step.userState?.visualHypotheses,visualMemory))throw Error('VISUAL_HYPOTHESES_STATE_MISMATCH');
   }
   const relationKeys=(v:Record<string,unknown>|undefined)=>Object.keys(v??{}).some(k=>k.startsWith('actionRelation'));

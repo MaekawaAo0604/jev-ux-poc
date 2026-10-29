@@ -1,3 +1,4 @@
+import {validateConditionContinuityContext,conditionContinuitySchema,admitConditionContinuity} from './condition-continuity.js';
 import {createHash} from 'node:crypto';
 import {isDeepStrictEqual} from 'node:util';
 import {parsePersona} from '../persona.js';
@@ -97,7 +98,9 @@ export function validateVisualHypothesisRequest(request:VisualHypothesisRequest)
   experience={schemaVersion:1,transitions:experienceContext(request.experience,{id:current.observationId,imageSha256:current.imageSha256,visibleText:[],fixation:{x:0,y:0},candidateIds:candidates.map(c=>c.id)}).transitions};
   for(const transition of experience.transitions){checkSource(sources,sourceCopy(transition.intent.source,maximum));checkSource(sources,sourceCopy(transition.result,maximum));if(observationNumber(transition.intent.source.observationId)>=observationNumber(transition.result.observationId))fail();}
  }
- return {goal:request.goal,currentDate:request.currentDate,...(persona?{persona}:{}),current,sources:copiedSources,candidates,...(experience?{experience}:{}),...(request.memory!==undefined?{memory}:{}),images,timeoutMs:request.timeoutMs};
+ const conditionContinuity=request.conditionContinuity===undefined?undefined:validateConditionContinuityContext(request.conditionContinuity,current,request.goal);
+ if(conditionContinuity){const memory=conditionContinuity.memory;if(memory.lastObservation)checkSource(sources,memory.lastObservation);for(const entry of memory.entries){checkSource(sources,entry.lastAssessed);if(entry.lastGrounded)checkSource(sources,entry.lastGrounded.evidence);}}
+ return {goal:request.goal,currentDate:request.currentDate,...(persona?{persona}:{}),current,sources:copiedSources,candidates,...(conditionContinuity?{conditionContinuity}:{}),...(experience?{experience}:{}),...(request.memory!==undefined?{memory}:{}),images,timeoutMs:request.timeoutMs};
 }
 const schemaObject=(properties:Record<string,unknown>)=>({type:'object',properties,required:Object.keys(properties),additionalProperties:false});
 const schemaText=(maximum:number,empty=false)=>({type:'string',pattern:`^[^\\u0000-\\u001f\\u007f-\\u009f]{${empty?0:1},${maximum}}$`});
@@ -109,7 +112,7 @@ export function visualHypothesisSchema(request:VisualHypothesisRequest){
  const contextEvidence=evidence(req.sources.map(s=>s.observationId)),currentEvidence=evidence([req.current.observationId]);
  const condition=(statuses:string[],basis:unknown)=>schemaObject({id:{type:'string',enum:['c1','c2','c3']},description:schemaText(200),status:{type:'string',enum:statuses},evidence:basis,uncertainty:schemaText(200,true)});
  const relation=(roles:string[],basis:unknown,expectedResult:unknown)=>schemaObject({candidateId:req.candidates.length?{type:'string',enum:req.candidates.map(c=>c.id)}:{type:'string',pattern:idPattern.source},conditionIds:{type:'array',minItems:0,maxItems:3,items:{type:'string',enum:['c1','c2','c3']}},relation:{type:'string',enum:roles},currentEvidence:basis,expectedResult});
- return schemaObject({conditions:{type:'array',minItems:0,maxItems:3,items:{anyOf:[condition(['unmet','satisfied'],contextEvidence),condition(['uncertain'],nullable(contextEvidence))]}},relations:{type:'array',minItems:req.candidates.length,maxItems:req.candidates.length,items:{anyOf:[relation(roleValues.filter(role=>role!=='unknown'),currentEvidence,nullable(schemaText(200))),relation(['unknown'],currentEvidence,schemaText(200)),relation(['unknown'],nullable(currentEvidence),{type:'null'})]}},unknowns:{type:'array',minItems:0,maxItems:3,items:schemaText(200)}});
+ return schemaObject({... (req.conditionContinuity?{continuity:conditionContinuitySchema(req.conditionContinuity)}:{}),conditions:{type:'array',minItems:0,maxItems:3,items:{anyOf:[condition(['unmet','satisfied'],contextEvidence),condition(['uncertain'],nullable(contextEvidence))]}},relations:{type:'array',minItems:req.candidates.length,maxItems:req.candidates.length,items:{anyOf:[relation(roleValues.filter(role=>role!=='unknown'),currentEvidence,nullable(schemaText(200))),relation(['unknown'],currentEvidence,schemaText(200)),relation(['unknown'],nullable(currentEvidence),{type:'null'})]}},unknowns:{type:'array',minItems:0,maxItems:3,items:schemaText(200)}});
 }
 /** Reject duplicate JSON members before parsing, with a small independent nesting bound. */
 function uniqueJSON(raw:string){
@@ -130,7 +133,11 @@ export function admitVisualHypotheses(response:VisualHypothesisResponse,request:
  if(!object(response)||response.model!=='gpt-6-luna'||response.status!=='completed'||typeof response.rawText!=='string'||Buffer.byteLength(response.rawText,'utf8')>65536||!object(response.request)||response.request.attempts!==1||response.request.httpReceived!==true||response.request.statusCode!==200||response.costUSD!==null)fail();
  uniqueJSON(response.rawText);const parsed:unknown=JSON.parse(response.rawText);if(!isDeepStrictEqual(parsed,response.output))fail();
  const sources=new Map(req.sources.map(source=>[source.observationId,sourceCopy(source)]));
- return {schemaVersion:1,kind:'model-visual-hypotheses-not-fact',source:sourceCopy(req.current),goalSha256:sha(req.goal),...dataCopy(response.output,sources,req.current,req.candidates)};
+ let data=response.output,continuity:unknown;
+ if(req.conditionContinuity){exact(data,['conditions','relations','unknowns','continuity']);continuity=data.continuity;data={conditions:data.conditions,relations:data.relations,unknowns:data.unknowns};}
+ const record:VisualHypothesisRecord={schemaVersion:1,kind:'model-visual-hypotheses-not-fact',source:sourceCopy(req.current),goalSha256:sha(req.goal),...dataCopy(data,sources,req.current,req.candidates)};
+ if(req.conditionContinuity)admitConditionContinuity(continuity,req.conditionContinuity,record);
+ return record;
 }
 /** Bounded, copied, strictly chronological same-goal recollection; never a full audit history. */
 export function rememberVisualHypotheses(memory:VisualHypothesisMemory|undefined,record:VisualHypothesisRecord,capacity:number):VisualHypothesisMemory{

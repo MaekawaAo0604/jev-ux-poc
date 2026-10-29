@@ -86,7 +86,7 @@ function comparePair(records:VisualConditionsRunRecord[],slot:RecoverySlot){
  return {slot:slotKey(slot),ids:pair.map(r=>r?.runId??null),bothPresent:pair.every(Boolean),initialEvidenceAvailable:evidence.every(Boolean),matchedInitialEvidence:reasons.length===0,reasons};
 }
 
-function measurements(record:VisualConditionsRunRecord,mock:boolean){
+export function visualRequestMeasurements(record:RecoveryRunRecord,mock:boolean){
  const chargedRequests=nonnegative(record.requests)?record.requests:0;
  const stages:Record<string,any>[]=[];
  for(const step of record.result?.steps??[]){
@@ -112,7 +112,7 @@ function measurements(record:VisualConditionsRunRecord,mock:boolean){
 export function analyzeVisualConditionsComparison(records:VisualConditionsRunRecord[],options:{mock?:boolean}={}){
  const errors:{code:string;ids:string[]}[]=[],mock=options.mock===true;
  const runIds=new Map<string,number>();for(const r of records)runIds.set(r.runId,(runIds.get(r.runId)??0)+1);
- const measured=records.map(r=>measurements(r,mock));
+ const measured=records.map(r=>visualRequestMeasurements(r,mock));
  const safe=records.map((record,index)=>{
   const reasons:string[]=[];
   if(!visualConditionsActors.includes(record.actor))reasons.push('UNKNOWN_ACTOR');
@@ -127,7 +127,7 @@ export function analyzeVisualConditionsComparison(records:VisualConditionsRunRec
   const items=measured.filter((_,i)=>records[i].actor===actor),models:Record<string,number>={};
   for(const item of items)for(const [model,count]of Object.entries(item.returnedModels))models[model]=(models[model]??0)+count;
   return [actor,{...summary,measurements:{chargedRequests:items.reduce((n,r)=>n+r.chargedRequests,0),knownHTTPAttempts:items.reduce((n,r)=>n+r.knownHTTPAttempts,0),httpAttemptEvidenceRequests:items.reduce((n,r)=>n+r.httpAttemptEvidenceRequests,0),httpAttemptCountsComplete:items.every(r=>r.httpAttemptCountsComplete),requestAttemptedRuns:items.filter(r=>r.requestAttempted===true).length,unknownAttemptRuns:items.filter(r=>r.requestAttempted===null).length,apiReachedRuns:items.filter(r=>r.apiReached===true).length,unknownReachRuns:items.filter(r=>r.apiReached===null).length,recordedResponses:items.reduce((n,r)=>n+r.recordedResponses,0),returnedModels:models,apiMs:items.some(r=>r.apiMs===null)?null:items.reduce((n,r)=>n+r.apiMs!,0),costUSD:items.some(r=>r.costUSD===null)?null:items.reduce((n,r)=>n+r.costUSD!,0),humanTimeMs:null},requestEvidence:items}];
- })) as unknown as Record<VisualConditionsActor,ReturnType<typeof analyzeRecoveryRuns>&{measurements:Record<string,any>;requestEvidence:ReturnType<typeof measurements>[]} >;
+ })) as unknown as Record<VisualConditionsActor,ReturnType<typeof analyzeRecoveryRuns>&{measurements:Record<string,any>;requestEvidence:ReturnType<typeof visualRequestMeasurements>[]} >;
  const pairs=recoverySchedule().filter(slot=>slot.replicate===1).map(slot=>comparePair(records,slot));
  for(const pair of pairs.filter(p=>p.bothPresent))for(const code of pair.reasons)errors.push({code,ids:pair.ids.filter((x):x is string=>x!==null)});
  for(const actor of visualConditionsActors)errors.push(...actors[actor].integrity.errors);
