@@ -1,0 +1,3154 @@
+{
+  "schemaVersion": 1,
+  "kind": "ACTUAL_JEV_RECOVERY_TRANSFER_RESULTS",
+  "status": "COMPLETED",
+  "producer": {
+    "revision": "ca1f078d6c12eea67d421cee2858b161cee9caf3",
+    "sourceHash": "16ab01b0315c6935bb26c6acb80d7d2637e3700f69543a06aa1ad5c1ad7fa47d",
+    "protocol": {
+      "file": "experiments/virtual-beta/recovery-evaluation.json",
+      "sha256": "b41a4c153ed5bef2520e51876d6fe996c5ad0a45d3dde3347e32996385f25f1b"
+    },
+    "charterSha256": "0eb9deca2bc00c4cbbc4878d3ab89ea1b528848215dd3d59a731e301d6313e38"
+  },
+  "analysis": {
+    "revision": "ca1f078d6c12eea67d421cee2858b161cee9caf3",
+    "sourceHash": "16ab01b0315c6935bb26c6acb80d7d2637e3700f69543a06aa1ad5c1ad7fa47d",
+    "manifestSha256": "9923cd40bdc508379e6e5672f09d3275e1952e6623f7014d67dfd311f6ca8f98",
+    "APIRequests": 0,
+    "scope": "Offline raw-result/ledger/current-frame equality and descriptive reaggregation; independent trace/visual audit recorded separately"
+  },
+  "method": {
+    "mode": "experience-goal-search-grounded",
+    "profile": {
+      "config": {
+        "schemaVersion": 1,
+        "id": "human-screen-goal-search-grounded",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 4096,
+          "clearHeight": 4096,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 15,
+        "maxLooks": 3,
+        "maxDecisions": 12,
+        "maxAPICalls": 24,
+        "maxRunMs": 180000,
+        "modeledActionMs": null,
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        },
+        "experience": {
+          "enabled": true,
+          "capacity": 8,
+          "evidenceMode": "basis"
+        },
+        "deferral": {
+          "enabled": true,
+          "capacity": 8,
+          "weight": 0.01,
+          "minAlternativeProbability": 0.01,
+          "selectionScope": "ui-conditional"
+        },
+        "deferralReason": {
+          "enabled": true,
+          "capacity": 8,
+          "maxReasonImages": 1,
+          "basisAdmission": "excursion-evidence",
+          "reviewMode": "grounded-choice"
+        },
+        "correspondence": {
+          "enabled": true,
+          "capacity": 8,
+          "maxCurrentCandidates": 8,
+          "maxPastCandidates": 12,
+          "maxUniqueImages": 4
+        },
+        "goalSearch": {
+          "enabled": true,
+          "capacity": 8,
+          "interpretation": "role-state-v2",
+          "evidenceMode": "source-grounded"
+        }
+      },
+      "maximumRequests": 24,
+      "explorationMaximum": 24,
+      "reviewMaximum": 0,
+      "perRunMaximum": 12
+    },
+    "persona": null,
+    "longContext": true,
+    "maxAttemptsPerRequest": 1
+  },
+  "limits": {
+    "trials": 12,
+    "maxRequests": 288,
+    "maxRequestsPerTrial": 24,
+    "maxJudgmentsPerTrial": 12,
+    "maxUIActionsPerTrial": 15,
+    "maxLooksPerTrial": 3,
+    "maxRunMsPerTrial": 180000,
+    "phaseMs": 2400000,
+    "parallel": 1
+  },
+  "initialState": "primary blocked; not autonomous discovery of a dead end",
+  "completeness": {
+    "planned": 12,
+    "attempted": 12,
+    "withResult": 12,
+    "valid": 12,
+    "missing": [],
+    "complete": true
+  },
+  "integrity": {
+    "ok": true,
+    "errors": []
+  },
+  "totals": {
+    "planned": 12,
+    "attempted": 12,
+    "notAttempted": 0,
+    "withResult": 12,
+    "valid": 12,
+    "invalid": 0,
+    "objectiveSuccesses": 8,
+    "objectiveFailures": 4,
+    "objectiveDenominator": 12,
+    "falseDone": 0,
+    "subjectiveDone": 8,
+    "infrastructure": 0,
+    "invalidDistributions": 0,
+    "safetyStops": 0,
+    "limits": 4,
+    "abandoned": 0,
+    "stuck": 0,
+    "terminations": {
+      "SUBJECTIVE_DONE": 8,
+      "DECISION_LIMIT": 4
+    },
+    "requests": 184,
+    "meanUIActions": 7,
+    "meanJudgments": 7.666666666666667,
+    "initialBlocked": {
+      "observedRuns": 12,
+      "deliveredRuns": 12,
+      "unknownRuns": 0
+    },
+    "switchCompletedRuns": 4,
+    "prerequisite": {
+      "applicableAttempted": 8,
+      "occurredRuns": 4,
+      "deliveredRuns": 4,
+      "noOpportunityRuns": 4,
+      "unknownRuns": 0,
+      "returnedRuns": 4,
+      "completedRuns": 4
+    },
+    "unchanged": {
+      "applicableAttempted": 4,
+      "confirmedStillBlockedRuns": 4,
+      "deliveredStillBlockedRuns": 4,
+      "earlyRevisitRuns": 4,
+      "earlyRevisitEvents": 6
+    },
+    "selectionCorrections": 8
+  },
+  "cells": [
+    {
+      "key": "library/switch",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "switch"
+      },
+      "planned": 2,
+      "attempted": 2,
+      "notAttempted": 0,
+      "withResult": 2,
+      "valid": 2,
+      "invalid": 0,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "objectiveDenominator": 2,
+      "falseDone": 0,
+      "subjectiveDone": 2,
+      "infrastructure": 0,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 0,
+      "abandoned": 0,
+      "stuck": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "requests": 16,
+      "meanUIActions": 3,
+      "meanJudgments": 4,
+      "initialBlocked": {
+        "observedRuns": 2,
+        "deliveredRuns": 2,
+        "unknownRuns": 0
+      },
+      "switchCompletedRuns": 2,
+      "prerequisite": {
+        "applicableAttempted": 0,
+        "occurredRuns": 0,
+        "deliveredRuns": 0,
+        "noOpportunityRuns": 0,
+        "unknownRuns": 0,
+        "returnedRuns": 0,
+        "completedRuns": 0
+      },
+      "unchanged": {
+        "applicableAttempted": 0,
+        "confirmedStillBlockedRuns": 0,
+        "deliveredStillBlockedRuns": 0,
+        "earlyRevisitRuns": 0,
+        "earlyRevisitEvents": 0
+      },
+      "selectionCorrections": 0,
+      "initialImages": {
+        "consistent": true,
+        "hashes": [
+          "3f2556986576fe92b307da15ffce956a7733645efd0c960356e58427c68c7c53"
+        ]
+      },
+      "configs": {
+        "consistent": true
+      },
+      "aggregationUncertain": false
+    },
+    {
+      "key": "library/changed",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "planned": 2,
+      "attempted": 2,
+      "notAttempted": 0,
+      "withResult": 2,
+      "valid": 2,
+      "invalid": 0,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "objectiveDenominator": 2,
+      "falseDone": 0,
+      "subjectiveDone": 2,
+      "infrastructure": 0,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 0,
+      "abandoned": 0,
+      "stuck": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "requests": 28,
+      "meanUIActions": 6,
+      "meanJudgments": 7,
+      "initialBlocked": {
+        "observedRuns": 2,
+        "deliveredRuns": 2,
+        "unknownRuns": 0
+      },
+      "switchCompletedRuns": 0,
+      "prerequisite": {
+        "applicableAttempted": 2,
+        "occurredRuns": 2,
+        "deliveredRuns": 2,
+        "noOpportunityRuns": 0,
+        "unknownRuns": 0,
+        "returnedRuns": 2,
+        "completedRuns": 2
+      },
+      "unchanged": {
+        "applicableAttempted": 0,
+        "confirmedStillBlockedRuns": 0,
+        "deliveredStillBlockedRuns": 0,
+        "earlyRevisitRuns": 0,
+        "earlyRevisitEvents": 0
+      },
+      "selectionCorrections": 0,
+      "initialImages": {
+        "consistent": true,
+        "hashes": [
+          "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba"
+        ]
+      },
+      "configs": {
+        "consistent": true
+      },
+      "aggregationUncertain": false
+    },
+    {
+      "key": "library/unchanged",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "planned": 2,
+      "attempted": 2,
+      "notAttempted": 0,
+      "withResult": 2,
+      "valid": 2,
+      "invalid": 0,
+      "objectiveSuccesses": 0,
+      "objectiveFailures": 2,
+      "objectiveDenominator": 2,
+      "falseDone": 0,
+      "subjectiveDone": 0,
+      "infrastructure": 0,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 2,
+      "abandoned": 0,
+      "stuck": 0,
+      "terminations": {
+        "DECISION_LIMIT": 2
+      },
+      "requests": 48,
+      "meanUIActions": 12,
+      "meanJudgments": 12,
+      "initialBlocked": {
+        "observedRuns": 2,
+        "deliveredRuns": 2,
+        "unknownRuns": 0
+      },
+      "switchCompletedRuns": 0,
+      "prerequisite": {
+        "applicableAttempted": 2,
+        "occurredRuns": 0,
+        "deliveredRuns": 0,
+        "noOpportunityRuns": 2,
+        "unknownRuns": 0,
+        "returnedRuns": 0,
+        "completedRuns": 0
+      },
+      "unchanged": {
+        "applicableAttempted": 2,
+        "confirmedStillBlockedRuns": 2,
+        "deliveredStillBlockedRuns": 2,
+        "earlyRevisitRuns": 2,
+        "earlyRevisitEvents": 2
+      },
+      "selectionCorrections": 4,
+      "initialImages": {
+        "consistent": true,
+        "hashes": [
+          "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba"
+        ]
+      },
+      "configs": {
+        "consistent": true
+      },
+      "aggregationUncertain": false
+    },
+    {
+      "key": "workshop/switch",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "switch"
+      },
+      "planned": 2,
+      "attempted": 2,
+      "notAttempted": 0,
+      "withResult": 2,
+      "valid": 2,
+      "invalid": 0,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "objectiveDenominator": 2,
+      "falseDone": 0,
+      "subjectiveDone": 2,
+      "infrastructure": 0,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 0,
+      "abandoned": 0,
+      "stuck": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "requests": 16,
+      "meanUIActions": 3,
+      "meanJudgments": 4,
+      "initialBlocked": {
+        "observedRuns": 2,
+        "deliveredRuns": 2,
+        "unknownRuns": 0
+      },
+      "switchCompletedRuns": 2,
+      "prerequisite": {
+        "applicableAttempted": 0,
+        "occurredRuns": 0,
+        "deliveredRuns": 0,
+        "noOpportunityRuns": 0,
+        "unknownRuns": 0,
+        "returnedRuns": 0,
+        "completedRuns": 0
+      },
+      "unchanged": {
+        "applicableAttempted": 0,
+        "confirmedStillBlockedRuns": 0,
+        "deliveredStillBlockedRuns": 0,
+        "earlyRevisitRuns": 0,
+        "earlyRevisitEvents": 0
+      },
+      "selectionCorrections": 0,
+      "initialImages": {
+        "consistent": true,
+        "hashes": [
+          "682084d7444166ba724523d8d14dc41bee39f473dc62d2db6ed42ae72079d6a8"
+        ]
+      },
+      "configs": {
+        "consistent": true
+      },
+      "aggregationUncertain": false
+    },
+    {
+      "key": "workshop/changed",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "planned": 2,
+      "attempted": 2,
+      "notAttempted": 0,
+      "withResult": 2,
+      "valid": 2,
+      "invalid": 0,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "objectiveDenominator": 2,
+      "falseDone": 0,
+      "subjectiveDone": 2,
+      "infrastructure": 0,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 0,
+      "abandoned": 0,
+      "stuck": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "requests": 28,
+      "meanUIActions": 6,
+      "meanJudgments": 7,
+      "initialBlocked": {
+        "observedRuns": 2,
+        "deliveredRuns": 2,
+        "unknownRuns": 0
+      },
+      "switchCompletedRuns": 0,
+      "prerequisite": {
+        "applicableAttempted": 2,
+        "occurredRuns": 2,
+        "deliveredRuns": 2,
+        "noOpportunityRuns": 0,
+        "unknownRuns": 0,
+        "returnedRuns": 2,
+        "completedRuns": 2
+      },
+      "unchanged": {
+        "applicableAttempted": 0,
+        "confirmedStillBlockedRuns": 0,
+        "deliveredStillBlockedRuns": 0,
+        "earlyRevisitRuns": 0,
+        "earlyRevisitEvents": 0
+      },
+      "selectionCorrections": 0,
+      "initialImages": {
+        "consistent": true,
+        "hashes": [
+          "2426c25ce45e0c932ae6e192b1af8e61122defd5f8c9a3dce2b7a1a473da42f5"
+        ]
+      },
+      "configs": {
+        "consistent": true
+      },
+      "aggregationUncertain": false
+    },
+    {
+      "key": "workshop/unchanged",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "planned": 2,
+      "attempted": 2,
+      "notAttempted": 0,
+      "withResult": 2,
+      "valid": 2,
+      "invalid": 0,
+      "objectiveSuccesses": 0,
+      "objectiveFailures": 2,
+      "objectiveDenominator": 2,
+      "falseDone": 0,
+      "subjectiveDone": 0,
+      "infrastructure": 0,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 2,
+      "abandoned": 0,
+      "stuck": 0,
+      "terminations": {
+        "DECISION_LIMIT": 2
+      },
+      "requests": 48,
+      "meanUIActions": 12,
+      "meanJudgments": 12,
+      "initialBlocked": {
+        "observedRuns": 2,
+        "deliveredRuns": 2,
+        "unknownRuns": 0
+      },
+      "switchCompletedRuns": 0,
+      "prerequisite": {
+        "applicableAttempted": 2,
+        "occurredRuns": 0,
+        "deliveredRuns": 0,
+        "noOpportunityRuns": 2,
+        "unknownRuns": 0,
+        "returnedRuns": 0,
+        "completedRuns": 0
+      },
+      "unchanged": {
+        "applicableAttempted": 2,
+        "confirmedStillBlockedRuns": 2,
+        "deliveredStillBlockedRuns": 2,
+        "earlyRevisitRuns": 2,
+        "earlyRevisitEvents": 4
+      },
+      "selectionCorrections": 4,
+      "initialImages": {
+        "consistent": true,
+        "hashes": [
+          "2426c25ce45e0c932ae6e192b1af8e61122defd5f8c9a3dce2b7a1a473da42f5"
+        ]
+      },
+      "configs": {
+        "consistent": true
+      },
+      "aggregationUncertain": false
+    }
+  ],
+  "requests": {
+    "charged": 184,
+    "OK": 184,
+    "ERROR": 0,
+    "RESERVED": 0
+  },
+  "trials": [
+    {
+      "id": "recovery-library-switch-r1",
+      "runId": "fe65489c-91db-4c78-a8f4-b8f4092062b7-recovery-library-switch-r1",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "switch"
+      },
+      "replicate": 1,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "categories": {
+        "infrastructure": false,
+        "invalidDistribution": false,
+        "safety": false,
+        "limit": false,
+        "abandoned": false,
+        "stuck": false
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "initialImageSha256": "3f2556986576fe92b307da15ffce956a7733645efd0c960356e58427c68c7c53",
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "judgments": 4,
+        "requests": 8,
+        "recordedAPICalls": 8,
+        "selectionCorrections": 0,
+        "baselineSelectionChanges": 0,
+        "earlyUnchangedRevisits": 0
+      },
+      "opportunities": {
+        "prerequisiteChange": "not-applicable",
+        "unchangedConfirmation": "not-applicable"
+      },
+      "prerequisiteEvents": [],
+      "revisits": [],
+      "switchCompletion": {
+        "applicable": true,
+        "completed": true,
+        "evidence": [
+          {
+            "step": 3,
+            "route": "alternative",
+            "delivered": true,
+            "evidence": {
+              "before": {
+                "kind": "observation",
+                "step": 3,
+                "observationId": "o3",
+                "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+                "url": "/good/?recovery=p4#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 4,
+                "observationId": "o4",
+                "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335",
+                "url": "/good/?recovery=p4#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "東分館",
+                  "complete": true
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "recoveryAfterChange": {
+        "applicable": false,
+        "completed": false,
+        "returns": [],
+        "evidence": []
+      }
+    },
+    {
+      "id": "recovery-library-changed-r1",
+      "runId": "fe65489c-91db-4c78-a8f4-b8f4092062b7-recovery-library-changed-r1",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "replicate": 1,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "categories": {
+        "infrastructure": false,
+        "invalidDistribution": false,
+        "safety": false,
+        "limit": false,
+        "abandoned": false,
+        "stuck": false
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "initialImageSha256": "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba",
+      "metrics": {
+        "uiActions": 6,
+        "looks": 0,
+        "judgments": 7,
+        "requests": 14,
+        "recordedAPICalls": 14,
+        "selectionCorrections": 0,
+        "baselineSelectionChanges": 0,
+        "earlyUnchangedRevisits": 0
+      },
+      "opportunities": {
+        "prerequisiteChange": "occurred",
+        "unchangedConfirmation": "not-applicable"
+      },
+      "prerequisiteEvents": [
+        {
+          "step": 3,
+          "kind": "confirm",
+          "eligibleBefore": false,
+          "eligibleAfter": true,
+          "eligibleChanged": true,
+          "delivered": true,
+          "evidence": {
+            "before": {
+              "kind": "observation",
+              "step": 3,
+              "observationId": "o3",
+              "imageSha256": "208f75b2cc67416af66cb659ceecd70f144377bf1f6d75ffaee4cae07be80b75",
+              "url": "/good/?recovery=v9#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 4,
+              "observationId": "o4",
+              "imageSha256": "b0026f3942394e43c31b10f3a2e8b9970bbd567bd46e5fc346c1a8db09e55f57",
+              "url": "/good/?recovery=v9#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": true,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "revisits": [
+        {
+          "step": 5,
+          "eligible": true,
+          "afterPrerequisiteChange": true,
+          "afterUnchangedConfirmation": false,
+          "changeStep": 3,
+          "confirmationStep": null,
+          "changeDelivered": true,
+          "confirmationDelivered": false,
+          "evidence": {
+            "departure": {
+              "kind": "observation",
+              "step": 1,
+              "observationId": "o1",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+              "url": "/good/?recovery=v9",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "before": {
+              "kind": "observation",
+              "step": 5,
+              "observationId": "o5",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+              "url": "/good/?recovery=v9#home",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "home",
+                "eligible": true,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 6,
+              "observationId": "o6",
+              "imageSha256": "14f251543a3211ff4ca22996ffb8e2461e84ad9ed0dc79279503f17bb252c62c",
+              "url": "/good/?recovery=v9#primary",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": true,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "switchCompletion": {
+        "applicable": false,
+        "completed": false,
+        "evidence": []
+      },
+      "recoveryAfterChange": {
+        "applicable": true,
+        "completed": true,
+        "returns": [
+          {
+            "step": 5,
+            "eligible": true,
+            "afterPrerequisiteChange": true,
+            "afterUnchangedConfirmation": false,
+            "changeStep": 3,
+            "confirmationStep": null,
+            "changeDelivered": true,
+            "confirmationDelivered": false,
+            "evidence": {
+              "departure": {
+                "kind": "observation",
+                "step": 1,
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "url": "/good/?recovery=v9",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "before": {
+                "kind": "observation",
+                "step": 5,
+                "observationId": "o5",
+                "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                "url": "/good/?recovery=v9#home",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "home",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 6,
+                "observationId": "o6",
+                "imageSha256": "14f251543a3211ff4ca22996ffb8e2461e84ad9ed0dc79279503f17bb252c62c",
+                "url": "/good/?recovery=v9#primary",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "step": 6,
+            "route": "primary",
+            "delivered": true,
+            "evidence": {
+              "before": {
+                "kind": "observation",
+                "step": 6,
+                "observationId": "o6",
+                "imageSha256": "14f251543a3211ff4ca22996ffb8e2461e84ad9ed0dc79279503f17bb252c62c",
+                "url": "/good/?recovery=v9#primary",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 7,
+                "observationId": "o7",
+                "imageSha256": "6ad910da6d964cc563feb841836f1dc625f388deb6045781ccf8c217c2271f0f",
+                "url": "/good/?recovery=v9#primary",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "東分館",
+                  "complete": true
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "recovery-library-unchanged-r1",
+      "runId": "fe65489c-91db-4c78-a8f4-b8f4092062b7-recovery-library-unchanged-r1",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "replicate": 1,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "categories": {
+        "infrastructure": false,
+        "invalidDistribution": false,
+        "safety": false,
+        "limit": true,
+        "abandoned": false,
+        "stuck": false
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "termination": "DECISION_LIMIT",
+      "initialImageSha256": "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba",
+      "metrics": {
+        "uiActions": 12,
+        "looks": 0,
+        "judgments": 12,
+        "requests": 24,
+        "recordedAPICalls": 24,
+        "selectionCorrections": 2,
+        "baselineSelectionChanges": 2,
+        "earlyUnchangedRevisits": 1
+      },
+      "opportunities": {
+        "prerequisiteChange": "none-observed",
+        "unchangedConfirmation": "occurred"
+      },
+      "prerequisiteEvents": [
+        {
+          "step": 3,
+          "kind": "confirm",
+          "eligibleBefore": false,
+          "eligibleAfter": false,
+          "eligibleChanged": false,
+          "delivered": true,
+          "evidence": {
+            "before": {
+              "kind": "observation",
+              "step": 3,
+              "observationId": "o3",
+              "imageSha256": "208f75b2cc67416af66cb659ceecd70f144377bf1f6d75ffaee4cae07be80b75",
+              "url": "/good/?recovery=c2#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 4,
+              "observationId": "o4",
+              "imageSha256": "fbdb781ac56c222e347efd183c77d81b194fab8524086d75e3e938c3cecd35e3",
+              "url": "/good/?recovery=c2#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "revisits": [
+        {
+          "step": 7,
+          "eligible": false,
+          "afterPrerequisiteChange": false,
+          "afterUnchangedConfirmation": true,
+          "changeStep": null,
+          "confirmationStep": 3,
+          "changeDelivered": false,
+          "confirmationDelivered": true,
+          "evidence": {
+            "departure": {
+              "kind": "observation",
+              "step": 1,
+              "observationId": "o1",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+              "url": "/good/?recovery=c2",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "before": {
+              "kind": "observation",
+              "step": 7,
+              "observationId": "o7",
+              "imageSha256": "805c1daf626a473cc701fcfcc04459cbea8470c9962a77cc0efb6faa583f085a",
+              "url": "/good/?recovery=c2#home",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "home",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 8,
+              "observationId": "o8",
+              "imageSha256": "23ff05fc9560155caa33b17b5410261a2c95a82533a94e0052845f692daf824e",
+              "url": "/good/?recovery=c2#primary",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "switchCompletion": {
+        "applicable": false,
+        "completed": false,
+        "evidence": []
+      },
+      "recoveryAfterChange": {
+        "applicable": true,
+        "completed": false,
+        "returns": [],
+        "evidence": []
+      }
+    },
+    {
+      "id": "recovery-workshop-switch-r1",
+      "runId": "fe65489c-91db-4c78-a8f4-b8f4092062b7-recovery-workshop-switch-r1",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "switch"
+      },
+      "replicate": 1,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "categories": {
+        "infrastructure": false,
+        "invalidDistribution": false,
+        "safety": false,
+        "limit": false,
+        "abandoned": false,
+        "stuck": false
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "initialImageSha256": "682084d7444166ba724523d8d14dc41bee39f473dc62d2db6ed42ae72079d6a8",
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "judgments": 4,
+        "requests": 8,
+        "recordedAPICalls": 8,
+        "selectionCorrections": 0,
+        "baselineSelectionChanges": 0,
+        "earlyUnchangedRevisits": 0
+      },
+      "opportunities": {
+        "prerequisiteChange": "not-applicable",
+        "unchangedConfirmation": "not-applicable"
+      },
+      "prerequisiteEvents": [],
+      "revisits": [],
+      "switchCompletion": {
+        "applicable": true,
+        "completed": true,
+        "evidence": [
+          {
+            "step": 3,
+            "route": "alternative",
+            "delivered": true,
+            "evidence": {
+              "before": {
+                "kind": "observation",
+                "step": 3,
+                "observationId": "o3",
+                "imageSha256": "9e2b7feae082756072bcab78b8493c9edbfa09d400152088aa277e6f0b4f0f9c",
+                "url": "/good/?recovery=h7#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "午前の回",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 4,
+                "observationId": "o4",
+                "imageSha256": "4486318f6dd5a26063b9ad0914f7a6d80895383b0d1e207f2fa65ad99909e259",
+                "url": "/good/?recovery=h7#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "午後の回",
+                  "complete": true
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "recoveryAfterChange": {
+        "applicable": false,
+        "completed": false,
+        "returns": [],
+        "evidence": []
+      }
+    },
+    {
+      "id": "recovery-workshop-changed-r1",
+      "runId": "fe65489c-91db-4c78-a8f4-b8f4092062b7-recovery-workshop-changed-r1",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "replicate": 1,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "categories": {
+        "infrastructure": false,
+        "invalidDistribution": false,
+        "safety": false,
+        "limit": false,
+        "abandoned": false,
+        "stuck": false
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "initialImageSha256": "2426c25ce45e0c932ae6e192b1af8e61122defd5f8c9a3dce2b7a1a473da42f5",
+      "metrics": {
+        "uiActions": 6,
+        "looks": 0,
+        "judgments": 7,
+        "requests": 14,
+        "recordedAPICalls": 14,
+        "selectionCorrections": 0,
+        "baselineSelectionChanges": 0,
+        "earlyUnchangedRevisits": 0
+      },
+      "opportunities": {
+        "prerequisiteChange": "occurred",
+        "unchangedConfirmation": "not-applicable"
+      },
+      "prerequisiteEvents": [
+        {
+          "step": 3,
+          "kind": "confirm",
+          "eligibleBefore": false,
+          "eligibleAfter": true,
+          "eligibleChanged": true,
+          "delivered": true,
+          "evidence": {
+            "before": {
+              "kind": "observation",
+              "step": 3,
+              "observationId": "o3",
+              "imageSha256": "773fdb13383ffce40f0bd197e99dc72ef2a95a3ef49fdbf4fad23441030ca3bc",
+              "url": "/good/?recovery=m3#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 4,
+              "observationId": "o4",
+              "imageSha256": "3df55e033d548983aeb3c40a37c765fb8d7b796deb7799499aa5619331730e41",
+              "url": "/good/?recovery=m3#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": true,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "revisits": [
+        {
+          "step": 5,
+          "eligible": true,
+          "afterPrerequisiteChange": true,
+          "afterUnchangedConfirmation": false,
+          "changeStep": 3,
+          "confirmationStep": null,
+          "changeDelivered": true,
+          "confirmationDelivered": false,
+          "evidence": {
+            "departure": {
+              "kind": "observation",
+              "step": 1,
+              "observationId": "o1",
+              "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+              "url": "/good/?recovery=m3",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "before": {
+              "kind": "observation",
+              "step": 5,
+              "observationId": "o5",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+              "url": "/good/?recovery=m3#home",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "home",
+                "eligible": true,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 6,
+              "observationId": "o6",
+              "imageSha256": "e7159b990d2c0be0877178da41febab45154a10d6b6e5c19d01d4e81cf174b94",
+              "url": "/good/?recovery=m3#primary",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": true,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "switchCompletion": {
+        "applicable": false,
+        "completed": false,
+        "evidence": []
+      },
+      "recoveryAfterChange": {
+        "applicable": true,
+        "completed": true,
+        "returns": [
+          {
+            "step": 5,
+            "eligible": true,
+            "afterPrerequisiteChange": true,
+            "afterUnchangedConfirmation": false,
+            "changeStep": 3,
+            "confirmationStep": null,
+            "changeDelivered": true,
+            "confirmationDelivered": false,
+            "evidence": {
+              "departure": {
+                "kind": "observation",
+                "step": 1,
+                "observationId": "o1",
+                "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+                "url": "/good/?recovery=m3",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "午前の回",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "before": {
+                "kind": "observation",
+                "step": 5,
+                "observationId": "o5",
+                "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+                "url": "/good/?recovery=m3#home",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "home",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "午前の回",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 6,
+                "observationId": "o6",
+                "imageSha256": "e7159b990d2c0be0877178da41febab45154a10d6b6e5c19d01d4e81cf174b94",
+                "url": "/good/?recovery=m3#primary",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "午前の回",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "step": 6,
+            "route": "primary",
+            "delivered": true,
+            "evidence": {
+              "before": {
+                "kind": "observation",
+                "step": 6,
+                "observationId": "o6",
+                "imageSha256": "e7159b990d2c0be0877178da41febab45154a10d6b6e5c19d01d4e81cf174b94",
+                "url": "/good/?recovery=m3#primary",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "午前の回",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 7,
+                "observationId": "o7",
+                "imageSha256": "58756b01b1fc93796a469ff0dff69bb4a8c2424670bdfba55da221e1742fb1fd",
+                "url": "/good/?recovery=m3#primary",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "午後の回",
+                  "complete": true
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "recovery-workshop-unchanged-r1",
+      "runId": "fe65489c-91db-4c78-a8f4-b8f4092062b7-recovery-workshop-unchanged-r1",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "replicate": 1,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "categories": {
+        "infrastructure": false,
+        "invalidDistribution": false,
+        "safety": false,
+        "limit": true,
+        "abandoned": false,
+        "stuck": false
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "termination": "DECISION_LIMIT",
+      "initialImageSha256": "2426c25ce45e0c932ae6e192b1af8e61122defd5f8c9a3dce2b7a1a473da42f5",
+      "metrics": {
+        "uiActions": 12,
+        "looks": 0,
+        "judgments": 12,
+        "requests": 24,
+        "recordedAPICalls": 24,
+        "selectionCorrections": 2,
+        "baselineSelectionChanges": 2,
+        "earlyUnchangedRevisits": 2
+      },
+      "opportunities": {
+        "prerequisiteChange": "none-observed",
+        "unchangedConfirmation": "occurred"
+      },
+      "prerequisiteEvents": [
+        {
+          "step": 3,
+          "kind": "confirm",
+          "eligibleBefore": false,
+          "eligibleAfter": false,
+          "eligibleChanged": false,
+          "delivered": true,
+          "evidence": {
+            "before": {
+              "kind": "observation",
+              "step": 3,
+              "observationId": "o3",
+              "imageSha256": "773fdb13383ffce40f0bd197e99dc72ef2a95a3ef49fdbf4fad23441030ca3bc",
+              "url": "/good/?recovery=q8#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 4,
+              "observationId": "o4",
+              "imageSha256": "c72f334f4bb975408ff34cd080921b80f711e3b7b7ce623383c79d022ecd8e74",
+              "url": "/good/?recovery=q8#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "revisits": [
+        {
+          "step": 5,
+          "eligible": false,
+          "afterPrerequisiteChange": false,
+          "afterUnchangedConfirmation": true,
+          "changeStep": null,
+          "confirmationStep": 3,
+          "changeDelivered": false,
+          "confirmationDelivered": true,
+          "evidence": {
+            "departure": {
+              "kind": "observation",
+              "step": 1,
+              "observationId": "o1",
+              "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+              "url": "/good/?recovery=q8",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "before": {
+              "kind": "observation",
+              "step": 5,
+              "observationId": "o5",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+              "url": "/good/?recovery=q8#home",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "home",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 6,
+              "observationId": "o6",
+              "imageSha256": "e2417216648fec33e43768ef3226e88dbe5c3728bafca9c5f4fc1d5211c25c4a",
+              "url": "/good/?recovery=q8#primary",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        },
+        {
+          "step": 9,
+          "eligible": false,
+          "afterPrerequisiteChange": false,
+          "afterUnchangedConfirmation": true,
+          "changeStep": null,
+          "confirmationStep": 3,
+          "changeDelivered": false,
+          "confirmationDelivered": true,
+          "evidence": {
+            "departure": {
+              "kind": "observation",
+              "step": 6,
+              "observationId": "o6",
+              "imageSha256": "e2417216648fec33e43768ef3226e88dbe5c3728bafca9c5f4fc1d5211c25c4a",
+              "url": "/good/?recovery=q8#primary",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "before": {
+              "kind": "observation",
+              "step": 9,
+              "observationId": "o9",
+              "imageSha256": "f3fd041c54b09bd828c3039f4de740ea58eb5eafb1040178d5ce8781c69a2944",
+              "url": "/good/?recovery=q8#home",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "home",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 10,
+              "observationId": "o10",
+              "imageSha256": "e5ff33b45c3b239000eb7a887ffd14a4defa69896af73a5b1292e8737a3cbe31",
+              "url": "/good/?recovery=q8#primary",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "switchCompletion": {
+        "applicable": false,
+        "completed": false,
+        "evidence": []
+      },
+      "recoveryAfterChange": {
+        "applicable": true,
+        "completed": false,
+        "returns": [],
+        "evidence": []
+      }
+    },
+    {
+      "id": "recovery-workshop-unchanged-r2",
+      "runId": "fe65489c-91db-4c78-a8f4-b8f4092062b7-recovery-workshop-unchanged-r2",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "replicate": 2,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "categories": {
+        "infrastructure": false,
+        "invalidDistribution": false,
+        "safety": false,
+        "limit": true,
+        "abandoned": false,
+        "stuck": false
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "termination": "DECISION_LIMIT",
+      "initialImageSha256": "2426c25ce45e0c932ae6e192b1af8e61122defd5f8c9a3dce2b7a1a473da42f5",
+      "metrics": {
+        "uiActions": 12,
+        "looks": 0,
+        "judgments": 12,
+        "requests": 24,
+        "recordedAPICalls": 24,
+        "selectionCorrections": 2,
+        "baselineSelectionChanges": 2,
+        "earlyUnchangedRevisits": 2
+      },
+      "opportunities": {
+        "prerequisiteChange": "none-observed",
+        "unchangedConfirmation": "occurred"
+      },
+      "prerequisiteEvents": [
+        {
+          "step": 3,
+          "kind": "confirm",
+          "eligibleBefore": false,
+          "eligibleAfter": false,
+          "eligibleChanged": false,
+          "delivered": true,
+          "evidence": {
+            "before": {
+              "kind": "observation",
+              "step": 3,
+              "observationId": "o3",
+              "imageSha256": "773fdb13383ffce40f0bd197e99dc72ef2a95a3ef49fdbf4fad23441030ca3bc",
+              "url": "/good/?recovery=q8#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 4,
+              "observationId": "o4",
+              "imageSha256": "c72f334f4bb975408ff34cd080921b80f711e3b7b7ce623383c79d022ecd8e74",
+              "url": "/good/?recovery=q8#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "revisits": [
+        {
+          "step": 5,
+          "eligible": false,
+          "afterPrerequisiteChange": false,
+          "afterUnchangedConfirmation": true,
+          "changeStep": null,
+          "confirmationStep": 3,
+          "changeDelivered": false,
+          "confirmationDelivered": true,
+          "evidence": {
+            "departure": {
+              "kind": "observation",
+              "step": 1,
+              "observationId": "o1",
+              "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+              "url": "/good/?recovery=q8",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "before": {
+              "kind": "observation",
+              "step": 5,
+              "observationId": "o5",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+              "url": "/good/?recovery=q8#home",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "home",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 6,
+              "observationId": "o6",
+              "imageSha256": "e2417216648fec33e43768ef3226e88dbe5c3728bafca9c5f4fc1d5211c25c4a",
+              "url": "/good/?recovery=q8#primary",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        },
+        {
+          "step": 9,
+          "eligible": false,
+          "afterPrerequisiteChange": false,
+          "afterUnchangedConfirmation": true,
+          "changeStep": null,
+          "confirmationStep": 3,
+          "changeDelivered": false,
+          "confirmationDelivered": true,
+          "evidence": {
+            "departure": {
+              "kind": "observation",
+              "step": 6,
+              "observationId": "o6",
+              "imageSha256": "e2417216648fec33e43768ef3226e88dbe5c3728bafca9c5f4fc1d5211c25c4a",
+              "url": "/good/?recovery=q8#primary",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "before": {
+              "kind": "observation",
+              "step": 9,
+              "observationId": "o9",
+              "imageSha256": "f3fd041c54b09bd828c3039f4de740ea58eb5eafb1040178d5ce8781c69a2944",
+              "url": "/good/?recovery=q8#home",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "home",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 10,
+              "observationId": "o10",
+              "imageSha256": "e5ff33b45c3b239000eb7a887ffd14a4defa69896af73a5b1292e8737a3cbe31",
+              "url": "/good/?recovery=q8#primary",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "switchCompletion": {
+        "applicable": false,
+        "completed": false,
+        "evidence": []
+      },
+      "recoveryAfterChange": {
+        "applicable": true,
+        "completed": false,
+        "returns": [],
+        "evidence": []
+      }
+    },
+    {
+      "id": "recovery-workshop-changed-r2",
+      "runId": "fe65489c-91db-4c78-a8f4-b8f4092062b7-recovery-workshop-changed-r2",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "replicate": 2,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "categories": {
+        "infrastructure": false,
+        "invalidDistribution": false,
+        "safety": false,
+        "limit": false,
+        "abandoned": false,
+        "stuck": false
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "initialImageSha256": "2426c25ce45e0c932ae6e192b1af8e61122defd5f8c9a3dce2b7a1a473da42f5",
+      "metrics": {
+        "uiActions": 6,
+        "looks": 0,
+        "judgments": 7,
+        "requests": 14,
+        "recordedAPICalls": 14,
+        "selectionCorrections": 0,
+        "baselineSelectionChanges": 0,
+        "earlyUnchangedRevisits": 0
+      },
+      "opportunities": {
+        "prerequisiteChange": "occurred",
+        "unchangedConfirmation": "not-applicable"
+      },
+      "prerequisiteEvents": [
+        {
+          "step": 3,
+          "kind": "confirm",
+          "eligibleBefore": false,
+          "eligibleAfter": true,
+          "eligibleChanged": true,
+          "delivered": true,
+          "evidence": {
+            "before": {
+              "kind": "observation",
+              "step": 3,
+              "observationId": "o3",
+              "imageSha256": "773fdb13383ffce40f0bd197e99dc72ef2a95a3ef49fdbf4fad23441030ca3bc",
+              "url": "/good/?recovery=m3#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 4,
+              "observationId": "o4",
+              "imageSha256": "3df55e033d548983aeb3c40a37c765fb8d7b796deb7799499aa5619331730e41",
+              "url": "/good/?recovery=m3#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": true,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "revisits": [
+        {
+          "step": 5,
+          "eligible": true,
+          "afterPrerequisiteChange": true,
+          "afterUnchangedConfirmation": false,
+          "changeStep": 3,
+          "confirmationStep": null,
+          "changeDelivered": true,
+          "confirmationDelivered": false,
+          "evidence": {
+            "departure": {
+              "kind": "observation",
+              "step": 1,
+              "observationId": "o1",
+              "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+              "url": "/good/?recovery=m3",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "before": {
+              "kind": "observation",
+              "step": 5,
+              "observationId": "o5",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+              "url": "/good/?recovery=m3#home",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "home",
+                "eligible": true,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 6,
+              "observationId": "o6",
+              "imageSha256": "e7159b990d2c0be0877178da41febab45154a10d6b6e5c19d01d4e81cf174b94",
+              "url": "/good/?recovery=m3#primary",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": true,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "午前の回",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "switchCompletion": {
+        "applicable": false,
+        "completed": false,
+        "evidence": []
+      },
+      "recoveryAfterChange": {
+        "applicable": true,
+        "completed": true,
+        "returns": [
+          {
+            "step": 5,
+            "eligible": true,
+            "afterPrerequisiteChange": true,
+            "afterUnchangedConfirmation": false,
+            "changeStep": 3,
+            "confirmationStep": null,
+            "changeDelivered": true,
+            "confirmationDelivered": false,
+            "evidence": {
+              "departure": {
+                "kind": "observation",
+                "step": 1,
+                "observationId": "o1",
+                "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+                "url": "/good/?recovery=m3",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "午前の回",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "before": {
+                "kind": "observation",
+                "step": 5,
+                "observationId": "o5",
+                "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+                "url": "/good/?recovery=m3#home",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "home",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "午前の回",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 6,
+                "observationId": "o6",
+                "imageSha256": "e7159b990d2c0be0877178da41febab45154a10d6b6e5c19d01d4e81cf174b94",
+                "url": "/good/?recovery=m3#primary",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "午前の回",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "step": 6,
+            "route": "primary",
+            "delivered": true,
+            "evidence": {
+              "before": {
+                "kind": "observation",
+                "step": 6,
+                "observationId": "o6",
+                "imageSha256": "e7159b990d2c0be0877178da41febab45154a10d6b6e5c19d01d4e81cf174b94",
+                "url": "/good/?recovery=m3#primary",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "午前の回",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 7,
+                "observationId": "o7",
+                "imageSha256": "58756b01b1fc93796a469ff0dff69bb4a8c2424670bdfba55da221e1742fb1fd",
+                "url": "/good/?recovery=m3#primary",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "午後の回",
+                  "complete": true
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "recovery-workshop-switch-r2",
+      "runId": "fe65489c-91db-4c78-a8f4-b8f4092062b7-recovery-workshop-switch-r2",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "switch"
+      },
+      "replicate": 2,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "categories": {
+        "infrastructure": false,
+        "invalidDistribution": false,
+        "safety": false,
+        "limit": false,
+        "abandoned": false,
+        "stuck": false
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "initialImageSha256": "682084d7444166ba724523d8d14dc41bee39f473dc62d2db6ed42ae72079d6a8",
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "judgments": 4,
+        "requests": 8,
+        "recordedAPICalls": 8,
+        "selectionCorrections": 0,
+        "baselineSelectionChanges": 0,
+        "earlyUnchangedRevisits": 0
+      },
+      "opportunities": {
+        "prerequisiteChange": "not-applicable",
+        "unchangedConfirmation": "not-applicable"
+      },
+      "prerequisiteEvents": [],
+      "revisits": [],
+      "switchCompletion": {
+        "applicable": true,
+        "completed": true,
+        "evidence": [
+          {
+            "step": 3,
+            "route": "alternative",
+            "delivered": true,
+            "evidence": {
+              "before": {
+                "kind": "observation",
+                "step": 3,
+                "observationId": "o3",
+                "imageSha256": "9e2b7feae082756072bcab78b8493c9edbfa09d400152088aa277e6f0b4f0f9c",
+                "url": "/good/?recovery=h7#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "午前の回",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 4,
+                "observationId": "o4",
+                "imageSha256": "4486318f6dd5a26063b9ad0914f7a6d80895383b0d1e207f2fa65ad99909e259",
+                "url": "/good/?recovery=h7#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "午後の回",
+                  "complete": true
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "recoveryAfterChange": {
+        "applicable": false,
+        "completed": false,
+        "returns": [],
+        "evidence": []
+      }
+    },
+    {
+      "id": "recovery-library-unchanged-r2",
+      "runId": "fe65489c-91db-4c78-a8f4-b8f4092062b7-recovery-library-unchanged-r2",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "replicate": 2,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "categories": {
+        "infrastructure": false,
+        "invalidDistribution": false,
+        "safety": false,
+        "limit": true,
+        "abandoned": false,
+        "stuck": false
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "termination": "DECISION_LIMIT",
+      "initialImageSha256": "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba",
+      "metrics": {
+        "uiActions": 12,
+        "looks": 0,
+        "judgments": 12,
+        "requests": 24,
+        "recordedAPICalls": 24,
+        "selectionCorrections": 2,
+        "baselineSelectionChanges": 2,
+        "earlyUnchangedRevisits": 1
+      },
+      "opportunities": {
+        "prerequisiteChange": "none-observed",
+        "unchangedConfirmation": "occurred"
+      },
+      "prerequisiteEvents": [
+        {
+          "step": 3,
+          "kind": "confirm",
+          "eligibleBefore": false,
+          "eligibleAfter": false,
+          "eligibleChanged": false,
+          "delivered": true,
+          "evidence": {
+            "before": {
+              "kind": "observation",
+              "step": 3,
+              "observationId": "o3",
+              "imageSha256": "208f75b2cc67416af66cb659ceecd70f144377bf1f6d75ffaee4cae07be80b75",
+              "url": "/good/?recovery=c2#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 4,
+              "observationId": "o4",
+              "imageSha256": "fbdb781ac56c222e347efd183c77d81b194fab8524086d75e3e938c3cecd35e3",
+              "url": "/good/?recovery=c2#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "revisits": [
+        {
+          "step": 7,
+          "eligible": false,
+          "afterPrerequisiteChange": false,
+          "afterUnchangedConfirmation": true,
+          "changeStep": null,
+          "confirmationStep": 3,
+          "changeDelivered": false,
+          "confirmationDelivered": true,
+          "evidence": {
+            "departure": {
+              "kind": "observation",
+              "step": 1,
+              "observationId": "o1",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+              "url": "/good/?recovery=c2",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "before": {
+              "kind": "observation",
+              "step": 7,
+              "observationId": "o7",
+              "imageSha256": "805c1daf626a473cc701fcfcc04459cbea8470c9962a77cc0efb6faa583f085a",
+              "url": "/good/?recovery=c2#home",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "home",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 8,
+              "observationId": "o8",
+              "imageSha256": "23ff05fc9560155caa33b17b5410261a2c95a82533a94e0052845f692daf824e",
+              "url": "/good/?recovery=c2#primary",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "switchCompletion": {
+        "applicable": false,
+        "completed": false,
+        "evidence": []
+      },
+      "recoveryAfterChange": {
+        "applicable": true,
+        "completed": false,
+        "returns": [],
+        "evidence": []
+      }
+    },
+    {
+      "id": "recovery-library-changed-r2",
+      "runId": "fe65489c-91db-4c78-a8f4-b8f4092062b7-recovery-library-changed-r2",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "replicate": 2,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "categories": {
+        "infrastructure": false,
+        "invalidDistribution": false,
+        "safety": false,
+        "limit": false,
+        "abandoned": false,
+        "stuck": false
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "initialImageSha256": "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba",
+      "metrics": {
+        "uiActions": 6,
+        "looks": 0,
+        "judgments": 7,
+        "requests": 14,
+        "recordedAPICalls": 14,
+        "selectionCorrections": 0,
+        "baselineSelectionChanges": 0,
+        "earlyUnchangedRevisits": 0
+      },
+      "opportunities": {
+        "prerequisiteChange": "occurred",
+        "unchangedConfirmation": "not-applicable"
+      },
+      "prerequisiteEvents": [
+        {
+          "step": 3,
+          "kind": "confirm",
+          "eligibleBefore": false,
+          "eligibleAfter": true,
+          "eligibleChanged": true,
+          "delivered": true,
+          "evidence": {
+            "before": {
+              "kind": "observation",
+              "step": 3,
+              "observationId": "o3",
+              "imageSha256": "208f75b2cc67416af66cb659ceecd70f144377bf1f6d75ffaee4cae07be80b75",
+              "url": "/good/?recovery=v9#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 4,
+              "observationId": "o4",
+              "imageSha256": "b0026f3942394e43c31b10f3a2e8b9970bbd567bd46e5fc346c1a8db09e55f57",
+              "url": "/good/?recovery=v9#account",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "account",
+                "eligible": true,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "revisits": [
+        {
+          "step": 5,
+          "eligible": true,
+          "afterPrerequisiteChange": true,
+          "afterUnchangedConfirmation": false,
+          "changeStep": 3,
+          "confirmationStep": null,
+          "changeDelivered": true,
+          "confirmationDelivered": false,
+          "evidence": {
+            "departure": {
+              "kind": "observation",
+              "step": 1,
+              "observationId": "o1",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+              "url": "/good/?recovery=v9",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": false,
+                "verificationAttempts": 0,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "before": {
+              "kind": "observation",
+              "step": 5,
+              "observationId": "o5",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+              "url": "/good/?recovery=v9#home",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "home",
+                "eligible": true,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            },
+            "after": {
+              "kind": "observation",
+              "step": 6,
+              "observationId": "o6",
+              "imageSha256": "14f251543a3211ff4ca22996ffb8e2461e84ad9ed0dc79279503f17bb252c62c",
+              "url": "/good/?recovery=v9#primary",
+              "snapshot": {
+                "schemaVersion": 1,
+                "route": "primary",
+                "eligible": true,
+                "verificationAttempts": 1,
+                "recordChecks": 0,
+                "savedValue": "中央図書館",
+                "complete": false
+              },
+              "delivered": true,
+              "deliveredStages": [
+                "assessment",
+                "action"
+              ]
+            }
+          }
+        }
+      ],
+      "switchCompletion": {
+        "applicable": false,
+        "completed": false,
+        "evidence": []
+      },
+      "recoveryAfterChange": {
+        "applicable": true,
+        "completed": true,
+        "returns": [
+          {
+            "step": 5,
+            "eligible": true,
+            "afterPrerequisiteChange": true,
+            "afterUnchangedConfirmation": false,
+            "changeStep": 3,
+            "confirmationStep": null,
+            "changeDelivered": true,
+            "confirmationDelivered": false,
+            "evidence": {
+              "departure": {
+                "kind": "observation",
+                "step": 1,
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "url": "/good/?recovery=v9",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "before": {
+                "kind": "observation",
+                "step": 5,
+                "observationId": "o5",
+                "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                "url": "/good/?recovery=v9#home",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "home",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 6,
+                "observationId": "o6",
+                "imageSha256": "14f251543a3211ff4ca22996ffb8e2461e84ad9ed0dc79279503f17bb252c62c",
+                "url": "/good/?recovery=v9#primary",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "step": 6,
+            "route": "primary",
+            "delivered": true,
+            "evidence": {
+              "before": {
+                "kind": "observation",
+                "step": 6,
+                "observationId": "o6",
+                "imageSha256": "14f251543a3211ff4ca22996ffb8e2461e84ad9ed0dc79279503f17bb252c62c",
+                "url": "/good/?recovery=v9#primary",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 7,
+                "observationId": "o7",
+                "imageSha256": "6ad910da6d964cc563feb841836f1dc625f388deb6045781ccf8c217c2271f0f",
+                "url": "/good/?recovery=v9#primary",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": true,
+                  "verificationAttempts": 1,
+                  "recordChecks": 0,
+                  "savedValue": "東分館",
+                  "complete": true
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "recovery-library-switch-r2",
+      "runId": "fe65489c-91db-4c78-a8f4-b8f4092062b7-recovery-library-switch-r2",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "switch"
+      },
+      "replicate": 2,
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "categories": {
+        "infrastructure": false,
+        "invalidDistribution": false,
+        "safety": false,
+        "limit": false,
+        "abandoned": false,
+        "stuck": false
+      },
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "initialImageSha256": "3f2556986576fe92b307da15ffce956a7733645efd0c960356e58427c68c7c53",
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "judgments": 4,
+        "requests": 8,
+        "recordedAPICalls": 8,
+        "selectionCorrections": 0,
+        "baselineSelectionChanges": 0,
+        "earlyUnchangedRevisits": 0
+      },
+      "opportunities": {
+        "prerequisiteChange": "not-applicable",
+        "unchangedConfirmation": "not-applicable"
+      },
+      "prerequisiteEvents": [],
+      "revisits": [],
+      "switchCompletion": {
+        "applicable": true,
+        "completed": true,
+        "evidence": [
+          {
+            "step": 3,
+            "route": "alternative",
+            "delivered": true,
+            "evidence": {
+              "before": {
+                "kind": "observation",
+                "step": 3,
+                "observationId": "o3",
+                "imageSha256": "279280c3965fed9a8c4dc403a24162a9c80c637c229a72f7085c9fa0f9f048da",
+                "url": "/good/?recovery=p4#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              },
+              "after": {
+                "kind": "observation",
+                "step": 4,
+                "observationId": "o4",
+                "imageSha256": "3fc69ecf7107b6ec5c76222065bee3da557fec0c092d4d7e9d4fe66e7386b335",
+                "url": "/good/?recovery=p4#alternative",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "alternative",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "東分館",
+                  "complete": true
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "recoveryAfterChange": {
+        "applicable": false,
+        "completed": false,
+        "returns": [],
+        "evidence": []
+      }
+    }
+  ],
+  "limitations": [
+    "All trials start on an explicitly blocked primary screen; initial exposure does not establish self-directed discovery of a dead end.",
+    "Snapshot ground truth, successful current-frame delivery, model self-reports and actual UI operations are separate evidence. Delivered pixels do not establish reading or understanding.",
+    "Behavior counts describe locally established transitions in attempted trials, including partial/faulted trials. Valid objective outcomes and valid-run means have their own denominators.",
+    "Prerequisite roles require actual successful clicks with one matching confirm/reconcile counter increment; certification routes are never consulted.",
+    "Revisits require a recorded UI departure and return. Wait, reread and repeated observations do not establish a revisit. Missing transitions are not interpolated.",
+    "Terminal snapshots may establish actual state after the last UI operation but never establish model exposure or an unrecorded URL.",
+    "An unchanged-eligibility early return records lack of prerequisite progress; it is not a prohibition or a claim about natural human behavior.",
+    "Absence of an observed or delivered opportunity is not evidence of successful avoidance, comprehension or correct release decisions.",
+    "Two repeats per task/condition provide descriptive evidence only; no human fidelity, broad stability or causal claim.",
+    "Limits and infrastructure failures remain separate. A final saved UI state may satisfy the objective without a later delivered confirmation or subjective done."
+  ],
+  "independentAudit": {
+    "status": "PASS_FOR_IMPLEMENTATION_AND_RECORDED_EVIDENCE",
+    "scope": "Implementation and evidence; model stability unmet, human fidelity unverified.",
+    "report": "docs/virtual-beta/recovery-transfer-independent-review.md",
+    "externalAPIRequests": 0,
+    "credentialsRead": false,
+    "artifacts": [
+      {
+        "file": "independent-audit/completed-raw-audit/audit.json",
+        "sha256": "03cf4a6e307b553175cbbb9ecdbd1206dca20d0e750bd2a1b66322c42a3522af"
+      },
+      {
+        "file": "independent-audit/supplemental-visual-and-bounds.json",
+        "sha256": "3e7a03446a41304c1defa3311906f2dbe4787115f21b07b777551d2239c0d6e9"
+      },
+      {
+        "file": "independent-audit/public-values-audit.json",
+        "sha256": "9078eac76294fe013992dbe236e9d561c3b925b6684cc3bbf7e2a400ac06ede3"
+      }
+    ],
+    "artifactBase": "reports/recovery-transfer-2026-10-29/"
+  }
+}

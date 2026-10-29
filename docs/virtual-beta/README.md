@@ -1,5 +1,9 @@
 # Jev 仮想βテスト基盤
 
+## 探索切替・再訪の最新実測
+
+[recovery-transfer.md](recovery-transfer.md)、[全12試行](recovery-transfer-results.json)、[独立検証](recovery-transfer-independent-review.md)。別2課題の3条件×2反復、184要求すべてOK。switch4/4、changed4/4、unchanged0/4で、後者は全件12判断の上限終了。変更後の再訪・保存は確認できましたが、照合未実行による4未達が残り、探索全体の安定化は未達です。基盤障害0、人間一致は未検証。以下は以前の評価です。
+
 既存のローカルUI、LocalExplorationPage、Jev 1.14、Persona/Charterの型と禁止操作フィルタ、番号付き画像、通知停止oracleを流用した比較用runnerです。旧runnerは変更していません。人間への一致度は未検証です。
 
 ## 最新の検証

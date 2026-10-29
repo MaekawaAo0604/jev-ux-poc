@@ -1,0 +1,13 @@
+id,task,condition,replicate,valid,objective,perceivedDone,termination,requests,uiActions,judgments,prerequisiteOpportunity,earlyUnchangedRevisits,selectionCorrections
+recovery-library-switch-r1,library,switch,1,true,true,true,SUBJECTIVE_DONE,8,3,4,not-applicable,0,0
+recovery-library-changed-r1,library,changed,1,true,true,true,SUBJECTIVE_DONE,14,6,7,occurred,0,0
+recovery-library-unchanged-r1,library,unchanged,1,true,false,false,DECISION_LIMIT,24,12,12,none-observed,1,2
+recovery-workshop-switch-r1,workshop,switch,1,true,true,true,SUBJECTIVE_DONE,8,3,4,not-applicable,0,0
+recovery-workshop-changed-r1,workshop,changed,1,true,true,true,SUBJECTIVE_DONE,14,6,7,occurred,0,0
+recovery-workshop-unchanged-r1,workshop,unchanged,1,true,false,false,DECISION_LIMIT,24,12,12,none-observed,2,2
+recovery-workshop-unchanged-r2,workshop,unchanged,2,true,false,false,DECISION_LIMIT,24,12,12,none-observed,2,2
+recovery-workshop-changed-r2,workshop,changed,2,true,true,true,SUBJECTIVE_DONE,14,6,7,occurred,0,0
+recovery-workshop-switch-r2,workshop,switch,2,true,true,true,SUBJECTIVE_DONE,8,3,4,not-applicable,0,0
+recovery-library-unchanged-r2,library,unchanged,2,true,false,false,DECISION_LIMIT,24,12,12,none-observed,1,2
+recovery-library-changed-r2,library,changed,2,true,true,true,SUBJECTIVE_DONE,14,6,7,occurred,0,0
+recovery-library-switch-r2,library,switch,2,true,true,true,SUBJECTIVE_DONE,8,3,4,not-applicable,0,0

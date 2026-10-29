@@ -1,5 +1,9 @@
 # Jev UX navigation PoC
 
+## 別課題での探索切替・再訪の実測
+
+[実行方法・結果](docs/virtual-beta/recovery-transfer.md)、[12試行JSON](docs/virtual-beta/recovery-transfer-results.json)、[独立検証](docs/virtual-beta/recovery-transfer-independent-review.md)。2課題×3条件×2反復を方式固定で実行し、184要求はすべて成功応答でした。入口切替4/4、前提変更後の再訪・保存4/4、照合が必要な条件0/4。未達4件は判断上限で、基盤障害0。探索全体の安定化は未達、人間一致は未検証です。
+
 ユーザーの目的・現在見えるUI・操作履歴からJevが次の操作を選ぶ、ローカル専用PoCです。Good/Bad UI × 文字サイズ情報なし/あり × 2 Goalを実行します。
 
 ## 方式を固定した別課題での実測
