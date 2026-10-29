@@ -12,13 +12,13 @@ import {parseCharter} from '../jev/persona.js';
 import {safeRequestFailure,safeProviderType,ChoiceRequestError} from '../jev/client.js';
 import {humanJevProfile,type HumanJevMode} from './human-jev-profiles.js';
 import {runBeta,sha,BetaBudgetError,BetaAdmissionError,BetaSettlementError,betaBudgetFailureEvidence,BetaResponseError,type BetaEvaluator,type ModelRequest} from './virtual-beta-core.js';
-import {evaluateBetaRequest} from './virtual-beta-evaluator.js';
+import {decisionEvaluator,decisionBackendInfo,resolveDecisionBackend,type DecisionBackend} from './decision-backend.js';
 import {PhaseBudget} from './virtual-beta-budget.js';
 import {sourceIdentity} from './virtual-beta-source.js';
 import {buildBlindReview,validateBlindReview,type ReviewFrame} from './human-jev-review.js';
 
 export const humanJevConfig=humanJevProfile().config;
-type Options={out:string;mock:boolean;phaseBudget?:string;envFile?:string;mode?:HumanJevMode;longContext?:boolean;holdoutFixture?:HoldoutFixture;transferFixture?:TransferFixture;recoveryFixture?:RecoveryFixture;runId?:string;deadlineEpochMs?:number};
+type Options={out:string;mock:boolean;phaseBudget?:string;envFile?:string;mode?:HumanJevMode;longContext?:boolean;holdoutFixture?:HoldoutFixture;transferFixture?:TransferFixture;recoveryFixture?:RecoveryFixture;runId?:string;deadlineEpochMs?:number;decisionBackend?:DecisionBackend};
 function failureEvidence(error:unknown){
  if(error instanceof BetaAdmissionError||error instanceof BetaSettlementError)return betaBudgetFailureEvidence(error);
  const f=safeRequestFailure(error);
@@ -32,6 +32,7 @@ function failureEvidence(error:unknown){
  */
 export async function runHumanJev(options:Options,injected?:BetaEvaluator){
  const mode=options.mode??'baseline',profile=humanJevProfile(mode),config=profile.config;
+ const backend=resolveDecisionBackend(options.decisionBackend),evaluateBetaRequest=decisionEvaluator(backend);
  const recoveryDefinitionValue=options.recoveryFixture?recoveryDefinition(options.recoveryFixture):undefined;
  if(options.recoveryFixture&&(options.holdoutFixture||options.transferFixture))throw Error('CONFLICTING_FIXTURES');
  const transferDefinitionValue=options.transferFixture?transferDefinition(options.transferFixture):undefined;
@@ -39,7 +40,7 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
  if(injected&&!options.mock)throw new Error('INJECTED_EVALUATOR_MOCK_ONLY');
  if(!options.mock&&!options.phaseBudget)throw new Error('PHASE_BUDGET_REQUIRED');
  if(options.mock&&options.phaseBudget)throw new Error('MOCK_MUST_NOT_CONSUME_REAL_BUDGET');
- if(!options.mock){if(options.envFile)process.loadEnvFile(options.envFile);if(!process.env.AI_GATEWAY_API_KEY)throw new Error('AI_GATEWAY_API_KEY_REQUIRED');}
+ if(!options.mock){if(options.envFile)process.loadEnvFile(options.envFile);if(!process.env[decisionBackendInfo[backend].credential])throw new Error(decisionBackendInfo[backend].credential+'_REQUIRED');}
  const budget=options.phaseBudget?await PhaseBudget.open(options.phaseBudget):undefined;
  let server:Awaited<ReturnType<typeof createServer>>|undefined,browser:Awaited<ReturnType<typeof chromium.launch>>|undefined;
  const root=resolve(options.out),dir=join(root,'exploration');let calls=0,outputCreated=false;
@@ -48,7 +49,7 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
   await mkdir(root);outputCreated=true;const originalCharter=JSON.parse(await readFile('experiments/persona/charter.json','utf8'));
   const charter=parseCharter(options.holdoutFixture||options.transferFixture||options.recoveryFixture?{...originalCharter,id:options.recoveryFixture?'recovery-task':'holdout-task',targetWebsite:'local:good',goal:recoveryDefinitionValue?.goal??transferDefinitionValue?.goal??holdoutDefinition(options.holdoutFixture!).goal,initialState:{...originalCharter.initialState,description:options.recoveryFixture?'架空サービスの変更画面が利用できない状態。毎回新しいブラウザーで開始する。':'架空サービスの初期画面。毎回新しいブラウザーで開始する。'},scope:options.transferFixture||options.recoveryFixture?['同じローカル検証サイト内で目的を達成する']:['同じローカル検証サイトで、目的の設定変更と保存確認を行う']}:originalCharter);
   const code=await sourceIdentity();
-  const manifest={schemaVersion:1,mode,...(options.recoveryFixture?{recoveryFixture:structuredClone(options.recoveryFixture),recoveryDefinitionHash:sha(JSON.stringify(recoveryDefinitionValue))}:{}),...(options.holdoutFixture?{holdoutFixture:structuredClone(options.holdoutFixture)}:{}),...(options.transferFixture?{transferFixture:structuredClone(options.transferFixture),transferDefinitionHash:sha(JSON.stringify(transferDefinitionValue))}:{}),transport:{longContext:options.longContext===true,maxAttemptsPerRequest:1},createdAtUTC:new Date().toISOString(),...code,mock:options.mock,model:options.mock?'MOCK_SCRIPTED_FIXTURE':'jev-1.14.0',charter,config,persona:null,humanInputsRead:false,actualAPIRequests:0,maximumRequests:profile.maximumRequests,explorationMaximum:profile.explorationMaximum,reviewMaximum:profile.reviewMaximum,viewport:{width:1280,height:900},locale:'ja-JP',timezoneId:'Asia/Tokyo',comparisonLimits:['Baseline goal policy, not a fitted participant persona','Full viewport images with number markers; human used unnumbered native screen','Current runner memory3; human memory and gaze unmeasured','Prompted categorical review, not unprompted free-text discovery'],reviewFramePolicy:'First four and last four distinct delivered images, maximum8, chronological order; no participant-conditioned selection',phaseBudgetBefore:budget?.snapshot()??null};
+  const manifest={schemaVersion:1,mode,...(options.recoveryFixture?{recoveryFixture:structuredClone(options.recoveryFixture),recoveryDefinitionHash:sha(JSON.stringify(recoveryDefinitionValue))}:{}),...(options.holdoutFixture?{holdoutFixture:structuredClone(options.holdoutFixture)}:{}),...(options.transferFixture?{transferFixture:structuredClone(options.transferFixture),transferDefinitionHash:sha(JSON.stringify(transferDefinitionValue))}:{}),transport:{longContext:options.longContext===true,maxAttemptsPerRequest:1},createdAtUTC:new Date().toISOString(),...code,mock:options.mock,model:options.mock?'MOCK_SCRIPTED_FIXTURE':decisionBackendInfo[backend].model,decisionBackend:{id:backend,...decisionBackendInfo[backend],credential:undefined},charter,config,persona:null,humanInputsRead:false,actualAPIRequests:0,maximumRequests:profile.maximumRequests,explorationMaximum:profile.explorationMaximum,reviewMaximum:profile.reviewMaximum,viewport:{width:1280,height:900},locale:'ja-JP',timezoneId:'Asia/Tokyo',comparisonLimits:['Baseline goal policy, not a fitted participant persona','Full viewport images with number markers; human used unnumbered native screen','Current runner memory3; human memory and gaze unmeasured','Prompted categorical review, not unprompted free-text discovery'],reviewFramePolicy:'First four and last four distinct delivered images, maximum8, chronological order; no participant-conditioned selection',phaseBudgetBefore:budget?.snapshot()??null};
   await writeFile(join(root,'manifest.json'),JSON.stringify(manifest,null,2));
   server=await createServer({server:{host:'127.0.0.1',port:0},logLevel:'error'});await server.listen();
   const address=server.httpServer!.address();if(!address||typeof address==='string')throw new Error('NO_LOCAL_PORT');
@@ -111,7 +112,7 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
 }
 async function main(){
  const args=process.argv.slice(2),options:Options={out:'',mock:false};
- for(let i=0;i<args.length;i++){const key=args[i];if(key==='--mock'){options.mock=true;continue;}if(key==='--long-context'){options.longContext=true;continue;}if(!['--out','--phase-budget','--env-file','--mode'].includes(key)||!args[i+1]||args[i+1].startsWith('--'))throw new Error('INVALID_OPTION');const value=args[++i];if(key==='--out')options.out=value;if(key==='--phase-budget')options.phaseBudget=value;if(key==='--env-file')options.envFile=value;if(key==='--mode')options.mode=value as HumanJevMode;}
+ for(let i=0;i<args.length;i++){const key=args[i];if(key==='--mock'){options.mock=true;continue;}if(key==='--long-context'){options.longContext=true;continue;}if(!['--out','--phase-budget','--env-file','--mode','--backend'].includes(key)||!args[i+1]||args[i+1].startsWith('--'))throw new Error('INVALID_OPTION');const value=args[++i];if(key==='--out')options.out=value;if(key==='--phase-budget')options.phaseBudget=value;if(key==='--env-file')options.envFile=value;if(key==='--mode')options.mode=value as HumanJevMode;if(key==='--backend')options.decisionBackend=resolveDecisionBackend(value);}
  if(!options.out)throw new Error('NEW_OUTPUT_DIRECTORY_REQUIRED');
  const saved=await runHumanJev(options);console.log(JSON.stringify({root:saved.root,termination:saved.result.termination,objectiveSuccess:saved.result.objectiveAssessment.value,reviewStatus:saved.review.status}));
 }
