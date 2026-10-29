@@ -1,0 +1,1312 @@
+{
+  "schemaVersion": 1,
+  "status": "INCOMPLETE_HTTP_402",
+  "kind": "ACTUAL_JEV_PARTIAL_TRANSFER_RESULTS",
+  "producer": {
+    "revision": "73b1ff3603b84c0019332970590b1f0d1406dc91",
+    "sourceHash": "8a5bc5c03daaf99df38795fd218dc5e19e0ed916d390620e602286955c6ee3d7",
+    "protocolSha256": "ae65d167928aa0990acc17c9e27944f28c9f2133c537f2436c28f0d3f883163b"
+  },
+  "analysis": {
+    "kind": "OFFLINE_REANALYSIS_V2",
+    "sourceHash": "0d6a2476bc592fe9d56afc4436b2737555659129eb2c4b8e4ee8309ef73890d4",
+    "fileSha256": "9fc8113398f5993f7d7a756934ef8c8e293fad84cb09b620d679cbbdbee0f1f3",
+    "changedProducerSources": [
+      "runner/transfer-analysis.ts"
+    ],
+    "APIRequests": 0,
+    "originalRawPreserved": true,
+    "independentlyReverified": true
+  },
+  "plannedTrials": 21,
+  "attemptedTrials": 13,
+  "validTrials": 12,
+  "unattemptedTrials": 8,
+  "novel": {
+    "planned": 18,
+    "attempted": 11,
+    "withResult": 11,
+    "valid": 10,
+    "invalid": 1,
+    "objectiveSuccesses": 10,
+    "objectiveFailures": 0,
+    "subjectiveDone": 10,
+    "infrastructure": 1,
+    "invalidDistributions": 0,
+    "safetyStops": 0,
+    "limits": 0,
+    "abandoned": 0,
+    "requests": 80,
+    "terminations": {
+      "SUBJECTIVE_DONE": 10,
+      "API_ERROR": 1
+    },
+    "meanUIActions": 2.9,
+    "meanLooks": 0,
+    "meanRequests": 7.8,
+    "meanAPIMs": 13277.256329999984
+  },
+  "sentinel": {
+    "planned": 3,
+    "attempted": 2,
+    "withResult": 2,
+    "valid": 2,
+    "invalid": 0,
+    "objectiveSuccesses": 2,
+    "objectiveFailures": 0,
+    "subjectiveDone": 2,
+    "infrastructure": 0,
+    "invalidDistributions": 0,
+    "safetyStops": 0,
+    "limits": 0,
+    "abandoned": 0,
+    "requests": 12,
+    "terminations": {
+      "SUBJECTIVE_DONE": 2
+    },
+    "meanUIActions": 2,
+    "meanLooks": 0,
+    "meanRequests": 6,
+    "meanAPIMs": 8991.470700000005
+  },
+  "requests": {
+    "charged": 92,
+    "OK": 91,
+    "ERROR": 1,
+    "RESERVED": 0,
+    "maximum": 504
+  },
+  "cells": [
+    {
+      "key": "novel/catalog/alpha",
+      "kind": "novel",
+      "task": "catalog",
+      "variant": "alpha",
+      "planned": 3,
+      "attempted": 2,
+      "withResult": 2,
+      "valid": 1,
+      "invalid": 1,
+      "objectiveSuccesses": 1,
+      "objectiveFailures": 0,
+      "subjectiveDone": 1,
+      "infrastructure": 1,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 0,
+      "abandoned": 0,
+      "requests": 8,
+      "terminations": {
+        "SUBJECTIVE_DONE": 1,
+        "API_ERROR": 1
+      },
+      "meanUIActions": 2,
+      "meanLooks": 0,
+      "meanRequests": 6,
+      "meanAPIMs": 9060.345100000006,
+      "ids": [
+        "transfer-catalog-alpha-r1",
+        "transfer-catalog-alpha-r2"
+      ],
+      "initialImages": {
+        "consistent": true,
+        "hashes": [
+          "1ab07e920aaa9d47c8d22929e792cdb15a841f7eba4faa0f305b8da47f904e43"
+        ]
+      },
+      "configs": {
+        "consistent": true
+      },
+      "aggregationUncertain": false,
+      "pathVariation": {
+        "completeValid": 1,
+        "uniqueCompletePaths": 1
+      },
+      "deliveredConfirmations": 1
+    },
+    {
+      "key": "novel/catalog/beta",
+      "kind": "novel",
+      "task": "catalog",
+      "variant": "beta",
+      "planned": 3,
+      "attempted": 1,
+      "withResult": 1,
+      "valid": 1,
+      "invalid": 0,
+      "objectiveSuccesses": 1,
+      "objectiveFailures": 0,
+      "subjectiveDone": 1,
+      "infrastructure": 0,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 0,
+      "abandoned": 0,
+      "requests": 8,
+      "terminations": {
+        "SUBJECTIVE_DONE": 1
+      },
+      "meanUIActions": 3,
+      "meanLooks": 0,
+      "meanRequests": 8,
+      "meanAPIMs": 13303.733399999997,
+      "ids": [
+        "transfer-catalog-beta-r1"
+      ],
+      "initialImages": {
+        "consistent": null,
+        "hashes": [
+          "fd86337d37a232f931b533342d07ca9390e3afebf21d9ff36e1c67d188363de8"
+        ]
+      },
+      "configs": {
+        "consistent": null
+      },
+      "aggregationUncertain": false,
+      "pathVariation": {
+        "completeValid": 1,
+        "uniqueCompletePaths": 1
+      },
+      "deliveredConfirmations": 1
+    },
+    {
+      "key": "novel/draft/alpha",
+      "kind": "novel",
+      "task": "draft",
+      "variant": "alpha",
+      "planned": 3,
+      "attempted": 2,
+      "withResult": 2,
+      "valid": 2,
+      "invalid": 0,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "subjectiveDone": 2,
+      "infrastructure": 0,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 0,
+      "abandoned": 0,
+      "requests": 16,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 3,
+      "meanLooks": 0,
+      "meanRequests": 8,
+      "meanAPIMs": 14796.25784999995,
+      "ids": [
+        "transfer-draft-alpha-r1",
+        "transfer-draft-alpha-r2"
+      ],
+      "initialImages": {
+        "consistent": true,
+        "hashes": [
+          "82abd339dc31b3aff54cded2a29c9225ddc07666d6f73220032e0293cd5fc201"
+        ]
+      },
+      "configs": {
+        "consistent": true
+      },
+      "aggregationUncertain": false,
+      "pathVariation": {
+        "completeValid": 2,
+        "uniqueCompletePaths": 1
+      },
+      "deliveredConfirmations": 2
+    },
+    {
+      "key": "novel/draft/beta",
+      "kind": "novel",
+      "task": "draft",
+      "variant": "beta",
+      "planned": 3,
+      "attempted": 2,
+      "withResult": 2,
+      "valid": 2,
+      "invalid": 0,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "subjectiveDone": 2,
+      "infrastructure": 0,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 0,
+      "abandoned": 0,
+      "requests": 16,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 3,
+      "meanLooks": 0,
+      "meanRequests": 8,
+      "meanAPIMs": 14838.843349999996,
+      "ids": [
+        "transfer-draft-beta-r1",
+        "transfer-draft-beta-r2"
+      ],
+      "initialImages": {
+        "consistent": true,
+        "hashes": [
+          "fa92cd9904ef38f70f0d8349bfab8839d12c1cda20fa147551aefc5701d229b0"
+        ]
+      },
+      "configs": {
+        "consistent": true
+      },
+      "aggregationUncertain": false,
+      "pathVariation": {
+        "completeValid": 2,
+        "uniqueCompletePaths": 1
+      },
+      "deliveredConfirmations": 2
+    },
+    {
+      "key": "novel/help/alpha",
+      "kind": "novel",
+      "task": "help",
+      "variant": "alpha",
+      "planned": 3,
+      "attempted": 2,
+      "withResult": 2,
+      "valid": 2,
+      "invalid": 0,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "subjectiveDone": 2,
+      "infrastructure": 0,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 0,
+      "abandoned": 0,
+      "requests": 16,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 3,
+      "meanLooks": 0,
+      "meanRequests": 8,
+      "meanAPIMs": 12733.454949999941,
+      "ids": [
+        "transfer-help-alpha-r1",
+        "transfer-help-alpha-r2"
+      ],
+      "initialImages": {
+        "consistent": true,
+        "hashes": [
+          "193fe4fbc520ea0e925a7d9b1c6f1f48d200bb768cb44a576272bab830ebf193"
+        ]
+      },
+      "configs": {
+        "consistent": true
+      },
+      "aggregationUncertain": false,
+      "pathVariation": {
+        "completeValid": 2,
+        "uniqueCompletePaths": 1
+      },
+      "deliveredConfirmations": 2
+    },
+    {
+      "key": "novel/help/beta",
+      "kind": "novel",
+      "task": "help",
+      "variant": "beta",
+      "planned": 3,
+      "attempted": 2,
+      "withResult": 2,
+      "valid": 2,
+      "invalid": 0,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "subjectiveDone": 2,
+      "infrastructure": 0,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 0,
+      "abandoned": 0,
+      "requests": 16,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 3,
+      "meanLooks": 0,
+      "meanRequests": 8,
+      "meanAPIMs": 12835.686250000028,
+      "ids": [
+        "transfer-help-beta-r1",
+        "transfer-help-beta-r2"
+      ],
+      "initialImages": {
+        "consistent": true,
+        "hashes": [
+          "bab96eb135d2782cd3d7cb0d44d948f073ae5431badc722c681becc89d9b89d8"
+        ]
+      },
+      "configs": {
+        "consistent": true
+      },
+      "aggregationUncertain": false,
+      "pathVariation": {
+        "completeValid": 2,
+        "uniqueCompletePaths": 1
+      },
+      "deliveredConfirmations": 2
+    },
+    {
+      "key": "sentinel/direct/alpha",
+      "kind": "sentinel",
+      "task": "direct",
+      "variant": "alpha",
+      "planned": 3,
+      "attempted": 2,
+      "withResult": 2,
+      "valid": 2,
+      "invalid": 0,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "subjectiveDone": 2,
+      "infrastructure": 0,
+      "invalidDistributions": 0,
+      "safetyStops": 0,
+      "limits": 0,
+      "abandoned": 0,
+      "requests": 12,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 2,
+      "meanLooks": 0,
+      "meanRequests": 6,
+      "meanAPIMs": 8991.470700000005,
+      "ids": [
+        "transfer-sentinel-direct-alpha-r1",
+        "transfer-sentinel-direct-alpha-r2"
+      ],
+      "initialImages": {
+        "consistent": true,
+        "hashes": [
+          "5ec72c55100ec84de13d5e37edd9d335367bec8a5bf09c05ab823cc8ea2a6312"
+        ]
+      },
+      "configs": {
+        "consistent": true
+      },
+      "aggregationUncertain": false,
+      "pathVariation": {
+        "completeValid": 2,
+        "uniqueCompletePaths": 1
+      },
+      "deliveredConfirmations": 2
+    }
+  ],
+  "trials": [
+    {
+      "id": "transfer-sentinel-direct-alpha-r1",
+      "kind": "sentinel",
+      "task": "direct",
+      "variant": "alpha",
+      "replicate": 1,
+      "status": "RESULT",
+      "requests": 6,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": true,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "5ec72c55100ec84de13d5e37edd9d335367bec8a5bf09c05ab823cc8ea2a6312",
+      "path": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "次回予約の変更\nご予約の日付を変更します",
+          "from": "/good/?holdout=d1a",
+          "to": "/good/?holdout=d1a#primary",
+          "status": "observed"
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "2026年11月14日に変更する",
+          "from": "/good/?holdout=d1a#primary",
+          "to": "/good/?holdout=d1a#primary",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "id": "transfer-catalog-alpha-r1",
+      "kind": "novel",
+      "task": "catalog",
+      "variant": "alpha",
+      "replicate": 1,
+      "status": "RESULT",
+      "requests": 6,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": true,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "1ab07e920aaa9d47c8d22929e792cdb15a841f7eba4faa0f305b8da47f904e43",
+      "path": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "02\n川辺の記録\n土曜日 14:00\n字幕あり\n上映内容を見る →",
+          "from": "/good/?transfer=t7",
+          "to": "/good/?transfer=t7#film-river",
+          "status": "observed"
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイリストに追加",
+          "from": "/good/?transfer=t7#film-river",
+          "to": "/good/?transfer=t7#film-river",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "id": "transfer-catalog-beta-r1",
+      "kind": "novel",
+      "task": "catalog",
+      "variant": "beta",
+      "replicate": 1,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": true,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "fd86337d37a232f931b533342d07ca9390e3afebf21d9ff36e1c67d188363de8",
+      "path": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "土曜日",
+          "from": "/good/?transfer=x2",
+          "to": "/good/?transfer=x2",
+          "status": "observed"
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "02\n風の通り道\n土曜日 11:30\n字幕あり\n上映内容を見る →",
+          "from": "/good/?transfer=x2",
+          "to": "/good/?transfer=x2#film-breeze",
+          "status": "observed"
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイリストに追加",
+          "from": "/good/?transfer=x2#film-breeze",
+          "to": "/good/?transfer=x2#film-breeze",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "id": "transfer-draft-alpha-r1",
+      "kind": "novel",
+      "task": "draft",
+      "variant": "alpha",
+      "replicate": 1,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": true,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "82abd339dc31b3aff54cded2a29c9225ddc07666d6f73220032e0293cd5fc201",
+      "path": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "水辺の散歩\n散策イベントの企画案",
+          "from": "/good/?transfer=b8",
+          "to": "/good/?transfer=b8#memo-main",
+          "status": "observed"
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "チーム内\nこのワークスペースのメンバーのみ",
+          "from": "/good/?transfer=b8#memo-main",
+          "to": "/good/?transfer=b8#memo-main",
+          "status": "observed"
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "elementId": "e6"
+          },
+          "label": "変更を保存",
+          "from": "/good/?transfer=b8#memo-main",
+          "to": "/good/?transfer=b8#memo-main",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "id": "transfer-draft-beta-r1",
+      "kind": "novel",
+      "task": "draft",
+      "variant": "beta",
+      "replicate": 1,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": true,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "fa92cd9904ef38f70f0d8349bfab8839d12c1cda20fa147551aefc5701d229b0",
+      "path": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "水辺の散歩\n散策イベントの企画案",
+          "from": "/good/?transfer=k5",
+          "to": "/good/?transfer=k5#memo-main",
+          "status": "observed"
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "チーム内\nこのワークスペースのメンバーのみ",
+          "from": "/good/?transfer=k5#memo-main",
+          "to": "/good/?transfer=k5#memo-main",
+          "status": "observed"
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "elementId": "e6"
+          },
+          "label": "変更を保存",
+          "from": "/good/?transfer=k5#memo-main",
+          "to": "/good/?transfer=k5#memo-main",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "id": "transfer-help-alpha-r1",
+      "kind": "novel",
+      "task": "help",
+      "variant": "alpha",
+      "replicate": 1,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": true,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "193fe4fbc520ea0e925a7d9b1c6f1f48d200bb768cb44a576272bab830ebf193",
+      "path": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "参加の準備\nイベント別のご案内\n集合場所、当日の流れ、持ち物",
+          "from": "/good/?transfer=j4",
+          "to": "/good/?transfer=j4#events",
+          "status": "observed"
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
+          "from": "/good/?transfer=j4#events",
+          "to": "/good/?transfer=j4#meeting",
+          "status": "observed"
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "持ち物を含む参加案内を開く →",
+          "from": "/good/?transfer=j4#meeting",
+          "to": "/good/?transfer=j4#details",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "id": "transfer-help-beta-r1",
+      "kind": "novel",
+      "task": "help",
+      "variant": "beta",
+      "replicate": 1,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": true,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "bab96eb135d2782cd3d7cb0d44d948f073ae5431badc722c681becc89d9b89d8",
+      "path": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "参加の準備\n参加イベントの案内を探す\n集合場所、当日の流れ、持ち物",
+          "from": "/good/?transfer=n6",
+          "to": "/good/?transfer=n6#events",
+          "status": "observed"
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
+          "from": "/good/?transfer=n6#events",
+          "to": "/good/?transfer=n6#meeting",
+          "status": "observed"
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "持ち物を含む参加案内を開く →",
+          "from": "/good/?transfer=n6#meeting",
+          "to": "/good/?transfer=n6#details",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "id": "transfer-sentinel-direct-alpha-r2",
+      "kind": "sentinel",
+      "task": "direct",
+      "variant": "alpha",
+      "replicate": 2,
+      "status": "RESULT",
+      "requests": 6,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": true,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "5ec72c55100ec84de13d5e37edd9d335367bec8a5bf09c05ab823cc8ea2a6312",
+      "path": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "次回予約の変更\nご予約の日付を変更します",
+          "from": "/good/?holdout=d1a",
+          "to": "/good/?holdout=d1a#primary",
+          "status": "observed"
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "2026年11月14日に変更する",
+          "from": "/good/?holdout=d1a#primary",
+          "to": "/good/?holdout=d1a#primary",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "id": "transfer-draft-alpha-r2",
+      "kind": "novel",
+      "task": "draft",
+      "variant": "alpha",
+      "replicate": 2,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": true,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "82abd339dc31b3aff54cded2a29c9225ddc07666d6f73220032e0293cd5fc201",
+      "path": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "水辺の散歩\n散策イベントの企画案",
+          "from": "/good/?transfer=b8",
+          "to": "/good/?transfer=b8#memo-main",
+          "status": "observed"
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "チーム内\nこのワークスペースのメンバーのみ",
+          "from": "/good/?transfer=b8#memo-main",
+          "to": "/good/?transfer=b8#memo-main",
+          "status": "observed"
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "elementId": "e6"
+          },
+          "label": "変更を保存",
+          "from": "/good/?transfer=b8#memo-main",
+          "to": "/good/?transfer=b8#memo-main",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "id": "transfer-draft-beta-r2",
+      "kind": "novel",
+      "task": "draft",
+      "variant": "beta",
+      "replicate": 2,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": true,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "fa92cd9904ef38f70f0d8349bfab8839d12c1cda20fa147551aefc5701d229b0",
+      "path": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "水辺の散歩\n散策イベントの企画案",
+          "from": "/good/?transfer=k5",
+          "to": "/good/?transfer=k5#memo-main",
+          "status": "observed"
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "チーム内\nこのワークスペースのメンバーのみ",
+          "from": "/good/?transfer=k5#memo-main",
+          "to": "/good/?transfer=k5#memo-main",
+          "status": "observed"
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "elementId": "e6"
+          },
+          "label": "変更を保存",
+          "from": "/good/?transfer=k5#memo-main",
+          "to": "/good/?transfer=k5#memo-main",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "id": "transfer-help-alpha-r2",
+      "kind": "novel",
+      "task": "help",
+      "variant": "alpha",
+      "replicate": 2,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": true,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "193fe4fbc520ea0e925a7d9b1c6f1f48d200bb768cb44a576272bab830ebf193",
+      "path": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "参加の準備\nイベント別のご案内\n集合場所、当日の流れ、持ち物",
+          "from": "/good/?transfer=j4",
+          "to": "/good/?transfer=j4#events",
+          "status": "observed"
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
+          "from": "/good/?transfer=j4#events",
+          "to": "/good/?transfer=j4#meeting",
+          "status": "observed"
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "持ち物を含む参加案内を開く →",
+          "from": "/good/?transfer=j4#meeting",
+          "to": "/good/?transfer=j4#details",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "id": "transfer-help-beta-r2",
+      "kind": "novel",
+      "task": "help",
+      "variant": "beta",
+      "replicate": 2,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": true,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "bab96eb135d2782cd3d7cb0d44d948f073ae5431badc722c681becc89d9b89d8",
+      "path": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "参加の準備\n参加イベントの案内を探す\n集合場所、当日の流れ、持ち物",
+          "from": "/good/?transfer=n6",
+          "to": "/good/?transfer=n6#events",
+          "status": "observed"
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
+          "from": "/good/?transfer=n6#events",
+          "to": "/good/?transfer=n6#meeting",
+          "status": "observed"
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "持ち物を含む参加案内を開く →",
+          "from": "/good/?transfer=n6#meeting",
+          "to": "/good/?transfer=n6#details",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "id": "transfer-catalog-alpha-r2",
+      "kind": "novel",
+      "task": "catalog",
+      "variant": "alpha",
+      "replicate": 2,
+      "status": "RESULT",
+      "requests": 2,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "termination": "API_ERROR",
+      "validity": {
+        "valid": false,
+        "reasons": [
+          "REPORTED_INVALID",
+          "INFRASTRUCTURE_FAULT"
+        ]
+      },
+      "metrics": {
+        "uiActions": 0,
+        "looks": 0,
+        "decisions": 1,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "credited": false,
+        "matchPolicy": "literal-includes-whitespace-removed-v2"
+      },
+      "initialImageSha256": "1ab07e920aaa9d47c8d22929e792cdb15a841f7eba4faa0f305b8da47f904e43",
+      "path": []
+    }
+  ],
+  "pendingSlots": [
+    "transfer-catalog-beta-r2",
+    "transfer-sentinel-direct-alpha-r3",
+    "transfer-help-alpha-r3",
+    "transfer-help-beta-r3",
+    "transfer-catalog-alpha-r3",
+    "transfer-catalog-beta-r3",
+    "transfer-draft-alpha-r3",
+    "transfer-draft-beta-r3"
+  ],
+  "optionalConfirmationFix": [
+    {
+      "id": "transfer-catalog-alpha-r1",
+      "before": false,
+      "after": true
+    },
+    {
+      "id": "transfer-catalog-beta-r1",
+      "before": false,
+      "after": true
+    },
+    {
+      "id": "transfer-draft-alpha-r1",
+      "before": false,
+      "after": true
+    },
+    {
+      "id": "transfer-draft-beta-r1",
+      "before": false,
+      "after": true
+    },
+    {
+      "id": "transfer-draft-alpha-r2",
+      "before": false,
+      "after": true
+    },
+    {
+      "id": "transfer-draft-beta-r2",
+      "before": false,
+      "after": true
+    }
+  ],
+  "tests": {
+    "parentRelevant": {
+      "tests": 199,
+      "pass": 198,
+      "fail": 1,
+      "skip": 0
+    },
+    "oldHoldoutRetest": {
+      "tests": 12,
+      "pass": 10,
+      "fail": 2
+    },
+    "independentBaselineSwitchDiagnostic": {
+      "tests": 2,
+      "pass": 1,
+      "fail": 1
+    },
+    "transportAfterContention": {
+      "tests": 2,
+      "pass": 2,
+      "fail": 0
+    },
+    "independentPreflight": {
+      "tests": 31,
+      "pass": 31,
+      "fail": 0,
+      "browserCells": 6,
+      "objectiveAssertions": 44
+    },
+    "measurementFix": {
+      "tests": 26,
+      "pass": 26,
+      "fail": 0
+    },
+    "typeCheck": "PASS",
+    "build": "PASS",
+    "fullSuite": "NOT_COMPLETED",
+    "independentMeasurementFix": {
+      "tests": 31,
+      "pass": 31,
+      "fail": 0,
+      "skip": 0
+    }
+  },
+  "limitations": [
+    "Only10 valid novel trials were observed,11attempted,18planned; do not report18/18.",
+    "HTTP402 is infrastructure failure, not user failure or abandonment. Its billing/provider cause is not established here.",
+    "No third repeats completed. Three-repeat stability and broader generalization remain unverified.",
+    "Successful paths did not need recovery, so they do not establish generalized switching/revisit competence.",
+    "No persona effects, human fidelity, causal UI effects or pretraining novelty are established.",
+    "Optional confirmation v2 is whitespace-insensitive literal matching of audited visible text tied to verified delivered current frames; not a semantic comprehension test.",
+    "Literal-includes may also match a question containing the entire confirmation phrase; it is not a semantic statement classifier."
+  ],
+  "model": "jev-1.14.0",
+  "method": {
+    "mode": "experience-goal-search-grounded",
+    "persona": null,
+    "selection": "argmax",
+    "transport": {
+      "longContext": true,
+      "maxAttemptsPerRequest": 1
+    }
+  },
+  "failure": {
+    "id": "transfer-catalog-alpha-r2",
+    "stage": "action",
+    "code": "HTTP_ERROR",
+    "statusCode": 402,
+    "successfulAssessmentBeforeError": true,
+    "uiActions": 0
+  }
+}

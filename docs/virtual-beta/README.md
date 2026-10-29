@@ -4,6 +4,8 @@
 
 ## 最新の検証
 
+方式を固定した別3課題・6画面の実測は [transfer-evaluation.md](transfer-evaluation.md)、[個別結果](transfer-results.json)、[独立検証](transfer-independent-review.md)。21予定のうち13試行・92要求でHTTP402停止。新課題は11試行中有効10・達成10・基盤障害1、既知2件も達成、8件未実行。3反復の検証は未完了。保存確認の補助集計6件の偽陰性を原本を保った再解析で修正した。別の順方向課題で動いたが、行き詰まり回復の一般化や人間一致は未検証。
+
 別課題・画面の24試行は [holdout-stability.md](holdout-stability.md)、匿名値は [holdout-stability-results.json](holdout-stability-results.json)。配送変更・必要再訪・直接操作を2画面×2反復×保留有無で比較し、244要求・基盤障害0。再訪8/8、直接8/8、配送4/8（alpha全4未達・beta全4達成）、両方式10/12だった。保存前の主観的完了4件と、前提変更後も古い保留が残り必要再訪を遅らせた2件を確認。安定完了は未達。native Backのfixture不具合を実行前に修正し、実行後のURL alias集計も原本を保持して修正した。関連182件・型/build・独立監査を実施。
 
 失敗経路の一時保留を [temporary-deferral.md](temporary-deferral.md) に追加した。実モデルの同じローカル課題で、対照は12判断で反復・未達、保留ありは帰還後に別カテゴリへ切り替わり6 UI操作・7判断で客観達成した。計38/48要求、関連145件・型/build・独立検証成功。元の入口を提案したモデル分布を明示方策が補正した1例であり、人間の再現や一般的改善率は未検証。補正時は別クリックとスクロールが同率で既存tie-breakが働いた。個別値は [temporary-deferral-results.json](temporary-deferral-results.json)。

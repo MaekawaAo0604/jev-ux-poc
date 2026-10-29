@@ -50,14 +50,15 @@ export async function verifyTransferFrames(result:BetaResult,directory:string):P
 function confirmation(record:TransferRunRecord){
  const definition=record.kind==='novel'?transferDefinition(record.fixture):holdoutDefinition(record.fixture);
  const required=definition.task==='help'?[definition.event,definition.place,definition.belongings]:[definition.objectiveText];
+ const withoutWhitespace=(value:string)=>value.replace(/\s/g,'');
  const frames=(record.frameChecks??[]).flatMap(check=>{
   const step=record.result?.steps.find(s=>s.number===check.step&&s.observationId===check.observationId);
   if(!step||!check.validCurrentFrame||!check.successfulResponse||check.scope!=='full-viewport-current'||check.imageSha256!==image(step))return [];
-  const visible=step.audit?.screen.text.join('\n')??'';
-  if(!required.every(text=>visible.includes(text)))return [];
+  const visible=withoutWhitespace(step.audit?.screen.text.join('\n')??'');
+  if(!required.every(text=>visible.includes(withoutWhitespace(text))))return [];
   return [{step:check.step,stage:check.stage,observationId:check.observationId,imageSha256:check.imageSha256,scope:check.scope}];
  });
- return {kind:record.kind==='novel'&&record.fixture.task==='help'?'help-required-information-exposure':'optional-confirmation-frame',credited:frames.length>0,frames,interpretation:'Correct required text in audited visible screen tied to verified current pixels and a successful model response; no claim of reading or understanding.'};
+ return {kind:record.kind==='novel'&&record.fixture.task==='help'?'help-required-information-exposure':'optional-confirmation-frame',credited:frames.length>0,frames,matchPolicy:'literal-includes-whitespace-removed-v2',interpretation:'Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding.'};
 }
 export function transferFailureCategories(record:Pick<TransferRunRecord,'result'|'error'|'status'>){
  const r=record.result,termination=r?.termination;
@@ -112,7 +113,3 @@ export function analyzeTransferRuns(records:TransferRunRecord[]){
  const missing=plannedCells.flatMap(cell=>[1,2,3].filter(rep=>!bySlot.has(cellKey(cell)+'/r'+rep)).map(rep=>cellKey(cell)+'/r'+rep));
  return {schemaVersion:1,kind:'offline-frozen-method-transfer-descriptive',completeness:{planned:21,attempted:records.length,withResult:resultIndexes.length,valid:runs.filter(r=>r.validity.valid).length,missing,complete:records.length===21&&missing.length===0&&[...bySlot.values()].every(v=>v.length===1)&&resultIndexes.length===21},integrity:{ok:errors.length===0,errors},novel:summarize(runs.filter(r=>r.kind==='novel'),18),sentinel:summarize(runs.filter(r=>r.kind==='sentinel'),3),cells,runs,limitations:['Three repeats describe variation; they do not prove human stability, generalization, or causality.','Known sentinel trials are reported separately and never counted as novel tasks.','Objective UI outcome and subjective done remain separate; faults are not task failures. Category counts may overlap.','Actual URLs retain query and hash with only local origin normalized; only the next recorded observation establishes destination. Unknown final destinations remain unknown.','Repeated visual edges describe identical saved image hashes, not semantic equivalence or route banning.','Config equality has no exclusions. Different same-cell initial images flag uncertainty; pooled descriptive counts require that caveat.','Help UI display differs from delivered exposure. Only verified current full-viewport pixels with correct audited visible text and a successful response qualify; retained images and unsent containers do not. This establishes neither reading nor understanding.','Elapsed, UI and API latency are not human time.']};
 }
-
-
-
-

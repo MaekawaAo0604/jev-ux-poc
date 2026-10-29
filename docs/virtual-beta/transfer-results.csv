@@ -1,0 +1,14 @@
+id,kind,task,variant,replicate,valid,objective,done,termination,requests,uiActions,looks,deliveredConfirmation
+transfer-sentinel-direct-alpha-r1,sentinel,direct,alpha,1,True,True,True,SUBJECTIVE_DONE,6,2,0,True
+transfer-catalog-alpha-r1,novel,catalog,alpha,1,True,True,True,SUBJECTIVE_DONE,6,2,0,True
+transfer-catalog-beta-r1,novel,catalog,beta,1,True,True,True,SUBJECTIVE_DONE,8,3,0,True
+transfer-draft-alpha-r1,novel,draft,alpha,1,True,True,True,SUBJECTIVE_DONE,8,3,0,True
+transfer-draft-beta-r1,novel,draft,beta,1,True,True,True,SUBJECTIVE_DONE,8,3,0,True
+transfer-help-alpha-r1,novel,help,alpha,1,True,True,True,SUBJECTIVE_DONE,8,3,0,True
+transfer-help-beta-r1,novel,help,beta,1,True,True,True,SUBJECTIVE_DONE,8,3,0,True
+transfer-sentinel-direct-alpha-r2,sentinel,direct,alpha,2,True,True,True,SUBJECTIVE_DONE,6,2,0,True
+transfer-draft-alpha-r2,novel,draft,alpha,2,True,True,True,SUBJECTIVE_DONE,8,3,0,True
+transfer-draft-beta-r2,novel,draft,beta,2,True,True,True,SUBJECTIVE_DONE,8,3,0,True
+transfer-help-alpha-r2,novel,help,alpha,2,True,True,True,SUBJECTIVE_DONE,8,3,0,True
+transfer-help-beta-r2,novel,help,beta,2,True,True,True,SUBJECTIVE_DONE,8,3,0,True
+transfer-catalog-alpha-r2,novel,catalog,alpha,2,False,False,False,API_ERROR,2,0,0,False

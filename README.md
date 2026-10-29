@@ -2,6 +2,10 @@
 
 ユーザーの目的・現在見えるUI・操作履歴からJevが次の操作を選ぶ、ローカル専用PoCです。Good/Bad UI × 文字サイズ情報なし/あり × 2 Goalを実行します。
 
+## 方式を固定した別課題での実測
+
+[実行方法と結果](docs/virtual-beta/transfer-evaluation.md)、[個別JSON](docs/virtual-beta/transfer-results.json)、[独立検証](docs/virtual-beta/transfer-independent-review.md)。新しい3課題・6画面を現行方式で探索しました。21予定のうち13試行・92要求でHTTP402停止。有効な新規10件と既知2件は達成しましたが、残り8件と3反復の確認は未完了です。人間再現や行き詰まり回復の一般化は未検証です。
+
 ## ペルソナ別の探索実験
 
 ペルソナと探索チャーターを別々の JSON で指定し、ベースライン＋3ペルソナを各3回比較できます。

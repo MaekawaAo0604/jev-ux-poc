@@ -28,13 +28,15 @@ Worker A owns app/TransferFixture.tsx, app/transfer-style.css, app/transfer-cert
 Worker B owns runner/transfer-evaluation.ts, runner/transfer-analysis.ts, tests/transfer-evaluation.test.ts and tests/transfer-analysis.test.ts only.
 Workers are not alone, must not revert others, and must request contract changes from parent. No worker reads credentials or calls the real gateway.
 
-- [ ] Capture baseline source/config and existing sentinel wire before adapters. Write failing registry/parser tests, then minimal registry contract.
-- [ ] A: actual-browser RED/GREEN for all six tasks, wrong target/unsaved/partial information/reset/native Back. UI text/layout authored before model runs, no prompt instructions.
-- [ ] B: RED/GREEN schedule, caps, failures, fresh IDs/ledgers, exact config/initial consistency, accounting and analysis denominators. Reuse runHumanJev without another evaluator.
-- [ ] Parent: actual wrapper transport stub checks, fixture opt-in conflicts and wire allowlist, old sentinel byte-compatible inputs, objective negatives, bounded transfer metadata and replay.
-- [ ] Integrate, type/build and relevant regression. New independent reviewer verifies actual tests and outcomes; fix/reverify up to three rounds.
-- [ ] Commit freeze before real21 run, execute once bounded, preserve all previous ledgers/raw and audit delivered PNGs/distributions/actions/termination independently.
-- [ ] Publish protocol/results/limitations/commands; commit/push feature only and verify remote.
+- [x] Capture baseline source/config and existing sentinel wire before adapters. Write failing registry/parser tests, then minimal registry contract.
+- [x] A: actual-browser RED/GREEN for all six tasks, wrong target/unsaved/partial information/reset/native Back. UI text/layout authored before model runs, no prompt instructions.
+- [x] B: RED/GREEN schedule, caps, failures, fresh IDs/ledgers, exact config/initial consistency, accounting and analysis denominators. Reuse runHumanJev without another evaluator.
+- [x] Parent: actual wrapper transport stub checks, fixture opt-in conflicts and wire allowlist, old sentinel byte-compatible inputs, objective negatives, bounded transfer metadata and replay.
+- [x] Integrate, type/build and relevant regression. New independent reviewer verifies actual tests and outcomes; fix/reverify up to three rounds.
+- [x] Commit freeze73b1ff3 before real calls; bounded run stopped HTTP402 at13attempts/92requests; preserve all old/raw sources and independently audit frames/distributions/actions/termination.
+- [ ] Finish the8 unattempted slots after service recovery; do not call21planned completed or rerun the failed slot.
+- [x] Save protocol, partial results, limitations, commands and raw-fix provenance.
+Delivery: feature branch only; parent verifies remote after committing this report. No default-branch push or release.
 
 ## Review focus
 
