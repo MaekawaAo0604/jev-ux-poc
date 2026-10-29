@@ -2,7 +2,7 @@
 
 この変更は、現在の候補に対する根拠を現在画像へ限定する修正と、具体的な条件を画像から取り出す段階を分けて比較する。
 既定の Jev 方式は維持する。
-三度の実行は入力の文脈上限で停止した。文章内の画像参照名の衝突を特定し、失敗原本を残して送信処理を修正している。
+三度の入力上限停止から画像参照名の衝突を特定した。修正版では既知の失敗画面を通過し、Responses の実応答も取得したが、最初の抽出は根拠条件に違反して停止した。
 
 ## 入力と判断
 
@@ -37,17 +37,17 @@ HTTP 成功後の拒否、未完了、不正 JSON、形式不正は、通信失�
 Set-Location 'C:/Users/Maekawa Ao/.codex/worktrees/virtual-beta/Ux_test'
 
 # API を使わず、先頭の三方式だけを接続確認する
-node --import tsx runner/visual-conditions-comparison.ts --mock --limit 3 --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v4.json).Path --out reports/visual-conditions-mock-new
+node --import tsx runner/visual-conditions-comparison.ts --mock --limit 3 --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v5.json).Path --out reports/visual-conditions-mock-new
 
 # 新しい画像を通常 runner から取得する実モデル比較
-node --import tsx runner/visual-conditions-comparison.ts --env-file E:/ChatGPT/Ux_test/.env --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v4.json).Path --out reports/visual-conditions-real-new
+node --import tsx runner/visual-conditions-comparison.ts --env-file E:/ChatGPT/Ux_test/.env --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v5.json).Path --out reports/visual-conditions-real-new
 
 node --import tsx --test --test-concurrency=1 tests/visual-hypotheses.test.ts tests/openai-visual-hypotheses.test.ts tests/visual-conditions-comparison.test.ts tests/visual-conditions-integration.test.ts
 npm run build
 ```
 
 出力先は毎回新しくする。
-三度の停止を含む過去 4,732 原本を照合する snapshot と生データは、この環境に残るローカル資料であり Git には含めない。
+四度の停止を含む過去 4,798 原本を照合する snapshot と生データは、この環境に残るローカル資料であり Git には含めない。
 別の clone で同じ原本保全を確認したことにはならない。
 ブラウザーを使う検証は同時に起動せず、初期ページ読み込みのタイムアウトをモデルの失敗へ置き換えない。
 
@@ -150,3 +150,30 @@ API 待ち時間は人間の行動時間とは別に扱い、未報告の費用�
 うち 3 件は新しい安全な通信記録の追加に対する古い期待値であり、元記録を変更せず厳密な対応表検査へ更新したオフライン再検証 5 / 5 が通った。
 残る 1 件は過去 b7 版のソース全文と現在実装の一致を要求する既知の検査で、テスト本体と失敗証拠は変更していない。
 全体スイート成功とは扱わず、今回の変更に関する検証結果を個別に示す。
+
+
+## UUID 送信の実行結果と条件付きスキーマ
+
+UUID 版 producer `d6796fca744ee3b9b33f075d45eb2eda4432339f` は 3 / 18 試行、17 要求で停止した。
+旧方式と現在根拠方式の最初の図書予約課題は、各 8 要求で達成した。
+既知の失敗地点である 2 判断目の評価は、旧方式が 199,918 から 29,917 入力トークンへ減り、現在根拠方式も 28,046 トークンで通過した。
+同じ文字列や質問数でも、参照名による画像複製を除くことが必要だった。
+この 2 件だけで、他の課題全般の安定性や探索性能を結論しない。
+
+3 試行目の Responses は HTTP 200、`gpt-6-luna`、入力 2,123・出力 730 トークンで応答した。
+しかし条件 `c3` は `status: "unmet"`、`evidence: null` であり、既存の受理条件が拒否した。
+JSON 生成と API 接続は成立したが、抽出仮説の受理、Jev への追加情報の引き渡し、三方式の性能比較は未成立である。
+残る 15 試行は未実行で、これを離脱や操作失敗へ算入しない。
+
+送信スキーマはこの組合せを許しており、ローカルの根拠条件との間に差があった。
+次版の `evidence-conditional-v1` は、[公式に対応する入れ子の anyOf](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses)で既存条件を表現する。
+条件が `satisfied` または `unmet` なら引用根拠を必須とし、根拠がなければ `uncertain` とする。
+既知の操作関係、または操作後の確認予測には、現在画像の引用を必須とする。
+受理処理、画像・候補・記憶の制約、引用の未検証マーカー、通信失敗と不正出力の区分は変えない。
+引用が存在しても、転記や意味解釈が正しいとは限らない。
+
+新しい比較計画は抽出方式から開始し、その後も三方式の順序を均等に回す（`actorOrderOffset: 2`）。
+形式の不整合を先に検出するための事前変更であり、停止した試行の置換や再試行は行わない。
+三方式・6 条件・各 1 回の 18 試行、最大 504 要求は維持する。
+既実行は 50 要求（Jev 49、Responses 1）で、次版との合計上限は 554 要求。
+旧 4 実行の 201 原本も含む 4,798 ファイルを `prior-raw-v5.json` で保全する。

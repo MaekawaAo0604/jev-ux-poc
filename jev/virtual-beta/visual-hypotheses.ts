@@ -103,8 +103,13 @@ const schemaObject=(properties:Record<string,unknown>)=>({type:'object',properti
 const schemaText=(maximum:number,empty=false)=>({type:'string',pattern:`^[^\\u0000-\\u001f\\u007f-\\u009f]{${empty?0:1},${maximum}}$`});
 /** Supported strict-schema subset; cross references, uniqueness and all bounds are checked again locally. */
 export function visualHypothesisSchema(request:VisualHypothesisRequest){
- const req=validateVisualHypothesisRequest(request),evidence=(ids:string[])=>({anyOf:[schemaObject({observationId:{type:'string',enum:ids},quote:schemaText(160)}),{type:'null'}]});
- return schemaObject({conditions:{type:'array',minItems:0,maxItems:3,items:schemaObject({id:{type:'string',enum:['c1','c2','c3']},description:schemaText(200),status:{type:'string',enum:[...statusValues]},evidence:evidence(req.sources.map(s=>s.observationId)),uncertainty:schemaText(200,true)})},relations:{type:'array',minItems:req.candidates.length,maxItems:req.candidates.length,items:schemaObject({candidateId:req.candidates.length?{type:'string',enum:req.candidates.map(c=>c.id)}:{type:'string',pattern:idPattern.source},conditionIds:{type:'array',minItems:0,maxItems:3,items:{type:'string',enum:['c1','c2','c3']}},relation:{type:'string',enum:[...roleValues]},currentEvidence:evidence([req.current.observationId]),expectedResult:{anyOf:[schemaText(200),{type:'null'}]}})},unknowns:{type:'array',minItems:0,maxItems:3,items:schemaText(200)}});
+ const req=validateVisualHypothesisRequest(request);
+ const nullable=(schema:unknown)=>({anyOf:[schema,{type:'null'}]});
+ const evidence=(ids:string[])=>schemaObject({observationId:{type:'string',enum:ids},quote:schemaText(160)});
+ const contextEvidence=evidence(req.sources.map(s=>s.observationId)),currentEvidence=evidence([req.current.observationId]);
+ const condition=(statuses:string[],basis:unknown)=>schemaObject({id:{type:'string',enum:['c1','c2','c3']},description:schemaText(200),status:{type:'string',enum:statuses},evidence:basis,uncertainty:schemaText(200,true)});
+ const relation=(roles:string[],basis:unknown,expectedResult:unknown)=>schemaObject({candidateId:req.candidates.length?{type:'string',enum:req.candidates.map(c=>c.id)}:{type:'string',pattern:idPattern.source},conditionIds:{type:'array',minItems:0,maxItems:3,items:{type:'string',enum:['c1','c2','c3']}},relation:{type:'string',enum:roles},currentEvidence:basis,expectedResult});
+ return schemaObject({conditions:{type:'array',minItems:0,maxItems:3,items:{anyOf:[condition(['unmet','satisfied'],contextEvidence),condition(['uncertain'],nullable(contextEvidence))]}},relations:{type:'array',minItems:req.candidates.length,maxItems:req.candidates.length,items:{anyOf:[relation(roleValues.filter(role=>role!=='unknown'),currentEvidence,nullable(schemaText(200))),relation(['unknown'],currentEvidence,schemaText(200)),relation(['unknown'],nullable(currentEvidence),{type:'null'})]}},unknowns:{type:'array',minItems:0,maxItems:3,items:schemaText(200)}});
 }
 /** Reject duplicate JSON members before parsing, with a small independent nesting bound. */
 function uniqueJSON(raw:string){

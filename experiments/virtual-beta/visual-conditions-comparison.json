@@ -22,12 +22,14 @@
     "parallel": 1
   },
   "initialState": "Each actor starts a fresh browser on the same explicitly blocked primary page. No spontaneous discovery of a dead end is claimed.",
-  "pairPolicy": "Same initial product, goal, base input and images. Current-candidate actors use concise self-contained role questions and restrict direct candidate evidence to current image or none; historical condition context remains in the existing global availabilityEvidence question. No extra candidate context questions or fields. Legacy questions are byte-unchanged. Evidence restriction and wording are a declared combined intervention. Visual extraction adds a separately tracked input/stage. Rotate actor order per fixture; later trajectories may differ. All actors share the corrected Jev image transport: fresh UUID asset references replace only explicitly typed image leaves; ordinary text and all logical policy inputs remain unchanged. Previous producers with colliding short references are not a performance baseline for this transport.",
+  "pairPolicy": "Same initial product, goal, base input and images. Current-candidate actors use concise self-contained role questions and restrict direct candidate evidence to current image or none; historical condition context remains in the existing global availabilityEvidence question. No extra candidate context questions or fields. Legacy questions are byte-unchanged. Evidence restriction and wording are a declared combined intervention. Visual extraction adds a separately tracked input/stage. Rotate actor order per fixture; later trajectories may differ. All actors share the corrected Jev image transport: fresh UUID asset references replace only explicitly typed image leaves; ordinary text and all logical policy inputs remain unchanged. Previous producers with colliding short references are not a performance baseline for this transport. For this separately frozen phase, start the balanced rotation with the visual actor to detect extraction-format failures before spending on controls; retain all prior stopped phases, no failed-slot replacement. Native schema expresses existing evidence/status and evidence/role/result invariants; local admission remains unchanged.",
   "retryPolicy": "No retries, failed-slot replacement, direct saved-input resends or human data. Stop the next trial on authentication, quota or accounting failure.",
   "extractor": {
     "model": "gpt-6-luna",
     "endpoint": "https://api.openai.com/v1/responses",
     "maxAttemptsPerRequest": 1
   },
-  "imageReferencePolicy": "opaque-v1"
+  "imageReferencePolicy": "opaque-v1",
+  "actorOrderOffset": 2,
+  "schemaContract": "evidence-conditional-v1"
 }

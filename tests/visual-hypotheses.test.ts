@@ -14,7 +14,7 @@ test('admission preserves fallible descriptions and binds exact current/historic
  assert.equal(record.kind,'model-visual-hypotheses-not-fact');assert.deepEqual(record.source,req.current);assert.equal(record.goalSha256,hash(req.goal));assert.equal(record.conditions[0].evidence.imageSha256,req.current.imageSha256);assert.equal(record.conditions[0].evidence.quoteStatus,'model-transcribed-unverified');assert.equal(record.relations[0].currentEvidence.observationId,'o2');assert.equal(record.relations[0].candidateId,'e1');assert.equal(record.relations[0].currentEvidence.quoteStatus,'model-transcribed-unverified');assert.deepEqual(raw,response());
 });
 test('schema is closed, current candidate IDs/evidence are scoped, and nullable unknown data is allowed',()=>{
- assert.equal(typeof api.visualHypothesisSchema,'function');const schema=api.visualHypothesisSchema(request());assert.equal(schema.additionalProperties,false);assert.deepEqual(schema.required,['conditions','relations','unknowns']);assert.equal(schema.properties.conditions.maxItems,3);assert.equal(schema.properties.relations.minItems,2);assert.equal(schema.properties.relations.maxItems,2);assert.deepEqual(schema.properties.relations.items.properties.candidateId.enum,['e1','back']);assert.deepEqual(schema.properties.relations.items.properties.currentEvidence.anyOf[0].properties.observationId.enum,['o2']);
+ assert.equal(typeof api.visualHypothesisSchema,'function');const schema=api.visualHypothesisSchema(request());assert.equal(schema.additionalProperties,false);assert.deepEqual(schema.required,['conditions','relations','unknowns']);assert.equal(schema.properties.conditions.maxItems,3);assert.equal(schema.properties.relations.minItems,2);assert.equal(schema.properties.relations.maxItems,2);for(const branch of schema.properties.relations.items.anyOf){assert.deepEqual(branch.properties.candidateId.enum,['e1','back']);const evidence=branch.properties.currentEvidence.anyOf?.[0]??branch.properties.currentEvidence;assert.deepEqual(evidence.properties.observationId.enum,['o2']);}
  const value={conditions:[],relations:request().candidates.map(c=>({candidateId:c.id,conditionIds:[],relation:'unknown',currentEvidence:null,expectedResult:null})),unknowns:[]};assert.equal(api.admitVisualHypotheses(response(value),request()).conditions.length,0);
 });
 for(const [name,mutate] of [
@@ -48,9 +48,53 @@ test('bounded experience reads only performed action/source fields and never ext
 });
 test('candidate order is preserved through model relation reordering and no-current-candidate schema remains valid',()=>{
  const value=output();value.relations.reverse();assert.deepEqual(api.admitVisualHypotheses(response(value),request()).relations.map((r:any)=>r.candidateId),['e1','back']);
- const req=request();req.candidates=[];const admitted=api.admitVisualHypotheses(response({conditions:[],relations:[],unknowns:[]}),req);assert.deepEqual(admitted.relations,[]);const schema=api.visualHypothesisSchema(req);assert.equal(schema.properties.relations.maxItems,0);assert.equal(Object.hasOwn(schema.properties.relations.items.properties.candidateId,'enum'),false);
+ const req=request();req.candidates=[];const admitted=api.admitVisualHypotheses(response({conditions:[],relations:[],unknowns:[]}),req);assert.deepEqual(admitted.relations,[]);const schema=api.visualHypothesisSchema(req);assert.equal(schema.properties.relations.maxItems,0);for(const branch of schema.properties.relations.items.anyOf)assert.equal(Object.hasOwn(branch.properties.candidateId,'enum'),false);
 });
 test('a conflicting historical image hash in bounded visual memory is rejected even with the same goal',()=>{
  const req=request(),record=api.admitVisualHypotheses(response(),req),future=request();future.current.observationId='o3';future.sources=[{...future.current,image:'current'},{observationId:'o2',imageSha256:future.current.imageSha256,image:'current'}];
  record.source.imageSha256='f'.repeat(64);for(const relation of record.relations)if(relation.currentEvidence)relation.currentEvidence.imageSha256='f'.repeat(64);future.memory={schemaVersion:1,records:[record]};assert.throws(()=>api.validateVisualHypothesisRequest(future));
+});
+
+/** Test-only evaluator for the explicitly used JSON Schema subset; rejects unsupported keywords instead of ignoring them. */
+function schemaAccepts(schema:any,value:unknown):boolean{
+ const supported=new Set(['type','properties','required','additionalProperties','enum','anyOf','items','minItems','maxItems','pattern']);
+ for(const key of Object.keys(schema))assert.ok(supported.has(key),'Unhandled test schema keyword '+key);
+ if(schema.anyOf!==undefined){assert.ok(Array.isArray(schema.anyOf));return schema.anyOf.some((branch:any)=>schemaAccepts(branch,value));}
+ if(schema.enum!==undefined&&!schema.enum.some((entry:unknown)=>Object.is(entry,value)))return false;
+ if(schema.type==='null')return value===null;
+ if(schema.type==='string')return typeof value==='string'&&(schema.pattern===undefined||new RegExp(schema.pattern,'u').test(value));
+ if(schema.type==='array')return Array.isArray(value)&&(schema.minItems===undefined||value.length>=schema.minItems)&&(schema.maxItems===undefined||value.length<=schema.maxItems)&&value.every(item=>schemaAccepts(schema.items,item));
+ if(schema.type==='object'){
+  if(value===null||typeof value!=='object'||Array.isArray(value))return false;const record=value as Record<string,unknown>;
+  if(schema.required.some((key:string)=>!Object.hasOwn(record,key)))return false;
+  if(schema.additionalProperties===false&&Object.keys(record).some(key=>!Object.hasOwn(schema.properties,key)))return false;
+  return Object.entries(schema.properties).every(([key,child])=>!Object.hasOwn(record,key)||schemaAccepts(child,record[key]));
+ }
+ assert.fail('Unhandled test schema type '+schema.type);
+}
+const evidenceCases=[['none',null],['current',{observationId:'o2',quote:'利用情報を確認する'}],['history',{observationId:'o1',quote:'情報を確認してください'}]] as const;
+// Independently stated acceptance requirements: visible condition evidence may be historical; current controls may not.
+const conditionEvidenceTable={unmet:[false,true,true],satisfied:[false,true,true],uncertain:[true,true,true]} as const;
+for(const status of ['unmet','satisfied','uncertain'] as const)for(const [index,[name,evidence]]of evidenceCases.entries())test(`schema and consumer condition contract: ${status}, ${name} evidence`,()=>{
+ const value=output();value.conditions=[{id:'c1',description:'目的の条件を確認する',status,evidence:structuredClone(evidence),uncertainty:'根拠はモデルの転記'}] as any;
+ const expected=conditionEvidenceTable[status][index];assert.equal(schemaAccepts(api.visualHypothesisSchema(request()),value),expected,'Sent schema must express the independently defined evidence requirement');
+ if(expected)assert.doesNotThrow(()=>api.admitVisualHypotheses(response(value),request()));else assert.throws(()=>api.admitVisualHypotheses(response(value),request()));
+});
+// Columns: none/null, none/text, current/null, current/text, history/null, history/text.
+const relationEvidenceTable={execute:[false,false,true,true,false,false],prerequisite:[false,false,true,true,false,false],information:[false,false,true,true,false,false],navigation:[false,false,true,true,false,false],unrelated:[false,false,true,true,false,false],unknown:[true,false,true,true,false,false]} as const;
+for(const role of ['execute','prerequisite','information','navigation','unrelated','unknown'] as const)for(const [index,[name,evidence]]of evidenceCases.entries())for(const [predictionIndex,prediction]of [null,'利用可否の変化を確認する'].entries())test(`schema and consumer candidate contract: ${role}, ${name} evidence, prediction ${prediction===null?'none':'text'}`,()=>{
+ const value=output();value.relations[0]={candidateId:'e1',conditionIds:['c1'],relation:role,currentEvidence:structuredClone(evidence),expectedResult:prediction} as any;
+ const expected=relationEvidenceTable[role][index*2+predictionIndex];assert.equal(schemaAccepts(api.visualHypothesisSchema(request()),value),expected,'Sent schema must express the independently defined current-control evidence requirement');
+ if(expected)assert.doesNotThrow(()=>api.admitVisualHypotheses(response(value),request()));else assert.throws(()=>api.admitVisualHypotheses(response(value),request()));
+});
+test('native incident shape remains rejected by consumer and sent schema: unseen save feedback with unmet status and no evidence',()=>{
+ const value=output();value.conditions=[{id:'c3',description:'保存確認が見えない',status:'unmet',evidence:null,uncertainty:'保存されたことを確認できていない'}] as any;value.relations.forEach(relation=>relation.conditionIds=[]);
+ assert.throws(()=>api.admitVisualHypotheses(response(value),request()));assert.equal(schemaAccepts(api.visualHypothesisSchema(request()),value),false);
+});
+test('nested branches remain closed and retain all original source/candidate/bounds constraints',()=>{
+ const schema:any=api.visualHypothesisSchema(request());assert.equal(Object.hasOwn(schema,'anyOf'),false);
+ assert.deepEqual(schema.properties.conditions.items.anyOf.map((s:any)=>s.properties.status.enum),[['unmet','satisfied'],['uncertain']]);assert.equal(schema.properties.relations.items.anyOf.length,3);
+ for(const branch of schema.properties.conditions.items.anyOf){assert.equal(branch.additionalProperties,false);assert.deepEqual(branch.required,['id','description','status','evidence','uncertainty']);}
+ for(const branch of schema.properties.relations.items.anyOf){assert.equal(branch.additionalProperties,false);assert.deepEqual(branch.required,['candidateId','conditionIds','relation','currentEvidence','expectedResult']);}
+ for(const change of [(v:any)=>v.conditions[0].evidence.quote='x'.repeat(161),(v:any)=>v.conditions[0].evidence.observationId='o99',(v:any)=>v.conditions[0].description='x'.repeat(201),(v:any)=>v.relations[0].candidateId='e99',(v:any)=>v.relations[0].currentEvidence.observationId='o1',(v:any)=>v.relations[0].expectedResult='x'.repeat(201),(v:any)=>v.relations[0].extra='unrequested',(v:any)=>v.conditions[0].uncertainty='a\u0000b',(v:any)=>v.conditions=Array.from({length:4},()=>v.conditions[0]),(v:any)=>v.relations.pop()]){const value=output();change(value);assert.equal(schemaAccepts(schema,value),false);assert.throws(()=>api.admitVisualHypotheses(response(value),request()));}
 });

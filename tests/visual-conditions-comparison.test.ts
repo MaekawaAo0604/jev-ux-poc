@@ -7,7 +7,7 @@ import {humanJevProfile} from '../runner/human-jev-profiles.js';
 import {analyzeRecoveryRuns} from '../runner/recovery-analysis.js';
 import {readTransferLedger} from '../runner/transfer-evaluation.js';
 test('18 fixed slots rotate three actors over six same-fixture triplets, one repetition, 504 maximum requests',()=>{
- const s=visualConditionsSchedule();assert.equal(s.length,18);assert.equal(new Set(s.map(x=>x.id+'/'+x.actor)).size,18);assert.ok(s.every(x=>x.replicate===1));
+ const s=visualConditionsSchedule();assert.equal(s[0].actor,'experience-visual-conditions');assert.equal(s.length,18);assert.equal(new Set(s.map(x=>x.id+'/'+x.actor)).size,18);assert.ok(s.every(x=>x.replicate===1));
  for(let i=0;i<18;i+=3){assert.equal(new Set(s.slice(i,i+3).map(x=>JSON.stringify(x.fixture))).size,1);assert.equal(new Set(s.slice(i,i+3).map(x=>x.actor)).size,3);}
  assert.equal(s.reduce((n,x)=>n+humanJevProfile(x.actor).maximumRequests,0),504);assert.equal(visualConditionsLimits.maxRequests,504);
  assert.equal(new Set([s[0].actor,s[3].actor,s[6].actor]).size,3);
@@ -31,7 +31,7 @@ test('explicit new outputs, external env and absolute prior required; mock canno
  for(const limit of [0,19])assert.throws(()=>validateVisualConditionsOptions({out:'x',mock:true,priorSnapshot:resolve('reports/prior.json'),limit}));
 });
 test('new protocol freezes three actors, one repeat and exact bounded limits',async()=>{
- const p=JSON.parse(await readFile('experiments/virtual-beta/visual-conditions-comparison.json','utf8'));assert.deepEqual(p.actors,visualConditionsActors);assert.deepEqual(p.limits,visualConditionsLimits);assert.equal(p.repeats,1);assert.equal(p.extractor.model,'gpt-6-luna');assert.equal(p.actorChangesAllowed,false);
+ const p=JSON.parse(await readFile('experiments/virtual-beta/visual-conditions-comparison.json','utf8'));assert.deepEqual(p.actors,visualConditionsActors);assert.deepEqual(p.limits,visualConditionsLimits);assert.equal(p.repeats,1);assert.equal(p.extractor.model,'gpt-6-luna');assert.equal(p.actorChangesAllowed,false);assert.equal(p.actorOrderOffset,2);assert.equal(p.schemaContract,'evidence-conditional-v1');
 });
 test('36-request ledgers require explicit mode cap and preserve old24 guard',async()=>{
  const dir='reports/visual-conditions-2026-10-30/parent/ledger-'+Date.now();await mkdir(dir,{recursive:true});const file=dir+'/budget.json';await writeFile(file,JSON.stringify({schemaVersion:1,newMaximum:36,perRunMaximum:12,used:0,attempts:[]}));await assert.rejects(readTransferLedger(file));assert.equal((await readTransferLedger(file,36)).used,0);

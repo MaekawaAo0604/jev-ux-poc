@@ -39,3 +39,11 @@ test('streamed HTTP200 read timeout retains actual receipt/status and still make
 test('oversized envelope is stopped without storing or truncating arbitrary provider content',async()=>{
  let cancelled=false;await stub(async()=>{const r=await api.extractOpenAIVisualHypotheses(request());assert.equal(r.status,'invalid-response');assert.equal(r.rawText,'');assert.deepEqual(r.output,{code:'ENVELOPE_TOO_LARGE_OR_INVALID_ENCODING'});},async()=>new Response(new ReadableStream({start(controller){controller.enqueue(new Uint8Array(262145).fill(65));},cancel(){cancelled=true;}}),{status:200}));assert.equal(cancelled,true);
 });
+
+test('native extraction instructions require supported statuses and current-control evidence without prescribing an action path',()=>{
+ const body=api.buildOpenAIVisualHypothesisRequest(request());assert.match(body.instructions,/satisfied.*unmet.*evidence quote|unmet.*satisfied.*evidence quote/);assert.match(body.instructions,/uncertain/);assert.match(body.instructions,/absence of displayed success is not evidence of unmet/i);assert.match(body.instructions,/nonnull expectedResult.*current.*quote/i);
+});
+test('native incident null-evidence unmet output still fails closed with preserved bounded raw JSON and single request',async()=>{
+ const value=data();(value.conditions as any[])=[{id:'c3',description:'保存確認が見えない',status:'unmet',evidence:null,uncertainty:'保存確認は未確認'}];const raw=JSON.stringify(value);let calls=0;
+ await stub(async()=>{const r=await api.extractOpenAIVisualHypotheses(request());assert.equal(r.status,'invalid-response');assert.deepEqual(r.output,value);assert.equal(r.rawText,raw);assert.deepEqual(r.request,{attempts:1,httpReceived:true,statusCode:200});assert.equal(r.answers,undefined);},async()=>{calls++;return Response.json(envelope(raw));});assert.equal(calls,1);
+});
