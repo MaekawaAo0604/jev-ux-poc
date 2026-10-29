@@ -14,6 +14,7 @@ const claimPattern=/^o([1-9]\d*)_c[123]$/;
 function fail():never{throw Error('INVALID_CONDITION_CONTINUITY_DATA');}
 function exact(value:unknown,keys:string[]):asserts value is Record<string,any>{if(!object(value)||Object.keys(value).length!==keys.length||keys.some(key=>!Object.hasOwn(value,key)))fail();}
 function text(value:unknown,max:number,empty=false):string{if(typeof value!=='string'||(!empty&&!value.trim())||value.length>max||/[\u0000-\u001f\u007f-\u009f]/.test(value))fail();return value;}
+function canonicalExplanation(value:unknown):string{const result=text(value,160);if(/^\s/.test(result))fail();return result;}
 function category<T extends string>(value:unknown,values:readonly T[]):T{if(typeof value!=='string'||!values.includes(value as T))fail();return value as T;}
 function number(id:unknown):number{if(typeof id!=='string'||!/^o[1-9]\d*$/.test(id)||!Number.isSafeInteger(Number(id.slice(1))))fail();return Number(id.slice(1));}
 function source(value:unknown):ExperienceSource{exact(value,['observationId','imageSha256']);number(value.observationId);if(typeof value.imageSha256!=='string'||!hashPattern.test(value.imageSha256))fail();return {observationId:value.observationId,imageSha256:value.imageSha256};}
@@ -53,7 +54,7 @@ const schemaObject=(properties:Record<string,unknown>)=>({type:'object',properti
 /** Supported strict subset; identity uniqueness and source semantics are also checked during admission. */
 export function conditionContinuitySchema(context:ConditionContinuityContext){
  const ctx=contextCopy(context),ids=ctx.memory.entries.map(entry=>entry.id),priorId=ids.length?{type:'string',enum:ids}:{type:'string',pattern:claimPattern.source};
- const explanation={type:'string',pattern:'^(?=[^\\u0000-\\u001f\\u007f-\\u009f]*\\S)[^\\u0000-\\u001f\\u007f-\\u009f]{1,160}$'};
+ const explanation={type:'string',pattern:'^[^\\s\\u0000-\\u001f\\u007f-\\u009f][^\\u0000-\\u001f\\u007f-\\u009f]{0,159}$'};
  return {type:'array',minItems:ids.length,maxItems:ids.length,items:{anyOf:[schemaObject({priorId,conditionId:{type:'null'},change:{type:'string',enum:['unobserved']},explanation}),schemaObject({priorId,conditionId:{type:'string',enum:['c1','c2','c3']},change:{type:'string',enum:['persists','revised','resolved']},explanation})]}};
 }
 /** Reconcile fallible hypotheses. Historical quotes cannot establish a current transition. */
@@ -70,7 +71,7 @@ export function admitConditionContinuity(raw:unknown,context:ConditionContinuity
   exact(value,['priorId','conditionId','change','explanation']);if(!before.entries.some(entry=>entry.id===value.priorId))fail();const change=category(value.change,['persists','revised','resolved','unobserved']),conditionId=value.conditionId===null?null:category(value.conditionId,['c1','c2','c3']);
   if((change==='unobserved')!==(conditionId===null))fail();
   if(conditionId!==null){const condition=conditions.find(condition=>condition.id===conditionId);if(!condition?.evidence||!same(condition.evidence,current)||change==='persists'&&condition.status!=='unmet'||change==='resolved'&&condition.status!=='satisfied'||change==='revised'&&condition.status==='satisfied')fail();}
-  return {priorId:value.priorId as string,conditionId,change,explanation:text(value.explanation,160)};
+  return {priorId:value.priorId as string,conditionId,change,explanation:canonicalExplanation(value.explanation)};
  });
  const referenced=transitions.flatMap(transition=>transition.conditionId===null?[]:[transition.conditionId]);
  if(transitions.length!==before.entries.length||new Set(transitions.map(transition=>transition.priorId)).size!==transitions.length||new Set(referenced).size!==referenced.length)fail();

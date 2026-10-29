@@ -1,5 +1,5 @@
 import {admitVisualHypotheses,validateVisualHypothesisRequest,visualHypothesisSchema} from '../jev/virtual-beta/visual-hypotheses.js';
-import {VisualHypothesisTransportError,type VisualHypothesisRequest,type VisualHypothesisResponse} from '../jev/virtual-beta/visual-hypotheses-contracts.js';
+import {VisualHypothesisTransportError,type VisualHypothesisRequest,type VisualHypothesisResponse,type VisualProviderDiagnostic} from '../jev/virtual-beta/visual-hypotheses-contracts.js';
 
 const model='gpt-6-luna' as const,endpoint='https://api.openai.com/v1/responses';
 const rawTextMaximum=65536,envelopeMaximum=262144;
@@ -23,7 +23,7 @@ const boundedUsage=(value:unknown):VisualHypothesisResponse['usage']=>{
 };
 function responseBase(raw:unknown){const usage=object(raw)?boundedUsage(raw.usage):undefined;return {model:object(raw)&&raw.model===model?model:'UNEXPECTED_MODEL',...(usage?{usage}:{}),request:{attempts:1 as const,httpReceived:true as const,statusCode:200 as const},costUSD:null};}
 /** HTTP envelope is separately bounded; an oversized model text is rejected, never silently truncated. */
-async function readEnvelope(response:Response,signal:AbortSignal):Promise<string|null>{
+async function readEnvelope(response:Response,signal:AbortSignal,maximum=envelopeMaximum):Promise<string|null>{
  if(!response.body)return '';
  const reader=response.body.getReader(),chunks:Uint8Array[]=[];let bytes=0,finished=false;
  try{
@@ -32,10 +32,23 @@ async function readEnvelope(response:Response,signal:AbortSignal):Promise<string
    let abort:()=>void=()=>{};
    const read=await Promise.race([reader.read(),new Promise<never>((_resolve,reject)=>{abort=()=>reject(new DOMException('Aborted','AbortError'));signal.addEventListener('abort',abort,{once:true});})]).finally(()=>signal.removeEventListener('abort',abort));
    if(read.done){finished=true;break;}bytes+=read.value.byteLength;
-   if(bytes>envelopeMaximum)return null;chunks.push(read.value);
+   if(bytes>maximum)return null;chunks.push(read.value);
   }
   try{return new TextDecoder('utf-8',{fatal:true}).decode(Buffer.concat(chunks));}catch{return null;}
  }finally{if(!finished)void reader.cancel().catch(()=>{});reader.releaseLock();}
+}
+/** Bounded failure-only projection; provider text and arbitrary metadata never leave this function. */
+async function providerDiagnostic(response:Response,signal:AbortSignal):Promise<VisualProviderDiagnostic>{
+ const unknown:VisualProviderDiagnostic={schemaVersion:1,code:'unknown',parameter:'unknown',lookaroundMentioned:false};
+ try{
+  const text=await readEnvelope(response,signal,8192);if(text===null)return unknown;
+  const raw:unknown=JSON.parse(text);if(!object(raw)||!object(raw.error))return unknown;
+  const error=raw.error;
+  const code=error.code==='invalid_json_schema'||error.code==='invalid_request_error'?error.code:error.type==='invalid_json_schema'||error.type==='invalid_request_error'?error.type:'unknown';
+  const parameter=error.param==='text.format.schema'||error.param==='text.format'||error.param==='response_format'||error.param==='model'?error.param:'unknown';
+  const lookaroundMentioned=typeof error.message==='string'&&/look[\s-]?(?:around|ahead|behind)|\(\?(?:[=!]|<[=!])/i.test(error.message);
+  return {schemaVersion:1,code,parameter,lookaroundMentioned};
+ }catch{return unknown;}
 }
 function parseResponse(raw:unknown,request:VisualHypothesisRequest):VisualHypothesisResponse{
  const base=responseBase(raw),invalid=(output:unknown=null,rawText=''):VisualHypothesisResponse=>({...base,status:'invalid-response',output,rawText});
@@ -71,7 +84,10 @@ export async function extractOpenAIVisualHypotheses(request:VisualHypothesisRequ
  const signal=AbortSignal.timeout(request.timeoutMs);let httpReceived=false,statusCode:number|undefined,envelope:string|null;
  try{
   const response=await fetch(endpoint,{method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json'},body:JSON.stringify(body),signal});httpReceived=true;statusCode=response.status;
-  if(response.status!==200)throw new VisualHypothesisTransportError({code:'HTTP_ERROR',attempts:1,httpReceived:true,statusCode:response.status});
+  if(response.status!==200){
+   const diagnostic=response.status===400&&Object.hasOwn(body.text.format.schema.properties,'continuity')?await providerDiagnostic(response,signal):undefined;
+   throw new VisualHypothesisTransportError({code:'HTTP_ERROR',attempts:1,httpReceived:true,statusCode:response.status,...(diagnostic?{diagnostic}:{})});
+  }
   envelope=await readEnvelope(response,signal);
  }catch(error){
   if(error instanceof VisualHypothesisTransportError)throw error;

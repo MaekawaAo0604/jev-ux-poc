@@ -9,4 +9,5 @@ export type VisualHypothesisRecord={schemaVersion:1;kind:'model-visual-hypothese
 export type VisualHypothesisMemory={schemaVersion:1;records:VisualHypothesisRecord[]};
 export type VisualHypothesisResponse={model:string;status:'completed'|'refused'|'incomplete'|'invalid-json'|'invalid-response';output:unknown;rawText:string;usage?:{inputTokens:number;outputTokens:number;totalTokens:number};request:{attempts:1;httpReceived:true;statusCode:200};costUSD:null};
 export type VisualHypothesisExtractor=(request:VisualHypothesisRequest)=>Promise<VisualHypothesisResponse>;
-export class VisualHypothesisTransportError extends Error{constructor(readonly evidence:{code:'MISSING_CREDENTIALS'|'HTTP_ERROR'|'TIMEOUT'|'REQUEST_FAILED';attempts:0|1;httpReceived:boolean;statusCode?:number}){super('VISUAL_HYPOTHESIS_TRANSPORT_ERROR');}}
+export type VisualProviderDiagnostic={schemaVersion:1;code:'invalid_json_schema'|'invalid_request_error'|'unknown';parameter:'text.format.schema'|'text.format'|'response_format'|'model'|'unknown';lookaroundMentioned:boolean};
+export class VisualHypothesisTransportError extends Error{constructor(readonly evidence:{code:'MISSING_CREDENTIALS'|'HTTP_ERROR'|'TIMEOUT'|'REQUEST_FAILED';attempts:0|1;httpReceived:boolean;statusCode?:number;diagnostic?:VisualProviderDiagnostic}){super('VISUAL_HYPOTHESIS_TRANSPORT_ERROR');}}

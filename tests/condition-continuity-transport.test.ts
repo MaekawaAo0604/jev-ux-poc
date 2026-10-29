@@ -112,3 +112,62 @@ test('opt-in instructions explicitly reassess every claim while preserving uncer
  assert.match(body.instructions,/unobserved/i);assert.match(body.instructions,/historical/i);assert.match(body.instructions,/current.image evidence/i);
  assert.match(body.instructions,/persona behavior/);assert.match(body.instructions,/do not choose an action or invent probabilities/i);
 });
+
+const unknownDiagnostic={schemaVersion:1,code:'unknown',parameter:'unknown',lookaroundMentioned:false};
+async function http400(reply:()=>Promise<Response>,expected:unknown,req:VisualHypothesisRequest=request()){
+ let calls=0;await stub(async()=>{calls++;return reply();},async()=>{
+  await assert.rejects(extractOpenAIVisualHypotheses(req),(error:unknown)=>{
+   assert.ok(error instanceof VisualHypothesisTransportError);
+   assert.deepEqual(error.evidence,{code:'HTTP_ERROR',attempts:1,httpReceived:true,statusCode:400,diagnostic:expected});
+   assert.ok(!JSON.stringify(error).includes('SECRET_SENTINEL'));return true;
+  });
+ });assert.equal(calls,1);
+}
+
+test('opt-in HTTP400 retains only allowlisted provider diagnostic and never stores arbitrary error text or metadata',async()=>{
+ const req:any=request();for(const key of ['DOM','audit','fixture','human','label'])Object.defineProperty(req,key,{enumerable:true,get(){throw Error('SECRET_SENTINEL');}});
+ await http400(async()=>{
+  const response=Response.json({error:{code:'invalid_json_schema',type:'invalid_request_error',param:'text.format.schema',message:'SECRET_SENTINEL: look-ahead is unsupported',headers:{secret:'SECRET_SENTINEL'},request_id:'SECRET_SENTINEL'},secret:'SECRET_SENTINEL'},{status:400});
+  for(const key of ['headers','statusText','json','text'])Object.defineProperty(response,key,{get(){throw Error('SECRET_SENTINEL');}});
+  return response;
+ },{schemaVersion:1,code:'invalid_json_schema',parameter:'text.format.schema',lookaroundMentioned:true},req);
+});
+
+for(const [name,error,expected] of [
+ ['type fallback',{code:'SECRET_SENTINEL',type:'invalid_request_error',param:'text.format',message:'lookaround'},{schemaVersion:1,code:'invalid_request_error',parameter:'text.format',lookaroundMentioned:true}],
+ ['response format',{code:'invalid_json_schema',param:'response_format',message:'lookbehind'},{schemaVersion:1,code:'invalid_json_schema',parameter:'response_format',lookaroundMentioned:true}],
+ ['model',{code:'invalid_request_error',param:'model',message:'Unrelated SECRET_SENTINEL'},{schemaVersion:1,code:'invalid_request_error',parameter:'model',lookaroundMentioned:false}],
+ ['unknown values',{code:'INVALID_JSON_SCHEMA',type:'other',param:'text.format.schema.SECRET_SENTINEL',message:7},unknownDiagnostic],
+ ['nested unknown values',{code:{secret:'SECRET_SENTINEL'},type:['invalid_request_error'],param:null,message:{text:'lookahead'}},unknownDiagnostic],
+ ['null error',null,unknownDiagnostic],
+] as const)test('HTTP400 diagnostic safely projects '+name,async()=>{await http400(async()=>Response.json({error},{status:400}),expected);});
+
+test('HTTP400 diagnostics admit the exact 8192-byte boundary once',async()=>{
+ const json=JSON.stringify({error:{code:'invalid_json_schema',param:'text.format.schema',message:'lookahead'}}),body=json+' '.repeat(8192-Buffer.byteLength(json));
+ await http400(async()=>new Response(body,{status:400}),{schemaVersion:1,code:'invalid_json_schema',parameter:'text.format.schema',lookaroundMentioned:true});
+});
+
+test('HTTP400 diagnostic over 8192 bytes cancels without preserving partial evidence',async()=>{
+ let cancelled=false;await http400(async()=>new Response(new ReadableStream({start(controller){controller.enqueue(new Uint8Array(8193).fill(65));},cancel(){cancelled=true;}}),{status:400}),unknownDiagnostic);assert.equal(cancelled,true);
+});
+
+for(const [name,make] of [
+ ['invalid JSON',()=>new Response('SECRET_SENTINEL',{status:400})],
+ ['invalid UTF8',()=>new Response(new Uint8Array([255]),{status:400})],
+ ['missing error',()=>Response.json({message:'SECRET_SENTINEL lookaround'},{status:400})],
+ ['stream read error',()=>new Response(new ReadableStream({start(controller){controller.error(Error('SECRET_SENTINEL'));}}),{status:400})],
+] as const)test('HTTP400 '+name+' retains HTTP_ERROR receipt and an unknown diagnostic',async()=>{await http400(async()=>make(),unknownDiagnostic);});
+
+test('HTTP400 diagnostic body timeout retains HTTP_ERROR400 and cancels within original request signal',async()=>{
+ let cancelled=false;const keepAlive=setTimeout(()=>{},100);
+ try{await http400(async()=>new Response(new ReadableStream({start(){},cancel(){cancelled=true;}}),{status:400}),unknownDiagnostic,{...request(),timeoutMs:5});}finally{clearTimeout(keepAlive);}
+ assert.equal(cancelled,true);
+});
+
+for(const [mode,status] of [['old',400],['old',401],['new',401],['new',429],['new',500]] as const)test(mode+' mode HTTP'+status+' keeps legacy error shape without reading its body',async()=>{
+ let reads=0;await stub(async()=>{
+  const response=new Response('SECRET_SENTINEL',{status});Object.defineProperty(response,'body',{get(){reads++;throw Error('SECRET_SENTINEL');}});return response;
+ },async()=>{await assert.rejects(extractOpenAIVisualHypotheses(mode==='old'?oldRequest():request()),(error:unknown)=>{
+  assert.ok(error instanceof VisualHypothesisTransportError);assert.deepEqual(error.evidence,{code:'HTTP_ERROR',attempts:1,httpReceived:true,statusCode:status});return true;
+ });});assert.equal(reads,0);
+});

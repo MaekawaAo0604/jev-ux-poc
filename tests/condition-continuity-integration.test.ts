@@ -77,3 +77,15 @@ test('continuity evidence must agree with actually attached sources for an alrea
  const request:any={goal:'test',currentDate:'2026-10-30',current:{observationId:'o2',imageSha256:hash},sources:[{observationId:'o1',imageSha256:hash,image:'history'},{observationId:'o2',imageSha256:hash,image:'current'}],candidates:[{id:'e1',type:'click'}],conditionContinuity:{schemaVersion:1,capacity:3,memory:{schemaVersion:1,goalSha256:createHash('sha256').update('test').digest('hex'),lastObservation:prior,entries:[{id:'o1_c1',description:'prior',lastGrounded:{status:'unmet',evidence:{...prior,quote:'pending',quoteStatus:'model-transcribed-unverified'}},currentStatus:'unmet',lastAssessed:prior,transition:'introduced'}]}},images:{current:{mediaType:'image/png',data:bytes.toString('base64')},history:{mediaType:'image/png',data:bytes.toString('base64')}},timeoutMs:100};
  assert.throws(()=>buildOpenAIVisualHypothesisRequest(request));
 });
+
+import {VisualHypothesisTransportError} from '../jev/virtual-beta/visual-hypotheses-contracts.js';
+test('bounded provider diagnostic survives core and replay while arbitrary strings and shapes are rejected',async()=>{
+ const out='reports/condition-continuity-2026-10-30/parent/diagnostic-'+Date.now(),diagnostic={schemaVersion:1 as const,code:'invalid_json_schema' as const,parameter:'text.format.schema' as const,lookaroundMentioned:true};
+ const saved=await runHumanJev({out,mock:true,mode:'experience-visual-conditions-continuity'},async()=>{throw Error('NO_JEV');},async()=>{throw new VisualHypothesisTransportError({code:'HTTP_ERROR',attempts:1,httpReceived:true,statusCode:400,diagnostic});});
+ assert.equal(saved.result.termination,'API_ERROR');assert.equal(saved.result.validForComparison,false);assert.deepEqual((saved.result.steps[0].error as any).diagnostic,diagnostic);assert.equal((await replayDirectory(out+'/exploration')).verified,true);
+ const legacy=out+'-legacy';await runHumanJev({out:legacy,mock:true,mode:'experience-visual-conditions'},async()=>{throw Error('NO_JEV');},async()=>{throw new VisualHypothesisTransportError({code:'HTTP_ERROR',attempts:1,httpReceived:true,statusCode:400,diagnostic});});await assert.rejects(replayDirectory(legacy+'/exploration'));
+ const path=out+'/exploration/result.json',original=await readFile(path,'utf8');
+ for(const mutate of[(d:any)=>d.raw='arbitrary secret',(d:any)=>d.parameter='authorization',(d:any)=>d.code='fakecode',(d:any)=>d.lookaroundMentioned='yes']){
+  const r=JSON.parse(original);mutate(r.steps[0].visualHypotheses.error.diagnostic);r.steps[0].error=structuredClone(r.steps[0].visualHypotheses.error);await writeFile(path,JSON.stringify(r));try{await assert.rejects(replayDirectory(out+'/exploration'));}finally{await writeFile(path,original);}
+ }
+});

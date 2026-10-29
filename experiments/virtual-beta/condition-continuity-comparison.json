@@ -3,7 +3,12 @@
   "phase": "condition-continuity-2026-10-30",
   "control": "experience-visual-conditions",
   "intervention": "experience-visual-conditions-continuity",
-  "fixtures": ["library/changed", "library/unchanged", "workshop/changed", "workshop/unchanged"],
+  "fixtures": [
+    "library/changed",
+    "library/unchanged",
+    "workshop/changed",
+    "workshop/unchanged"
+  ],
   "trials": 8,
   "repeats": 1,
   "persona": null,
@@ -19,5 +24,8 @@
   "declaredChange": "Bounded condition-continuity context, model transitions and guidance; no model, effort, UI, transport, deadline, selection or revisit-ban change.",
   "initialEvidence": "Match product image, native extraction base input and image assets; continuity context/schema/guidance intentionally differ. Model outputs and later trajectories may differ.",
   "stop": "Authentication/quota/accounting/model-output failure or two consecutive infrastructure failures. Preserve failed and unattempted slots; no replacement.",
-  "limitations": "Descriptive single repeat only, not human agreement or causal performance proof."
+  "limitations": "Descriptive single repeat only, not human agreement or causal performance proof.",
+  "actorOrderOffset": 1,
+  "revisionPolicy": "Preserve stopped producer dd8527b (2/8 slots,22requests, native HTTP400); begin a new balanced rotation with continuity to check upstream schema before controls. No replaced failure slots or pooled performance.",
+  "executionRequestCapPolicy": "Revised live command explicitly caps new requests at266; previous22 plus266 <= original phase maximum288."
 }

@@ -16,15 +16,16 @@ import {safeRequestFailure} from '../jev/client.js';
 import type {RecoveryRunRecord} from './recovery-contracts.js';
 export const continuityActors=['experience-visual-conditions','experience-visual-conditions-continuity'] as const;
 export type ContinuityRun=RecoveryRunRecord&{actor:typeof continuityActors[number];sequence:number};
-export type ContinuityOptions={out:string;mock:boolean;priorSnapshot:string;envFile?:string;limit?:number};
+export type ContinuityOptions={out:string;mock:boolean;priorSnapshot:string;envFile?:string;limit?:number;maxRequests?:number};
 export const continuityLimits={trials:8,maxRequests:288,parallel:1,retry:0,phaseMs:1800000,maxTrialMs:180000,maxJudgments:12,maxUIActions:15,maxLooks:3,maxRequestsPerTrial:36};
 const protocolFile='experiments/virtual-beta/condition-continuity-comparison.json';
 const sha=(b:string|Buffer)=>createHash('sha256').update(b).digest('hex');
 const inside=(parent:string,file:string)=>{const r=relative(parent,file);return r===''||!isAbsolute(r)&&r!=='..'&&!r.startsWith('../')&&!r.startsWith('..\\');};
-export function continuitySchedule(){return recoverySchedule().filter(s=>s.replicate===1&&s.fixture.condition!=='switch').flatMap((s,n)=>{const order=n%2?[...continuityActors].reverse():[...continuityActors];return order.map((actor,i)=>({...s,actor,sequence:n*2+i+1}));});}
+export function continuitySchedule(){return recoverySchedule().filter(s=>s.replicate===1&&s.fixture.condition!=='switch').flatMap((s,n)=>{const order=(n+1)%2?[...continuityActors].reverse():[...continuityActors];return order.map((actor,i)=>({...s,actor,sequence:n*2+i+1}));});}
 export function validateContinuityOptions(o:ContinuityOptions){
  if(typeof o.out!=='string'||!o.out.trim()||!inside(resolve('reports'),resolve(o.out))||typeof o.mock!=='boolean'||typeof o.priorSnapshot!=='string'||!isAbsolute(o.priorSnapshot))throw Error('EXPLICIT_REPORT_OUTPUT_AND_ABSOLUTE_PRIOR_REQUIRED');
  if(!Number.isInteger(o.limit??8)||(o.limit??8)<1||(o.limit??8)>8)throw Error('LIMIT_1_TO_8');
+ if(o.maxRequests!==undefined&&(!Number.isInteger(o.maxRequests)||o.maxRequests<1||o.maxRequests>288))throw Error('REQUEST_CAP_1_TO_288');
  if(o.mock&&o.envFile!==undefined)throw Error('MOCK_MUST_NOT_READ_ENV');
  if(!o.mock&&(typeof o.envFile!=='string'||!isAbsolute(o.envFile)||inside(process.cwd(),o.envFile)))throw Error('EXTERNAL_ENV_REQUIRED');
 }
@@ -69,13 +70,13 @@ export async function runContinuityComparison(options:ContinuityOptions){
  if(!Number.isInteger(prior.count)||prior.count!==prior.files?.length||new Set(prior.files.map((f:any)=>f.path)).size!==prior.count||prior.files.some((f:any)=>!isAbsolute(f.path)||!f.path.includes('reports')||!/^[a-f0-9]{64}$/.test(f.sha256)))throw Error('INVALID_PRIOR_SNAPSHOT');
  const preserve=async()=>{for(const f of prior.files)if(sha(await readFile(f.path))!==f.sha256)throw Error('PRIOR_RAW_CHANGED');};await preserve();
  const profiles=Object.fromEntries(continuityActors.map(a=>[a,humanJevProfile(a)])),batchId=randomUUID(),started=Date.now(),records:ContinuityRun[]=[],deadline=started+continuityLimits.phaseMs;
- const manifest:any={schemaVersion:1,phase:'condition-continuity-2026-10-30',batchId,...code,mock:options.mock,profiles,limits:continuityLimits,schedule:continuitySchedule(),executionTrialLimit:options.limit??8,protocolSha256:sha(protocolBytes),charterSha256:sha(charter),priorSnapshotSha256:sha(priorBytes),priorCount:prior.count,humanInputsRead:false,startedAt:new Date(started).toISOString(),records,status:'RUNNING',totalRequests:0,preservationBefore:true,preservationAfter:false,error:null};
+ const manifest:any={schemaVersion:1,phase:'condition-continuity-2026-10-30',batchId,...code,mock:options.mock,profiles,limits:continuityLimits,schedule:continuitySchedule(),executionTrialLimit:options.limit??8,executionMaximumRequests:options.maxRequests??288,actorOrderOffset:1,protocolSha256:sha(protocolBytes),charterSha256:sha(charter),priorSnapshotSha256:sha(priorBytes),priorCount:prior.count,humanInputsRead:false,startedAt:new Date(started).toISOString(),records,status:'RUNNING',totalRequests:0,preservationBefore:true,preservationAfter:false,error:null};
  const frozen=async()=>{if(!eq(code,await sourceIdentity())||sha(await readFile(protocolFile))!==sha(protocolBytes)||sha(await readFile('experiments/persona/charter.json'))!==sha(charter)||sha(await readFile(options.priorSnapshot))!==sha(priorBytes)||!eq(profiles,Object.fromEntries(continuityActors.map(a=>[a,humanJevProfile(a)]))))throw Error('FROZEN_SOURCE_CHANGED');await preserve();};
  const save=async()=>{manifest.totalRequests=records.reduce((n,r)=>n+r.requests,0);await writeFile(join(out,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');const summary=analyzeContinuityRecords(records,options.mock);await writeFile(join(out,'summary.json'),JSON.stringify(summary,null,2)+'\n');};
  await mkdir(resolve(out,'..'),{recursive:true});await mkdir(out);await writeFile(join(out,'protocol.json'),protocolBytes);await writeFile(join(out,'source.json'),JSON.stringify(code,null,2));await save();let consecutiveInfrastructure=0;
  try{
   for(const slot of continuitySchedule().slice(0,options.limit??8)){
-   if(Date.now()>=deadline){manifest.status='PHASE_TIME_LIMIT';break;}if(manifest.totalRequests+36>288){manifest.status='REQUEST_LIMIT';break;}await frozen();
+   if(Date.now()>=deadline){manifest.status='PHASE_TIME_LIMIT';break;}if(manifest.totalRequests+36>manifest.executionMaximumRequests){manifest.status='REQUEST_LIMIT';break;}await frozen();
    const dir=join(out,slot.id+'-'+slot.actor),ledger=options.mock?null:dir+'-budget.json',record:ContinuityRun={...slot,runId:batchId+'-'+slot.sequence,status:'ATTEMPTING',dir,ledger,resultPath:join(dir,'exploration/result.json'),requests:0,initialImageSha256:null};records.push(record);await save();
    try{
     if(ledger)await writeFile(ledger,JSON.stringify({schemaVersion:1,status:'APPROVED',phase:'condition-continuity-'+slot.sequence,newMaximum:36,perRunMaximum:12,used:0,attempts:[]},null,2),{flag:'wx'});
@@ -96,4 +97,4 @@ export async function runContinuityComparison(options:ContinuityOptions){
  finally{try{await preserve();manifest.preservationAfter=true;}finally{await save();}}
  return {out,status:manifest.status,attempted:records.length,requests:manifest.totalRequests};
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){const o:any={mock:false};try{for(let i=2;i<process.argv.length;i++){const k=process.argv[i];if(k==='--mock'){o.mock=true;continue;}const key=({'--out':'out','--env-file':'envFile','--prior-snapshot':'priorSnapshot','--limit':'limit'} as Record<string,string>)[k],value=process.argv[++i];if(!key||!value||value.startsWith('--'))throw Error('INVALID_OPTION');o[key]=key==='limit'?Number(value):value;}console.log(JSON.stringify(await runContinuityComparison(o)));}catch{console.error('CONTINUITY_COMPARISON_FAILED_CHECK_MANIFEST');process.exitCode=1;}}
+if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){const o:any={mock:false};try{for(let i=2;i<process.argv.length;i++){const k=process.argv[i];if(k==='--mock'){o.mock=true;continue;}const key=({'--out':'out','--env-file':'envFile','--prior-snapshot':'priorSnapshot','--limit':'limit','--max-requests':'maxRequests'} as Record<string,string>)[k],value=process.argv[++i];if(!key||!value||value.startsWith('--'))throw Error('INVALID_OPTION');o[key]=key==='limit'||key==='maxRequests'?Number(value):value;}console.log(JSON.stringify(await runContinuityComparison(o)));}catch{console.error('CONTINUITY_COMPARISON_FAILED_CHECK_MANIFEST');process.exitCode=1;}}

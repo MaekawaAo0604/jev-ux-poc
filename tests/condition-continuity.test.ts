@@ -95,3 +95,18 @@ test('nonenumerable serialization hooks are neither invoked nor carried into val
  const clean=api.validateConditionContinuityContext(ctx,source(2),goal);assert.doesNotThrow(()=>JSON.stringify(clean));assert.doesNotThrow(()=>JSON.stringify(api.admitConditionContinuity([transition()],ctx,record())));
  Object.defineProperty(ctx.memory.entries[0],'audit',{enumerable:true,get(){throw Error('UNKNOWN_GETTER_WAS_READ');}});assert.throws(()=>api.validateConditionContinuityContext(ctx,source(2),goal),/^Error: INVALID_CONDITION_CONTINUITY_DATA$/);
 });
+
+test('continuity explanation schema uses a simple first-character class without lookaround',()=>{
+ const schema=api.conditionContinuitySchema(context());
+ for(const branch of schema.items.anyOf){const pattern=branch.properties.explanation.pattern;assert.equal(pattern.includes('(?'),false,'No lookaround or other group extension is used');assert.equal(schemaAccepts(schema,[{...transition(),explanation:' 先頭空白'}]),false);}
+});
+for(const [name,explanation,accepted]of [
+ ['normal Japanese','現在の案内から判断した仮説',true],['160 characters','あ'.repeat(160),true],['161 characters','あ'.repeat(161),false],['empty','',false],['all ASCII whitespace','   ',false],['all ideographic whitespace','\u3000\u3000',false],['leading ASCII whitespace',' 仮説',false],['leading ideographic whitespace','\u3000仮説',false],['leading nonbreaking whitespace','\u00a0仮説',false],['leading tab','\t仮説',false],['embedded control','仮\u0000説',false],['trailing ASCII whitespace','仮説 ',true],['trailing ideographic whitespace','仮説\u3000',true],['160 characters with trailing spaces','仮'+' '.repeat(159),true],
+]as const)test('canonical explanation format: '+name,()=>{
+ const raw=[{...transition(),explanation}],original=structuredClone(raw),schema=api.conditionContinuitySchema(context());assert.equal(schemaAccepts(schema,raw),accepted);
+ if(accepted)assert.equal(api.admitConditionContinuity(raw,context(),record()).transitions[0].explanation,explanation);else assert.throws(()=>api.admitConditionContinuity(raw,context(),record()),/^Error: INVALID_CONDITION_CONTINUITY_DATA$/);
+ assert.deepEqual(raw,original,'No trim, normalization or correction may mutate the model output');
+});
+test('admission rejects leading whitespace directly and never silently trims the raw explanation',()=>{
+ for(const explanation of [' 仮説','\u3000仮説','\u00a0仮説']){const raw=[{...transition(),explanation}],original=structuredClone(raw);assert.throws(()=>api.admitConditionContinuity(raw,context(),record()),/^Error: INVALID_CONDITION_CONTINUITY_DATA$/);assert.deepEqual(raw,original);}
+});
