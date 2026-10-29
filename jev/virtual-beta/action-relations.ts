@@ -16,7 +16,7 @@ export type ActionRelationRecord={
  source:ExperienceSource;
  goalSha256:string;
  availability:{status:Availability;evidence?:ExperienceSource};
- candidates:Record<string,{role:Role;evidence?:ExperienceSource;contextEvidence?:ExperienceSource;verify:Verification}>;
+ candidates:Record<string,{role:Role;evidence?:ExperienceSource;verify:Verification}>;
  adjustments:{field:string;from:string;to:'unknown';reason:'NO_ADMITTED_EVIDENCE'}[];
 };
 
@@ -100,7 +100,6 @@ export function actionRelationQuestions(goal:string,current:UserObservation,cand
   ...ui.flatMap(id=>[
    [prefix+'role_'+id,question(`Classify the current candidate ${id} using visible consequences and admitted prior observations; do not invent a route or semantic role from an unseen control.`,roles,`Classify current candidate ${id}'s visible goal role; repetition alone does not establish changed availability. No invented route.`)],
    [prefix+'evidence_'+id,question(evidencePolicy?`Identify current observation ${current.id} as the direct visual basis for the role and expected verification of current candidate ${id}; choose none if the current candidate basis cannot be identified. Historical contextual evidence cannot substitute for current candidate evidence.`:`Identify the attached observation used as the basis for both role and expected verification for candidate ${id}; choose none if this basis cannot be identified.`,candidateEvidence,`For current candidate ${id}'s role and predicted result, cite current image ${current.id} or none. Historical context cannot identify this current control.`)],
-   ...(evidencePolicy?[[prefix+'contextEvidence_'+id,question(`Identify an attached observation as contextual condition evidence for candidate ${id}, or none. This context may be historical, but must never establish current candidate identity or substitute for direct current evidence.`,evidence,`For current candidate ${id}, cite an attached image for contextual conditions, or none; context is not current candidate identity.`)]]:[]),
    [prefix+'verify_'+id,question(`For candidate ${id}, identify the result to inspect after executing it. This expectation is a hypothesis and does not prove a result occurred.`,verifications,`For current candidate ${id}, choose the result to check after acting.`)]
   ])
  ]);
@@ -129,8 +128,7 @@ export function admitActionRelations(response:ChoiceAnswers,goal:string,current:
   const basis=evidence(choices[prefix+'evidence_'+id]);
   const role=downgrade('role_'+id,category(choices[prefix+'role_'+id],roleValues),basis);
   const verify=downgrade('verify_'+id,category(choices[prefix+'verify_'+id],verifyValues),basis);
-  const contextEvidence=evidencePolicy?evidence(choices[prefix+'contextEvidence_'+id]):undefined;
-  return [id,{role,...(basis?{evidence:basis}:{}),...(contextEvidence?{contextEvidence}:{}),verify}];
+  return [id,{role,...(basis?{evidence:basis}:{}),verify}];
  }));
  return {schemaVersion:1,kind:'model-action-relations-not-fact',...(evidencePolicy?{evidencePolicy}:{}),source:currentSource(current),goalSha256:goalHash(goal),availability:{status,...(availabilityEvidence?{evidence:availabilityEvidence}:{})},candidates:relations,adjustments};
 }
@@ -162,9 +160,8 @@ function validatedRecord(record:ActionRelationRecord,goal:string,current:UserObs
   const basis=evidence(relation.evidence),role=category(relation.role,roleValues),verify=category(relation.verify,verifyValues);
   if(!basis&&(role!=='unknown'||verify!=='unknown'))throw new Error('ACTION_RELATION_EVIDENCE_MISSING');
   if(evidencePolicy&&basis&&!sameSource(basis,now))throw new Error('ACTION_RELATION_CURRENT_CANDIDATE_EVIDENCE_MISMATCH');
-  if(!evidencePolicy&&relation.contextEvidence!==undefined)throw new Error('UNCONFIGURED_ACTION_RELATION_CONTEXT_EVIDENCE');
-  const contextEvidence=evidencePolicy?evidence(relation.contextEvidence):undefined;
-  return [id,{role,...(basis?{evidence:basis}:{}),...(contextEvidence?{contextEvidence}:{}),verify}];
+  if(has(relation,'contextEvidence'))throw new Error('UNREQUESTED_ACTION_RELATION_CONTEXT_EVIDENCE');
+  return [id,{role,...(basis?{evidence:basis}:{}),verify}];
  }));
  const adjustedFields=new Set<string>();
  const adjustments=record.adjustments.map(raw=>{
@@ -189,7 +186,6 @@ export function actionRelationCriteria(criteria:Record<string,string>,record:Act
   let annotation=`Action relation model hypothesis, not fact: availability=${admitted.availability.status}; availabilityEvidence=${admitted.availability.evidence?.observationId??'none'}`;
   if(admitted.evidencePolicy)annotation+=`; evidencePolicy=${admitted.evidencePolicy}`;
   if(relation)annotation+=`; role=${relation.role}; evidence=${relation.evidence?.observationId??'none'}; verify=${relation.verify}`;
-  if(relation&&admitted.evidencePolicy)annotation+=`; contextEvidence=${relation.contextEvidence?.observationId??'none'} (contextual condition only, not current candidate identity)`;
   const adjustments=admitted.adjustments.filter(a=>a.field==='availability'||a.field==='role_'+id||a.field==='verify_'+id);
   if(adjustments.length)annotation+='; adjustments='+adjustments.map(a=>`${a.field}:${a.from}->${a.to}:${a.reason}`).join(',');
   return [id,`${label} [${annotation}]`];

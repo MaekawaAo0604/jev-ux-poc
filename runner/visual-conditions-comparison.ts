@@ -78,7 +78,7 @@ function comparePair(records:VisualConditionsRunRecord[],slot:RecoverySlot){
    for(const item of [a,b,c])if(!isDeepStrictEqual(Object.fromEntries(Object.entries(item.questions).filter(([key])=>key.startsWith('actionRelation_'))),item.expectedRelations))reasons.push('ACTION_RELATION_QUESTION_CONTRACT_MISMATCH');
    for(const next of [b,c]){for(const field of ['product','goal','assets','state'] as const)if(a[field]===null||!isDeepStrictEqual(a[field],next[field]))reasons.push('INITIAL_'+field.toUpperCase()+'_MISMATCH');if(!isDeepStrictEqual(cleanInput(a.input),cleanInput(next.input)))reasons.push('UNDECLARED_INITIAL_INPUT_CHANGE');if(!isDeepStrictEqual(baseQuestions(a.questions),baseQuestions(next.questions)))reasons.push('UNDECLARED_ASSESSMENT_QUESTION_CHANGE');}
    if(!isDeepStrictEqual(b.questions,c.questions))reasons.push('CURRENT_AND_VISUAL_QUESTION_MISMATCH');
-   const currentKeys=Object.keys(b.questions).filter(key=>key.startsWith('actionRelation_contextEvidence_'));if(!currentKeys.length||Object.keys(a.questions).some(key=>key.startsWith('actionRelation_contextEvidence_')))reasons.push('DECLARED_CURRENT_POLICY_DIFFERENCE_MISSING');
+   if(isDeepStrictEqual(a.expectedRelations,b.expectedRelations))reasons.push('DECLARED_CURRENT_POLICY_DIFFERENCE_MISSING');
    if(a.input.visualHypotheses!==undefined||b.input.visualHypotheses!==undefined||c.input.visualHypotheses===undefined)reasons.push('DECLARED_VISUAL_INPUT_DIFFERENCE_MISSING');
   }
  }

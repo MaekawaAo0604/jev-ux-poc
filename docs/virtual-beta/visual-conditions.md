@@ -2,12 +2,13 @@
 
 この変更は、現在の候補に対する根拠を現在画像へ限定する修正と、具体的な条件を画像から取り出す段階を分けて比較する。
 既定の Jev 方式は維持する。
-初回の実行は入力の文脈上限で停止したため、失敗原本を残して質問文を短くする修正を検証している。
+初回と短縮後の実行は入力の文脈上限で停止した。失敗原本を残し、候補別の追加質問を廃止する契約変更を検証している。
 
 ## 入力と判断
 
 `experience-action-relations` は前フェーズの役割判定である。
-`experience-action-relations-current` は `actionRelations.evidencePolicy: "current-candidate"` を追加し、現在候補の根拠と過去の文脈を別々に記録する。
+`experience-action-relations-current` は `actionRelations.evidencePolicy: "current-candidate"` を追加し、現在候補の根拠を現在画像に限定する。
+過去の条件根拠は既存の全体状況の `availabilityEvidence` に保持し、候補別の文脈質問・記録は追加しない。
 現在の根拠がない候補は `unknown` とし、過去画像に同じ番号があることを代用にしない。
 
 `experience-visual-conditions` は後者を継承し、`visualHypotheses: {enabled: true, capacity: 3}` を追加する。
@@ -36,17 +37,17 @@ HTTP 成功後の拒否、未完了、不正 JSON、形式不正は、通信失�
 Set-Location 'C:/Users/Maekawa Ao/.codex/worktrees/virtual-beta/Ux_test'
 
 # API を使わず、先頭の三方式だけを接続確認する
-node --import tsx runner/visual-conditions-comparison.ts --mock --limit 3 --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v2.json).Path --out reports/visual-conditions-mock-new
+node --import tsx runner/visual-conditions-comparison.ts --mock --limit 3 --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v3.json).Path --out reports/visual-conditions-mock-new
 
 # 新しい画像を通常 runner から取得する実モデル比較
-node --import tsx runner/visual-conditions-comparison.ts --env-file E:/ChatGPT/Ux_test/.env --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v2.json).Path --out reports/visual-conditions-real-new
+node --import tsx runner/visual-conditions-comparison.ts --env-file E:/ChatGPT/Ux_test/.env --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v3.json).Path --out reports/visual-conditions-real-new
 
 node --import tsx --test --test-concurrency=1 tests/visual-hypotheses.test.ts tests/openai-visual-hypotheses.test.ts tests/visual-conditions-comparison.test.ts tests/visual-conditions-integration.test.ts
 npm run build
 ```
 
 出力先は毎回新しくする。
-初回停止を含む過去 4,642 原本を照合する snapshot と生データは、この環境に残るローカル資料であり Git には含めない。
+二度の停止を含む過去 4,687 原本を照合する snapshot と生データは、この環境に残るローカル資料であり Git には含めない。
 別の clone で同じ原本保全を確認したことにはならない。
 ブラウザーを使う検証は同時に起動せず、初期ページ読み込みのタイムアウトをモデルの失敗へ置き換えない。
 
@@ -94,5 +95,23 @@ API 待ち時間は人間の行動時間とは別に扱い、未報告の費用�
 したがって修正後の比較では、根拠制限と短い指示文を組み合わせた設定として評価し、結果の差を根拠制限だけの効果とは扱わない。
 各質問は独立した判断として読める説明を持たせ、別の質問の回答を暗黙に参照させない。
 
-初回の 45 原本を含め、修正後は 4,642 ファイルを `prior-raw-v2.json` で保全する。
+初回の 45 原本を含め、最初の修正時点では 4,642 ファイルを `prior-raw-v2.json` で保全した。
 修正後の実行は別の新規ディレクトリと台帳で予定 18 件、最大 504 要求とし、初回 11 要求も累計に含める。
+
+
+## 短縮後の停止と質問数の修正
+
+短縮版 producer `beab36b7b6b7b9e81673b04e044db32e245e1cfd` でも、2 / 18 試行、11 要求で同じ評価の HTTP 400 `max_tokens_exceeded` により停止した。
+同じ画面の評価質問は 47 問、55,186 バイトへ減ったが、文脈上限の問題は解消していない。
+両実行の累計は 22 要求（HTTP 成功 20、失敗 2）で、Responses はどちらも未到達である。
+これらの失敗実行を性能比較の成功・離脱へ読み替えない。
+
+次の契約では、重複していた候補別 `contextEvidence` 質問を廃止する。
+現在候補の役割・予測結果の直接根拠は現在画像または「なし」に限定し、過去の条件根拠は既存の全体 `availabilityEvidence` に残す。
+全体の根拠を候補へ複製せず、廃止した候補文脈フィールドの混入は拒否する。
+保存された同じ 5 候補の画面では旧方式と同じ 42 問、49,962 バイトとなる。
+旧方式の質問・記録は変更せず、過去版の原本は対応する producer ソースとともに保存する。
+質問数を戻したことによる実 API の改善は再実行で確認する必要がある。
+
+二度の停止の計 90 原本も加えた 4,687 ファイルを `prior-raw-v3.json` で保全する。
+次の新規 18 試行は最大 504 要求とし、既実行 22 要求を含む今回の上限は 526 要求である。

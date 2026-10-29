@@ -158,9 +158,7 @@ test('five unique attached image hashes and six IDs sharing images fail the sepa
 });
 
 const currentPolicyQuestions=()=>actionRelationQuestions(goal,current(),candidates(),sources(),'current-candidate');
-function currentPolicyResponse(overrides:Record<string,string>={}):ChoiceAnswers{
- return response(Object.fromEntries([...['e1','e2','back','scroll_down'].map(id=>['actionRelation_contextEvidence_'+id,'o1']),...Object.entries(overrides)]),currentPolicyQuestions());
-}
+const currentPolicyResponse=(overrides:Record<string,string>={})=>response(overrides,currentPolicyQuestions());
 const admitCurrentPolicy=(r=currentPolicyResponse())=>admitActionRelations(r,goal,current(),candidates(),sources(),'current-candidate');
 
 // Baseline signatures were captured before introducing the optional policy.
@@ -171,19 +169,20 @@ test('omitted evidence policy preserves frozen legacy question record and criter
  assert.ok(!('evidencePolicy' in admit()));
 });
 
-test('current-candidate policy separates current relation evidence from attached contextual condition evidence',()=>{
- const q=currentPolicyQuestions();
+// Contract revision: two real partial phases exceeded context even after text compaction.
+// Remove only per-candidate context questions/fields; global availability retains attached context.
+// Old raw output must be replayed with its archived producer, not coerced into this contract.
+test('current-candidate policy binds relation evidence to current while retaining global availability context at legacy question count',()=>{
+ const q=currentPolicyQuestions();assert.deepEqual(Object.keys(q),Object.keys(questions()));
  for(const id of ['e1','e2','back','scroll_down']){
   assert.deepEqual(Object.keys(q['actionRelation_evidence_'+id].criteria),['o2','none']);
-  assert.deepEqual(Object.keys(q['actionRelation_contextEvidence_'+id].criteria),['o1','o2','none']);
-  assert.match(q['actionRelation_contextEvidence_'+id].instructions,/context/i);
-  assert.match(q['actionRelation_contextEvidence_'+id].instructions,/not.*identity|never.*identity/i);
+  assert.ok(!Object.hasOwn(q,'actionRelation_contextEvidence_'+id));
  }
  assert.deepEqual(Object.keys(q.actionRelation_availabilityEvidence.criteria),['o1','o2','none']);
  const record=admitCurrentPolicy();assert.equal(record.evidencePolicy,'current-candidate');
- for(const relation of Object.values(record.candidates)){assert.deepEqual(relation.evidence,source());assert.deepEqual(relation.contextEvidence,source('o1'));}
+ for(const relation of Object.values(record.candidates)){assert.deepEqual(relation.evidence,source());assert.ok(!Object.hasOwn(relation,'contextEvidence'));}
  const annotated=actionRelationCriteria(criteria(),record,goal,current());
- assert.match(annotated.e1,/evidence=o2/);assert.match(annotated.e1,/contextEvidence=o1/);assert.match(annotated.e1,/current-candidate/);
+ assert.match(annotated.e1,/evidence=o2/);assert.match(annotated.e1,/availabilityEvidence=o2/);assert.match(annotated.e1,/current-candidate/);assert.ok(!JSON.stringify(annotated).includes('contextEvidence='));
  assert.deepEqual(Object.keys(annotated),Object.keys(criteria()));
 });
 
@@ -192,39 +191,42 @@ test('historical relation evidence rejects even when the same local candidate ID
  const forged=admitCurrentPolicy();forged.candidates.e1.evidence=source('o1');assert.throws(()=>actionRelationCriteria(criteria(),forged,goal,current()));
 });
 
-test('context evidence never rescues missing current evidence and none context adds no invented source',()=>{
- const record=admitCurrentPolicy(currentPolicyResponse({actionRelation_evidence_e1:'none',actionRelation_contextEvidence_e2:'none'}));
- assert.deepEqual(record.candidates.e1,{role:'unknown',contextEvidence:source('o1'),verify:'unknown'});
- assert.ok(!('contextEvidence' in record.candidates.e2));
+test('historical availability evidence never rescues missing current candidate evidence or invents candidate context',()=>{
+ const record=admitCurrentPolicy(currentPolicyResponse({actionRelation_availabilityEvidence:'o1',actionRelation_evidence_e1:'none'}));
+ assert.deepEqual(record.availability,{status:'blocked',evidence:source('o1')});
+ assert.deepEqual(record.candidates.e1,{role:'unknown',verify:'unknown'});
+ for(const relation of Object.values(record.candidates))assert.ok(!Object.hasOwn(relation,'contextEvidence'));
  assert.deepEqual(record.adjustments,[{field:'role_e1',from:'prerequisite',to:'unknown',reason:'NO_ADMITTED_EVIDENCE'},{field:'verify_e1',from:'availability-change',to:'unknown',reason:'NO_ADMITTED_EVIDENCE'}]);
- const annotated=actionRelationCriteria(criteria(),record,goal,current());assert.match(annotated.e1,/role=unknown/);assert.match(annotated.e1,/contextEvidence=o1/);assert.match(annotated.e1,/NO_ADMITTED_EVIDENCE/);
+ const annotated=actionRelationCriteria(criteria(),record,goal,current());assert.match(annotated.e1,/role=unknown/);assert.match(annotated.e1,/availabilityEvidence=o1/);assert.match(annotated.e1,/NO_ADMITTED_EVIDENCE/);assert.ok(!annotated.e1.includes('contextEvidence'));
 });
 
-test('policy admission requires every context question and rejects unknown policies or unattached context',()=>{
- const r=currentPolicyResponse();delete r.answers.actionRelation_contextEvidence_e1;assert.throws(()=>admitCurrentPolicy(r));
- assert.throws(()=>admitCurrentPolicy(currentPolicyResponse({actionRelation_contextEvidence_e1:'o9'})));
+test('policy admission requires requested evidence answers and rejects obsolete context questions unknown policies or unattached availability',()=>{
+ const r=currentPolicyResponse();delete r.answers.actionRelation_evidence_e1;assert.throws(()=>admitCurrentPolicy(r));
+ assert.throws(()=>admitCurrentPolicy(currentPolicyResponse({actionRelation_availabilityEvidence:'o9'})));
  for(const policy of ['legacy','current','',null,42]){
   assert.throws(()=>actionRelationQuestions(goal,current(),candidates(),sources(),policy as never));
   assert.throws(()=>admitActionRelations(response(),goal,current(),candidates(),sources(),policy as never));
  }
- const legacy=response();legacy.answers.actionRelation_contextEvidence_e1={choice:'o1',probabilities:{o1:1}};assert.throws(()=>admit(legacy));
-});
-
-test('criteria rejects unconfigured contextual scope conflicting hashes future evidence and invalid policy',()=>{
- const unconfigured=admit();unconfigured.candidates.e1.contextEvidence=source('o1');assert.throws(()=>actionRelationCriteria(criteria(),unconfigured,goal,current()));
- for(const change of [(r:ActionRelationRecord)=>r.evidencePolicy='unknown' as never,(r:ActionRelationRecord)=>r.candidates.e1.contextEvidence=source('o3'),(r:ActionRelationRecord)=>r.candidates.e1.contextEvidence={...source(),imageSha256:hash('wrong')},(r:ActionRelationRecord)=>r.candidates.e1.contextEvidence={...source('o1'),imageSha256:'bad'},(r:ActionRelationRecord)=>r.candidates.e1.contextEvidence={...source('o1'),imageSha256:hash('conflict')}]){
-  const record=admitCurrentPolicy();change(record);assert.throws(()=>actionRelationCriteria(criteria(),record,goal,current()));
+ for(const admitMode of [admit,admitCurrentPolicy]){
+  const extra=admitMode===admit?response():currentPolicyResponse();extra.answers.actionRelation_contextEvidence_e1={choice:'o1',probabilities:{o1:.5,o2:.5,none:0}};assert.throws(()=>admitMode(extra));
  }
 });
 
-test('current-policy questions avoid candidate labels, text, geometry and arbitrary response/context fields',()=>{
+test('criteria rejects every obsolete candidate-context field including undefined and never copies global context to candidates',()=>{
+ for(const make of [admit,admitCurrentPolicy])for(const context of [source('o1'),source('o3'),{...source(),imageSha256:hash('wrong')},{...source('o1'),imageSha256:'bad'},null,undefined]){
+  const record=make();Object.defineProperty(record.candidates.e1,'contextEvidence',{value:context,enumerable:true});assert.throws(()=>actionRelationCriteria(criteria(),record,goal,current()));
+ }
+ const invalid=admitCurrentPolicy();invalid.evidencePolicy='unknown' as never;assert.throws(()=>actionRelationCriteria(criteria(),invalid,goal,current()));
+});
+
+test('current-policy questions avoid candidate labels text geometry and arbitrary response/source fields',()=>{
  const c=candidates(),o=current();
  for(const candidate of Object.values(c))Object.defineProperty(candidate,'label',{get(){throw new Error('LABEL_READ');}});
  Object.defineProperty(o,'visibleText',{get(){throw new Error('TEXT_READ');}});
  Object.defineProperty(o,'fixation',{get(){throw new Error('GEOMETRY_READ');}});
  const q=actionRelationQuestions(goal,o,c,sources(),'current-candidate');assert.ok(!JSON.stringify(q).includes('PRIVATE'));
- const r=currentPolicyResponse();(r.answers.actionRelation_contextEvidence_e1 as any).explanation='RECORD_SECRET';
- const record=admitCurrentPolicy(r);(record.candidates.e1.contextEvidence as any).text='RECORD_SECRET';
+ const r=currentPolicyResponse();(r.answers.actionRelation_evidence_e1 as any).explanation='RECORD_SECRET';
+ const record=admitCurrentPolicy(r);(record.availability.evidence as any).text='RECORD_SECRET';
  assert.ok(!JSON.stringify(actionRelationCriteria(criteria(),record,goal,current())).includes('RECORD_SECRET'));
 });
 
@@ -234,19 +236,20 @@ function accountFixture(){
  return {c,o:{...current(),candidateIds:Object.keys(c)}};
 }
 
-test('compact current-policy text does not exceed legacy role bytes for the same five-UI account fixture',()=>{
+test('same five-UI account fixture has17 questions like legacy and a tighter byte cap after removing redundant candidate context',()=>{
  const {c,o}=accountFixture();const literalGoal='予約図書「川沿いの暮らし」の受取館を中央図書館から東分館へ変更し、保存されたことを確認してください。';
  const legacy=actionRelationQuestions(literalGoal,o,c,sources()),compact=actionRelationQuestions(literalGoal,o,c,sources(),'current-candidate');
- assert.equal(Object.keys(compact).length,22);assert.equal(Object.keys(legacy).length,17);
+ assert.equal(Object.keys(compact).length,17);assert.equal(Object.keys(legacy).length,17);
  assert.ok(jsonBytes(compact)<=jsonBytes(legacy),`current ${jsonBytes(compact)} > legacy ${jsonBytes(legacy)}`);
- assert.ok(jsonBytes(compact)<=26000,`five UI question payload ${jsonBytes(compact)} exceeds fixed fixture cap`);
+ assert.ok(jsonBytes(compact)<=20000,`five UI question payload ${jsonBytes(compact)} exceeds fixed fixture cap`);
 });
 
-test('maximum24 UI and five-source four-image current-policy question bytes have an explicit goal-dependent bound',()=>{
+test('maximum24 UI keeps legacy74 questions and a lower explicit goal-dependent byte bound',()=>{
  const c=Object.fromEntries(Array.from({length:24},(_,i)=>['e'+(i+1),{action:{type:'click',elementId:'e'+(i+1)},label:'PRIVATE'}])) as BetaCandidates;
  const o={...current(),id:'o5',imageSha256:hash('o4'),candidateIds:Object.keys(c)},basis=[source('o1'),source('o2'),source('o3'),source('o4'),{observationId:'o5',imageSha256:hash('o4')}];
- const q=actionRelationQuestions(goal,o,c,basis,'current-candidate');assert.equal(Object.keys(q).length,98);
- assert.ok(jsonBytes(q)<=100000+98*Buffer.byteLength(JSON.stringify(goal),'utf8'),`maximum fixture payload ${jsonBytes(q)} exceeds size bound`);
+ const q=actionRelationQuestions(goal,o,c,basis,'current-candidate');assert.equal(Object.keys(q).length,74);assert.equal(Object.keys(actionRelationQuestions(goal,o,c,basis)).length,74);
+ // Intentional contract change reduces a question per candidate; this bound tightens rather than hides a failure.
+ assert.ok(jsonBytes(q)<=75000+74*Buffer.byteLength(JSON.stringify(goal),'utf8'),`maximum fixture payload ${jsonBytes(q)} exceeds size bound`);
  assert.ok(jsonBytes(q)<=jsonBytes(actionRelationQuestions(goal,o,c,basis)),'24 UI payload exceeds the same legacy fixture');
 });
 
@@ -256,15 +259,15 @@ test('every compact independent question contains the full goal current identity
   assert.ok(question.instructions.includes(JSON.stringify(goal)),id+' lost literal whole goal');
   assert.ok(question.instructions.includes(current().id),id+' lost current observation identity');
   assert.match(question.instructions,/hypothes/i);assert.match(question.instructions,/images/i);assert.match(question.instructions,/memory/i);assert.match(question.instructions,/persona/i);assert.match(question.instructions,/unknown/i);assert.match(question.instructions,/context/i);assert.match(question.instructions,/not.*guarantee|not.*proof/i);
-  const candidateId=id.match(/^actionRelation_(?:role|evidence|contextEvidence|verify)_(.+)$/)?.[1];
+  const candidateId=id.match(/^actionRelation_(?:role|evidence|verify)_(.+)$/)?.[1];
   if(candidateId)assert.ok(question.instructions.includes(candidateId),id+' depends on hidden question ID');
   assert.ok(Buffer.byteLength(question.instructions,'utf8')<=1000+Buffer.byteLength(JSON.stringify(goal),'utf8'),id+' instructions exceed concise per-question bound');
  }
 });
 
-test('compaction preserves current-policy choices record metadata annotations and corrections exactly',()=>{
- const q=currentPolicyQuestions(),record=admitCurrentPolicy();
- assert.equal(hash(JSON.stringify(Object.fromEntries(Object.entries(q).map(([id,q])=>[id,{type:q.type,criteria:q.criteria}])))),'b476c99c29e331b84afc53d9847779faaaf4e660d61019ea9ec8b9e8fb1ac647');
- assert.equal(hash(JSON.stringify(record)),'bc482d0abc588520f59030d73a255d5392494d943ee3a0c4f939ddf5208a9af2');
- assert.equal(hash(JSON.stringify(actionRelationCriteria(criteria(),record,goal,current()))),'9f348f96dd904d87bfca4b1b7eff1cdf2781c4c6a8932f82fd9587ca1ee9324b');
+test('revised contract preserves all remaining choice meanings metadata and corrections without candidate context fabrication',()=>{
+ const q=currentPolicyQuestions(),record=admitCurrentPolicy(),expectedChoices=Object.fromEntries(Object.entries(questions()).map(([id,question])=>[id,{type:question.type,criteria:id.startsWith('actionRelation_evidence_')?Object.fromEntries(Object.entries(question.criteria).filter(([key])=>key===current().id||key==='none')):question.criteria}]));
+ assert.deepEqual(Object.fromEntries(Object.entries(q).map(([id,question])=>[id,{type:question.type,criteria:question.criteria}])),expectedChoices);
+ const {schemaVersion,kind,...legacy}=admit();assert.deepEqual(record,{schemaVersion,kind,evidencePolicy:'current-candidate',...legacy});
+ const annotated=actionRelationCriteria(criteria(),record,goal,current());assert.equal(Object.keys(annotated).length,Object.keys(criteria()).length);assert.ok(!JSON.stringify(annotated).includes('contextEvidence'));
 });
