@@ -1,3 +1,4 @@
+import {normalizeJevImageWire,currentJevImage} from './jev-image-wire.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {mkdtemp,readFile,writeFile} from 'node:fs/promises';
@@ -23,7 +24,7 @@ function response(body:any,next='wait'){
 }
 async function localHTTP(fn:(body:any)=>Response|Promise<Response>,run:()=>Promise<void>){
  const oldFetch=globalThis.fetch,oldKey=process.env.AI_GATEWAY_API_KEY;process.env.AI_GATEWAY_API_KEY='LOCAL_TEST_ONLY';
- globalThis.fetch=async(url,options)=>{assert.equal(String(url),'https://ai-gateway.vercel.sh/typesafe/v1/systemone');return fn(JSON.parse(String(options!.body)));};
+ globalThis.fetch=async(url,options)=>{assert.equal(String(url),'https://ai-gateway.vercel.sh/typesafe/v1/systemone');const body=JSON.parse(String(options!.body));normalizeJevImageWire(body);return fn(body);};
  try{await run();}finally{globalThis.fetch=oldFetch;if(oldKey===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=oldKey;}
 }
 
@@ -32,14 +33,14 @@ test('independent deliberation wrapper: twelve assessment/action pairs keep ever
  t.mock.method(process,'loadEnvFile',()=>{throw new Error('ENV_FILE_MUST_NOT_BE_READ');});
  await localHTTP(body=>{
   assert.doesNotMatch(JSON.stringify({state:body.state,questions:body.questions}),/participant-feedback|selfAttested|reportedOutcome|通知設定だから設定|文字小さかった/);
-  const state=body.state;assert.equal(state.observation.screen,undefined);assert.equal(state.exploration.persona,undefined);assert.equal(state.exploration.charter.oracle,undefined);assert.ok(state.userState.memory.every((m:any)=>m.visibleText.length===0));
-  const png=PNG.sync.read(Buffer.from(body.assets.current.data_base64,'base64'));assert.equal(png.width,1280);assert.equal(png.height,900);
+  const state=normalizeJevImageWire(body).state;assert.equal(state.observation.screen,undefined);assert.equal(state.exploration.persona,undefined);assert.equal(state.exploration.charter.oracle,undefined);assert.ok(state.userState.memory.every((m:any)=>m.visibleText.length===0));
+  const png=PNG.sync.read(Buffer.from(currentJevImage(body).data_base64,'base64'));assert.equal(png.width,1280);assert.equal(png.height,900);
   if(body.questions.knowledge){
-   assessments++;stages.push('assessment');assessmentState=structuredClone(state);assessmentImage=body.assets.current.data_base64;
+   assessments++;stages.push('assessment');assessmentState=structuredClone(state);assessmentImage=currentJevImage(body).data_base64;
    assert.equal(body.questions.nextAction,undefined);return response(body);
   }
   assert.ok(body.questions.nextAction,'No separate UX review is admitted in the 24-request profile');actions++;stages.push('action');assert.equal(assessments,actions);
-  assert.equal(body.assets.current.data_base64,assessmentImage);assert.deepEqual(state.observation,assessmentState.observation);
+  assert.equal(currentJevImage(body).data_base64,assessmentImage);assert.deepEqual(state.observation,assessmentState.observation);
   assert.deepEqual(Object.keys(body.questions.nextAction.criteria),state.observation.candidateIds);
   const current=state.userState.deliberation.assessments.at(-1);assert.equal(current.observationId,state.observation.id);assert.equal(current.knowledge,'insufficient');assert.equal(current.goal,'unsatisfied');assert.equal(current.kind,'model-assessment-not-fact');
   for(const id of state.observation.candidateIds.filter((id:string)=>/^e\d+$/.test(id))){assert.equal(current.effects[id].prediction,'conflicts');assert.match(body.questions.nextAction.criteria[id],new RegExp('^\\['+id+'\\] '));assert.match(body.questions.nextAction.criteria[id],/effect=conflicts/);}
@@ -96,5 +97,5 @@ test('independent deliberation wrapper: long-context is explicit on both stages,
    assert.equal(saved.result.termination,'SUBJECTIVE_DONE');assert.equal(saved.result.apiCalls,2);assert.equal(l.used,2);assert.equal(l.remaining,22);assert.equal(l.attempts.length,2);assert.ok(l.attempts.every((a:any)=>a.metadata.attempts===1));assert.deepEqual(l.attempts.map((a:any)=>a.runKey.split('/').at(-1)),['assessment','action']);assert.equal((await json(join(saved.root,'manifest.json'))).actualAPIRequests,2);assert.deepEqual(saved.review,{status:'NOT_RUN',reason:'PROFILE_DISABLED'});
   }finally{globalThis.fetch=oldFetch;if(oldKey===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=oldKey;}
  }
- assert.equal(captures[0].length,2);assert.equal(captures[1].length,2);assert.ok(captures[0].every(c=>c.header===null),'Existing default must keep the header absent');assert.ok(captures[1].every(c=>c.header==='true'),'Explicit opt-in must reach assessment and action requests');assert.deepEqual(captures[1].map(c=>c.body),captures[0].map(c=>c.body),'Only the header opt-in changes; model body and images stay identical');
+ assert.equal(captures[0].length,2);assert.equal(captures[1].length,2);assert.ok(captures[0].every(c=>c.header===null),'Existing default must keep the header absent');assert.ok(captures[1].every(c=>c.header==='true'),'Explicit opt-in must reach assessment and action requests');assert.deepEqual(captures[1].map(c=>normalizeJevImageWire(c.body)),captures[0].map(c=>normalizeJevImageWire(c.body)),'Only the header opt-in changes; model body and images stay identical');
 });

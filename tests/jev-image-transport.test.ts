@@ -1,0 +1,33 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {evaluateBetaRequest} from '../runner/virtual-beta-evaluator.js';
+import {ChoiceRequestError} from '../jev/client.js';
+import type {ModelRequest} from '../runner/virtual-beta-core.js';
+const request:ModelRequest={input:{goal:'Check the current status, memory_0 is just text',observation:{id:'o2',image:'current'},memoryObservations:[{observationId:'o1',image:'memory_0'}],userState:{scope:'delivered-current-view-only'}},images:{current:{mediaType:'image/png',data:Buffer.from('current picture').toString('base64')},memory_0:{mediaType:'image/png',data:Buffer.from('old picture').toString('base64')}},questions:{nextAction:{type:'choice',instructions:'Choose the current control, not memory_0 text',criteria:{done:'current result',stuck:'memory_0 uncertainty'}}},timeoutMs:1000};
+for(const fail of [false,true])test('native Jev binds only image leaves and retains safe bindings on '+(fail?'HTTP failure':'success'),async t=>{
+ const saved=structuredClone(request),old=process.env.AI_GATEWAY_API_KEY;process.env.AI_GATEWAY_API_KEY='FAKE_IMAGE_BINDING_ONLY';t.after(()=>{if(old===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=old;});let calls=0;
+ t.mock.method(globalThis,'fetch',async(url:any,init:any)=>{calls++;assert.equal(String(url),'https://ai-gateway.vercel.sh/typesafe/v1/systemone');const b=JSON.parse(init.body);assert.equal(init.headers['TypeSafe-Danger-Zone-Long-Context'],'true');assert.equal(b.state.goal,request.input.goal);assert.deepEqual(b.questions,request.questions);assert.equal(b.state.userState.scope,'delivered-current-view-only');assert.equal(Object.keys(b.assets).length,2);assert.ok(!Object.hasOwn(b.assets,'current'));assert.ok(!Object.hasOwn(b.assets,'memory_0'));assert.equal(b.assets[b.state.observation.image].data_base64,request.images.current.data);assert.equal(b.assets[b.state.memoryObservations[0].image].data_base64,request.images.memory_0.data);for(const id of Object.keys(b.assets)){assert.match(id,/^[a-f0-9-]{36}$/);assert.equal(JSON.stringify({state:b.state,questions:b.questions}).split(id).length-1,1);}return fail?Response.json({error_type:'max_tokens_exceeded'},{status:400}):Response.json({model:'jev-1.14.0',answers:{nextAction:{choice:'done',probabilities:{done:1,stuck:0}}}});});
+ if(fail)await assert.rejects(evaluateBetaRequest(request,{longContext:true}),e=>{assert.ok(e instanceof ChoiceRequestError);assert.equal(e.failure.providerCode,'max_tokens_exceeded');assert.equal(e.request?.imageBindings?.assets.length,2);assert.equal(e.request?.attempts,1);return true;});else{const r=await evaluateBetaRequest(request,{longContext:true});assert.equal(r.request?.imageBindings?.assets.length,2);assert.equal(r.answers.nextAction.choice,'done');}
+ assert.equal(calls,1);assert.deepEqual(request,saved);
+});
+
+import {chromium} from 'playwright';
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import {runBeta} from '../runner/virtual-beta-core.js';
+import {humanJevProfile} from '../runner/human-jev-profiles.js';
+import {parseCharter} from '../jev/persona.js';
+import {replayDirectory} from '../runner/virtual-beta-replay.js';
+test('opaque bindings survive actual browser actions, action failure and replay tamper checks',async t=>{
+ const dir='reports/visual-conditions-2026-10-30/parent/opaque-browser-'+Date.now();await mkdir(dir,{recursive:true});
+ const old=process.env.AI_GATEWAY_API_KEY;process.env.AI_GATEWAY_API_KEY='FAKE_OPAQUE_BROWSER_ONLY';t.after(()=>{if(old===undefined)delete process.env.AI_GATEWAY_API_KEY;else process.env.AI_GATEWAY_API_KEY=old;});
+ const browser=await chromium.launch({headless:true});let fail=false;
+ try{const context=await browser.newContext({viewport:{width:1280,height:900}});await context.route('**/*',route=>route.fulfill({contentType:'text/html; charset=utf-8',body:`<!doctype html><meta charset="utf-8"><p>local current</p><button onclick='this.remove();document.querySelector("p").setAttribute("role","status");document.querySelector("p").textContent="メール通知を停止しました"'>停止</button>`}));
+ t.mock.method(globalThis,'fetch',async(url:any,init:any)=>{const b=JSON.parse(init.body);if(fail&&b.questions.nextAction)return Response.json({error_type:'max_tokens_exceeded'},{status:400});return Response.json({model:'jev-1.14.0',answers:Object.fromEntries(Object.entries(b.questions).map(([id,q]:[string,any])=>{const wanted=id==='nextAction'?(b.state.observation.id==='o1'?'e1':'done'):id==='decisionBasis'?'goal':id==='knowledge'?'insufficient':id==='goal'?'uncertain':id==='goalEvidence'||id.startsWith('actionRelation_evidence_')||id==='actionRelation_availabilityEvidence'?b.state.observation.id:'unknown';const choice=Object.hasOwn(q.criteria,wanted)?wanted:['unknown','uncertain','none'].find(k=>Object.hasOwn(q.criteria,k))??Object.keys(q.criteria)[0];return[id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,Number(k===choice)]))}];}))});});
+ const charter=parseCharter({...JSON.parse(await readFile('experiments/persona/charter.json','utf8')),goal:'メール通知を停止してください',oracle:'notifications'});
+ for(const broken of [false,true]){fail=broken;const out=dir+'/'+(broken?'failure':'success');const r=await runBeta(await context.newPage(),{jevImageReferences:'opaque-v1',runId:'opaque',dir:out,baseURL:'http://local.test',charter,config:humanJevProfile('experience-action-relations-current').config,evaluate:q=>evaluateBetaRequest(q,{longContext:true})});
+ assert.equal(r.termination,broken?'API_ERROR':'SUBJECTIVE_DONE');assert.equal(r.apiCalls,broken?2:4);assert.equal(r.uiActions,broken?0:1);if(!broken)assert.equal(r.objectiveSuccess,true);assert.equal((await replayDirectory(out)).verified,true);
+ const path=out+'/result.json',original=await readFile(path,'utf8'),stage=broken?'error':'response';
+ for(const mutate of [(x:any)=>{delete x.steps[0][stage].request.imageBindings;},(x:any)=>{x.steps[0][stage].request.imageBindings.assets[0].imageSha256='f'.repeat(64);},(x:any)=>{x.steps[0][stage].request.imageBindings.assets[0].paths=[['goal']];},(x:any)=>{x.steps[0][stage].request.imageBindings.assets[0].reference='current';},(x:any)=>{x.steps[0].deliberation.response.model='UNEXPECTED_MODEL';delete x.steps[0].deliberation.response.request.imageBindings;},(x:any)=>{for(const step of x.steps)for(const record of [step.deliberation,step])if(record?.response){record.response.model='UNEXPECTED_MODEL';delete record.response.request.imageBindings;}}]){const bad=JSON.parse(original);mutate(bad);await writeFile(path,JSON.stringify(bad));try{await assert.rejects(replayDirectory(out));}finally{await writeFile(path,original);}}
+ }
+ }finally{await browser.close();}
+});

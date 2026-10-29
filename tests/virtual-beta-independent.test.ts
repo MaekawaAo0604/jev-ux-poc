@@ -1,3 +1,4 @@
+import {currentJevImage} from './jev-image-wire.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {chromium, type Browser, type Page} from 'playwright';
@@ -38,7 +39,7 @@ test('independent: full, crop and foveated PNGs reach actual gateway adapter wit
  try{for(const mode of ['full','crop','foveated'] as const)await fixture(async(page,dir)=>{
  const config=comparisonConfigs()[3];config.vision.mode=mode;let calls=0;let requestForReply:Parameters<BetaEvaluator>[0];
  globalThis.fetch=async(_url,options)=>{const body=JSON.parse(String(options!.body));calls++;
- assert.equal(body.model,'jev-1.14.0');assert.ok(body.assets.current);const pixels=PNG.sync.read(Buffer.from(body.assets.current.data_base64,'base64'));assert.equal(pixels.width,mode==='crop'?(calls===1?960:800):1280);
+ assert.equal(body.model,'jev-1.14.0');assert.ok(currentJevImage(body));const pixels=PNG.sync.read(Buffer.from(currentJevImage(body).data_base64,'base64'));assert.equal(pixels.width,mode==='crop'?(calls===1?960:800):1280);
  const references=new Set<string>();function collect(value:unknown){if(typeof value==='string')references.add(value);else if(value&&typeof value==='object')Object.values(value).forEach(collect);}collect(body.state);
  for(const id of Object.keys(body.assets))assert.ok(references.has(id),'unreferenced image '+id);
  if(mode!=='full'){const wire=JSON.stringify({state:body.state,questions:body.questions});for(const secret of ['AUDIT_TITLE_SECRET','AUDIT_BODY_SECRET','AUDIT_CONTROL_SECRET'])assert.ok(!wire.includes(secret));assert.equal(body.state.history,undefined);assert.equal(body.state.observation.screen,undefined);}

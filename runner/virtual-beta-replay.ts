@@ -1,3 +1,4 @@
+import {verifyJevImageBindings} from './jev-image-references.js';
 import {visualHypothesisInput} from './visual-hypothesis-input.js';
 import {admitVisualHypotheses,rememberVisualHypotheses} from '../jev/virtual-beta/visual-hypotheses.js';
 import type {VisualHypothesisMemory,VisualHypothesisRequest} from '../jev/virtual-beta/visual-hypotheses-contracts.js';
@@ -96,7 +97,17 @@ export async function replayDirectory(directory:string){
  let searchMemory:GoalSearchMemory|undefined=result.config.goalSearch?.enabled?{schemaVersion:1,entries:[]}:undefined;
  const seen=new Map<string,string>();
  const archive=result.config.correspondence?.enabled?createCorrespondenceArchive(result.config.correspondence):undefined;
+
+ if(result.transport!==undefined&&(!isRecord(result.transport)||Object.keys(result.transport).length!==1||result.transport.jevImageReferences!=='opaque-v1'))throw Error('INVALID_TRANSPORT_POLICY');
  for(const step of result.steps){
+  for(const stage of [step.deliberation,step])if(stage){
+   if(stage===step&&!step.response&&[step.deliberation,step.visualHypotheses].some(prior=>prior?.error!==undefined&&equal(prior.error,step.error)))continue;
+   const error=stage.error as any,trace=stage.response?.request??error?.request,binding=trace?.imageBindings;
+   const expected=result.transport?.jevImageReferences==='opaque-v1'&&(stage.response!==undefined||['HTTP_ERROR','TIMEOUT','MISSING_CREDENTIALS','INVALID_RESPONSE','REQUEST_FAILED'].includes(error?.code));
+   if(expected&&!binding&&!(error?.code==='REQUEST_FAILED'&&trace?.attempts===0))throw Error('MISSING_JEV_IMAGE_BINDINGS');
+   if(binding){if(!stage.modelInput||!stage.questions||!stage.assetFiles)throw Error('MISSING_JEV_IMAGE_BINDING_INPUT');verifyJevImageBindings(stage.modelInput,stage.questions,stage.assetFiles,binding);}
+  }
+
   const d=step.deliberation,current=step.userState?.lastObservation;
   if(unexpectedGoalSearch(step.modelInput)||unexpectedGoalSearch(d?.modelInput)||unexpectedGoalSearch({userState:step.userState})||Object.keys(step).some(key=>key.startsWith('goalSearch')&&key!=='goalSearch'))throw Error('UNEXPECTED_GOAL_SEARCH_FIELD');
   if(current)seen.set(current.id,current.imageSha256);

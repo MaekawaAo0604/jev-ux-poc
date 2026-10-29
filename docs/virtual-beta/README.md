@@ -152,3 +152,8 @@ manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.j
 台帳置換の実 EPERM と、HTTP を再送しない有限回 rename、同じ台帳の保存順序、相対パスの修正は [budget-replace-retry.md](budget-replace-retry.md) に記録する。
 
 候補役割の部品追加と旧方式との24試行比較は [action-relations.md](action-relations.md)。両方式8/12達成で、追加だけによる改善は確認していない。[JSON](action-relations-results.json)、[CSV](action-relations-results.csv)、[独立検証](action-relations-independent-review.md) に実行結果と残る意味対応の問題を保存した。
+
+
+画像から具体的な条件を抽出する任意部品、現在候補の根拠制限、三方式の比較は [visual-conditions.md](visual-conditions.md) を参照。
+実モデルでの三度の入力上限停止を分析し、短い画像参照名が説明文に衝突する送信不具合を特定した。
+旧スコアの原本を保持し、修正済み送信と抽出部品の実行確認を分けて記録する。

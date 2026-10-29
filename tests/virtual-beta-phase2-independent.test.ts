@@ -1,3 +1,4 @@
+import {normalizeJevImageWire,currentJevImage} from './jev-image-wire.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {mkdtemp,writeFile,readFile,mkdir,rename} from 'node:fs/promises';
@@ -20,7 +21,7 @@ test('phase2 independent: 3 UI x 4 arms actual adapter keeps audit metadata priv
    const body=JSON.parse(String(options!.body)),wire=JSON.stringify({state:body.state,questions:body.questions});
    assert.equal(body.model,'jev-1.14.0');assert.equal(body.state.exploration.charter.targetWebsite,'local:demo');assert.equal(body.state.exploration.charter.id,'notification-task');
    assert.doesNotMatch(wire,/notification-entry|notification-stop|regionsOfInterest|roiSelectors|uiVersion|entryTranslateYPx|entryLabel|betaUI|position-only|wording-only|良いUI|悪いUI|正解位置/);
-   assert.ok(body.assets.current);assert.equal(body.state.observation.image,'current');
+   assert.ok(currentJevImage(body));assert.equal(normalizeJevImageWire(body).state.observation.image,'current');
    if(!body.state.observation.screen){assert.doesNotMatch(wire,/通知設定|メール受信設定/);assert.equal(body.state.history,undefined);assert.ok(Object.values(body.questions.nextAction.criteria).every(label=>!String(label).includes('通知')));}
    if(body.state.userState){assert.equal(body.state.userState.revision,1);assert.equal(body.state.userState.memory.length,1);}
    return reply(body);

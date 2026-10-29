@@ -1,3 +1,4 @@
+import {prepareJevImageRequest} from './jev-image-references.js';
 import {evaluateChoices,validateChoice,ChoiceRequestError,type ChoiceAnswers} from '../jev/client.js';
 import {BetaResponseError,type ModelRequest} from './virtual-beta-core.js';
 /** Preserve candidate/probability evidence without arbitrary provider fields or unknown text. */
@@ -13,18 +14,22 @@ function answerEvidence(response:ChoiceAnswers,request:ModelRequest):ChoiceAnswe
 /** Capture only the client's answer fields, never a raw provider error or headers. */
 export async function evaluateBetaRequest(request:ModelRequest,options:{longContext?:boolean}={}):Promise<ChoiceAnswers>{
  let captured:ChoiceAnswers|undefined;
+ let prepared:ReturnType<typeof prepareJevImageRequest>;
+ try{prepared=prepareJevImageRequest(request);}catch{throw new ChoiceRequestError({code:'REQUEST_FAILED'},{attempts:0,failures:[{code:'REQUEST_FAILED'}]});}
+ const actual=prepared.request,withBindings=(response:ChoiceAnswers):ChoiceAnswers=>({...response,request:{...(response.request??{attempts:1,failures:[]}),imageBindings:prepared.imageBindings}});
  try{
-  const response=await evaluateChoices(request.input,request.questions,{maxAttempts:1,maxElapsedMs:request.timeoutMs},{images:request.images,model:'jev-1.14.0',gatewayHTTP:true,...(options.longContext===true?{longContext:true}:{}),onResponse:response=>{captured=response;}});
-  if(response.model!=='jev-1.14.0')throw new BetaResponseError('API_ERROR','MODEL_MISMATCH',answerEvidence(response,request));
-  return answerEvidence(response,request);
+  const response=await evaluateChoices(actual.input,actual.questions,{maxAttempts:1,maxElapsedMs:request.timeoutMs},{images:actual.images,model:'jev-1.14.0',gatewayHTTP:true,...(options.longContext===true?{longContext:true}:{}),onResponse:response=>{captured=response;}});
+  if(response.model!=='jev-1.14.0')throw new BetaResponseError('API_ERROR','MODEL_MISMATCH',answerEvidence(withBindings(response),request));
+  return answerEvidence(withBindings(response),request);
  }catch(error){
   if(error instanceof BetaResponseError)throw error;
   if(captured&&error instanceof ChoiceRequestError&&error.failure.code==='INVALID_RESPONSE'){
    const response={...captured,...(error.request?{request:error.request}:{})};
-   if(response.model!=='jev-1.14.0')throw new BetaResponseError('API_ERROR','MODEL_MISMATCH',answerEvidence(response,request));
-   try{for(const id of request.questions.nextAction?['nextAction']:Object.keys(request.questions))validateChoice(response.answers?.[id],request.questions[id].criteria);}catch{throw new BetaResponseError('INVALID_DISTRIBUTION','INVALID_DISTRIBUTION',answerEvidence(response,request));}
-   throw new BetaResponseError('API_ERROR','INVALID_RESPONSE',answerEvidence(response,request));
+   if(response.model!=='jev-1.14.0')throw new BetaResponseError('API_ERROR','MODEL_MISMATCH',answerEvidence(withBindings(response),request));
+   try{for(const id of request.questions.nextAction?['nextAction']:Object.keys(request.questions))validateChoice(response.answers?.[id],request.questions[id].criteria);}catch{throw new BetaResponseError('INVALID_DISTRIBUTION','INVALID_DISTRIBUTION',answerEvidence(withBindings(response),request));}
+   throw new BetaResponseError('API_ERROR','INVALID_RESPONSE',answerEvidence(withBindings(response),request));
   }
+  if(error instanceof ChoiceRequestError)throw new ChoiceRequestError(error.failure,{...(error.request??{attempts:0,failures:[]}),imageBindings:prepared.imageBindings});
   throw error;
  }
 }

@@ -2,7 +2,7 @@
 
 この変更は、現在の候補に対する根拠を現在画像へ限定する修正と、具体的な条件を画像から取り出す段階を分けて比較する。
 既定の Jev 方式は維持する。
-初回と短縮後の実行は入力の文脈上限で停止した。失敗原本を残し、候補別の追加質問を廃止する契約変更を検証している。
+三度の実行は入力の文脈上限で停止した。文章内の画像参照名の衝突を特定し、失敗原本を残して送信処理を修正している。
 
 ## 入力と判断
 
@@ -18,7 +18,7 @@ OpenAI Responses の `gpt-6-luna` が、実際に添付する現在画像と限�
 
 引用には `model-transcribed-unverified` を付ける。
 画像ハッシュの一致と、転記や条件解釈の正しさは別である。
-記憶するのは最大 3 件の仮説であり、以前の仮説を現在の画面の事実として扱わない。
+記憶するのは最大 3 観察分の仮説（各観察の条件は最大 3 件）であり、以前の仮説を現在の画面の事実として扱わない。
 DOM、候補ラベル、座標、監査ログ、正解判定、人間の操作や感想は抽出段へ渡さない。
 固定のペルソナが指定された場合は保持するが、今回の比較にはペルソナを指定しない。
 
@@ -37,17 +37,17 @@ HTTP 成功後の拒否、未完了、不正 JSON、形式不正は、通信失�
 Set-Location 'C:/Users/Maekawa Ao/.codex/worktrees/virtual-beta/Ux_test'
 
 # API を使わず、先頭の三方式だけを接続確認する
-node --import tsx runner/visual-conditions-comparison.ts --mock --limit 3 --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v3.json).Path --out reports/visual-conditions-mock-new
+node --import tsx runner/visual-conditions-comparison.ts --mock --limit 3 --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v4.json).Path --out reports/visual-conditions-mock-new
 
 # 新しい画像を通常 runner から取得する実モデル比較
-node --import tsx runner/visual-conditions-comparison.ts --env-file E:/ChatGPT/Ux_test/.env --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v3.json).Path --out reports/visual-conditions-real-new
+node --import tsx runner/visual-conditions-comparison.ts --env-file E:/ChatGPT/Ux_test/.env --prior-snapshot (Resolve-Path reports/visual-conditions-2026-10-30/prior-raw-v4.json).Path --out reports/visual-conditions-real-new
 
 node --import tsx --test --test-concurrency=1 tests/visual-hypotheses.test.ts tests/openai-visual-hypotheses.test.ts tests/visual-conditions-comparison.test.ts tests/visual-conditions-integration.test.ts
 npm run build
 ```
 
 出力先は毎回新しくする。
-二度の停止を含む過去 4,687 原本を照合する snapshot と生データは、この環境に残るローカル資料であり Git には含めない。
+三度の停止を含む過去 4,732 原本を照合する snapshot と生データは、この環境に残るローカル資料であり Git には含めない。
 別の clone で同じ原本保全を確認したことにはならない。
 ブラウザーを使う検証は同時に起動せず、初期ページ読み込みのタイムアウトをモデルの失敗へ置き換えない。
 
@@ -115,3 +115,38 @@ API 待ち時間は人間の行動時間とは別に扱い、未報告の費用�
 
 二度の停止の計 90 原本も加えた 4,687 ファイルを `prior-raw-v3.json` で保全する。
 次の新規 18 試行は最大 504 要求とし、既実行 22 要求を含む今回の上限は 526 要求である。
+
+
+## 画像参照名の衝突
+
+質問数を戻した producer `69f74a58362eada271e423438c1e3fa3dcbf679d` も 2 / 18 試行、11 要求で同じエラーになった。
+三度の実行は計 33 要求（HTTP 成功 30、失敗 3）で、Responses はまだ到達していない。
+質問数や UTF-8 バイト数だけでは、実際に展開される画像入力を説明できていなかった。
+
+[公式の画像参照仕様](https://docs.typesafe.ai/images)では、asset の参照名が文字列内に現れるたび、その部分を画像に置換する。
+従来は短い名前 `current` を使用していたため、操作説明や `delivered-current-view-only` などの文まで画像へ展開されていた。
+第 2 評価の同じ画面では、この名前の出現数は旧方式 58、新方式 94。
+最初の評価では新方式の文が短くても、報告入力トークン数は旧 85,281、新 109,177 と増えていた。
+未取得の失敗トークン数や provider 内部の正確な展開サイズは推定値で埋めない。
+
+送信境界でのみ、画像ごと・要求ごとの新しい UUID に参照を変更する。
+置換するのは観察、観察記憶、阻害理由、候補対応、レビューの明示された画像フィールドだけである。
+目的、ペルソナ、自然文、質問、選択肢、元の論理入力、画像バイト列は変えない。
+通常の文字列で UUID が衝突する場合、不明な画像や未使用 asset がある場合は、送信せず失敗として扱う。
+実際の UUID、画像ハッシュ、対応する論理名とフィールド位置は `request.imageBindings` に保存する。
+成功・通信失敗の双方で記録し、リプレイでは元の入力と対応表の整合を検証する。
+この表は監査用で、モデル入力へ再挿入しない。
+
+この送信修正は三方式へ共通適用する。旧方式も方策・質問は維持するが、過去版の偶発的な画像複製はなくなる。
+したがって過去版との数値差を今回の意味表現だけの効果として扱わない。
+同じ画像を複数の明示フィールドから参照する既存構造は残し、画像の出現数は UUID とパスから追跡する。
+三度の停止の 135 原本も含む 4,732 ファイルを `prior-raw-v4.json` で保全する。
+次の新規比較は 18 試行・最大 504 要求で、既実行 33 要求を含め最大 537 要求とする。
+
+
+独立検証では、opaque-v1 の宣言がある記録でも、応答モデル名を変更すると画像対応表の欠落を見逃す P2 を 3 通りで再現した。
+モデル名にかかわらず、宣言済み方式の全応答へ対応表を要求するように修正し、同じ改ざんで再検証する。
+既存 8 ファイルの回帰実行は 53 件中 49 成功、4 失敗として保存した。
+うち 3 件は新しい安全な通信記録の追加に対する古い期待値であり、元記録を変更せず厳密な対応表検査へ更新したオフライン再検証 5 / 5 が通った。
+残る 1 件は過去 b7 版のソース全文と現在実装の一致を要求する既知の検査で、テスト本体と失敗証拠は変更していない。
+全体スイート成功とは扱わず、今回の変更に関する検証結果を個別に示す。

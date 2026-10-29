@@ -8,7 +8,8 @@ export type ChoiceInputOptions={onResponse?:(response:ChoiceAnswers)=>void;image
 export type ChoiceEvaluator=(state:unknown,questions:Record<string,ChoiceQuestion>)=>Promise<ChoiceAnswers>;
 export type RequestFailure={code:'HTTP_ERROR'|'TIMEOUT'|'REQUEST_FAILED'|'MISSING_CREDENTIALS'|'INVALID_RESPONSE';statusCode?:number;providerType?:string;providerCode?:'max_tokens_exceeded'};
 export const safeProviderType=(value:unknown)=>typeof value==='string'&&['internal_server_error','rate_limit_exceeded','authentication_error','invalid_request_error','model_not_found','timeout_error','failed_dependency','forbidden','not_found','response_error'].includes(value)?value:undefined;
-export type RequestTrace={attempts:number;failures:RequestFailure[];elapsedMs?:number;budgetExhausted?:boolean;longContext?:true};
+export type ImageReferenceBindings={schemaVersion:1;kind:'opaque-image-references';assets:{logicalId:string;reference:string;imageSha256:string;paths:(string|number)[][]}[]};
+export type RequestTrace={attempts:number;failures:RequestFailure[];elapsedMs?:number;budgetExhausted?:boolean;longContext?:true;imageBindings?:ImageReferenceBindings};
 export type RetryProgress={phase:'request'|'retry'|'recovered';attempt:number;maxAttempts:number;elapsedMs:number;failure?:RequestFailure;delayMs?:number};
 export type RetryPolicy={maxAttempts:number;maxElapsedMs:number;retryDelaysMs?:number[];retryInvalidResponse?:boolean;onProgress?:(event:RetryProgress)=>void|Promise<void>};
 export function createBudgetedEvaluator(policy:RetryPolicy,totalMs:number):ChoiceEvaluator{

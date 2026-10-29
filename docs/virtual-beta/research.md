@@ -142,3 +142,17 @@ Decisionsも選択式で、自由文の条件抽出を追加した実験では�
 次に自由文の条件を扱う場合、[Decisionsの公式ガイド](https://developers.openai.com/api/docs/guides/decisions)が区別するResponsesのStructured Outputsを使う。[Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)は型と形を指定できるが意味の正しさを保証しない。[gpt-6-lunaの公式model仕様](https://developers.openai.com/api/docs/models/gpt-6-luna)で画像・Responses・Structured Outputsの対応を確認した。今回のアカウントでのResponses実行は未確認で、抽出性能も未測定である。
 
 設計候補は、実際の変換済み画像から最大3件の未解決条件、短い根拠文のモデル転記、現在の候補との関係、操作後に確認する結果を生成し、既存Jev判断へ渡す任意の接続点である。転記は未検証の仮説として残す。DOMの正解ラベル・監査oracle・人間ログを抽出器へ渡さず、追加する第三の要求を明示的に計数する。現在候補の出典修正と一緒に無記録で投入せず、それぞれ比較する。この接続点は今回まだ実装していない。
+
+
+## 具体条件の接続と画像参照の監査（2026-10-30）
+
+前節で未実装だった画像由来の条件抽出を、任意の Responses 段階として追加した。
+既存の状態・Jev 二段階判断・分布選択を流用し、追加の研究モデルや依存は導入していない。
+根拠文の転記と条件解釈はモデル仮説として保持する。型への適合は意味の正確さを保証しない。
+
+実際の三度の文脈上限停止を調べると、[TypeSafe の画像仕様](https://docs.typesafe.ai/images)が定める参照名の部分一致によって、`current` を含む説明文が画像に置き換わっていた。
+質問文の長さや画像ファイルの一意数だけでは、実展開された入力量を説明できなかった。
+明示的な画像フィールドだけを UUID へ変換し、論理入力と実送信上の対応を監査へ分離する。
+画像の縮小、記憶の破棄、正解経路の登録、全面的な再訪禁止による対処は行わない。
+この不具合は基盤の符号化の問題であり、人間モデルの欠陥や修復の証拠として扱わない。
+実行版・独立検証・未検証範囲は [visual-conditions.md](visual-conditions.md) に保存する。
