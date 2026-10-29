@@ -93,3 +93,8 @@ npm run replay:virtual-beta -- reports/goal-search-new/notifications-r1-reason/e
 納品前の統合版ab71a150で、GoalSearchの単体・比較・接続・通常mockとHTTP402停止を合わせた87件を再実行し、87/87成功・skip0、build（型検査含む）成功を確認した。ログは reports/goal-search-2026-10-29/delivery-tests.log と delivery-build.log。実モデルは追加呼び出ししていない。
 
 同じ統合版で独立検証コードも再実行し、19/19成功・skip0、過去64replayと94台帳不変を再確認した（delivery-independent.log、independent-1793219206090/report.json）。これは親による再実行であり、先の別担当の独立報告とは区別する。
+
+
+## チーム予算変更後の実モデル再比較（2026-10-29）
+
+[goal-search-resumed.md](goal-search-resumed.md) に固定版6cb8/source1b8の12試行・202正常要求を記録した。旧5/6、新6/6、必要再訪は両方式4/4で全7UI、基盤障害0。過去の中断記録は保持する。同条件2反復の記述比較で、モデルの自発的な切り替えや新部品の安定した優位、人間一致を実証していない。要求の役割と現在の観察状態の分離、既存補正の効果を切り分ける対照は未解決の次タスクとして残す。独立検証は基盤PASS、12replay/trace・6pair・原本不変を確認した。navigation/target分類14提案とaction/context分類38提案の意味上の対立は未解決。関連91/91・build成功。詳細は同文書と独立所見に保存した。
