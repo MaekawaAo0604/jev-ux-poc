@@ -87,9 +87,9 @@ export async function runContinuityComparison(options:ContinuityOptions){
     const saved=await runHumanJev({out:dir,mock:options.mock,mode:slot.actor,longContext:true,recoveryFixture:slot.fixture,runId:record.runId,deadlineEpochMs:Math.min(deadline,Date.now()+180000),...(!options.mock?{envFile:options.envFile,phaseBudget:ledger!}:{})});
     record.result=saved.result;record.status='RESULT';record.requests=options.mock?0:saved.result.apiCalls;
     if(!eq(record.result.code,{revision:code.revision,sourceHash:code.sourceHash})||!eq(record.result.config,profiles[slot.actor].config)||!options.mock&&!eq(record.result.transport,{jevImageReferences:'opaque-v1'}))throw Error('TRIAL_IDENTITY_MISMATCH');
-    if(options.retention&&!eq(record.result.measurement,{visualDispatch:'client-timeout-v1'}))throw Error('MISSING_CLIENT_TIMEOUT_MEASUREMENT');
+    if(options.retention&&!eq(record.result.measurement,{visualDispatch:'client-timeout-v1',...(!options.mock?{visualHTTP:'final-timeout-v1'}:{})}))throw Error('MISSING_CLIENT_TIMEOUT_MEASUREMENT');
     record.initialImageSha256=sha(await readFile(join(dir,'exploration/initial-product.png')));
-    await replayDirectory(join(dir,'exploration'));record.replay={status:'OK'};record.frameChecks=await verifyTransferFrames(record.result,join(dir,'exploration'));
+    await replayDirectory(join(dir,'exploration'),{finalVisualHTTP:!options.mock});record.replay={status:'OK'};record.frameChecks=await verifyTransferFrames(record.result,join(dir,'exploration'));
    }catch(error){const safe=safeRequestFailure(error);record.error={code:error instanceof Error&&/^[A-Z_]+$/.test(error.message)?error.message:safe.code,...(safe.statusCode?{statusCode:safe.statusCode}:{})};if(!record.result){record.status='FAILED';try{record.result=JSON.parse(await readFile(record.resultPath,'utf8'));record.requests=options.mock?0:record.result!.apiCalls;}catch{}}}
    finally{if(ledger){try{record.ledgerEvidence=await readTransferLedger(ledger,36);record.requests=Math.max(record.requests,record.ledgerEvidence.used);if(record.ledgerEvidence.reserved)record.error={code:'LEDGER_ACCOUNTING_UNAVAILABLE'};}catch{record.error={code:'LEDGER_ACCOUNTING_UNAVAILABLE'};}}await save();}
    await frozen();const stop=visualConditionsStopReason(record);if(stop){manifest.status=stop;break;}if(record.error){manifest.status='TRIAL_AUDIT_ERROR';break;}

@@ -78,11 +78,14 @@ function parseResponse(raw:unknown,request:VisualHypothesisRequest):VisualHypoth
  return result;
 }
 /** One HTTP attempt, no tools, prior server state, retry or synthetic ChoiceAnswer conversion. */
-export async function extractOpenAIVisualHypotheses(request:VisualHypothesisRequest):Promise<VisualHypothesisResponse>{
+export async function extractOpenAIVisualHypotheses(request:VisualHypothesisRequest,onHTTPDispatch?:(timeoutMs:number)=>void):Promise<VisualHypothesisResponse>{
  let body:ReturnType<typeof buildOpenAIVisualHypothesisRequest>;
  try{body=buildOpenAIVisualHypothesisRequest(request);}catch{throw new VisualHypothesisTransportError({code:'REQUEST_FAILED',attempts:0,httpReceived:false});}
  const key=process.env.OPENAI_API_KEY;if(!key?.trim())throw new VisualHypothesisTransportError({code:'MISSING_CREDENTIALS',attempts:0,httpReceived:false});
- const signal=AbortSignal.timeout(request.timeoutMs);let httpReceived=false,statusCode:number|undefined,envelope:string|null;
+ const httpTimeoutMs=request.timeoutMs,signal=AbortSignal.timeout(httpTimeoutMs);
+ // This is the actual client AbortSignal argument, not a provider receipt or server-start event.
+ try{onHTTPDispatch?.(httpTimeoutMs);}catch{throw new VisualHypothesisTransportError({code:'REQUEST_FAILED',attempts:0,httpReceived:false});}
+ let httpReceived=false,statusCode:number|undefined,envelope:string|null;
  try{
   const response=await fetch(endpoint,{method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json'},body:JSON.stringify(body),signal});httpReceived=true;statusCode=response.status;
   if(response.status!==200){

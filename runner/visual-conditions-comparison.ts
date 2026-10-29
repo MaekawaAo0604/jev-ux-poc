@@ -178,7 +178,7 @@ export async function runVisualConditionsComparison(options:VisualConditionsOpti
     if(result.apiCalls>profiles[slot.actor].maximumRequests||result.decisions>12||result.uiActions>15||result.looks>3)throw Error('TRIAL_CAP_EXCEEDED');
     record.initialImageSha256=sha(await readFile(join(dir,'exploration/initial-product.png')));
     if(record.initialImageSha256!==result.recovery!.initialProductImage.sha256||record.initialImageSha256!==sha(await readFile(join(dir,'initial-product.png'))))throw Error('INITIAL_PRODUCT_MISMATCH');
-    try{const replay=await replayDirectory(join(dir,'exploration'));await writeFile(join(dir,'offline-replay.json'),JSON.stringify(replay,null,2));record.replay={status:'OK'};}catch{record.replay={status:'ERROR',code:'OFFLINE_REPLAY_FAILED'};throw Error('OFFLINE_REPLAY_FAILED');}
+    try{const replay=await replayDirectory(join(dir,'exploration'),{finalVisualHTTP:!options.mock&&!!profiles[slot.actor].config.visualHypotheses?.enabled});await writeFile(join(dir,'offline-replay.json'),JSON.stringify(replay,null,2));record.replay={status:'OK'};}catch{record.replay={status:'ERROR',code:'OFFLINE_REPLAY_FAILED'};throw Error('OFFLINE_REPLAY_FAILED');}
     record.frameChecks=await verifyTransferFrames(result,join(dir,'exploration'));await writeFile(join(dir,'delivered-current-frames.json'),JSON.stringify(record.frameChecks,null,2));
    }catch(error){
     record.error=safeError(error);

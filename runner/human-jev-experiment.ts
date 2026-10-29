@@ -1,3 +1,4 @@
+import {planVisualHTTP} from '../jev/virtual-beta/visual-http-timing.js';
 import {extractOpenAIVisualHypotheses} from './openai-visual-hypotheses.js';
 import {VisualHypothesisTransportError,type VisualHypothesisExtractor} from '../jev/virtual-beta/visual-hypotheses-contracts.js';
 import {recoveryDefinition,recoveryQuery,type RecoveryFixture} from '../app/recovery-fixture.js';
@@ -87,24 +88,25 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator,inject
    if(request.questions.nextAction){const o=request.input.observation as {id:string;candidateIds:string[]};const image=request.images.current;if(!image)throw new Error('CURRENT_IMAGE_MISSING');const imageSha256=sha(Buffer.from(image.data,'base64'));if(!frames.some(f=>f.imageSha256===imageSha256))frames.push({observationId:o.id,imageSha256,image:structuredClone(image),candidateIds:[...o.candidateIds]});}
    return response;
   };
-  const extract:VisualHypothesisExtractor=async request=>{
+  const extract:VisualHypothesisExtractor=async (request,audit)=>{
    if(!config.visualHypotheses?.enabled)throw Error('VISUAL_EXTRACTION_NOT_CONFIGURED');
-   if(options.deadlineEpochMs!==undefined){const remaining=options.deadlineEpochMs-Date.now();if(remaining<=0)throw new BetaBudgetError('TIME_LIMIT');request={...request,timeoutMs:Math.min(request.timeoutMs,remaining)};}
+   const receivedTimeoutMs=request.timeoutMs,externalRemainingMs=options.deadlineEpochMs===undefined?null:options.deadlineEpochMs-Date.now();
+   if(externalRemainingMs!==null){if(externalRemainingMs<=0)throw new BetaBudgetError('TIME_LIMIT');request={...request,timeoutMs:Math.min(request.timeoutMs,externalRemainingMs)};}
    if(safety)throw new BetaBudgetError('TIME_LIMIT');
    if(calls>=profile.maximumRequests)throw new BetaBudgetError('API_LIMIT');
-   if(options.mock){calls++;if(injectedExtractor)return injectedExtractor(request);const output={...(request.conditionContinuity?{continuity:request.conditionContinuity.memory.entries.map(entry=>({priorId:entry.id,conditionId:null,change:'unobserved',explanation:'Scripted mock has no visible condition evidence.'}))}:{}),conditions:[],relations:request.candidates.map(c=>({candidateId:c.id,conditionIds:[],relation:'unknown',currentEvidence:null,expectedResult:null})),unknowns:[]};return {model:'gpt-6-luna',status:'completed',rawText:JSON.stringify(output),output,request:{attempts:1,httpReceived:true,statusCode:200},costUSD:null};}
-   const deadline=performance.now()+request.timeoutMs;
+   if(options.mock){calls++;if(injectedExtractor)return injectedExtractor(request,audit);const output={...(request.conditionContinuity?{continuity:request.conditionContinuity.memory.entries.map(entry=>({priorId:entry.id,conditionId:null,change:'unobserved',explanation:'Scripted mock has no visible condition evidence.'}))}:{}),conditions:[],relations:request.candidates.map(c=>({candidateId:c.id,conditionIds:[],relation:'unknown',currentEvidence:null,expectedResult:null})),unknowns:[]};return {model:'gpt-6-luna',status:'completed',rawText:JSON.stringify(output),output,request:{attempts:1,httpReceived:true,statusCode:200},costUSD:null};}
+   const adapterStartedMs=performance.now(),deadline=adapterStartedMs+request.timeoutMs;
    const reservation=await budget!.reserve({runKey:root+'/visual-hypotheses',condition:config.id,revision:code.revision,sourceHash:code.sourceHash});
-   const remaining=Math.floor(deadline-performance.now());
+   const beforeNativeMs=performance.now(),remaining=Math.floor(deadline-beforeNativeMs);
    if(remaining<=0){try{await budget!.settle(reservation,'ERROR',{attempts:0,failureCode:'DEADLINE_BEFORE_REQUEST'});}catch(error){throw new BetaAdmissionError(error instanceof BudgetPersistenceError?error.details:undefined,'deadline-settlement');}throw new BetaBudgetError('TIME_LIMIT');}
    calls++;
    let response;
-   try{response=await extractOpenAIVisualHypotheses({...request,timeoutMs:remaining});}
+   try{const plan=planVisualHTTP(receivedTimeoutMs,externalRemainingMs,adapterStartedMs,beforeNativeMs);if(!plan||plan.plannedTimeoutMs!==remaining)throw Error('VISUAL_HTTP_PLAN_MISMATCH');response=await extractOpenAIVisualHypotheses({...request,timeoutMs:remaining},httpTimeoutMs=>audit?.onHTTPDispatch({...plan,httpTimeoutMs}));}
    catch(error){try{await budget!.settle(reservation,'ERROR',{attempts:error instanceof VisualHypothesisTransportError?error.evidence.attempts:1,failureCode:error instanceof VisualHypothesisTransportError?error.evidence.code:'VISUAL_EXTRACTION_REQUEST_FAILED'});}catch(persistenceError){throw new BetaSettlementError(persistenceError instanceof BudgetPersistenceError?persistenceError.details:undefined,'error');}throw error;}
    try{await budget!.settle(reservation,'OK',{attempts:1});}catch(error){throw new BetaSettlementError(error instanceof BudgetPersistenceError?error.details:undefined,'response');}
    return response;
   };
-  const result=await runBeta(page,{...(!options.mock&&backend==='jev'?{jevImageReferences:'opaque-v1' as const}:{}),runId:options.runId??'exploration',dir,baseURL,charter,config,evaluate,...(config.visualHypotheses?.enabled?{extract}:{}),...(options.holdoutFixture?{holdoutFixture:options.holdoutFixture}:{}),...(options.transferFixture?{transferFixture:options.transferFixture}:{}),...(options.recoveryFixture?{recoveryFixture:options.recoveryFixture}:{}),code:{revision:code.revision,sourceHash:code.sourceHash},isSafetyStopped:()=>safety});
+  const result=await runBeta(page,{...(!options.mock&&backend==='jev'?{jevImageReferences:'opaque-v1' as const}:{}),runId:options.runId??'exploration',dir,baseURL,charter,config,evaluate,...(config.visualHypotheses?.enabled?{extract,...(!options.mock?{nativeHTTPMeasurement:true}:{})}:{}),...(options.holdoutFixture?{holdoutFixture:options.holdoutFixture}:{}),...(options.transferFixture?{transferFixture:options.transferFixture}:{}),...(options.recoveryFixture?{recoveryFixture:options.recoveryFixture}:{}),code:{revision:code.revision,sourceHash:code.sourceHash},isSafetyStopped:()=>safety});
   await context.tracing.stop({path:join(dir,'trace.zip')});await context.close();
   const selected=frames.length<=8?frames:[...frames.slice(0,4),...frames.slice(-4)];
   let review:Record<string,unknown>={status:'NOT_RUN',reason:profile.reviewMaximum===0?'PROFILE_DISABLED':safety?'SAFETY_STOP':selected.length?'BUDGET_UNAVAILABLE':'NO_VALID_DELIVERED_FRAMES'};

@@ -1,4 +1,5 @@
 import {conditionContinuityUserRecord} from './condition-continuity-guidance.js';
+import {validateVisualHTTPDispatch} from '../jev/virtual-beta/visual-http-timing.js';
 import {validateVisualDispatch} from './visual-dispatch-timing.js';
 import {emptyConditionContinuity,admitConditionContinuity,type ConditionContinuityMemory} from '../jev/virtual-beta/condition-continuity.js';
 import {verifyJevImageBindings} from './jev-image-references.js';
@@ -74,14 +75,15 @@ function checkVisualResponse(value:unknown){
  if(value.usage!==undefined){closedKeys(value.usage,['inputTokens','outputTokens','totalTokens']);if(Object.values(value.usage).some(n=>!Number.isSafeInteger(n)||Number(n)<0)||value.usage.totalTokens!==value.usage.inputTokens+value.usage.outputTokens)throw Error('VISUAL_HYPOTHESES_USAGE_INVALID');}
 }
 function checkVisualStage(step:BetaResult['steps'][number],termination:BetaResult['termination']){
- const v=step.visualHypotheses!;closedKeys(v,['request','assetFiles','inputSha256','apiCalls','timing'],['response','record','memory','error']);closedKeys(v.timing,['apiMs'],['dispatch']);if(!Number.isFinite(v.timing.apiMs)||v.timing.apiMs<0||![0,1].includes(v.apiCalls))throw Error('VISUAL_HYPOTHESES_ACCOUNTING_INVALID');
+ const v=step.visualHypotheses!;closedKeys(v,['request','assetFiles','inputSha256','apiCalls','timing'],['response','record','memory','error','measurementError']);closedKeys(v.timing,['apiMs'],['dispatch','httpDispatch']);if(!Number.isFinite(v.timing.apiMs)||v.timing.apiMs<0||![0,1].includes(v.apiCalls))throw Error('VISUAL_HYPOTHESES_ACCOUNTING_INVALID');
  if(v.response!==undefined)checkVisualResponse(v.response);
- if(v.record!==undefined){if(v.apiCalls!==1||!v.response||v.response.status!=='completed'||v.error!==undefined||!v.memory)throw Error('VISUAL_HYPOTHESES_COMPLETE_EVIDENCE_INVALID');return;}
+ if(v.record!==undefined){if(v.measurementError!==undefined||v.apiCalls!==1||!v.response||v.response.status!=='completed'||v.error!==undefined||!v.memory)throw Error('VISUAL_HYPOTHESES_COMPLETE_EVIDENCE_INVALID');return;}
  if(v.memory!==undefined||step.deliberation||step.selection)throw Error('VISUAL_HYPOTHESES_PARTIAL_MISMATCH');
  if(step.outcome==='VISUAL_EXTRACTION_AFTER_DEADLINE'&&termination==='TIME_LIMIT'&&v.apiCalls===1&&v.response&&v.error===undefined)return;
  if(!isRecord(v.error)||!equal(step.error,v.error)||typeof v.error.code!=='string')throw Error('VISUAL_HYPOTHESES_FAILURE_EVIDENCE_MISSING');
  const e=v.error;
  if(e.code==='INVALID_VISUAL_HYPOTHESES'){closedKeys(e,['code','status']);if(v.apiCalls!==1||!v.response||e.status!==v.response.status||termination!=='API_ERROR'||step.outcome!=='VISUAL_EXTRACTION_OUTPUT_ERROR')throw Error('VISUAL_HYPOTHESES_FAILURE_EVIDENCE_INVALID');return;}
+ if(e.code==='VISUAL_HTTP_MEASUREMENT_ERROR'){closedKeys(e,['code']);if(v.apiCalls!==1||!v.response||v.measurementError!=='MISSING_VISUAL_HTTP_DISPATCH'||termination!=='API_ERROR'||step.outcome!=='VISUAL_EXTRACTION_AUDIT_ERROR')throw Error('VISUAL_HTTP_MEASUREMENT_FAILURE_INVALID');return;}
  if(v.response!==undefined||step.outcome!=='VISUAL_EXTRACTION_ERROR')throw Error('VISUAL_HYPOTHESES_FAILURE_EVIDENCE_INVALID');
  if(['API_LIMIT','TIME_LIMIT'].includes(e.code as string)){closedKeys(e,['code']);if(v.apiCalls!==0||termination!==e.code)throw Error('VISUAL_HYPOTHESES_ACCOUNTING_INVALID');return;}
  if(termination!=='API_ERROR')throw Error('VISUAL_HYPOTHESES_FAILURE_EVIDENCE_INVALID');
@@ -92,8 +94,9 @@ function checkVisualStage(step:BetaResult['steps'][number],termination:BetaResul
  if(e.diagnostic!==undefined){const d=e.diagnostic;closedKeys(d,['schemaVersion','code','parameter','lookaroundMentioned']);if(e.code!=='HTTP_ERROR'||e.statusCode!==400||d.schemaVersion!==1||!['invalid_json_schema','invalid_request_error','unknown'].includes(d.code as string)||!['text.format.schema','text.format','response_format','model','unknown'].includes(d.parameter as string)||typeof d.lookaroundMentioned!=='boolean')throw Error('VISUAL_PROVIDER_DIAGNOSTIC_INVALID');}
  if(!['MISSING_CREDENTIALS','HTTP_ERROR','TIMEOUT','REQUEST_FAILED'].includes(e.code as string)||v.apiCalls!==1||!Number.isSafeInteger(e.attempts)||![0,1].includes(e.attempts as number)||typeof e.httpReceived!=='boolean'||e.httpReceived!==Object.hasOwn(e,'statusCode')||e.statusCode!==undefined&&(!Number.isInteger(e.statusCode)||Number(e.statusCode)<100||Number(e.statusCode)>599)||e.attempts===0&&e.httpReceived||e.code==='HTTP_ERROR'&&(e.attempts!==1||e.httpReceived!==true||e.statusCode===200)||e.code==='MISSING_CREDENTIALS'&&(e.attempts!==0||e.httpReceived!==false))throw Error('VISUAL_HYPOTHESES_FAILURE_EVIDENCE_INVALID');
 }
-export async function replayDirectory(directory:string){
- const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));if(result.config.actionRelations!==undefined||result.config.visualHypotheses!==undefined)validateConfig(result.config);if(result.measurement!==undefined){closedKeys(result.measurement,['visualDispatch']);if(result.measurement.visualDispatch!=='client-timeout-v1'||!result.config.visualHypotheses?.enabled)throw Error('INVALID_VISUAL_DISPATCH_MEASUREMENT');}let choices=0,images=0,assessments=0;
+export async function replayDirectory(directory:string,requirements:{finalVisualHTTP?:boolean}={}){
+ closedKeys(requirements,[],['finalVisualHTTP']);if(requirements.finalVisualHTTP!==undefined&&typeof requirements.finalVisualHTTP!=='boolean')throw Error('INVALID_REPLAY_REQUIREMENTS');
+ const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));if(result.config.actionRelations!==undefined||result.config.visualHypotheses!==undefined)validateConfig(result.config);if(result.measurement!==undefined){closedKeys(result.measurement,['visualDispatch'],['visualHTTP']);if(result.measurement.visualDispatch!=='client-timeout-v1'||Object.hasOwn(result.measurement,'visualHTTP')&&result.measurement.visualHTTP!=='final-timeout-v1'||!result.config.visualHypotheses?.enabled)throw Error('INVALID_VISUAL_DISPATCH_MEASUREMENT');}if(requirements.finalVisualHTTP&&result.measurement?.visualHTTP!=='final-timeout-v1')throw Error('FINAL_VISUAL_HTTP_MEASUREMENT_REQUIRED');let choices=0,images=0,assessments=0;
  let deferrals=result.config.deferral?.enabled?copyDeferrals(undefined,result.config.deferral):undefined,effectiveDeferrals=deferrals;
  let experience:ExperienceMemory|undefined,pending:ExperienceIntent|undefined,execution:'performed'|'unchanged'='unchanged';
  let reasonMemory:DeferralReasonMemory|undefined;
@@ -143,6 +146,8 @@ export async function replayDirectory(directory:string){
    if(!v||!current||!step.assetFiles||!searchCandidates)throw Error('VISUAL_HYPOTHESES_METADATA_MISSING');
    checkVisualStage(step,result.termination);
    if(v.timing&&Object.hasOwn(v.timing,'dispatch')){if(!result.measurement)throw Error('UNDECLARED_VISUAL_DISPATCH_MEASUREMENT');validateVisualDispatch(v.timing.dispatch,result.config.maxRunMs);}else if(result.measurement)throw Error('VISUAL_DISPATCH_TIMING_MISSING');
+   if(v.measurementError!==undefined&&(v.measurementError!=='MISSING_VISUAL_HTTP_DISPATCH'||result.measurement?.visualHTTP!=='final-timeout-v1'||v.timing?.httpDispatch!==undefined||v.apiCalls!==1||(v.error as any)?.attempts===0||result.validForComparison||result.termination!=='API_ERROR'))throw Error('INVALID_VISUAL_HTTP_MEASUREMENT_FAILURE');
+   if(v.timing&&Object.hasOwn(v.timing,'httpDispatch')){if(result.measurement?.visualHTTP!=='final-timeout-v1'||!v.timing.dispatch)throw Error('UNDECLARED_VISUAL_HTTP_MEASUREMENT');validateVisualHTTPDispatch(v.timing.httpDispatch,v.timing.dispatch.timeoutMs);if(v.apiCalls!==1||(v.error as any)?.attempts===0)throw Error('NONDISPATCHED_VISUAL_HTTP_TRACE');}else if(result.measurement?.visualHTTP==='final-timeout-v1'&&v.apiCalls===1&&(v.error as any)?.attempts!==0&&v.measurementError===undefined)throw Error('VISUAL_HTTP_DISPATCH_MISSING');
    if(result.config.visualHypotheses.continuity?.retentionPolicy==='grounded-unresolved'&&!result.measurement)throw Error('VISUAL_DISPATCH_MEASUREMENT_MISSING');
    const imageData:VisualHypothesisRequest['images']={};
    for(const [id,asset] of Object.entries(v.assetFiles)){if(asset.file!==asset.file.split(/[\\/]/).at(-1))throw Error('UNSAFE_IMAGE_PATH');const bytes=await readFile(join(directory,asset.file));if(sha(bytes)!==asset.sha256)throw Error('VISUAL_IMAGE_HASH_MISMATCH');imageData[id]={mediaType:'image/png',data:bytes.toString('base64')};}
@@ -287,4 +292,4 @@ export async function replayDirectory(directory:string){
  }
  return {runId:result.runId,choices,assessments,images,verified:true,scope:'Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted'};
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){if(process.argv.length!==3)throw new Error('Usage: npm run replay:virtual-beta -- RUN_DIRECTORY');console.log(JSON.stringify(await replayDirectory(process.argv[2]),null,2));}
+if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){if(process.argv.length!==3&&!(process.argv.length===4&&process.argv[3]==='--require-final-http'))throw new Error('Usage: npm run replay:virtual-beta -- RUN_DIRECTORY [--require-final-http]');console.log(JSON.stringify(await replayDirectory(process.argv[2],{finalVisualHTTP:process.argv[3]==='--require-final-http'}),null,2));}
