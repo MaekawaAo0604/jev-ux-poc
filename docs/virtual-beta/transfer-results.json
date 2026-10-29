@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "status": "INCOMPLETE_HTTP_402",
-  "kind": "ACTUAL_JEV_PARTIAL_TRANSFER_RESULTS",
+  "status": "ALL_PLANNED_SLOTS_ATTEMPTED_WITH_TWO_INFRASTRUCTURE_FAILURES",
+  "kind": "ACTUAL_JEV_THREE_PHASE_TRANSFER_RESULTS",
   "producer": {
     "revision": "73b1ff3603b84c0019332970590b1f0d1406dc91",
     "sourceHash": "8a5bc5c03daaf99df38795fd218dc5e19e0ed916d390620e602286955c6ee3d7",
@@ -16,65 +16,73 @@
     ],
     "APIRequests": 0,
     "originalRawPreserved": true,
-    "independentlyReverified": true
+    "independentlyReverified": true,
+    "combination": "OFFLINE_THREE_PHASE_COMBINATION_WITH_TWO_PRESERVED_INFRASTRUCTURE_FAILURES",
+    "combinedIndependentAudit": "PASS_WITH_TWO_PRESERVED_INFRASTRUCTURE_FAILURES",
+    "independentReport": {
+      "file": "reports/transfer-evaluation-2026-10-29/continuation-independent/final21-audit/report.json",
+      "sha256": "a3a60e8e99228bc8cd6b27d2c8fd6f3056afdc8a420cd56c5017cec8f16dbf2c"
+    }
   },
   "plannedTrials": 21,
-  "attemptedTrials": 13,
-  "validTrials": 12,
-  "unattemptedTrials": 8,
+  "attemptedTrials": 21,
+  "validTrials": 19,
+  "unattemptedTrials": 0,
   "novel": {
     "planned": 18,
-    "attempted": 11,
-    "withResult": 11,
-    "valid": 10,
-    "invalid": 1,
-    "objectiveSuccesses": 10,
+    "attempted": 18,
+    "withResult": 18,
+    "valid": 16,
+    "invalid": 2,
+    "objectiveSuccesses": 16,
     "objectiveFailures": 0,
-    "subjectiveDone": 10,
-    "infrastructure": 1,
+    "subjectiveDone": 16,
+    "infrastructure": 2,
     "invalidDistributions": 0,
     "safetyStops": 0,
     "limits": 0,
     "abandoned": 0,
-    "requests": 80,
+    "requests": 129,
     "terminations": {
-      "SUBJECTIVE_DONE": 10,
-      "API_ERROR": 1
+      "SUBJECTIVE_DONE": 16,
+      "API_ERROR": 2
     },
-    "meanUIActions": 2.9,
+    "meanUIActions": 2.9375,
     "meanLooks": 0,
-    "meanRequests": 7.8,
-    "meanAPIMs": 13277.256329999984
+    "meanRequests": 7.875,
+    "meanAPIMs": 13411.547418749991
   },
   "sentinel": {
     "planned": 3,
-    "attempted": 2,
-    "withResult": 2,
-    "valid": 2,
+    "attempted": 3,
+    "withResult": 3,
+    "valid": 3,
     "invalid": 0,
-    "objectiveSuccesses": 2,
+    "objectiveSuccesses": 3,
     "objectiveFailures": 0,
-    "subjectiveDone": 2,
+    "subjectiveDone": 3,
     "infrastructure": 0,
     "invalidDistributions": 0,
     "safetyStops": 0,
     "limits": 0,
     "abandoned": 0,
-    "requests": 12,
+    "requests": 18,
     "terminations": {
-      "SUBJECTIVE_DONE": 2
+      "SUBJECTIVE_DONE": 3
     },
     "meanUIActions": 2,
     "meanLooks": 0,
     "meanRequests": 6,
-    "meanAPIMs": 8991.470700000005
+    "meanAPIMs": 8963.327600000004
   },
   "requests": {
-    "charged": 92,
-    "OK": 91,
-    "ERROR": 1,
+    "charged": 147,
+    "OK": 145,
+    "ERROR": 2,
     "RESERVED": 0,
-    "maximum": 504
+    "maximum": 504,
+    "finalContinuationMaximum": 168,
+    "threePhaseUpperBound": 261
   },
   "cells": [
     {
@@ -83,30 +91,31 @@
       "task": "catalog",
       "variant": "alpha",
       "planned": 3,
-      "attempted": 2,
-      "withResult": 2,
-      "valid": 1,
+      "attempted": 3,
+      "withResult": 3,
+      "valid": 2,
       "invalid": 1,
-      "objectiveSuccesses": 1,
+      "objectiveSuccesses": 2,
       "objectiveFailures": 0,
-      "subjectiveDone": 1,
+      "subjectiveDone": 2,
       "infrastructure": 1,
       "invalidDistributions": 0,
       "safetyStops": 0,
       "limits": 0,
       "abandoned": 0,
-      "requests": 8,
+      "requests": 16,
       "terminations": {
-        "SUBJECTIVE_DONE": 1,
+        "SUBJECTIVE_DONE": 2,
         "API_ERROR": 1
       },
-      "meanUIActions": 2,
+      "meanUIActions": 2.5,
       "meanLooks": 0,
-      "meanRequests": 6,
-      "meanAPIMs": 9060.345100000006,
+      "meanRequests": 7,
+      "meanAPIMs": 11016.336100000011,
       "ids": [
         "transfer-catalog-alpha-r1",
-        "transfer-catalog-alpha-r2"
+        "transfer-catalog-alpha-r2",
+        "transfer-catalog-alpha-r3"
       ],
       "initialImages": {
         "consistent": true,
@@ -119,10 +128,10 @@
       },
       "aggregationUncertain": false,
       "pathVariation": {
-        "completeValid": 1,
-        "uniqueCompletePaths": 1
+        "completeValid": 2,
+        "uniqueCompletePaths": 2
       },
-      "deliveredConfirmations": 1
+      "deliveredConfirmations": 2
     },
     {
       "key": "novel/catalog/beta",
@@ -130,44 +139,47 @@
       "task": "catalog",
       "variant": "beta",
       "planned": 3,
-      "attempted": 1,
-      "withResult": 1,
-      "valid": 1,
-      "invalid": 0,
-      "objectiveSuccesses": 1,
+      "attempted": 3,
+      "withResult": 3,
+      "valid": 2,
+      "invalid": 1,
+      "objectiveSuccesses": 2,
       "objectiveFailures": 0,
-      "subjectiveDone": 1,
-      "infrastructure": 0,
+      "subjectiveDone": 2,
+      "infrastructure": 1,
       "invalidDistributions": 0,
       "safetyStops": 0,
       "limits": 0,
       "abandoned": 0,
-      "requests": 8,
+      "requests": 17,
       "terminations": {
-        "SUBJECTIVE_DONE": 1
+        "SUBJECTIVE_DONE": 2,
+        "API_ERROR": 1
       },
       "meanUIActions": 3,
       "meanLooks": 0,
       "meanRequests": 8,
-      "meanAPIMs": 13303.733399999997,
+      "meanAPIMs": 13027.431149999997,
       "ids": [
-        "transfer-catalog-beta-r1"
+        "transfer-catalog-beta-r1",
+        "transfer-catalog-beta-r2",
+        "transfer-catalog-beta-r3"
       ],
       "initialImages": {
-        "consistent": null,
+        "consistent": true,
         "hashes": [
           "fd86337d37a232f931b533342d07ca9390e3afebf21d9ff36e1c67d188363de8"
         ]
       },
       "configs": {
-        "consistent": null
+        "consistent": true
       },
       "aggregationUncertain": false,
       "pathVariation": {
-        "completeValid": 1,
+        "completeValid": 2,
         "uniqueCompletePaths": 1
       },
-      "deliveredConfirmations": 1
+      "deliveredConfirmations": 2
     },
     {
       "key": "novel/draft/alpha",
@@ -175,29 +187,30 @@
       "task": "draft",
       "variant": "alpha",
       "planned": 3,
-      "attempted": 2,
-      "withResult": 2,
-      "valid": 2,
+      "attempted": 3,
+      "withResult": 3,
+      "valid": 3,
       "invalid": 0,
-      "objectiveSuccesses": 2,
+      "objectiveSuccesses": 3,
       "objectiveFailures": 0,
-      "subjectiveDone": 2,
+      "subjectiveDone": 3,
       "infrastructure": 0,
       "invalidDistributions": 0,
       "safetyStops": 0,
       "limits": 0,
       "abandoned": 0,
-      "requests": 16,
+      "requests": 24,
       "terminations": {
-        "SUBJECTIVE_DONE": 2
+        "SUBJECTIVE_DONE": 3
       },
       "meanUIActions": 3,
       "meanLooks": 0,
       "meanRequests": 8,
-      "meanAPIMs": 14796.25784999995,
+      "meanAPIMs": 14999.412566666631,
       "ids": [
         "transfer-draft-alpha-r1",
-        "transfer-draft-alpha-r2"
+        "transfer-draft-alpha-r2",
+        "transfer-draft-alpha-r3"
       ],
       "initialImages": {
         "consistent": true,
@@ -210,10 +223,10 @@
       },
       "aggregationUncertain": false,
       "pathVariation": {
-        "completeValid": 2,
+        "completeValid": 3,
         "uniqueCompletePaths": 1
       },
-      "deliveredConfirmations": 2
+      "deliveredConfirmations": 3
     },
     {
       "key": "novel/draft/beta",
@@ -221,29 +234,30 @@
       "task": "draft",
       "variant": "beta",
       "planned": 3,
-      "attempted": 2,
-      "withResult": 2,
-      "valid": 2,
+      "attempted": 3,
+      "withResult": 3,
+      "valid": 3,
       "invalid": 0,
-      "objectiveSuccesses": 2,
+      "objectiveSuccesses": 3,
       "objectiveFailures": 0,
-      "subjectiveDone": 2,
+      "subjectiveDone": 3,
       "infrastructure": 0,
       "invalidDistributions": 0,
       "safetyStops": 0,
       "limits": 0,
       "abandoned": 0,
-      "requests": 16,
+      "requests": 24,
       "terminations": {
-        "SUBJECTIVE_DONE": 2
+        "SUBJECTIVE_DONE": 3
       },
       "meanUIActions": 3,
       "meanLooks": 0,
       "meanRequests": 8,
-      "meanAPIMs": 14838.843349999996,
+      "meanAPIMs": 14669.651066666664,
       "ids": [
         "transfer-draft-beta-r1",
-        "transfer-draft-beta-r2"
+        "transfer-draft-beta-r2",
+        "transfer-draft-beta-r3"
       ],
       "initialImages": {
         "consistent": true,
@@ -256,10 +270,10 @@
       },
       "aggregationUncertain": false,
       "pathVariation": {
-        "completeValid": 2,
+        "completeValid": 3,
         "uniqueCompletePaths": 1
       },
-      "deliveredConfirmations": 2
+      "deliveredConfirmations": 3
     },
     {
       "key": "novel/help/alpha",
@@ -267,29 +281,30 @@
       "task": "help",
       "variant": "alpha",
       "planned": 3,
-      "attempted": 2,
-      "withResult": 2,
-      "valid": 2,
+      "attempted": 3,
+      "withResult": 3,
+      "valid": 3,
       "invalid": 0,
-      "objectiveSuccesses": 2,
+      "objectiveSuccesses": 3,
       "objectiveFailures": 0,
-      "subjectiveDone": 2,
+      "subjectiveDone": 3,
       "infrastructure": 0,
       "invalidDistributions": 0,
       "safetyStops": 0,
       "limits": 0,
       "abandoned": 0,
-      "requests": 16,
+      "requests": 24,
       "terminations": {
-        "SUBJECTIVE_DONE": 2
+        "SUBJECTIVE_DONE": 3
       },
       "meanUIActions": 3,
       "meanLooks": 0,
       "meanRequests": 8,
-      "meanAPIMs": 12733.454949999941,
+      "meanAPIMs": 12829.802366666627,
       "ids": [
         "transfer-help-alpha-r1",
-        "transfer-help-alpha-r2"
+        "transfer-help-alpha-r2",
+        "transfer-help-alpha-r3"
       ],
       "initialImages": {
         "consistent": true,
@@ -302,10 +317,10 @@
       },
       "aggregationUncertain": false,
       "pathVariation": {
-        "completeValid": 2,
+        "completeValid": 3,
         "uniqueCompletePaths": 1
       },
-      "deliveredConfirmations": 2
+      "deliveredConfirmations": 3
     },
     {
       "key": "novel/help/beta",
@@ -313,29 +328,30 @@
       "task": "help",
       "variant": "beta",
       "planned": 3,
-      "attempted": 2,
-      "withResult": 2,
-      "valid": 2,
+      "attempted": 3,
+      "withResult": 3,
+      "valid": 3,
       "invalid": 0,
-      "objectiveSuccesses": 2,
+      "objectiveSuccesses": 3,
       "objectiveFailures": 0,
-      "subjectiveDone": 2,
+      "subjectiveDone": 3,
       "infrastructure": 0,
       "invalidDistributions": 0,
       "safetyStops": 0,
       "limits": 0,
       "abandoned": 0,
-      "requests": 16,
+      "requests": 24,
       "terminations": {
-        "SUBJECTIVE_DONE": 2
+        "SUBJECTIVE_DONE": 3
       },
       "meanUIActions": 3,
       "meanLooks": 0,
       "meanRequests": 8,
-      "meanAPIMs": 12835.686250000028,
+      "meanAPIMs": 13000.208733333355,
       "ids": [
         "transfer-help-beta-r1",
-        "transfer-help-beta-r2"
+        "transfer-help-beta-r2",
+        "transfer-help-beta-r3"
       ],
       "initialImages": {
         "consistent": true,
@@ -348,10 +364,10 @@
       },
       "aggregationUncertain": false,
       "pathVariation": {
-        "completeValid": 2,
+        "completeValid": 3,
         "uniqueCompletePaths": 1
       },
-      "deliveredConfirmations": 2
+      "deliveredConfirmations": 3
     },
     {
       "key": "sentinel/direct/alpha",
@@ -359,29 +375,30 @@
       "task": "direct",
       "variant": "alpha",
       "planned": 3,
-      "attempted": 2,
-      "withResult": 2,
-      "valid": 2,
+      "attempted": 3,
+      "withResult": 3,
+      "valid": 3,
       "invalid": 0,
-      "objectiveSuccesses": 2,
+      "objectiveSuccesses": 3,
       "objectiveFailures": 0,
-      "subjectiveDone": 2,
+      "subjectiveDone": 3,
       "infrastructure": 0,
       "invalidDistributions": 0,
       "safetyStops": 0,
       "limits": 0,
       "abandoned": 0,
-      "requests": 12,
+      "requests": 18,
       "terminations": {
-        "SUBJECTIVE_DONE": 2
+        "SUBJECTIVE_DONE": 3
       },
       "meanUIActions": 2,
       "meanLooks": 0,
       "meanRequests": 6,
-      "meanAPIMs": 8991.470700000005,
+      "meanAPIMs": 8963.327600000004,
       "ids": [
         "transfer-sentinel-direct-alpha-r1",
-        "transfer-sentinel-direct-alpha-r2"
+        "transfer-sentinel-direct-alpha-r2",
+        "transfer-sentinel-direct-alpha-r3"
       ],
       "initialImages": {
         "consistent": true,
@@ -394,10 +411,10 @@
       },
       "aggregationUncertain": false,
       "pathVariation": {
-        "completeValid": 2,
+        "completeValid": 3,
         "uniqueCompletePaths": 1
       },
-      "deliveredConfirmations": 2
+      "deliveredConfirmations": 3
     }
   ],
   "trials": [
@@ -427,34 +444,63 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
         "credited": true,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [
+          {
+            "step": 3,
+            "stage": "assessment",
+            "observationId": "o3",
+            "imageSha256": "87d479a7589c9261d250c372b7d2f1c75e7e066d7bc4b2df0db285073b30e3cb",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 3,
+            "stage": "action",
+            "observationId": "o3",
+            "imageSha256": "87d479a7589c9261d250c372b7d2f1c75e7e066d7bc4b2df0db285073b30e3cb",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "5ec72c55100ec84de13d5e37edd9d335367bec8a5bf09c05ab823cc8ea2a6312",
-      "path": [
-        {
-          "step": 1,
-          "action": {
-            "type": "click",
-            "elementId": "e2"
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "label": "次回予約の変更\nご予約の日付を変更します",
+            "from": "/good/?holdout=d1a",
+            "to": "/good/?holdout=d1a#primary",
+            "sourceImageSha256": "16de5a739c80fe521a7dfa313d7bdceb8e16440e58cbda4447c28d7cafda03de",
+            "destinationImageSha256": "4589ea7ecfe35be29ea228d3e9ed8ce2fe5a1f599a4b9bd3e2d1b36d273a13da",
+            "status": "observed"
           },
-          "label": "次回予約の変更\nご予約の日付を変更します",
-          "from": "/good/?holdout=d1a",
-          "to": "/good/?holdout=d1a#primary",
-          "status": "observed"
-        },
-        {
-          "step": 2,
-          "action": {
-            "type": "click",
-            "elementId": "e2"
-          },
-          "label": "2026年11月14日に変更する",
-          "from": "/good/?holdout=d1a#primary",
-          "to": "/good/?holdout=d1a#primary",
-          "status": "observed"
-        }
-      ]
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "label": "2026年11月14日に変更する",
+            "from": "/good/?holdout=d1a#primary",
+            "to": "/good/?holdout=d1a#primary",
+            "sourceImageSha256": "4589ea7ecfe35be29ea228d3e9ed8ce2fe5a1f599a4b9bd3e2d1b36d273a13da",
+            "destinationImageSha256": "87d479a7589c9261d250c372b7d2f1c75e7e066d7bc4b2df0db285073b30e3cb",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e2\"},\"次回予約の変更\\nご予約の日付を変更します\",\"/good/?holdout=d1a\",\"/good/?holdout=d1a#primary\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e2\"},\"2026年11月14日に変更する\",\"/good/?holdout=d1a#primary\",\"/good/?holdout=d1a#primary\",\"observed\"]]"
+      }
     },
     {
       "id": "transfer-catalog-alpha-r1",
@@ -482,34 +528,63 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
         "credited": true,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [
+          {
+            "step": 3,
+            "stage": "assessment",
+            "observationId": "o3",
+            "imageSha256": "bb76e29933ea7243d5979bf7635cfbc30d3b67cf1d4746d18d34155fa6a829cb",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 3,
+            "stage": "action",
+            "observationId": "o3",
+            "imageSha256": "bb76e29933ea7243d5979bf7635cfbc30d3b67cf1d4746d18d34155fa6a829cb",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "1ab07e920aaa9d47c8d22929e792cdb15a841f7eba4faa0f305b8da47f904e43",
-      "path": [
-        {
-          "step": 1,
-          "action": {
-            "type": "click",
-            "elementId": "e4"
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "label": "02\n川辺の記録\n土曜日 14:00\n字幕あり\n上映内容を見る →",
+            "from": "/good/?transfer=t7",
+            "to": "/good/?transfer=t7#film-river",
+            "sourceImageSha256": "88947491d6a9889951ea21dc3057ee2f69a38282510a963f6a70ba2eb21aee10",
+            "destinationImageSha256": "3caa1ebeb624667ee2d6ca98c6ffcaccd3d1d995dd31c678adc479fcc6706cea",
+            "status": "observed"
           },
-          "label": "02\n川辺の記録\n土曜日 14:00\n字幕あり\n上映内容を見る →",
-          "from": "/good/?transfer=t7",
-          "to": "/good/?transfer=t7#film-river",
-          "status": "observed"
-        },
-        {
-          "step": 2,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
-          },
-          "label": "マイリストに追加",
-          "from": "/good/?transfer=t7#film-river",
-          "to": "/good/?transfer=t7#film-river",
-          "status": "observed"
-        }
-      ]
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "マイリストに追加",
+            "from": "/good/?transfer=t7#film-river",
+            "to": "/good/?transfer=t7#film-river",
+            "sourceImageSha256": "3caa1ebeb624667ee2d6ca98c6ffcaccd3d1d995dd31c678adc479fcc6706cea",
+            "destinationImageSha256": "bb76e29933ea7243d5979bf7635cfbc30d3b67cf1d4746d18d34155fa6a829cb",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e4\"},\"02\\n川辺の記録\\n土曜日 14:00\\n字幕あり\\n上映内容を見る →\",\"/good/?transfer=t7\",\"/good/?transfer=t7#film-river\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"マイリストに追加\",\"/good/?transfer=t7#film-river\",\"/good/?transfer=t7#film-river\",\"observed\"]]"
+      }
     },
     {
       "id": "transfer-catalog-beta-r1",
@@ -537,45 +612,77 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
         "credited": true,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "0a607b49b8dd13efc92760d8439f00a45fed3d73fdd5c0d43ccac8917d92723f",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "0a607b49b8dd13efc92760d8439f00a45fed3d73fdd5c0d43ccac8917d92723f",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "fd86337d37a232f931b533342d07ca9390e3afebf21d9ff36e1c67d188363de8",
-      "path": [
-        {
-          "step": 1,
-          "action": {
-            "type": "click",
-            "elementId": "e2"
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "label": "土曜日",
+            "from": "/good/?transfer=x2",
+            "to": "/good/?transfer=x2",
+            "sourceImageSha256": "fc1f92343bb0c873d993c163c20baf3b87fce5e6b7ce120bc79ce5f1f92d9ca1",
+            "destinationImageSha256": "e320117ef5ee29c2408296878cebd6727661ef51fdc4eab2d658f35c35eb8611",
+            "status": "observed"
           },
-          "label": "土曜日",
-          "from": "/good/?transfer=x2",
-          "to": "/good/?transfer=x2",
-          "status": "observed"
-        },
-        {
-          "step": 2,
-          "action": {
-            "type": "click",
-            "elementId": "e4"
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "label": "02\n風の通り道\n土曜日 11:30\n字幕あり\n上映内容を見る →",
+            "from": "/good/?transfer=x2",
+            "to": "/good/?transfer=x2#film-breeze",
+            "sourceImageSha256": "e320117ef5ee29c2408296878cebd6727661ef51fdc4eab2d658f35c35eb8611",
+            "destinationImageSha256": "5f8789df3beb01c1ba838dcf5c189f0c9aab37edfbc0757c5922bcf472899141",
+            "status": "observed"
           },
-          "label": "02\n風の通り道\n土曜日 11:30\n字幕あり\n上映内容を見る →",
-          "from": "/good/?transfer=x2",
-          "to": "/good/?transfer=x2#film-breeze",
-          "status": "observed"
-        },
-        {
-          "step": 3,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
-          },
-          "label": "マイリストに追加",
-          "from": "/good/?transfer=x2#film-breeze",
-          "to": "/good/?transfer=x2#film-breeze",
-          "status": "observed"
-        }
-      ]
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "マイリストに追加",
+            "from": "/good/?transfer=x2#film-breeze",
+            "to": "/good/?transfer=x2#film-breeze",
+            "sourceImageSha256": "5f8789df3beb01c1ba838dcf5c189f0c9aab37edfbc0757c5922bcf472899141",
+            "destinationImageSha256": "0a607b49b8dd13efc92760d8439f00a45fed3d73fdd5c0d43ccac8917d92723f",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e2\"},\"土曜日\",\"/good/?transfer=x2\",\"/good/?transfer=x2\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e4\"},\"02\\n風の通り道\\n土曜日 11:30\\n字幕あり\\n上映内容を見る →\",\"/good/?transfer=x2\",\"/good/?transfer=x2#film-breeze\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"マイリストに追加\",\"/good/?transfer=x2#film-breeze\",\"/good/?transfer=x2#film-breeze\",\"observed\"]]"
+      }
     },
     {
       "id": "transfer-draft-alpha-r1",
@@ -603,45 +710,77 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
         "credited": true,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "2a2e322e7395e99439668b3c9e662f591613cc577b6ed371d27efb9388c21e20",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "2a2e322e7395e99439668b3c9e662f591613cc577b6ed371d27efb9388c21e20",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "82abd339dc31b3aff54cded2a29c9225ddc07666d6f73220032e0293cd5fc201",
-      "path": [
-        {
-          "step": 1,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "水辺の散歩\n散策イベントの企画案",
+            "from": "/good/?transfer=b8",
+            "to": "/good/?transfer=b8#memo-main",
+            "sourceImageSha256": "1c37aebe3a29596107c0bb3afd949a5b192650f18ca23f622518e3782778d3b7",
+            "destinationImageSha256": "04caf6e3382eb9f81a1fd6607ac9a4c31f0ce80858b85d696d58fb6e5472ca8f",
+            "status": "observed"
           },
-          "label": "水辺の散歩\n散策イベントの企画案",
-          "from": "/good/?transfer=b8",
-          "to": "/good/?transfer=b8#memo-main",
-          "status": "observed"
-        },
-        {
-          "step": 2,
-          "action": {
-            "type": "click",
-            "elementId": "e4"
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "label": "チーム内\nこのワークスペースのメンバーのみ",
+            "from": "/good/?transfer=b8#memo-main",
+            "to": "/good/?transfer=b8#memo-main",
+            "sourceImageSha256": "04caf6e3382eb9f81a1fd6607ac9a4c31f0ce80858b85d696d58fb6e5472ca8f",
+            "destinationImageSha256": "666046341217d3464f2222b770f28880ddd90616c9d6fa461e88743276f8d15b",
+            "status": "observed"
           },
-          "label": "チーム内\nこのワークスペースのメンバーのみ",
-          "from": "/good/?transfer=b8#memo-main",
-          "to": "/good/?transfer=b8#memo-main",
-          "status": "observed"
-        },
-        {
-          "step": 3,
-          "action": {
-            "type": "click",
-            "elementId": "e6"
-          },
-          "label": "変更を保存",
-          "from": "/good/?transfer=b8#memo-main",
-          "to": "/good/?transfer=b8#memo-main",
-          "status": "observed"
-        }
-      ]
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e6"
+            },
+            "label": "変更を保存",
+            "from": "/good/?transfer=b8#memo-main",
+            "to": "/good/?transfer=b8#memo-main",
+            "sourceImageSha256": "666046341217d3464f2222b770f28880ddd90616c9d6fa461e88743276f8d15b",
+            "destinationImageSha256": "2a2e322e7395e99439668b3c9e662f591613cc577b6ed371d27efb9388c21e20",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e1\"},\"水辺の散歩\\n散策イベントの企画案\",\"/good/?transfer=b8\",\"/good/?transfer=b8#memo-main\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e4\"},\"チーム内\\nこのワークスペースのメンバーのみ\",\"/good/?transfer=b8#memo-main\",\"/good/?transfer=b8#memo-main\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e6\"},\"変更を保存\",\"/good/?transfer=b8#memo-main\",\"/good/?transfer=b8#memo-main\",\"observed\"]]"
+      }
     },
     {
       "id": "transfer-draft-beta-r1",
@@ -669,45 +808,77 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
         "credited": true,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "10f2f020f78d1fad6877e04f2491462d1bc510642a5012cbb5d5bb529f1fd019",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "10f2f020f78d1fad6877e04f2491462d1bc510642a5012cbb5d5bb529f1fd019",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "fa92cd9904ef38f70f0d8349bfab8839d12c1cda20fa147551aefc5701d229b0",
-      "path": [
-        {
-          "step": 1,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "水辺の散歩\n散策イベントの企画案",
+            "from": "/good/?transfer=k5",
+            "to": "/good/?transfer=k5#memo-main",
+            "sourceImageSha256": "b69bbad0b9b3f643007ac0696af17cdc7512e95ce375da020f7dbb5c2dfc0632",
+            "destinationImageSha256": "333cf693a825aae9823fdeea441f57b4707e6b4a3407971ca7c28d77362d5ffe",
+            "status": "observed"
           },
-          "label": "水辺の散歩\n散策イベントの企画案",
-          "from": "/good/?transfer=k5",
-          "to": "/good/?transfer=k5#memo-main",
-          "status": "observed"
-        },
-        {
-          "step": 2,
-          "action": {
-            "type": "click",
-            "elementId": "e4"
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "label": "チーム内\nこのワークスペースのメンバーのみ",
+            "from": "/good/?transfer=k5#memo-main",
+            "to": "/good/?transfer=k5#memo-main",
+            "sourceImageSha256": "333cf693a825aae9823fdeea441f57b4707e6b4a3407971ca7c28d77362d5ffe",
+            "destinationImageSha256": "83c7d109e61841cb195eb8bc753b6e3380e3052f497cc759863de195c26c76be",
+            "status": "observed"
           },
-          "label": "チーム内\nこのワークスペースのメンバーのみ",
-          "from": "/good/?transfer=k5#memo-main",
-          "to": "/good/?transfer=k5#memo-main",
-          "status": "observed"
-        },
-        {
-          "step": 3,
-          "action": {
-            "type": "click",
-            "elementId": "e6"
-          },
-          "label": "変更を保存",
-          "from": "/good/?transfer=k5#memo-main",
-          "to": "/good/?transfer=k5#memo-main",
-          "status": "observed"
-        }
-      ]
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e6"
+            },
+            "label": "変更を保存",
+            "from": "/good/?transfer=k5#memo-main",
+            "to": "/good/?transfer=k5#memo-main",
+            "sourceImageSha256": "83c7d109e61841cb195eb8bc753b6e3380e3052f497cc759863de195c26c76be",
+            "destinationImageSha256": "10f2f020f78d1fad6877e04f2491462d1bc510642a5012cbb5d5bb529f1fd019",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e1\"},\"水辺の散歩\\n散策イベントの企画案\",\"/good/?transfer=k5\",\"/good/?transfer=k5#memo-main\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e4\"},\"チーム内\\nこのワークスペースのメンバーのみ\",\"/good/?transfer=k5#memo-main\",\"/good/?transfer=k5#memo-main\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e6\"},\"変更を保存\",\"/good/?transfer=k5#memo-main\",\"/good/?transfer=k5#memo-main\",\"observed\"]]"
+      }
     },
     {
       "id": "transfer-help-alpha-r1",
@@ -735,45 +906,77 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "help-required-information-exposure",
         "credited": true,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "ec75ed190709db51fceacabf2d39e9e275996a3257ee312ed63872dce488232e",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "ec75ed190709db51fceacabf2d39e9e275996a3257ee312ed63872dce488232e",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "193fe4fbc520ea0e925a7d9b1c6f1f48d200bb768cb44a576272bab830ebf193",
-      "path": [
-        {
-          "step": 1,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "参加の準備\nイベント別のご案内\n集合場所、当日の流れ、持ち物",
+            "from": "/good/?transfer=j4",
+            "to": "/good/?transfer=j4#events",
+            "sourceImageSha256": "7c657fa79c6a0ed359b6f0313db35bb77c6eb5e35a360a40af95b81b08247b77",
+            "destinationImageSha256": "1d16474a649a445921d07648d93f9ef47edb898b5d595109dc59255dc24f9680",
+            "status": "observed"
           },
-          "label": "参加の準備\nイベント別のご案内\n集合場所、当日の流れ、持ち物",
-          "from": "/good/?transfer=j4",
-          "to": "/good/?transfer=j4#events",
-          "status": "observed"
-        },
-        {
-          "step": 2,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
+            "from": "/good/?transfer=j4#events",
+            "to": "/good/?transfer=j4#meeting",
+            "sourceImageSha256": "1d16474a649a445921d07648d93f9ef47edb898b5d595109dc59255dc24f9680",
+            "destinationImageSha256": "edce80cb8247aeb07ddf129d11db8dfe1045acb3f70400c225943212547f99c0",
+            "status": "observed"
           },
-          "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
-          "from": "/good/?transfer=j4#events",
-          "to": "/good/?transfer=j4#meeting",
-          "status": "observed"
-        },
-        {
-          "step": 3,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
-          },
-          "label": "持ち物を含む参加案内を開く →",
-          "from": "/good/?transfer=j4#meeting",
-          "to": "/good/?transfer=j4#details",
-          "status": "observed"
-        }
-      ]
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "持ち物を含む参加案内を開く →",
+            "from": "/good/?transfer=j4#meeting",
+            "to": "/good/?transfer=j4#details",
+            "sourceImageSha256": "edce80cb8247aeb07ddf129d11db8dfe1045acb3f70400c225943212547f99c0",
+            "destinationImageSha256": "ec75ed190709db51fceacabf2d39e9e275996a3257ee312ed63872dce488232e",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e1\"},\"参加の準備\\nイベント別のご案内\\n集合場所、当日の流れ、持ち物\",\"/good/?transfer=j4\",\"/good/?transfer=j4#events\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"朝の水辺ツアー\\n朝の散策 · 約90分\\n集合・参加のご案内 →\",\"/good/?transfer=j4#events\",\"/good/?transfer=j4#meeting\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"持ち物を含む参加案内を開く →\",\"/good/?transfer=j4#meeting\",\"/good/?transfer=j4#details\",\"observed\"]]"
+      }
     },
     {
       "id": "transfer-help-beta-r1",
@@ -801,45 +1004,77 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "help-required-information-exposure",
         "credited": true,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "c54cd527c6596640c15074a1ac6088bf7ced48090edfb4211ce96f2b8c829c42",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "c54cd527c6596640c15074a1ac6088bf7ced48090edfb4211ce96f2b8c829c42",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "bab96eb135d2782cd3d7cb0d44d948f073ae5431badc722c681becc89d9b89d8",
-      "path": [
-        {
-          "step": 1,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "参加の準備\n参加イベントの案内を探す\n集合場所、当日の流れ、持ち物",
+            "from": "/good/?transfer=n6",
+            "to": "/good/?transfer=n6#events",
+            "sourceImageSha256": "6733ca5fc55b928dcac97830ab9690aeeebe3876bde044811c9ce60b9c55c802",
+            "destinationImageSha256": "181f32a9d171261b4859367a91272c44debbe9410f90914f390e6315ed6714d1",
+            "status": "observed"
           },
-          "label": "参加の準備\n参加イベントの案内を探す\n集合場所、当日の流れ、持ち物",
-          "from": "/good/?transfer=n6",
-          "to": "/good/?transfer=n6#events",
-          "status": "observed"
-        },
-        {
-          "step": 2,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
+            "from": "/good/?transfer=n6#events",
+            "to": "/good/?transfer=n6#meeting",
+            "sourceImageSha256": "181f32a9d171261b4859367a91272c44debbe9410f90914f390e6315ed6714d1",
+            "destinationImageSha256": "a55eb14cc2f06984d2a5f0609081f8d47b507e7d5025c7461e19316de9a1bc84",
+            "status": "observed"
           },
-          "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
-          "from": "/good/?transfer=n6#events",
-          "to": "/good/?transfer=n6#meeting",
-          "status": "observed"
-        },
-        {
-          "step": 3,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
-          },
-          "label": "持ち物を含む参加案内を開く →",
-          "from": "/good/?transfer=n6#meeting",
-          "to": "/good/?transfer=n6#details",
-          "status": "observed"
-        }
-      ]
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "持ち物を含む参加案内を開く →",
+            "from": "/good/?transfer=n6#meeting",
+            "to": "/good/?transfer=n6#details",
+            "sourceImageSha256": "a55eb14cc2f06984d2a5f0609081f8d47b507e7d5025c7461e19316de9a1bc84",
+            "destinationImageSha256": "c54cd527c6596640c15074a1ac6088bf7ced48090edfb4211ce96f2b8c829c42",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e1\"},\"参加の準備\\n参加イベントの案内を探す\\n集合場所、当日の流れ、持ち物\",\"/good/?transfer=n6\",\"/good/?transfer=n6#events\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"朝の水辺ツアー\\n朝の散策 · 約90分\\n集合・参加のご案内 →\",\"/good/?transfer=n6#events\",\"/good/?transfer=n6#meeting\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"持ち物を含む参加案内を開く →\",\"/good/?transfer=n6#meeting\",\"/good/?transfer=n6#details\",\"observed\"]]"
+      }
     },
     {
       "id": "transfer-sentinel-direct-alpha-r2",
@@ -867,34 +1102,63 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
         "credited": true,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [
+          {
+            "step": 3,
+            "stage": "assessment",
+            "observationId": "o3",
+            "imageSha256": "87d479a7589c9261d250c372b7d2f1c75e7e066d7bc4b2df0db285073b30e3cb",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 3,
+            "stage": "action",
+            "observationId": "o3",
+            "imageSha256": "87d479a7589c9261d250c372b7d2f1c75e7e066d7bc4b2df0db285073b30e3cb",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "5ec72c55100ec84de13d5e37edd9d335367bec8a5bf09c05ab823cc8ea2a6312",
-      "path": [
-        {
-          "step": 1,
-          "action": {
-            "type": "click",
-            "elementId": "e2"
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "label": "次回予約の変更\nご予約の日付を変更します",
+            "from": "/good/?holdout=d1a",
+            "to": "/good/?holdout=d1a#primary",
+            "sourceImageSha256": "16de5a739c80fe521a7dfa313d7bdceb8e16440e58cbda4447c28d7cafda03de",
+            "destinationImageSha256": "4589ea7ecfe35be29ea228d3e9ed8ce2fe5a1f599a4b9bd3e2d1b36d273a13da",
+            "status": "observed"
           },
-          "label": "次回予約の変更\nご予約の日付を変更します",
-          "from": "/good/?holdout=d1a",
-          "to": "/good/?holdout=d1a#primary",
-          "status": "observed"
-        },
-        {
-          "step": 2,
-          "action": {
-            "type": "click",
-            "elementId": "e2"
-          },
-          "label": "2026年11月14日に変更する",
-          "from": "/good/?holdout=d1a#primary",
-          "to": "/good/?holdout=d1a#primary",
-          "status": "observed"
-        }
-      ]
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "label": "2026年11月14日に変更する",
+            "from": "/good/?holdout=d1a#primary",
+            "to": "/good/?holdout=d1a#primary",
+            "sourceImageSha256": "4589ea7ecfe35be29ea228d3e9ed8ce2fe5a1f599a4b9bd3e2d1b36d273a13da",
+            "destinationImageSha256": "87d479a7589c9261d250c372b7d2f1c75e7e066d7bc4b2df0db285073b30e3cb",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e2\"},\"次回予約の変更\\nご予約の日付を変更します\",\"/good/?holdout=d1a\",\"/good/?holdout=d1a#primary\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e2\"},\"2026年11月14日に変更する\",\"/good/?holdout=d1a#primary\",\"/good/?holdout=d1a#primary\",\"observed\"]]"
+      }
     },
     {
       "id": "transfer-draft-alpha-r2",
@@ -922,45 +1186,77 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
         "credited": true,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "2a2e322e7395e99439668b3c9e662f591613cc577b6ed371d27efb9388c21e20",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "2a2e322e7395e99439668b3c9e662f591613cc577b6ed371d27efb9388c21e20",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "82abd339dc31b3aff54cded2a29c9225ddc07666d6f73220032e0293cd5fc201",
-      "path": [
-        {
-          "step": 1,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "水辺の散歩\n散策イベントの企画案",
+            "from": "/good/?transfer=b8",
+            "to": "/good/?transfer=b8#memo-main",
+            "sourceImageSha256": "1c37aebe3a29596107c0bb3afd949a5b192650f18ca23f622518e3782778d3b7",
+            "destinationImageSha256": "04caf6e3382eb9f81a1fd6607ac9a4c31f0ce80858b85d696d58fb6e5472ca8f",
+            "status": "observed"
           },
-          "label": "水辺の散歩\n散策イベントの企画案",
-          "from": "/good/?transfer=b8",
-          "to": "/good/?transfer=b8#memo-main",
-          "status": "observed"
-        },
-        {
-          "step": 2,
-          "action": {
-            "type": "click",
-            "elementId": "e4"
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "label": "チーム内\nこのワークスペースのメンバーのみ",
+            "from": "/good/?transfer=b8#memo-main",
+            "to": "/good/?transfer=b8#memo-main",
+            "sourceImageSha256": "04caf6e3382eb9f81a1fd6607ac9a4c31f0ce80858b85d696d58fb6e5472ca8f",
+            "destinationImageSha256": "666046341217d3464f2222b770f28880ddd90616c9d6fa461e88743276f8d15b",
+            "status": "observed"
           },
-          "label": "チーム内\nこのワークスペースのメンバーのみ",
-          "from": "/good/?transfer=b8#memo-main",
-          "to": "/good/?transfer=b8#memo-main",
-          "status": "observed"
-        },
-        {
-          "step": 3,
-          "action": {
-            "type": "click",
-            "elementId": "e6"
-          },
-          "label": "変更を保存",
-          "from": "/good/?transfer=b8#memo-main",
-          "to": "/good/?transfer=b8#memo-main",
-          "status": "observed"
-        }
-      ]
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e6"
+            },
+            "label": "変更を保存",
+            "from": "/good/?transfer=b8#memo-main",
+            "to": "/good/?transfer=b8#memo-main",
+            "sourceImageSha256": "666046341217d3464f2222b770f28880ddd90616c9d6fa461e88743276f8d15b",
+            "destinationImageSha256": "2a2e322e7395e99439668b3c9e662f591613cc577b6ed371d27efb9388c21e20",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e1\"},\"水辺の散歩\\n散策イベントの企画案\",\"/good/?transfer=b8\",\"/good/?transfer=b8#memo-main\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e4\"},\"チーム内\\nこのワークスペースのメンバーのみ\",\"/good/?transfer=b8#memo-main\",\"/good/?transfer=b8#memo-main\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e6\"},\"変更を保存\",\"/good/?transfer=b8#memo-main\",\"/good/?transfer=b8#memo-main\",\"observed\"]]"
+      }
     },
     {
       "id": "transfer-draft-beta-r2",
@@ -988,45 +1284,77 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
         "credited": true,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "10f2f020f78d1fad6877e04f2491462d1bc510642a5012cbb5d5bb529f1fd019",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "10f2f020f78d1fad6877e04f2491462d1bc510642a5012cbb5d5bb529f1fd019",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "fa92cd9904ef38f70f0d8349bfab8839d12c1cda20fa147551aefc5701d229b0",
-      "path": [
-        {
-          "step": 1,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "水辺の散歩\n散策イベントの企画案",
+            "from": "/good/?transfer=k5",
+            "to": "/good/?transfer=k5#memo-main",
+            "sourceImageSha256": "b69bbad0b9b3f643007ac0696af17cdc7512e95ce375da020f7dbb5c2dfc0632",
+            "destinationImageSha256": "333cf693a825aae9823fdeea441f57b4707e6b4a3407971ca7c28d77362d5ffe",
+            "status": "observed"
           },
-          "label": "水辺の散歩\n散策イベントの企画案",
-          "from": "/good/?transfer=k5",
-          "to": "/good/?transfer=k5#memo-main",
-          "status": "observed"
-        },
-        {
-          "step": 2,
-          "action": {
-            "type": "click",
-            "elementId": "e4"
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "label": "チーム内\nこのワークスペースのメンバーのみ",
+            "from": "/good/?transfer=k5#memo-main",
+            "to": "/good/?transfer=k5#memo-main",
+            "sourceImageSha256": "333cf693a825aae9823fdeea441f57b4707e6b4a3407971ca7c28d77362d5ffe",
+            "destinationImageSha256": "83c7d109e61841cb195eb8bc753b6e3380e3052f497cc759863de195c26c76be",
+            "status": "observed"
           },
-          "label": "チーム内\nこのワークスペースのメンバーのみ",
-          "from": "/good/?transfer=k5#memo-main",
-          "to": "/good/?transfer=k5#memo-main",
-          "status": "observed"
-        },
-        {
-          "step": 3,
-          "action": {
-            "type": "click",
-            "elementId": "e6"
-          },
-          "label": "変更を保存",
-          "from": "/good/?transfer=k5#memo-main",
-          "to": "/good/?transfer=k5#memo-main",
-          "status": "observed"
-        }
-      ]
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e6"
+            },
+            "label": "変更を保存",
+            "from": "/good/?transfer=k5#memo-main",
+            "to": "/good/?transfer=k5#memo-main",
+            "sourceImageSha256": "83c7d109e61841cb195eb8bc753b6e3380e3052f497cc759863de195c26c76be",
+            "destinationImageSha256": "10f2f020f78d1fad6877e04f2491462d1bc510642a5012cbb5d5bb529f1fd019",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e1\"},\"水辺の散歩\\n散策イベントの企画案\",\"/good/?transfer=k5\",\"/good/?transfer=k5#memo-main\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e4\"},\"チーム内\\nこのワークスペースのメンバーのみ\",\"/good/?transfer=k5#memo-main\",\"/good/?transfer=k5#memo-main\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e6\"},\"変更を保存\",\"/good/?transfer=k5#memo-main\",\"/good/?transfer=k5#memo-main\",\"observed\"]]"
+      }
     },
     {
       "id": "transfer-help-alpha-r2",
@@ -1054,45 +1382,77 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "help-required-information-exposure",
         "credited": true,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "ec75ed190709db51fceacabf2d39e9e275996a3257ee312ed63872dce488232e",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "ec75ed190709db51fceacabf2d39e9e275996a3257ee312ed63872dce488232e",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "193fe4fbc520ea0e925a7d9b1c6f1f48d200bb768cb44a576272bab830ebf193",
-      "path": [
-        {
-          "step": 1,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "参加の準備\nイベント別のご案内\n集合場所、当日の流れ、持ち物",
+            "from": "/good/?transfer=j4",
+            "to": "/good/?transfer=j4#events",
+            "sourceImageSha256": "7c657fa79c6a0ed359b6f0313db35bb77c6eb5e35a360a40af95b81b08247b77",
+            "destinationImageSha256": "1d16474a649a445921d07648d93f9ef47edb898b5d595109dc59255dc24f9680",
+            "status": "observed"
           },
-          "label": "参加の準備\nイベント別のご案内\n集合場所、当日の流れ、持ち物",
-          "from": "/good/?transfer=j4",
-          "to": "/good/?transfer=j4#events",
-          "status": "observed"
-        },
-        {
-          "step": 2,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
+            "from": "/good/?transfer=j4#events",
+            "to": "/good/?transfer=j4#meeting",
+            "sourceImageSha256": "1d16474a649a445921d07648d93f9ef47edb898b5d595109dc59255dc24f9680",
+            "destinationImageSha256": "edce80cb8247aeb07ddf129d11db8dfe1045acb3f70400c225943212547f99c0",
+            "status": "observed"
           },
-          "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
-          "from": "/good/?transfer=j4#events",
-          "to": "/good/?transfer=j4#meeting",
-          "status": "observed"
-        },
-        {
-          "step": 3,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
-          },
-          "label": "持ち物を含む参加案内を開く →",
-          "from": "/good/?transfer=j4#meeting",
-          "to": "/good/?transfer=j4#details",
-          "status": "observed"
-        }
-      ]
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "持ち物を含む参加案内を開く →",
+            "from": "/good/?transfer=j4#meeting",
+            "to": "/good/?transfer=j4#details",
+            "sourceImageSha256": "edce80cb8247aeb07ddf129d11db8dfe1045acb3f70400c225943212547f99c0",
+            "destinationImageSha256": "ec75ed190709db51fceacabf2d39e9e275996a3257ee312ed63872dce488232e",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e1\"},\"参加の準備\\nイベント別のご案内\\n集合場所、当日の流れ、持ち物\",\"/good/?transfer=j4\",\"/good/?transfer=j4#events\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"朝の水辺ツアー\\n朝の散策 · 約90分\\n集合・参加のご案内 →\",\"/good/?transfer=j4#events\",\"/good/?transfer=j4#meeting\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"持ち物を含む参加案内を開く →\",\"/good/?transfer=j4#meeting\",\"/good/?transfer=j4#details\",\"observed\"]]"
+      }
     },
     {
       "id": "transfer-help-beta-r2",
@@ -1120,45 +1480,77 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "help-required-information-exposure",
         "credited": true,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "c54cd527c6596640c15074a1ac6088bf7ced48090edfb4211ce96f2b8c829c42",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "c54cd527c6596640c15074a1ac6088bf7ced48090edfb4211ce96f2b8c829c42",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "bab96eb135d2782cd3d7cb0d44d948f073ae5431badc722c681becc89d9b89d8",
-      "path": [
-        {
-          "step": 1,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "参加の準備\n参加イベントの案内を探す\n集合場所、当日の流れ、持ち物",
+            "from": "/good/?transfer=n6",
+            "to": "/good/?transfer=n6#events",
+            "sourceImageSha256": "6733ca5fc55b928dcac97830ab9690aeeebe3876bde044811c9ce60b9c55c802",
+            "destinationImageSha256": "181f32a9d171261b4859367a91272c44debbe9410f90914f390e6315ed6714d1",
+            "status": "observed"
           },
-          "label": "参加の準備\n参加イベントの案内を探す\n集合場所、当日の流れ、持ち物",
-          "from": "/good/?transfer=n6",
-          "to": "/good/?transfer=n6#events",
-          "status": "observed"
-        },
-        {
-          "step": 2,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
+            "from": "/good/?transfer=n6#events",
+            "to": "/good/?transfer=n6#meeting",
+            "sourceImageSha256": "181f32a9d171261b4859367a91272c44debbe9410f90914f390e6315ed6714d1",
+            "destinationImageSha256": "a55eb14cc2f06984d2a5f0609081f8d47b507e7d5025c7461e19316de9a1bc84",
+            "status": "observed"
           },
-          "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
-          "from": "/good/?transfer=n6#events",
-          "to": "/good/?transfer=n6#meeting",
-          "status": "observed"
-        },
-        {
-          "step": 3,
-          "action": {
-            "type": "click",
-            "elementId": "e1"
-          },
-          "label": "持ち物を含む参加案内を開く →",
-          "from": "/good/?transfer=n6#meeting",
-          "to": "/good/?transfer=n6#details",
-          "status": "observed"
-        }
-      ]
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "持ち物を含む参加案内を開く →",
+            "from": "/good/?transfer=n6#meeting",
+            "to": "/good/?transfer=n6#details",
+            "sourceImageSha256": "a55eb14cc2f06984d2a5f0609081f8d47b507e7d5025c7461e19316de9a1bc84",
+            "destinationImageSha256": "c54cd527c6596640c15074a1ac6088bf7ced48090edfb4211ce96f2b8c829c42",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e1\"},\"参加の準備\\n参加イベントの案内を探す\\n集合場所、当日の流れ、持ち物\",\"/good/?transfer=n6\",\"/good/?transfer=n6#events\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"朝の水辺ツアー\\n朝の散策 · 約90分\\n集合・参加のご案内 →\",\"/good/?transfer=n6#events\",\"/good/?transfer=n6#meeting\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"持ち物を含む参加案内を開く →\",\"/good/?transfer=n6#meeting\",\"/good/?transfer=n6#details\",\"observed\"]]"
+      }
     },
     {
       "id": "transfer-catalog-alpha-r2",
@@ -1189,23 +1581,737 @@
         "repeatedVisualEdges": 0
       },
       "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
         "credited": false,
-        "matchPolicy": "literal-includes-whitespace-removed-v2"
+        "frames": [],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
       },
       "initialImageSha256": "1ab07e920aaa9d47c8d22929e792cdb15a841f7eba4faa0f305b8da47f904e43",
-      "path": []
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [],
+        "complete": true,
+        "signature": "[]"
+      }
+    },
+    {
+      "id": "transfer-catalog-beta-r2",
+      "kind": "novel",
+      "task": "catalog",
+      "variant": "beta",
+      "replicate": 2,
+      "status": "RESULT",
+      "requests": 1,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "termination": "API_ERROR",
+      "validity": {
+        "valid": false,
+        "reasons": [
+          "REPORTED_INVALID",
+          "INFRASTRUCTURE_FAULT"
+        ]
+      },
+      "metrics": {
+        "uiActions": 0,
+        "looks": 0,
+        "decisions": 1,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
+        "credited": false,
+        "frames": [],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
+      },
+      "initialImageSha256": "fd86337d37a232f931b533342d07ca9390e3afebf21d9ff36e1c67d188363de8",
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [],
+        "complete": true,
+        "signature": "[]"
+      }
+    },
+    {
+      "id": "transfer-sentinel-direct-alpha-r3",
+      "kind": "sentinel",
+      "task": "direct",
+      "variant": "alpha",
+      "replicate": 3,
+      "status": "RESULT",
+      "requests": 6,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
+        "credited": true,
+        "frames": [
+          {
+            "step": 3,
+            "stage": "assessment",
+            "observationId": "o3",
+            "imageSha256": "87d479a7589c9261d250c372b7d2f1c75e7e066d7bc4b2df0db285073b30e3cb",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 3,
+            "stage": "action",
+            "observationId": "o3",
+            "imageSha256": "87d479a7589c9261d250c372b7d2f1c75e7e066d7bc4b2df0db285073b30e3cb",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
+      },
+      "initialImageSha256": "5ec72c55100ec84de13d5e37edd9d335367bec8a5bf09c05ab823cc8ea2a6312",
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "label": "次回予約の変更\nご予約の日付を変更します",
+            "from": "/good/?holdout=d1a",
+            "to": "/good/?holdout=d1a#primary",
+            "sourceImageSha256": "16de5a739c80fe521a7dfa313d7bdceb8e16440e58cbda4447c28d7cafda03de",
+            "destinationImageSha256": "4589ea7ecfe35be29ea228d3e9ed8ce2fe5a1f599a4b9bd3e2d1b36d273a13da",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "label": "2026年11月14日に変更する",
+            "from": "/good/?holdout=d1a#primary",
+            "to": "/good/?holdout=d1a#primary",
+            "sourceImageSha256": "4589ea7ecfe35be29ea228d3e9ed8ce2fe5a1f599a4b9bd3e2d1b36d273a13da",
+            "destinationImageSha256": "87d479a7589c9261d250c372b7d2f1c75e7e066d7bc4b2df0db285073b30e3cb",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e2\"},\"次回予約の変更\\nご予約の日付を変更します\",\"/good/?holdout=d1a\",\"/good/?holdout=d1a#primary\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e2\"},\"2026年11月14日に変更する\",\"/good/?holdout=d1a#primary\",\"/good/?holdout=d1a#primary\",\"observed\"]]"
+      }
+    },
+    {
+      "id": "transfer-help-alpha-r3",
+      "kind": "novel",
+      "task": "help",
+      "variant": "alpha",
+      "replicate": 3,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "kind": "help-required-information-exposure",
+        "credited": true,
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "ec75ed190709db51fceacabf2d39e9e275996a3257ee312ed63872dce488232e",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "ec75ed190709db51fceacabf2d39e9e275996a3257ee312ed63872dce488232e",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
+      },
+      "initialImageSha256": "193fe4fbc520ea0e925a7d9b1c6f1f48d200bb768cb44a576272bab830ebf193",
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "参加の準備\nイベント別のご案内\n集合場所、当日の流れ、持ち物",
+            "from": "/good/?transfer=j4",
+            "to": "/good/?transfer=j4#events",
+            "sourceImageSha256": "7c657fa79c6a0ed359b6f0313db35bb77c6eb5e35a360a40af95b81b08247b77",
+            "destinationImageSha256": "1d16474a649a445921d07648d93f9ef47edb898b5d595109dc59255dc24f9680",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
+            "from": "/good/?transfer=j4#events",
+            "to": "/good/?transfer=j4#meeting",
+            "sourceImageSha256": "1d16474a649a445921d07648d93f9ef47edb898b5d595109dc59255dc24f9680",
+            "destinationImageSha256": "edce80cb8247aeb07ddf129d11db8dfe1045acb3f70400c225943212547f99c0",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "持ち物を含む参加案内を開く →",
+            "from": "/good/?transfer=j4#meeting",
+            "to": "/good/?transfer=j4#details",
+            "sourceImageSha256": "edce80cb8247aeb07ddf129d11db8dfe1045acb3f70400c225943212547f99c0",
+            "destinationImageSha256": "ec75ed190709db51fceacabf2d39e9e275996a3257ee312ed63872dce488232e",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e1\"},\"参加の準備\\nイベント別のご案内\\n集合場所、当日の流れ、持ち物\",\"/good/?transfer=j4\",\"/good/?transfer=j4#events\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"朝の水辺ツアー\\n朝の散策 · 約90分\\n集合・参加のご案内 →\",\"/good/?transfer=j4#events\",\"/good/?transfer=j4#meeting\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"持ち物を含む参加案内を開く →\",\"/good/?transfer=j4#meeting\",\"/good/?transfer=j4#details\",\"observed\"]]"
+      }
+    },
+    {
+      "id": "transfer-help-beta-r3",
+      "kind": "novel",
+      "task": "help",
+      "variant": "beta",
+      "replicate": 3,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "kind": "help-required-information-exposure",
+        "credited": true,
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "c54cd527c6596640c15074a1ac6088bf7ced48090edfb4211ce96f2b8c829c42",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "c54cd527c6596640c15074a1ac6088bf7ced48090edfb4211ce96f2b8c829c42",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
+      },
+      "initialImageSha256": "bab96eb135d2782cd3d7cb0d44d948f073ae5431badc722c681becc89d9b89d8",
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "参加の準備\n参加イベントの案内を探す\n集合場所、当日の流れ、持ち物",
+            "from": "/good/?transfer=n6",
+            "to": "/good/?transfer=n6#events",
+            "sourceImageSha256": "6733ca5fc55b928dcac97830ab9690aeeebe3876bde044811c9ce60b9c55c802",
+            "destinationImageSha256": "181f32a9d171261b4859367a91272c44debbe9410f90914f390e6315ed6714d1",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "朝の水辺ツアー\n朝の散策 · 約90分\n集合・参加のご案内 →",
+            "from": "/good/?transfer=n6#events",
+            "to": "/good/?transfer=n6#meeting",
+            "sourceImageSha256": "181f32a9d171261b4859367a91272c44debbe9410f90914f390e6315ed6714d1",
+            "destinationImageSha256": "a55eb14cc2f06984d2a5f0609081f8d47b507e7d5025c7461e19316de9a1bc84",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "持ち物を含む参加案内を開く →",
+            "from": "/good/?transfer=n6#meeting",
+            "to": "/good/?transfer=n6#details",
+            "sourceImageSha256": "a55eb14cc2f06984d2a5f0609081f8d47b507e7d5025c7461e19316de9a1bc84",
+            "destinationImageSha256": "c54cd527c6596640c15074a1ac6088bf7ced48090edfb4211ce96f2b8c829c42",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e1\"},\"参加の準備\\n参加イベントの案内を探す\\n集合場所、当日の流れ、持ち物\",\"/good/?transfer=n6\",\"/good/?transfer=n6#events\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"朝の水辺ツアー\\n朝の散策 · 約90分\\n集合・参加のご案内 →\",\"/good/?transfer=n6#events\",\"/good/?transfer=n6#meeting\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"持ち物を含む参加案内を開く →\",\"/good/?transfer=n6#meeting\",\"/good/?transfer=n6#details\",\"observed\"]]"
+      }
+    },
+    {
+      "id": "transfer-catalog-alpha-r3",
+      "kind": "novel",
+      "task": "catalog",
+      "variant": "alpha",
+      "replicate": 3,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
+        "credited": true,
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "bb76e29933ea7243d5979bf7635cfbc30d3b67cf1d4746d18d34155fa6a829cb",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "bb76e29933ea7243d5979bf7635cfbc30d3b67cf1d4746d18d34155fa6a829cb",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
+      },
+      "initialImageSha256": "1ab07e920aaa9d47c8d22929e792cdb15a841f7eba4faa0f305b8da47f904e43",
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "label": "土曜日",
+            "from": "/good/?transfer=t7",
+            "to": "/good/?transfer=t7",
+            "sourceImageSha256": "88947491d6a9889951ea21dc3057ee2f69a38282510a963f6a70ba2eb21aee10",
+            "destinationImageSha256": "c5f63811d344730085c30dcdda01249fca6587b7fb55d1b724b4ef4fbc99cbff",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "label": "02\n川辺の記録\n土曜日 14:00\n字幕あり\n上映内容を見る →",
+            "from": "/good/?transfer=t7",
+            "to": "/good/?transfer=t7#film-river",
+            "sourceImageSha256": "c5f63811d344730085c30dcdda01249fca6587b7fb55d1b724b4ef4fbc99cbff",
+            "destinationImageSha256": "3caa1ebeb624667ee2d6ca98c6ffcaccd3d1d995dd31c678adc479fcc6706cea",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "マイリストに追加",
+            "from": "/good/?transfer=t7#film-river",
+            "to": "/good/?transfer=t7#film-river",
+            "sourceImageSha256": "3caa1ebeb624667ee2d6ca98c6ffcaccd3d1d995dd31c678adc479fcc6706cea",
+            "destinationImageSha256": "bb76e29933ea7243d5979bf7635cfbc30d3b67cf1d4746d18d34155fa6a829cb",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e2\"},\"土曜日\",\"/good/?transfer=t7\",\"/good/?transfer=t7\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e4\"},\"02\\n川辺の記録\\n土曜日 14:00\\n字幕あり\\n上映内容を見る →\",\"/good/?transfer=t7\",\"/good/?transfer=t7#film-river\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"マイリストに追加\",\"/good/?transfer=t7#film-river\",\"/good/?transfer=t7#film-river\",\"observed\"]]"
+      }
+    },
+    {
+      "id": "transfer-catalog-beta-r3",
+      "kind": "novel",
+      "task": "catalog",
+      "variant": "beta",
+      "replicate": 3,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
+        "credited": true,
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "0a607b49b8dd13efc92760d8439f00a45fed3d73fdd5c0d43ccac8917d92723f",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "0a607b49b8dd13efc92760d8439f00a45fed3d73fdd5c0d43ccac8917d92723f",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
+      },
+      "initialImageSha256": "fd86337d37a232f931b533342d07ca9390e3afebf21d9ff36e1c67d188363de8",
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "label": "土曜日",
+            "from": "/good/?transfer=x2",
+            "to": "/good/?transfer=x2",
+            "sourceImageSha256": "fc1f92343bb0c873d993c163c20baf3b87fce5e6b7ce120bc79ce5f1f92d9ca1",
+            "destinationImageSha256": "e320117ef5ee29c2408296878cebd6727661ef51fdc4eab2d658f35c35eb8611",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "label": "02\n風の通り道\n土曜日 11:30\n字幕あり\n上映内容を見る →",
+            "from": "/good/?transfer=x2",
+            "to": "/good/?transfer=x2#film-breeze",
+            "sourceImageSha256": "e320117ef5ee29c2408296878cebd6727661ef51fdc4eab2d658f35c35eb8611",
+            "destinationImageSha256": "5f8789df3beb01c1ba838dcf5c189f0c9aab37edfbc0757c5922bcf472899141",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "マイリストに追加",
+            "from": "/good/?transfer=x2#film-breeze",
+            "to": "/good/?transfer=x2#film-breeze",
+            "sourceImageSha256": "5f8789df3beb01c1ba838dcf5c189f0c9aab37edfbc0757c5922bcf472899141",
+            "destinationImageSha256": "0a607b49b8dd13efc92760d8439f00a45fed3d73fdd5c0d43ccac8917d92723f",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e2\"},\"土曜日\",\"/good/?transfer=x2\",\"/good/?transfer=x2\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e4\"},\"02\\n風の通り道\\n土曜日 11:30\\n字幕あり\\n上映内容を見る →\",\"/good/?transfer=x2\",\"/good/?transfer=x2#film-breeze\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e1\"},\"マイリストに追加\",\"/good/?transfer=x2#film-breeze\",\"/good/?transfer=x2#film-breeze\",\"observed\"]]"
+      }
+    },
+    {
+      "id": "transfer-draft-alpha-r3",
+      "kind": "novel",
+      "task": "draft",
+      "variant": "alpha",
+      "replicate": 3,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
+        "credited": true,
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "2a2e322e7395e99439668b3c9e662f591613cc577b6ed371d27efb9388c21e20",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "2a2e322e7395e99439668b3c9e662f591613cc577b6ed371d27efb9388c21e20",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
+      },
+      "initialImageSha256": "82abd339dc31b3aff54cded2a29c9225ddc07666d6f73220032e0293cd5fc201",
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "水辺の散歩\n散策イベントの企画案",
+            "from": "/good/?transfer=b8",
+            "to": "/good/?transfer=b8#memo-main",
+            "sourceImageSha256": "1c37aebe3a29596107c0bb3afd949a5b192650f18ca23f622518e3782778d3b7",
+            "destinationImageSha256": "04caf6e3382eb9f81a1fd6607ac9a4c31f0ce80858b85d696d58fb6e5472ca8f",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "label": "チーム内\nこのワークスペースのメンバーのみ",
+            "from": "/good/?transfer=b8#memo-main",
+            "to": "/good/?transfer=b8#memo-main",
+            "sourceImageSha256": "04caf6e3382eb9f81a1fd6607ac9a4c31f0ce80858b85d696d58fb6e5472ca8f",
+            "destinationImageSha256": "666046341217d3464f2222b770f28880ddd90616c9d6fa461e88743276f8d15b",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e6"
+            },
+            "label": "変更を保存",
+            "from": "/good/?transfer=b8#memo-main",
+            "to": "/good/?transfer=b8#memo-main",
+            "sourceImageSha256": "666046341217d3464f2222b770f28880ddd90616c9d6fa461e88743276f8d15b",
+            "destinationImageSha256": "2a2e322e7395e99439668b3c9e662f591613cc577b6ed371d27efb9388c21e20",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e1\"},\"水辺の散歩\\n散策イベントの企画案\",\"/good/?transfer=b8\",\"/good/?transfer=b8#memo-main\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e4\"},\"チーム内\\nこのワークスペースのメンバーのみ\",\"/good/?transfer=b8#memo-main\",\"/good/?transfer=b8#memo-main\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e6\"},\"変更を保存\",\"/good/?transfer=b8#memo-main\",\"/good/?transfer=b8#memo-main\",\"observed\"]]"
+      }
+    },
+    {
+      "id": "transfer-draft-beta-r3",
+      "kind": "novel",
+      "task": "draft",
+      "variant": "beta",
+      "replicate": 3,
+      "status": "RESULT",
+      "requests": 8,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validity": {
+        "valid": true,
+        "reasons": []
+      },
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "controllerChangedChoices": 0,
+        "repeatedVisualEdges": 0
+      },
+      "deliveredConfirmation": {
+        "kind": "optional-confirmation-frame",
+        "credited": true,
+        "frames": [
+          {
+            "step": 4,
+            "stage": "assessment",
+            "observationId": "o4",
+            "imageSha256": "10f2f020f78d1fad6877e04f2491462d1bc510642a5012cbb5d5bb529f1fd019",
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 4,
+            "stage": "action",
+            "observationId": "o4",
+            "imageSha256": "10f2f020f78d1fad6877e04f2491462d1bc510642a5012cbb5d5bb529f1fd019",
+            "scope": "full-viewport-current"
+          }
+        ],
+        "matchPolicy": "literal-includes-whitespace-removed-v2",
+        "interpretation": "Correct required text after whitespace-only normalization in audited visible screen tied to verified current pixels and a successful model response; all non-whitespace characters are preserved. No claim of reading or understanding. Uncredited results do not establish absence of delivery, reading, or understanding."
+      },
+      "initialImageSha256": "fa92cd9904ef38f70f0d8349bfab8839d12c1cda20fa147551aefc5701d229b0",
+      "path": {
+        "identity": "observed-local-pathname-query-hash-origin-only-normalized",
+        "edges": [
+          {
+            "step": 1,
+            "observationId": "o1",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "label": "水辺の散歩\n散策イベントの企画案",
+            "from": "/good/?transfer=k5",
+            "to": "/good/?transfer=k5#memo-main",
+            "sourceImageSha256": "b69bbad0b9b3f643007ac0696af17cdc7512e95ce375da020f7dbb5c2dfc0632",
+            "destinationImageSha256": "333cf693a825aae9823fdeea441f57b4707e6b4a3407971ca7c28d77362d5ffe",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "observationId": "o2",
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "label": "チーム内\nこのワークスペースのメンバーのみ",
+            "from": "/good/?transfer=k5#memo-main",
+            "to": "/good/?transfer=k5#memo-main",
+            "sourceImageSha256": "333cf693a825aae9823fdeea441f57b4707e6b4a3407971ca7c28d77362d5ffe",
+            "destinationImageSha256": "83c7d109e61841cb195eb8bc753b6e3380e3052f497cc759863de195c26c76be",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "observationId": "o3",
+            "action": {
+              "type": "click",
+              "elementId": "e6"
+            },
+            "label": "変更を保存",
+            "from": "/good/?transfer=k5#memo-main",
+            "to": "/good/?transfer=k5#memo-main",
+            "sourceImageSha256": "83c7d109e61841cb195eb8bc753b6e3380e3052f497cc759863de195c26c76be",
+            "destinationImageSha256": "10f2f020f78d1fad6877e04f2491462d1bc510642a5012cbb5d5bb529f1fd019",
+            "status": "observed"
+          }
+        ],
+        "complete": true,
+        "signature": "[[{\"type\":\"click\",\"elementId\":\"e1\"},\"水辺の散歩\\n散策イベントの企画案\",\"/good/?transfer=k5\",\"/good/?transfer=k5#memo-main\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e4\"},\"チーム内\\nこのワークスペースのメンバーのみ\",\"/good/?transfer=k5#memo-main\",\"/good/?transfer=k5#memo-main\",\"observed\"],[{\"type\":\"click\",\"elementId\":\"e6\"},\"変更を保存\",\"/good/?transfer=k5#memo-main\",\"/good/?transfer=k5#memo-main\",\"observed\"]]"
+      }
     }
   ],
-  "pendingSlots": [
-    "transfer-catalog-beta-r2",
-    "transfer-sentinel-direct-alpha-r3",
-    "transfer-help-alpha-r3",
-    "transfer-help-beta-r3",
-    "transfer-catalog-alpha-r3",
-    "transfer-catalog-beta-r3",
-    "transfer-draft-alpha-r3",
-    "transfer-draft-beta-r3"
-  ],
+  "pendingSlots": [],
   "optionalConfirmationFix": [
     {
       "id": "transfer-catalog-alpha-r1",
@@ -1280,16 +2386,44 @@
       "pass": 31,
       "fail": 0,
       "skip": 0
+    },
+    "finalContinuation": {
+      "unit": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skip": 0
+      },
+      "parentRegression": {
+        "tests": 28,
+        "pass": 28,
+        "fail": 0,
+        "skip": 0
+      },
+      "independentPreflight": "PASS",
+      "normalFrozenWrapperMock": 1,
+      "realTrials": 7,
+      "realRequests": 54,
+      "typeCheck": "PASS",
+      "build": "PASS",
+      "independentFinal": "PASS_WITH_TWO_PRESERVED_INFRASTRUCTURE_FAILURES",
+      "parentContinuation": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skip": 0
+      }
     }
   },
   "limitations": [
-    "Only10 valid novel trials were observed,11attempted,18planned; do not report18/18.",
-    "HTTP402 is infrastructure failure, not user failure or abandonment. Its billing/provider cause is not established here.",
-    "No third repeats completed. Three-repeat stability and broader generalization remain unverified.",
-    "Successful paths did not need recovery, so they do not establish generalized switching/revisit competence.",
-    "No persona effects, human fidelity, causal UI effects or pretraining novelty are established.",
-    "Optional confirmation v2 is whitespace-insensitive literal matching of audited visible text tied to verified delivered current frames; not a semantic comprehension test.",
-    "Literal-includes may also match a question containing the entire confirmation phrase; it is not a semantic statement classifier."
+    "21 slots were attempted,19 outcomes are valid:16 novel successes,3 known sentinel successes,2 preserved HTTP402 infrastructure failures. Do not report18/18 novel success or21/21 valid success.",
+    "Catalog alpha and beta each have only2 valid repeats because their r2 attempts failed at the API. Draft/help and known sentinel each have3 valid repeats. Small counts do not establish broad stability.",
+    "Catalog alpha has2 valid complete paths:2 UI actions in r1,3 in r3 after first choosing the Saturday filter. Same initial image/config does not guarantee identical decisions.",
+    "Three service-separated phases used one frozen actor/UI/profile. Temporal provider variation remains possible. No comparative causal UI effect is established.",
+    "Forward paths did not require recovery or necessary revisits. Generalized switching/revisit competence remains unverified.",
+    "No persona effects, human fidelity, real-product transfer or pretraining novelty are established.",
+    "Optional confirmation v2 is whitespace-insensitive literal matching of audited visible text tied to verified delivered current frames; not reading or comprehension. Literal-includes can match a question containing the entire phrase.",
+    "API/UI/elapsed times are not human behavior times. Whole-repository tests were not rerun to completion; previously documented holdout timing instability remains."
   ],
   "model": "jev-1.14.0",
   "method": {
@@ -1301,12 +2435,47 @@
       "maxAttemptsPerRequest": 1
     }
   },
-  "failure": {
-    "id": "transfer-catalog-alpha-r2",
-    "stage": "action",
-    "code": "HTTP_ERROR",
-    "statusCode": 402,
-    "successfulAssessmentBeforeError": true,
-    "uiActions": 0
-  }
+  "phases": [
+    {
+      "file": "live/manifest.json",
+      "sha256": "db9857b740a995ea208bd5f4e9111c493bc00851c31e9ea88255a7856e87cf93",
+      "status": "HTTP_402",
+      "attempted": 13,
+      "requests": 92
+    },
+    {
+      "file": "continuation/manifest.json",
+      "sha256": "df163bbfb4ac7d53e5c61ca72059fb4a2633f9a02bb082fe71b9a620f339fb4e",
+      "status": "HTTP_402",
+      "attempted": 1,
+      "requests": 1
+    },
+    {
+      "file": "continuation-final/manifest.json",
+      "sha256": "3b9f1a691cc572ee655a25206f4d08cfa224eef6da841d10ced53ca15b2bc877",
+      "status": "COMPLETED",
+      "attempted": 7,
+      "requests": 54
+    }
+  ],
+  "coverageComplete": true,
+  "allTrialsValid": false,
+  "failures": [
+    {
+      "id": "transfer-catalog-alpha-r2",
+      "stage": "action",
+      "code": "HTTP_ERROR",
+      "statusCode": 402,
+      "successfulAssessmentBeforeError": true,
+      "uiActions": 0
+    },
+    {
+      "id": "transfer-catalog-beta-r2",
+      "stage": "assessment",
+      "code": "HTTP_ERROR",
+      "statusCode": 402,
+      "successfulAssessmentBeforeError": false,
+      "uiActions": 0
+    }
+  ]
 }

@@ -4,7 +4,7 @@
 
 ## 方式を固定した別課題での実測
 
-[実行方法と結果](docs/virtual-beta/transfer-evaluation.md)、[個別JSON](docs/virtual-beta/transfer-results.json)、[独立検証](docs/virtual-beta/transfer-independent-review.md)。新しい3課題・6画面を現行方式で探索しました。21予定のうち13試行・92要求でHTTP402停止。有効な新規10件と既知2件は達成しましたが、残り8件と3反復の確認は未完了です。人間再現や行き詰まり回復の一般化は未検証です。
+[実行方法と結果](docs/virtual-beta/transfer-evaluation.md)、[個別JSON](docs/virtual-beta/transfer-results.json)、[独立検証](docs/virtual-beta/transfer-independent-review.md)。新しい3課題・6画面を方式を変えずに探索し、予定21枠をすべて試行しました。新課題は有効16件が達成・API障害2件、既知課題は3件が達成。累計147要求、未実行0です。catalogの各版は有効2反復、他は3反復で、同条件の経路差も1条件に残りました。人間再現や行き詰まり回復の一般化は未検証です。
 
 ## ペルソナ別の探索実験
 

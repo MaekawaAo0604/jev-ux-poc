@@ -19,7 +19,7 @@
 
 原本は `reports/transfer-evaluation-2026-10-29/independent/report.json`、独自テスト・ブラウザー記録・前後snapshotも同じディレクトリにある。親の回帰失敗は `integrated-tests.log` と `holdout-fixture-retest.log` に残る。
 
-## 実モデル実行後
+## 初回実モデル実行後（停止時点）
 
 判定は `STOPPED_INCOMPLETE_BATCH_RAW_INTEGRITY_VERIFIED`。21予定・13試行・有効12・未実行8。新規は18予定・11試行・有効10・達成10・基盤障害1。既知は3予定・有効2・達成2。92要求は91 OK・1 ERROR・未決済0で、13試行目のaction HTTP402で予定どおり停止した。再送はない。
 
@@ -41,7 +41,46 @@
 
 ## 残る項目
 
-- サービス復旧後の未試行8件。402の利用制限・課金側の原因は今回未特定。
-- 既存holdoutの短い待機時間による不安定性。全体suiteと3反復の完走は未確認。
+- 初回停止時点の未試行8件は、後述の継続で全件試行した。初回402の詳細原因を初回保存ログだけで確定してはいない。
+- 既存holdoutの短い待機時間による不安定性。全体suite再完走と全条件3有効反復は未確認。
 - 今回の成功経路には行き詰まりや必要再訪がなく、その転移能力は未検証。
 - 対象集団の人間データ、ペルソナ効果、実製品、意味理解と因果的なUI改善効果は未検証。
+
+## 継続と最終21枠の監査
+
+独立担当は継続scriptの実装後に、新しい対象snapshotを固定して検証した。
+第2フェーズは1件のassessment HTTP402で停止し、14試行、12有効、基盤障害2件、未試行7件を部分停止として監査した。
+その原本20ファイルも以後変更していない。
+第3フェーズ前は新テスト3/3と通常固定wrapperのmock1件を実行し、先頭セルの初期PNG2種とassessment入力が過去原本と一致することを確認した。
+7件全部を新scriptでmock再実行したとは報告せず、既存8件mockの検証と新しい入力guard、通常wrapper1件の確認を分けている。
+
+最終判定は `PASS_WITH_TWO_PRESERVED_INFRASTRUCTURE_FAILURES`。
+21予定枠をすべて試行し、有効19件（新規16件、既知3件）が客観達成と主観完了、無効2件は元のHTTP402だった。
+catalog/alpha-r2 と catalog/beta-r2 の障害を保持し、再試行による置き換えはない。
+147要求は145 OK、2 ERROR、0 RESERVEDで、全147予約IDが一意、HTTP試行は各1回だった。
+
+全21件のreplayとtrace ZIPのCRC、fresh page、逐次実行、上限を照合した。
+1,732設問の確率を検証し、72行動選択すべてでargmaxと選択、UI対象が一致した。
+controllerによる選択変更は0件。
+148個の保存frame metadataから、送信147要求と正常応答current画像145件を区別した。
+第2フェーズで準備だけされたaction metadata1個は、実際の送信数や正常応答数に足していない。
+
+第3フェーズのPNG75件をdecodeし、68のunique画像を識別した。
+第3フェーズのcurrent画像27件中26件は旧hashと一致し、追加1件のcatalog/alphaの土曜日filter画面を目視確認した。
+同条件の初期PNGとconfigは全7条件で一致し、catalog/alphaの有効経路だけが2種類だった。
+初回の2操作と第3反復の3操作の違いを保持し、毎回同じ動きになるとは扱わない。
+help6件の両情報表示と、正常応答current画像への提示も再確認した。
+
+旧2,258原本、新170原本、固定129 source、旧script/test、新script/test/pendingと3フェーズ集計scriptは監査前後で不変だった。
+公開JSONとCSVの21行、3フェーズのmanifest hash、分母、経路、補助確認38フレームは原本とv2再集計に一致した。
+監査はAPI0、UI再実行0で、製品コードの修正はない。
+
+最終証拠は `reports/transfer-evaluation-2026-10-29/continuation-independent/final21-audit/report.json` と `gate.json`。
+report SHA256は `a3a60e8e99228bc8cd6b27d2c8fd6f3056afdc8a420cd56c5017cec8f16dbf2c`。
+第3フェーズmanifest SHA256は `3b9f1a691cc572ee655a25206f4d08cfa224eef6da841d10ced53ca15b2bc877`。
+実行前の証拠は `final7-preflight/`、第2フェーズ停止の証拠は `actual-audit/` に保持した。
+
+今回の完了は、固定方式で別3課題の全予定枠を試行し、その原本と集計を検証できたことを指す。
+catalogの両版は各2有効反復であり、3有効反復や広い安定性を実証したものではない。
+行き詰まりからの回復、必要再訪の一般化、ペルソナ効果、対象集団の人間との一致は未検証。
+既存holdoutの短い待機時間の不安定性と、全体suiteを再完走していない制限も残る。

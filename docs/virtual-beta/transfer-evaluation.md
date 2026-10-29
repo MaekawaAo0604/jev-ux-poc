@@ -54,15 +54,38 @@ catalogは条件に合う作品の保存、draftは対象メモへの保存確�
 
 ## 実測結果と現在地
 
-**21試行の計画は未完了。13試行目のHTTP402で停止した。** 新課題は18予定・11試行・有効10・達成10・API障害1・未実行7。既知sentinelは3予定・有効2・達成2・未実行1。合計92要求（91 OK・1 ERROR・RESERVED0）。HTTP402を利用者の失敗や離脱に数えず、再送もしなかった。gateway側で何の制限に掛かったかは今回の保存ログだけでは特定していない。
+**予定21枠をすべて試行し、有効19件が達成した。残る2件は課金エラーによる無効試行として保持した。**
+新課題は18予定、18試行、有効16件で達成16件、基盤障害2件。
+既知の確認課題は3試行すべて有効で達成した。
+合計147要求（145 OK、2 ERROR、0 RESERVED）で、未実行枠は0。
+全予定枠を試行したことを、21件すべての有効結果が得られたことと区別する。
 
-[個別JSON](transfer-results.json)、[CSV](transfer-results.csv)、[独立検証](transfer-independent-review.md) に版・分母・結果・制限を保存した。実測のproducerは `73b1ff3603b84c0019332970590b1f0d1406dc91`、source `8a5bc5c03daaf99df38795fd218dc5e19e0ed916d390620e602286955c6ee3d7`。事前登録のSHA256は `ae65d167928aa0990acc17c9e27944f28c9f2133c537f2436c28f0d3f883163b`。実行開始から停止まで製品source・profile・チャーター・protocolを変更していない。
+実行はサービス停止を挟む3フェーズに分かれた。
+初回は13試行92要求で catalog/alpha-r2 のactionがHTTP402、第2フェーズは catalog/beta-r2 のassessment1要求がHTTP402となり、それぞれ再送せず停止した。
+その後、読み取り専用metadataで残高正とHTTP availableを確認し、残り7件だけを実行した。
+第3フェーズは54要求で7件すべて達成し、新たなAPI障害はなかった。
+失敗済み2枠を再実行して置き換えていない。
 
-catalogは2件とも対象作品を保存、draftは4件とも対象メモをチーム内へ保存、helpは4件とも集合場所と持ち物を表示した。help4件は両情報が正常応答を得たcurrent画像に入っていたことも確認した。既知sentinelは2件とも予約変更を確認した。各有効経路のUI操作数は2〜3、注視移動0、controllerによる選択変更0、同一画像の反復エッジ0。これは全画面の固定条件で、視覚制約を測った結果ではない。
+[個別JSON](transfer-results.json)、[CSV](transfer-results.csv)、[独立検証](transfer-independent-review.md) に版、分母、結果、制限を保存した。
+3フェーズの実測producerはすべて `73b1ff3603b84c0019332970590b1f0d1406dc91`、sourceは `8a5bc5c03daaf99df38795fd218dc5e19e0ed916d390620e602286955c6ee3d7`。
+事前登録のSHA256は `ae65d167928aa0990acc17c9e27944f28c9f2133c537f2436c28f0d3f883163b`。
+同じ129 sourceのバイト列、profile、チャーター、protocolを各試行前後に検証した。
+今回追加したのは未試行枠の実行管理とオフライン集計で、探索actorや画面への調整はない。
 
-反復が得られた条件では設定と初期PNGが一致し、各セルの有効経路は同じだった。ただし3巡目は全件未実行。初期画像が2件以上ある6条件の一致には、catalog/alphaのAPI障害試行の初期記録も含む。単発のcatalog/betaで再現性が確認できたとはしない。
+catalogは有効4件で対象作品を保存、draftは6件で対象メモをチーム内へ保存、helpは6件で集合場所と持ち物を表示した。
+help6件では両情報が正常応答を得たcurrent画像に含まれることも確認した。
+有効試行のUI操作は2〜3回、注視移動0回、controllerによる選択変更0件、同一画像の反復エッジ0件だった。
+これは全画面条件の結果であり、視覚制約や内容の理解を測ったものではない。
 
-今回の範囲では、方式を変えずに別の3課題で前進と完了が成立した。一方、行き詰まりや必要再訪を含む経路には入っていない。通知設定で残ったループの汎用的な解消や、人間への一致はこの成功から判断できない。
+同じ条件の初期PNGとconfigは7条件とも一致した。
+ただし catalog/alpha の有効経路は2種類で、r1は対象作品を直接開いて保存する2操作、r3は先に「土曜日」を選んでから同じ作品を保存する3操作だった。
+他6条件の有効経路は各1種類。
+catalogの各版はAPI障害が1件ずつあるため有効反復は2件、draftとhelpの各版と既知課題は各3件である。
+少数の反復や完了率だけで広い範囲の安定性を保証しない。
+
+方式を変えずに別の3課題で前進と完了が成立した。
+今回の経路では行き詰まりや必要再訪が起きていないため、通知設定で残ったループの汎用的な解消や人間との一致は未検証である。
+また、サービス停止を挟んだ実行であり、プロバイダー側の時間変動を排除した比較実験ではない。
 
 ## 計測修正と原本の保全
 
@@ -72,10 +95,64 @@ catalogは2件とも対象作品を保存、draftは4件とも対象メモをチ
 
 実行時の `live/manifest.json`・`live/summary.json`・台帳・画像は変更していない。`derived-v2/summary.json` に再集計し、6件の補助creditだけがfalseからtrueに変わった。達成数・失敗数・経路・分布・選択・API数は変わらない。再解析はAPI0・UI操作0。実測版から変更した製品fileは解析module1個だけで、探索actor・画面・profile・transportには変更していない。
 
-## 残りの実行と追加タスク
+## 次の検証
 
-サービス復旧後の未試行8スロットは `reports/transfer-evaluation-2026-10-29/pending-slots.json` に保存した。失敗したcatalog/alpha-r2は障害記録として残し、成功率のために再実行しない。通常のバッチコマンドは先頭から開始するため、既存出力への再実行を再開と扱わない。継続は固定producerの別作業場所、残り8件の別フェーズ・fresh台帳で行う。上限は追加192要求、既存分との合計最大284。継続フェーズは現時点で未実行。
+元の21枠はすべて試行済みで、未試行枠はない。
+初回8枠用の `pending-slots.json` と、その後の7枠用の `pending-slots-final.json` は当時の実行計画として保持する。
+現在の未実行一覧と取り違えない。
+障害2件を有効な3反復に埋め直す実験は今回実施していない。
 
-次は未試行分を完了し、実際に行き詰まりが起こる別課題と必要再訪の正負対照を事前登録する。今回の成功経路を見てUIやactorを最適化しない。旧holdoutの短いテスト待機の不安定性は、実行環境・navigation待ちの切り分けを別タスクにする。人間比較は対象集団の複数人の記録と事前定義した一致指標が必要で、本人1件や経路の多様性だけで再現を結論しない。
+次は、行き詰まりが起こる別課題で、他の入口への切り替え、必要な再訪、不要な再訪の正負対照を事前登録する。
+今回の成功経路を見てactorや画面を最適化せず、方式を固定して測定する。
+旧holdoutの短い待機時間の不安定性は、実行環境とnavigation待ちを別タスクで診断する。
+人間比較には対象集団の複数人の記録と事前定義した一致指標が必要で、今回のnullpersonaの成功からは判断できない。
 
-原本の保管先は `reports/transfer-evaluation-2026-10-29/`。固定producerのZIP・source各hash、事前登録、既存1,939原本・142台帳の前後照合、独立監査、修正前後の集計を残している。
+原本は `reports/transfer-evaluation-2026-10-29/` に保持した。
+初回は `live/`、第2フェーズは `continuation/`、第3フェーズは `continuation-final/`、3フェーズのオフライン再集計は `combined-final-v2/`。
+実測に使った固定worktreeも再現用に保持する。
+過去1,939原本と142台帳参照、初回299原本、第2フェーズ20原本の合計2,258ファイルを、第3フェーズ前後で照合した。
+
+## 停止後の継続手順
+
+継続専用 script は当日の原本 SHA と未試行枠を検証する。
+第2フェーズ用の [8枠版](../experiments/2026-10-29-transfer-continuation.ts) は最初の13試行、第3フェーズ用の [7枠版](../experiments/2026-10-29-transfer-continuation-final.ts) は続く障害1件も固定する。
+これらは一般的な再開コマンドではなく、保存済み実験の原本を必要とする。
+別 clone で原本がない場合、履歴に依存するテストだけを理由付き skip とし、純粋な入力検証は実行する。
+
+当日の第3フェーズは以下で実行した。
+同じ出力先が存在すれば再実行を拒否するため、完了済み7枠をこのコマンドで上書きしない。
+新しい実験は先の通常バッチを新規出力へ実行し、別の試行として集計する。
+
+```powershell
+$repo = (Get-Location).Path
+$base = Join-Path $repo 'reports/transfer-evaluation-2026-10-29'
+$frozen = 'C:/Users/Maekawa Ao/.codex/worktrees/transfer-frozen-continuation/Ux_test'
+node --import tsx docs/experiments/2026-10-29-transfer-continuation-final.ts `
+  --previous (Join-Path $base 'live/manifest.json') `
+  --continuation (Join-Path $base 'continuation/manifest.json') `
+  --pending (Join-Path $base 'pending-slots-final.json') `
+  --prior-snapshot (Join-Path $base 'prior-originals.json') `
+  --frozen-root $frozen --env-file E:/ChatGPT/Ux_test/.env `
+  --out (Join-Path $base 'continuation-final')
+
+# APIを使わない、保存結果の再検証
+node --import tsx --test --test-concurrency=1 tests/transfer-continuation.test.ts tests/transfer-continuation-final.test.ts
+node --import tsx runner/virtual-beta-replay.ts reports/transfer-evaluation-2026-10-29/continuation-final/transfer-help-alpha-r3/exploration
+```
+
+3フェーズの集計には [専用のオフライン script](../experiments/2026-10-29-transfer-combine.ts) を使う。
+元13件、第2フェーズ1件、第3フェーズ7件の一意性、台帳、画像、2件の既存障害を厳密に照合する。
+旧2フェーズ用 script の障害数チェックを緩める変更は自動承認レビューで却下されたため採用していない。
+旧 script は未変更かつ未実行のまま保持し、3フェーズ用では2件の障害を明示して検証する。
+
+当日の3フェーズをAPI0で再集計する場合は、最終manifestのSHAを明示する。
+出力先は新規ディレクトリにする。
+
+```powershell
+node --import tsx docs/experiments/2026-10-29-transfer-combine.ts 3b9f1a691cc572ee655a25206f4d08cfa224eef6da841d10ced53ca15b2bc877 reports/transfer-evaluation-2026-10-29/combined-final-verification
+```
+
+実行時の7枠用script SHAは `4905b51e05a08bcc413c8b43816a73f7338a1f1a438c37f0f5cb01cafd9ab1ef`、pending SHAは `45a10b2b53a274741340d6885eee7532376840f88afdad44f09ee30ceed66ec3`。
+実測producerのバイト列を使うため、元のLF/CRLF混在をGitの改行差と分けて保全した。
+別cloneで過去原本なしにこの履歴専用scriptを実行できるとは扱わない。
+今回の親の追加検証は関連28/28と継続10/10、型チェック、buildで、全体suiteの成功とは区別する。
