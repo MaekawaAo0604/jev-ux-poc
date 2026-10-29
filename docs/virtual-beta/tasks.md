@@ -237,3 +237,17 @@ Goal探索の実比較はHTTP402で中断。有効pair0・38要求、全12試行
 - [ ] P2: 自力の行き詰まり発見、視覚制約、ペルソナ、対象集団の人間比較を別測定。今回の8成功から人間一致や一般的安定性を主張しない。
 
 実行方法と全結果は [recovery-transfer.md](recovery-transfer.md)。実装・証拠監査のPASSと探索安定性の未達を分ける。
+
+
+## Jev / OpenAI Decisions 同条件比較（2026-10-29）
+
+- [x] 既存source141のactor・画像・候補・質問・操作方策を維持し、通常wrapperへ明示backendを追加。OpenAI Decisionsはnative fetch、追加依存なし。
+- [x] 実装AがOpenAI adapter/test、実装Bが比較解析/test、親がwrapper・parallel2 batch・protocol・統合test・docsを担当。既定Jev dispatch本体は旧版と同一。
+- [x] 新旧関連67/67、並列HTTPスタブ2/2、型/build。独立が予約のみをAPI到達と誤集計するP2をRED再現。消費数を保持してHTTP試行・到達・不明を分離し、独立GREEN。
+- [x] producer0d4b450/source8cf3を固定し24/24有効・12pair初回一致、408 OK/ERROR0/RESERVED0。Jev8/12、OpenAI4/12。未達12件はDECISION_LIMIT、基盤障害0・偽完了0。失敗の置換と事後actor調整なし。
+- [x] first assessmentの同一性と、その回答後のaction・経路差を分離。API待ち時間を人間時間にしない。両providerのUSD費用は未提供としてnullを保持。
+- [ ] P0: 既存Jevを既定のまま、可視の未解決前提と候補の対応付けを選択式で追加し、無関係な確認操作を含む固定対照で検証する。今回のAPI差し替えでは改善しなかった。
+- [ ] P1: 前提変更後の再評価・保留解除を検証。OpenAIの変更後4未達には選択方策による補正0で、モデルの出力に由来する選択が残った。
+- [ ] P2: より自由な画像読解が必要ならResponsesの構造化出力を別方式として比較。今回Decisions単独の結果から他のOpenAIモデルの性能を推定しない。
+
+原本・独立検証・実行方法は [provider-comparison.md](provider-comparison.md)。比較結果の検証と人間一致の検証を分ける。

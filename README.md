@@ -1,5 +1,9 @@
 # Jev UX navigation PoC
 
+## Jev / OpenAI Decisions の実モデル比較
+
+[実行方法・結果](docs/virtual-beta/provider-comparison.md)、[24試行JSON](docs/virtual-beta/provider-comparison-results.json)、[独立検証](docs/virtual-beta/provider-comparison-independent-review.md)。同じ探索設計で判断APIだけを切り替え、並列2で各12試行を実行。目的達成はJev8/12、OpenAI4/12、408要求すべて正常応答でした。入口切替は両方4/4、前提変更後の再訪・保存はJev4/4・OpenAI0/4、照合が必要な条件は両方0/4。今回OpenAIへの差し替えは改善せず、既定はJevを維持します。人間一致は未検証です。
+
 ## 別課題での探索切替・再訪の実測
 
 [実行方法・結果](docs/virtual-beta/recovery-transfer.md)、[12試行JSON](docs/virtual-beta/recovery-transfer-results.json)、[独立検証](docs/virtual-beta/recovery-transfer-independent-review.md)。2課題×3条件×2反復を方式固定で実行し、184要求はすべて成功応答でした。入口切替4/4、前提変更後の再訪・保存4/4、照合が必要な条件0/4。未達4件は判断上限で、基盤障害0。探索全体の安定化は未達、人間一致は未検証です。

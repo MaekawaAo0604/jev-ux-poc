@@ -125,3 +125,12 @@ Goal断片の現在画像でのobserved/not_shown等は既存定義を維持し�
 事前固定した12試行は8成功・4未達、基盤障害0だった。入口切替と前提変更に到達した後の再訪は各4/4。一方、確認だけでは前提が整わない4件は全件照合を実行せず、変更後の再訪機会自体が発生しなかった。可視の照合候補と過去画像が入力へ届いていても、元分布で戻る操作を高く評価した例がある。これは情報受渡しの確認であり、意味の理解や必要操作の価値評価が成立した証拠ではない。
 
 次の仮説は目的に必要な前提操作の評価不足。反証可能な無関係操作の対照と、保留方策の有無を分けて測る。ラベル別の加点、全面的な再訪禁止、今回の失敗に合わせたUI最適化は採用していない。モデルの正確な内部原因、一般的安定性、人間への一致は未検証。[実行と証拠](recovery-transfer.md)、[独立検証](recovery-transfer-independent-review.md) を参照。
+
+
+## JevとOpenAI Decisionsの実用比較（2026-10-29）
+
+[OpenAI公式Decisions仕様](https://developers.openai.com/api/docs/guides/decisions)と[API reference](https://developers.openai.com/api/reference/resources/decisions/methods/create)で、画像/JSON/choice確率と現在の対応model gpt-6-luna、refusal、質問と選択肢の範囲を確認した。公開予定の研究コードや重みは使わず、native fetchによる薄い変換adapterを採用した。既存のstate/画像・候補・質問・sampler・操作・監査を維持するためで、追加依存はない。
+
+Jevと同じ意味内容を送るが、両APIのJSON表現・画像処理・token計数は異なる。24試行でJev8/12、OpenAI4/12達成、12pairの初回assessmentは一致した。OpenAIのAPI時間は今回短かったが、その後の要求構成は分岐しており一般的な速度・品質優劣を主張しない。両APIのUSD費用は未提供であり、token数から架空の費用差を算出しない。
+
+Decisionsも選択式で、自由文の条件抽出を追加した実験ではない。今回の差し替えで中間操作の問題は解消しなかったため、次は未解決の前提・候補・根拠・操作結果の関係を既存選択式で表す設計を単独評価する。Responsesの構造化出力や別の画像モデルを使う場合は、別方式として入力情報量と生成した状態を監査する。詳細は [実行と結果](provider-comparison.md)。

@@ -1,5 +1,9 @@
 # Jev 仮想βテスト基盤
 
+## Jev / OpenAI Decisions 比較の最新実測
+
+[provider-comparison.md](provider-comparison.md)、[24試行JSON](provider-comparison-results.json)、[独立検証](provider-comparison-independent-review.md)。同じUI・目的・actorで判断APIのみを切り替え、並列2・各12試行を完走。Jev8/12、OpenAI4/12達成、408 OK・障害0。OpenAIは前提変更に到達しても元画面へ戻らない4未達があり、照合条件は両モデル全4未達。既定Jevを維持し、OpenAIは明示backendで利用できます。モデル全般の優劣・人間再現は結論しません。以下は前の検証です。
+
 ## 探索切替・再訪の最新実測
 
 [recovery-transfer.md](recovery-transfer.md)、[全12試行](recovery-transfer-results.json)、[独立検証](recovery-transfer-independent-review.md)。別2課題の3条件×2反復、184要求すべてOK。switch4/4、changed4/4、unchanged0/4で、後者は全件12判断の上限終了。変更後の再訪・保存は確認できましたが、照合未実行による4未達が残り、探索全体の安定化は未達です。基盤障害0、人間一致は未検証。以下は以前の評価です。
