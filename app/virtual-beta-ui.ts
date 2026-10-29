@@ -14,7 +14,8 @@ export const roiSelectors:Record<string,string>={
 
 /** Unknown or ambiguous queries retain the original local UI. */
 export function comparisonUIFromSearch(search:string):BetaUIVariant|undefined{
- const tokens=new URLSearchParams(search).getAll('betaUI');
+ const params=new URLSearchParams(search),tokens=params.getAll('betaUI');
+ if(['holdout','semanticFixture','transfer'].some(k=>params.has(k)))return undefined;
  if(tokens.length!==1)return undefined;
  return Object.values(comparisonUIs).find(ui=>ui.token===tokens[0]);
 }

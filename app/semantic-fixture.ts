@@ -20,7 +20,7 @@ export function semanticQuery(fixture:SemanticFixture):string{return '?semanticF
 /** Duplicate assignments or overlapping legacy UI opt-ins fail closed. */
 export function parseSemanticFixture(search:string):SemanticFixture|undefined{
  const params=new URLSearchParams(search),tokens=params.getAll('semanticFixture');
- if(tokens.length!==1||params.has('betaUI'))return undefined;
+ if(tokens.length!==1||params.has('betaUI')||params.has('holdout')||params.has('transfer'))return undefined;
  const fixture=Object.hasOwn(assignments,tokens[0])?assignments[tokens[0]]:undefined;
  return fixture?{...fixture}:undefined;
 }

@@ -1,3 +1,5 @@
+import {parseTransferFixture} from './transfer-fixture.js';
+import {TransferFixtureView} from './TransferFixture.js';
 import {parseHoldoutFixture} from './holdout-fixture.js';
 import {HoldoutFixtureView} from './HoldoutFixture.js';
 import React, { useState } from 'react';
@@ -40,5 +42,6 @@ function App() {
   {route!=='home' && <a className="home-link" href="#home">マイページへ戻る</a>}<footer>暮らしクラウド　·　デモアカウント</footer></main></div></>;
 }
 const semanticFixture=location.pathname.startsWith('/good/')?parseSemanticFixture(location.search):undefined;
+const transferFixture=location.pathname.startsWith('/good/')?parseTransferFixture(location.search):undefined;
 const holdoutFixture=location.pathname.startsWith('/good/')?parseHoldoutFixture(location.search):undefined;
-createRoot(document.getElementById('root')!).render(holdoutFixture?<HoldoutFixtureView fixture={holdoutFixture}/>:semanticFixture?<SemanticFixtureView fixture={semanticFixture}/>:<App/>);
+createRoot(document.getElementById('root')!).render(transferFixture?<TransferFixtureView fixture={transferFixture}/>:holdoutFixture?<HoldoutFixtureView fixture={holdoutFixture}/>:semanticFixture?<SemanticFixtureView fixture={semanticFixture}/>:<App/>);
