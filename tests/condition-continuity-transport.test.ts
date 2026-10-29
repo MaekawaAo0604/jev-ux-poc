@@ -171,3 +171,29 @@ for(const [mode,status] of [['old',400],['old',401],['new',401],['new',429],['ne
   assert.ok(error instanceof VisualHypothesisTransportError);assert.deepEqual(error.evidence,{code:'HTTP_ERROR',attempts:1,httpReceived:true,statusCode:status});return true;
  });});assert.equal(reads,0);
 });
+
+for(const [name,evidence] of [['null evidence',null],['historical evidence',{observationId:'o1',quote:'Check is pending'}]] as const)test('uncertain revised with '+name+' is rejected while unobserved null mapping remains admissible',async()=>{
+ const value:any=output();value.conditions=[{id:'c1',description:'The earlier condition is currently uncertain.',status:'uncertain',evidence,uncertainty:'The current image does not establish this condition.'}];value.continuity=[{priorId:'o1_c1',conditionId:'c1',change:'revised',explanation:'The previous condition is now uncertain.'}];
+ const raw=JSON.stringify(value);await stub(async()=>Response.json(envelope(value)),async()=>{const response=await extractOpenAIVisualHypotheses(request());assert.equal(response.status,'invalid-response');assert.equal(response.rawText,raw);assert.deepEqual(response.output,value);});
+ const unobserved=structuredClone(value);unobserved.continuity=[{priorId:'o1_c1',conditionId:null,change:'unobserved',explanation:'Current image evidence does not establish this condition.'}];
+ await stub(async()=>Response.json(envelope(unobserved)),async()=>{const response=await extractOpenAIVisualHypotheses(request());assert.equal(response.status,'completed');assert.deepEqual(response.output,unobserved);});
+ assert.equal(JSON.stringify(value),raw);
+});
+
+test('revised uncertain condition still requires and admits an explicit current-image quote',async()=>{
+ const value:any=output();value.conditions=[{id:'c1',description:'The visible requirement has changed but its outcome is uncertain.',status:'uncertain',evidence:{observationId:'o2',quote:'Review is pending'},uncertainty:'The visible requirement has no confirmed outcome.'}];value.continuity=[{priorId:'o1_c1',conditionId:'c1',change:'revised',explanation:'The current image shows the changed requirement.'}];
+ await stub(async()=>Response.json(envelope(value)),async()=>{assert.equal((await extractOpenAIVisualHypotheses(request())).status,'completed');});
+});
+
+test('continuity prompt explicitly checks uncertain mappings before output without inventing evidence',()=>{
+ const instructions=buildOpenAIVisualHypothesisRequest(request()).instructions;
+ assert.match(instructions,/evidence:null[^.]*not from the current observation[^.]*unobserved[^.]*conditionId:null/i);
+ assert.match(instructions,/even when[^.]*uncertain/i);
+ assert.match(instructions,/revised[^.]*uncertain[^.]*only when[^.]*actual quote[^.]*current image/i);
+ assert.match(instructions,/never invent a quote/i);assert.match(instructions,/hidden state[^.]*unconfirmed/i);
+});
+
+// Captured before this instruction-only repair; the strict generation schema must not change.
+test('uncertain-mapping prompt repair preserves the existing continuity schema exactly',()=>{
+ assert.equal(sha(JSON.stringify(buildOpenAIVisualHypothesisRequest(request()).text.format.schema)),'1efa53e124b9a2a451333363b17eadaa7083a96a1f7788d6c83664e59c84d3dd');
+});

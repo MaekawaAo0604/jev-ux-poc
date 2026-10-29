@@ -26,6 +26,7 @@
   "stop": "Authentication/quota/accounting/model-output failure or two consecutive infrastructure failures. Preserve failed and unattempted slots; no replacement.",
   "limitations": "Descriptive single repeat only, not human agreement or causal performance proof.",
   "actorOrderOffset": 1,
-  "revisionPolicy": "Preserve stopped producer dd8527b (2/8 slots,22requests, native HTTP400); begin a new balanced rotation with continuity to check upstream schema before controls. No replaced failure slots or pooled performance.",
-  "executionRequestCapPolicy": "Revised live command explicitly caps new requests at266; previous22 plus266 <= original phase maximum288."
+  "revisionPolicy": "Preserve dd8527b stopped 2/8,22requests HTTP400 and 39e36ad stopped 1/8,4requests HTTP200 output inconsistency. New ordinary fresh comparison adds only generic null/current evidence transition consistency instructions; no failure replacement or pooling.",
+  "executionRequestCapPolicy": "This revision explicitly caps new requests at262; prior22+4 plus262 <= original phase maximum288.",
+  "generationConsistency": "If a matched uncertain condition has null or historical evidence, emit unobserved with null conditionId; revised uncertain requires current-image quote. Do not invent evidence. Validator/schema and selection remain unchanged."
 }
