@@ -99,7 +99,7 @@ async function savedProvenanceFixture(memoryImage:string,memoryHash:string) {
  const response=reply({questions:q,input},'done',{goal:'unsatisfied',goalEvidence:'past',effect_a:'advances',evidence_a:'past'});
  const assets={current:{file:'input.png',sha256:hash}};
  const d={modelInput:input,questions:q,assetFiles:assets,inputSha256:sha(JSON.stringify({input,questions:q,assets})),response,assessment:admitAssessment(response,candidates,current,sources),apiCalls:1};
- await writeFile(join(dir,'result.json'),JSON.stringify({runId:'independent-provenance',steps:[{deliberation:d,userState:{lastObservation:current}}]}));
+ await writeFile(join(dir,'result.json'),JSON.stringify({runId:'independent-provenance',config:config(),steps:[{deliberation:d,userState:{lastObservation:current}}]}));
  return dir;
 }
 

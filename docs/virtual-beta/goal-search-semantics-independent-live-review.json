@@ -1,0 +1,953 @@
+{
+  "schemaVersion": 1,
+  "status": "STRUCTURAL_PASS_ROLE_AND_EXECUTE_NAV_CORRECTIONS_OBSERVED_EXPLORATION_AND_EVIDENCE_MEANING_UNRESOLVED",
+  "producer": {
+    "revision": "9c6207adda0d0a746e68d08d75a8a8be8d58f7d9",
+    "sourceHash": "159d5bdbb7bb3dd9ebde3cda18126e6904548fb5425fe048673da1047feace4e"
+  },
+  "completedUTC": "2026-10-29T06:10:07.391Z",
+  "evidence": {
+    "raw": "independent-live-raw.json",
+    "pixelReview": "independent-live-pixels.json",
+    "stateConcerns": "independent-live-contradiction-concerns.json",
+    "preflight": "independent-live-preflight.json"
+  },
+  "independentScope": {
+    "externalRequests": 0,
+    "modelCalls": 0,
+    "fakeCalls": 0,
+    "UIReexecutions": 0,
+    "humanInputsRead": false,
+    "credentialsRead": false,
+    "savedInputsResent": false,
+    "productionEdits": 0,
+    "parentReportUsedAsGroundTruth": false
+  },
+  "structural": {
+    "productFiles": 122,
+    "exactProducerBeforeAfterUnchanged": true,
+    "oldLedgerCount": 106,
+    "oldRawFilesUnchanged": 648,
+    "newRawFilesUnchanged": 446,
+    "replayVerified": 12,
+    "traceArchivesCRCVerified": 12,
+    "traceClickCalls": 88,
+    "traceScrollCalls": 3,
+    "recordedBackActions": 3,
+    "backEvidence": "Native CDP calls are not captured as Playwright API calls. Recorded back actions were checked against actual trace URLs and reconstructed visited history; all three destinations match.",
+    "pairsOnlyIdInterpretationDiffer": 6,
+    "requests": {
+      "OK": 210,
+      "ERROR": 0,
+      "RESERVED": 0,
+      "total": 210
+    },
+    "parallelOverlap": false,
+    "reservationIdsUnique": true,
+    "actualSavedStages": 210,
+    "assetReferences": 632,
+    "maxAttachedImagesPerRequest": 4,
+    "additionalAPIStages": 0,
+    "additionalImagesForSemantics": 0,
+    "wholeLiteralGoalRetainedInBothStages": true,
+    "roleStateInAssessmentArrivalAndActionMemory": true,
+    "allMemoryBoundToSourceGoalAndCapacity8": true,
+    "roleAnswers": 101,
+    "evidenceAnswers": 187,
+    "historicalAnnotationsVerified": 43,
+    "rubricHash": "6a598595d73ae82800525e716668879c1a82ae6942606f5b1797b71c50ebc846",
+    "rubricAbsentFromModelInputs": true,
+    "goalSearchQuestionCount": 393,
+    "goalSearchAnswerCount": 393
+  },
+  "outcomes": {
+    "arms": [
+      {
+        "condition": "old",
+        "trials": 6,
+        "valid": 6,
+        "successes": 6,
+        "requests": 100,
+        "frames": 50,
+        "fragmentInstances": 86,
+        "requiredFragmentInstances": 68,
+        "requiredAsContext": 37,
+        "roleMatches": 0,
+        "roleUncertain": 0,
+        "contextRoleInstances": 0,
+        "findingCounts": {
+          "no-target-in-view": 12,
+          "target": 20,
+          "guidance": 10,
+          "prerequisite": 8
+        },
+        "targetConflicts": 14,
+        "navigationConflicts": 0,
+        "unlabeledControlFindings": 0,
+        "policyChanges": 3
+      },
+      {
+        "condition": "reason",
+        "trials": 6,
+        "valid": 6,
+        "successes": 5,
+        "requests": 110,
+        "frames": 55,
+        "fragmentInstances": 101,
+        "requiredFragmentInstances": 78,
+        "requiredAsContext": 0,
+        "roleMatches": 101,
+        "roleUncertain": 0,
+        "contextRoleInstances": 23,
+        "findingCounts": {
+          "navigation": 31,
+          "no-target-in-view": 6,
+          "prerequisite": 8,
+          "target": 5,
+          "guidance": 4,
+          "uncertain": 1
+        },
+        "targetConflicts": 0,
+        "navigationConflicts": 0,
+        "unlabeledControlFindings": 0,
+        "policyChanges": 6
+      }
+    ],
+    "necessaryRevisit": {
+      "oldSuccesses": 4,
+      "oldTrials": 4,
+      "newSuccesses": 4,
+      "newTrials": 4,
+      "uiActionsEveryTrial": 7
+    },
+    "falseSubjectiveCompletions": 0,
+    "failedNewNotification": {
+      "id": "notifications-r1-reason",
+      "termination": "DECISION_LIMIT",
+      "decisions": 12,
+      "uiActions": 12,
+      "apiCalls": 24,
+      "finalImage": "reports/goal-search-semantics-2026-10-29/live/notifications-r1-reason/exploration/final.png",
+      "finalTraceURL": "http://127.0.0.1:5173/bad/#activity"
+    },
+    "performanceConclusion": "No demonstrated performance improvement. Observed outcomes are old6/6 versus new5/6; two repeats per task do not establish either superiority or reliable degradation."
+  },
+  "roleCorrection": {
+    "result": "OBSERVED_IN_SAVED_MODEL_ANSWERS",
+    "oldCombinedRequiredAsContext": 37,
+    "oldRequiredInstances": 68,
+    "newRequiredAsContext": 0,
+    "newRequiredInstances": 78,
+    "newAllFragmentRolesMatchingAuthoredRubric": 101,
+    "newAllFragments": 101,
+    "newCorrectBackgroundContextRoles": 23,
+    "newRoleUncertain": 0,
+    "byScenario": [
+      {
+        "scenario": "notifications",
+        "oldRequiredAsContext": 18,
+        "newRequiredAsContext": 0
+      },
+      {
+        "scenario": "revisit-alpha",
+        "oldRequiredAsContext": 9,
+        "newRequiredAsContext": 0
+      },
+      {
+        "scenario": "revisit-beta",
+        "oldRequiredAsContext": 10,
+        "newRequiredAsContext": 0
+      }
+    ],
+    "qualification": "Legacy context is a combined assessment value, whereas v2 has a separate role axis. Counts describe observed contract/rubric conflicts on repeated fixed fixtures, not a calibrated error rate or human agreement. No correct role was forced into model output."
+  },
+  "executeNavigationCorrection": {
+    "result": "OBSERVED_IN_SAVED_MODEL_ANSWERS_AND_ACTUAL_PIXELS",
+    "oldDirectTargetProposals": 20,
+    "oldNavigationAsTargetConflicts": 14,
+    "newExecuteProposals": 5,
+    "newNavigationProposals": 31,
+    "newExecuteAsNavigationConflicts": 0,
+    "newNavigationAsExecuteConflicts": 0,
+    "unlabeledControlProposals": 0,
+    "fullTextPreservedAndExactFirstRenderedLineVisuallyChecked": true,
+    "actualExecuteTransitions": [
+      {
+        "trial": "revisit-alpha-r1-reason",
+        "step": 7,
+        "currentImage": "reports/goal-search-semantics-2026-10-29/live/revisit-alpha-r1-reason/exploration/input-7.png",
+        "currentSHA": "40c81400152b99be3893cdce529ecf5f0a2c2ee0ca0454e081372d6ccb3b2a3d",
+        "rawFinding": {
+          "choice": "execute_e2",
+          "probabilities": {
+            "execute_e1": 0,
+            "navigate_e1": 0,
+            "execute_e2": 1,
+            "navigate_e2": 0,
+            "prerequisite": 0,
+            "guidance": 0,
+            "no_target_in_view": 0,
+            "uncertain": 0
+          },
+          "confidence": 1
+        },
+        "control": {
+          "fullText": "共有リンクを無効にする",
+          "firstRenderedLine": "共有リンクを無効にする",
+          "rubricMatch": "execute",
+          "id": "e2",
+          "type": "button",
+          "disabled": null
+        },
+        "actualSelected": "e2",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e2"
+        },
+        "nextImage": "reports/goal-search-semantics-2026-10-29/live/revisit-alpha-r1-reason/exploration/input-8.png",
+        "nextSHA": "778c1d8be11f2d0ec89ab3faec2cb71ca62587cbb91465a5098fb2a5a7ebaa04",
+        "nextRequirements": [
+          {
+            "id": "g1",
+            "text": "アルバム「旅の記録」の共有リンクを無効にしてください",
+            "role": "required",
+            "assessment": "observed",
+            "expectedRole": "required",
+            "rawRole": {
+              "choice": "required",
+              "probabilities": {
+                "required": 0.9,
+                "context": 0.09,
+                "uncertain": 0.01
+              },
+              "confidence": 0.85
+            },
+            "rawEvidence": {
+              "choice": "observed",
+              "probabilities": {
+                "observed": 1,
+                "not_shown": 0,
+                "contradicted": 0,
+                "uncertain": 0
+              },
+              "confidence": 1
+            },
+            "requiredAsContext": false,
+            "roleMatch": true
+          }
+        ],
+        "conclusion": "Direct goal operation performed and resulting requested state visibly observed in next actual input."
+      },
+      {
+        "trial": "revisit-beta-r1-reason",
+        "step": 7,
+        "currentImage": "reports/goal-search-semantics-2026-10-29/live/revisit-beta-r1-reason/exploration/input-7.png",
+        "currentSHA": "4287b0eb9664b5e03c1eb8e14974457a8ef84f3aeddd2d35def9f178a4bd39a7",
+        "rawFinding": {
+          "choice": "execute_e2",
+          "probabilities": {
+            "execute_e1": 0,
+            "navigate_e1": 0,
+            "execute_e2": 1,
+            "navigate_e2": 0,
+            "prerequisite": 0,
+            "guidance": 0,
+            "no_target_in_view": 0,
+            "uncertain": 0
+          },
+          "confidence": 1
+        },
+        "control": {
+          "fullText": "共有を停止する",
+          "firstRenderedLine": "共有を停止する",
+          "rubricMatch": "execute",
+          "id": "e2",
+          "type": "button",
+          "disabled": null
+        },
+        "actualSelected": "e2",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e2"
+        },
+        "nextImage": "reports/goal-search-semantics-2026-10-29/live/revisit-beta-r1-reason/exploration/input-8.png",
+        "nextSHA": "8c0992e8cd00686ed0e62ab71441720ec8907d241c6a6de71fc41b83bea780e7",
+        "nextRequirements": [
+          {
+            "id": "g1",
+            "text": "アルバム「旅の記録」の共有リンクを無効にしてください",
+            "role": "required",
+            "assessment": "observed",
+            "expectedRole": "required",
+            "rawRole": {
+              "choice": "required",
+              "probabilities": {
+                "required": 0.85,
+                "context": 0.14,
+                "uncertain": 0.01
+              },
+              "confidence": 0.77
+            },
+            "rawEvidence": {
+              "choice": "observed",
+              "probabilities": {
+                "observed": 1,
+                "not_shown": 0,
+                "contradicted": 0,
+                "uncertain": 0
+              },
+              "confidence": 1
+            },
+            "requiredAsContext": false,
+            "roleMatch": true
+          }
+        ],
+        "conclusion": "Direct goal operation performed and resulting requested state visibly observed in next actual input."
+      },
+      {
+        "trial": "notifications-r2-reason",
+        "step": 10,
+        "currentImage": "reports/goal-search-semantics-2026-10-29/live/notifications-r2-reason/exploration/input-10.png",
+        "currentSHA": "56070b4ebf74236b89da9b4655ffb52bcea6913d168e633e177ec765160d2aa3",
+        "rawFinding": {
+          "choice": "execute_e3",
+          "probabilities": {
+            "execute_e1": 0,
+            "navigate_e1": 0,
+            "execute_e2": 0,
+            "navigate_e2": 0,
+            "execute_e3": 0.96,
+            "navigate_e3": 0,
+            "execute_e4": 0,
+            "navigate_e4": 0.01,
+            "prerequisite": 0,
+            "guidance": 0,
+            "no_target_in_view": 0,
+            "uncertain": 0.03
+          },
+          "confidence": 0.96
+        },
+        "control": {
+          "fullText": "メール通知を停止する",
+          "firstRenderedLine": "メール通知を停止する",
+          "rubricMatch": "execute",
+          "id": "e3",
+          "type": "button",
+          "disabled": null
+        },
+        "actualSelected": "e3",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e3"
+        },
+        "nextImage": "reports/goal-search-semantics-2026-10-29/live/notifications-r2-reason/exploration/input-11.png",
+        "nextSHA": "c6804ce447d1e65bd039a0c5a8ca72425f6f9d8145c3c0cda6529398da7b800f",
+        "nextRequirements": [
+          {
+            "id": "g1",
+            "text": "初めて利用する暮らしクラウドで",
+            "role": "context",
+            "assessment": "not_shown",
+            "expectedRole": "context",
+            "rawRole": {
+              "choice": "context",
+              "probabilities": {
+                "required": 0,
+                "context": 1,
+                "uncertain": 0
+              },
+              "confidence": 1
+            },
+            "rawEvidence": {
+              "choice": "not_shown",
+              "probabilities": {
+                "observed": 0.04,
+                "not_shown": 0.87,
+                "contradicted": 0.04,
+                "uncertain": 0.05
+              },
+              "confidence": 0.83
+            },
+            "requiredAsContext": false,
+            "roleMatch": true
+          },
+          {
+            "id": "g2",
+            "text": "メール通知を停止し",
+            "role": "required",
+            "assessment": "observed",
+            "expectedRole": "required",
+            "rawRole": {
+              "choice": "required",
+              "probabilities": {
+                "required": 1,
+                "context": 0,
+                "uncertain": 0
+              },
+              "confidence": 1
+            },
+            "rawEvidence": {
+              "choice": "observed",
+              "probabilities": {
+                "observed": 0.98,
+                "not_shown": 0.01,
+                "contradicted": 0.01,
+                "uncertain": 0
+              },
+              "confidence": 0.97
+            },
+            "requiredAsContext": false,
+            "roleMatch": true
+          },
+          {
+            "id": "g3",
+            "text": "停止したことを確認したい",
+            "role": "required",
+            "assessment": "observed",
+            "expectedRole": "required",
+            "rawRole": {
+              "choice": "required",
+              "probabilities": {
+                "required": 1,
+                "context": 0,
+                "uncertain": 0
+              },
+              "confidence": 1
+            },
+            "rawEvidence": {
+              "choice": "observed",
+              "probabilities": {
+                "observed": 1,
+                "not_shown": 0,
+                "contradicted": 0,
+                "uncertain": 0
+              },
+              "confidence": 1
+            },
+            "requiredAsContext": false,
+            "roleMatch": true
+          }
+        ],
+        "conclusion": "Direct goal operation performed and resulting requested state visibly observed in next actual input."
+      },
+      {
+        "trial": "revisit-alpha-r2-reason",
+        "step": 7,
+        "currentImage": "reports/goal-search-semantics-2026-10-29/live/revisit-alpha-r2-reason/exploration/input-7.png",
+        "currentSHA": "40c81400152b99be3893cdce529ecf5f0a2c2ee0ca0454e081372d6ccb3b2a3d",
+        "rawFinding": {
+          "choice": "execute_e2",
+          "probabilities": {
+            "execute_e1": 0,
+            "navigate_e1": 0,
+            "execute_e2": 1,
+            "navigate_e2": 0,
+            "prerequisite": 0,
+            "guidance": 0,
+            "no_target_in_view": 0,
+            "uncertain": 0
+          },
+          "confidence": 1
+        },
+        "control": {
+          "fullText": "共有リンクを無効にする",
+          "firstRenderedLine": "共有リンクを無効にする",
+          "rubricMatch": "execute",
+          "id": "e2",
+          "type": "button",
+          "disabled": null
+        },
+        "actualSelected": "e2",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e2"
+        },
+        "nextImage": "reports/goal-search-semantics-2026-10-29/live/revisit-alpha-r2-reason/exploration/input-8.png",
+        "nextSHA": "778c1d8be11f2d0ec89ab3faec2cb71ca62587cbb91465a5098fb2a5a7ebaa04",
+        "nextRequirements": [
+          {
+            "id": "g1",
+            "text": "アルバム「旅の記録」の共有リンクを無効にしてください",
+            "role": "required",
+            "assessment": "observed",
+            "expectedRole": "required",
+            "rawRole": {
+              "choice": "required",
+              "probabilities": {
+                "required": 0.9,
+                "context": 0.09,
+                "uncertain": 0.01
+              },
+              "confidence": 0.85
+            },
+            "rawEvidence": {
+              "choice": "observed",
+              "probabilities": {
+                "observed": 1,
+                "not_shown": 0,
+                "contradicted": 0,
+                "uncertain": 0
+              },
+              "confidence": 1
+            },
+            "requiredAsContext": false,
+            "roleMatch": true
+          }
+        ],
+        "conclusion": "Direct goal operation performed and resulting requested state visibly observed in next actual input."
+      },
+      {
+        "trial": "revisit-beta-r2-reason",
+        "step": 7,
+        "currentImage": "reports/goal-search-semantics-2026-10-29/live/revisit-beta-r2-reason/exploration/input-7.png",
+        "currentSHA": "4287b0eb9664b5e03c1eb8e14974457a8ef84f3aeddd2d35def9f178a4bd39a7",
+        "rawFinding": {
+          "choice": "execute_e2",
+          "probabilities": {
+            "execute_e1": 0,
+            "navigate_e1": 0,
+            "execute_e2": 1,
+            "navigate_e2": 0,
+            "prerequisite": 0,
+            "guidance": 0,
+            "no_target_in_view": 0,
+            "uncertain": 0
+          },
+          "confidence": 1
+        },
+        "control": {
+          "fullText": "共有を停止する",
+          "firstRenderedLine": "共有を停止する",
+          "rubricMatch": "execute",
+          "id": "e2",
+          "type": "button",
+          "disabled": null
+        },
+        "actualSelected": "e2",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e2"
+        },
+        "nextImage": "reports/goal-search-semantics-2026-10-29/live/revisit-beta-r2-reason/exploration/input-8.png",
+        "nextSHA": "8c0992e8cd00686ed0e62ab71441720ec8907d241c6a6de71fc41b83bea780e7",
+        "nextRequirements": [
+          {
+            "id": "g1",
+            "text": "アルバム「旅の記録」の共有リンクを無効にしてください",
+            "role": "required",
+            "assessment": "observed",
+            "expectedRole": "required",
+            "rawRole": {
+              "choice": "required",
+              "probabilities": {
+                "required": 0.9,
+                "context": 0.09,
+                "uncertain": 0.01
+              },
+              "confidence": 0.85
+            },
+            "rawEvidence": {
+              "choice": "observed",
+              "probabilities": {
+                "observed": 1,
+                "not_shown": 0,
+                "contradicted": 0,
+                "uncertain": 0
+              },
+              "confidence": 1
+            },
+            "requiredAsContext": false,
+            "roleMatch": true
+          }
+        ],
+        "conclusion": "Direct goal operation performed and resulting requested state visibly observed in next actual input."
+      }
+    ],
+    "qualification": "Non-exhaustive findings and different visited routes change proposal denominators. Zero observed conflicts is not accuracy/recall, proof of good navigation relevance, or general semantic understanding."
+  },
+  "remainingFindings": [
+    {
+      "id": "EVIDENCE_CONTRADICTION_WITHOUT_PRIOR_SUPPORT",
+      "severity": "P2",
+      "kind": "Residual model semantic contract concern",
+      "count": 6,
+      "evidence": "independent-live-contradiction-concerns.json",
+      "meaning": "At the current enabled/receiving state, contradicted is chosen despite only not_shown prior states. The saved criterion explicitly requires negation of earlier evidence or subject mismatch.",
+      "impact": "These six were followed by correct execute actions and observed success. No false done was caused here. Full current-evidence semantics remain unverified and should not be reported as completely corrected.",
+      "codeBugEstablished": false
+    },
+    {
+      "id": "NOTIFICATION_LOOP_PERSISTS",
+      "severity": "P1",
+      "kind": "Unresolved task behavior",
+      "trial": "notifications-r1-reason",
+      "evidence": [
+        {
+          "step": 1,
+          "url": "http://127.0.0.1:5173/bad/",
+          "modelChoice": "e4",
+          "selected": "e4",
+          "rawModelProbability": 0.9400000000000001,
+          "policyChanged": false,
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "nextActualURL": "http://127.0.0.1:5173/bad/#settings"
+        },
+        {
+          "step": 2,
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "modelChoice": "e4",
+          "selected": "e4",
+          "rawModelProbability": 0.85,
+          "policyChanged": false,
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "nextActualURL": "http://127.0.0.1:5173/bad/#campaign"
+        },
+        {
+          "step": 3,
+          "url": "http://127.0.0.1:5173/bad/#campaign",
+          "modelChoice": "e3",
+          "selected": "e3",
+          "rawModelProbability": 0.47000000000000003,
+          "policyChanged": false,
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "nextActualURL": "http://127.0.0.1:5173/bad/#home"
+        },
+        {
+          "step": 4,
+          "url": "http://127.0.0.1:5173/bad/#home",
+          "modelChoice": "e4",
+          "selected": "back",
+          "rawModelProbability": 0.95,
+          "policyChanged": true,
+          "action": {
+            "type": "back"
+          },
+          "nextActualURL": "http://127.0.0.1:5173/bad/#campaign"
+        },
+        {
+          "step": 5,
+          "url": "http://127.0.0.1:5173/bad/#campaign",
+          "modelChoice": "e2",
+          "selected": "e2",
+          "rawModelProbability": 0.5700000000000001,
+          "policyChanged": false,
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "nextActualURL": "http://127.0.0.1:5173/bad/#home"
+        },
+        {
+          "step": 6,
+          "url": "http://127.0.0.1:5173/bad/#home",
+          "modelChoice": "e4",
+          "selected": "scroll_down",
+          "rawModelProbability": 0.93,
+          "policyChanged": true,
+          "action": {
+            "type": "scroll",
+            "direction": "down"
+          },
+          "nextActualURL": "http://127.0.0.1:5173/bad/#home"
+        },
+        {
+          "step": 7,
+          "url": "http://127.0.0.1:5173/bad/#home",
+          "modelChoice": "e2",
+          "selected": "e2",
+          "rawModelProbability": 0.9,
+          "policyChanged": false,
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "nextActualURL": "http://127.0.0.1:5173/bad/#settings"
+        },
+        {
+          "step": 8,
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "modelChoice": "e4",
+          "selected": "e4",
+          "rawModelProbability": 0.87,
+          "policyChanged": false,
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "nextActualURL": "http://127.0.0.1:5173/bad/#campaign"
+        },
+        {
+          "step": 9,
+          "url": "http://127.0.0.1:5173/bad/#campaign",
+          "modelChoice": "e2",
+          "selected": "back",
+          "rawModelProbability": 0.87,
+          "policyChanged": true,
+          "action": {
+            "type": "back"
+          },
+          "nextActualURL": "http://127.0.0.1:5173/bad/#settings"
+        },
+        {
+          "step": 10,
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "modelChoice": "e4",
+          "selected": "e4",
+          "rawModelProbability": 0.74,
+          "policyChanged": false,
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "nextActualURL": "http://127.0.0.1:5173/bad/#campaign"
+        },
+        {
+          "step": 11,
+          "url": "http://127.0.0.1:5173/bad/#campaign",
+          "modelChoice": "back",
+          "selected": "back",
+          "rawModelProbability": 0.56,
+          "policyChanged": false,
+          "action": {
+            "type": "back"
+          },
+          "nextActualURL": "http://127.0.0.1:5173/bad/#settings"
+        },
+        {
+          "step": 12,
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "modelChoice": "e4",
+          "selected": "e3",
+          "rawModelProbability": 0.57,
+          "policyChanged": true,
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "nextActualURL": null
+        }
+      ],
+      "meaning": "Correct required roles and navigation labels did not prevent repeated settings/campaign/home visits, 24 requests and DECISION_LIMIT. Final controller-selected e3 leads to Usage History, with no stop result.",
+      "codeBugEstablished": false
+    }
+  ],
+  "selectionAttribution": {
+    "modelChoiceAlwaysEqualsRawArgmax": true,
+    "oldControllerChangedSelections": 3,
+    "newControllerChangedSelections": 6,
+    "allChangedSelections": [
+      {
+        "trial": "notifications-r1-old",
+        "step": 4,
+        "image": "reports/goal-search-semantics-2026-10-29/live/notifications-r1-old/exploration/input-4.png",
+        "modelChoice": "e4",
+        "rawTop": "e4",
+        "safeBaselineSelected": "e4",
+        "actualSelected": "scroll_down",
+        "rawBaselineProbability": 0.88,
+        "rawActualProbability": 0.03,
+        "baselineWeight": 0.01,
+        "selectedWeight": 1,
+        "postPolicyActualProbability": 0.3807106598984772,
+        "action": {
+          "type": "scroll",
+          "direction": "down"
+        },
+        "nextActualURL": "http://127.0.0.1:5173/bad/#home"
+      },
+      {
+        "trial": "notifications-r1-old",
+        "step": 8,
+        "image": "reports/goal-search-semantics-2026-10-29/live/notifications-r1-old/exploration/input-8.png",
+        "modelChoice": "e4",
+        "rawTop": "e4",
+        "safeBaselineSelected": "e4",
+        "actualSelected": "e5",
+        "rawBaselineProbability": 0.9400000000000001,
+        "rawActualProbability": 0.01,
+        "baselineWeight": 0.01,
+        "selectedWeight": 1,
+        "postPolicyActualProbability": 0.3401360544217687,
+        "action": {
+          "type": "click",
+          "elementId": "e5"
+        },
+        "nextActualURL": "http://127.0.0.1:5173/bad/#other"
+      },
+      {
+        "trial": "notifications-r1-reason",
+        "step": 4,
+        "image": "reports/goal-search-semantics-2026-10-29/live/notifications-r1-reason/exploration/input-4.png",
+        "modelChoice": "e4",
+        "rawTop": "e4",
+        "safeBaselineSelected": "e4",
+        "actualSelected": "back",
+        "rawBaselineProbability": 0.95,
+        "rawActualProbability": 0.01,
+        "baselineWeight": 0.01,
+        "selectedWeight": 1,
+        "postPolicyActualProbability": 0.20202020202020202,
+        "action": {
+          "type": "back"
+        },
+        "nextActualURL": "http://127.0.0.1:5173/bad/#campaign"
+      },
+      {
+        "trial": "notifications-r1-reason",
+        "step": 6,
+        "image": "reports/goal-search-semantics-2026-10-29/live/notifications-r1-reason/exploration/input-6.png",
+        "modelChoice": "e4",
+        "rawTop": "e4",
+        "safeBaselineSelected": "e4",
+        "actualSelected": "scroll_down",
+        "rawBaselineProbability": 0.93,
+        "rawActualProbability": 0.02,
+        "baselineWeight": 0.01,
+        "selectedWeight": 1,
+        "postPolicyActualProbability": 0.33726812816188867,
+        "action": {
+          "type": "scroll",
+          "direction": "down"
+        },
+        "nextActualURL": "http://127.0.0.1:5173/bad/#home"
+      },
+      {
+        "trial": "notifications-r1-reason",
+        "step": 9,
+        "image": "reports/goal-search-semantics-2026-10-29/live/notifications-r1-reason/exploration/input-9.png",
+        "modelChoice": "e2",
+        "rawTop": "e2",
+        "safeBaselineSelected": "e2",
+        "actualSelected": "back",
+        "rawBaselineProbability": 0.87,
+        "rawActualProbability": 0.04,
+        "baselineWeight": 0.01,
+        "selectedWeight": 1,
+        "postPolicyActualProbability": 0.6791171477079796,
+        "action": {
+          "type": "back"
+        },
+        "nextActualURL": "http://127.0.0.1:5173/bad/#settings"
+      },
+      {
+        "trial": "notifications-r1-reason",
+        "step": 12,
+        "image": "reports/goal-search-semantics-2026-10-29/live/notifications-r1-reason/exploration/input-12.png",
+        "modelChoice": "e4",
+        "rawTop": "e4",
+        "safeBaselineSelected": "e4",
+        "actualSelected": "e3",
+        "rawBaselineProbability": 0.57,
+        "rawActualProbability": 0.21,
+        "baselineWeight": 0.01,
+        "selectedWeight": 1,
+        "postPolicyActualProbability": 0.6255585344057194,
+        "action": {
+          "type": "click",
+          "elementId": "e3"
+        },
+        "nextActualURL": null
+      },
+      {
+        "trial": "notifications-r2-reason",
+        "step": 4,
+        "image": "reports/goal-search-semantics-2026-10-29/live/notifications-r2-reason/exploration/input-4.png",
+        "modelChoice": "e4",
+        "rawTop": "e4",
+        "safeBaselineSelected": "e4",
+        "actualSelected": "scroll_down",
+        "rawBaselineProbability": 0.92,
+        "rawActualProbability": 0.03,
+        "baselineWeight": 0.01,
+        "selectedWeight": 1,
+        "postPolicyActualProbability": 0.4335260115606936,
+        "action": {
+          "type": "scroll",
+          "direction": "down"
+        },
+        "nextActualURL": "http://127.0.0.1:5173/bad/#home"
+      },
+      {
+        "trial": "notifications-r2-reason",
+        "step": 8,
+        "image": "reports/goal-search-semantics-2026-10-29/live/notifications-r2-reason/exploration/input-8.png",
+        "modelChoice": "e4",
+        "rawTop": "e4",
+        "safeBaselineSelected": "e4",
+        "actualSelected": "e5",
+        "rawBaselineProbability": 0.96,
+        "rawActualProbability": 0.01,
+        "baselineWeight": 0.01,
+        "selectedWeight": 1,
+        "postPolicyActualProbability": 0.33783783783783783,
+        "action": {
+          "type": "click",
+          "elementId": "e5"
+        },
+        "nextActualURL": "http://127.0.0.1:5173/bad/#other"
+      },
+      {
+        "trial": "notifications-r2-old",
+        "step": 4,
+        "image": "reports/goal-search-semantics-2026-10-29/live/notifications-r2-old/exploration/input-4.png",
+        "modelChoice": "e4",
+        "rawTop": "e4",
+        "safeBaselineSelected": "e4",
+        "actualSelected": "e5",
+        "rawBaselineProbability": 0.89,
+        "rawActualProbability": 0.03,
+        "baselineWeight": 0.01,
+        "selectedWeight": 1,
+        "postPolicyActualProbability": 0.3374578177727784,
+        "action": {
+          "type": "click",
+          "elementId": "e5"
+        },
+        "nextActualURL": "http://127.0.0.1:5173/bad/#other"
+      }
+    ],
+    "successfulNewNotificationSwitch": {
+      "trial": "notifications-r2-reason",
+      "step": 8,
+      "rawSettingsE4": 0.96,
+      "rawOtherE5": 0.01,
+      "controllerSelected": "e5",
+      "postPolicyE5": 0.33783783783783783
+    },
+    "conclusion": "The successful new notification route switched to Other through existing conditional deferral weighting while the model raw preference remained Settings. Do not attribute that switch to spontaneous semantic replanning. Necessary revisits have zero controller-changed selections in these runs."
+  },
+  "pixelCoverage": {
+    "allDeliveredFrames": 105,
+    "newFrames": 55,
+    "oldFrames": 50,
+    "uniqueActualInputPNGsVisuallyInspected": 22,
+    "terminalTrials": 12,
+    "uniqueTerminalPNGsVisuallyInspected": 4,
+    "grouping": "SHA256 identical bytes group repeated saved images; all 105 current frames and all12 finals map to reviewed exact PNG groups.",
+    "allTargetNavigationProposalPNGsCovered": true,
+    "allTerminalObjectiveOutcomesConsistent": true
+  },
+  "limitations": [
+    "Auditor role/control-kind rubric was authored by parent AI before completion and is not human validated. Independent reviewer inspected actual PNGs and transitions instead of using parent aggregate reports as ground truth.",
+    "The six contradicted findings are a post-hoc saved-contract audit, not a preregistered state-accuracy benchmark.",
+    "Saved inputs, image hashes, raw responses and request ledgers cannot independently prove what a remote backend internally processed or understood.",
+    "Two repeats on each of three fixed fixtures are descriptive. No performance advantage, human fidelity, model probability calibration, broad reliability or generalization is established.",
+    "Current-finding annotations can decorate every action. Receipt or selection of an annotation does not prove its causal use.",
+    "Existing standard budget wrapper initial OBSERVATION_ERROR cases remain unresolved. This completed normal human runner had prepared page loading; the full project suite is not green."
+  ],
+  "sourceAndRawRecheckedAfterPixelReview": true,
+  "offlineAuditCodeHashes": {
+    "independent-live-preflight.mjs": "cb9cb5cca941b382e16b946269b2cd71aec24d2197f53ea89d7ed1b031be8364",
+    "independent-live-raw-audit.mjs": "124c7dcdb2ef83f5221cdf01114414ee44967bcba827fd89bab306095a2d7576",
+    "independent-live-finalize.mjs": "5a33dcc1ca9683ee2b68dce87cbc820239bd631ba80eba3da15ffe843d86847a"
+  }
+}

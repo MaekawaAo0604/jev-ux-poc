@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "round": 1,
+  "status": "CHANGES_REQUESTED_NEW_REFERENCE_STORAGE_VALIDATION",
+  "producer": {
+    "revision": "9c6207adda0d0a746e68d08d75a8a8be8d58f7d9",
+    "sourceHash": "2cf4eea8ee8207fa8ccc8b4924979abf78bafc0e0b8df15287f893731b86ddf5"
+  },
+  "evidence": "independent-1793255212782/report.json",
+  "command": "$env:JEV_EVIDENCE_AUDIT_SNAPSHOT=\"reports/goal-search-evidence-2026-10-29/engineering-source.json\"; node --import tsx --test --test-concurrency=1 tests/goal-search-evidence-independent.test.ts",
+  "tests": {
+    "total": 31,
+    "pass": 29,
+    "fail": 2,
+    "skip": 0,
+    "typescriptNoEmit": "exit0"
+  },
+  "findings": [
+    {
+      "id": "NEW_REFERENCE_BYPASSES_RETAINED_OBSERVED_SUPPORT",
+      "severity": "P2",
+      "file": "jev/virtual-beta/goal-search.ts",
+      "line": 145,
+      "relatedLines": [
+        115,
+        119,
+        123
+      ],
+      "problem": "rememberGoalSearch allows a new current contradiction to reference an arbitrary older source absent from prior admitted observed memory. The exception preserving already-admitted evicted provenance is also applied to newly created references.",
+      "reproduction": [
+        "Construct grounded entry source o3, same valid goal/fragment/required role, assessment contradicted, contradicts o1 with any syntactically valid sha256. Call rememberGoalSearch(undefined, entry, cfg): it accepts.",
+        "First admit observed o1 and contradicted o2 referencing o1, retain with capacity1 so only o2 remains. Construct new o3 contradicted referencing evicted o1. rememberGoalSearch(prior, newEntry, cfg) accepts despite absence of observed o1 in bounded prior."
+      ],
+      "expected": "A new current contradiction must match a retained earlier observed record for the exact goal/fragment/source. Older references already stored in earlier memory may survive source eviction without recreating eligibility for new references.",
+      "actual": "Both new orphan references are copied into returned GoalSearchMemory; both assert.throws regressions fail.",
+      "impact": "Runtime admission limits actual model choices, so normal runner/replay are protected on the exercised path. The exported storage validation boundary nevertheless accepts invented or no-longer-eligible support when passed a new entry directly.",
+      "requiredScope": "Separate current-entry reference validation from earlier-memory provenance retention; keep legal evicted-reference copying and boundedness.",
+      "regressions": [
+        "a new contradiction cannot invent a source with no prior admitted observed record",
+        "an evicted source can remain provenance but cannot be newly cited again"
+      ]
+    }
+  ],
+  "verified": {
+    "productFiles": 122,
+    "exactSourceBeforeAfter": true,
+    "oldRawFilesUnchanged": 1094,
+    "oldLedgersUnchanged": 118,
+    "historicalReplays": 29,
+    "exactOmittedModeQuestionRecordComparisons": 165,
+    "positiveChromiumGatewayStub": {
+      "dir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\goal-search-evidence-2026-10-29\\independent-1793255212782\\positive-browser",
+      "requests": 6,
+      "uiActions": 2,
+      "initialTimeout": 30000,
+      "source": {
+        "observationId": "o1",
+        "imageSha256": "5a5a6802071e20af32b386d78da6cfd5e3670934aea80ffc13012f490a18b482"
+      },
+      "contradicted": {
+        "id": "g1",
+        "text": "表示の色が青であることを確認したい",
+        "role": "required",
+        "assessment": "contradicted",
+        "contradicts": {
+          "observationId": "o1",
+          "imageSha256": "5a5a6802071e20af32b386d78da6cfd5e3670934aea80ffc13012f490a18b482"
+        }
+      },
+      "replay": true,
+      "rehashedTamperingRejected": [
+        "sameIdWrongHash",
+        "futureReference",
+        "priorNotObserved",
+        "alienGoal",
+        "alienFragment",
+        "missingMode",
+        "extraReferenceChoice",
+        "badDistribution",
+        "inputReference",
+        "missingObservedMemory"
+      ]
+    },
+    "actualPositiveInputPixelsViewed": [
+      "independent-1793255212782/positive-browser/input-1.png",
+      "independent-1793255212782/positive-browser/input-2.png"
+    ],
+    "pixelObservation": "Actual current blue state then red state, each textual label and colored panel visible. Prior source o1 is recorded observed before contradicted_o1 is offered.",
+    "coldLoad": {
+      "delayMs": 11250,
+      "elapsedMs": 12051.515600000002,
+      "initialTimeout": 19999,
+      "apiCalls": 1,
+      "termination": "SUBJECTIVE_DONE"
+    },
+    "shortLoad": {
+      "initialTimeout": 149,
+      "apiCalls": 0,
+      "uiActions": 0,
+      "termination": "OBSERVATION_ERROR",
+      "validForComparison": false
+    },
+    "profilePairingMutationsRejected": [
+      "capacity",
+      "enabled",
+      "interpretation",
+      "seed",
+      "persona",
+      "goal"
+    ],
+    "roleNavigationContractsPreserved": true,
+    "unsupportedChoicesAndMalformedProbabilityRejected": true
+  },
+  "limitations": [
+    "This is engineering validation with a fully intercepted gateway. No real model request, learned semantics claim, human comparison, production edit or old input resend.",
+    "The unsupported plain contradiction alternative is mechanically absent without retained observed support; its absence is enforced validation, not learned correctness.",
+    "Unattached historical support is covered by question/provenance unit assertions; actual positive Chromium case has the earlier source image attached via existing memory.",
+    "Full project suite is parent-owned and still running at the time of this independent review. No full suite was duplicated."
+  ],
+  "testFileSha256": "8e1bc196d33f4370b8c6731c3db05c69d1d553dd5d8a7fd0ebcc6224b1faf5d9"
+}

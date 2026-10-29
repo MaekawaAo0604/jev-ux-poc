@@ -1,5 +1,7 @@
 # 予算台帳の保存失敗診断（2026-10-29）
 
+この文書は 92e0cf8 時点の診断追加の記録。後続の実 EPERM、限定再試行、FIFO と独立指摘の修正は [budget-replace-retry.md](budget-replace-retry.md) を参照する。
+
 予算台帳の保存失敗を、送信前後の境界とファイル操作の段階で区別できるようにした。
 基準は `92e0cf8`。
 製品スナップショットの sourceHash は `1970c415a7c07a8cecf1e0ff258f6f4006109e0e7ff1a1d741b0da18700f6ca6`。

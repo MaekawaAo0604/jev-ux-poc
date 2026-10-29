@@ -19,7 +19,8 @@ V2 entries/role states are strictly validated and copied through both model stag
 - [x] Parent comparison goal-search-semantics: existing3scenarios x2arms x2reps, old=experience-goal-search/new=experience-goal-search-v2, only id/interpretation excluded from paired config; max12trials/288req,24trial/12decisions/180sec/20min/parallel1, no retry, preserve106 prior ledgers and all saved raw.
 - [x] Frozen source159d5bdb: fresh independent20/20,17 savedreplays,60 saved legacy question/record comparisons,106 priorledgers/648 artifact hashes. P2 summary exclusion wording fixed without changing actor. Build/tsc success; newfixture charset fixed and verified separately.
 - [x] Real normal-runner12 (210requests,old6/6,new5/6; independentraw/png audit completed), no saved input resend/humaninput/envlogging. Audit actual roles/states/execute-nav images/distributions/choice/routes/termination; separate model-vs-controller effects. No promise semantic fix solely from tests.
-- [ ] Relevant tests + build + project test command, report any unverified/skipped/baseline failures; independent actual raw/image audit; docs and feature push.
+- [x] Relevant tests/build and complete project command executed; all1666=1656pass/7fail/3skip preserved. Seven failures repaired without relaxed assertions,42related/13independent pass; actual12-run raw/image audit and docs complete.
+- Feature publication target: feature/virtual-beta-information-state; final remote commit verification is reported with delivery.
 
 ## Rejected options
 No specific string override, no role forced from grammar, no DOM-derived navigation truth supplied to actor, no permanent route ban, no changed deferral weights, no extra reasoning API stage or new framework. Real semantic errors remaining after v2 stay explicitly unresolved.

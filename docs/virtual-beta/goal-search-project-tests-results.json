@@ -1,0 +1,148 @@
+{
+  "producer": {
+    "revision": "0f0ba0735b2a60e49103df9d70aeddb9ce434923",
+    "sourceHash": "5120f9a4c3bd33c3f1e0f974407a86b3647af9fffdb0980a16e4cb233e984d73"
+  },
+  "command": "node --import tsx --test --test-concurrency=2 tests/*.test.ts",
+  "exitCode": 1,
+  "log": "reports/goal-search-evidence-persistence-fixed-2026-10-29/project-tests.log",
+  "logSha256": "88d82ca4fce96cbfbbd635f42fcfc3fce36f28c93bac77ceb0ccd4fe90b0a4ff",
+  "counts": {
+    "tests": 1666,
+    "pass": 1656,
+    "fail": 7,
+    "cancelled": 0,
+    "skipped": 3,
+    "todo": 0,
+    "durationMs": 2351830.1706
+  },
+  "skips": [
+    "﹣ real local OCR starts both language models cleanly and recognizes a rendered price (0.1624ms) # SKIP",
+    "﹣ live image decisions require every requested condition, including qualifiers (0.6996ms) # SKIP",
+    "﹣ live visual exploration and audit distinguish action outcomes from learning availability (0.6819ms) # SKIP"
+  ],
+  "failures": [
+    "✖ only twelve added runner lines differ from previous producer; actor, GoalSearch, replay, UI and successful path bytes unchanged (340.7449ms)",
+    "✖ independent source identity, unchanged baseline policy, protocol schedule and bounded profiles (27652.8254ms)",
+    "✖ independent: replay rejects a cited historical observation whose image was never attached (99.5124ms)",
+    "✖ independent: replay rejects a historical image reference whose recorded source hash differs from asset bytes (26.5976ms)",
+    "✖ independent: replay accepts two observation IDs backed by the same attached image bytes (6.0604ms)",
+    "✖ a late assessment cannot launch the action request or click after the run deadline (28963.135ms)",
+    "✖ persona CLI writes auditable fake artifacts and can reanalyze them without inference (31149.3338ms)"
+  ],
+  "status": "FULL_SUITE_FAILURES_PRESERVED_REPAIRED_CASES_AND_RELATED_REGRESSIONS_INDEPENDENTLY_PASS",
+  "finalFullSuiteRerun": false,
+  "targetedRepairs": {
+    "log": "reports/goal-search-evidence-persistence-fixed-2026-10-29/targeted-repairs.log",
+    "sha256": "34d39b9750b9d3bfc9dfecb90d67ddb8ce21031c68a854524ce9c27c0adb7606",
+    "command": "node --import tsx --test --test-concurrency=2 tests/gateway-batch-stop-independent.test.ts tests/holdout-independent.test.ts tests/information-independent.test.ts tests/information-runner.test.ts tests/persona-cli.test.ts tests/persona-browser.test.ts tests/action-trace.test.ts tests/virtual-beta-initial-load.test.ts",
+    "exitCode": 0,
+    "counts": {
+      "tests": 42,
+      "pass": 42,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  "controlledDelayRed": {
+    "log": "reports/goal-search-evidence-persistence-fixed-2026-10-29/persona-initial-load-red.log",
+    "sha256": "80e3733c8f33c1ccf32b65db9f353e6b254164a4f1e54ef68d90a8362c53fb21",
+    "command": "node --import tsx --test tests/persona-initial-load.test.ts",
+    "exitCode": 1,
+    "counts": {
+      "tests": 1,
+      "pass": 0,
+      "fail": 1,
+      "skipped": 0
+    }
+  },
+  "controlledDelayGreen": {
+    "log": "reports/goal-search-evidence-persistence-fixed-2026-10-29/persona-initial-load-green.log",
+    "sha256": "241f183674c31da4fadc63d45855644e3d59ac00ccb497680185d29d6a5172ce",
+    "command": "node --import tsx --test tests/persona-initial-load.test.ts",
+    "exitCode": 0,
+    "counts": {
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  "repairedSnapshot": {
+    "revision": "0f0ba0735b2a60e49103df9d70aeddb9ce434923",
+    "sourceHash": "f65a0feaef10f31c512b008685ddbc359715dc99bc9c0dd8bd28b49fd9b9f063",
+    "uncommittedProductDifference": [
+      "runner/engine.ts"
+    ],
+    "build": {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": "reports/goal-search-evidence-persistence-fixed-2026-10-29/build-final-repairs.log"
+    },
+    "actualModelRerun": false
+  },
+  "skipReasons": {
+    "RUN_OCR_INTEGRATION": "not enabled",
+    "JEV_LIVE_COMPOSITE": "not enabled",
+    "JEV_LIVE_SEMANTICS": "not enabled"
+  },
+  "independentSelectedExecution": {
+    "tests": 13,
+    "pass": 13,
+    "fail": 0,
+    "skip": 0,
+    "exit": 0,
+    "durationMs": 249560.6455,
+    "originalFailedCases": 7,
+    "newPersonaDelayCase": 1,
+    "betaInitialLoadCases": 2,
+    "supportGatewayCases": 3,
+    "supportReason": "Unchanged gateway after hook requires exactly five synthetic HTTP attempts from assessment402/action402/500control; the three support cases preserve it.",
+    "names": [
+      "only twelve added runner lines differ from previous producer; actor, GoalSearch, replay, UI and successful path bytes unchanged",
+      "ordinary Chromium batch assessment-402 respects exact request/trial limit, safe evidence and final accounting",
+      "ordinary Chromium batch action-402 respects exact request/trial limit, safe evidence and final accounting",
+      "ordinary Chromium batch assessment-500-control respects exact request/trial limit, safe evidence and final accounting",
+      "independent source identity, unchanged baseline policy, protocol schedule and bounded profiles",
+      "independent: replay rejects a cited historical observation whose image was never attached",
+      "independent: replay rejects a historical image reference whose recorded source hash differs from asset bytes",
+      "independent: replay accepts two observation IDs backed by the same attached image bytes",
+      "a late assessment cannot launch the action request or click after the run deadline",
+      "persona CLI writes auditable fake artifacts and can reanalyze them without inference",
+      "persona initial navigation waits through one eleven-second HTML delay while other operations keep ten seconds",
+      "a cold initial page that becomes ready within the run budget reaches inference instead of failing at an unrelated ten-second limit",
+      "initial navigation respects the remaining run budget and makes no inference after load timeout"
+    ],
+    "log": "reports/goal-search-evidence-persistence-fixed-2026-10-29/independent-final-repairs-tests.log",
+    "logSHA256": "1dd008ec5be113ea5464c551bffffc8cad79418c3db46232e88de6c23f011c14",
+    "pattern": "only twelve added runner|ordinary Chromium batch|independent source identity, unchanged baseline policy|independent: replay rejects a cited historical|independent: replay rejects a historical image reference|independent: replay accepts two observation IDs|a late assessment cannot launch|persona CLI writes auditable fake artifacts|persona initial navigation waits through|a cold initial page that becomes ready|initial navigation respects the remaining run budget",
+    "files": [
+      "tests/gateway-batch-stop-independent.test.ts",
+      "tests/holdout-independent.test.ts",
+      "tests/information-independent.test.ts",
+      "tests/information-runner.test.ts",
+      "tests/persona-cli.test.ts",
+      "tests/persona-initial-load.test.ts",
+      "tests/virtual-beta-initial-load.test.ts"
+    ],
+    "flags": [
+      "--import tsx",
+      "--test",
+      "--test-concurrency=1",
+      "--test-name-pattern=PATTERN"
+    ],
+    "preload": "independent-final-env-guard.mjs via NODE_OPTIONS inherited by child CLIs"
+  },
+  "independentReport": "docs/virtual-beta/goal-search-final-repairs-independent-review.json",
+  "parentFinalIntegrity": {
+    "historicalRawUnchanged": 1517,
+    "priorLedgersUnchanged": 130,
+    "finalRealRawUnchanged": 422,
+    "archiveSHA256": "35a87393b0d9881856d05889279f1524c9d3896cf7cb3fc9bb3d0a82858c327c",
+    "archiveFiles": 122,
+    "productChangesSinceRealProducer": [
+      "runner/engine.ts"
+    ],
+    "oldUnresolvedReservationAndTempUnmodified": true
+  }
+}

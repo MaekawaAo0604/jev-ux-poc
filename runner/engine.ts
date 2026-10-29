@@ -46,7 +46,7 @@ export async function run(page:Page,decide:Decider,config:Config,auditEvaluator?
   const onError=(e:Error)=>errors.push(e.message);page.on('pageerror',onError);
   page.on('download',d=>{pending.push((async()=>{const name=d.suggestedFilename();const path=join(config.dir,`download-${pending.length}.pdf`);await d.saveAs(path);const bytes=await readFile(path);if(bytes.subarray(0,5).toString()==='%PDF-')downloads.push(name);})().catch(()=>{errors.push('DOWNLOAD_ERROR');}));});
   try{
-    await page.goto(`${config.baseURL}/${config.variant}/`,{waitUntil:'networkidle'});
+    await page.goto(`${config.baseURL}/${config.variant}/`,{waitUntil:'networkidle',timeout:30000});
     while(!reason){
       if(errors.length){reason='PAGE_ERROR';break;}
       if(config.maxActions>0&&actionCount>=config.maxActions){reason='ACTION_LIMIT';break;}

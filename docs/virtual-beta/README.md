@@ -128,3 +128,15 @@ manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.j
 ## チーム予算変更後の実モデル再比較（2026-10-29）
 
 [goal-search-resumed.md](goal-search-resumed.md) に固定版6cb8/source1b8の12試行・202正常要求を記録した。旧5/6、新6/6、必要再訪は両方式4/4で全7UI、基盤障害0。過去の中断記録は保持する。同条件2反復の記述比較で、モデルの自発的な切り替えや新部品の安定した優位、人間一致を実証していない。要求の役割と現在の観察状態の分離、既存補正の効果を切り分ける対照は未解決の次タスクとして残す。独立検証は基盤PASS、12replay/trace・6pair・原本不変を確認した。navigation/target分類14提案とaction/context分類38提案の意味上の対立は未解決。関連91/91・build成功。詳細は同文書と独立所見に保存した。
+
+## Goal の役割と否定の出典（2026-10-29）
+
+[goal-search-semantics.md](goal-search-semantics.md) に、要求の役割と現在の画像状態、入口と直接実行操作を分離した修正と実モデル 12 試行を記録した。
+今回の rubric 上の分類対立は減ったが、旧 6/6、新 5/6 で、探索の切り替えは未解決だった。
+独立 raw 監査は追加で、過去 observed を持たない否定 6 件を発見した。
+
+[goal-search-evidence.md](goal-search-evidence.md) に、その出典を明示する opt-in と、初期 goto の予算修正を記録する。
+保存境界の P2 は独立の 2 ケースで再現し、修正後に同じ assertion を含む 31/31 と型検査が通過した。
+新旧プロファイル、固定版、通常 runner の比較コマンド、実測と未検証範囲は各文書から追跡できる。
+
+台帳置換の実 EPERM と、HTTP を再送しない有限回 rename、同じ台帳の保存順序、相対パスの修正は [budget-replace-retry.md](budget-replace-retry.md) に記録する。

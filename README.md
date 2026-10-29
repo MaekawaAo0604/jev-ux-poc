@@ -406,7 +406,8 @@ Remove-Item Env:RUN_OCR_INTEGRATION
 
 文字サイズ比較では同じ画面から `fontSizePx` だけを除外します。
 文字領域の位置は両条件で渡しますが、太さは未実装です。
-スクリーンショットは監査用で、Jev へ送りません。
+既定のテキスト入力モードでは、スクリーンショットは監査用で、Jev へ送りません。
+`--vision` を有効にした実行と、後述の仮想β runner は画像入力を扱います。
 小さな文字を数値で伝えても、人間の視覚や注意を再現する保証はありません。
 繰り返し試行で毎回違う結果になる保証もありません。
 
@@ -418,3 +419,5 @@ Remove-Item Env:RUN_OCR_INTEGRATION
 ## 仮想βテスト基盤
 
 視覚制約・利用可能な記憶・確率的選択を独立設定した4条件比較は [docs/virtual-beta/README.md](docs/virtual-beta/README.md) を参照してください。既存CLIは維持しています。
+
+Goal の役割と現在の証拠、入口と実行操作を分けた修正は [意味判定の実比較](docs/virtual-beta/goal-search-semantics.md)、否定の出典と初期読み込みの修正は [出典参照の追補](docs/virtual-beta/goal-search-evidence.md) を参照してください。

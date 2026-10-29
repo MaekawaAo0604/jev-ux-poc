@@ -1,0 +1,86 @@
+{
+  "status": "READ_ONLY_DIFF_REVIEW_NO_FINDINGS_EXECUTION_PENDING",
+  "files": [
+    {
+      "file": "tests/gateway-batch-stop-independent.test.ts",
+      "beforeSHA": "74a52dc753eed8e82557ba8f0e3f1aae65778cd91a359059a3a0b64aaf6bc6ce",
+      "currentSHA": "ac8db9cef0083f8992cb1576a975d2897cafab6d60878e4fc390b891f2c67ece",
+      "testNamesIdentical": true,
+      "noAddedSkips": true,
+      "behavioralExpectationsPreserved": true
+    },
+    {
+      "file": "tests/holdout-independent.test.ts",
+      "beforeSHA": "8471ba46e4bff537301e93f35d4852d2cf6fe55fbdea44e35822810419d6bfb3",
+      "currentSHA": "f00fdd89a1b82a7c90f810013aec23f9a08d20dc6073365a8ed92b939b8de39c",
+      "testNamesIdentical": true,
+      "noAddedSkips": true,
+      "behavioralExpectationsPreserved": true
+    },
+    {
+      "file": "tests/information-independent.test.ts",
+      "beforeSHA": "7877dcec7807b60d9592144377b0ca6e55a596103ffe190d1ad67618562f7352",
+      "currentSHA": "5774085549b141b9a317b121f2251356189fb9c5b19115769e0711e15b86f890",
+      "testNamesIdentical": true,
+      "noAddedSkips": true,
+      "behavioralExpectationsPreserved": true
+    },
+    {
+      "file": "tests/information-runner.test.ts",
+      "beforeSHA": "ff98546347b69534ddce7414d4159ab1852af4a0cc447f919df40871c39415bb",
+      "currentSHA": "4aa8272297f484f1778608640b3d2145afdd2849ae98456736efd0c48d4d31fa",
+      "testNamesIdentical": true,
+      "noAddedSkips": true,
+      "behavioralExpectationsPreserved": true
+    }
+  ],
+  "scope": {
+    "testsRun": 0,
+    "CLIExecutions": 0,
+    "browserRuns": 0,
+    "APIRequests": 0,
+    "testEdits": 0,
+    "productEdits": 0,
+    "originalRawAuditReportEdits": 0
+  },
+  "reviewNotes": [
+    "Gateway historical theorem now uses fixed ab71a1508420c4bfc09105e66f62a608fb75c578 versus ee8fe22183e4fd6c30f6919f1af35158d8bef634. Runner-only/12 additions/0 deletions/exact old-line subsequence all remain; everything outside that historical case is byte-identical after line-ending normalization.",
+    "Holdout historical comparison target is fixed5798717671f7fec7502a225e40ac56db48e1c5e4. Only target and explanatory assertion message change; current source/schedule/profiles and all functional cases remain.",
+    "Provenance fixture adds config:config() only. Reverse that addition and the entire file matches HEAD; all rejection regexes/positive assessment1 stay exact.",
+    "Late assessment adds only prior same-URL warm navigation. Reverse that precondition and entire file matches HEAD; maxRunMs6000, timeoutMs+30 wait, calls1/API1/TIME_LIMIT/UI0/no action response stay exact. Separate cold10500ms and150ms initial-load tests are unmodified."
+  ],
+  "originalFullSuite": {
+    "log": "reports/goal-search-evidence-persistence-fixed-2026-10-29/project-tests.log",
+    "SHA256": "88d82ca4fce96cbfbbd635f42fcfc3fce36f28c93bac77ceb0ccd4fe90b0a4ff",
+    "tests": 1666,
+    "pass": 1656,
+    "fail": 7,
+    "skip": 3,
+    "durationMs": 2351830.1706,
+    "exit": 1,
+    "notRelabeled": true
+  },
+  "confirmedOriginalPersonaWrapper": {
+    "exitCode": 1,
+    "killed": false,
+    "signal": null,
+    "stderr": "",
+    "stdoutStatusLine": "[1/1] baseline #1: PAGE_ERROR, success=false, 0 actions",
+    "stdoutAlsoContains": [
+      "Comparison: .../comparison.html",
+      "Screenshots/report: .../index.html"
+    ],
+    "matchesSavedArtifactDiagnosis": true,
+    "notOuter60000msTimeout": true
+  },
+  "confirmedOriginalReplayFailures": {
+    "negativeErrors": "TypeError: Cannot read properties of undefined (reading 'deferral')",
+    "positiveError": "TypeError: Cannot read properties of undefined (reading 'deferral')",
+    "stack": "runner/virtual-beta-replay.ts:62:30",
+    "matchesGeneratedArtifactDiagnosis": true
+  },
+  "limitations": [
+    "This review does not claim patched tests pass; parent has not supplied final execution/snapshot yet.",
+    "Original seven failures remain preserved. The legacy persona engine initial-load fix is separately owned and outside this four-test diff review."
+  ]
+}
