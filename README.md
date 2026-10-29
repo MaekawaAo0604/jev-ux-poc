@@ -433,3 +433,5 @@ Remove-Item Env:RUN_OCR_INTEGRATION
 視覚制約・利用可能な記憶・確率的選択を独立設定した4条件比較は [docs/virtual-beta/README.md](docs/virtual-beta/README.md) を参照してください。既存CLIは維持しています。
 
 Goal の役割と現在の証拠、入口と実行操作を分けた修正は [意味判定の実比較](docs/virtual-beta/goal-search-semantics.md)、否定の出典と初期読み込みの修正は [出典参照の追補](docs/virtual-beta/goal-search-evidence.md) を参照してください。
+
+候補の役割と操作後確認を加えた同条件比較も実施した。旧・新とも8/12達成で、成功率の改善は確認できなかった。[実装・24試行・実入力画像](docs/virtual-beta/action-relations.md)、[全結果JSON](docs/virtual-beta/action-relations-results.json)、[独立検証](docs/virtual-beta/action-relations-independent-review.md) を参照。

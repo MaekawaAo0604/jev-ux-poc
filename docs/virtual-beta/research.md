@@ -134,3 +134,11 @@ Goal断片の現在画像でのobserved/not_shown等は既存定義を維持し�
 Jevと同じ意味内容を送るが、両APIのJSON表現・画像処理・token計数は異なる。24試行でJev8/12、OpenAI4/12達成、12pairの初回assessmentは一致した。OpenAIのAPI時間は今回短かったが、その後の要求構成は分岐しており一般的な速度・品質優劣を主張しない。両APIのUSD費用は未提供であり、token数から架空の費用差を算出しない。
 
 Decisionsも選択式で、自由文の条件抽出を追加した実験ではない。今回の差し替えで中間操作の問題は解消しなかったため、次は未解決の前提・候補・根拠・操作結果の関係を既存選択式で表す設計を単独評価する。Responsesの構造化出力や別の画像モデルを使う場合は、別方式として入力情報量と生成した状態を監査する。詳細は [実行と結果](provider-comparison.md)。
+
+## 候補役割の評価と次の条件表現（2026-10-29）
+
+今回の追加部品は既存Choice APIのカテゴリを使い、状態・候補役割・操作後の確認対象を同じassessment要求で評価する。新しい研究コード・重み・依存は導入していない。モデルが引用した画像のIDとhashを検証するが、その画像が判断を意味上支えているとは自動認定しない。現在候補と別画面の同じIDを取り違える問題は、現在観察への束縛と過去の状況根拠を別にする契約の検証対象である。
+
+次に自由文の条件を扱う場合、[Decisionsの公式ガイド](https://developers.openai.com/api/docs/guides/decisions)が区別するResponsesのStructured Outputsを使う。[Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)は型と形を指定できるが意味の正しさを保証しない。[gpt-6-lunaの公式model仕様](https://developers.openai.com/api/docs/models/gpt-6-luna)で画像・Responses・Structured Outputsの対応を確認した。今回のアカウントでのResponses実行は未確認で、抽出性能も未測定である。
+
+設計候補は、実際の変換済み画像から最大3件の未解決条件、短い根拠文のモデル転記、現在の候補との関係、操作後に確認する結果を生成し、既存Jev判断へ渡す任意の接続点である。転記は未検証の仮説として残す。DOMの正解ラベル・監査oracle・人間ログを抽出器へ渡さず、追加する第三の要求を明示的に計数する。現在候補の出典修正と一緒に無記録で投入せず、それぞれ比較する。この接続点は今回まだ実装していない。

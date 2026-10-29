@@ -251,3 +251,17 @@ Goal探索の実比較はHTTP402で中断。有効pair0・38要求、全12試行
 - [ ] P2: より自由な画像読解が必要ならResponsesの構造化出力を別方式として比較。今回Decisions単独の結果から他のOpenAIモデルの性能を推定しない。
 
 原本・独立検証・実行方法は [provider-comparison.md](provider-comparison.md)。比較結果の検証と人間一致の検証を分ける。
+
+## 候補役割と操作後確認の比較（2026-10-29）
+
+- [x] d219f84を基準に、独立したactionRelations部品と新modeを追加。既存の画像・候補・二段階判断・sampler・oracleを維持し、追加API段階や再訪禁止は入れない。
+- [x] 実装Aが部品/test、実装Bが比較runner/protocol/test、親が共通契約・core・replay・統合を担当。新しいコンテキストの独立検証を実施。
+- [x] 関連193、新規最終31、独立36+4、build。出典数と画像種類数の混同を実験前に修正。独立が余分なreplay項目を受理するP1をRED再現し、修正後GREENを確認。
+- [x] c8e3052/source233752を固定し24/24有効、12初回一致、368 OK/0 ERROR/0 RESERVED。旧・新とも8/12成功。unchangedは両方0/4で照合未実行。役割評価だけの改善は確認できず、任意modeに維持。
+- [x] 独立が全24 replay/trace、画像・分布・実選択・会計・実状態遷移、143archive/149freeze/3754過去原本を照合。モデルの意味仮説の正しさとは分離。
+- [ ] P0: 現在候補の直接根拠を現在観察へ束縛し、過去の条件根拠を別欄で扱う。過去o1のe1を現在o6の保存e1へ引用した実例が残る。
+- [ ] P0: 実画像から未解決条件の具体文・短い根拠転記・現在候補との関係・操作後確認を取得する型付き接続点を実装・評価する。Responses仕様は確認済み、利用可否・精度は未測定。追加要求を別計数し、今回のrole追加とは別modeで比較する。
+- [ ] P1: 旧方式も今回unchangedの記録画面へ4/4到達したが照合0/4。単なる画面到達や再訪回数を成功とせず、条件を変える操作まで評価する。
+- [ ] P2: 対象ユーザーの比較データ、視覚制約・persona条件・実製品への転移を別測定。今回の8成功から人間一致を主張しない。
+
+原本・比較コマンド・実際の画像は [action-relations.md](action-relations.md)、検証範囲は [action-relations-independent-review.md](action-relations-independent-review.md)。

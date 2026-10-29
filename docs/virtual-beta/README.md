@@ -150,3 +150,5 @@ manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.j
 新旧プロファイル、固定版、通常 runner の比較コマンド、実測と未検証範囲は各文書から追跡できる。
 
 台帳置換の実 EPERM と、HTTP を再送しない有限回 rename、同じ台帳の保存順序、相対パスの修正は [budget-replace-retry.md](budget-replace-retry.md) に記録する。
+
+候補役割の部品追加と旧方式との24試行比較は [action-relations.md](action-relations.md)。両方式8/12達成で、追加だけによる改善は確認していない。[JSON](action-relations-results.json)、[CSV](action-relations-results.csv)、[独立検証](action-relations-independent-review.md) に実行結果と残る意味対応の問題を保存した。
