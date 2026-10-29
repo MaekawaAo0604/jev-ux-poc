@@ -58,9 +58,9 @@ async function readPrior(snapshot:string|undefined):Promise<{entries:Prior[];rea
 }
 async function verifyPrior(prior:Awaited<ReturnType<typeof readPrior>>){const changed:string[]=[];for(const item of prior.entries){try{if(sha(await readFile(item.path))!==item.sha256)changed.push(item.path);}catch{changed.push(item.path);}}return {unchanged:changed.length===0,checked:prior.entries.length,reason:prior.reason,changed};}
 /** Durable reservations are charged even when settlement failed. Never mutate or reset a ledger here. */
-export async function readTransferLedger(file:string){
+export async function readTransferLedger(file:string,expectedMaximum:24|36=24){
  const bytes=await readFile(file),data=JSON.parse(bytes.toString('utf8'));
- if(data.schemaVersion!==1||data.newMaximum!==24||data.perRunMaximum!==12||!Array.isArray(data.attempts)||!Number.isInteger(data.used)||data.used!==data.attempts.length||data.used<0||data.used>24||data.attempts.some((a:any,i:number)=>a.ordinal!==i+1||!['RESERVED','OK','ERROR'].includes(a.status)))throw Error('INVALID_TRANSFER_LEDGER');
+ if(data.schemaVersion!==1||(expectedMaximum!==24&&expectedMaximum!==36)||data.newMaximum!==expectedMaximum||data.perRunMaximum!==12||!Array.isArray(data.attempts)||!Number.isInteger(data.used)||data.used!==data.attempts.length||data.used<0||data.used>expectedMaximum||data.attempts.some((a:any,i:number)=>a.ordinal!==i+1||!['RESERVED','OK','ERROR'].includes(a.status)))throw Error('INVALID_TRANSFER_LEDGER');
  return {used:data.used,sha256:sha(bytes),reserved:data.attempts.filter((a:any)=>a.status==='RESERVED').length,ok:data.attempts.filter((a:any)=>a.status==='OK').length,errors:data.attempts.filter((a:any)=>a.status==='ERROR').length};
 }
 function csvCell(v:unknown){return '"'+String(v??'').replaceAll('"','""')+'"';}

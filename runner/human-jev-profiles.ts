@@ -1,10 +1,12 @@
 import type {BetaConfig} from '../jev/virtual-beta/contracts.js';
 import {validateConfig} from '../jev/virtual-beta/config.js';
 
-export type HumanJevMode='baseline'|'deliberation'|'experience'|'experience-basis'|'experience-defer'|'experience-reason'|'experience-reason-excursion'|'experience-reason-grounded'|'experience-reason-conditional'|'experience-reason-correspondence'|'experience-goal-search'|'experience-goal-search-v2'|'experience-goal-search-grounded'|'experience-action-relations';
+export type HumanJevMode='baseline'|'deliberation'|'experience'|'experience-basis'|'experience-defer'|'experience-reason'|'experience-reason-excursion'|'experience-reason-grounded'|'experience-reason-conditional'|'experience-reason-correspondence'|'experience-goal-search'|'experience-goal-search-v2'|'experience-goal-search-grounded'|'experience-action-relations'|'experience-action-relations-current'|'experience-visual-conditions';
 
 /** Same screen, goal policy and decision limit; only the declared deliberation stage adds requests. */
 export function humanJevProfile(mode:HumanJevMode='baseline'):{config:BetaConfig;maximumRequests:number;explorationMaximum:number;reviewMaximum:number;perRunMaximum:12}{
+ if(mode==='experience-visual-conditions'){const previous=humanJevProfile('experience-action-relations-current');return {...previous,maximumRequests:36,explorationMaximum:36,config:validateConfig({...previous.config,id:'human-screen-visual-conditions',visualHypotheses:{enabled:true,capacity:3},maxAPICalls:36})};}
+ if(mode==='experience-action-relations-current'){const previous=humanJevProfile('experience-action-relations');return {...previous,config:validateConfig({...previous.config,id:'human-screen-action-relations-current',actionRelations:{enabled:true,evidencePolicy:'current-candidate'}})};}
  if(mode==='experience-action-relations'){const previous=humanJevProfile('experience-goal-search-grounded');return {...previous,config:validateConfig({...previous.config,id:'human-screen-action-relations',actionRelations:{enabled:true}})};}
  if(mode==='experience-goal-search-grounded'){const previous=humanJevProfile('experience-goal-search-v2');return {...previous,config:validateConfig({...previous.config,id:'human-screen-goal-search-grounded',goalSearch:{...previous.config.goalSearch!,evidenceMode:'source-grounded'}})};}
  if(mode==='experience-goal-search-v2'){const previous=humanJevProfile('experience-goal-search');return {...previous,config:validateConfig({...previous.config,id:'human-screen-goal-search-v2',goalSearch:{...previous.config.goalSearch!,interpretation:'role-state-v2'}})};}

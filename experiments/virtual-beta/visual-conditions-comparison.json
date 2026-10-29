@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "provider": "jev",
+  "model": "jev-1.14.0",
+  "actors": [
+    "experience-action-relations",
+    "experience-action-relations-current",
+    "experience-visual-conditions"
+  ],
+  "repeats": 1,
+  "persona": null,
+  "actorChangesAllowed": false,
+  "limits": {
+    "trials": 18,
+    "maxRequests": 504,
+    "maxRequestsPerTrial": 36,
+    "maxJudgmentsPerTrial": 12,
+    "maxUIActionsPerTrial": 15,
+    "maxLooksPerTrial": 3,
+    "maxRunMsPerTrial": 180000,
+    "phaseMs": 2400000,
+    "parallel": 1
+  },
+  "initialState": "Each actor starts a fresh browser on the same explicitly blocked primary page. No spontaneous discovery of a dead end is claimed.",
+  "pairPolicy": "Same initial product, goal, base input and images. Current candidate evidence questions and separately declared visual extraction input are tracked interventions. Rotate actor order per fixture. Later trajectories can differ.",
+  "retryPolicy": "No retries, failed-slot replacement, direct saved-input resends or human data. Stop the next trial on authentication, quota or accounting failure.",
+  "extractor": {
+    "model": "gpt-6-luna",
+    "endpoint": "https://api.openai.com/v1/responses",
+    "maxAttemptsPerRequest": 1
+  }
+}

@@ -1,3 +1,5 @@
+import {extractOpenAIVisualHypotheses} from './openai-visual-hypotheses.js';
+import {VisualHypothesisTransportError,type VisualHypothesisExtractor} from '../jev/virtual-beta/visual-hypotheses-contracts.js';
 import {recoveryDefinition,recoveryQuery,type RecoveryFixture} from '../app/recovery-fixture.js';
 import {transferDefinition,transferQuery,type TransferFixture} from '../app/transfer-fixture.js';
 import {BudgetPersistenceError} from './budget-persistence.js';
@@ -30,17 +32,17 @@ function failureEvidence(error:unknown){
 /** One ordinary baseline exploration, followed by a separate prompted categorical review.
  * This module never opens participant records or accepts participant expectations.
  */
-export async function runHumanJev(options:Options,injected?:BetaEvaluator){
+export async function runHumanJev(options:Options,injected?:BetaEvaluator,injectedExtractor?:VisualHypothesisExtractor){
  const mode=options.mode??'baseline',profile=humanJevProfile(mode),config=profile.config;
  const backend=resolveDecisionBackend(options.decisionBackend),evaluateBetaRequest=decisionEvaluator(backend);
  const recoveryDefinitionValue=options.recoveryFixture?recoveryDefinition(options.recoveryFixture):undefined;
  if(options.recoveryFixture&&(options.holdoutFixture||options.transferFixture))throw Error('CONFLICTING_FIXTURES');
  const transferDefinitionValue=options.transferFixture?transferDefinition(options.transferFixture):undefined;
  if(options.transferFixture&&options.holdoutFixture)throw Error('CONFLICTING_FIXTURES');
- if(injected&&!options.mock)throw new Error('INJECTED_EVALUATOR_MOCK_ONLY');
+ if((injected||injectedExtractor)&&!options.mock)throw new Error('INJECTED_EVALUATOR_MOCK_ONLY');
  if(!options.mock&&!options.phaseBudget)throw new Error('PHASE_BUDGET_REQUIRED');
  if(options.mock&&options.phaseBudget)throw new Error('MOCK_MUST_NOT_CONSUME_REAL_BUDGET');
- if(!options.mock){if(options.envFile)process.loadEnvFile(options.envFile);if(!process.env[decisionBackendInfo[backend].credential])throw new Error(decisionBackendInfo[backend].credential+'_REQUIRED');}
+ if(!options.mock){if(options.envFile)process.loadEnvFile(options.envFile);if(!process.env[decisionBackendInfo[backend].credential])throw new Error(decisionBackendInfo[backend].credential+'_REQUIRED');if(config.visualHypotheses?.enabled&&!process.env.OPENAI_API_KEY)throw new Error('OPENAI_API_KEY_REQUIRED');}
  const budget=options.phaseBudget?await PhaseBudget.open(options.phaseBudget):undefined;
  let server:Awaited<ReturnType<typeof createServer>>|undefined,browser:Awaited<ReturnType<typeof chromium.launch>>|undefined;
  const root=resolve(options.out),dir=join(root,'exploration');let calls=0,outputCreated=false;
@@ -49,7 +51,7 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
   await mkdir(root);outputCreated=true;const originalCharter=JSON.parse(await readFile('experiments/persona/charter.json','utf8'));
   const charter=parseCharter(options.holdoutFixture||options.transferFixture||options.recoveryFixture?{...originalCharter,id:options.recoveryFixture?'recovery-task':'holdout-task',targetWebsite:'local:good',goal:recoveryDefinitionValue?.goal??transferDefinitionValue?.goal??holdoutDefinition(options.holdoutFixture!).goal,initialState:{...originalCharter.initialState,description:options.recoveryFixture?'架空サービスの変更画面が利用できない状態。毎回新しいブラウザーで開始する。':'架空サービスの初期画面。毎回新しいブラウザーで開始する。'},scope:options.transferFixture||options.recoveryFixture?['同じローカル検証サイト内で目的を達成する']:['同じローカル検証サイトで、目的の設定変更と保存確認を行う']}:originalCharter);
   const code=await sourceIdentity();
-  const manifest={schemaVersion:1,mode,...(options.recoveryFixture?{recoveryFixture:structuredClone(options.recoveryFixture),recoveryDefinitionHash:sha(JSON.stringify(recoveryDefinitionValue))}:{}),...(options.holdoutFixture?{holdoutFixture:structuredClone(options.holdoutFixture)}:{}),...(options.transferFixture?{transferFixture:structuredClone(options.transferFixture),transferDefinitionHash:sha(JSON.stringify(transferDefinitionValue))}:{}),transport:{longContext:options.longContext===true,maxAttemptsPerRequest:1},createdAtUTC:new Date().toISOString(),...code,mock:options.mock,model:options.mock?'MOCK_SCRIPTED_FIXTURE':decisionBackendInfo[backend].model,decisionBackend:{id:backend,...decisionBackendInfo[backend],credential:undefined},charter,config,persona:null,humanInputsRead:false,actualAPIRequests:0,maximumRequests:profile.maximumRequests,explorationMaximum:profile.explorationMaximum,reviewMaximum:profile.reviewMaximum,viewport:{width:1280,height:900},locale:'ja-JP',timezoneId:'Asia/Tokyo',comparisonLimits:['Baseline goal policy, not a fitted participant persona','Full viewport images with number markers; human used unnumbered native screen','Current runner memory3; human memory and gaze unmeasured','Prompted categorical review, not unprompted free-text discovery'],reviewFramePolicy:'First four and last four distinct delivered images, maximum8, chronological order; no participant-conditioned selection',phaseBudgetBefore:budget?.snapshot()??null};
+  const manifest={schemaVersion:1,mode,...(config.visualHypotheses?.enabled?{visualExtractor:{model:'gpt-6-luna',endpoint:'https://api.openai.com/v1/responses',maxAttemptsPerRequest:1}}:{}),...(options.recoveryFixture?{recoveryFixture:structuredClone(options.recoveryFixture),recoveryDefinitionHash:sha(JSON.stringify(recoveryDefinitionValue))}:{}),...(options.holdoutFixture?{holdoutFixture:structuredClone(options.holdoutFixture)}:{}),...(options.transferFixture?{transferFixture:structuredClone(options.transferFixture),transferDefinitionHash:sha(JSON.stringify(transferDefinitionValue))}:{}),transport:{longContext:options.longContext===true,maxAttemptsPerRequest:1},createdAtUTC:new Date().toISOString(),...code,mock:options.mock,model:options.mock?'MOCK_SCRIPTED_FIXTURE':decisionBackendInfo[backend].model,decisionBackend:{id:backend,...decisionBackendInfo[backend],credential:undefined},charter,config,persona:null,humanInputsRead:false,actualAPIRequests:0,maximumRequests:profile.maximumRequests,explorationMaximum:profile.explorationMaximum,reviewMaximum:profile.reviewMaximum,viewport:{width:1280,height:900},locale:'ja-JP',timezoneId:'Asia/Tokyo',comparisonLimits:['Baseline goal policy, not a fitted participant persona','Full viewport images with number markers; human used unnumbered native screen','Current runner memory3; human memory and gaze unmeasured','Prompted categorical review, not unprompted free-text discovery'],reviewFramePolicy:'First four and last four distinct delivered images, maximum8, chronological order; no participant-conditioned selection',phaseBudgetBefore:budget?.snapshot()??null};
   await writeFile(join(root,'manifest.json'),JSON.stringify(manifest,null,2));
   server=await createServer({server:{host:'127.0.0.1',port:0},logLevel:'error'});await server.listen();
   const address=server.httpServer!.address();if(!address||typeof address==='string')throw new Error('NO_LOCAL_PORT');
@@ -68,7 +70,7 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
    const stage=request.questions.nextAction?(mode!=='baseline'?'action':'exploration'):request.questions.knowledge?'assessment':'review';
    if(stage==='assessment'&&mode==='baseline'||stage==='review'&&profile.reviewMaximum===0)throw new Error('PROFILE_STAGE_NOT_ALLOWED');
    if(calls>=profile.maximumRequests)throw new BetaBudgetError('API_LIMIT');
-   if(options.mock){calls++;return injected?injected(request):{model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(request.questions).map(([id,q])=>{const choice=id==='nextAction'?'done':id.startsWith('goalSearch_')?'uncertain':id.startsWith('actionRelation_')?(id==='actionRelation_availabilityEvidence'||id.startsWith('actionRelation_evidence_')?'none':'unknown'):id==='decisionBasis'?'goal':id==='experienceProgress'||id==='experienceExpectation'?'unknown':id==='knowledge'?'insufficient':id==='goal'?'uncertain':id.startsWith('effect_')?'unknown':'none';return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,k===choice?1:0]))}];}))};}
+   if(options.mock){calls++;return injected?injected(request):{model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(request.questions).map(([id,q])=>{const choice=id==='nextAction'?'done':id.startsWith('goalSearch_')?'uncertain':id.startsWith('actionRelation_')?(id==='actionRelation_availabilityEvidence'||id.startsWith('actionRelation_evidence_')||id.startsWith('actionRelation_contextEvidence_')?'none':'unknown'):id==='decisionBasis'?'goal':id==='experienceProgress'||id==='experienceExpectation'?'unknown':id==='knowledge'?'insufficient':id==='goal'?'uncertain':id.startsWith('effect_')?'unknown':'none';return [id,{choice,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,k===choice?1:0]))}];}))};}
    const deadline=performance.now()+request.timeoutMs;
    const reservation=await budget!.reserve({runKey:root+'/'+stage,condition:stage==='review'?'blind-categorical-review':config.id,revision:code.revision,sourceHash:code.sourceHash});
    const remaining=Math.floor(deadline-performance.now());
@@ -85,7 +87,24 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator){
    if(request.questions.nextAction){const o=request.input.observation as {id:string;candidateIds:string[]};const image=request.images.current;if(!image)throw new Error('CURRENT_IMAGE_MISSING');const imageSha256=sha(Buffer.from(image.data,'base64'));if(!frames.some(f=>f.imageSha256===imageSha256))frames.push({observationId:o.id,imageSha256,image:structuredClone(image),candidateIds:[...o.candidateIds]});}
    return response;
   };
-  const result=await runBeta(page,{runId:options.runId??'exploration',dir,baseURL,charter,config,evaluate,...(options.holdoutFixture?{holdoutFixture:options.holdoutFixture}:{}),...(options.transferFixture?{transferFixture:options.transferFixture}:{}),...(options.recoveryFixture?{recoveryFixture:options.recoveryFixture}:{}),code:{revision:code.revision,sourceHash:code.sourceHash},isSafetyStopped:()=>safety});
+  const extract:VisualHypothesisExtractor=async request=>{
+   if(!config.visualHypotheses?.enabled)throw Error('VISUAL_EXTRACTION_NOT_CONFIGURED');
+   if(options.deadlineEpochMs!==undefined){const remaining=options.deadlineEpochMs-Date.now();if(remaining<=0)throw new BetaBudgetError('TIME_LIMIT');request={...request,timeoutMs:Math.min(request.timeoutMs,remaining)};}
+   if(safety)throw new BetaBudgetError('TIME_LIMIT');
+   if(calls>=profile.maximumRequests)throw new BetaBudgetError('API_LIMIT');
+   if(options.mock){calls++;if(injectedExtractor)return injectedExtractor(request);const output={conditions:[],relations:request.candidates.map(c=>({candidateId:c.id,conditionIds:[],relation:'unknown',currentEvidence:null,expectedResult:null})),unknowns:[]};return {model:'gpt-6-luna',status:'completed',rawText:JSON.stringify(output),output,request:{attempts:1,httpReceived:true,statusCode:200},costUSD:null};}
+   const deadline=performance.now()+request.timeoutMs;
+   const reservation=await budget!.reserve({runKey:root+'/visual-hypotheses',condition:config.id,revision:code.revision,sourceHash:code.sourceHash});
+   const remaining=Math.floor(deadline-performance.now());
+   if(remaining<=0){try{await budget!.settle(reservation,'ERROR',{attempts:0,failureCode:'DEADLINE_BEFORE_REQUEST'});}catch(error){throw new BetaAdmissionError(error instanceof BudgetPersistenceError?error.details:undefined,'deadline-settlement');}throw new BetaBudgetError('TIME_LIMIT');}
+   calls++;
+   let response;
+   try{response=await extractOpenAIVisualHypotheses({...request,timeoutMs:remaining});}
+   catch(error){try{await budget!.settle(reservation,'ERROR',{attempts:error instanceof VisualHypothesisTransportError?error.evidence.attempts:1,failureCode:error instanceof VisualHypothesisTransportError?error.evidence.code:'VISUAL_EXTRACTION_REQUEST_FAILED'});}catch(persistenceError){throw new BetaSettlementError(persistenceError instanceof BudgetPersistenceError?persistenceError.details:undefined,'error');}throw error;}
+   try{await budget!.settle(reservation,'OK',{attempts:1});}catch(error){throw new BetaSettlementError(error instanceof BudgetPersistenceError?error.details:undefined,'response');}
+   return response;
+  };
+  const result=await runBeta(page,{runId:options.runId??'exploration',dir,baseURL,charter,config,evaluate,...(config.visualHypotheses?.enabled?{extract}:{}),...(options.holdoutFixture?{holdoutFixture:options.holdoutFixture}:{}),...(options.transferFixture?{transferFixture:options.transferFixture}:{}),...(options.recoveryFixture?{recoveryFixture:options.recoveryFixture}:{}),code:{revision:code.revision,sourceHash:code.sourceHash},isSafetyStopped:()=>safety});
   await context.tracing.stop({path:join(dir,'trace.zip')});await context.close();
   const selected=frames.length<=8?frames:[...frames.slice(0,4),...frames.slice(-4)];
   let review:Record<string,unknown>={status:'NOT_RUN',reason:profile.reviewMaximum===0?'PROFILE_DISABLED':safety?'SAFETY_STOP':selected.length?'BUDGET_UNAVAILABLE':'NO_VALID_DELIVERED_FRAMES'};

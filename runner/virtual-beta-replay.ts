@@ -1,3 +1,6 @@
+import {visualHypothesisInput} from './visual-hypothesis-input.js';
+import {admitVisualHypotheses,rememberVisualHypotheses} from '../jev/virtual-beta/visual-hypotheses.js';
+import type {VisualHypothesisMemory,VisualHypothesisRequest} from '../jev/virtual-beta/visual-hypotheses-contracts.js';
 import {actionRelationQuestions,admitActionRelations,actionRelationCriteria} from '../jev/virtual-beta/action-relations.js';
 import {validateConfig} from '../jev/virtual-beta/config.js';
 import {goalSearchQuestions,admitGoalSearch,rememberGoalSearch,goalSearchCriteria} from '../jev/virtual-beta/goal-search.js';
@@ -59,11 +62,37 @@ function checkReasonSources(input:Record<string,unknown>,context:DeferralReasonC
  const expected=requiredReasonSources(context,config);
  if(!Array.isArray(refs)||refs.length!==expected.length||refs.some((ref,i)=>!isRecord(ref)||ref.observationId!==expected[i].observationId||ref.imageSha256!==expected[i].imageSha256))throw Error('REASON_SOURCE_REFERENCE_MISMATCH');
 }
+function closedKeys(value:unknown,required:string[],optional:string[]=[]):asserts value is Record<string,any>{if(!isRecord(value)||required.some(key=>!Object.hasOwn(value,key))||Object.keys(value).some(key=>![...required,...optional].includes(key)))throw Error('VISUAL_HYPOTHESES_UNEXPECTED_OR_MISSING_FIELD');}
+function checkVisualResponse(value:unknown){
+ closedKeys(value,['model','status','output','rawText','request','costUSD'],['usage']);
+ if(!['gpt-6-luna','UNEXPECTED_MODEL'].includes(value.model)||!['completed','refused','incomplete','invalid-json','invalid-response'].includes(value.status)||typeof value.rawText!=='string'||Buffer.byteLength(value.rawText,'utf8')>65536||value.costUSD!==null)throw Error('VISUAL_HYPOTHESES_RESPONSE_EVIDENCE_INVALID');
+ closedKeys(value.request,['attempts','httpReceived','statusCode']);if(value.request.attempts!==1||value.request.httpReceived!==true||value.request.statusCode!==200)throw Error('VISUAL_HYPOTHESES_RESPONSE_EVIDENCE_INVALID');
+ if(value.usage!==undefined){closedKeys(value.usage,['inputTokens','outputTokens','totalTokens']);if(Object.values(value.usage).some(n=>!Number.isSafeInteger(n)||Number(n)<0)||value.usage.totalTokens!==value.usage.inputTokens+value.usage.outputTokens)throw Error('VISUAL_HYPOTHESES_USAGE_INVALID');}
+}
+function checkVisualStage(step:BetaResult['steps'][number],termination:BetaResult['termination']){
+ const v=step.visualHypotheses!;closedKeys(v,['request','assetFiles','inputSha256','apiCalls','timing'],['response','record','memory','error']);closedKeys(v.timing,['apiMs']);if(!Number.isFinite(v.timing.apiMs)||v.timing.apiMs<0||![0,1].includes(v.apiCalls))throw Error('VISUAL_HYPOTHESES_ACCOUNTING_INVALID');
+ if(v.response!==undefined)checkVisualResponse(v.response);
+ if(v.record!==undefined){if(v.apiCalls!==1||!v.response||v.response.status!=='completed'||v.error!==undefined||!v.memory)throw Error('VISUAL_HYPOTHESES_COMPLETE_EVIDENCE_INVALID');return;}
+ if(v.memory!==undefined||step.deliberation||step.selection)throw Error('VISUAL_HYPOTHESES_PARTIAL_MISMATCH');
+ if(step.outcome==='VISUAL_EXTRACTION_AFTER_DEADLINE'&&termination==='TIME_LIMIT'&&v.apiCalls===1&&v.response&&v.error===undefined)return;
+ if(!isRecord(v.error)||!equal(step.error,v.error)||typeof v.error.code!=='string')throw Error('VISUAL_HYPOTHESES_FAILURE_EVIDENCE_MISSING');
+ const e=v.error;
+ if(e.code==='INVALID_VISUAL_HYPOTHESES'){closedKeys(e,['code','status']);if(v.apiCalls!==1||!v.response||e.status!==v.response.status||termination!=='API_ERROR'||step.outcome!=='VISUAL_EXTRACTION_OUTPUT_ERROR')throw Error('VISUAL_HYPOTHESES_FAILURE_EVIDENCE_INVALID');return;}
+ if(v.response!==undefined||step.outcome!=='VISUAL_EXTRACTION_ERROR')throw Error('VISUAL_HYPOTHESES_FAILURE_EVIDENCE_INVALID');
+ if(['API_LIMIT','TIME_LIMIT'].includes(e.code as string)){closedKeys(e,['code']);if(v.apiCalls!==0||termination!==e.code)throw Error('VISUAL_HYPOTHESES_ACCOUNTING_INVALID');return;}
+ if(termination!=='API_ERROR')throw Error('VISUAL_HYPOTHESES_FAILURE_EVIDENCE_INVALID');
+ if(e.code==='BUDGET_ADMISSION_ERROR'){closedKeys(e,['code'],['boundary','persistence']);if(v.apiCalls!==0)throw Error('VISUAL_HYPOTHESES_ACCOUNTING_INVALID');return;}
+ if(e.code==='BUDGET_SETTLEMENT_AFTER_REQUEST'){closedKeys(e,['code','requestOutcome'],['persistence']);if(v.apiCalls!==1||!['error','response'].includes(e.requestOutcome as string))throw Error('VISUAL_HYPOTHESES_ACCOUNTING_INVALID');return;}
+ if(e.code==='VISUAL_EXTRACTION_REQUEST_FAILED'){closedKeys(e,['code']);if(v.apiCalls!==1)throw Error('VISUAL_HYPOTHESES_ACCOUNTING_INVALID');return;}
+ closedKeys(e,['code','attempts','httpReceived'],['statusCode']);
+ if(!['MISSING_CREDENTIALS','HTTP_ERROR','TIMEOUT','REQUEST_FAILED'].includes(e.code as string)||v.apiCalls!==1||!Number.isSafeInteger(e.attempts)||![0,1].includes(e.attempts as number)||typeof e.httpReceived!=='boolean'||e.httpReceived!==Object.hasOwn(e,'statusCode')||e.statusCode!==undefined&&(!Number.isInteger(e.statusCode)||Number(e.statusCode)<100||Number(e.statusCode)>599)||e.attempts===0&&e.httpReceived||e.code==='HTTP_ERROR'&&(e.attempts!==1||e.httpReceived!==true||e.statusCode===200)||e.code==='MISSING_CREDENTIALS'&&(e.attempts!==0||e.httpReceived!==false))throw Error('VISUAL_HYPOTHESES_FAILURE_EVIDENCE_INVALID');
+}
 export async function replayDirectory(directory:string){
- const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));if(result.config.actionRelations!==undefined)validateConfig(result.config);let choices=0,images=0,assessments=0;
+ const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));if(result.config.actionRelations!==undefined||result.config.visualHypotheses!==undefined)validateConfig(result.config);let choices=0,images=0,assessments=0;
  let deferrals=result.config.deferral?.enabled?copyDeferrals(undefined,result.config.deferral):undefined,effectiveDeferrals=deferrals;
  let experience:ExperienceMemory|undefined,pending:ExperienceIntent|undefined,execution:'performed'|'unchanged'='unchanged';
  let reasonMemory:DeferralReasonMemory|undefined;
+ let visualMemory:VisualHypothesisMemory|undefined=result.config.visualHypotheses?.enabled?{schemaVersion:1,records:[]}:undefined;
  let searchMemory:GoalSearchMemory|undefined=result.config.goalSearch?.enabled?{schemaVersion:1,entries:[]}:undefined;
  const seen=new Map<string,string>();
  const archive=result.config.correspondence?.enabled?createCorrespondenceArchive(result.config.correspondence):undefined;
@@ -83,6 +112,30 @@ export async function replayDirectory(directory:string){
    const searchInput=d?.modelInput??step.modelInput!,searchAssets=d?.assetFiles??step.assetFiles,sourceList=assessmentSources(searchInput,searchAssets,current),expected=goalSearchQuestions(result.input.charter.goal,current,searchCandidates,sourceList,result.config.goalSearch?.interpretation,{mode:result.config.goalSearch?.evidenceMode,prior:searchMemory});
    if(d&&!equal(Object.fromEntries(Object.entries(d.questions).filter(([key])=>key.startsWith('goalSearch_'))),expected)||!equal((searchInput.userState as any)?.goalSearch,searchMemory))throw Error('GOAL_SEARCH_ARRIVAL_OR_QUESTION_MISMATCH');
   }
+  const visualKeys=(v:Record<string,unknown>|undefined)=>Object.keys(v??{}).filter(k=>k.startsWith('visualHypoth'));
+  for(const v of [step as unknown as Record<string,unknown>,step.modelInput,d?.modelInput,step.userState as unknown as Record<string,unknown>,step.modelInput?.userState as Record<string,unknown>,d?.modelInput.userState as Record<string,unknown>])if(visualKeys(v).some(k=>k!=='visualHypotheses'))throw Error('UNEXPECTED_VISUAL_HYPOTHESES_FIELD');
+  const visualPresent=[step as unknown as Record<string,unknown>,step.modelInput,d?.modelInput,step.userState as unknown as Record<string,unknown>,step.modelInput?.userState as Record<string,unknown>,d?.modelInput.userState as Record<string,unknown>].some(v=>visualKeys(v).length);
+  if(!result.config.visualHypotheses?.enabled&&visualPresent)throw Error('UNCONFIGURED_VISUAL_HYPOTHESES');
+  const visualPreStop=result.config.visualHypotheses?.enabled&&step.modelInput&&!step.visualHypotheses&&!d&&!step.selection&&!step.error&&((step.outcome==='SAFETY_STOP'&&result.termination==='SAFETY_STOP')||(['DEADLINE_BEFORE_VISUAL_EXTRACTION','DEADLINE_BEFORE_INFERENCE'].includes(step.outcome??'')&&result.termination==='TIME_LIMIT'));
+  if(visualPreStop&&(!equal(step.userState?.visualHypotheses,visualMemory)||!equal((step.modelInput?.userState as any)?.visualHypotheses,visualMemory)||step.modelInput?.visualHypotheses!==undefined))throw Error('VISUAL_HYPOTHESES_PRESTOP_STATE_MISMATCH');
+  if(result.config.visualHypotheses?.enabled&&step.modelInput&&!visualPreStop){
+   const v=step.visualHypotheses;
+   if(!v||!current||!step.assetFiles||!searchCandidates)throw Error('VISUAL_HYPOTHESES_METADATA_MISSING');
+   checkVisualStage(step,result.termination);
+   const imageData:VisualHypothesisRequest['images']={};
+   for(const [id,asset] of Object.entries(v.assetFiles)){if(asset.file!==asset.file.split(/[\\/]/).at(-1))throw Error('UNSAFE_IMAGE_PATH');const bytes=await readFile(join(directory,asset.file));if(sha(bytes)!==asset.sha256)throw Error('VISUAL_IMAGE_HASH_MISMATCH');imageData[id]={mediaType:'image/png',data:bytes.toString('base64')};}
+   const sourceInput=d?.modelInput??step.modelInput;
+   const request=visualHypothesisInput({goal:result.input.charter.goal,currentDate:result.input.charter.initialState.currentDate,...(result.input.persona?{persona:result.input.persona}:{}),current:{observationId:current.id,imageSha256:current.imageSha256},sources:assessmentSources(sourceInput,v.assetFiles,current),candidates:searchCandidates,user:{...step.userState!,experience:result.config.experience?.enabled?arriveExperience(experience,pending,current,execution,result.config.experience):undefined,visualHypotheses:visualMemory},images:imageData,assets:v.assetFiles,timeoutMs:30000});
+   const {images:_images,timeoutMs:_timeout,...metadata}=request;
+   if(!equal(v.assetFiles,step.assetFiles)||!equal(v.request,metadata)||v.inputSha256!==sha(JSON.stringify({input:metadata,assets:v.assetFiles})))throw Error('VISUAL_HYPOTHESES_INPUT_MISMATCH');
+   if(v.record){
+    if(!v.response||v.error)throw Error('VISUAL_HYPOTHESES_RESPONSE_MISSING');
+    const record=admitVisualHypotheses(v.response,request);visualMemory=rememberVisualHypotheses(visualMemory,record,result.config.visualHypotheses.capacity);
+    if(!equal(v.record,record)||!equal(v.memory,visualMemory))throw Error('VISUAL_HYPOTHESES_RECORD_MISMATCH');
+    for(const input of [step.modelInput,...(d?[d.modelInput]:[])])if(!equal(input.visualHypotheses,record)||!equal((input.userState as any)?.visualHypotheses,visualMemory))throw Error('VISUAL_HYPOTHESES_DELIVERY_MISMATCH');
+   }else{if(step.modelInput.visualHypotheses!==undefined)throw Error('VISUAL_HYPOTHESES_PARTIAL_MISMATCH');if(v.error&&(v.error as any).code==='INVALID_VISUAL_HYPOTHESES'){let invalid=false;try{admitVisualHypotheses(v.response!,request);}catch{invalid=true;}if(!invalid)throw Error('VISUAL_HYPOTHESES_VALID_OUTPUT_HIDDEN_AS_FAILURE');}}
+   if(!equal(step.userState?.visualHypotheses,visualMemory))throw Error('VISUAL_HYPOTHESES_STATE_MISMATCH');
+  }
   const relationKeys=(v:Record<string,unknown>|undefined)=>Object.keys(v??{}).some(k=>k.startsWith('actionRelation'));
   const extraRelationKeys=(v:Record<string,unknown>|undefined)=>Object.keys(v??{}).some(k=>k.startsWith('actionRelation')&&k!=='actionRelations');
   if(extraRelationKeys(step.modelInput)||extraRelationKeys(step as unknown as Record<string,unknown>)||relationKeys(step.userState as unknown as Record<string,unknown>)||relationKeys(step.modelInput?.userState as Record<string,unknown>)||relationKeys(d?.modelInput.userState as Record<string,unknown>))throw Error('UNEXPECTED_ACTION_RELATIONS_FIELD');
@@ -90,7 +143,7 @@ export async function replayDirectory(directory:string){
   if(!result.config.actionRelations?.enabled&&relationPresent)throw Error('UNCONFIGURED_ACTION_RELATIONS');
   if(result.config.actionRelations?.enabled&&(d||relationPresent)){
    if(!d||!current||!searchCandidates||relationKeys(d.modelInput))throw Error('ACTION_RELATIONS_STAGE_MISMATCH');
-   const expected=actionRelationQuestions(result.input.charter.goal,current,searchCandidates,assessmentSources(d.modelInput,d.assetFiles,current));
+   const expected=actionRelationQuestions(result.input.charter.goal,current,searchCandidates,assessmentSources(d.modelInput,d.assetFiles,current),result.config.actionRelations?.evidencePolicy);
    if(!equal(Object.fromEntries(Object.entries(d.questions).filter(([key])=>key.startsWith('actionRelation'))),expected))throw Error('ACTION_RELATIONS_QUESTION_MISMATCH');
    if(!d.assessment&&(step.actionRelations!==undefined||relationKeys(step.modelInput)))throw Error('ACTION_RELATIONS_PARTIAL_MISMATCH');
   }
@@ -161,7 +214,7 @@ export async function replayDirectory(directory:string){
      if(!equal(step.goalSearch?.annotations,annotations))throw Error('GOAL_SEARCH_ANNOTATION_MISMATCH');expectedCriteria=after;
     }
     if(result.config.actionRelations?.enabled){
-     const record=admitActionRelations(d.response,result.input.charter.goal,current,searchCandidates!,sources);
+     const record=admitActionRelations(d.response,result.input.charter.goal,current,searchCandidates!,sources,result.config.actionRelations?.evidencePolicy);
      if(!equal(step.actionRelations?.record,record)||!equal(step.modelInput?.actionRelations,record))throw Error('ACTION_RELATIONS_RECORD_MISMATCH');
      const before=expectedCriteria!,after=actionRelationCriteria(before,record,result.input.charter.goal,current),annotations=Object.keys(before).filter(id=>before[id]!==after[id]).map(candidateId=>({candidateId,before:before[candidateId],after:after[candidateId]}));
      if(!equal(step.actionRelations?.annotations,annotations))throw Error('ACTION_RELATIONS_ANNOTATION_MISMATCH');expectedCriteria=after;

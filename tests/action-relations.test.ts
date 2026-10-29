@@ -156,3 +156,74 @@ test('five unique attached image hashes and six IDs sharing images fail the sepa
  for(const [index,id] of Object.keys(sharedRecord.candidates).entries())sharedRecord.candidates[id].evidence={observationId:'o'+(index+2),imageSha256:hash('shared')};
  assert.throws(()=>actionRelationCriteria(criteria(),sharedRecord,goal,{...o,id:'o6',imageSha256:hash('shared')}));
 });
+
+const currentPolicyQuestions=()=>actionRelationQuestions(goal,current(),candidates(),sources(),'current-candidate');
+function currentPolicyResponse(overrides:Record<string,string>={}):ChoiceAnswers{
+ return response(Object.fromEntries([...['e1','e2','back','scroll_down'].map(id=>['actionRelation_contextEvidence_'+id,'o1']),...Object.entries(overrides)]),currentPolicyQuestions());
+}
+const admitCurrentPolicy=(r=currentPolicyResponse())=>admitActionRelations(r,goal,current(),candidates(),sources(),'current-candidate');
+
+// Baseline signatures were captured before introducing the optional policy.
+test('omitted evidence policy preserves frozen legacy question record and criteria JSON exactly',()=>{
+ assert.equal(hash(JSON.stringify(questions())),'65763e19ffe91f77ef165f03ac857d50166dc8e4cbe0c44c68b7655c50667934');
+ assert.equal(hash(JSON.stringify(admit())),'63a177f046c62b351ef496fc0aa6848a78beeeaf05c948fc06488c2a3da918fd');
+ assert.equal(hash(JSON.stringify(actionRelationCriteria(criteria(),admit(),goal,current()))),'e53be323d010e3c1457e48f9d7a5df2ccf66ccc57f64602d61f6c433faef440e');
+ assert.ok(!('evidencePolicy' in admit()));
+});
+
+test('current-candidate policy separates current relation evidence from attached contextual condition evidence',()=>{
+ const q=currentPolicyQuestions();
+ for(const id of ['e1','e2','back','scroll_down']){
+  assert.deepEqual(Object.keys(q['actionRelation_evidence_'+id].criteria),['o2','none']);
+  assert.deepEqual(Object.keys(q['actionRelation_contextEvidence_'+id].criteria),['o1','o2','none']);
+  assert.match(q['actionRelation_contextEvidence_'+id].instructions,/context/i);
+  assert.match(q['actionRelation_contextEvidence_'+id].instructions,/not.*identity|never.*identity/i);
+ }
+ assert.deepEqual(Object.keys(q.actionRelation_availabilityEvidence.criteria),['o1','o2','none']);
+ const record=admitCurrentPolicy();assert.equal(record.evidencePolicy,'current-candidate');
+ for(const relation of Object.values(record.candidates)){assert.deepEqual(relation.evidence,source());assert.deepEqual(relation.contextEvidence,source('o1'));}
+ const annotated=actionRelationCriteria(criteria(),record,goal,current());
+ assert.match(annotated.e1,/evidence=o2/);assert.match(annotated.e1,/contextEvidence=o1/);assert.match(annotated.e1,/current-candidate/);
+ assert.deepEqual(Object.keys(annotated),Object.keys(criteria()));
+});
+
+test('historical relation evidence rejects even when the same local candidate ID existed before',()=>{
+ assert.throws(()=>admitCurrentPolicy(currentPolicyResponse({actionRelation_evidence_e1:'o1'})));
+ const forged=admitCurrentPolicy();forged.candidates.e1.evidence=source('o1');assert.throws(()=>actionRelationCriteria(criteria(),forged,goal,current()));
+});
+
+test('context evidence never rescues missing current evidence and none context adds no invented source',()=>{
+ const record=admitCurrentPolicy(currentPolicyResponse({actionRelation_evidence_e1:'none',actionRelation_contextEvidence_e2:'none'}));
+ assert.deepEqual(record.candidates.e1,{role:'unknown',contextEvidence:source('o1'),verify:'unknown'});
+ assert.ok(!('contextEvidence' in record.candidates.e2));
+ assert.deepEqual(record.adjustments,[{field:'role_e1',from:'prerequisite',to:'unknown',reason:'NO_ADMITTED_EVIDENCE'},{field:'verify_e1',from:'availability-change',to:'unknown',reason:'NO_ADMITTED_EVIDENCE'}]);
+ const annotated=actionRelationCriteria(criteria(),record,goal,current());assert.match(annotated.e1,/role=unknown/);assert.match(annotated.e1,/contextEvidence=o1/);assert.match(annotated.e1,/NO_ADMITTED_EVIDENCE/);
+});
+
+test('policy admission requires every context question and rejects unknown policies or unattached context',()=>{
+ const r=currentPolicyResponse();delete r.answers.actionRelation_contextEvidence_e1;assert.throws(()=>admitCurrentPolicy(r));
+ assert.throws(()=>admitCurrentPolicy(currentPolicyResponse({actionRelation_contextEvidence_e1:'o9'})));
+ for(const policy of ['legacy','current','',null,42]){
+  assert.throws(()=>actionRelationQuestions(goal,current(),candidates(),sources(),policy as never));
+  assert.throws(()=>admitActionRelations(response(),goal,current(),candidates(),sources(),policy as never));
+ }
+ const legacy=response();legacy.answers.actionRelation_contextEvidence_e1={choice:'o1',probabilities:{o1:1}};assert.throws(()=>admit(legacy));
+});
+
+test('criteria rejects unconfigured contextual scope conflicting hashes future evidence and invalid policy',()=>{
+ const unconfigured=admit();unconfigured.candidates.e1.contextEvidence=source('o1');assert.throws(()=>actionRelationCriteria(criteria(),unconfigured,goal,current()));
+ for(const change of [(r:ActionRelationRecord)=>r.evidencePolicy='unknown' as never,(r:ActionRelationRecord)=>r.candidates.e1.contextEvidence=source('o3'),(r:ActionRelationRecord)=>r.candidates.e1.contextEvidence={...source(),imageSha256:hash('wrong')},(r:ActionRelationRecord)=>r.candidates.e1.contextEvidence={...source('o1'),imageSha256:'bad'},(r:ActionRelationRecord)=>r.candidates.e1.contextEvidence={...source('o1'),imageSha256:hash('conflict')}]){
+  const record=admitCurrentPolicy();change(record);assert.throws(()=>actionRelationCriteria(criteria(),record,goal,current()));
+ }
+});
+
+test('current-policy questions avoid candidate labels, text, geometry and arbitrary response/context fields',()=>{
+ const c=candidates(),o=current();
+ for(const candidate of Object.values(c))Object.defineProperty(candidate,'label',{get(){throw new Error('LABEL_READ');}});
+ Object.defineProperty(o,'visibleText',{get(){throw new Error('TEXT_READ');}});
+ Object.defineProperty(o,'fixation',{get(){throw new Error('GEOMETRY_READ');}});
+ const q=actionRelationQuestions(goal,o,c,sources(),'current-candidate');assert.ok(!JSON.stringify(q).includes('PRIVATE'));
+ const r=currentPolicyResponse();(r.answers.actionRelation_contextEvidence_e1 as any).explanation='RECORD_SECRET';
+ const record=admitCurrentPolicy(r);(record.candidates.e1.contextEvidence as any).text='RECORD_SECRET';
+ assert.ok(!JSON.stringify(actionRelationCriteria(criteria(),record,goal,current())).includes('RECORD_SECRET'));
+});

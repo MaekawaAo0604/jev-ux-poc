@@ -1,0 +1,28 @@
+import {readFile,writeFile,mkdir,lstat} from 'node:fs/promises';
+import {resolve,dirname,relative,isAbsolute,join} from 'node:path';
+import {createHash} from 'node:crypto';
+import {isDeepStrictEqual} from 'node:util';
+import {analyzeVisualConditionsComparison,visualConditionsActors} from '../../runner/visual-conditions-comparison.js';
+import {sourceIdentity} from '../../runner/virtual-beta-source.js';
+import {readTransferLedger} from '../../runner/transfer-evaluation.js';
+const sha=(v:Buffer|string)=>createHash('sha256').update(v).digest('hex');
+async function main(){
+ const [file,expected,outArg]=process.argv.slice(2);if(!file||!outArg||!/^[a-f0-9]{64}$/.test(expected??''))throw Error('EXPECTED_MANIFEST_HASH_AND_NEW_OUTPUT_REQUIRED');
+ const manifestFile=resolve(file),root=dirname(manifestFile),out=resolve(outArg),inside=(p:string)=>{const r=relative(root,p);return !isAbsolute(r)&&r!=='..'&&!r.startsWith('../')&&!r.startsWith('..\\');};
+ if(inside(out))throw Error('OUTPUT_INSIDE_RAW_FORBIDDEN');
+ try{await lstat(out);throw Error('OUTPUT_EXISTS');}catch(e){if((e as NodeJS.ErrnoException).code!=='ENOENT')throw e;}
+ const bytes=await readFile(manifestFile);if(sha(bytes)!==expected)throw Error('MANIFEST_HASH_MISMATCH');const m=JSON.parse(bytes.toString('utf8'));
+ if(m.mock||m.phase!=='visual-conditions-2026-10-30'||m.status==='RUNNING'||!Array.isArray(m.records)||m.records.length>18||m.sourceHash!==(await sourceIdentity()).sourceHash||m.humanInputsRead!==false||m.preservationBefore?.unchanged!==true||m.preservationAfter?.unchanged!==true)throw Error('EXACT_COMPLETED_PRODUCER_REQUIRED');
+ for(const r of m.records){
+  if(!inside(resolve(r.resultPath))||!inside(resolve(r.ledger)))throw Error('RAW_PATH_OUTSIDE_MANIFEST_ROOT');
+  if(r.result){const actual=JSON.parse(await readFile(r.resultPath,'utf8'));if(!isDeepStrictEqual(actual,r.result))throw Error('RAW_RESULT_MISMATCH');}
+  const maximum=m.method.profiles[r.actor]?.maximumRequests;if(![24,36].includes(maximum))throw Error('INVALID_PROFILE_REQUEST_CAP');const ledger=await readTransferLedger(r.ledger,maximum);if(!isDeepStrictEqual(ledger,r.ledgerEvidence)||r.requests!==Math.max(ledger.used,r.result?.apiCalls??0))throw Error('LEDGER_MISMATCH');
+ }
+ const analysis=analyzeVisualConditionsComparison(m.records);
+ const actors=Object.fromEntries(visualConditionsActors.map(actor=>{const a=analysis.actors[actor];return[actor,{completeness:a.completeness,totals:a.totals,cells:a.cells,measurements:a.measurements}];}));
+ const trials=m.records.map((r:any)=>{const a=analysis.actors[r.actor as typeof visualConditionsActors[number]].runs.find((v:any)=>v.runId===r.runId)!;return {id:r.id,actor:r.actor,runId:r.runId,sequence:r.sequence,fixture:r.fixture,replicate:r.replicate,validity:a.validity,objectiveAssessment:a.objectiveAssessment,perceivedDone:a.perceivedDone,termination:a.termination,metrics:a.metrics,timing:a.timing,ledgerEvidence:a.ledgerEvidence,initialImageSha256:a.initialImageSha256,prerequisiteEvents:a.prerequisiteEvents,revisits:a.revisits,saves:a.saves,recoveryAfterChange:a.recoveryAfterChange,switchCompletion:a.switchCompletion,error:r.error??null,terminalSnapshot:r.result?.recovery?.terminalSnapshot??null,steps:(r.result?.steps??[]).map((s:any)=>({number:s.number,observationId:s.observationId,imageSha256:s.assetFiles?.current?.sha256,observedState:s.audit?.recovery,actionRelations:s.actionRelations?.record??null,visualHypotheses:s.visualHypotheses?.record??null,visualExtraction:s.visualHypotheses?{model:s.visualHypotheses.response?.model??null,status:s.visualHypotheses.response?.status??null,request:s.visualHypotheses.response?.request??null,usage:s.visualHypotheses.response?.usage??null,apiCalls:s.visualHypotheses.apiCalls,timing:s.visualHypotheses.timing??null,error:s.visualHypotheses.error??null}:null,modelChoice:s.selection?.modelChoice??null,selected:s.selection?.selected??null,selectedRelation:s.selection?s.actionRelations?.record.candidates[s.selection.selected]??null:null,rawDistribution:s.selection?.raw??null,filteredDistribution:s.selection?.filtered??null,action:s.action??null,outcome:s.outcome??null}))};});
+ const report={schemaVersion:1,kind:'ACTUAL_JEV_VISUAL_CONDITIONS_COMPARISON',producer:m.revision,sourceHash:m.sourceHash,manifestSha256:expected,status:m.status,limits:m.limits,protocol:m.protocol,initialState:m.initialState,profiles:m.method,completeness:analysis.completeness,integrity:analysis.integrity,actors,pairs:analysis.pairs,trials,limitations:analysis.limitations,independentAudit:{status:'PENDING'},APIRequestsByThisCommand:0,environmentFilesReadByThisCommand:0};
+ const columns=['actor','id','task','condition','replicate','valid','objective','perceivedDone','termination','requests','uiActions','looks','judgments','earlyUnchangedRevisits'];const csv=[columns.join(','),...trials.map((r:any)=>[r.actor,r.id,r.fixture.task,r.fixture.condition,r.replicate,r.validity.valid,r.objectiveAssessment?.value,r.perceivedDone,r.termination,r.metrics.requests,r.metrics.uiActions,r.metrics.looks,r.metrics.judgments,r.metrics.earlyUnchangedRevisits].map(v=>JSON.stringify(v??null)).join(','))].join('\n')+'\n';
+ await mkdir(out,{recursive:false});await writeFile(join(out,'results.json'),JSON.stringify(report,null,2)+'\n');await writeFile(join(out,'results.csv'),csv);console.log(JSON.stringify({status:'WRITTEN',trials:trials.length,manifestSha256:expected,APIRequests:0}));
+}
+try{await main();}catch{console.error('VISUAL_CONDITIONS_REPORT_FAILED');process.exitCode=1;}
