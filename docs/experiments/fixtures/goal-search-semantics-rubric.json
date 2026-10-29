@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "kind": "auditor-only-authored-goal-semantics-rubric",
+  "author": "parent audit AI, not human validated",
+  "modelInput": false,
+  "roles": [
+    {
+      "goal": "初めて利用する暮らしクラウドで、メール通知を停止し、停止したことを確認したい",
+      "fragments": [
+        {
+          "text": "初めて利用する暮らしクラウドで",
+          "role": "context"
+        },
+        {
+          "text": "メール通知を停止し",
+          "role": "required"
+        },
+        {
+          "text": "停止したことを確認したい",
+          "role": "required"
+        }
+      ]
+    },
+    {
+      "goal": "アルバム「旅の記録」の共有リンクを無効にしてください。",
+      "fragments": [
+        {
+          "text": "アルバム「旅の記録」の共有リンクを無効にしてください",
+          "role": "required"
+        }
+      ]
+    }
+  ],
+  "controlKinds": {
+    "execute": [
+      "メール通知を停止する",
+      "共有リンクを無効にする",
+      "共有を停止する"
+    ],
+    "navigation": [
+      "各種設定",
+      "設定",
+      "お知らせ",
+      "その他",
+      "お知らせの管理",
+      "共有設定",
+      "リンクの公開設定",
+      "アカウント",
+      "会員情報と本人確認",
+      "マイページ",
+      "マイページへ戻る"
+    ],
+    "prerequisite": [
+      "本人確認を完了する",
+      "登録済みの情報で確認"
+    ]
+  },
+  "limits": [
+    "Control text expectations apply only to the fictional fixed fixture; actual delivered PNGs and subsequent performed transitions must be independently inspected.",
+    "Unknown control text is UNLABELED, not automatically a wrong target.",
+    "No changes to model predictions, actors, success oracle or saved inputs.",
+    "Role conflicts are relative to authored full-Goal expectations, not human annotation accuracy."
+  ]
+}

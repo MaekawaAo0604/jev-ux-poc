@@ -1,10 +1,11 @@
 import type {BetaConfig} from '../jev/virtual-beta/contracts.js';
 import {validateConfig} from '../jev/virtual-beta/config.js';
 
-export type HumanJevMode='baseline'|'deliberation'|'experience'|'experience-basis'|'experience-defer'|'experience-reason'|'experience-reason-excursion'|'experience-reason-grounded'|'experience-reason-conditional'|'experience-reason-correspondence'|'experience-goal-search';
+export type HumanJevMode='baseline'|'deliberation'|'experience'|'experience-basis'|'experience-defer'|'experience-reason'|'experience-reason-excursion'|'experience-reason-grounded'|'experience-reason-conditional'|'experience-reason-correspondence'|'experience-goal-search'|'experience-goal-search-v2';
 
 /** Same screen, goal policy and decision limit; only the declared deliberation stage adds requests. */
 export function humanJevProfile(mode:HumanJevMode='baseline'):{config:BetaConfig;maximumRequests:number;explorationMaximum:number;reviewMaximum:number;perRunMaximum:12}{
+ if(mode==='experience-goal-search-v2'){const previous=humanJevProfile('experience-goal-search');return {...previous,config:validateConfig({...previous.config,id:'human-screen-goal-search-v2',goalSearch:{...previous.config.goalSearch!,interpretation:'role-state-v2'}})};}
  if(mode==='experience-goal-search'){const previous=humanJevProfile('experience-reason-correspondence');return {...previous,config:validateConfig({...previous.config,id:'human-screen-goal-search',goalSearch:{enabled:true,capacity:8}})};}
  if(mode==='experience-reason-correspondence'){const previous=humanJevProfile('experience-reason-conditional');return {...previous,config:validateConfig({...previous.config,id:'human-screen-experience-correspondence',correspondence:{enabled:true,capacity:8,maxCurrentCandidates:8,maxPastCandidates:12,maxUniqueImages:4}})};}
  if(mode==='experience-reason-conditional'){const previous=humanJevProfile('experience-reason-grounded');return {...previous,config:validateConfig({...previous.config,id:'human-screen-experience-conditional',deferral:{...previous.config.deferral!,selectionScope:'ui-conditional'}})};}
