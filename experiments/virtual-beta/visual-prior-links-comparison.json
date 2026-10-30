@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "phase": "visual-prior-links-2026-10-30",
+  "control": "experience-visual-conditions-checks",
+  "intervention": "experience-visual-conditions-prior-links",
+  "fixtures": [
+    "library/unchanged",
+    "workshop/unchanged"
+  ],
+  "trials": 4,
+  "repeats": 1,
+  "persona": null,
+  "maximumRequests": 144,
+  "perTrialRequests": 36,
+  "maxJudgments": 12,
+  "maxUIActions": 15,
+  "maxLooks": 3,
+  "maxTrialMs": 300000,
+  "maxPhaseMs": 1260000,
+  "parallel": 1,
+  "retry": 0,
+  "declaredChange": "Opt-in model references from current controls to bounded recalled unresolved condition IDs, validated and delivered to both Jev stages and candidate-local recalledConditions. No correct routes, state promotion or probability correction. Native output relation schema/instructions differ explicitly. Both actors share explicit native60s cap and total300s runtime.",
+  "initialEvidence": "Identical initial UI PNG, goal, persona and empty grounded-unresolved memory; only declared priorConditionLinks flag/contract differs. Native timeout cap60s is shared.",
+  "stop": "Authentication/quota/accounting/model-output failure or two consecutive infrastructure failures. Preserve failed and unattempted slots; no replacement.",
+  "limitations": "Descriptive single repeat only, not human agreement or causal performance proof.",
+  "actorOrderOffset": 1,
+  "revisionPolicy": "Fresh4slot comparison, preserve all6006 prior raw files including previous180s50 and300s75 requests. No slot replacement or performance pooling.",
+  "executionRequestCapPolicy": "New separate maximum144 requests,36 per trial, no HTTP retry. Existing unlimited authorization; earlier spent125 requests remain separate.",
+  "generationConsistency": "If a matched uncertain condition has null or historical evidence, emit unobserved with null conditionId; revised uncertain requires current-image quote. Do not invent evidence. Validator/schema and selection remain unchanged.",
+  "maxVisualRequestMs": 60000
+}

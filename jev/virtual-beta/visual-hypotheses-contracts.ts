@@ -4,7 +4,7 @@ import type {Persona} from '../persona.js';
 import type {ExperienceMemory,ExperienceSource} from './experience-contracts.js';
 export type VisualCandidate={id:string;type:'click'|'scroll'|'back'};
 export type VisualSource=ExperienceSource&{image:string};
-export type VisualHypothesisRequest={goal:string;currentDate:string;persona?:Persona;current:ExperienceSource;sources:VisualSource[];candidates:VisualCandidate[];experience?:ExperienceMemory;memory?:VisualHypothesisMemory;conditionContinuity?:ConditionContinuityContext;images:Record<string,{mediaType:'image/png';data:string}>;timeoutMs:number};
+export type VisualHypothesisRequest={goal:string;currentDate:string;persona?:Persona;current:ExperienceSource;sources:VisualSource[];candidates:VisualCandidate[];experience?:ExperienceMemory;memory?:VisualHypothesisMemory;conditionContinuity?:ConditionContinuityContext;priorConditionLinks?:boolean;timeoutCapMs?:30000|60000;images:Record<string,{mediaType:'image/png';data:string}>;timeoutMs:number};
 export type VisualEvidence=ExperienceSource&{quote:string;quoteStatus:'model-transcribed-unverified'};
 export type VisualHypothesisRecord={schemaVersion:1;kind:'model-visual-hypotheses-not-fact';source:ExperienceSource;goalSha256:string;conditions:{id:string;description:string;status:'unmet'|'satisfied'|'uncertain';evidence:VisualEvidence|null;uncertainty:string}[];relations:{candidateId:string;conditionIds:string[];relation:'execute'|'prerequisite'|'information'|'navigation'|'unrelated'|'unknown';currentEvidence:VisualEvidence|null;expectedResult:string|null}[];unknowns:string[]};
 export type VisualHypothesisMemory={schemaVersion:1;records:VisualHypothesisRecord[]};

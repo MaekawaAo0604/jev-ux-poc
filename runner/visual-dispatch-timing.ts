@@ -4,11 +4,10 @@ export type VisualDispatchTiming={
  maxRunMs:number;
  elapsedRunMs:number;
  remainingRunMs:number;
- requestCapMs:30000;
+ requestCapMs:30000|60000;
  timeoutMs:number;
  limit:'request-cap'|'run-remaining';
 };
-const requestCapMs=30000 as const;
 const fields=['schemaVersion','maxRunMs','elapsedRunMs','remainingRunMs','requestCapMs','timeoutMs','limit'] as const;
 function fail():never{throw Error('INVALID_VISUAL_DISPATCH_TIMING');}
 function validateMaximum(value:unknown):asserts value is number{
@@ -16,8 +15,8 @@ function validateMaximum(value:unknown):asserts value is number{
 }
 
 /** Floor the available run budget before capping; less than one whole millisecond cannot dispatch. */
-export function planVisualDispatch(maxRunMs:number,elapsedRunMs:number):VisualDispatchTiming|null{
- validateMaximum(maxRunMs);
+export function planVisualDispatch(maxRunMs:number,elapsedRunMs:number,requestCapMs:30000|60000=30000):VisualDispatchTiming|null{
+ validateMaximum(maxRunMs);if(requestCapMs!==30000&&requestCapMs!==60000)fail();
  if(typeof elapsedRunMs!=='number'||!Number.isFinite(elapsedRunMs)||elapsedRunMs<0)fail();
  const remainingRunMs=Math.floor(maxRunMs-elapsedRunMs);
  if(remainingRunMs<=0)return null;
@@ -25,12 +24,12 @@ export function planVisualDispatch(maxRunMs:number,elapsedRunMs:number):VisualDi
 }
 
 /** Closed scalar record, bound to the run cap and independently recomputed without coercion. */
-export function validateVisualDispatch(value:unknown,expectedMaxRunMs:number):VisualDispatchTiming{
+export function validateVisualDispatch(value:unknown,expectedMaxRunMs:number,expectedRequestCapMs:30000|60000=30000):VisualDispatchTiming{
  validateMaximum(expectedMaxRunMs);
  if(!value||typeof value!=='object'||Array.isArray(value)||Object.keys(value).length!==fields.length||fields.some(field=>!Object.hasOwn(value,field)))fail();
  const input=value as Record<string,unknown>;
  if(input.maxRunMs!==expectedMaxRunMs)fail();
- const expected=planVisualDispatch(expectedMaxRunMs,input.elapsedRunMs as number);
+ const expected=planVisualDispatch(expectedMaxRunMs,input.elapsedRunMs as number,expectedRequestCapMs);
  if(!expected||fields.some(field=>input[field]!==expected[field]))fail();
  return expected;
 }

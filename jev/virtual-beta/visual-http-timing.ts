@@ -15,16 +15,16 @@ export type VisualHTTPDispatch=VisualHTTPPlan&{httpTimeoutMs:number};
 const planFields=['schemaVersion','receivedTimeoutMs','externalRemainingMs','adapterTimeoutMs','adapterStartedMs','beforeNativeMs','reservationElapsedMs','plannedTimeoutMs','limit'] as const;
 const dispatchFields=[...planFields,'httpTimeoutMs'] as const;
 function fail():never{throw Error('INVALID_VISUAL_HTTP_TIMING');}
-function receivedTimeout(value:unknown):asserts value is number{
- if(typeof value!=='number'||!Number.isSafeInteger(value)||value<1||value>30000)fail();
+function receivedTimeout(value:unknown,cap:30000|60000=30000):asserts value is number{
+ if(typeof value!=='number'||!Number.isSafeInteger(value)||value<1||value>cap||cap!==30000&&cap!==60000)fail();
 }
 function clock(value:unknown):asserts value is number{
  if(typeof value!=='number'||!Number.isFinite(value)||value<0)fail();
 }
 
 /** Keep deadline addition before subtraction to preserve the existing adapter's floating-point order. */
-export function planVisualHTTP(receivedTimeoutMs:number,externalRemainingMs:number|null,adapterStartedMs:number,beforeNativeMs:number):VisualHTTPPlan|null{
- receivedTimeout(receivedTimeoutMs);
+export function planVisualHTTP(receivedTimeoutMs:number,externalRemainingMs:number|null,adapterStartedMs:number,beforeNativeMs:number,cap:30000|60000=30000):VisualHTTPPlan|null{
+ receivedTimeout(receivedTimeoutMs,cap);
  if(externalRemainingMs!==null&&(typeof externalRemainingMs!=='number'||!Number.isSafeInteger(externalRemainingMs)))fail();
  clock(adapterStartedMs);clock(beforeNativeMs);if(beforeNativeMs<adapterStartedMs)fail();
  if(externalRemainingMs!==null&&externalRemainingMs<=0)return null;
@@ -35,12 +35,12 @@ export function planVisualHTTP(receivedTimeoutMs:number,externalRemainingMs:numb
 }
 
 /** Strict copied projection; this checks an observer record without producing a dispatch observation. */
-export function validateVisualHTTPDispatch(value:unknown,expectedReceivedTimeoutMs:number):VisualHTTPDispatch{
- receivedTimeout(expectedReceivedTimeoutMs);
+export function validateVisualHTTPDispatch(value:unknown,expectedReceivedTimeoutMs:number,cap:30000|60000=30000):VisualHTTPDispatch{
+ receivedTimeout(expectedReceivedTimeoutMs,cap);
  if(!value||typeof value!=='object'||Array.isArray(value)||Object.keys(value).length!==dispatchFields.length||dispatchFields.some(field=>!Object.hasOwn(value,field)))fail();
  const input=value as Record<string,unknown>;
  if(input.receivedTimeoutMs!==expectedReceivedTimeoutMs)fail();
- const expected=planVisualHTTP(expectedReceivedTimeoutMs,input.externalRemainingMs as number|null,input.adapterStartedMs as number,input.beforeNativeMs as number);
+ const expected=planVisualHTTP(expectedReceivedTimeoutMs,input.externalRemainingMs as number|null,input.adapterStartedMs as number,input.beforeNativeMs as number,cap);
  if(!expected||planFields.some(field=>input[field]!==expected[field])||input.httpTimeoutMs!==expected.plannedTimeoutMs)fail();
  return {...expected,httpTimeoutMs:input.httpTimeoutMs as number};
 }

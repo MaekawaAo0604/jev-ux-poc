@@ -1,3 +1,4 @@
+import {visualPriorConditionIds,admitVisualPriorRelations} from './visual-prior-relations.js';
 import {validateConditionContinuityContext,conditionContinuitySchema,admitConditionContinuity} from './condition-continuity.js';
 import {createHash} from 'node:crypto';
 import {isDeepStrictEqual} from 'node:util';
@@ -74,7 +75,11 @@ function memoryCopy(memory:VisualHypothesisMemory|undefined):VisualHypothesisMem
 }
 /** Validated allowlist projection. Unknown request/persona/candidate/experience properties are never read. */
 export function validateVisualHypothesisRequest(request:VisualHypothesisRequest):VisualHypothesisRequest{
- if(!object(request)||typeof request.goal!=='string'||!request.goal.trim()||request.goal.length>4000||/\u0000/.test(request.goal)||typeof request.currentDate!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(request.currentDate)||!Number.isFinite(Date.parse(request.currentDate))||new Date(request.currentDate).toISOString().slice(0,10)!==request.currentDate||!Number.isSafeInteger(request.timeoutMs)||request.timeoutMs<1||request.timeoutMs>30000)fail();
+ if(!object(request))fail();
+ if(request.priorConditionLinks!==undefined&&typeof request.priorConditionLinks!=='boolean')fail();
+ if(request.timeoutCapMs!==undefined&&request.timeoutCapMs!==30000&&request.timeoutCapMs!==60000)fail();
+ const timeoutCap=request.timeoutCapMs??30000;
+ if(!object(request)||typeof request.goal!=='string'||!request.goal.trim()||request.goal.length>4000||/\u0000/.test(request.goal)||typeof request.currentDate!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(request.currentDate)||!Number.isFinite(Date.parse(request.currentDate))||new Date(request.currentDate).toISOString().slice(0,10)!==request.currentDate||!Number.isSafeInteger(request.timeoutMs)||request.timeoutMs<1||request.timeoutMs>timeoutCap)fail();
  const current=sourceCopy(request.current),maximum=observationNumber(current.observationId),sources=new Map<string,ExperienceSource>();
  if(!Array.isArray(request.sources)||request.sources.length<1||request.sources.length>5)fail();
  const copiedSources=request.sources.map(raw=>{const source=sourceCopy(raw,maximum);if(sources.has(source.observationId)||typeof raw.image!=='string'||!idPattern.test(raw.image))fail();sources.set(source.observationId,source);return {...source,image:raw.image};});
@@ -99,8 +104,9 @@ export function validateVisualHypothesisRequest(request:VisualHypothesisRequest)
   for(const transition of experience.transitions){checkSource(sources,sourceCopy(transition.intent.source,maximum));checkSource(sources,sourceCopy(transition.result,maximum));if(observationNumber(transition.intent.source.observationId)>=observationNumber(transition.result.observationId))fail();}
  }
  const conditionContinuity=request.conditionContinuity===undefined?undefined:validateConditionContinuityContext(request.conditionContinuity,current,request.goal);
+ if(request.priorConditionLinks===true&&!conditionContinuity)fail();
  if(conditionContinuity){const memory=conditionContinuity.memory;if(memory.lastObservation)checkSource(sources,memory.lastObservation);for(const entry of memory.entries){checkSource(sources,entry.lastAssessed);if(entry.lastGrounded)checkSource(sources,entry.lastGrounded.evidence);}}
- return {goal:request.goal,currentDate:request.currentDate,...(persona?{persona}:{}),current,sources:copiedSources,candidates,...(conditionContinuity?{conditionContinuity}:{}),...(experience?{experience}:{}),...(request.memory!==undefined?{memory}:{}),images,timeoutMs:request.timeoutMs};
+ return {goal:request.goal,currentDate:request.currentDate,...(persona?{persona}:{}),current,sources:copiedSources,candidates,...(conditionContinuity?{conditionContinuity}:{}),...(experience?{experience}:{}),...(request.memory!==undefined?{memory}:{}),images,timeoutMs:request.timeoutMs,...(request.priorConditionLinks!==undefined?{priorConditionLinks:request.priorConditionLinks}:{}),...(request.timeoutCapMs!==undefined?{timeoutCapMs:request.timeoutCapMs}:{})};
 }
 const schemaObject=(properties:Record<string,unknown>)=>({type:'object',properties,required:Object.keys(properties),additionalProperties:false});
 const schemaText=(maximum:number,empty=false)=>({type:'string',pattern:`^[^\\u0000-\\u001f\\u007f-\\u009f]{${empty?0:1},${maximum}}$`});
@@ -111,8 +117,10 @@ export function visualHypothesisSchema(request:VisualHypothesisRequest){
  const evidence=(ids:string[])=>schemaObject({observationId:{type:'string',enum:ids},quote:schemaText(160)});
  const contextEvidence=evidence(req.sources.map(s=>s.observationId)),currentEvidence=evidence([req.current.observationId]);
  const condition=(statuses:string[],basis:unknown)=>schemaObject({id:{type:'string',enum:['c1','c2','c3']},description:schemaText(200),status:{type:'string',enum:statuses},evidence:basis,uncertainty:schemaText(200,true)});
- const relation=(roles:string[],basis:unknown,expectedResult:unknown)=>schemaObject({candidateId:req.candidates.length?{type:'string',enum:req.candidates.map(c=>c.id)}:{type:'string',pattern:idPattern.source},conditionIds:{type:'array',minItems:0,maxItems:3,items:{type:'string',enum:['c1','c2','c3']}},relation:{type:'string',enum:roles},currentEvidence:basis,expectedResult});
- return schemaObject({... (req.conditionContinuity?{continuity:conditionContinuitySchema(req.conditionContinuity)}:{}),conditions:{type:'array',minItems:0,maxItems:3,items:{anyOf:[condition(['unmet','satisfied'],contextEvidence),condition(['uncertain'],nullable(contextEvidence))]}},relations:{type:'array',minItems:req.candidates.length,maxItems:req.candidates.length,items:{anyOf:[relation(roleValues.filter(role=>role!=='unknown'),currentEvidence,nullable(schemaText(200))),relation(['unknown'],currentEvidence,schemaText(200)),relation(['unknown'],nullable(currentEvidence),{type:'null'})]}},unknowns:{type:'array',minItems:0,maxItems:3,items:schemaText(200)}});
+ const priorIds=req.priorConditionLinks===true?visualPriorConditionIds(req.conditionContinuity!):[];
+ const priorReferences={type:'array',minItems:0,maxItems:priorIds.length,items:priorIds.length?{type:'string',enum:priorIds}:{type:'string',pattern:/^o[1-9]\d*_c[123]$/.source}};
+ const relation=(roles:string[],basis:unknown,expectedResult:unknown,references=priorReferences)=>schemaObject({candidateId:req.candidates.length?{type:'string',enum:req.candidates.map(c=>c.id)}:{type:'string',pattern:idPattern.source},conditionIds:{type:'array',minItems:0,maxItems:3,items:{type:'string',enum:['c1','c2','c3']}},relation:{type:'string',enum:roles},currentEvidence:basis,expectedResult,...(req.priorConditionLinks===true?{priorConditionIds:references}:{})});
+ return schemaObject({... (req.conditionContinuity?{continuity:conditionContinuitySchema(req.conditionContinuity)}:{}),conditions:{type:'array',minItems:0,maxItems:3,items:{anyOf:[condition(['unmet','satisfied'],contextEvidence),condition(['uncertain'],nullable(contextEvidence))]}},relations:{type:'array',minItems:req.candidates.length,maxItems:req.candidates.length,items:{anyOf:[relation(roleValues.filter(role=>role!=='unknown'),currentEvidence,nullable(schemaText(200))),relation(['unknown'],currentEvidence,req.priorConditionLinks===true?nullable(schemaText(200)):schemaText(200)),relation(['unknown'],nullable(currentEvidence),{type:'null'},req.priorConditionLinks===true?{...priorReferences,maxItems:0}:priorReferences)]}},unknowns:{type:'array',minItems:0,maxItems:3,items:schemaText(200)}});
 }
 /** Reject duplicate JSON members before parsing, with a small independent nesting bound. */
 function uniqueJSON(raw:string){
@@ -133,10 +141,21 @@ export function admitVisualHypotheses(response:VisualHypothesisResponse,request:
  if(!object(response)||response.model!=='gpt-6-luna'||response.status!=='completed'||typeof response.rawText!=='string'||Buffer.byteLength(response.rawText,'utf8')>65536||!object(response.request)||response.request.attempts!==1||response.request.httpReceived!==true||response.request.statusCode!==200||response.costUSD!==null)fail();
  uniqueJSON(response.rawText);const parsed:unknown=JSON.parse(response.rawText);if(!isDeepStrictEqual(parsed,response.output))fail();
  const sources=new Map(req.sources.map(source=>[source.observationId,sourceCopy(source)]));
- let data=response.output,continuity:unknown;
+ let data=response.output,continuity:unknown,priorLinks:unknown;
  if(req.conditionContinuity){exact(data,['conditions','relations','unknowns','continuity']);continuity=data.continuity;data={conditions:data.conditions,relations:data.relations,unknowns:data.unknowns};}
+ if(req.priorConditionLinks===true){
+  exact(data,['conditions','relations','unknowns']);
+  const links:{candidateId:unknown;priorConditionIds:unknown}[]=[];
+  const relations=boundedArray(data.relations,24).map(raw=>{
+   exact(raw,['candidateId','conditionIds','relation','currentEvidence','expectedResult','priorConditionIds']);
+   links.push({candidateId:raw.candidateId,priorConditionIds:raw.priorConditionIds});
+   return {candidateId:raw.candidateId,conditionIds:raw.conditionIds,relation:raw.relation,currentEvidence:raw.currentEvidence,expectedResult:raw.expectedResult};
+  });
+  priorLinks=links;data={conditions:data.conditions,relations,unknowns:data.unknowns};
+ }
  const record:VisualHypothesisRecord={schemaVersion:1,kind:'model-visual-hypotheses-not-fact',source:sourceCopy(req.current),goalSha256:sha(req.goal),...dataCopy(data,sources,req.current,req.candidates)};
  if(req.conditionContinuity)admitConditionContinuity(continuity,req.conditionContinuity,record);
+ if(req.priorConditionLinks===true)admitVisualPriorRelations(priorLinks,req,record);
  return record;
 }
 /** Bounded, copied, strictly chronological same-goal recollection; never a full audit history. */
