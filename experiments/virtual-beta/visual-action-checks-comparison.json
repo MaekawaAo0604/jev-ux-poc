@@ -26,5 +26,14 @@
   "actorOrderOffset": 1,
   "revisionPolicy": "Fresh4-slot targeted phase. Preserve previous incomplete comparisons and all5803 raw; no slot replacement or pooled performance.",
   "executionRequestCapPolicy": "Separate bounded phase maximum144 authorized under continuing API approval. Prior original phase remains182/288 with92allocated+14unallocated; new phase is not silently charged against or added to its comparison denominator.",
-  "generationConsistency": "If a matched uncertain condition has null or historical evidence, emit unobserved with null conditionId; revised uncertain requires current-image quote. Do not invent evidence. Validator/schema and selection remain unchanged."
+  "generationConsistency": "If a matched uncertain condition has null or historical evidence, emit unobserved with null conditionId; revised uncertain requires current-image quote. Do not invent evidence. Validator/schema and selection remain unchanged.",
+  "explicitRuntimeOverride": {
+    "option": "--trial-ms 300000",
+    "appliesEquallyToBothActors": true,
+    "maxTrialMs": 300000,
+    "maxPhaseMs": 1260000,
+    "reason": "Both original180s trials were cut short by the external deadline during native image requests. Preserve their50 charged requests and2 unattempted slots; allocate one fresh4-slot comparison with144 requests maximum, without pooling or replacement.",
+    "requestsAndJudgmentsUnchanged": true,
+    "totalChecksPhaseRequestMaximum": 194
+  }
 }

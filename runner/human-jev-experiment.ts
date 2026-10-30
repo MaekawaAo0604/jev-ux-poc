@@ -21,7 +21,7 @@ import {sourceIdentity} from './virtual-beta-source.js';
 import {buildBlindReview,validateBlindReview,type ReviewFrame} from './human-jev-review.js';
 
 export const humanJevConfig=humanJevProfile().config;
-type Options={out:string;mock:boolean;phaseBudget?:string;maximumRequests?:number;envFile?:string;mode?:HumanJevMode;longContext?:boolean;holdoutFixture?:HoldoutFixture;transferFixture?:TransferFixture;recoveryFixture?:RecoveryFixture;runId?:string;deadlineEpochMs?:number;decisionBackend?:DecisionBackend};
+type Options={out:string;mock:boolean;phaseBudget?:string;maximumRequests?:number;maxRunMs?:number;envFile?:string;mode?:HumanJevMode;longContext?:boolean;holdoutFixture?:HoldoutFixture;transferFixture?:TransferFixture;recoveryFixture?:RecoveryFixture;runId?:string;deadlineEpochMs?:number;decisionBackend?:DecisionBackend};
 function failureEvidence(error:unknown){
  if(error instanceof BetaAdmissionError||error instanceof BetaSettlementError)return betaBudgetFailureEvidence(error);
  const f=safeRequestFailure(error);
@@ -34,7 +34,7 @@ function failureEvidence(error:unknown){
  * This module never opens participant records or accepts participant expectations.
  */
 export async function runHumanJev(options:Options,injected?:BetaEvaluator,injectedExtractor?:VisualHypothesisExtractor){
- const mode=options.mode??'baseline',profile=humanJevProfile(mode),config=profile.config;
+ const mode=options.mode??'baseline',profile=humanJevProfile(mode,options.maxRunMs),config=profile.config;
  const maximumRequests=options.maximumRequests===undefined?profile.maximumRequests:options.maximumRequests;
  if(!Number.isSafeInteger(maximumRequests)||maximumRequests<1||maximumRequests>profile.maximumRequests)throw Error('INVALID_MAXIMUM_REQUESTS');
  const backend=resolveDecisionBackend(options.decisionBackend),evaluateBetaRequest=decisionEvaluator(backend);
@@ -135,7 +135,7 @@ export async function runHumanJev(options:Options,injected?:BetaEvaluator,inject
 }
 async function main(){
  const args=process.argv.slice(2),options:Options={out:'',mock:false};
- for(let i=0;i<args.length;i++){const key=args[i];if(key==='--mock'){options.mock=true;continue;}if(key==='--long-context'){options.longContext=true;continue;}if(!['--out','--phase-budget','--env-file','--mode','--backend','--maximum-requests'].includes(key)||!args[i+1]||args[i+1].startsWith('--'))throw new Error('INVALID_OPTION');const value=args[++i];if(key==='--out')options.out=value;if(key==='--phase-budget')options.phaseBudget=value;if(key==='--maximum-requests')options.maximumRequests=Number(value);if(key==='--env-file')options.envFile=value;if(key==='--mode')options.mode=value as HumanJevMode;if(key==='--backend')options.decisionBackend=resolveDecisionBackend(value);}
+ for(let i=0;i<args.length;i++){const key=args[i];if(key==='--mock'){options.mock=true;continue;}if(key==='--long-context'){options.longContext=true;continue;}if(!['--out','--phase-budget','--env-file','--mode','--backend','--maximum-requests','--run-ms'].includes(key)||!args[i+1]||args[i+1].startsWith('--'))throw new Error('INVALID_OPTION');const value=args[++i];if(key==='--out')options.out=value;if(key==='--phase-budget')options.phaseBudget=value;if(key==='--maximum-requests')options.maximumRequests=Number(value);if(key==='--run-ms')options.maxRunMs=Number(value);if(key==='--env-file')options.envFile=value;if(key==='--mode')options.mode=value as HumanJevMode;if(key==='--backend')options.decisionBackend=resolveDecisionBackend(value);}
  if(!options.out)throw new Error('NEW_OUTPUT_DIRECTORY_REQUIRED');
  const saved=await runHumanJev(options);console.log(JSON.stringify({root:saved.root,termination:saved.result.termination,objectiveSuccess:saved.result.objectiveAssessment.value,reviewStatus:saved.review.status}));
 }
