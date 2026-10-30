@@ -172,3 +172,11 @@ manifest.json は設定/入力/ソースhash/版/環境/上限、各run/result.j
 ## 未解決条件の保持方式と計測の残課題
 
 [実装・実行方法・結果](condition-retention.md)、[個別JSON](condition-retention-results.json)、[独立原本監査](condition-retention-review-live.json)。過去根拠を優先保持する任意設定を追加し、関連339件と独立検証を実施した。実モデルは予定4枠中2枠・48要求で連続タイムアウト停止、残2枠未実行。保持は実ログで確認したが、探索性能の優位性は未認定。最終HTTP timeoutの記録漏れも独立再現し、基盤全体は未完了。以前の130と合わせ178/288要求。上記の以前の結果・版は保持する。
+
+
+最終HTTP待機上限の計測修正は [final-http-timeout.md](final-http-timeout.md)。関連462・独立273テストと短い実API疎通を別スコープで確認した。以前の比較未完了・当時の欠測は保持し、今回の記録を探索性能や人間再現の実証としない。
+
+
+## 過去の未解決条件と現在候補の接続
+
+[実装・実行・残課題](visual-prior-links.md)と[結果JSON](visual-prior-links-results.json)を追加した。任意の過去条件リンクを両判断段階へ渡し、独立検証のP2を修正した。Jev4試行124要求は照合0・最終達成0、別のOpenAI機能確認2試行72要求は照合1・最終達成0。実装の整合性は確認したが、探索の安定した改善は未確認。

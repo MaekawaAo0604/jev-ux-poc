@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "round": 2,
+  "verdict": "PASS_SCOPED_OFFLINE_PREFLIGHT",
+  "scope": "Final client HTTP timeout measurement code and offline evidence contracts only. No live smoke, provider receipt, performance or human-fidelity approval.",
+  "source": {
+    "revision": "e8658a846fb4c687970cfe8e5b4641ef858a9e07",
+    "sourceHash": "da22a6fbe7e8d9468ab0b096dfbebb86b92fec95a90106111d9596b6e5113d1d",
+    "sourceCount": 155,
+    "frozenFiles": 954,
+    "protectedFiles": 117,
+    "oldRawFiles": 5784,
+    "beforeAfterUnchanged": true,
+    "round1Evidence": {"files":63,"allUnchanged":true},
+    "declaredDeltaExactlyMatches": true,
+    "changedRuntimeSourceFiles": 4,
+    "unchangedRuntimeSourceFiles": 151,
+    "evidence": ["freeze-before.json","freeze-after.json","delta-verification.json","round1-evidence-before.json","round1-evidence-after.json"]
+  },
+  "executed": {
+    "targetedSuite": {"tests":237,"pass":237,"fail":0,"evidence":"targeted-tests.log","scope":"New120 plus relevant core, native, human adapter, visual dispatch and visual comparison regressions."},
+    "reexecutedIndependentRequirements": {"tests":13,"pass":13,"fail":0,"evidence":"independent-tests.log","scope":"Real adapter source closure joined to actual native function and fetch/AbortSignal spies; local browser core, actor boundaries, rehashed mutations and two immutable old live replays."},
+    "round2IndependentRegressions": {"tests":11,"pass":11,"fail":0,"evidence":"regressions-tests.log"},
+    "typeAndBuild": {"command":"npm run build (tsc --noEmit && vite build)","exitCode":0,"evidence":"build.log"},
+    "actualTimeoutArgument": {"receivedMs":30000,"externalRemainderMs":22000,"finalObservedMs":21950,"evidence":["joined-success.json","browser-summary.json"]},
+    "nativeChangingAccessor": {"actualArgumentMs":2005,"observedMs":2005,"propertyReads":9,"evidence":"accessor-scalar.json"},
+    "nativeCanonicalBodySha256":"f43ee86d9780c73b274975d468963224c21362481170d7f42dbff97588592e4a",
+    "requiredReplayPositiveMutations": {"rejected":["httpTimeout","clock","unknown-key","null","trace-removal","unknown-marker","marker-and-all-traces-removal"],"evidence":"mutation-results.json"},
+    "missingMeasurementMutations": {"cases":["response","timeout","http-error","settlement"],"mutationsPerCase":8,"allRejected":true,"mutations":["measurementError-delete","measurementError-null","measurementError-unknown","validForComparison-true","termination-success","error-delete","trace-forged","marker-delete"],"evidence":["missing-response-mutations.json","missing-timeout-mutations.json","missing-http-error-mutations.json","missing-settlement-mutations.json"]},
+    "legacyCompatibility": {"oldImmutableLiveRecords":2,"defaultReplayVerified":true,"requiredRejectsOldMarker":true,"evidence":"legacy-replay.json"}
+  },
+  "round1Findings": [
+    {"id":"FINAL-HTTP-VERIFY-001","status":"FIX_VERIFIED","evidence":"comparison-guard-matrix.json","result":"Actual comparison guard requires finalVisualHTTP only for real visual-enabled actors and rejects downgrade. Mock or nonvisual branches keep default legacy compatibility."},
+    {"id":"FINAL-HTTP-VERIFY-002","status":"FIX_VERIFIED","evidence":"missing-outcome-results.json","result":"Explicit final measurement with omitted observer stops before both actors: native1, actors0, steps1, API_ERROR and validForComparison=false. Original successful response preserved. Attempt1 TIMEOUT/HTTP429/settlement errors preserved with separate measurementError. Attempts0/admission and flags-absent legacy remain distinct."}
+  ],
+  "currentFindings": [],
+  "interpretation": "Replay verified=true for explicit missing-measurement failures confirms structural consistency of incomplete evidence; it does not mean HTTP measurement success or comparison validity. These results remain API_ERROR and validForComparison=false.",
+  "notVerified": [
+    "No external API or live transport smoke was run by this verifier; those remain separate subsequent work.",
+    "No full repository suite was run by this verifier in Round2. Only four runtime files changed, the specified relevant237 tests and independent24 tests were freshly executed, and unchanged151 runtime hashes plus old evidence were checked. No unexecuted full-suite pass is inherited or claimed.",
+    "Actual comparison guard line was executed in an isolated VM; full nonmock comparison batches and their external services were not reexecuted.",
+    "Real adapter means current source closure transpiled in VM with deterministic reservation/clocks. The joined body-timeout test records21950 as the actual timeout argument while returning a5ms test signal; native tests separately exercise real5ms timeout behavior.",
+    "No model-quality, persona, intermediate-action correctness, human reproducibility or performance conclusion is drawn."
+  ],
+  "controls": {"externalAPIRequests":0,"externalEnvFilesRead":0,"humanDataRead":false,"gitCommitOrPush":false,"productOrNormalTestsOrExistingDocsEditedByVerifier":false,"round1EvidenceEdited":false},
+  "editingStoppedAfterGate": true
+}

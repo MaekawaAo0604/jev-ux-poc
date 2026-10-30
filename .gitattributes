@@ -1,2 +1,6 @@
 * text=auto eol=lf
 *.png binary
+
+# Preserve independently captured review evidence byte for byte.
+docs/virtual-beta/final-http-timeout-review-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/visual-prior-links-review-*.json -text

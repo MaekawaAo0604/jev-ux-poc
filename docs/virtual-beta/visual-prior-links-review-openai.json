@@ -1,0 +1,243 @@
+{
+  "status": "PASS",
+  "scope": "Final sealed OpenAI functional-check audit; one intermediate action example, not final-goal or performance pass",
+  "sourceHash": "9ffb0aa77e39c5d8cb4a14837781459f4802e5e20befecf8eff461e379ae5aa3",
+  "revision": "f5c1786eb648df3c5e13d7db08fd230b5b5014d5",
+  "APIRequestsForAudit": 0,
+  "authEnvAccess": false,
+  "humanInputsRead": false,
+  "originalsModified": false,
+  "JevGateAndEvidenceUnchanged": true,
+  "preservation": {
+    "before": {
+      "raw": 6270,
+      "protectedFiles": 911,
+      "baseline": 16,
+      "sourceHash": "9ffb0aa77e39c5d8cb4a14837781459f4802e5e20befecf8eff461e379ae5aa3",
+      "revision": "f5c1786eb648df3c5e13d7db08fd230b5b5014d5"
+    },
+    "after": {
+      "raw": 6270,
+      "protectedFiles": 911,
+      "baseline": 16,
+      "sourceHash": "9ffb0aa77e39c5d8cb4a14837781459f4802e5e20befecf8eff461e379ae5aa3",
+      "revision": "f5c1786eb648df3c5e13d7db08fd230b5b5014d5"
+    },
+    "all6270RawUnchanged": true,
+    "all94OpenAIRawUnchanged": true,
+    "protected911Unchanged": true,
+    "prepare16BaselinesUnchanged": true
+  },
+  "requiredFinalHTTPReplay": {
+    "passed": 2,
+    "attempted": 2
+  },
+  "summaryExactlyRecomputed": true,
+  "outcomes": {
+    "planned": 2,
+    "attempted": 2,
+    "valid": 2,
+    "invalid": 0,
+    "missing": 0,
+    "requests": 72,
+    "objectiveSuccesses": 0,
+    "validObjectiveFailures": 2,
+    "decisionLimit": 2,
+    "nativeTimeouts": 0,
+    "subjectiveDone": 0,
+    "abandoned": 0
+  },
+  "backend": {
+    "manifest": "openai-decisions",
+    "allRecordedModels": {
+      "native": {
+        "gpt-6-luna": 24
+      },
+      "assessment": {
+        "gpt-6-luna": 24
+      },
+      "action": {
+        "gpt-6-luna": 24
+      }
+    },
+    "sourceAndConfigMatchProducer": true
+  },
+  "accounting": {
+    "chargedRequests": 72,
+    "knownResponseReceipts": {
+      "native": 24,
+      "assessment": 24,
+      "action": 24
+    },
+    "receiptBasis": "Native explicit httpReceived and saved model+answers choice responses with attempts1; all corresponding ledger attempts OK",
+    "ledgerUsed": 72,
+    "ledgerOK": 72,
+    "ledgerReserved": 0,
+    "ledgerErrors": 0,
+    "retry": 0,
+    "maximumObservedConcurrency": 1,
+    "startedAfterJevFinished": true,
+    "nativeHTTPTimeoutRange": {
+      "min": 59993,
+      "max": 59998,
+      "count": 24
+    },
+    "caps": {
+      "trials": 2,
+      "totalRequests": 72,
+      "perTrialRequests": 36,
+      "judgments": 12,
+      "uiActions": 15,
+      "looks": 3,
+      "totalTrialMs": 300000,
+      "nativeMs": 60000,
+      "phaseMs": 660000
+    }
+  },
+  "trials": [
+    {
+      "task": "library",
+      "requests": 36,
+      "termination": "DECISION_LIMIT",
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "home",
+        "eligible": true,
+        "verificationAttempts": 4,
+        "recordChecks": 1,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "replayVerified": true,
+      "ledger": {
+        "used": 36,
+        "sha256": "068011b1a082cbce7fda0a809e227d88f7c879debded3e9d074ef935a9c3335c",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      },
+      "modelChoiceChangedByExistingPolicy": 1
+    },
+    {
+      "task": "workshop",
+      "requests": 36,
+      "termination": "DECISION_LIMIT",
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "account",
+        "eligible": false,
+        "verificationAttempts": 6,
+        "recordChecks": 0,
+        "savedValue": "午前の回",
+        "complete": false
+      },
+      "replayVerified": true,
+      "ledger": {
+        "used": 36,
+        "sha256": "a7227ce7e87382908321c100636248174bf085af71383bdda7a5922690025155",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      },
+      "modelChoiceChangedByExistingPolicy": 1
+    }
+  ],
+  "initialJevInputComparisons": [
+    {
+      "task": "library",
+      "initialNativeMetadataByteEqual": true,
+      "initialProductPNGEqual": true,
+      "initialNativeCurrentPNGEqual": true,
+      "initialNativeMetadataSHA256": "1e246701a776cbcd51981c7636adf0fa414a52cae82798f6480badf794b092bc",
+      "initialProductPNG_SHA256": "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba",
+      "freshNativeRawOutputEqual": false,
+      "distinctRunAndBatch": true,
+      "causalProviderIsolation": false
+    },
+    {
+      "task": "workshop",
+      "initialNativeMetadataByteEqual": true,
+      "initialProductPNGEqual": true,
+      "initialNativeCurrentPNGEqual": true,
+      "initialNativeMetadataSHA256": "915885a2792252dd27f65757307b7171a0da61e5de1c39d1d3c8bcec7c4ca202",
+      "initialProductPNG_SHA256": "2426c25ce45e0c932ae6e192b1af8e61122defd5f8c9a3dce2b7a1a473da42f5",
+      "freshNativeRawOutputEqual": false,
+      "distinctRunAndBatch": true,
+      "causalProviderIsolation": false
+    }
+  ],
+  "functionalExample": {
+    "task": "library",
+    "step": 11,
+    "currentControlQuote": "予約記録を照合する",
+    "nativeRelation": "information",
+    "nativeExpectedObservation": null,
+    "recalledPriorID": "o1_c2",
+    "recalledDescription": "予約記録との照合を完了する",
+    "recalledLastGroundedStatus": "unmet",
+    "recalledCurrentStatus": "uncertain",
+    "recalledStatusScope": "last-assessed-not-current-observation",
+    "rawE1Probability": 0.91,
+    "allWeights": 1,
+    "modelChoice": "e1",
+    "actualSelection": "e1",
+    "action": {
+      "type": "click",
+      "elementId": "e1"
+    },
+    "outcome": "UI_PERFORMED",
+    "bothStagesSidecarAndLocalCriteriaDelivered": true,
+    "nextObservedStep": 12,
+    "observedRecordChecks": {
+      "before": 0,
+      "after": 1
+    },
+    "observedEligible": {
+      "before": false,
+      "after": true
+    },
+    "visualInspection": {
+      "performed": true,
+      "nextPNGText": "予約記録の照合が完了しました。予約内容の変更を利用できます。",
+      "savedPickupStill": "中央図書館"
+    },
+    "finalObjectiveSuccess": false,
+    "subsequentSelection": "e2",
+    "finalRoute": "home",
+    "evidence": "raw-audit.json functionalExample"
+  },
+  "workshop": {
+    "recordChecks": 0,
+    "eligible": false,
+    "savedValue": "午前の回",
+    "finalObjectiveSuccess": false
+  },
+  "historicalSidecarDelivery": {
+    "steps": 24,
+    "nonemptyReferences": 38,
+    "bothStagesEqual": true,
+    "localCriteriaExact": true
+  },
+  "conclusion": "One observed autonomous intermediate operation is supported. Both final goal saves remain unmet. Initial native metadata and PNG match Jev, while fresh native outputs and later histories differ; provider causal attribution, stability, human fidelity and prior-experience matching are unsupported.",
+  "issues": [],
+  "limitations": [
+    "Two fresh functional trials; not the historical24-provider comparison.",
+    "No causal provider performance comparison or success-rate/stability claim.",
+    "One intermediate enabling-state change does not satisfy the requested final save.",
+    "No source changes, saved-input resend, extra API extraction, or human data."
+  ],
+  "evidence": [
+    "raw-audit.json",
+    "recomputed-summary.json",
+    "audit-openai.log",
+    "prepare.json"
+  ]
+}

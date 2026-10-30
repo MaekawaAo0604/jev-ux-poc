@@ -1,0 +1,410 @@
+{
+  "status": "PASS",
+  "scope": "Sealed Jev raw audit integrity and failure classification; not a behavioral-improvement pass",
+  "sourceHash": "9ffb0aa77e39c5d8cb4a14837781459f4802e5e20befecf8eff461e379ae5aa3",
+  "revision": "f5c1786eb648df3c5e13d7db08fd230b5b5014d5",
+  "APIRequestsForAudit": 0,
+  "authEnvAccess": false,
+  "humanInputsRead": false,
+  "originalsModified": false,
+  "openaiSanityRead": false,
+  "preservation": {
+    "before": {
+      "protectedVerified": 911,
+      "sealedVerified": 6176,
+      "evidenceBaselineVerified": 9,
+      "sourceHash": "9ffb0aa77e39c5d8cb4a14837781459f4802e5e20befecf8eff461e379ae5aa3",
+      "revision": "f5c1786eb648df3c5e13d7db08fd230b5b5014d5"
+    },
+    "after": {
+      "protectedVerified": 911,
+      "sealedVerified": 6176,
+      "evidenceBaselineVerified": 9,
+      "sourceHash": "9ffb0aa77e39c5d8cb4a14837781459f4802e5e20befecf8eff461e379ae5aa3",
+      "revision": "f5c1786eb648df3c5e13d7db08fd230b5b5014d5"
+    },
+    "all6176Unchanged": true,
+    "inventory170Unchanged": true
+  },
+  "all4RequiredFinalHTTPReplay": true,
+  "summaryExactlyRecomputed": true,
+  "outcomes": {
+    "planned": 4,
+    "attempted": 4,
+    "valid": 3,
+    "invalid": 1,
+    "missing": 0,
+    "objectiveSuccesses": 0,
+    "validObjectiveFailures": 3,
+    "subjectiveDone": 0,
+    "abandoned": 0,
+    "decisionLimit": 3,
+    "modelOutputFailure": 1,
+    "nativeTimeout": 0
+  },
+  "comparisonPairs": {
+    "initialPairMatches": [
+      {
+        "task": "library",
+        "matched": true
+      },
+      {
+        "task": "workshop",
+        "matched": true
+      }
+    ],
+    "validPairedTasks": [
+      "library"
+    ],
+    "invalidPairedTasks": [
+      {
+        "task": "workshop",
+        "reason": "prior-links native invalid output on step6; exclude pair from outcome comparison"
+      }
+    ]
+  },
+  "accounting": {
+    "chargedRequests": 124,
+    "knownHTTPAttempts": 124,
+    "knownHTTPReceipts": 124,
+    "receiptUnconfirmed": 0,
+    "stageReceipts": {
+      "native": 42,
+      "assessment": 41,
+      "action": 41
+    },
+    "receiptBasis": {
+      "native": "explicit response.request.httpReceived",
+      "assessmentAndAction": "saved successful model+answers responses, matching summary knownHTTPReceipts"
+    },
+    "nativeHTTPTimeoutScalar": {
+      "count": 42,
+      "min": 59994,
+      "max": 59998
+    },
+    "maximumObservedLedgerConcurrency": 1,
+    "retry": 0,
+    "capsVerified": {
+      "trialMs": 300000,
+      "nativeRequestCapMs": 60000,
+      "requestsPerTrial": 36,
+      "decisions": 12,
+      "ui": 15,
+      "looks": 3
+    },
+    "models": {
+      "native": {
+        "gpt-6-luna": 42
+      },
+      "assessment": {
+        "jev-1.14.0": 41
+      },
+      "action": {
+        "jev-1.14.0": 41
+      }
+    }
+  },
+  "trials": [
+    {
+      "actor": "experience-visual-conditions-prior-links",
+      "task": "library",
+      "valid": true,
+      "termination": "DECISION_LIMIT",
+      "requests": 36,
+      "decisions": 12,
+      "uiActions": 12,
+      "looks": 0,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "recordChecks": 0,
+      "verificationAttempts": 1,
+      "replayRequiredFinalHTTP": true,
+      "ledger": {
+        "used": 36,
+        "sha256": "3d3f04461fc174af2bfaff130b1417e7cc93c993475b68a79b7b2ddacc772ea6",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      },
+      "modelChoiceDifferentFromActual": [
+        {
+          "step": 7,
+          "modelChoice": "e2",
+          "selected": "e3",
+          "baselineSelected": "e2",
+          "weights": {
+            "abandon": 1,
+            "back": 1,
+            "done": 1,
+            "e1": 0.01,
+            "e2": 0.01,
+            "e3": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "stuck": 1,
+            "wait": 1
+          }
+        }
+      ],
+      "weightChanges": 3
+    },
+    {
+      "actor": "experience-visual-conditions-checks",
+      "task": "library",
+      "valid": true,
+      "termination": "DECISION_LIMIT",
+      "requests": 36,
+      "decisions": 12,
+      "uiActions": 12,
+      "looks": 0,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "recordChecks": 0,
+      "verificationAttempts": 2,
+      "replayRequiredFinalHTTP": true,
+      "ledger": {
+        "used": 36,
+        "sha256": "fa76b3547d03e917b62b3cf1c5d3a0c4f969acb855ec90da619c4e9c5f9c7f49",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      },
+      "modelChoiceDifferentFromActual": [
+        {
+          "step": 7,
+          "modelChoice": "e2",
+          "selected": "e3",
+          "baselineSelected": "e2",
+          "weights": {
+            "abandon": 1,
+            "back": 1,
+            "done": 1,
+            "e1": 0.01,
+            "e2": 0.01,
+            "e3": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "stuck": 1,
+            "wait": 1
+          }
+        }
+      ],
+      "weightChanges": 2
+    },
+    {
+      "actor": "experience-visual-conditions-checks",
+      "task": "workshop",
+      "valid": true,
+      "termination": "DECISION_LIMIT",
+      "requests": 36,
+      "decisions": 12,
+      "uiActions": 12,
+      "looks": 0,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "recordChecks": 0,
+      "verificationAttempts": 1,
+      "replayRequiredFinalHTTP": true,
+      "ledger": {
+        "used": 36,
+        "sha256": "c9354dd1fd8262cf329eb2b731d27bab2749634ad5c291ead2da6c39b1fae013",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      },
+      "modelChoiceDifferentFromActual": [
+        {
+          "step": 7,
+          "modelChoice": "e2",
+          "selected": "e3",
+          "baselineSelected": "e2",
+          "weights": {
+            "abandon": 1,
+            "back": 1,
+            "done": 1,
+            "e1": 0.01,
+            "e2": 0.01,
+            "e3": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "stuck": 1,
+            "wait": 1
+          }
+        },
+        {
+          "step": 10,
+          "modelChoice": "e1",
+          "selected": "e2",
+          "baselineSelected": "e1",
+          "weights": {
+            "abandon": 1,
+            "back": 1,
+            "done": 1,
+            "e1": 0.01,
+            "e2": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "stuck": 1,
+            "wait": 1
+          }
+        },
+        {
+          "step": 12,
+          "modelChoice": "e1",
+          "selected": "e2",
+          "baselineSelected": "e1",
+          "weights": {
+            "abandon": 1,
+            "back": 1,
+            "done": 1,
+            "e1": 0.01,
+            "e2": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "stuck": 1,
+            "wait": 1
+          }
+        }
+      ],
+      "weightChanges": 4
+    },
+    {
+      "actor": "experience-visual-conditions-prior-links",
+      "task": "workshop",
+      "valid": false,
+      "termination": "API_ERROR",
+      "requests": 16,
+      "decisions": 6,
+      "uiActions": 5,
+      "looks": 0,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "recordChecks": 0,
+      "verificationAttempts": 1,
+      "replayRequiredFinalHTTP": true,
+      "ledger": {
+        "used": 16,
+        "sha256": "c383123eefba1118cc85b0b02d6b52d74368b868f3ebe390f8f347cff8c1c682",
+        "reserved": 0,
+        "ok": 16,
+        "errors": 0
+      },
+      "modelChoiceDifferentFromActual": [],
+      "weightChanges": 1
+    }
+  ],
+  "historicalSidecarDelivery": {
+    "stepsVerified": 17,
+    "nonemptyRecalledReferences": 25,
+    "bothStagesEqual": true,
+    "candidateLocalProjectionExact": true,
+    "historicalScopesPreserved": true,
+    "failureStepNoSidecarOrLaterStages": true,
+    "evidence": "raw-audit.json candidateDelivery and preselectedFrames"
+  },
+  "preselectedLibraryFrameObservation": {
+    "visualInspectionPerformed": true,
+    "pngsIdentical": true,
+    "step": 8,
+    "e1Visible": "予約記録を照合する",
+    "e2Visible": "マイページへ",
+    "priorLinksE1PriorIDs": [
+      "o3_c3"
+    ],
+    "priorLinksE2PriorIDs": [
+      "o1_c3"
+    ],
+    "bothNativeE1Relation": "information",
+    "bothAssessmentE1Effect": "unknown",
+    "bothActionE1Role": "information",
+    "bothModelChoice": "e2",
+    "bothActualAction": "click e2",
+    "allWeightsOnThisFrame": 1,
+    "recordChecksAfterTrial": 0,
+    "primaryAfterChecksFrame": "MISSING for both; no replacement",
+    "caveat": "Delivery and visible controls do not establish reading, understanding, correct semantic mapping or performance gain."
+  },
+  "selectionPolicyObservation": {
+    "totalModelChoiceChanges": 5,
+    "explanation": "Five actual selections differ from raw modelChoice under the pre-existing temporary-deferral policy. Required replay independently reproduces those changes; preserve raw/filtered/weights separately. At both library preselected records frames all weights are 1 and raw choice equals e2 execution.",
+    "newPriorFeaturePolicyCorrection": false
+  },
+  "nativeFailureDiagnosis": {
+    "originalStatus": "invalid-response",
+    "originalStatusNotChanged": true,
+    "originalOutputAndRawTextDeepEqual": true,
+    "recordFieldsIndependentlyValidated": true,
+    "originalContinuityRejected": "INVALID_CONDITION_CONTINUITY_DATA",
+    "duplicateCurrentConditionAssignments": [
+      {
+        "priorId": "o1_c2",
+        "conditionId": "c2",
+        "change": "persists",
+        "explanation": "現在の画面にも利用情報の確認が必要と表示されており、未完了の状態が確認できます。"
+      },
+      {
+        "priorId": "o5_c2",
+        "conditionId": "c2",
+        "change": "revised",
+        "explanation": "以前は不確かでしたが、現在は利用情報の確認が必要と表示されています。"
+      }
+    ],
+    "newPriorReferencesAdmitted": true,
+    "priorReferences": [
+      {
+        "candidateId": "e1",
+        "priorIDs": [
+          "o1_c2"
+        ]
+      },
+      {
+        "candidateId": "back",
+        "priorIDs": []
+      }
+    ],
+    "specificExistingRule": "condition-continuity.ts referenced conditionId values must be one-to-one (line80)",
+    "counterfactualDiagnosticOnly": {
+      "change": "in-memory transition for o5_c2 changed to unobserved/null; no response status changed, no original write",
+      "admitted": true
+    },
+    "conclusion": "Original native output violates existing continuity one-to-one rule; its new priorConditionIds references independently pass. This does not establish why the model produced the duplicate.",
+    "partialFailureNotDelivered": true
+  },
+  "behavioralConclusion": "No observed objective save or record-check execution in this Jev batch. Library has one valid matched pair; workshop is not a valid outcome pair. Cannot infer improvement, human reproduction, model understanding, or provider causality.",
+  "evidence": [
+    "raw-audit.json",
+    "recomputed-summary.json",
+    "raw-preservation.json",
+    "audit-jev.log"
+  ],
+  "issues": [],
+  "limitations": [
+    "One repeat per task/actor",
+    "Native output failure remains invalid; original status never rewritten",
+    "No saved input resend or extra API analysis",
+    "OpenAI sanity run excluded and not read"
+  ]
+}

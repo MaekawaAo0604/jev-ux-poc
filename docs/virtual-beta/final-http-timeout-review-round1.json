@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "round": 1,
+  "verdict": "FAIL_REQUIRES_FIX",
+  "scope": "Final client HTTP timeout measurement repair only; no human fidelity, performance or provider-receipt approval.",
+  "source": {
+    "revision": "e8658a846fb4c687970cfe8e5b4641ef858a9e07",
+    "sourceHash": "febba992612c3f7402239662edda366d10b6d7e521a120de8767d5e261e19801",
+    "sourceCount": 155,
+    "frozenFiles": 954,
+    "protectedFiles": 117,
+    "oldRawFiles": 5784,
+    "beforeAfterUnchanged": true,
+    "evidence": ["freeze-before.json", "freeze-after.json"]
+  },
+  "verification": {
+    "targetedSuite": {"tests":234,"pass":234,"fail":0,"evidence":"targeted-tests.log","scope":"New117 plus related native transport, core, human adapter and visual comparison tests; not the full repository suite."},
+    "independentRequirements": {"tests":13,"pass":13,"fail":0,"evidence":"independent-tests.log"},
+    "findingWitnesses": {"tests":2,"pass":2,"fail":0,"evidence":"findings-tests.log","meaning":"Assertions confirm current defective behavior. These passes do not mean acceptance."},
+    "typeAndBuild": {"command":"npm run build (tsc --noEmit && vite build)","exitCode":0,"evidence":"build.log"},
+    "realClosureAndNative": {"receivedTimeoutMs":30000,"externalRemainingMs":22000,"actualAbortSignalArgumentMs":21950,"cases":["success","HTTP429","network failure","response-body timeout","missing key","invalid input","external expiry","reservation expiry","response settlement failure","error settlement failure"],"evidence":["joined-success.json","joined-http-error.json","joined-network-error.json","joined-body-timeout.json","joined-missing-key.json","joined-invalid-input.json","joined-external-expired.json","joined-reservation-expired.json","joined-settlement.json","joined-error-settlement.json"],"qualification":"Adapter closure is the current source slice transpiled in VM with deterministic reservation and clocks, joined to actual native function and a local fetch stub. The response-body test spy records21950 but returns a5ms signal to avoid a22second wall-clock wait; existing native tests separately cover real5ms body timeout."},
+    "nativeCanonicalBodySha256": "f43ee86d9780c73b274975d468963224c21362481170d7f42dbff97588592e4a",
+    "browserIntegration": {"nativeAndCoreJoined":true,"bothActorInputBoundariesChecked":true,"successAndFailureTracePersistence":true,"evidence":"browser-summary.json"},
+    "rehashedRequiredReplayMutations": {"rejected":["httpTimeout","clock","unknown-key","null","trace-removal","unknown-marker","marker-and-all-traces-removal"],"evidence":"mutation-results.json"},
+    "legacyReplay": {"twoImmutableLiveRecordsDefaultReplay":true,"requiredRejectsOldMarker":true,"evidence":"legacy-replay.json"}
+  },
+  "findings": [
+    {
+      "id":"FINAL-HTTP-VERIFY-001",
+      "severity":"P2",
+      "location":"runner/visual-conditions-comparison.ts:181",
+      "repro":"Use the exact experience-visual-conditions profile in the local browser fixture. Remove measurement.visualHTTP and every timing.httpDispatch; recompute input hashes. Execute the actual comparison replay-guard line in an isolated VM with this directory.",
+      "expected":"Nonmock visual-enabled comparison explicitly requires finalVisualHTTP and rejects the downgraded record.",
+      "actual":"The guard passes no requirements and sets record.replay.status=OK. Explicit required replay rejects FINAL_VISUAL_HTTP_MEASUREMENT_REQUIRED.",
+      "fix":"Pass finalVisualHTTP for nonmock actors whose frozen profile enables visualHypotheses; preserve default replay compatibility for legacy logs and nonvisual actors.",
+      "evidence":["finding-comparison-downgrade.json","findings.test.ts","findings-tests.log"],
+      "qualification":"Actual guard line executed, not an external nonmock batch. Preceding identity checks do not inspect the measurement marker or trace. Other comparison runners without visual-enabled actors were not classified as this defect."
+    },
+    {
+      "id":"FINAL-HTTP-VERIFY-002",
+      "severity":"P2",
+      "location":"runner/virtual-beta-core.ts:189-194",
+      "repro":"Call runBeta with nativeHTTPMeasurement:true and a real native extractor whose wrapper omits forwarding the optional audit observer.",
+      "expected":"The explicitly declared measurement contract fails closed on a successful admitted visual response without the native trace, stops before actor evaluation and produces an invalid record.",
+      "actual":"Two actual native stubbed HTTP calls and four actor evaluations complete. traceCount=0, measurement.visualHTTP=final-timeout-v1, validForComparison=true, objectiveSuccess=true. Required replay subsequently rejects VISUAL_HTTP_DISPATCH_MISSING.",
+      "fix":"When the native measurement flag is set, validate required trace presence before accepting a visual response or continuing to actor evaluation, and classify missing measurement as invalid. Preserve flags-absent legacy extractor compatibility and attempts0 nondispatch cases.",
+      "evidence":["finding-core-missing-observer.json","findings.test.ts","comparison-entry/exploration/result.json"],
+      "qualification":"Direct core API contract reproduction. Current normal runHumanJev adapter itself forwards the observer; this is not evidence that normal native transport silently loses its trace."
+    }
+  ],
+  "limitations": [
+    "No external API request, external env file, human data, commit or push was used.",
+    "No product, normal tests or existing documentation was edited by this verifier.",
+    "No server receipt or provider processing/start evidence is inferred from the native timeout scalar.",
+    "First independent harness attempt failed on cross-VM object prototypes and repeated deterministic clocks; its log is retained as independent-tests-harness-attempt1.log. Only the private harness was corrected before the passing rerun.",
+    "The whole exploration/human-validation goal is not assessed or completed."
+  ],
+  "editingStoppedAfterGate": true
+}

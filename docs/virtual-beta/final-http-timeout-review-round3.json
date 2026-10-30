@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "round": 3,
+  "verdict": "PASS_SCOPED_OFFLINE_PREFLIGHT",
+  "scope": "Offline final-client HTTP timeout contracts plus ordinary-wrapper smaller request-cap admission and enforcement. This is permission-quality preflight evidence only, not a live transport observation, exploration outcome, performance or human-fidelity approval.",
+  "boundFreeze": "freeze-round3-final.json",
+  "sourceHash": "8a86d07d95b59e5e27f1469d2b977abd8402663619e641c4b8a338c3bcbea897",
+  "preservation": {
+    "source155": "exact current-byte hash match",
+    "frozen955": "exact hash match",
+    "protected117": "exact hash match",
+    "raw5786": "exact hash match; old5784 subset plus immutable setup-failure2",
+    "round1Evidence63": "exact hash match",
+    "round2Evidence99": "exact hash match to independent-live baseline",
+    "declaredDeltaFromRound2": "Exactly4 frozen files; only runtime change is runner/human-jev-experiment.ts",
+    "evidence": ["freeze-before.json","freeze-after.json"]
+  },
+  "freshExecuted": {
+    "targetedNormalTests": {"tests":240,"pass":240,"fail":0,"evidence":"targeted-tests-final.log","scope":"New cap3 plus final-timeout120 and relevant native/core/human-wrapper/visual comparison regressions."},
+    "priorIndependentContracts": {"tests":24,"pass":24,"fail":0,"evidence":"independent-contract-tests.log","qualification":"Fresh R3 copies of prior13+11 independent checks. VM closure receives the newly required outer maximumRequests36; original21950 expectations remain."},
+    "independentCapTests": {"tests":9,"pass":9,"fail":0,"evidence":"cap-independent-tests.log"},
+    "typeAndBuild": {"command":"npm run build (tsc --noEmit && vite build)","exitCode":0,"evidence":"build-final.log"},
+    "normalWrapperCapStages": {
+      "1": ["extractor"],
+      "2": ["extractor","assessment"],
+      "6": ["extractor","assessment","action","extractor","assessment","action"],
+      "eachLedgerAndActualStubCallCountEqualsCap": true,
+      "eachReservedAtEnd": 0,
+      "eachRequiredReplayVerified": true,
+      "nativeAuditKeptOutsideModelBodies": true,
+      "evidence":"cap-wrapper-results.json"
+    },
+    "baselineReview": {"cap1":"action1, review skipped at cap","cap2":"action1 plus review1, review OK","evidence":"cap-wrapper-results.json"},
+    "negativeAdmission": {"invalidValues":13,"ledgerMismatches":3,"externalOrStubDispatches":0,"capAboveBaseline13Rejected":true,"original36DefaultAdmissionRetained":true,"evidence":"cap-independent-tests.log"},
+    "actualCLI": {"spawned":5,"valid1AndOmittedDefault36":"accepted in mock mode with actualAPIRequests0","zeroFractionAndOverMaximum":"rejected with INVALID_MAXIMUM_REQUESTS","evidence":"cli-cap-results.json"},
+    "finalTimeoutContracts": {"realAdapter30000External22000Native21950":true,"nativeCanonicalBodySha256":"f43ee86d9780c73b274975d468963224c21362481170d7f42dbff97588592e4a","missingTraceStopsActorsAndPreservesOriginalEvidence":true,"requiredReplayRehashedTamperingRejected":true,"oldDefaultReplayCompatible":true,"evidence":["joined-success.json","mutation-results.json","missing-outcome-results.json","comparison-guard-matrix.json","legacy-replay.json"]}
+  },
+  "initialSetupFailure": {"budgetUsed":0,"attempts":0,"status":"RUN_ERROR","requests":0,"transportTraceAcceptance":"NOT_ESTABLISHED","classification":"Pre-request setup failure retained; no model/UX failure or successful live measurement claimed."},
+  "findings": [],
+  "retainedFailures": [
+    {"evidence":"targeted-tests-prior-sandbox.log","result":"239pass/1ReferenceError before normal VM test supplied new outer maximumRequests. Parent corrected its sandbox, final same240 suite passed."},
+    {"evidence":["cap-independent-tests-harness-attempt1.log","cap-independent-harness-attempt1.ts","review-cap-2/run/manifest.json","review-cap-2/run/review.json"],"result":"Independent stub selected reread for baseline and consumed cap2 as action/action, so action/review assertion failed. Ledger/manifest stayed2. Only stub selection was corrected; same cap/stage assertions passed in separate cap-attempt2 outputs."}
+  ],
+  "limits": [
+    "All fetches in independent ordinary nonmock-wrapper tests were local stubs with synthetic keys; no external env or API was used.",
+    "Actual post-fix live smoke and new producer archive are subsequent work, not verified by this gate.",
+    "Resource API_LIMIT retains the existing core validForComparison policy. This gate does not interpret that field as performance acceptance.",
+    "No full repository suite was independently run; all claimed240 normal and33 independent tests were freshly executed against R3. Parent-reported462 are not substituted for independent execution.",
+    "Comparison guard is tested as its actual code line in an isolated VM; full external comparison batches are not rerun.",
+    "No provider receipt/server start is inferred from a client AbortSignal scalar. No human reproducibility, persona quality or intermediate-action/performance conclusion is made."
+  ],
+  "controls": {"externalAPIRequests":0,"externalEnvFilesRead":0,"humanDataRead":false,"gitMutations":false,"productOrNormalTestsOrExistingDocsEditedByVerifier":false,"priorEvidenceEdited":false},
+  "editingStoppedAfterGate": true
+}
