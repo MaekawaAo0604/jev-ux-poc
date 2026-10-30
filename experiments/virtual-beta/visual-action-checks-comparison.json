@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "phase": "visual-action-checks-2026-10-30",
+  "control": "experience-visual-conditions-retention",
+  "intervention": "experience-visual-conditions-checks",
+  "fixtures": [
+    "library/unchanged",
+    "workshop/unchanged"
+  ],
+  "trials": 4,
+  "repeats": 1,
+  "persona": null,
+  "maximumRequests": 144,
+  "perTrialRequests": 36,
+  "maxJudgments": 12,
+  "maxUIActions": 15,
+  "maxLooks": 3,
+  "maxTrialMs": 180000,
+  "maxPhaseMs": 1200000,
+  "parallel": 1,
+  "retry": 0,
+  "declaredChange": "Candidate-local projection of admitted concrete condition/control evidence/expected-observation tuples and indirect-progress clarification in effect/action questions only. No native schema/body/stage, UI, memory, sampler, weights or retry change.",
+  "initialEvidence": "Identical full initial native extraction metadata and PNG hashes; both use empty grounded-unresolved continuity memory. Assessment effect guidance and action criteria are explicitly declared differences.",
+  "stop": "Authentication/quota/accounting/model-output failure or two consecutive infrastructure failures. Preserve failed and unattempted slots; no replacement.",
+  "limitations": "Descriptive single repeat only, not human agreement or causal performance proof.",
+  "actorOrderOffset": 1,
+  "revisionPolicy": "Fresh4-slot targeted phase. Preserve previous incomplete comparisons and all5803 raw; no slot replacement or pooled performance.",
+  "executionRequestCapPolicy": "Separate bounded phase maximum144 authorized under continuing API approval. Prior original phase remains182/288 with92allocated+14unallocated; new phase is not silently charged against or added to its comparison denominator.",
+  "generationConsistency": "If a matched uncertain condition has null or historical evidence, emit unobserved with null conditionId; revised uncertain requires current-image quote. Do not invent evidence. Validator/schema and selection remain unchanged."
+}

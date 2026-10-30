@@ -1,3 +1,6 @@
+import {betaActionInstructions,experienceAssessmentInstructions} from './virtual-beta-action-instructions.js';
+import {requestFor} from '../jev/decide.js';
+import {visualActionChecks,visualActionCheckInstructions,type VisualActionCheckRecord} from '../jev/virtual-beta/visual-action-checks.js';
 import {conditionContinuityUserRecord} from './condition-continuity-guidance.js';
 import {validateVisualHTTPDispatch} from '../jev/virtual-beta/visual-http-timing.js';
 import {validateVisualDispatch} from './visual-dispatch-timing.js';
@@ -20,7 +23,7 @@ import {arriveExperience,beginExperience,experienceQuestions,admitExperience,exp
 import {prepareReasonContext,requiredReasonSources,reasonQuestions,admitReasons} from '../jev/virtual-beta/deferral-reason.js';
 import type {DeferralReasonMemory,DeferralReasonContext} from '../jev/virtual-beta/deferral-reason-contracts.js';
 import type {ExperienceMemory,ExperienceIntent} from '../jev/virtual-beta/experience-contracts.js';
-import {admitAssessment,assessedCriteria} from '../jev/virtual-beta/deliberation.js';
+import {assessmentQuestions,admitAssessment,assessedCriteria} from '../jev/virtual-beta/deliberation.js';
 import type {BetaCandidates,UserObservation} from '../jev/virtual-beta/contracts.js';
 import type {AdmittedObservationSource} from '../jev/virtual-beta/deliberation-contracts.js';
 import {readFile} from 'node:fs/promises';
@@ -108,6 +111,8 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
 
  if(result.transport!==undefined&&(!isRecord(result.transport)||Object.keys(result.transport).length!==1||result.transport.jevImageReferences!=='opaque-v1'))throw Error('INVALID_TRANSPORT_POLICY');
  for(const step of result.steps){
+  if(!result.config.visualHypotheses?.candidateChecks&&step.visualActionChecks!==undefined)throw Error('UNCONFIGURED_VISUAL_ACTION_CHECKS');
+  if(result.config.visualHypotheses?.candidateChecks){if(!step.deliberation?.assessment&&step.visualActionChecks!==undefined)throw Error('PARTIAL_VISUAL_ACTION_CHECKS');if(step.questions?.nextAction){if(!step.audit?.screen)throw Error('VISUAL_ACTION_CHECKS_SCREEN_MISSING');const base=requestFor({goal:result.input.charter.goal,currentDate:result.input.charter.initialState.currentDate,screen:step.audit.screen,history:[]},{},'').questions.nextAction.instructions;if(step.questions.nextAction.instructions!==betaActionInstructions(result.config,base))throw Error('VISUAL_ACTION_CHECKS_GUIDANCE_MISMATCH');}}
   for(const stage of [step.deliberation,step])if(stage){
    if(stage===step&&!step.response&&[step.deliberation,step.visualHypotheses].some(prior=>prior?.error!==undefined&&equal(prior.error,step.error)))continue;
    const error=stage.error as any,trace=stage.response?.request??error?.request,binding=trace?.imageBindings;
@@ -204,6 +209,7 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
    }else if(hasCorrespondence(input)||hasCorrespondence(step.modelInput)||step.correspondence?.record!==undefined||step.correspondence?.annotations!==undefined||!equal(baseAssets,assets))throw Error('UNEXPECTED_CORRESPONDENCE_INPUT');
   }else if(!archive&&(step.correspondence!==undefined||hasCorrespondence(step.modelInput)||hasCorrespondence(d?.modelInput)))throw Error('UNCONFIGURED_CORRESPONDENCE');
   if(d){
+   if(result.config.visualHypotheses?.candidateChecks){const current=step.userState?.lastObservation;if(!current||!searchCandidates)throw Error('VISUAL_ACTION_CHECKS_ASSESSMENT_CONTEXT_MISSING');const base=assessmentQuestions(searchCandidates,assessmentSources(d.modelInput,d.assetFiles,current)),expectedIds=Object.keys(base).filter(k=>k.startsWith('effect_')),actualIds=Object.keys(d.questions).filter(k=>k.startsWith('effect_'));if(!equal(expectedIds,actualIds))throw Error('VISUAL_ACTION_CHECKS_EFFECT_IDS_MISMATCH');for(const key of expectedIds){const expected=base[key];if(result.config.experience?.enabled)expected.instructions+=' '+experienceAssessmentInstructions;expected.instructions+=' '+visualActionCheckInstructions;if(!equal(d.questions[key],expected))throw Error('VISUAL_ACTION_CHECKS_EFFECT_QUESTION_MISMATCH');}}
    if(d.inputSha256!==sha(JSON.stringify({input:d.modelInput,questions:d.questions,assets:d.assetFiles})))throw new Error('ASSESSMENT_INPUT_HASH_MISMATCH');
    for(const asset of Object.values(d.assetFiles)){if(asset.file!==asset.file.split(/[\\/]/).at(-1))throw new Error('UNSAFE_IMAGE_PATH');if(sha(await readFile(join(directory,asset.file)))!==asset.sha256)throw new Error('ASSESSMENT_IMAGE_HASH_MISMATCH');images++;}
    if(d.assessment){
@@ -254,6 +260,7 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
      const before=expectedCriteria!,after=actionRelationCriteria(before,record,result.input.charter.goal,current),annotations=Object.keys(before).filter(id=>before[id]!==after[id]).map(candidateId=>({candidateId,before:before[candidateId],after:after[candidateId]}));
      if(!equal(step.actionRelations?.annotations,annotations))throw Error('ACTION_RELATIONS_ANNOTATION_MISMATCH');expectedCriteria=after;
     }
+    if(result.config.visualHypotheses?.candidateChecks){if(!expectedCriteria||!step.visualHypotheses?.record)throw Error('VISUAL_ACTION_CHECKS_SOURCE_MISSING');const checked=visualActionChecks(step.visualHypotheses.record,result.input.charter.goal,current,expectedCriteria);if(!equal(step.visualActionChecks,{record:checked.record,annotations:checked.annotations}))throw Error('VISUAL_ACTION_CHECKS_RECORD_MISMATCH');expectedCriteria=checked.criteria;}
     if(expectedCriteria&&!equal(step.questions?.nextAction.criteria,expectedCriteria))throw Error('FINAL_ASSESSED_CRITERIA_MISMATCH');
     if(!equal(assessment,d.assessment))throw new Error('ASSESSMENT_RECORD_MISMATCH');
     if(result.config.deferral?.enabled){deferrals=updateDeferrals(deferrals,experience!,current,assessment,result.config.deferral);effectiveDeferrals=deferrals;if(!equal(step.deferral?.state,deferrals))throw new Error('DEFERRAL_STATE_MISMATCH');}
