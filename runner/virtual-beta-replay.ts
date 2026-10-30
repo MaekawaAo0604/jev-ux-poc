@@ -1,3 +1,6 @@
+import {buildWorkingInquiryContext,workingInquiryQuestions,admitWorkingInquiry} from '../jev/virtual-beta/working-inquiry.js';
+import {workingInquiryCriteria} from '../jev/virtual-beta/working-inquiry-projection.js';
+import type {WorkingInquiryContext,WorkingInquiryRecord} from '../jev/virtual-beta/working-inquiry-contracts.js';
 import {admitVisualPriorRelations,visualPriorRelationInstructions,type VisualPriorRelationsRecord} from '../jev/virtual-beta/visual-prior-relations.js';
 import {betaActionInstructions,experienceAssessmentInstructions} from './virtual-beta-action-instructions.js';
 import {requestFor} from '../jev/decide.js';
@@ -113,6 +116,11 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
  if(result.transport!==undefined&&(!isRecord(result.transport)||Object.keys(result.transport).length!==1||result.transport.jevImageReferences!=='opaque-v1'))throw Error('INVALID_TRANSPORT_POLICY');
  for(const step of result.steps){
   let priorProjection:Parameters<typeof visualActionChecks>[4];
+  let inquiryContext:WorkingInquiryContext|undefined,inquiryRecord:WorkingInquiryRecord|undefined;
+  const inquiryInputs=[step.modelInput,step.deliberation?.modelInput],inquiryPresent=step.workingInquiry!==undefined||inquiryInputs.some(v=>Object.keys(v??{}).some(k=>k.startsWith('workingInquiry')))||Object.keys(step.deliberation?.questions??{}).some(k=>k.startsWith('workingInquiry'))||Object.keys(step.deliberation?.response?.answers??{}).some(k=>k.startsWith('workingInquiry'));
+  if(!result.config.visualHypotheses?.workingInquiry&&inquiryPresent)throw Error('UNCONFIGURED_WORKING_INQUIRY');
+  for(const v of inquiryInputs)if(Object.keys(v??{}).some(k=>k.startsWith('workingInquiry')&&!['workingInquiryContext','workingInquiry'].includes(k))||Object.keys((v?.userState as any)??{}).some(k=>k.startsWith('workingInquiry')))throw Error('UNEXPECTED_WORKING_INQUIRY_FIELD');
+  if(Object.keys(step.userState??{}).some(k=>k.startsWith('workingInquiry')))throw Error('UNEXPECTED_WORKING_INQUIRY_STATE');
   const priorInputs=[step.modelInput,step.deliberation?.modelInput],priorPresent=step.visualPriorRelations!==undefined||priorInputs.some(x=>x?.visualPriorRelations!==undefined);
   if(priorInputs.some(x=>Object.keys(x??{}).some(k=>k.startsWith('visualPrior')&&k!=='visualPriorRelations'))||Object.keys(step.userState??{}).some(k=>k.startsWith('visualPrior'))||priorInputs.some(x=>Object.keys((x?.userState as any)??{}).some(k=>k.startsWith('visualPrior'))))throw Error('UNEXPECTED_VISUAL_PRIOR_RELATIONS_FIELD');
   if(!result.config.visualHypotheses?.priorConditionLinks&&priorPresent)throw Error('UNCONFIGURED_VISUAL_PRIOR_RELATIONS');
@@ -184,6 +192,21 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
    if(result.config.visualHypotheses.continuity&&(!equal(step.userState?.conditionContinuity,continuityMemory)||!equal((step.modelInput.userState as any)?.conditionContinuity,continuityMemory)||d&&!equal((d.modelInput.userState as any)?.conditionContinuity,continuityMemory)||!v.record&&step.conditionContinuity!==undefined))throw Error('CONDITION_CONTINUITY_STATE_MISMATCH');
    if(!equal(step.userState?.visualHypotheses,visualMemory))throw Error('VISUAL_HYPOTHESES_STATE_MISMATCH');
   }
+  if(result.config.visualHypotheses?.workingInquiry&&(d||inquiryPresent)){
+   if(!d||!priorProjection||!step.conditionContinuity||!step.visualHypotheses?.record||!step.workingInquiry)throw Error('WORKING_INQUIRY_CONTEXT_MISSING');
+   closedKeys(step.workingInquiry,['context'],['record','annotations']);
+   inquiryContext=buildWorkingInquiryContext({request:priorProjection.request,record:step.visualHypotheses.record,continuity:step.conditionContinuity,prior:priorProjection.record});
+   if(!equal(step.workingInquiry.context,inquiryContext)||inquiryInputs.some(v=>!equal(v?.workingInquiryContext,inquiryContext)))throw Error('WORKING_INQUIRY_CONTEXT_MISMATCH');
+   const expected=workingInquiryQuestions(inquiryContext),actual=Object.fromEntries(Object.entries(d.questions).filter(([key])=>key.startsWith('workingInquiry')));
+   if(!equal(actual,expected)||d.modelInput.workingInquiry!==undefined)throw Error('WORKING_INQUIRY_QUESTIONS_OR_STAGE_MISMATCH');
+   if(d.response&&(step.workingInquiry.record!==undefined||d.assessment||!d.error||['INVALID_ASSESSMENT','INVALID_WORKING_INQUIRY'].includes((d.error as any)?.code))){
+    try{inquiryRecord=admitWorkingInquiry(d.response,inquiryContext);}catch{
+     if((d.error as any)?.code!=='INVALID_WORKING_INQUIRY'||result.termination!=='INVALID_DISTRIBUTION'||step.workingInquiry.record!==undefined||step.workingInquiry.annotations!==undefined||step.modelInput?.workingInquiry!==undefined||d.assessment||step.response||step.selection)throw Error('WORKING_INQUIRY_INVALID_RESPONSE_MISMATCH');
+    }
+    if(inquiryRecord&&(!equal(step.workingInquiry.record,inquiryRecord)||!equal(step.modelInput?.workingInquiry,inquiryRecord)||(d.error as any)?.code==='INVALID_WORKING_INQUIRY'))throw Error('WORKING_INQUIRY_RECORD_MISMATCH');
+   }else if(step.workingInquiry.record!==undefined||step.modelInput?.workingInquiry!==undefined)throw Error('WORKING_INQUIRY_PARTIAL_RECORD');
+   if(!d.assessment&&step.workingInquiry.annotations!==undefined)throw Error('WORKING_INQUIRY_PARTIAL_ANNOTATIONS');
+  }
   const relationKeys=(v:Record<string,unknown>|undefined)=>Object.keys(v??{}).some(k=>k.startsWith('actionRelation'));
   const extraRelationKeys=(v:Record<string,unknown>|undefined)=>Object.keys(v??{}).some(k=>k.startsWith('actionRelation')&&k!=='actionRelations');
   if(extraRelationKeys(step.modelInput)||extraRelationKeys(step as unknown as Record<string,unknown>)||relationKeys(step.userState as unknown as Record<string,unknown>)||relationKeys(step.modelInput?.userState as Record<string,unknown>)||relationKeys(d?.modelInput.userState as Record<string,unknown>))throw Error('UNEXPECTED_ACTION_RELATIONS_FIELD');
@@ -243,7 +266,7 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
     for(const [key,question] of Object.entries(reasonRequest))if(!equal(d.questions[key],question))throw new Error('REASON_QUESTION_MISMATCH');
     const correspondenceRequest=correspondenceContext?correspondenceQuestions(correspondenceContext):{};
     for(const [key,question]of Object.entries(correspondenceRequest))if(!equal(d.questions[key],question))throw Error('CORRESPONDENCE_QUESTION_MISMATCH');
-    const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)&&!Object.hasOwn(reasonRequest,key)&&!Object.hasOwn(correspondenceRequest,key)&&!key.startsWith('goalSearch_')&&!key.startsWith('actionRelation_')))};
+    const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)&&!Object.hasOwn(reasonRequest,key)&&!Object.hasOwn(correspondenceRequest,key)&&!key.startsWith('goalSearch_')&&!key.startsWith('actionRelation_')&&!(inquiryContext&&Object.hasOwn(workingInquiryQuestions(inquiryContext),key))))};
     const assessment=admitAssessment(response,candidates,current,sources);
     if(experience){
      if(Object.keys(outcomeQuestions).length)experience=admitExperience(d.response,experience,sources,result.config.experience?.evidenceMode);
@@ -269,6 +292,7 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
      if(!equal(step.actionRelations?.annotations,annotations))throw Error('ACTION_RELATIONS_ANNOTATION_MISMATCH');expectedCriteria=after;
     }
     if(result.config.visualHypotheses?.candidateChecks){if(!expectedCriteria||!step.visualHypotheses?.record)throw Error('VISUAL_ACTION_CHECKS_SOURCE_MISSING');const checked=visualActionChecks(step.visualHypotheses.record,result.input.charter.goal,current,expectedCriteria,priorProjection);if(!equal(step.visualActionChecks,{record:checked.record,annotations:checked.annotations}))throw Error('VISUAL_ACTION_CHECKS_RECORD_MISMATCH');expectedCriteria=checked.criteria;}
+    if(inquiryContext&&inquiryRecord){if(!expectedCriteria)throw Error('WORKING_INQUIRY_CRITERIA_MISSING');const projected=workingInquiryCriteria(expectedCriteria,inquiryContext,inquiryRecord);if(!equal(step.workingInquiry?.annotations,projected.annotations))throw Error('WORKING_INQUIRY_ANNOTATIONS_MISMATCH');expectedCriteria=projected.criteria;}
     if(expectedCriteria&&!equal(step.questions?.nextAction.criteria,expectedCriteria))throw Error('FINAL_ASSESSED_CRITERIA_MISMATCH');
     if(!equal(assessment,d.assessment))throw new Error('ASSESSMENT_RECORD_MISMATCH');
     if(result.config.deferral?.enabled){deferrals=updateDeferrals(deferrals,experience!,current,assessment,result.config.deferral);effectiveDeferrals=deferrals;if(!equal(step.deferral?.state,deferrals))throw new Error('DEFERRAL_STATE_MISMATCH');}
