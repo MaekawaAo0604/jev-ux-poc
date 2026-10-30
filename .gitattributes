@@ -4,3 +4,4 @@
 # Preserve independently captured review evidence byte for byte.
 docs/virtual-beta/final-http-timeout-review-*.json -text whitespace=cr-at-eol
 docs/virtual-beta/visual-prior-links-review-*.json -text
+docs/virtual-beta/working-inquiry-review-*.json -text whitespace=cr-at-eol

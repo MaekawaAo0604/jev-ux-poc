@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "round": 1,
+  "status": "FAIL",
+  "scope": "Independent execution on frozen producer; report-only files created; mock/local scripted UI only; no credentials, environment files, human inputs, external API calls or Git mutation.",
+  "source": "1bd1107b528f083aa20304a1d29cd68bc5a9da4aeaa1c2241e10bd31b22c9cac",
+  "freeze": "12032e63b7b7853dedb67ecb9d3e965f21f0e535aa6a3deeaa59ac8460df7731",
+  "preservation": {
+    "before": {
+      "timestamp": "2026-10-30T04:10:51.889Z",
+      "freezeSha256": "12032e63b7b7853dedb67ecb9d3e965f21f0e535aa6a3deeaa59ac8460df7731",
+      "sourceHash": "1bd1107b528f083aa20304a1d29cd68bc5a9da4aeaa1c2241e10bd31b22c9cac",
+      "sourceFileCount": 161,
+      "revision": "a25ab9cb441aeae2387067dd8212a9f445fe3afb",
+      "frozenFiles": 995,
+      "priorCount": 6270,
+      "priorSnapshotSha256": "d523df7be9ff01403f9eebbc7ad0069c61aecb26f4f06558d36e8df0443cb1c6",
+      "protocolSha256": "2e17d89395c18881a3d2dc583f35669337bb1de2198cbaa21ce89df98415a757",
+      "matchesSource": true,
+      "matchesPrior": true,
+      "matchesProtocol": true,
+      "mismatch": []
+    },
+    "after": {
+      "timestamp": "2026-10-30T04:15:41.205Z",
+      "freezeSha256": "12032e63b7b7853dedb67ecb9d3e965f21f0e535aa6a3deeaa59ac8460df7731",
+      "sourceHash": "1bd1107b528f083aa20304a1d29cd68bc5a9da4aeaa1c2241e10bd31b22c9cac",
+      "sourceFileCount": 161,
+      "revision": "a25ab9cb441aeae2387067dd8212a9f445fe3afb",
+      "frozenFiles": 995,
+      "priorCount": 6270,
+      "priorSnapshotSha256": "d523df7be9ff01403f9eebbc7ad0069c61aecb26f4f06558d36e8df0443cb1c6",
+      "protocolSha256": "2e17d89395c18881a3d2dc583f35669337bb1de2198cbaa21ce89df98415a757",
+      "matchesSource": true,
+      "matchesPrior": true,
+      "matchesProtocol": true,
+      "mismatch": []
+    },
+    "unchanged": true
+  },
+  "passed": {
+    "targetedModuleTests": {
+      "tests": 41,
+      "pass": 41,
+      "fail": 0,
+      "evidence": "targeted-tests.log"
+    },
+    "normalCLI": {
+      "slots": 4,
+      "valid": 4,
+      "invalid": 0,
+      "requests": 0,
+      "pairs": 2,
+      "nativeRequestAndHTTPBodyPairsEqual": 2,
+      "evidence": "cli-audit.json"
+    },
+    "freshTwoScreenRuntime": {
+      "questions": 3,
+      "rawAdjustedChoiceChain": true,
+      "historicalRecalledSelection": true,
+      "actualDoneChoicePreserved": true,
+      "objectiveSuccess": false,
+      "perceivedDone": true,
+      "existingDeferralWeightsAllOne": true,
+      "evidence": "audit.json and delivered-chain.json"
+    },
+    "tamper": {
+      "cases": 22,
+      "rejected": 22,
+      "rehashed": true,
+      "evidence": "runtime-verification.json and mutants/*/result.json"
+    },
+    "partialReplayPass": [
+      "native-http",
+      "native-invalid-output",
+      "action-http",
+      "action-model"
+    ]
+  },
+  "findings": [
+    {
+      "id": "WI-R1-001",
+      "severity": "P1",
+      "status": "OPEN",
+      "summary": "Legitimate partial assessment failures cannot replay because action input hash is stale after inquiry context/record insertion.",
+      "location": [
+        "runner/virtual-beta-core.ts:202",
+        "runner/virtual-beta-core.ts:222",
+        "runner/virtual-beta-replay.ts:313"
+      ],
+      "reproduction": "node --import tsx reports/working-inquiry-2026-10-30/independent-round1/verify.ts (four named partial-case logs retained); isolated replay: node --import tsx runner/virtual-beta-replay.ts reports/working-inquiry-2026-10-30/independent-round1/runs/assessment-http",
+      "expected": "Generated native/assessment/action provider and model-output failure records retain their original failure classification and pass replay integrity verification.",
+      "actual": "assessment-http, assessment-model, invalid-inquiry and invalid-assessment all terminate with the intended API_ERROR or INVALID_DISTRIBUTION but replay throws MODEL_INPUT_HASH_MISMATCH. Stored step.inputSha256 does not hash saved step.modelInput after workingInquiryContext/workingInquiry is added.",
+      "evidence": [
+        {
+          "kind": "assessment-http",
+          "termination": "API_ERROR",
+          "error": {
+            "code": "HTTP_ERROR",
+            "statusCode": 503
+          },
+          "perceivedDone": false,
+          "objectiveSuccess": false,
+          "replayError": "MODEL_INPUT_HASH_MISMATCH",
+          "hashes": [
+            {
+              "stored": "e53dea12fe0e29696d9550dd757a38927f0abaf3a895fb279e9b68bda59d64a9",
+              "actual": "64fa5089fda5ea68224dd6fa47b6d4da0e1f0d0f5f1f4da5998170ef199af774",
+              "hasInquiryContext": true,
+              "hasInquiryRecord": false
+            }
+          ]
+        },
+        {
+          "kind": "assessment-model",
+          "termination": "API_ERROR",
+          "error": {
+            "code": "MODEL_MISMATCH"
+          },
+          "perceivedDone": false,
+          "objectiveSuccess": false,
+          "replayError": "MODEL_INPUT_HASH_MISMATCH",
+          "hashes": [
+            {
+              "stored": "e53dea12fe0e29696d9550dd757a38927f0abaf3a895fb279e9b68bda59d64a9",
+              "actual": "64fa5089fda5ea68224dd6fa47b6d4da0e1f0d0f5f1f4da5998170ef199af774",
+              "hasInquiryContext": true,
+              "hasInquiryRecord": false
+            }
+          ]
+        },
+        {
+          "kind": "invalid-inquiry",
+          "termination": "INVALID_DISTRIBUTION",
+          "error": {
+            "code": "INVALID_WORKING_INQUIRY"
+          },
+          "perceivedDone": false,
+          "objectiveSuccess": false,
+          "replayError": "MODEL_INPUT_HASH_MISMATCH",
+          "hashes": [
+            {
+              "stored": "e53dea12fe0e29696d9550dd757a38927f0abaf3a895fb279e9b68bda59d64a9",
+              "actual": "64fa5089fda5ea68224dd6fa47b6d4da0e1f0d0f5f1f4da5998170ef199af774",
+              "hasInquiryContext": true,
+              "hasInquiryRecord": false
+            }
+          ]
+        },
+        {
+          "kind": "invalid-assessment",
+          "termination": "INVALID_DISTRIBUTION",
+          "error": {
+            "code": "INVALID_ASSESSMENT"
+          },
+          "perceivedDone": false,
+          "objectiveSuccess": false,
+          "replayError": "MODEL_INPUT_HASH_MISMATCH",
+          "hashes": [
+            {
+              "stored": "e53dea12fe0e29696d9550dd757a38927f0abaf3a895fb279e9b68bda59d64a9",
+              "actual": "9a43600081f2c9b95a36f746079c8b987c47b1b6a2129c973fe65c7e010a007b",
+              "hasInquiryContext": true,
+              "hasInquiryRecord": true
+            }
+          ]
+        }
+      ],
+      "impact": "Comparison runner treats honest provider/model-output partials as integrity-invalid; violates fixed snapshot acceptance for valid partial failures.",
+      "suggestedRepair": "Synchronize step.inputSha256 after inserting workingInquiryContext and after inserting workingInquiry; retain original partial logs and rerun fresh cases against a new freeze."
+    }
+  ],
+  "verifierCorrections": [
+    {
+      "issue": "Initial verifier incorrectly asserted no existing deferral policy. That policy already belongs to both profiles and all observed weights were one.",
+      "resolution": "Corrected independent audit asserts unchanged profile and all existing weights one; normal run and replay pass. Original logs preserved.",
+      "evidence": "audit.ts and audit.json"
+    },
+    {
+      "issue": "Initial foreign-source test used placeholder image data, making rejection test nonspecific.",
+      "resolution": "audit.ts rebuilds real image assets, first asserts valid exact derivation, then applies six one-field source/goal/after-memory mutants.",
+      "evidence": "audit.ts and audit.json"
+    }
+  ],
+  "unverified": [
+    "Live API/provider behavior and any actual experiment run are outside this mock-only verification.",
+    "No causal improvement, human fidelity, repeated-run stability, or real-world performance conclusion assessed."
+  ],
+  "next": "Parent may perform minimal repair, freeze round 2, and request fresh independent re-verification."
+}

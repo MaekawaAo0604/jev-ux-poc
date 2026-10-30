@@ -346,3 +346,8 @@ Goal探索の実比較はHTTP402で中断。有効pair0・38要求、全12試行
 - [ ] 反復・対象集団の比較を追加する。persona効果・人間一致は今回未測定。
 
 結果・版・コマンドは [visual-prior-links.md](visual-prior-links.md)。過去のFAIL・欠測・未実行を成功へ書き換えない。
+
+
+## 2026-10-30 Working inquiry追記
+
+実装・独立検証・修正再検証・実Jev新旧4試行は[working-inquiry.md](working-inquiry.md)。新1/2・対照0/2、各条件1反復で安定性未確認。次の未実装タスクは、選択条件/check/操作の次観察での結果評価、整合したintent/check生成、活動中の条件と保持記憶の分離、現在引用への過去文混入の検証。全体Goal進展と個別前提の解消を混ぜず、必要再訪・別課題・非null personaを含む反復と人間比較は別途行う。

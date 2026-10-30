@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Jev four-trial RAW provenance, accounting, replay and declared-method integrity only. This is not a behavior, performance, comprehension, human-fidelity or causal-improvement PASS.",
+  "sourceHash": "ec48493a0e26ce19f7e2742791644fedc3d821ab51074f11da4e3ecb7ff69080",
+  "producerRevision": "a5ffbfb0496a6401c478bf46d4bfe6fc61a74131",
+  "manifestSha256": "86f89edda57539fc860d8850c6ea45eca2d8ca89f187d91a890c3d3946252551",
+  "preservation": {
+    "before": {
+      "timestamp": "2026-10-30T04:45:30.879Z",
+      "sourceHash": "ec48493a0e26ce19f7e2742791644fedc3d821ab51074f11da4e3ecb7ff69080",
+      "revision": "a5ffbfb0496a6401c478bf46d4bfe6fc61a74131",
+      "sourceFileCount": 161,
+      "frozenFiles": 996,
+      "priorFiles": 6452,
+      "liveFiles": 182,
+      "hashes": {
+        "freeze-round1.json": "12032e63b7b7853dedb67ecb9d3e965f21f0e535aa6a3deeaa59ac8460df7731",
+        "freeze-round2.json": "fd7b60bb7b8af653df0988272de359f1dadc7f8922e8f54b823ba2bbbb0ea91b",
+        "independent-round1/GATE.json": "195b38ac08b6c4c5d690f61b7f91ac69079a6073a8e7d6704e710009e86cfa56",
+        "independent-round2/GATE.json": "e4f1bf12e145030ec9da1276d46921f9a50095aa25d338104427e477554ac7e6",
+        "producer-source.json": "b95c2a226baacf67a97e6e76aef98eb01fc67e90c9f1cc1f8d9b353b6f93795e",
+        "producer-source-ec48493a.zip": "9a7309e30ad008688191a455e078613126b2f03706b1e5bb63660b2c3d57fe7c",
+        "producer-protocol.json": "2e17d89395c18881a3d2dc583f35669337bb1de2198cbaa21ce89df98415a757",
+        "producer-plan.md": "dcea95c8fc411bc45a1455b4d916de07a4cab49b14a5b9988c1bcc89caf10178",
+        "producer-archive.json": "5efce9fa32b8cdbbbab89a545f827ba8536b3279020cd038a78700c4e0be5c0d",
+        "analysis-protocol-initial.json": "dc142e4755de25be63b86558923e1846755cf81a9f735bf4d86fde1ab961c649",
+        "analysis-protocol.json": "c82d649940fbf13409afff16f6984919d9745cf1ba749e427fe43c7a622bf9d8",
+        "live-observations.json": "d78a0bdc459d1dde877d2804a837c2ac7b2c4461ffd73d3b03c024ac8bbc4ed6",
+        "live-inventory.json": "e81caa0a5f0e3e800e6ef09ed9cad098a8883e22176318106d1fb1bd7799bc6c",
+        "prior-raw.json": "c3af8050179a1b27a949b140ad15ff21d9147867cd864a8d4cc3036637b537c4"
+      },
+      "mismatch": []
+    },
+    "after": {
+      "timestamp": "2026-10-30T04:48:00.991Z",
+      "sourceHash": "ec48493a0e26ce19f7e2742791644fedc3d821ab51074f11da4e3ecb7ff69080",
+      "revision": "a5ffbfb0496a6401c478bf46d4bfe6fc61a74131",
+      "sourceFileCount": 161,
+      "frozenFiles": 996,
+      "priorFiles": 6452,
+      "liveFiles": 182,
+      "hashes": {
+        "freeze-round1.json": "12032e63b7b7853dedb67ecb9d3e965f21f0e535aa6a3deeaa59ac8460df7731",
+        "freeze-round2.json": "fd7b60bb7b8af653df0988272de359f1dadc7f8922e8f54b823ba2bbbb0ea91b",
+        "independent-round1/GATE.json": "195b38ac08b6c4c5d690f61b7f91ac69079a6073a8e7d6704e710009e86cfa56",
+        "independent-round2/GATE.json": "e4f1bf12e145030ec9da1276d46921f9a50095aa25d338104427e477554ac7e6",
+        "producer-source.json": "b95c2a226baacf67a97e6e76aef98eb01fc67e90c9f1cc1f8d9b353b6f93795e",
+        "producer-source-ec48493a.zip": "9a7309e30ad008688191a455e078613126b2f03706b1e5bb63660b2c3d57fe7c",
+        "producer-protocol.json": "2e17d89395c18881a3d2dc583f35669337bb1de2198cbaa21ce89df98415a757",
+        "producer-plan.md": "dcea95c8fc411bc45a1455b4d916de07a4cab49b14a5b9988c1bcc89caf10178",
+        "producer-archive.json": "5efce9fa32b8cdbbbab89a545f827ba8536b3279020cd038a78700c4e0be5c0d",
+        "analysis-protocol-initial.json": "dc142e4755de25be63b86558923e1846755cf81a9f735bf4d86fde1ab961c649",
+        "analysis-protocol.json": "c82d649940fbf13409afff16f6984919d9745cf1ba749e427fe43c7a622bf9d8",
+        "live-observations.json": "d78a0bdc459d1dde877d2804a837c2ac7b2c4461ffd73d3b03c024ac8bbc4ed6",
+        "live-inventory.json": "e81caa0a5f0e3e800e6ef09ed9cad098a8883e22176318106d1fb1bd7799bc6c",
+        "prior-raw.json": "c3af8050179a1b27a949b140ad15ff21d9147867cd864a8d4cc3036637b537c4"
+      },
+      "mismatch": []
+    },
+    "unchanged": true,
+    "sealedPriorFiles": 6452,
+    "sealedLiveFiles": 182,
+    "frozenFiles": 996,
+    "producerSourceArchive": {
+      "entries": 161,
+      "expectedEntries": 161,
+      "zipSha256": "9a7309e30ad008688191a455e078613126b2f03706b1e5bb63660b2c3d57fe7c",
+      "matchesArchiveMetadata": true,
+      "mismatches": [],
+      "pass": true
+    },
+    "originalGatesPreserved": true,
+    "currentOpenAIOutputsExcluded": true
+  },
+  "validation": {
+    "assertions": 15,
+    "failures": 0,
+    "requiredFinalHTTPReplays": 4,
+    "exactRecomputedSummaryMatches": true,
+    "initialNativeRequestAndHTTPBodyPairsEqual": 2,
+    "limits": {
+      "judgments": 12,
+      "UIActions": 15,
+      "looks": 3,
+      "trialMs": 300000,
+      "nativeMs": 60000,
+      "requestsPerTrial": 36,
+      "totalMaximum": 144,
+      "retry": 0,
+      "parallel": 1
+    },
+    "accounting": {
+      "charged": 138,
+      "actualStages": 138,
+      "attempts": 138,
+      "receipts": 138,
+      "reserved": 0,
+      "errors": 0,
+      "intervals": 138,
+      "maximumParallelFromLedgerIntervals": 1,
+      "stageTotals": {
+        "native": 46,
+        "assessment": 46,
+        "action": 46
+      }
+    },
+    "deliveredWorkingInquiryRecords": 22,
+    "rawAdjustedChoicesAndCandidateGuidanceRecomputed": true,
+    "evidence": [
+      "audit.ts",
+      "audit.json",
+      "working-choices.json",
+      "recomputed-summary.json",
+      "archive-verification.json"
+    ]
+  },
+  "observedRuns": [
+    {
+      "task": "library",
+      "actor": "experience-working-inquiry",
+      "requests": 30,
+      "judgments": 10,
+      "uiActions": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 1,
+        "savedValue": "東分館",
+        "complete": true
+      },
+      "elapsedMs": 246539.2968,
+      "stageCounts": {
+        "native": 10,
+        "assessment": 10,
+        "action": 10
+      },
+      "ledger": {
+        "used": 30,
+        "sha256": "bdc7b68a47bee586ce7b680e5643e3a6ecc76d147c84296f7700e1ef76f6f447",
+        "reserved": 0,
+        "ok": 30,
+        "errors": 0
+      }
+    },
+    {
+      "task": "library",
+      "actor": "experience-visual-conditions-prior-links",
+      "requests": 36,
+      "judgments": 12,
+      "uiActions": 12,
+      "termination": "DECISION_LIMIT",
+      "perceivedDone": false,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "account",
+        "eligible": false,
+        "verificationAttempts": 2,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "elapsedMs": 246022.20770000003,
+      "stageCounts": {
+        "native": 12,
+        "assessment": 12,
+        "action": 12
+      },
+      "ledger": {
+        "used": 36,
+        "sha256": "e166daa068cea3ebb17cca394a350ab369539f192caf2c51f99893e781f7558e",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      }
+    },
+    {
+      "task": "workshop",
+      "actor": "experience-visual-conditions-prior-links",
+      "requests": 36,
+      "judgments": 12,
+      "uiActions": 12,
+      "termination": "DECISION_LIMIT",
+      "perceivedDone": false,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "account",
+        "eligible": false,
+        "verificationAttempts": 4,
+        "recordChecks": 0,
+        "savedValue": "午前の回",
+        "complete": false
+      },
+      "elapsedMs": 270899.7559,
+      "stageCounts": {
+        "native": 12,
+        "assessment": 12,
+        "action": 12
+      },
+      "ledger": {
+        "used": 36,
+        "sha256": "b183c52cc3356a0bb863a351e2920eb3a327ada581401394aac417edcc1c4d77",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      }
+    },
+    {
+      "task": "workshop",
+      "actor": "experience-working-inquiry",
+      "requests": 36,
+      "judgments": 12,
+      "uiActions": 12,
+      "termination": "DECISION_LIMIT",
+      "perceivedDone": false,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "home",
+        "eligible": false,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "午前の回",
+        "complete": false
+      },
+      "elapsedMs": 289490.19590000017,
+      "stageCounts": {
+        "native": 12,
+        "assessment": 12,
+        "action": 12
+      },
+      "ledger": {
+        "used": 36,
+        "sha256": "abe3e54c72ef7ab0955c6f1947c3178fe309ad56871a1e286424e6440ddbc2c6",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      }
+    }
+  ],
+  "positiveLibraryEvent": {
+    "step6": {
+      "raw": 0.54,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "allLegacyWeightsOne": true,
+      "before": {
+        "schemaVersion": 1,
+        "route": "records",
+        "eligible": false,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "after": {
+        "schemaVersion": 1,
+        "route": "records",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 1,
+        "savedValue": "中央図書館",
+        "complete": false
+      }
+    },
+    "step9": {
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "before": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 1,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "after": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 1,
+        "savedValue": "東分館",
+        "complete": true
+      }
+    },
+    "step10": {
+      "action": {
+        "type": "done"
+      },
+      "modelGoal": "satisfied",
+      "objective": {
+        "status": "OK",
+        "value": true
+      }
+    }
+  },
+  "legacySelectionCorrections": {
+    "steps": 46,
+    "nonUnitWeightSteps": 16,
+    "modelChoiceDiffersSelected": 9,
+    "selectionAdjustments": 0,
+    "note": "Existing shared deferral/selection corrections remain active. No claim every selected action is an unmodified model choice; positive library step6 weights are individually verified all1."
+  },
+  "semanticFindings": [
+    {
+      "id": "SEM-01",
+      "kind": "model-content-not-provenance",
+      "step": 5,
+      "quote": "予約記録との照合がまだ完了していません。",
+      "evidence": "Native current observation o5 quote is absent from personally inspected input-5.png home screen and from audit screen text. Image/source hashes remain valid; quoteStatus stays model-transcribed-unverified.",
+      "conclusion": "The model promoted absent/historical text to a claimed current-screen quotation; integrity PASS does not certify quote truth."
+    },
+    {
+      "id": "SEM-02",
+      "kind": "model-content-inconsistency",
+      "step": 7,
+      "experience": {
+        "kind": "model-assessment-not-fact",
+        "progress": "neutral",
+        "expectation": "unknown",
+        "evidence": {
+          "observationId": "o7",
+          "imageSha256": "2df66fed86005dd01d9e6992efe6debfae8955e0ae58a8071e90048926208000"
+        },
+        "adjustments": []
+      },
+      "continuity": {
+        "priorId": "o3_c2",
+        "conditionId": "c2",
+        "change": "resolved",
+        "explanation": "現在の画面に「予約記録の照合が完了しました」と表示されています。"
+      },
+      "evidence": "input-7.png visibly confirms record reconciliation and recordChecks changed0→1; experience progress is neutral while continuity resolves the matching condition.",
+      "conclusion": "Different model judgments interpret intermediate progress inconsistently. Overall goal still incomplete here; this is not proof of understanding."
+    },
+    {
+      "id": "SEM-03",
+      "kind": "model-intent-check-mismatch",
+      "steps": [
+        9,
+        10
+      ],
+      "records": [
+        {
+          "schemaVersion": 1,
+          "kind": "model-working-inquiry-not-fact",
+          "source": {
+            "observationId": "o9",
+            "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7"
+          },
+          "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+          "contextSha256": "2210eee4d5e4aab50ea0e167428ce1ed295f766d48a5988152d1d4f6fa51a6fc",
+          "rawChoices": {
+            "conditionKey": "current_c1",
+            "intent": "test_condition",
+            "check": "condition_changed"
+          },
+          "choices": {
+            "conditionKey": "current_c1",
+            "intent": "test_condition",
+            "check": "unknown"
+          },
+          "adjustments": [
+            {
+              "field": "check",
+              "from": "condition_changed",
+              "to": "unknown",
+              "reason": "INTENT_CHECK_MISMATCH"
+            }
+          ]
+        },
+        {
+          "schemaVersion": 1,
+          "kind": "model-working-inquiry-not-fact",
+          "source": {
+            "observationId": "o10",
+            "imageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef"
+          },
+          "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+          "contextSha256": "5965158ac41ce9edf27524f7a6a4c7642eea73a1e64f51fef5684a482b24b49a",
+          "rawChoices": {
+            "conditionKey": "recalled_o1_c2",
+            "intent": "unknown",
+            "check": "condition_changed"
+          },
+          "choices": {
+            "conditionKey": "recalled_o1_c2",
+            "intent": "unknown",
+            "check": "unknown"
+          },
+          "adjustments": [
+            {
+              "field": "check",
+              "from": "condition_changed",
+              "to": "unknown",
+              "reason": "INTENT_CHECK_MISMATCH"
+            }
+          ]
+        }
+      ],
+      "evidence": "Personally inspected input-9.png exposes saveEast and input-10.png confirms savedEast. Raw mismatched intent/check pairs were downgraded to unknown and preserved.",
+      "conclusion": "Successful UI completion coexists with unsupported observable-check choices; no comprehension-solved claim."
+    }
+  ],
+  "integrityFindings": [],
+  "verifierCorrection": {
+    "description": "Initial independent assertion omitted an actual DOM text separation space in saveEast control label. Corrected only that literal expected label after direct PNG inspection; original audit/log preserved as audit-initial.*.",
+    "productChange": false
+  },
+  "limitations": [
+    "A single repeat per task and condition supports descriptive observations only; no stable improvement or causal effect is established.",
+    "Actual successful library completion coexists with a current-image false quotation, neutral/resolved progress inconsistency, and mismatched raw intent/check choices. Comprehension is not solved.",
+    "Prior shared deferral policy remains active;16 of46 judgments have non-unit weights and9 selections differ from modelChoice. Positive library step6 was separately verified all weights1.",
+    "No participant data, credentials, environment files, concurrent current-phase OpenAI outputs, external API calls, or Git/source mutation were used during this audit.",
+    "Historical sealed OpenAI files from older phases were hashed only as part of the preserved6452-file corpus; current-phase openai-sanity was excluded."
+  ]
+}
