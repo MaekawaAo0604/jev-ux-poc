@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "phase": "inquiry-outcome-2026-10-31",
+  "control": "experience-working-inquiry",
+  "intervention": "experience-inquiry-outcome",
+  "fixtures": [
+    "library/changed",
+    "library/unchanged",
+    "workshop/changed",
+    "workshop/unchanged"
+  ],
+  "persona": null,
+  "trials": 8,
+  "repeats": 1,
+  "maximumRequests": 288,
+  "perTrialRequests": 36,
+  "maxJudgments": 12,
+  "maxUIActions": 15,
+  "maxLooks": 3,
+  "maxTrialMs": 300000,
+  "maxVisualRequestMs": 60000,
+  "maxPhaseMs": 2520000,
+  "parallel": 1,
+  "retry": 0,
+  "declaredChange": "Carry selected condition/check/actual operation into next delivered observation;2 categorical outcome assessments in same stage;last3 fallible results admitted-only in decision input. Native body/schema, UI, models, sampler and weights unchanged.",
+  "initialEvidence": "Same initial UI PNG/literal goal/persona(null)/empty memory/native body per pair.",
+  "actorOrderOffset": 1,
+  "stop": "Authentication/quota/model-output/accounting error or2consecutive infrastructure failures; preserve original failed and missing slots, no replacement.",
+  "primary": "Objective goal with valid/invalid/missing denominators; no pooled historical phases.",
+  "secondary": [
+    "Actual reconciliation before/after each operation",
+    "Chosen condition/check and raw/admitted specific outcome",
+    "Repeated check after current result condition satisfied; not automatically human confusion",
+    "Required revisit in changed fixture",
+    "Actual selection vs modelChoice and prior shared weight corrections"
+  ],
+  "framePolicy": "First records observation pertrial, then first primary observation after actual reconciliation if present; never substitute missing frame.",
+  "prior": "Preserve6546sealed earlier raw files; no saved input resends or participant inputs.",
+  "limitations": "1repeat; no stable effect, provider ranking, causal or human-reproduction claim."
+}

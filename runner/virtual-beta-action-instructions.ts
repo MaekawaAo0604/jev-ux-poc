@@ -1,3 +1,4 @@
+import {inquiryOutcomeInstructions} from '../jev/virtual-beta/inquiry-outcome-projection.js';
 import {workingInquiryInstructions} from '../jev/virtual-beta/working-inquiry-projection.js';
 import {visualPriorRelationInstructions} from '../jev/virtual-beta/visual-prior-relations.js';
 import type {BetaConfig} from '../jev/virtual-beta/contracts.js';
@@ -15,5 +16,6 @@ export function betaActionInstructions(config:BetaConfig,goalInstructions:string
  if(config.visualHypotheses?.priorConditionLinks)text+=' '+visualPriorRelationInstructions;
  if(config.visualHypotheses?.continuity)text+=' '+conditionContinuityGuidance;
  if(config.visualHypotheses?.workingInquiry)text+=' '+workingInquiryInstructions;
+ if(config.visualHypotheses?.inquiryOutcome)text+=' '+inquiryOutcomeInstructions;
  return text;
 }
