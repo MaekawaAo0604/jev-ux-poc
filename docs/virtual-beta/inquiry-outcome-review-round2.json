@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "gate": "PASS",
+  "round": 2,
+  "phase": "inquiry-outcome-2026-10-31",
+  "scope": "Fresh independent round-two execution against frozen source; writes only independent-round2. All round-one raw/scripts/gate and frozen-source-round1 bytes preserved. No source/product/tests/config/Git/environment/credentials/participant-file access or live API requests.",
+  "snapshot": {
+    "freezeSha256": "c40fc5ddedc3d5c4697569ca6068d7746d6d63fa64fddadec1f8428862ba0eb0",
+    "sourceHash": "58d606cf923d3ec814f6525975dfb673a137f195647a2213ce3cb925f74f467c",
+    "revision": "1f28508656c13b6cdcc92768a5c98d4ceec2a587",
+    "runtimeFiles": 164,
+    "frozenFiles": 1016,
+    "beforeAfterMatch": true,
+    "evidence": [
+      "before-snapshot.json",
+      "after-snapshot.json",
+      "protected-before.json"
+    ],
+    "declaredDeltaOnly": true,
+    "deltaEvidence": "stage-invariants.json"
+  },
+  "findings": [],
+  "executed": {
+    "relatedTests": {
+      "pass": 46,
+      "fail": 0,
+      "evidence": "related.log",
+      "note": "Fresh existing module/projection/config/comparison tests, fresh four-screen actual-UI integration, six-decision look/reread/wait integration, and independent six-wait delivered-input capacity test. Specific condition_satisfied at o3 is independent of global goal unsatisfied/experience neutral."
+    },
+    "partialFailures": {
+      "pass": 17,
+      "fail": 0,
+      "evidence": [
+        "failures.ts",
+        "failures.json",
+        "failures.log"
+      ],
+      "branches": "Native HTTP/bad output at steps1/2; assessment HTTP/model mismatch at1/2; invalid working/base assessment at1/2; invalid outcome at2; action HTTP/model mismatch at1/2. Every original run has exact expected API_ERROR or INVALID_DISTRIBUTION, valid=false, objective=false, correct calls/actions and replay verified. Model mismatch uses adapter-style BetaResponseError, not live networking.",
+      "note": "All17 generated fresh on round2. NativeHTTP/badoutput at1/2, assessmentHTTP/model mismatch at1/2, invalidworking/baseassessment at1/2, invalidoutcome at2, actionHTTP/model mismatch at1/2. Exact stops, validity/calls/UIactions and replay pass. Adapter-style model mismatch exceptions are synthetic; no network requests or environment reads."
+    },
+    "mutants": {
+      "distinct": 40,
+      "rejected": 40,
+      "accepted": 0,
+      "r1EquivalentDistinct": 36,
+      "additionalStageMutants": 4,
+      "evidence": [
+        "mutants.json",
+        "extra-mutants.json",
+        "stage-invariants.json"
+      ],
+      "note": "29 main plus8 extra with1 duplicate=36 prior-equivalent. Every mutation applied to fresh round2 raw;4 additional stage/capacity mutants. No old-layout artifact used to claim exact new guard coverage."
+    },
+    "normalCLI": {
+      "command": "node --import tsx runner/condition-continuity-comparison.ts --outcome --mock --trial-ms 300000 --visual-request-ms 60000 --prior-snapshot <absolute experiments/virtual-beta/empty-prior-snapshot.json> --out reports/inquiry-outcome-2026-10-31/independent-round2/cli-mock",
+      "planned": 8,
+      "attempted": 8,
+      "valid": 8,
+      "invalid": 0,
+      "missing": 0,
+      "requests": 0,
+      "objectiveSuccesses": 0,
+      "pairs": 4,
+      "evidence": [
+        "cli-mock.log",
+        "cli-audit.json",
+        "cli-mock/manifest.json",
+        "cli-mock/summary.json"
+      ],
+      "verified": "All8 fresh slots replay. All4 pairs have equal initial PNG, literal goal, null/absent persona, empty memories and actual buildOpenAIVisualHypothesisRequest bodies including images/schema. Limits36requests/12judgments/15UI/3looks/300s/native60s, total288, phase42min, retry0, parallel1. Old profile has no inquiry outcome fields; profile differs only opt-in flag/id."
+    },
+    "normalizedRuntime": {
+      "pass": 1,
+      "fail": 0,
+      "evidence": [
+        "normalized-integration.test.ts",
+        "normalized-integration.log"
+      ],
+      "verified": "A scripted route_found answer for a condition_status_known check remains raw in sidecar, normalizes to unknown with RESULT_CHECK_MISMATCH, and the captured actually delivered action request receives unknown with no rawChoices and no before-context. Replay verified."
+    },
+    "invariants": {
+      "pass": true,
+      "checks": 207,
+      "evidence": [
+        "stage-invariants.ts",
+        "stage-invariants.json",
+        "stage-invariants.log"
+      ],
+      "verified": "Declared delta exactly2runtime/5totalfiles. Actual operations bind selected offered candidates; correct first/last memory, outer hashes, admitted-only projection, stage layout, and terminal absence of pending operation. Fresh old-mode controls match R1 controls in native input/output, assessment/action modelInput/questions/responses."
+    }
+  },
+  "preservation": {
+    "priorManifestCount": 6546,
+    "priorManifestShaBeforeAfterMatches": true,
+    "independentPriorFileContentHashes": false,
+    "participantContentsRead": false,
+    "approvalRejection": "The first bootstrap command was rejected before execution by automatic approval review because it attempted to read all6546 prior files for hashing despite the instruction not to read participant contents. No retry of that operation occurred. Safer manifest-only verification was approved and used. Parent explicitly limited independent scope to manifests thereafter.",
+    "note": "This independent audit compared prior manifests only; no independent6546file-content preservation claim. The earlier automatic approval rejection and parent scope adjustment remain binding. Empty-prior mock is separate from historical raw preservation. Original round1 gate/raw/analysis/scripts and frozen-source bytes match protected hashes before/after.",
+    "roundOneEvidenceBeforeAfterMatches": true,
+    "roundOneProtectedFiles": 508
+  },
+  "limitations": [
+    "Gate concerns implementation/accounting/replay, not semantic grounding of model text. Hash equality does not verify quotes or meaning.",
+    "No real model requests, human-fidelity evidence, stable behavioral improvement, provider ranking or causal claim.",
+    "Prior shared selection weights may still operate; this feature adds no new weight or filter.",
+    "No production build executed by this verifier because scope permits writes only under this report directory. Parent build evidence is separate.",
+    "PASS applies to frozen round2 implementation and measured local behavior. Real-model behavioral effectiveness, semantic grounding and human reproduction remain unverified."
+  ],
+  "required": "No remaining implementation finding in this audit. Preserve both round gates and fresh raw evidence; real-model comparison and human/semantic claims require their own evidence.",
+  "resolvedFindings": [
+    {
+      "id": "IO-R1-001",
+      "severity": "P1",
+      "status": "RESOLVED",
+      "evidence": [
+        "capacity.test.ts",
+        "capacity.json",
+        "related.log"
+      ],
+      "verified": "Capture of six actually delivered action requests shows0,1,2,3,3,3 distinct records. Step5 o3,o4,o5; step6 o4,o5,o6. Assessment retains before-context and action receives after-memory only. Reinjected action before-context, missing assessment context, injected assessment after-memory and capacity4 mutants reject."
+    },
+    {
+      "id": "IO-R1-002",
+      "severity": "P2",
+      "status": "RESOLVED",
+      "evidence": [
+        "extra-mutants.json",
+        "stage-invariants.json"
+      ],
+      "verified": "Reapplied on fresh round2 configured normal, old mode and early native HTTP failure runs. All3 reject specifically INQUIRY_OUTCOME_ACTION_QUESTIONS_FORBIDDEN, with valid outer hashes. No claim that old legitimate R1 normal artifacts replay under changed stage layout."
+    }
+  ]
+}

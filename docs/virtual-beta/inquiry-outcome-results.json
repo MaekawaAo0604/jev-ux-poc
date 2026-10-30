@@ -1,0 +1,4965 @@
+{
+  "schemaVersion": 1,
+  "phase": "inquiry-outcome-2026-10-31",
+  "scope": "Fresh descriptive implementation comparison; not stable causal or human reproduction proof",
+  "producer": {
+    "revision": "5ad0919bbd9b7325fd688f7ba931c691312a4c84",
+    "sourceHash": "58d606cf923d3ec814f6525975dfb673a137f195647a2213ce3cb925f74f467c",
+    "runtimeFiles": 164,
+    "archive": {
+      "sha256": "0598460e0b3e6bc3ab741727dcf0ee18a47a7d1468403b487a9149892fec87b8",
+      "fileCount": 164,
+      "file": "producer-source-58d606cf.zip"
+    }
+  },
+  "protocol": {
+    "schemaVersion": 1,
+    "phase": "inquiry-outcome-2026-10-31",
+    "control": "experience-working-inquiry",
+    "intervention": "experience-inquiry-outcome",
+    "fixtures": [
+      "library/changed",
+      "library/unchanged",
+      "workshop/changed",
+      "workshop/unchanged"
+    ],
+    "persona": null,
+    "trials": 8,
+    "repeats": 1,
+    "maximumRequests": 288,
+    "perTrialRequests": 36,
+    "maxJudgments": 12,
+    "maxUIActions": 15,
+    "maxLooks": 3,
+    "maxTrialMs": 300000,
+    "maxVisualRequestMs": 60000,
+    "maxPhaseMs": 2520000,
+    "parallel": 1,
+    "retry": 0,
+    "declaredChange": "Carry selected condition/check/actual operation into next delivered observation;2 categorical outcome assessments in same stage;last3 fallible results admitted-only in decision input. Native body/schema, UI, models, sampler and weights unchanged.",
+    "initialEvidence": "Same initial UI PNG/literal goal/persona(null)/empty memory/native body per pair.",
+    "actorOrderOffset": 1,
+    "stop": "Authentication/quota/model-output/accounting error or2consecutive infrastructure failures; preserve original failed and missing slots, no replacement.",
+    "primary": "Objective goal with valid/invalid/missing denominators; no pooled historical phases.",
+    "secondary": [
+      "Actual reconciliation before/after each operation",
+      "Chosen condition/check and raw/admitted specific outcome",
+      "Repeated check after current result condition satisfied; not automatically human confusion",
+      "Required revisit in changed fixture",
+      "Actual selection vs modelChoice and prior shared weight corrections"
+    ],
+    "framePolicy": "First records observation pertrial, then first primary observation after actual reconciliation if present; never substitute missing frame.",
+    "prior": "Preserve6546sealed earlier raw files; no saved input resends or participant inputs.",
+    "limitations": "1repeat; no stable effect, provider ranking, causal or human-reproduction claim."
+  },
+  "analysisProtocol": {
+    "schemaVersion": 1,
+    "kind": "FRESH_INQUIRY_OUTCOME_DESCRIPTIVE_ANALYSIS",
+    "frozenSource": "58d606cf923d3ec814f6525975dfb673a137f195647a2213ce3cb925f74f467c",
+    "primary": "Objective goal value in valid runs by actor and fixture; report invalid/missing separately. No pooling earlier phases.",
+    "secondary": [
+      "Actual reconciliation counter increments",
+      "First prerequisite eligibility transition vs later repeated reconciliation without eligibility/saved-value change",
+      "Raw versus admitted specific outcome, adjustments, chosen previous condition/check/action and latest3 memory actually delivered",
+      "Post-check action and whether prior model condition satisfied coexists with overallGoal incomplete",
+      "Shared policy weights and actual selection versus modelChoice",
+      "Necessary revisit in changed fixture through existing recovery analysis"
+    ],
+    "schedule": "8 fresh slots;2tasks*2conditions*2actors*1repeat. Reverse actors across fixtures. Parallel1/retry0/36requests12judgments15UI3looks300s/native60s pertrial,total288/42min.",
+    "evidence": "Fresh normal runner input images and bounded model memory only. Never participant records or saved input resends. Objective audit remains unavailable to actor.",
+    "framePolicy": "First records observation in every run, plus first primary observation after actual recordChecks increment if present. Missing stays missing.",
+    "limits": "No statistical/stable/causal/provider-ranking/human-fidelity conclusion from single repeat. Hash association and current_image model choice do not prove correct transcription or semantic understanding.",
+    "stop": "Use published runner protocol; no failed slot replacement or unlimited retries. Preserve all partial outputs and reserved/error accounting.",
+    "preExecutionAmendment": {
+      "reason": "Independent IO-R1-001/002 repaired in core wire stage and replay guard plus regressions before any live API",
+      "previousSource": "4d63df6892452161302f0c3b2e68233a4f7a7daddd612806ad9b3c184648bfaf",
+      "behaviorContractChanged": false
+    }
+  },
+  "semanticLimitations": [
+    {
+      "id": "IO-LIVE-SEM-001",
+      "severity": "semantic limitation; raw gate unaffected",
+      "run": "new library unchanged",
+      "step": 8,
+      "claim": "Currento8c2 evidence quotes 保存済みの受取館　中央図書館",
+      "actual": "input8PNG has no saved-value row; only unavailablewarning and home link. Historical/audit correctness of saved value does not validate quotation from current image.",
+      "evidence": "The native record is still marked model-transcribed-unverified. Preserve counterexample; no productionpatch in audit."
+    },
+    {
+      "id": "IO-LIVE-SEM-002",
+      "severity": "semantic limitation; raw gate unaffected",
+      "run": "new workshop unchanged",
+      "steps": [
+        6,
+        7,
+        9,
+        10
+      ],
+      "claim": "Successful reconciliation/save does not prove precise local outcome assessment.",
+      "actual": "Step7 selectedcondition combines reconciliation and savedresult. Rawuncertain/none yieldsunknown although prerequisite visibly progresses. At step10 raw satisfied/current_image normalizesunknown due previous working-check mismatch; at done it still selects recalledo1c3. All9 admitted outcomes in this successful run are unknown. Outcome syntax and image hashes do not prove stable semantic understanding."
+    },
+    {
+      "id": "IO-LIVE-SEM-003",
+      "severity": "behavioral limitation",
+      "run": "new library unchanged",
+      "steps": [
+        6,
+        8,
+        10,
+        12
+      ],
+      "actual": "Reconciliation is offered at step6 but e2selected; eligiblefalse, savedCentral and recordChecks0 persist. Repeated unmet conditions and navigation do not establish human confusion. Specific memory reaches action and remains bounded, yet goal fails."
+    }
+  ],
+  "localOutcomeCounts": [
+    {
+      "task": "library",
+      "condition": "changed",
+      "total": 6,
+      "admittedUnknown": 4,
+      "adjusted": 4
+    },
+    {
+      "task": "library",
+      "condition": "unchanged",
+      "total": 11,
+      "admittedUnknown": 9,
+      "adjusted": 9
+    },
+    {
+      "task": "workshop",
+      "condition": "changed",
+      "total": 6,
+      "admittedUnknown": 5,
+      "adjusted": 5
+    },
+    {
+      "task": "workshop",
+      "condition": "unchanged",
+      "total": 9,
+      "admittedUnknown": 9,
+      "adjusted": 9
+    }
+  ],
+  "totalNewRequestsIncludingOptional": 294,
+  "status": "COMPLETED",
+  "requests": 222,
+  "planned": 8,
+  "valid": 8,
+  "invalid": 0,
+  "missing": 0,
+  "manifestSha256": "9a134150242f96c0aa41d2a6b892cc359dcb9a80b7b04a634bf8fe7510543ed6",
+  "totals": {
+    "experience-inquiry-outcome": {
+      "planned": 4,
+      "attempted": 4,
+      "valid": 4,
+      "invalid": 0,
+      "missing": 0,
+      "goals": 3,
+      "denominator": 4,
+      "requests": 108,
+      "reconciliation": 1,
+      "laterReconciliationWithoutEligibilityOrSavedValueChange": 0
+    },
+    "experience-working-inquiry": {
+      "planned": 4,
+      "attempted": 4,
+      "valid": 4,
+      "invalid": 0,
+      "missing": 0,
+      "goals": 2,
+      "denominator": 4,
+      "requests": 114,
+      "reconciliation": 0,
+      "laterReconciliationWithoutEligibilityOrSavedValueChange": 0
+    }
+  },
+  "rows": [
+    {
+      "task": "library",
+      "condition": "changed",
+      "actor": "experience-inquiry-outcome",
+      "runId": "d49deab1-dce5-42b1-ac75-bbc1d705a42a-1",
+      "requests": 21,
+      "status": "RESULT",
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "judgments": 7,
+      "uiActions": 6,
+      "looks": 0,
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "東分館",
+        "complete": true
+      },
+      "firstRecords": null,
+      "firstPrimaryAfterProgress": null,
+      "actualReconciliationEvents": [],
+      "outcomes": [
+        {
+          "step": 2,
+          "source": {
+            "observationId": "o2",
+            "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o1",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c1",
+              "scope": "current-hypothesis",
+              "conditionId": "c1",
+              "description": "利用情報の確認が必要な状態が解消され、予約変更を利用できること。",
+              "status": "unmet",
+              "evidence": {
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "quote": "利用情報の確認が必要です。マイページから利用情報をご確認ください。",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "find_route",
+            "check": "unknown",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "route_found",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "RESULT_CHECK_MISMATCH",
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e2",
+          "modelChoice": "e2",
+          "actorMemorySources": [
+            "o2"
+          ]
+        },
+        {
+          "step": 3,
+          "source": {
+            "observationId": "o3",
+            "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o2",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "recalled_o1_c1",
+              "scope": "recalled",
+              "conditionId": "o1_c1",
+              "description": "利用情報の確認が必要な状態が解消され、予約変更を利用できること。",
+              "status": "uncertain",
+              "evidence": {
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "quote": "利用情報の確認が必要です。マイページから利用情報をご確認ください。",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "historical"
+            },
+            "intent": "test_condition",
+            "check": "unknown",
+            "action": {
+              "candidateId": "e2",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "RESULT_CHECK_MISMATCH",
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o2",
+            "o3"
+          ]
+        },
+        {
+          "step": 4,
+          "source": {
+            "observationId": "o4",
+            "imageSha256": "07cd262ac342725a506b62ea2bf1b4f3dbbc6538a882ed07375215dded1efd6e"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o3",
+              "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c1",
+              "scope": "current-hypothesis",
+              "conditionId": "c1",
+              "description": "利用情報の確認が完了し、予約変更の確認申請を受け付けられる状態になること。",
+              "status": "uncertain",
+              "evidence": {
+                "observationId": "o3",
+                "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+                "quote": "利用情報を確認し、予約変更の確認申請を受け付けます。",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "choices": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "adjustments": [],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e2",
+          "modelChoice": "e2",
+          "actorMemorySources": [
+            "o2",
+            "o3",
+            "o4"
+          ]
+        },
+        {
+          "step": 5,
+          "source": {
+            "observationId": "o5",
+            "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o4",
+              "imageSha256": "07cd262ac342725a506b62ea2bf1b4f3dbbc6538a882ed07375215dded1efd6e"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "予約図書「川沿いの暮らし」の受取館が東分館になっていること。",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "find_route",
+            "check": "unknown",
+            "action": {
+              "candidateId": "e2",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": false
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "RESULT_CHECK_MISMATCH",
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o3",
+            "o4",
+            "o5"
+          ]
+        },
+        {
+          "step": 6,
+          "source": {
+            "observationId": "o6",
+            "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o5",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c1",
+              "scope": "current-hypothesis",
+              "conditionId": "c1",
+              "description": "予約図書「川沿いの暮らし」の受取館が中央図書館から東分館に変更されていること。",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "change_condition",
+            "check": "unknown",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": false
+          },
+          "rawChoices": {
+            "result": "condition_unmet",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "RESULT_CHECK_MISMATCH",
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "unsatisfied",
+          "globalProgress": "neutral",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o4",
+            "o5",
+            "o6"
+          ]
+        },
+        {
+          "step": 7,
+          "source": {
+            "observationId": "o7",
+            "imageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o6",
+              "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c3",
+              "scope": "current-hypothesis",
+              "conditionId": "c3",
+              "description": "東分館への変更が保存されたことを確認できること。",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "change_condition",
+            "check": "condition_changed",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": "変更後、保存済みの受取館が東分館と表示され、保存完了が確認できるかを確認する。",
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "choices": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "adjustments": [],
+          "globalGoal": "satisfied",
+          "globalProgress": "advances",
+          "actorBeforeContextPresent": false,
+          "selected": "done",
+          "modelChoice": "done",
+          "actorMemorySources": [
+            "o5",
+            "o6",
+            "o7"
+          ]
+        }
+      ],
+      "unassessedOperations": [],
+      "error": null,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-outcome-2026-10-31\\live\\recovery-library-changed-r1-experience-inquiry-outcome\\exploration\\result.json",
+      "routeSequence": [
+        {
+          "step": 1,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 6,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 7,
+          "route": "primary",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "selected": "done",
+          "modelChoice": "done"
+        }
+      ],
+      "sharedPolicy": {
+        "nonUnitWeights": 0,
+        "modelChoiceDiffers": 0
+      }
+    },
+    {
+      "task": "library",
+      "condition": "changed",
+      "actor": "experience-working-inquiry",
+      "runId": "d49deab1-dce5-42b1-ac75-bbc1d705a42a-2",
+      "requests": 21,
+      "status": "RESULT",
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "judgments": 7,
+      "uiActions": 6,
+      "looks": 0,
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "東分館",
+        "complete": true
+      },
+      "firstRecords": null,
+      "firstPrimaryAfterProgress": null,
+      "actualReconciliationEvents": [],
+      "outcomes": [],
+      "unassessedOperations": [],
+      "error": null,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-outcome-2026-10-31\\live\\recovery-library-changed-r1-experience-working-inquiry\\exploration\\result.json",
+      "routeSequence": [
+        {
+          "step": 1,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 6,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 7,
+          "route": "primary",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "selected": "done",
+          "modelChoice": "done"
+        }
+      ],
+      "sharedPolicy": {
+        "nonUnitWeights": 1,
+        "modelChoiceDiffers": 0
+      }
+    },
+    {
+      "task": "library",
+      "condition": "unchanged",
+      "actor": "experience-working-inquiry",
+      "runId": "d49deab1-dce5-42b1-ac75-bbc1d705a42a-3",
+      "requests": 36,
+      "status": "RESULT",
+      "termination": "DECISION_LIMIT",
+      "validForComparison": true,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "judgments": 12,
+      "uiActions": 12,
+      "looks": 0,
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "account",
+        "eligible": false,
+        "verificationAttempts": 2,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "firstRecords": {
+        "step": 8,
+        "image": "input-8.png",
+        "sha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3"
+      },
+      "firstPrimaryAfterProgress": null,
+      "actualReconciliationEvents": [],
+      "outcomes": [],
+      "unassessedOperations": [],
+      "error": null,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-outcome-2026-10-31\\live\\recovery-library-unchanged-r1-experience-working-inquiry\\exploration\\result.json",
+      "routeSequence": [
+        {
+          "step": 1,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 6,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 7,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e3",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 8,
+          "route": "records",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 9,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 10,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 11,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 12,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        }
+      ],
+      "sharedPolicy": {
+        "nonUnitWeights": 2,
+        "modelChoiceDiffers": 1
+      }
+    },
+    {
+      "task": "library",
+      "condition": "unchanged",
+      "actor": "experience-inquiry-outcome",
+      "runId": "d49deab1-dce5-42b1-ac75-bbc1d705a42a-4",
+      "requests": 36,
+      "status": "RESULT",
+      "termination": "DECISION_LIMIT",
+      "validForComparison": true,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "judgments": 12,
+      "uiActions": 12,
+      "looks": 0,
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "home",
+        "eligible": false,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "firstRecords": {
+        "step": 6,
+        "image": "input-6.png",
+        "sha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3"
+      },
+      "firstPrimaryAfterProgress": null,
+      "actualReconciliationEvents": [],
+      "outcomes": [
+        {
+          "step": 2,
+          "source": {
+            "observationId": "o2",
+            "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o1",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c3",
+              "scope": "current-hypothesis",
+              "conditionId": "c3",
+              "description": "予約内容の変更に必要な利用情報の確認を行う。",
+              "status": "unmet",
+              "evidence": {
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "quote": "利用情報の確認が必要です。",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "find_route",
+            "check": "unknown",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "RESULT_CHECK_MISMATCH",
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e2",
+          "modelChoice": "e2",
+          "actorMemorySources": [
+            "o2"
+          ]
+        },
+        {
+          "step": 3,
+          "source": {
+            "observationId": "o3",
+            "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o2",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "受取館を中央図書館から東分館へ変更する。",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "find_route",
+            "check": "unknown",
+            "action": {
+              "candidateId": "e2",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": false
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "RESULT_CHECK_MISMATCH",
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o2",
+            "o3"
+          ]
+        },
+        {
+          "step": 4,
+          "source": {
+            "observationId": "o4",
+            "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o3",
+              "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "受取館を中央図書館から東分館へ変更する。",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e2",
+          "modelChoice": "e2",
+          "actorMemorySources": [
+            "o2",
+            "o3",
+            "o4"
+          ]
+        },
+        {
+          "step": 5,
+          "source": {
+            "observationId": "o5",
+            "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o4",
+              "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "受取館を中央図書館から東分館へ変更する。",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e2",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e3",
+          "modelChoice": "e3",
+          "actorMemorySources": [
+            "o3",
+            "o4",
+            "o5"
+          ]
+        },
+        {
+          "step": 6,
+          "source": {
+            "observationId": "o6",
+            "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o5",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "受取館を中央図書館から東分館へ変更する。",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e3",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": false
+          },
+          "rawChoices": {
+            "result": "condition_unmet",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "unsatisfied",
+          "globalProgress": "conflicts",
+          "actorBeforeContextPresent": false,
+          "selected": "e2",
+          "modelChoice": "e2",
+          "actorMemorySources": [
+            "o4",
+            "o5",
+            "o6"
+          ]
+        },
+        {
+          "step": 7,
+          "source": {
+            "observationId": "o7",
+            "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o6",
+              "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c3",
+              "scope": "current-hypothesis",
+              "conditionId": "c3",
+              "description": "保存済み受取館が東分館であることを確認する。",
+              "status": "unmet",
+              "evidence": {
+                "observationId": "o6",
+                "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+                "quote": "保存済みの受取館　中央図書館",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e2",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": false
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "unsatisfied",
+          "globalProgress": "neutral",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o5",
+            "o6",
+            "o7"
+          ]
+        },
+        {
+          "step": 8,
+          "source": {
+            "observationId": "o8",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o7",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "受取館を中央図書館から東分館へ変更する。",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "choices": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "adjustments": [],
+          "globalGoal": "unsatisfied",
+          "globalProgress": "neutral",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o6",
+            "o7",
+            "o8"
+          ]
+        },
+        {
+          "step": 9,
+          "source": {
+            "observationId": "o9",
+            "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o8",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c1",
+              "scope": "current-hypothesis",
+              "conditionId": "c1",
+              "description": "予約図書「川沿いの暮らし」の変更に必要な利用情報を確認する。",
+              "status": "unmet",
+              "evidence": {
+                "observationId": "o8",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "quote": "利用情報の確認が必要です。",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "neutral",
+          "actorBeforeContextPresent": false,
+          "selected": "e2",
+          "modelChoice": "e2",
+          "actorMemorySources": [
+            "o7",
+            "o8",
+            "o9"
+          ]
+        },
+        {
+          "step": 10,
+          "source": {
+            "observationId": "o10",
+            "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o9",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "予約図書「川沿いの暮らし」の受取館を中央図書館から東分館へ変更する。",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e2",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": false
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e2",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o8",
+            "o9",
+            "o10"
+          ]
+        },
+        {
+          "step": 11,
+          "source": {
+            "observationId": "o11",
+            "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o10",
+              "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "受取館を中央図書館から東分館へ変更する。",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e2",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": false
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "neutral",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o9",
+            "o10",
+            "o11"
+          ]
+        },
+        {
+          "step": 12,
+          "source": {
+            "observationId": "o12",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o11",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "予約図書「川沿いの暮らし」の受取館を中央図書館から東分館へ変更する。",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "choices": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "adjustments": [],
+          "globalGoal": "unsatisfied",
+          "globalProgress": "neutral",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o10",
+            "o11",
+            "o12"
+          ]
+        }
+      ],
+      "unassessedOperations": [
+        {
+          "step": 12,
+          "operation": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o12",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+            },
+            "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "受取館の変更に必要な利用情報を確認する。",
+              "status": "unmet",
+              "evidence": {
+                "observationId": "o12",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "quote": "利用情報の確認が必要です。マイページから利用情報をご確認ください。",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "reason": "no-next-delivered-observation"
+        }
+      ],
+      "error": null,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-outcome-2026-10-31\\live\\recovery-library-unchanged-r1-experience-inquiry-outcome\\exploration\\result.json",
+      "routeSequence": [
+        {
+          "step": 1,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e3",
+          "modelChoice": "e3"
+        },
+        {
+          "step": 6,
+          "route": "records",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 7,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 8,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 9,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 10,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 11,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 12,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        }
+      ],
+      "sharedPolicy": {
+        "nonUnitWeights": 3,
+        "modelChoiceDiffers": 1
+      }
+    },
+    {
+      "task": "workshop",
+      "condition": "changed",
+      "actor": "experience-inquiry-outcome",
+      "runId": "d49deab1-dce5-42b1-ac75-bbc1d705a42a-5",
+      "requests": 21,
+      "status": "RESULT",
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "judgments": 7,
+      "uiActions": 6,
+      "looks": 0,
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "午後の回",
+        "complete": true
+      },
+      "firstRecords": null,
+      "firstPrimaryAfterProgress": null,
+      "actualReconciliationEvents": [],
+      "outcomes": [
+        {
+          "step": 2,
+          "source": {
+            "observationId": "o2",
+            "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o1",
+              "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "変更に必要な利用情報の確認が済んでいる",
+              "status": "unmet",
+              "evidence": {
+                "observationId": "o1",
+                "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+                "quote": "利用情報の確認が必要です。",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "find_route",
+            "check": "unknown",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": "マイページが表示される",
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "route_found",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "RESULT_CHECK_MISMATCH",
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e2",
+          "modelChoice": "e2",
+          "actorMemorySources": [
+            "o2"
+          ]
+        },
+        {
+          "step": 3,
+          "source": {
+            "observationId": "o3",
+            "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o2",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "変更に必要な利用情報の確認が済んでいる",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e2",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o2",
+            "o3"
+          ]
+        },
+        {
+          "step": 4,
+          "source": {
+            "observationId": "o4",
+            "imageSha256": "a8db7dad5443ffd6548c65d94e2661b6a0825429c027f691c5feebef5e9ae97d"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o3",
+              "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "変更に必要な利用情報の確認が済んでいる",
+              "status": "uncertain",
+              "evidence": {
+                "observationId": "o3",
+                "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+                "quote": "利用情報を確認し、予約変更の確認申請を受け付けます。",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "choices": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "adjustments": [],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e2",
+          "modelChoice": "e2",
+          "actorMemorySources": [
+            "o2",
+            "o3",
+            "o4"
+          ]
+        },
+        {
+          "step": 5,
+          "source": {
+            "observationId": "o5",
+            "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o4",
+              "imageSha256": "a8db7dad5443ffd6548c65d94e2661b6a0825429c027f691c5feebef5e9ae97d"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c1",
+              "scope": "current-hypothesis",
+              "conditionId": "c1",
+              "description": "予約「木の小物づくり」の保存済み希望回が午後の回である",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "find_route",
+            "check": "unknown",
+            "action": {
+              "candidateId": "e2",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": "マイページが表示される",
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "RESULT_CHECK_MISMATCH",
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o3",
+            "o4",
+            "o5"
+          ]
+        },
+        {
+          "step": 6,
+          "source": {
+            "observationId": "o6",
+            "imageSha256": "86a71eb4aa5ba50d4e50b72ac3231f91512c174665693e36e48ddb80401357e3"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o5",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c1",
+              "scope": "current-hypothesis",
+              "conditionId": "c1",
+              "description": "予約「木の小物づくり」の保存済み希望回が、午前の回から変更されて午後の回になっている",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": "希望回の変更画面が表示される",
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_unmet",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "unsatisfied",
+          "globalProgress": "neutral",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o4",
+            "o5",
+            "o6"
+          ]
+        },
+        {
+          "step": 7,
+          "source": {
+            "observationId": "o7",
+            "imageSha256": "4d015f6b61ec0fb45a198302260729581e76619cf5ddf6a4702f72a3e5e39539"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o6",
+              "imageSha256": "86a71eb4aa5ba50d4e50b72ac3231f91512c174665693e36e48ddb80401357e3"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c3",
+              "scope": "current-hypothesis",
+              "conditionId": "c3",
+              "description": "午後の回への変更が保存されたことを確認できる",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "unknown",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": "保存後、予約「木の小物づくり」の希望回が午後の回として表示されるか確認する",
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "current_image"
+          },
+          "adjustments": [
+            "RESULT_CHECK_MISMATCH"
+          ],
+          "globalGoal": "satisfied",
+          "globalProgress": "advances",
+          "actorBeforeContextPresent": false,
+          "selected": "done",
+          "modelChoice": "done",
+          "actorMemorySources": [
+            "o5",
+            "o6",
+            "o7"
+          ]
+        }
+      ],
+      "unassessedOperations": [],
+      "error": null,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-outcome-2026-10-31\\live\\recovery-workshop-changed-r1-experience-inquiry-outcome\\exploration\\result.json",
+      "routeSequence": [
+        {
+          "step": 1,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 6,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 7,
+          "route": "primary",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "selected": "done",
+          "modelChoice": "done"
+        }
+      ],
+      "sharedPolicy": {
+        "nonUnitWeights": 0,
+        "modelChoiceDiffers": 0
+      }
+    },
+    {
+      "task": "workshop",
+      "condition": "changed",
+      "actor": "experience-working-inquiry",
+      "runId": "d49deab1-dce5-42b1-ac75-bbc1d705a42a-6",
+      "requests": 21,
+      "status": "RESULT",
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "judgments": 7,
+      "uiActions": 6,
+      "looks": 0,
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "午後の回",
+        "complete": true
+      },
+      "firstRecords": null,
+      "firstPrimaryAfterProgress": null,
+      "actualReconciliationEvents": [],
+      "outcomes": [],
+      "unassessedOperations": [],
+      "error": null,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-outcome-2026-10-31\\live\\recovery-workshop-changed-r1-experience-working-inquiry\\exploration\\result.json",
+      "routeSequence": [
+        {
+          "step": 1,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 6,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 7,
+          "route": "primary",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "selected": "done",
+          "modelChoice": "done"
+        }
+      ],
+      "sharedPolicy": {
+        "nonUnitWeights": 0,
+        "modelChoiceDiffers": 0
+      }
+    },
+    {
+      "task": "workshop",
+      "condition": "unchanged",
+      "actor": "experience-working-inquiry",
+      "runId": "d49deab1-dce5-42b1-ac75-bbc1d705a42a-7",
+      "requests": 36,
+      "status": "RESULT",
+      "termination": "DECISION_LIMIT",
+      "validForComparison": true,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "judgments": 12,
+      "uiActions": 12,
+      "looks": 0,
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "home",
+        "eligible": false,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "午前の回",
+        "complete": false
+      },
+      "firstRecords": {
+        "step": 6,
+        "image": "input-6.png",
+        "sha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+      },
+      "firstPrimaryAfterProgress": null,
+      "actualReconciliationEvents": [],
+      "outcomes": [],
+      "unassessedOperations": [],
+      "error": null,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-outcome-2026-10-31\\live\\recovery-workshop-unchanged-r1-experience-working-inquiry\\exploration\\result.json",
+      "routeSequence": [
+        {
+          "step": 1,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e3",
+          "modelChoice": "e3"
+        },
+        {
+          "step": 6,
+          "route": "records",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 7,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 8,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 9,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 10,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 11,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 12,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        }
+      ],
+      "sharedPolicy": {
+        "nonUnitWeights": 3,
+        "modelChoiceDiffers": 1
+      }
+    },
+    {
+      "task": "workshop",
+      "condition": "unchanged",
+      "actor": "experience-inquiry-outcome",
+      "runId": "d49deab1-dce5-42b1-ac75-bbc1d705a42a-8",
+      "requests": 30,
+      "status": "RESULT",
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "judgments": 10,
+      "uiActions": 9,
+      "looks": 0,
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 1,
+        "savedValue": "午後の回",
+        "complete": true
+      },
+      "firstRecords": {
+        "step": 6,
+        "image": "input-6.png",
+        "sha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+      },
+      "firstPrimaryAfterProgress": {
+        "step": 9,
+        "image": "input-9.png",
+        "sha256": "86a71eb4aa5ba50d4e50b72ac3231f91512c174665693e36e48ddb80401357e3"
+      },
+      "actualReconciliationEvents": [
+        {
+          "step": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "candidate": "e1",
+          "modelChoice": "e1",
+          "rawProbability": 0.52,
+          "weights": {
+            "abandon": 1,
+            "back": 1,
+            "done": 1,
+            "e1": 1,
+            "e2": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "stuck": 1,
+            "wait": 1
+          },
+          "before": {
+            "schemaVersion": 1,
+            "route": "records",
+            "eligible": false,
+            "verificationAttempts": 1,
+            "recordChecks": 0,
+            "savedValue": "午前の回",
+            "complete": false
+          },
+          "after": {
+            "schemaVersion": 1,
+            "route": "records",
+            "eligible": true,
+            "verificationAttempts": 1,
+            "recordChecks": 1,
+            "savedValue": "午前の回",
+            "complete": false
+          },
+          "afterKind": "next-audit-observation",
+          "unchangedEligibilityAndSavedValue": false
+        }
+      ],
+      "outcomes": [
+        {
+          "step": 2,
+          "source": {
+            "observationId": "o2",
+            "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o1",
+              "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c3",
+              "scope": "current-hypothesis",
+              "conditionId": "c3",
+              "description": "予約変更に必要な利用情報の確認が完了している",
+              "status": "unmet",
+              "evidence": {
+                "observationId": "o1",
+                "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+                "quote": "利用情報の確認が必要です。",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "find_route",
+            "check": "unknown",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": "マイページへ移動する",
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "RESULT_CHECK_MISMATCH",
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e2",
+          "modelChoice": "e2",
+          "actorMemorySources": [
+            "o2"
+          ]
+        },
+        {
+          "step": 3,
+          "source": {
+            "observationId": "o3",
+            "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o2",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c3",
+              "scope": "current-hypothesis",
+              "conditionId": "c3",
+              "description": "予約変更に必要な利用情報の確認が完了している",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e2",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o2",
+            "o3"
+          ]
+        },
+        {
+          "step": 4,
+          "source": {
+            "observationId": "o4",
+            "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o3",
+              "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c3",
+              "scope": "current-hypothesis",
+              "conditionId": "c3",
+              "description": "予約変更に必要な利用情報の確認が完了している",
+              "status": "uncertain",
+              "evidence": {
+                "observationId": "o3",
+                "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+                "quote": "利用情報を確認する",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "conflicts",
+          "actorBeforeContextPresent": false,
+          "selected": "e2",
+          "modelChoice": "e2",
+          "actorMemorySources": [
+            "o2",
+            "o3",
+            "o4"
+          ]
+        },
+        {
+          "step": 5,
+          "source": {
+            "observationId": "o5",
+            "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o4",
+              "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c3",
+              "scope": "current-hypothesis",
+              "conditionId": "c3",
+              "description": "予約変更後の記録照合が完了し、保存結果を確認できている",
+              "status": "unmet",
+              "evidence": {
+                "observationId": "o4",
+                "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc",
+                "quote": "予約記録との照合がまだ完了していません。",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e2",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": false
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e3",
+          "modelChoice": "e3",
+          "actorMemorySources": [
+            "o3",
+            "o4",
+            "o5"
+          ]
+        },
+        {
+          "step": 6,
+          "source": {
+            "observationId": "o6",
+            "imageSha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o5",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "変更後の希望回が午後の回として保存されている",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e3",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_unmet",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "unsatisfied",
+          "globalProgress": "conflicts",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o4",
+            "o5",
+            "o6"
+          ]
+        },
+        {
+          "step": 7,
+          "source": {
+            "observationId": "o7",
+            "imageSha256": "19efac5b61d30f4675645d3648c84e5746ac93d87343fe35e70a808fedf1c251"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o6",
+              "imageSha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c3",
+              "scope": "current-hypothesis",
+              "conditionId": "c3",
+              "description": "予約記録との照合が完了し、変更後の保存結果を確認できている",
+              "status": "uncertain",
+              "evidence": {
+                "observationId": "o6",
+                "imageSha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490",
+                "quote": "予約記録を照合する",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "neutral",
+          "actorBeforeContextPresent": false,
+          "selected": "e2",
+          "modelChoice": "e2",
+          "actorMemorySources": [
+            "o5",
+            "o6",
+            "o7"
+          ]
+        },
+        {
+          "step": 8,
+          "source": {
+            "observationId": "o8",
+            "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o7",
+              "imageSha256": "19efac5b61d30f4675645d3648c84e5746ac93d87343fe35e70a808fedf1c251"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c3",
+              "scope": "current-hypothesis",
+              "conditionId": "c3",
+              "description": "予約記録との照合が完了し、午後への変更後の保存結果を確認できている",
+              "status": "uncertain",
+              "evidence": {
+                "observationId": "o7",
+                "imageSha256": "19efac5b61d30f4675645d3648c84e5746ac93d87343fe35e70a808fedf1c251",
+                "quote": "予約記録の照合が完了しました。予約内容の変更を利用できます。",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e2",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": false
+          },
+          "rawChoices": {
+            "result": "condition_uncertain",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "unknown",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o6",
+            "o7",
+            "o8"
+          ]
+        },
+        {
+          "step": 9,
+          "source": {
+            "observationId": "o9",
+            "imageSha256": "86a71eb4aa5ba50d4e50b72ac3231f91512c174665693e36e48ddb80401357e3"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o8",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "希望回が午後の回に変更され、保存されている",
+              "status": "uncertain",
+              "evidence": null,
+              "evidenceScope": "none"
+            },
+            "intent": "test_condition",
+            "check": "condition_status_known",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": null,
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_unmet",
+            "basis": "none"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "adjustments": [
+            "NO_CURRENT_IMAGE_BASIS"
+          ],
+          "globalGoal": "uncertain",
+          "globalProgress": "neutral",
+          "actorBeforeContextPresent": false,
+          "selected": "e1",
+          "modelChoice": "e1",
+          "actorMemorySources": [
+            "o7",
+            "o8",
+            "o9"
+          ]
+        },
+        {
+          "step": 10,
+          "source": {
+            "observationId": "o10",
+            "imageSha256": "4d015f6b61ec0fb45a198302260729581e76619cf5ddf6a4702f72a3e5e39539"
+          },
+          "pending": {
+            "schemaVersion": 1,
+            "kind": "pending-inquiry-operation",
+            "source": {
+              "observationId": "o9",
+              "imageSha256": "86a71eb4aa5ba50d4e50b72ac3231f91512c174665693e36e48ddb80401357e3"
+            },
+            "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+            "condition": {
+              "key": "current_c2",
+              "scope": "current-hypothesis",
+              "conditionId": "c2",
+              "description": "保存済みの希望回が午前の回から午後の回に変更されている",
+              "status": "unmet",
+              "evidence": {
+                "observationId": "o9",
+                "imageSha256": "86a71eb4aa5ba50d4e50b72ac3231f91512c174665693e36e48ddb80401357e3",
+                "quote": "保存済みの希望回　午前の回",
+                "quoteStatus": "model-transcribed-unverified"
+              },
+              "evidenceScope": "current"
+            },
+            "intent": "test_condition",
+            "check": "unknown",
+            "action": {
+              "candidateId": "e1",
+              "type": "click",
+              "execution": "performed"
+            },
+            "expectedObservation": "保存済みの希望回が午後の回と表示されること",
+            "explicitLink": true
+          },
+          "rawChoices": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "choices": {
+            "result": "unknown",
+            "basis": "current_image"
+          },
+          "adjustments": [
+            "RESULT_CHECK_MISMATCH"
+          ],
+          "globalGoal": "satisfied",
+          "globalProgress": "advances",
+          "actorBeforeContextPresent": false,
+          "selected": "done",
+          "modelChoice": "done",
+          "actorMemorySources": [
+            "o8",
+            "o9",
+            "o10"
+          ]
+        }
+      ],
+      "unassessedOperations": [],
+      "error": null,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-outcome-2026-10-31\\live\\recovery-workshop-unchanged-r1-experience-inquiry-outcome\\exploration\\result.json",
+      "routeSequence": [
+        {
+          "step": 1,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e3",
+          "modelChoice": "e3"
+        },
+        {
+          "step": 6,
+          "route": "records",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 7,
+          "route": "records",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e2",
+          "modelChoice": "e2"
+        },
+        {
+          "step": 8,
+          "route": "home",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 9,
+          "route": "primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "selected": "e1",
+          "modelChoice": "e1"
+        },
+        {
+          "step": 10,
+          "route": "primary",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "selected": "done",
+          "modelChoice": "done"
+        }
+      ],
+      "sharedPolicy": {
+        "nonUnitWeights": 2,
+        "modelChoiceDiffers": 0
+      }
+    }
+  ],
+  "optionalOpenAI": {
+    "scope": "Fresh functional check, not provider ranking or same-input comparison",
+    "protocol": {
+      "schemaVersion": 1,
+      "purpose": "Optional fresh inquiry-outcome functional check with existing OpenAI decision backend; separate from Jev8 denominator and not provider-causal comparison",
+      "sourceHash": "58d606cf923d3ec814f6525975dfb673a137f195647a2213ce3cb925f74f467c",
+      "backend": "openai-decisions",
+      "mode": "experience-inquiry-outcome",
+      "model": "gpt-6-luna",
+      "nativeModel": "gpt-6-luna",
+      "tasks": [
+        "library/unchanged",
+        "workshop/unchanged"
+      ],
+      "trials": 2,
+      "maxRequests": 72,
+      "perTrialRequests": 36,
+      "maxJudgments": 12,
+      "maxUIActions": 15,
+      "maxLooks": 3,
+      "trialMs": 300000,
+      "nativeRequestMs": 60000,
+      "phaseMs": 660000,
+      "parallel": 1,
+      "retry": 0,
+      "executeWhen": "Only after all terminal Jev8 outputs sealed, if any valid new-mode unchanged task remains unsuccessful or repeats actual reconciliation without eligibility/saved-value change. No replacement of any Jev slot.",
+      "stop": "Authentication/quota/accounting/model-output failure; preserve failed and missing slots, no replacement.",
+      "hypothesis": "Determine whether another existing decision backend can use the same bounded condition outcomes during fresh autonomous exploration. No correct route, scripted prerequisite click, saved input resend or participant records.",
+      "data": "Fresh fictional local UI/current and admitted bounded-memory images+goal+persona(null), normal runner; historical participant data excluded.",
+      "limitations": "One fresh run per task; same initial UI/goal/native input but differing native outputs/history. No provider ranking, stable causal/human-fidelity claim.",
+      "timing": "Declared while Jev batch is running; optional evidence must remain a separate post-Jev functional check.",
+      "declaredAtUTC": "2026-10-30T20:58:04.054Z"
+    },
+    "sourceHash": "58d606cf923d3ec814f6525975dfb673a137f195647a2213ce3cb925f74f467c",
+    "revision": "5ad0919bbd9b7325fd688f7ba931c691312a4c84",
+    "manifestSha256": "6d6ed56c471fe58269e0e2fe8ead1c655ce8e548530c82821a84185553d1da55",
+    "orchestratorSha256": "50f3277dd7939ef17fa79675a129127f6c304fa97c010bdde89a764b6d6d9832",
+    "status": "COMPLETED",
+    "outcomeCount": 22,
+    "admittedUnknown": 22,
+    "requests": 72,
+    "planned": 2,
+    "valid": 2,
+    "invalid": 0,
+    "missing": 0,
+    "goals": 0,
+    "rows": [
+      {
+        "task": "library",
+        "condition": "unchanged",
+        "actor": "experience-inquiry-outcome/openai-decisions",
+        "runId": "e69db673-7e9c-473b-91ea-105a5b9e9591-recovery-library-unchanged-r1",
+        "requests": 36,
+        "status": "RESULT",
+        "termination": "DECISION_LIMIT",
+        "validForComparison": true,
+        "objective": {
+          "status": "OK",
+          "value": false
+        },
+        "perceivedDone": false,
+        "judgments": 12,
+        "uiActions": 12,
+        "looks": 0,
+        "terminal": {
+          "schemaVersion": 1,
+          "route": "account",
+          "eligible": false,
+          "verificationAttempts": 2,
+          "recordChecks": 0,
+          "savedValue": "中央図書館",
+          "complete": false
+        },
+        "firstRecords": null,
+        "firstPrimaryAfterProgress": null,
+        "actualReconciliationEvents": [],
+        "outcomes": [
+          {
+            "step": 2,
+            "source": {
+              "observationId": "o2",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+              },
+              "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+              "condition": {
+                "key": "current_c2",
+                "scope": "current-hypothesis",
+                "conditionId": "c2",
+                "description": "受取館が中央図書館から東分館に変更されている",
+                "status": "unmet",
+                "evidence": {
+                  "observationId": "o1",
+                  "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                  "quote": "保存済みの受取館　中央図書館",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "evidenceScope": "current"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "condition_unmet",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [
+              "RESULT_CHECK_MISMATCH",
+              "NO_CURRENT_IMAGE_BASIS"
+            ],
+            "globalGoal": "uncertain",
+            "globalProgress": "unknown",
+            "actorBeforeContextPresent": false,
+            "selected": "e1",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o2"
+            ]
+          },
+          {
+            "step": 3,
+            "source": {
+              "observationId": "o3",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o2",
+                "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+              },
+              "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+              "condition": {
+                "key": "current_c2",
+                "scope": "current-hypothesis",
+                "conditionId": "c2",
+                "description": "予約図書「川沿いの暮らし」の受取館が中央図書館から東分館へ変更され、保存されている",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": true
+            },
+            "rawChoices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [],
+            "globalGoal": "unsatisfied",
+            "globalProgress": "neutral",
+            "actorBeforeContextPresent": false,
+            "selected": "e1",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o2",
+              "o3"
+            ]
+          },
+          {
+            "step": 4,
+            "source": {
+              "observationId": "o4",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o3",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+              },
+              "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+              "condition": {
+                "key": "current_c2",
+                "scope": "current-hypothesis",
+                "conditionId": "c2",
+                "description": "予約図書「川沿いの暮らし」の受取館が中央図書館から東分館へ変更されている",
+                "status": "unmet",
+                "evidence": {
+                  "observationId": "o3",
+                  "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                  "quote": "保存済みの受取館　中央図書館",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "evidenceScope": "current"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "condition_uncertain",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [
+              "RESULT_CHECK_MISMATCH",
+              "NO_CURRENT_IMAGE_BASIS"
+            ],
+            "globalGoal": "uncertain",
+            "globalProgress": "unknown",
+            "actorBeforeContextPresent": false,
+            "selected": "e2",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o2",
+              "o3",
+              "o4"
+            ]
+          },
+          {
+            "step": 5,
+            "source": {
+              "observationId": "o5",
+              "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o4",
+                "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+              },
+              "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+              "condition": {
+                "key": "current_c2",
+                "scope": "current-hypothesis",
+                "conditionId": "c2",
+                "description": "予約図書「川沿いの暮らし」の受取館が中央図書館から東分館へ変更され、保存されている",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e2",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [],
+            "globalGoal": "uncertain",
+            "globalProgress": "unknown",
+            "actorBeforeContextPresent": false,
+            "selected": "e1",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o3",
+              "o4",
+              "o5"
+            ]
+          },
+          {
+            "step": 6,
+            "source": {
+              "observationId": "o6",
+              "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o5",
+                "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+              },
+              "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+              "condition": {
+                "key": "current_c1",
+                "scope": "current-hypothesis",
+                "conditionId": "c1",
+                "description": "予約図書「川沿いの暮らし」の受取館が中央図書館から東分館へ変更され、保存されている",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "condition_uncertain",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [
+              "RESULT_CHECK_MISMATCH",
+              "NO_CURRENT_IMAGE_BASIS"
+            ],
+            "globalGoal": "uncertain",
+            "globalProgress": "unknown",
+            "actorBeforeContextPresent": false,
+            "selected": "e1",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o4",
+              "o5",
+              "o6"
+            ]
+          },
+          {
+            "step": 7,
+            "source": {
+              "observationId": "o7",
+              "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o6",
+                "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf"
+              },
+              "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+              "condition": {
+                "key": "current_c1",
+                "scope": "current-hypothesis",
+                "conditionId": "c1",
+                "description": "予約図書「川沿いの暮らし」の受取館が中央図書館から東分館へ変更されている",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "condition_uncertain",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [
+              "RESULT_CHECK_MISMATCH",
+              "NO_CURRENT_IMAGE_BASIS"
+            ],
+            "globalGoal": "uncertain",
+            "globalProgress": "neutral",
+            "actorBeforeContextPresent": false,
+            "selected": "e2",
+            "modelChoice": "e2",
+            "actorMemorySources": [
+              "o5",
+              "o6",
+              "o7"
+            ]
+          },
+          {
+            "step": 8,
+            "source": {
+              "observationId": "o8",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o7",
+                "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf"
+              },
+              "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+              "condition": {
+                "key": "current_c1",
+                "scope": "current-hypothesis",
+                "conditionId": "c1",
+                "description": "予約図書「川沿いの暮らし」の受取館が中央図書館から東分館へ変更されている",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e2",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [],
+            "globalGoal": "uncertain",
+            "globalProgress": "unknown",
+            "actorBeforeContextPresent": false,
+            "selected": "back",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o6",
+              "o7",
+              "o8"
+            ]
+          },
+          {
+            "step": 9,
+            "source": {
+              "observationId": "o9",
+              "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o8",
+                "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+              },
+              "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+              "condition": {
+                "key": "current_c1",
+                "scope": "current-hypothesis",
+                "conditionId": "c1",
+                "description": "予約図書「川沿いの暮らし」の受取館が中央図書館から東分館へ変更されている",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "back",
+                "type": "back",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "condition_uncertain",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [
+              "RESULT_CHECK_MISMATCH",
+              "NO_CURRENT_IMAGE_BASIS"
+            ],
+            "globalGoal": "uncertain",
+            "globalProgress": "unknown",
+            "actorBeforeContextPresent": false,
+            "selected": "e2",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o7",
+              "o8",
+              "o9"
+            ]
+          },
+          {
+            "step": 10,
+            "source": {
+              "observationId": "o10",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o9",
+                "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+              },
+              "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+              "condition": {
+                "key": "current_c1",
+                "scope": "current-hypothesis",
+                "conditionId": "c1",
+                "description": "予約図書「川沿いの暮らし」の受取館が中央図書館から東分館へ変更されている",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e2",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [],
+            "globalGoal": "uncertain",
+            "globalProgress": "neutral",
+            "actorBeforeContextPresent": false,
+            "selected": "back",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o8",
+              "o9",
+              "o10"
+            ]
+          },
+          {
+            "step": 11,
+            "source": {
+              "observationId": "o11",
+              "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o10",
+                "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+              },
+              "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+              "condition": {
+                "key": "current_c1",
+                "scope": "current-hypothesis",
+                "conditionId": "c1",
+                "description": "予約図書「川沿いの暮らし」の受取館が中央図書館から東分館へ変更されている",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "back",
+                "type": "back",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "condition_uncertain",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [
+              "RESULT_CHECK_MISMATCH",
+              "NO_CURRENT_IMAGE_BASIS"
+            ],
+            "globalGoal": "uncertain",
+            "globalProgress": "neutral",
+            "actorBeforeContextPresent": false,
+            "selected": "e2",
+            "modelChoice": "e2",
+            "actorMemorySources": [
+              "o9",
+              "o10",
+              "o11"
+            ]
+          },
+          {
+            "step": 12,
+            "source": {
+              "observationId": "o12",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o11",
+                "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+              },
+              "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+              "condition": {
+                "key": "current_c1",
+                "scope": "current-hypothesis",
+                "conditionId": "c1",
+                "description": "予約図書「川沿いの暮らし」の受取館が中央図書館から東分館へ変更されている",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e2",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "condition_uncertain",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [
+              "RESULT_CHECK_MISMATCH",
+              "NO_CURRENT_IMAGE_BASIS"
+            ],
+            "globalGoal": "uncertain",
+            "globalProgress": "neutral",
+            "actorBeforeContextPresent": false,
+            "selected": "back",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o10",
+              "o11",
+              "o12"
+            ]
+          }
+        ],
+        "unassessedOperations": [
+          {
+            "step": 12,
+            "operation": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o12",
+                "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+              },
+              "goalSha256": "bf2a03b810b5d229b9e69ddd409597d11ca0f7977848b447a8959eb8ec0674e4",
+              "condition": {
+                "key": "current_c1",
+                "scope": "current-hypothesis",
+                "conditionId": "c1",
+                "description": "予約図書「川沿いの暮らし」の受取館を中央図書館から東分館へ変更する",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "back",
+                "type": "back",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "reason": "no-next-delivered-observation"
+          }
+        ],
+        "error": null,
+        "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-outcome-2026-10-31\\openai-sanity\\recovery-library-unchanged-r1\\exploration\\result.json",
+        "routeSequence": [
+          {
+            "step": 1,
+            "route": "primary",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 2,
+            "route": "home",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 3,
+            "route": "primary",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 4,
+            "route": "home",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e2",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 5,
+            "route": "account",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 6,
+            "route": "account",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 7,
+            "route": "account",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e2",
+            "modelChoice": "e2"
+          },
+          {
+            "step": 8,
+            "route": "home",
+            "action": {
+              "type": "back"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "back",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 9,
+            "route": "account",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e2",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 10,
+            "route": "home",
+            "action": {
+              "type": "back"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "back",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 11,
+            "route": "account",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e2",
+            "modelChoice": "e2"
+          },
+          {
+            "step": 12,
+            "route": "home",
+            "action": {
+              "type": "back"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "back",
+            "modelChoice": "e1"
+          }
+        ],
+        "sharedPolicy": {
+          "nonUnitWeights": 5,
+          "modelChoiceDiffers": 5
+        }
+      },
+      {
+        "task": "workshop",
+        "condition": "unchanged",
+        "actor": "experience-inquiry-outcome/openai-decisions",
+        "runId": "e69db673-7e9c-473b-91ea-105a5b9e9591-recovery-workshop-unchanged-r1",
+        "requests": 36,
+        "status": "RESULT",
+        "termination": "DECISION_LIMIT",
+        "validForComparison": true,
+        "objective": {
+          "status": "OK",
+          "value": false
+        },
+        "perceivedDone": false,
+        "judgments": 12,
+        "uiActions": 12,
+        "looks": 0,
+        "terminal": {
+          "schemaVersion": 1,
+          "route": "primary",
+          "eligible": false,
+          "verificationAttempts": 4,
+          "recordChecks": 0,
+          "savedValue": "午前の回",
+          "complete": false
+        },
+        "firstRecords": null,
+        "firstPrimaryAfterProgress": null,
+        "actualReconciliationEvents": [],
+        "outcomes": [
+          {
+            "step": 2,
+            "source": {
+              "observationId": "o2",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o1",
+                "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396"
+              },
+              "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+              "condition": {
+                "key": "current_c3",
+                "scope": "current-hypothesis",
+                "conditionId": "c3",
+                "description": "希望回が午後の回に変更され、保存されたことが確認できる。",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": "マイページへの移動",
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [],
+            "globalGoal": "uncertain",
+            "globalProgress": "advances",
+            "actorBeforeContextPresent": false,
+            "selected": "e2",
+            "modelChoice": "e2",
+            "actorMemorySources": [
+              "o2"
+            ]
+          },
+          {
+            "step": 3,
+            "source": {
+              "observationId": "o3",
+              "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o2",
+                "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+              },
+              "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+              "condition": {
+                "key": "current_c3",
+                "scope": "current-hypothesis",
+                "conditionId": "c3",
+                "description": "希望回が午後の回に変更され、保存されたことを確認できる。",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e2",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "condition_uncertain",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [
+              "RESULT_CHECK_MISMATCH",
+              "NO_CURRENT_IMAGE_BASIS"
+            ],
+            "globalGoal": "uncertain",
+            "globalProgress": "unknown",
+            "actorBeforeContextPresent": false,
+            "selected": "e1",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o2",
+              "o3"
+            ]
+          },
+          {
+            "step": 4,
+            "source": {
+              "observationId": "o4",
+              "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o3",
+                "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+              },
+              "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+              "condition": {
+                "key": "current_c3",
+                "scope": "current-hypothesis",
+                "conditionId": "c3",
+                "description": "「木の小物づくり」の希望回が午後の回に変更され、保存されたことを確認できる。",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "unknown",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [],
+            "globalGoal": "uncertain",
+            "globalProgress": "unknown",
+            "actorBeforeContextPresent": false,
+            "selected": "e2",
+            "modelChoice": "e2",
+            "actorMemorySources": [
+              "o2",
+              "o3",
+              "o4"
+            ]
+          },
+          {
+            "step": 5,
+            "source": {
+              "observationId": "o5",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o4",
+                "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc"
+              },
+              "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+              "condition": {
+                "key": "current_c2",
+                "scope": "current-hypothesis",
+                "conditionId": "c2",
+                "description": "「木の小物づくり」の希望回を午前の回から午後の回へ変更する。",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e2",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": "マイページへ移動する",
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "condition_uncertain",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [
+              "RESULT_CHECK_MISMATCH",
+              "NO_CURRENT_IMAGE_BASIS"
+            ],
+            "globalGoal": "uncertain",
+            "globalProgress": "advances",
+            "actorBeforeContextPresent": false,
+            "selected": "e1",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o3",
+              "o4",
+              "o5"
+            ]
+          },
+          {
+            "step": 6,
+            "source": {
+              "observationId": "o6",
+              "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o5",
+                "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+              },
+              "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+              "condition": {
+                "key": "current_c2",
+                "scope": "current-hypothesis",
+                "conditionId": "c2",
+                "description": "「木の小物づくり」の希望回が午前の回から午後の回へ変更されている。",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": true
+            },
+            "rawChoices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [],
+            "globalGoal": "unsatisfied",
+            "globalProgress": "conflicts",
+            "actorBeforeContextPresent": false,
+            "selected": "e1",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o4",
+              "o5",
+              "o6"
+            ]
+          },
+          {
+            "step": 7,
+            "source": {
+              "observationId": "o7",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o6",
+                "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396"
+              },
+              "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+              "condition": {
+                "key": "current_c1",
+                "scope": "current-hypothesis",
+                "conditionId": "c1",
+                "description": "予約変更に必要な利用情報の確認手続きを完了する。",
+                "status": "unmet",
+                "evidence": {
+                  "observationId": "o6",
+                  "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+                  "quote": "利用情報の確認が必要です。マイページから利用情報をご確認ください。",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "evidenceScope": "current"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": true
+            },
+            "rawChoices": {
+              "result": "route_found",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [
+              "NO_CURRENT_IMAGE_BASIS"
+            ],
+            "globalGoal": "uncertain",
+            "globalProgress": "advances",
+            "actorBeforeContextPresent": false,
+            "selected": "e2",
+            "modelChoice": "e2",
+            "actorMemorySources": [
+              "o5",
+              "o6",
+              "o7"
+            ]
+          },
+          {
+            "step": 8,
+            "source": {
+              "observationId": "o8",
+              "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o7",
+                "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+              },
+              "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+              "condition": {
+                "key": "current_c3",
+                "scope": "current-hypothesis",
+                "conditionId": "c3",
+                "description": "「木の小物づくり」の希望回を午後の回に変更し、保存されたことを確認する。",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e2",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "condition_uncertain",
+              "basis": "current_image"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "current_image"
+            },
+            "adjustments": [
+              "RESULT_CHECK_MISMATCH"
+            ],
+            "globalGoal": "uncertain",
+            "globalProgress": "neutral",
+            "actorBeforeContextPresent": false,
+            "selected": "e1",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o6",
+              "o7",
+              "o8"
+            ]
+          },
+          {
+            "step": 9,
+            "source": {
+              "observationId": "o9",
+              "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o8",
+                "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+              },
+              "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+              "condition": {
+                "key": "current_c3",
+                "scope": "current-hypothesis",
+                "conditionId": "c3",
+                "description": "「木の小物づくり」の午後の回への変更が保存されたことを確認できる。",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [],
+            "globalGoal": "uncertain",
+            "globalProgress": "advances",
+            "actorBeforeContextPresent": false,
+            "selected": "e1",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o7",
+              "o8",
+              "o9"
+            ]
+          },
+          {
+            "step": 10,
+            "source": {
+              "observationId": "o10",
+              "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o9",
+                "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc"
+              },
+              "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+              "condition": {
+                "key": "current_c2",
+                "scope": "current-hypothesis",
+                "conditionId": "c2",
+                "description": "「木の小物づくり」の希望回を午前の回から午後の回へ変更する。",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": false
+            },
+            "rawChoices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [],
+            "globalGoal": "uncertain",
+            "globalProgress": "neutral",
+            "actorBeforeContextPresent": false,
+            "selected": "e1",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o8",
+              "o9",
+              "o10"
+            ]
+          },
+          {
+            "step": 11,
+            "source": {
+              "observationId": "o11",
+              "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o10",
+                "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc"
+              },
+              "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+              "condition": {
+                "key": "current_c1",
+                "scope": "current-hypothesis",
+                "conditionId": "c1",
+                "description": "予約変更に向けた利用情報の確認と予約記録との照合を完了する。",
+                "status": "unmet",
+                "evidence": {
+                  "observationId": "o10",
+                  "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc",
+                  "quote": "予約記録との照合がまだ完了していません。",
+                  "quoteStatus": "model-transcribed-unverified"
+                },
+                "evidenceScope": "current"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": true
+            },
+            "rawChoices": {
+              "result": "unknown",
+              "basis": "current_image"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "current_image"
+            },
+            "adjustments": [],
+            "globalGoal": "uncertain",
+            "globalProgress": "neutral",
+            "actorBeforeContextPresent": false,
+            "selected": "e2",
+            "modelChoice": "e2",
+            "actorMemorySources": [
+              "o9",
+              "o10",
+              "o11"
+            ]
+          },
+          {
+            "step": 12,
+            "source": {
+              "observationId": "o12",
+              "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o11",
+                "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc"
+              },
+              "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+              "condition": {
+                "key": "current_c2",
+                "scope": "current-hypothesis",
+                "conditionId": "c2",
+                "description": "「木の小物づくり」の希望回を午前の回から午後の回へ変更する。",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e2",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": true
+            },
+            "rawChoices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "choices": {
+              "result": "unknown",
+              "basis": "none"
+            },
+            "adjustments": [],
+            "globalGoal": "uncertain",
+            "globalProgress": "advances",
+            "actorBeforeContextPresent": false,
+            "selected": "e1",
+            "modelChoice": "e1",
+            "actorMemorySources": [
+              "o10",
+              "o11",
+              "o12"
+            ]
+          }
+        ],
+        "unassessedOperations": [
+          {
+            "step": 12,
+            "operation": {
+              "schemaVersion": 1,
+              "kind": "pending-inquiry-operation",
+              "source": {
+                "observationId": "o12",
+                "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+              },
+              "goalSha256": "45841e60a06b86f63ef627256326a56843d50b212d8d132762488d4bad9c09f4",
+              "condition": {
+                "key": "current_c1",
+                "scope": "current-hypothesis",
+                "conditionId": "c1",
+                "description": "予約「木の小物づくり」の希望回を午前の回から午後の回へ変更する。",
+                "status": "uncertain",
+                "evidence": null,
+                "evidenceScope": "none"
+              },
+              "intent": "find_route",
+              "check": "new_route_visible",
+              "action": {
+                "candidateId": "e1",
+                "type": "click",
+                "execution": "performed"
+              },
+              "expectedObservation": null,
+              "explicitLink": true
+            },
+            "reason": "no-next-delivered-observation"
+          }
+        ],
+        "error": null,
+        "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-outcome-2026-10-31\\openai-sanity\\recovery-workshop-unchanged-r1\\exploration\\result.json",
+        "routeSequence": [
+          {
+            "step": 1,
+            "route": "primary",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 2,
+            "route": "home",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e2",
+            "modelChoice": "e2"
+          },
+          {
+            "step": 3,
+            "route": "account",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 4,
+            "route": "account",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e2",
+            "modelChoice": "e2"
+          },
+          {
+            "step": 5,
+            "route": "home",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 6,
+            "route": "primary",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 7,
+            "route": "home",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e2",
+            "modelChoice": "e2"
+          },
+          {
+            "step": 8,
+            "route": "account",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 9,
+            "route": "account",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 10,
+            "route": "account",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          },
+          {
+            "step": 11,
+            "route": "account",
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e2",
+            "modelChoice": "e2"
+          },
+          {
+            "step": 12,
+            "route": "home",
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "outcome": "UI_PERFORMED",
+            "selected": "e1",
+            "modelChoice": "e1"
+          }
+        ],
+        "sharedPolicy": {
+          "nonUnitWeights": 0,
+          "modelChoiceDiffers": 0
+        }
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "file": "inquiry-outcome-review-round1.json",
+      "sha256": "53865c54df9e64241459dd170846b8e660f82a57150bc2a1cb35750d60ce1dd2",
+      "gate": "FAIL"
+    },
+    {
+      "file": "inquiry-outcome-review-round2.json",
+      "sha256": "7dc6b8df8c0e7ae3f01db7baca99d2fc1172c10f32657ea40e3b3c3cab9174e0",
+      "gate": "PASS"
+    },
+    {
+      "file": "inquiry-outcome-review-live.json",
+      "sha256": "738f4da1f5e4811f6b29e05552914a6332c9c653d4cacbaa4667940f37b87535",
+      "gate": "PASS"
+    },
+    {
+      "file": "inquiry-outcome-review-openai.json",
+      "sha256": "7bb2fbcab4b601c8416a3a0a5c4cb43ec2b62dc573a2bc0801ac9e364543b4b3",
+      "gate": "PASS"
+    }
+  ],
+  "images": [
+    {
+      "file": "assets/inquiry-outcome-records.png",
+      "sha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-outcome-2026-10-31\\live\\recovery-library-unchanged-r1-experience-inquiry-outcome\\exploration\\input-6.png",
+      "label": "新方式・図書館unchanged：最初の記録画面",
+      "step": 6
+    }
+  ],
+  "tests": {
+    "parentBeforeFinalRepair": 300,
+    "parentFinalRelated": 108,
+    "build": "PASS",
+    "independentRelated": 46,
+    "independentFailurePaths": 17,
+    "independentMutantsRejected": 40,
+    "independentMockSlots": 8,
+    "overlappingCollections": true,
+    "fullSuiteClaim": false
+  },
+  "raw": {
+    "root": "reports/inquiry-outcome-2026-10-31",
+    "priorCount": 6546,
+    "newJevFiles": 306,
+    "newOpenAIFiles": 95,
+    "finalCount": 6947,
+    "finalSnapshotSha256": "d7ceb362487c20477f2fcc84957ba71d012301b1743da3540d999fa496b0b57e",
+    "priorIndependentScope": "manifest-only due automatic approval rejection; parent verified all prior payload hashes separately"
+  },
+  "nextTasks": [
+    "複合条件を分け、作業対象とintent/checkの整合を条件別結果と合わせて検証する。unknown補正の原因を、条件粒度・check・根拠申告に分けて調べる。正解経路や一律の再訪禁止は追加しない。",
+    "現在引用への過去文混入と、モデルのcurrent_image申告の意味を独立に検査する。hash一致で転記・理解を認定しない。",
+    "同じ条件の反復、別課題、非null personaでばらつきを測る。人間比較は別途取得する。"
+  ],
+  "limitations": [
+    "27/32 admitted local outcomes unknown; all9 in successful workshop unchanged unknown; success does not prove precise outcome interpretation",
+    "Concrete native current-image misquotation at library unchanged step8",
+    "One repeat each, persona null; no within-condition variance estimate",
+    "Current image basis and outcome are model self-reports, not verified semantics",
+    "Native transcription, intent/check compatibility and active versus retained conditions remain imperfect",
+    "Prior shared weights remain; no new correction/filter/revisit ban",
+    "Optional OpenAI functional results are separate, no provider-causal/human-comparison claim"
+  ]
+}
