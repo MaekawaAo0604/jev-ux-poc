@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "hypothesis": "A no-result MISSING_CREDENTIALS failure with a valid zero-use ledger is overwritten as an accounting failure",
+  "reproduced": true,
+  "boundary": "Only runHumanJev mocked to throw synchronously before any environment access or API; actual ledger creation/read and runner save/stop logic used",
+  "runHumanJevCalls": 1,
+  "injectedError": "MISSING_CREDENTIALS",
+  "savedError": {
+    "code": "LEDGER_ACCOUNTING_UNAVAILABLE"
+  },
+  "stopStatus": "BUDGET_ACCOUNTING_FAILURE",
+  "trialStatus": "FAILED",
+  "hasResult": false,
+  "ledger": {
+    "used": 0,
+    "attempts": []
+  },
+  "ledgerEvidence": {
+    "used": 0,
+    "sha256": "7b307da9d40acfd2baa7b3b9e6c7a4582c169d157587700461c1855fd6176608",
+    "reserved": 0,
+    "ok": 0,
+    "errors": 0
+  },
+  "requests": 0,
+  "attempted": 1,
+  "invalid": 1,
+  "missing": 7,
+  "preservationAfter": true,
+  "before": {
+    "revision": "03218d6844050a8456fe270f86741afe7f7242bc",
+    "sourceHash": "252b4174856c4fd9b30ac98a89f47f39b860879e24155c6f87666d03080cee93",
+    "files": 165
+  },
+  "after": {
+    "revision": "03218d6844050a8456fe270f86741afe7f7242bc",
+    "sourceHash": "252b4174856c4fd9b30ac98a89f47f39b860879e24155c6f87666d03080cee93",
+    "files": 165
+  },
+  "sourceUnchanged": true,
+  "severity": "P2",
+  "impact": "Incorrect diagnostic/failure-category attribution on pre-result exceptions; phase still stops after first failure, charges zero, preserves invalid/missing slots. No demonstrated impact on completed successful trials.",
+  "minimalFix": "When reserved is nonzero, retain accounting failure. Compare requests with result.apiCalls only if a result exists. For a missing result with zero ledger use, preserve the original error; for missing result with positive use, retain explicit accounting-unavailable handling. Preserve any original error as a separate cause if accounting also fails.",
+  "source": "runner/inquiry-alignment-comparison.ts finally ledger reconciliation",
+  "output": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-alignment-2026-11-05\\independent-extra\\missing-credentials-1793862815929"
+}

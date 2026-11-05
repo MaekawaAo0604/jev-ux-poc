@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Round 2 runner-only fixes; inherits documented Round 1 contract/regression scope and semantic limitations",
+  "reviewedRuntimeHash": "252b4174856c4fd9b30ac98a89f47f39b860879e24155c6f87666d03080cee93",
+  "sourceUnchanged": true,
+  "gitVisibleFrozenMismatches": [],
+  "r1ArtifactMismatches": [],
+  "protocolUnchanged": true,
+  "deltaFromRound1": [
+    "runner/inquiry-alignment-comparison.ts",
+    "tests/inquiry-aligned-comparison.test.ts"
+  ],
+  "testResults": {
+    "focusedNodeTests": {
+      "passed": 15,
+      "failed": 0,
+      "log": "targeted-tests.txt"
+    },
+    "sameRunnerChallenges": {
+      "executed": 3,
+      "passed": 3,
+      "evidence": "runner-reproductions.json"
+    },
+    "actualCliFrozenFailure": {
+      "passed": 1,
+      "exitCode": 1,
+      "evidence": "cli-exit-evidence.json"
+    },
+    "ledgerCreationFailure": {
+      "passed": 1,
+      "evidence": "ledger-failure-evidence.json"
+    },
+    "normalParentRound2Mock": {
+      "status": "COMPLETED",
+      "attempted": 8,
+      "valid": 8,
+      "invalid": 0,
+      "missing": 0,
+      "pairsMatched": 4,
+      "requests": 0,
+      "preservationBefore": true,
+      "preservationAfter": true
+    },
+    "independentActualRound2Replay": {
+      "verified": true,
+      "runId": "7a1f1fe2-cab1-4104-809b-d106027c9976-1"
+    }
+  },
+  "resolvedFindings": [
+    {
+      "id": "F1",
+      "actual": "MODEL_OUTPUT_FAILURE after 1 invalid trial; 7 missing preserved"
+    },
+    {
+      "id": "F2",
+      "actual": "INITIAL_PAIR_MISMATCH after 2 trials; both invalid, 6 missing preserved"
+    },
+    {
+      "id": "F3",
+      "actual": "FROZEN_SOURCE_CHANGED persisted with terminal error and preservationAfter false; actual CLI exit 1; ledger-creation exception marks attempted row FAILED"
+    }
+  ],
+  "limitations": [
+    "Fault injection isolates runner orchestration with explicitly mocked boundaries; no real API outcome claim",
+    "Normal completed mock and replay verify wiring only",
+    "No .env, participant logs, saved input resends or historical participant payloads read",
+    "Compound conditions and model semantic/human validity remain unverified"
+  ],
+  "scopeComplete": true
+}
