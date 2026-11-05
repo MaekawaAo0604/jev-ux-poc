@@ -7,3 +7,4 @@ docs/virtual-beta/visual-prior-links-review-*.json -text
 docs/virtual-beta/working-inquiry-review-*.json -text whitespace=cr-at-eol
 docs/virtual-beta/inquiry-outcome-review-*.json -text whitespace=cr-at-eol
 docs/virtual-beta/inquiry-alignment-review-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/inquiry-movement-review-independent.txt -text whitespace=cr-at-eol

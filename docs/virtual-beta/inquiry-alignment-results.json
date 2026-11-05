@@ -11419,7 +11419,7 @@
       "selection": "Illustrative failure selected after observation, not predeclared efficacy metric; exact existing PNG bytes reused"
     }
   ],
-  "policyDecision": "Experimental opt-in only; no default promotion",
+  "policyDecision": "Pending behavioral evaluation; goal attainment does not rank human plausibility. Existing default unchanged, aligned-v1 stays opt-in.",
   "semanticSpotChecks": {
     "scope": "11 distinct saved actor PNG files viewed directly with view_image; maximum12. Screen-content spot checks only, not exhaustive model-semantic validation.",
     "reviewedImages": 11,
@@ -11933,5 +11933,13 @@
     "候補の効果予測と実際の操作選択を切り分ける。モデルchoiceと共有方針による実選択の違いも残す。",
     "unknown件数だけでなく、現在引用の正確性と新たに分かった情報を検証する。",
     "別課題・ペルソナ・人間比較には追加データが必要であり、人間一致は未検証とする。"
-  ]
+  ],
+  "evaluationCorrection": {
+    "date": "2026-11-05",
+    "previousPublishedRevision": "cd5541388ab3ef0bf054cf84f4390a7f1eb2efda",
+    "primary": "Plausibility of exploration motion, not goal attainment",
+    "review": "inquiry-movement-review-results.json",
+    "humanFidelity": "UNVALIDATED",
+    "postHoc": true
+  }
 }
