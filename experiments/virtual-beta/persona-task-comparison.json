@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "phase": "persona-tasks-2026-11-06",
+  "baselineRevision": "eada5546173cc5092c089b0d4a7c365d9cc15fba",
+  "profile": "experience-persona-unweighted",
+  "personas": [
+    "baseline",
+    "A",
+    "B",
+    "C"
+  ],
+  "tasks": [
+    "sessions",
+    "preferences",
+    "privacy"
+  ],
+  "replicates": 3,
+  "onlyIntervention": "Existing whole Persona JSON vs absent. Same goal/UI/initial state/profile per task. No trait-specific routes/rules.",
+  "order": "Replicate blocks; tasks sessions/preferences/privacy; actor order offset=(replicate-1+taskIndex)%4. Partial counterbalance, not randomized.",
+  "limits": {
+    "trials": 36,
+    "requests": 1296,
+    "perTrial": 36,
+    "judgments": 12,
+    "UI": 15,
+    "looks": 3,
+    "trialMs": 300000,
+    "nativeMs": 60000,
+    "phaseMs": 7200000,
+    "parallel": 1,
+    "retries": 0
+  },
+  "stop": "Immediate source/input/persona/replay/audit/accounting/safety/provider/auth/quota. Isolated model-invalid/timeout preserve invalid and continue. Two consecutive invalid stop. No replacements.",
+  "primary": "Observed task choices/path/help/details/review/revisits and within/between actor distances per task. Valid capped trajectories included up to bound, explicitly censored. Invalid prefixes separate; no outcome-based path exclusion.",
+  "secondary": "Reason category self-reports; candidate visual target identity separately from generated annotation text. Same pixels do not mean identical full inputs.",
+  "interpretation": "Descriptive 3repeats, no calibrated significance/human fidelity or individual Persona field attribution. Smartphone not simulated.",
+  "humanInputsRead": false,
+  "savedInputResends": 0
+}

@@ -1,3 +1,5 @@
+import {parsePersonaTaskFixture} from './persona-task-fixture.js';
+import {PersonaTaskFixtureView} from './PersonaTaskFixture.js';
 import {parseRecoveryFixture} from './recovery-fixture.js';
 import {RecoveryFixtureView} from './RecoveryFixture.js';
 import {parseTransferFixture} from './transfer-fixture.js';
@@ -47,4 +49,5 @@ const semanticFixture=location.pathname.startsWith('/good/')?parseSemanticFixtur
 const transferFixture=location.pathname.startsWith('/good/')?parseTransferFixture(location.search):undefined;
 const holdoutFixture=location.pathname.startsWith('/good/')?parseHoldoutFixture(location.search):undefined;
 const recoveryFixture=location.pathname.startsWith('/good/')?parseRecoveryFixture(location.search):undefined;
-createRoot(document.getElementById('root')!).render(recoveryFixture?<RecoveryFixtureView fixture={recoveryFixture}/>: transferFixture?<TransferFixtureView fixture={transferFixture}/>:holdoutFixture?<HoldoutFixtureView fixture={holdoutFixture}/>:semanticFixture?<SemanticFixtureView fixture={semanticFixture}/>:<App/>);
+const personaTaskFixture=location.pathname.startsWith('/good/')?parsePersonaTaskFixture(location.search):undefined;
+createRoot(document.getElementById('root')!).render(personaTaskFixture?<PersonaTaskFixtureView fixture={personaTaskFixture}/>:recoveryFixture?<RecoveryFixtureView fixture={recoveryFixture}/>: transferFixture?<TransferFixtureView fixture={transferFixture}/>:holdoutFixture?<HoldoutFixtureView fixture={holdoutFixture}/>:semanticFixture?<SemanticFixtureView fixture={semanticFixture}/>:<App/>);
