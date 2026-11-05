@@ -209,11 +209,11 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
    inquiryOutcomeContext=buildInquiryOutcomeContext({observationId:current.id,imageSha256:current.imageSha256},sha(result.input.charter.goal),pendingInquiry,inquiryOutcomeMemory);
    const projected=inquiryOutcomeUserContext(inquiryOutcomeContext);
    if(!equal(step.inquiryOutcome.context,inquiryOutcomeContext)||!equal(d.modelInput.inquiryOutcomeContext,projected))throw Error('INQUIRY_OUTCOME_CONTEXT_MISMATCH');
-   const expected=inquiryOutcomeQuestions(inquiryOutcomeContext),actual=Object.fromEntries(Object.entries(d.questions).filter(([k])=>k.startsWith('inquiryOutcome')));
+   const expected=inquiryOutcomeQuestions(inquiryOutcomeContext,result.config.visualHypotheses?.inquiryQuestionPolicy),actual=Object.fromEntries(Object.entries(d.questions).filter(([k])=>k.startsWith('inquiryOutcome')));
    if(!equal(actual,expected)||d.modelInput.inquiryOutcomeMemory!==undefined)throw Error('INQUIRY_OUTCOME_QUESTIONS_OR_STAGE_MISMATCH');
    if(d.response&&(step.inquiryOutcome.record!==undefined||d.assessment||!d.error||['INVALID_INQUIRY_OUTCOME','INVALID_WORKING_INQUIRY','INVALID_ASSESSMENT'].includes((d.error as any)?.code))){
     let admitted:InquiryOutcomeRecord|null=null,valid=true;
-    try{admitted=admitInquiryOutcome(d.response,inquiryOutcomeContext);}catch{valid=false;}
+    try{admitted=admitInquiryOutcome(d.response,inquiryOutcomeContext,result.config.visualHypotheses?.inquiryQuestionPolicy);}catch{valid=false;}
     if(!valid){if((d.error as any)?.code!=='INVALID_INQUIRY_OUTCOME'||result.termination!=='INVALID_DISTRIBUTION'||step.inquiryOutcome.record!==undefined||step.inquiryOutcome.memory!==undefined||step.modelInput?.inquiryOutcomeMemory!==undefined||step.inquiryOutcome.annotations!==undefined||d.assessment||step.response||step.selection||!equal(step.modelInput?.inquiryOutcomeContext,projected))throw Error('INQUIRY_OUTCOME_INVALID_RESPONSE_MISMATCH');}
     else{inquiryOutcomeMemory=rememberInquiryOutcome(inquiryOutcomeContext,admitted);if((d.error as any)?.code==='INVALID_INQUIRY_OUTCOME'||!equal(step.inquiryOutcome.record,admitted)||!equal(step.inquiryOutcome.memory,inquiryOutcomeMemory)||!equal(step.modelInput?.inquiryOutcomeMemory,inquiryOutcomeUserMemory(inquiryOutcomeMemory))||step.modelInput?.inquiryOutcomeContext!==undefined)throw Error('INQUIRY_OUTCOME_RECORD_MISMATCH');}
    }else if(step.inquiryOutcome.record!==undefined||step.inquiryOutcome.memory!==undefined||step.modelInput?.inquiryOutcomeMemory!==undefined||step.inquiryOutcome.annotations!==undefined||!equal(step.modelInput?.inquiryOutcomeContext,projected))throw Error('INQUIRY_OUTCOME_PARTIAL_RECORD');
@@ -224,10 +224,10 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
    closedKeys(step.workingInquiry,['context'],['record','annotations']);
    inquiryContext=buildWorkingInquiryContext({request:priorProjection.request,record:step.visualHypotheses.record,continuity:step.conditionContinuity,prior:priorProjection.record});
    if(!equal(step.workingInquiry.context,inquiryContext)||inquiryInputs.some(v=>!equal(v?.workingInquiryContext,inquiryContext)))throw Error('WORKING_INQUIRY_CONTEXT_MISMATCH');
-   const expected=workingInquiryQuestions(inquiryContext),actual=Object.fromEntries(Object.entries(d.questions).filter(([key])=>key.startsWith('workingInquiry')));
+   const expected=workingInquiryQuestions(inquiryContext,result.config.visualHypotheses?.inquiryQuestionPolicy),actual=Object.fromEntries(Object.entries(d.questions).filter(([key])=>key.startsWith('workingInquiry')));
    if(!equal(actual,expected)||d.modelInput.workingInquiry!==undefined)throw Error('WORKING_INQUIRY_QUESTIONS_OR_STAGE_MISMATCH');
    if(d.response&&(step.workingInquiry.record!==undefined||d.assessment||!d.error||['INVALID_ASSESSMENT','INVALID_WORKING_INQUIRY'].includes((d.error as any)?.code))){
-    try{inquiryRecord=admitWorkingInquiry(d.response,inquiryContext);}catch{
+    try{inquiryRecord=admitWorkingInquiry(d.response,inquiryContext,result.config.visualHypotheses?.inquiryQuestionPolicy);}catch{
      if((d.error as any)?.code!=='INVALID_WORKING_INQUIRY'||result.termination!=='INVALID_DISTRIBUTION'||step.workingInquiry.record!==undefined||step.workingInquiry.annotations!==undefined||step.modelInput?.workingInquiry!==undefined||d.assessment||step.response||step.selection)throw Error('WORKING_INQUIRY_INVALID_RESPONSE_MISMATCH');
     }
     if(inquiryRecord&&(!equal(step.workingInquiry.record,inquiryRecord)||!equal(step.modelInput?.workingInquiry,inquiryRecord)||(d.error as any)?.code==='INVALID_WORKING_INQUIRY'))throw Error('WORKING_INQUIRY_RECORD_MISMATCH');
@@ -293,7 +293,7 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
     for(const [key,question] of Object.entries(reasonRequest))if(!equal(d.questions[key],question))throw new Error('REASON_QUESTION_MISMATCH');
     const correspondenceRequest=correspondenceContext?correspondenceQuestions(correspondenceContext):{};
     for(const [key,question]of Object.entries(correspondenceRequest))if(!equal(d.questions[key],question))throw Error('CORRESPONDENCE_QUESTION_MISMATCH');
-    const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)&&!Object.hasOwn(reasonRequest,key)&&!Object.hasOwn(correspondenceRequest,key)&&!key.startsWith('goalSearch_')&&!key.startsWith('actionRelation_')&&!(inquiryContext&&Object.hasOwn(workingInquiryQuestions(inquiryContext),key))&&!(inquiryOutcomeContext&&Object.hasOwn(inquiryOutcomeQuestions(inquiryOutcomeContext),key))))};
+    const response={...d.response,answers:Object.fromEntries(Object.entries(d.response.answers).filter(([key])=>!Object.hasOwn(outcomeQuestions,key)&&!Object.hasOwn(reasonRequest,key)&&!Object.hasOwn(correspondenceRequest,key)&&!key.startsWith('goalSearch_')&&!key.startsWith('actionRelation_')&&!(inquiryContext&&Object.hasOwn(workingInquiryQuestions(inquiryContext,result.config.visualHypotheses?.inquiryQuestionPolicy),key))&&!(inquiryOutcomeContext&&Object.hasOwn(inquiryOutcomeQuestions(inquiryOutcomeContext,result.config.visualHypotheses?.inquiryQuestionPolicy),key))))};
     const assessment=admitAssessment(response,candidates,current,sources);
     if(experience){
      if(Object.keys(outcomeQuestions).length)experience=admitExperience(d.response,experience,sources,result.config.experience?.evidenceMode);

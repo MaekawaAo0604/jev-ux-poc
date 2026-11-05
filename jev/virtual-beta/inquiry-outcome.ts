@@ -3,7 +3,7 @@ import {isDeepStrictEqual} from 'node:util';
 import {validateChoice,type ChoiceAnswers,type ChoiceQuestion} from '../client.js';
 import {validateWorkingInquiryRecord,workingInquiryQuestions} from './working-inquiry.js';
 import type {ExperienceSource} from './experience-contracts.js';
-import type {WorkingInquiryContext,WorkingInquiryIntent,WorkingInquiryCheck} from './working-inquiry-contracts.js';
+import type {WorkingInquiryContext,WorkingInquiryIntent,WorkingInquiryCheck,InquiryQuestionPolicy} from './working-inquiry-contracts.js';
 import type {BeginInquiryOperation,PendingInquiryOperation,InquiryOutcomeContext,InquiryOutcomeMemory,InquiryOutcomeRecord,InquiryOutcomeChoices} from './inquiry-outcome-contracts.js';
 
 const sha=(value:string)=>createHash('sha256').update(value).digest('hex');
@@ -112,8 +112,22 @@ export function buildInquiryOutcomeContext(current:ExperienceSource,goalSha256:s
  return {schemaVersion:1,kind:'bounded-inquiry-outcome-context',source:next,goalSha256:goal,pending:operation,memory:retained};
 }
 function contextCopy(context:InquiryOutcomeContext):InquiryOutcomeContext{const value=data(context);exact(value,['schemaVersion','kind','source','goalSha256','pending','memory']);if(value.schemaVersion!==1||value.kind!=='bounded-inquiry-outcome-context')fail();return buildInquiryOutcomeContext(value.source,value.goalSha256,value.pending,value.memory);}
-export function inquiryOutcomeQuestions(context:InquiryOutcomeContext):Record<string,ChoiceQuestion>{
+export function inquiryOutcomeQuestions(context:InquiryOutcomeContext,policy?:InquiryQuestionPolicy):Record<string,ChoiceQuestion>{
+ if(policy!==undefined&&policy!=='aligned-v1')fail();
  const ctx=contextCopy(context);if(!ctx.pending)return {};
+ if(policy==='aligned-v1'){
+  const instructions='Assess only the supplied previous check, selected condition and executed action against the current admitted image. This is a fallible model judgment, never a fact. Judge this specific check independently of the entire goal. Historical descriptions, quotes and past model outcomes do not establish current state. Visible negative or limited/uncertain evidence may support current_image; current_image does not mean goal success. Use unknown when unsupported; do not invent unseen content or routes. Previous check: '+JSON.stringify(ctx.pending.check)+'. Previous condition: '+JSON.stringify(ctx.pending.condition)+'. Executed action: '+JSON.stringify(ctx.pending.action)+'.';
+  const question=(detail:string,criteria:Record<string,string>):ChoiceQuestion=>({type:'choice',instructions:instructions+' '+detail,criteria});
+  const resultCriteria:Record<string,string>=ctx.pending.check==='condition_changed'||ctx.pending.check==='condition_status_known'
+   ?{condition_satisfied:'The selected condition is now supported as satisfied.',condition_unmet:'Visible negative evidence supports the selected condition as unmet.',condition_uncertain:'The current image provides limited or uncertain evidence about the selected condition.',unknown:'The previous check cannot be assessed.'}
+   :ctx.pending.check==='new_route_visible'
+    ?{route_found:'A visible route relevant to the previous route check was found in the displayed view.',route_not_found:'The displayed view supports that no relevant visible route was found there; this does not establish absence across the whole product.',unknown:'The previous check cannot be assessed.'}
+    :{unknown:'The previous check is unknown and cannot support a condition or route result.'};
+  return {
+   inquiryOutcome_result:question('What does the current image support for the previous check?',resultCriteria),
+   inquiryOutcome_basis:question('Is there relevant current-image evidence for this specific result?',{current_image:'The current admitted image supplies relevant evidence, including visible negative or limited/uncertain evidence. This does not mean goal success.',none:'There is no relevant current-image evidence for this result. Historical quotes alone do not establish a current basis.'}),
+  };
+ }
  const instructions='Assess only the supplied previous selected condition, check and executed action against the current admitted image. This is a fallible model judgment, never a fact. Historical descriptions and past model outcomes do not establish current state. Judge this specific check independently of the entire goal. Use unknown when unsupported; do not invent unseen content or routes.';
  const question=(detail:string,criteria:Record<string,string>):ChoiceQuestion=>({type:'choice',instructions:instructions+' '+detail,criteria});
  return {
@@ -121,8 +135,8 @@ export function inquiryOutcomeQuestions(context:InquiryOutcomeContext):Record<st
   inquiryOutcome_basis:question('Is this specific result supported by the current admitted image?',{current_image:'The attached current image supports this result.',none:'No current-image basis supports this result.'}),
  };
 }
-export function admitInquiryOutcome(response:ChoiceAnswers,context:InquiryOutcomeContext):InquiryOutcomeRecord|null{
- const ctx=contextCopy(context),questions=inquiryOutcomeQuestions(ctx);
+export function admitInquiryOutcome(response:ChoiceAnswers,context:InquiryOutcomeContext,policy?:InquiryQuestionPolicy):InquiryOutcomeRecord|null{
+ const ctx=contextCopy(context),questions=inquiryOutcomeQuestions(ctx,policy);
  if(!object(response))fail();const descriptor=Object.getOwnPropertyDescriptor(response,'answers');if(!descriptor||!Object.hasOwn(descriptor,'value')||!object(descriptor.value))fail();const answers=descriptor.value;
  for(const key of Reflect.ownKeys(answers))if(typeof key==='string'&&key.startsWith('inquiryOutcome')&&!Object.hasOwn(questions,key))fail();
  if(!ctx.pending)return null;

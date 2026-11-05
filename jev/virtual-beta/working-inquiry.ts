@@ -6,7 +6,7 @@ import {validateVisualHypothesisRequest,rememberVisualHypotheses} from './visual
 import {validateVisualPriorRelations} from './visual-prior-relations.js';
 import type {ExperienceSource} from './experience-contracts.js';
 import type {VisualEvidence} from './visual-hypotheses-contracts.js';
-import type {WorkingInquiryBuild,WorkingInquiryContext,WorkingInquiryChoices,WorkingInquiryRecord,WorkingInquiryIntent,WorkingInquiryCheck} from './working-inquiry-contracts.js';
+import type {WorkingInquiryBuild,WorkingInquiryContext,WorkingInquiryChoices,WorkingInquiryRecord,WorkingInquiryIntent,WorkingInquiryCheck,InquiryQuestionPolicy} from './working-inquiry-contracts.js';
 
 const sha=(value:string)=>createHash('sha256').update(value).digest('hex');
 const object=(value:unknown):value is Record<string,any>=>value!==null&&typeof value==='object'&&!Array.isArray(value);
@@ -84,9 +84,30 @@ export function buildWorkingInquiryContext(args:WorkingInquiryBuild):WorkingInqu
 const intents=['change_condition','test_condition','find_route','unknown'] as const;
 const checks=['condition_changed','condition_status_known','new_route_visible','unknown'] as const;
 const ids=['workingInquiry_condition','workingInquiry_intent','workingInquiry_check'] as const;
+function alignedPlans(ctx:WorkingInquiryContext):Record<string,WorkingInquiryChoices>{
+ const plans:Record<string,WorkingInquiryChoices>={};
+ const add=(conditionKey:string,intent:WorkingInquiryIntent,check:WorkingInquiryCheck)=>{plans['p'+(Object.keys(plans).length+1)]={conditionKey,intent,check};};
+ for(const key of Object.keys(ctx.conditions)){
+  add(key,'change_condition','condition_changed');
+  add(key,'test_condition','condition_status_known');
+  add(key,'find_route','new_route_visible');
+ }
+ add('none','find_route','new_route_visible');
+ add('none','unknown','unknown');
+ return plans;
+}
 /** Three categorical judgments share the existing assessment request; they never choose an action. */
-export function workingInquiryQuestions(context:WorkingInquiryContext):Record<string,ChoiceQuestion>{
- const ctx=contextCopy(context),instructions='Choose a fallible working hypothesis from the supplied context. Historical evidence describes its earlier observation and does not establish current state. Preserve the persona and all offered actions. No condition, intent or check asserts success or forces an action. A check is an expected observation to assess on the next screen. Use unknown when the evidence is insufficient.';
+export function workingInquiryQuestions(context:WorkingInquiryContext,policy?:InquiryQuestionPolicy):Record<string,ChoiceQuestion>{
+ if(policy!==undefined&&policy!=='aligned-v1')fail();
+ const ctx=contextCopy(context);
+ if(policy==='aligned-v1')return {
+  workingInquiry_plan:{
+   type:'choice',
+   instructions:'Choose one complete fallible working plan from the supplied tuples. Each option jointly selects a condition, intent and next-screen observable check; it never selects an action or asserts success. Preserve the supplied condition descriptions, scopes, persona and all offered candidate actions. Do not invent or decompose conditions or candidate actions. Historical evidence describes its earlier observation and does not establish current state. A change_condition plan expects condition_changed, a test_condition plan expects condition_status_known, and a find_route plan expects new_route_visible. Select the none/unknown/unknown tuple when no supported plan can be named.',
+   criteria:Object.fromEntries(Object.entries(alignedPlans(ctx)).map(([id,tuple])=>[id,JSON.stringify({...tuple,condition:tuple.conditionKey==='none'?null:ctx.conditions[tuple.conditionKey]})])),
+  },
+ };
+ const instructions='Choose a fallible working hypothesis from the supplied context. Historical evidence describes its earlier observation and does not establish current state. Preserve the persona and all offered actions. No condition, intent or check asserts success or forces an action. A check is an expected observation to assess on the next screen. Use unknown when the evidence is insufficient.';
  const question=(detail:string,criteria:Record<string,string>):ChoiceQuestion=>({type:'choice',instructions:instructions+' '+detail,criteria});
  return {
   workingInquiry_condition:question('Which unresolved condition is the present working target?',Object.fromEntries([...Object.entries(ctx.conditions).map(([key,condition])=>[key,JSON.stringify(condition)]),['none','No supplied unresolved condition can be selected.']])),
@@ -105,16 +126,20 @@ function derive(rawChoices:WorkingInquiryChoices,ctx:WorkingInquiryContext):Work
  if(admitted.check!=='unknown'&&admitted.check!==allowed[admitted.intent]){adjustments.push({field:'check',from:admitted.check,to:'unknown',reason:'INTENT_CHECK_MISMATCH'});admitted.check='unknown';}
  return {schemaVersion:1,kind:'model-working-inquiry-not-fact',source:{...ctx.source},goalSha256:ctx.goalSha256,contextSha256:sha(JSON.stringify(ctx)),rawChoices:{...rawChoices},choices:admitted,adjustments};
 }
-export function admitWorkingInquiry(response:ChoiceAnswers,context:WorkingInquiryContext):WorkingInquiryRecord{
- const ctx=contextCopy(context),questions=workingInquiryQuestions(ctx);
+export function admitWorkingInquiry(response:ChoiceAnswers,context:WorkingInquiryContext,policy?:InquiryQuestionPolicy):WorkingInquiryRecord{
+ const ctx=contextCopy(context),questions=workingInquiryQuestions(ctx,policy);
+ const questionIds:readonly string[]=policy==='aligned-v1'?['workingInquiry_plan']:ids;
  if(!object(response))fail();const descriptor=Object.getOwnPropertyDescriptor(response,'answers');if(!descriptor||!Object.hasOwn(descriptor,'value')||!object(descriptor.value))fail();const answers=descriptor.value;
- for(const id of Reflect.ownKeys(answers))if(typeof id==='string'&&id.startsWith('workingInquiry')&&!(ids as readonly string[]).includes(id))fail();
- const selected=ids.map(id=>{
+ for(const id of Reflect.ownKeys(answers))if(typeof id==='string'&&id.startsWith('workingInquiry')&&!questionIds.includes(id))fail();
+ const selected=questionIds.map(id=>{
   const descriptor=Object.getOwnPropertyDescriptor(answers,id);if(!descriptor||!Object.hasOwn(descriptor,'value'))fail();const answer=data(descriptor.value);
   exact(answer,['choice','probabilities',...(object(answer)&&Object.hasOwn(answer,'confidence')?['confidence']:[])]);
   if(Object.hasOwn(answer,'confidence')&&(typeof answer.confidence!=='number'||!Number.isFinite(answer.confidence)||answer.confidence<0||answer.confidence>1))fail();
   if(!object(answer.probabilities))fail();return validateChoice({choice:answer.choice,probabilities:answer.probabilities,...(Object.hasOwn(answer,'confidence')?{confidence:answer.confidence}:{})},questions[id].criteria).choice;
  });
+ // In aligned-v1 rawChoices is the decoded joint tuple. The original plan
+ // choice and probability distribution remain untouched in assessment.response.
+ if(policy==='aligned-v1')return derive(alignedPlans(ctx)[selected[0]],ctx);
  return derive(choices({conditionKey:selected[0],intent:selected[1],check:selected[2]},ctx),ctx);
 }
 /** Recompute every admitted field from the raw categorical answers and the closed context. */

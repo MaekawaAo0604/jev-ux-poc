@@ -1,3 +1,4 @@
+export type InquiryQuestionPolicy='aligned-v1';
 import type {VisualEvidence,VisualHypothesisRequest,VisualHypothesisRecord} from './visual-hypotheses-contracts.js';
 import type {ConditionContinuityRecord} from './condition-continuity.js';
 import type {VisualPriorRelationsRecord} from './visual-prior-relations.js';
