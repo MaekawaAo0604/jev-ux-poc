@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "status": "FAIL",
+  "scope": "Independent frozen-code and offline failure-path verification for correction ON/OFF under identical conditions; no goal-success or human-naturalness judgment.",
+  "frozenRevision": "7df17d726e493893b719f5281ce49a463bb70a8b",
+  "runtimeHash": "e7f09791412b262981927c48465e8c014bf182bd1e70511a069f734d792c75b8",
+  "sourceBefore": {
+    "revision": "7df17d726e493893b719f5281ce49a463bb70a8b",
+    "sourceHash": "e7f09791412b262981927c48465e8c014bf182bd1e70511a069f734d792c75b8",
+    "runtimeFiles": 166,
+    "gitVisibleFiles": 1049,
+    "errors": [],
+    "at": "2026-11-05T09:27:25.079Z"
+  },
+  "sourceAfter": {
+    "revision": "7df17d726e493893b719f5281ce49a463bb70a8b",
+    "sourceHash": "e7f09791412b262981927c48465e8c014bf182bd1e70511a069f734d792c75b8",
+    "runtimeFiles": 166,
+    "gitVisibleFiles": 1049,
+    "errors": [],
+    "at": "2026-11-05T09:27:28.506Z"
+  },
+  "archiveVerification": {
+    "file": "reports\\deferral-ablation-2026-11-05\\source-e7f09791.zip",
+    "sha256": "8e989ee3362366b1af498603f91b09be68b052bf118515e0dd0af934dd5812b6",
+    "expectedSha256": "8e989ee3362366b1af498603f91b09be68b052bf118515e0dd0af934dd5812b6",
+    "zipHashVerified": true,
+    "sourceFiles": 166,
+    "entryHashErrors": [],
+    "status": "PASS"
+  },
+  "executed": {
+    "independentChecks": 18,
+    "independentChecksPassed": 18,
+    "focusedExistingOfflineTests": 31,
+    "focusedExistingOfflineFailures": 0,
+    "sampledOFFSafetyParitySelections": 512,
+    "rejectedReplayMutations": 10,
+    "acceptedInconsistentResponseMutations": 2,
+    "instrumentedNewBranchDriverCases": 11,
+    "mockFinalSlotsInspected": 8,
+    "mockFinalPairsMatched": 4
+  },
+  "coverage": [
+    "ON/OFF config and legacy base differ only config id and explicit flag.",
+    "OFF sampler selected actions/draws/marginal distribution match mandatory-filter baseline across global/UI conditional scopes.",
+    "Learning/reasons/proposed-versus-applied weights and record ownership covered by focused tests plus allowed fictional UI replay.",
+    "Replay rejects missing/wrong application, proposal, applied weights, flag, sampler policy, invalid probability, unexpected application on partial selection and changed asset bytes.",
+    "Exact new deferral-weights driver body runs with isolated service-boundary doubles: normal completion, invalid output, initial pair mismatch, late motion error, pre-result failure, partial result, charged/reserved missing result, ledger mismatch, replay failure and source identity failure.",
+    "Motion offline suite rejects wait/look/non-UI intermediate ABAB, missing frame, cross-image candidate identity; preserves unknown denominators, partial/missing results and intervening-place retry context.",
+    "All frozen runtime and 1049 git-visible file hashes unchanged before/after. ZIP hash and all 166 entry hashes verified."
+  ],
+  "limitations": [
+    "No real API calls or environment/credential reads.",
+    "No prior participant payloads read; driver uses empty fictional prior.",
+    "Mock frame consistency establishes wiring only, not actual API delivery.",
+    "Instrumented orchestration replaces trial/replay/frame/ledger/source services; ordinary completed mock inspected separately.",
+    "No human fidelity, naturalness score, route banning or success optimization.",
+    "First harness run failures were corrected harness assumptions; first run evidence retained."
+  ],
+  "findings": [
+    {
+      "id": "MODEL_RESPONSE_SELECTION_BINDING",
+      "severity": "P2",
+      "status": "OPEN",
+      "file": "runner/virtual-beta-replay.ts",
+      "lines": [
+        353,
+        366
+      ],
+      "problem": "Saved nextAction answer can disagree with selection.modelChoice or selection.raw and replay still verifies. The primary motion report reads the latter as the raw model proposal, so accepted inconsistent evidence can misattribute a policy correction.",
+      "reproduction": "node --import tsx reports/deferral-ablation-2026-11-05/independent-code/response-binding-probe.mjs",
+      "fixture": "Owned copy of expressly allowed fictional three-step UI integration OFF run; result restored after probes.",
+      "observations": [
+        {
+          "mutation": "response.answers.nextAction.choice e1 to e2",
+          "replayVerified": true,
+          "selectionModelChoice": "e1"
+        },
+        {
+          "mutation": "response.answers.nextAction.probabilities e1/e2 0.96/0.04 to 0.04/0.96",
+          "replayVerified": true,
+          "selectionRaw": "e1/e2 0.96/0.04"
+        }
+      ],
+      "evidence": "response-binding-probe.json",
+      "rootCause": "Deferral and sampler replay reconstruct only from persisted selection.raw/modelChoice. Frame validation checks each response answer independently but does not compare the response to selection.",
+      "recommendedRepair": "Validate and bind the saved nextAction response to selection.modelChoice and selection.raw before accepting deferral/sampler replay; reject mismatches. Recheck both mutations and valid reordered keys."
+    }
+  ],
+  "productFilesEdited": false,
+  "writtenScope": "reports/deferral-ablation-2026-11-05/independent-code/",
+  "gateReason": "Open P2 response-to-selection binding defect; parent notified for minimal repair and targeted recheck."
+}

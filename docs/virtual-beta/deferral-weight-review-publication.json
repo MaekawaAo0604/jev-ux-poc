@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Short independent publication check against sealed raw/audit evidence. No broad retests, model calls, environment reads, Git writes, product or document edits.",
+  "publication": {
+    "report": "docs/virtual-beta/deferral-weight-ablation.md",
+    "reportSha256": "cba7e4e82363d5d46b6b0f8c618d65be7d68bcf8d2df36b1afd6935c67713e8b",
+    "resultsSha256": "27edaeb7616a090e95a895903c3700e808ef6cc8aa70a339543dcee05528c875",
+    "stageBytesMatch": true,
+    "appendicesReviewed": [
+      "docs/virtual-beta/README.md",
+      "docs/virtual-beta/tasks.md",
+      "docs/virtual-beta/research.md"
+    ],
+    "gitattributesEvidencePreservationReviewed": true
+  },
+  "copiedArtifacts": [
+    {
+      "published": "deferral-weight-review-binding-recheck.json",
+      "source": "independent-code-round2/response-binding-recheck.json",
+      "sha256": "a616efcf970e3c17e9b96ce5374d436950016a9f5bb4b215667e57b5803a0837",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-review-code-r1.json",
+      "source": "independent-code/gate.json",
+      "sha256": "4e49ef8ef7019a3e553cd5b382ed2c09cb132c184be08a396b228f9a06a9d7ec",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-review-code-r2.json",
+      "source": "independent-code-round2/gate.json",
+      "sha256": "f7e912315c1d1bde5b4dcecdf37094dd12b312b7034fa0b0351800cefb882873",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-review-continuation-preflight.json",
+      "source": "independent-continuation-preflight/gate.json",
+      "sha256": "35e92ac6104a1f2b3a2e5dd425dd3d559aedbbe38b9a9e24e479307cd87e5787",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-review-initial-live.json",
+      "source": "independent-live/gate.json",
+      "sha256": "3f589e90ca981d9d807af86cd65c02811210c8ebd4d15ed8dbed8d9aebb56c9f",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-review-live-evidence.json",
+      "source": "independent-continuation-live/evidence.json",
+      "sha256": "71b39ae98a3793c00685408cb6c8c709cf4f0203c9a1ccddb67bc9551139833a",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-review-live.json",
+      "source": "independent-continuation-live/gate.json",
+      "sha256": "16496e9db8cdef03ece48e270a723ab10dea085be90dd8ec66f87777ae9b8e9b",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-review-mock.json",
+      "source": "independent-code-round2/mock-round2-supplement.json",
+      "sha256": "875a8648293093f446e1e84300ba97a3032d47bbf46aeb8e13b212dd8d7b9625",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-review-visual.json",
+      "source": "independent-continuation-live/visual-review.json",
+      "sha256": "fb63568087c981ce57f4181270027e27bdd08b7a824b650976efbcf625f21d87",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-amendment.json",
+      "source": "continuation-protocol.json",
+      "sha256": "676b155843e68ad03fcab02a99aa0a8b9af84baa2a24a5da4581201642809022",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-continuation-runner.txt",
+      "source": "continuation-runner.ts",
+      "sha256": "601bb80e75c217fb59414d88f11330865eabbc04d52ecd03d60b9f6a6cf9e2f7",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-invalid-native.txt",
+      "source": "invalid-native-diagnosis/report.txt",
+      "sha256": "c5bdbbd996b740e11cd5368bb55c90dce5e907f5650b54f3b6f1060e86f8b1e7",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-motion-plan.json",
+      "source": "analysis-protocol.json",
+      "sha256": "94399c983c1b45aca68017433471f4f397559bfb49ac31dde506ff346cb41433",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-producer.json",
+      "source": "producer-source.json",
+      "sha256": "731583323d2edd0066263ec02baa0638c2c4d2da03a7fc94c59e272d3bf9eabb",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-source.json",
+      "source": "producer-archive-round2.json",
+      "sha256": "b2f2f728f1b081a792e409a21a2bc7287139c60822c17823954b5a666a7ce36f",
+      "byteExact": true
+    },
+    {
+      "published": "deferral-weight-source-9f1dc698.zip",
+      "source": "source-9f1dc698.zip",
+      "sha256": "c27db5d12a4ef4ee166dc1dc94877daa3a393c5bcac86509508d289cfccaef2a",
+      "byteExact": true
+    }
+  ],
+  "frames": [
+    {
+      "path": "deferral-weight-frames/slot-2-s1-current.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+      "rawByteExact": true
+    },
+    {
+      "path": "deferral-weight-frames/slot-2-s1-next.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+      "rawByteExact": true
+    },
+    {
+      "path": "deferral-weight-frames/slot-3-s10-current.png",
+      "sha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+      "rawByteExact": true
+    },
+    {
+      "path": "deferral-weight-frames/slot-3-s10-next.png",
+      "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+      "rawByteExact": true
+    },
+    {
+      "path": "deferral-weight-frames/slot-1-s6-current.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+      "rawByteExact": true
+    },
+    {
+      "path": "deferral-weight-frames/slot-1-s6-next.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+      "rawByteExact": true
+    },
+    {
+      "path": "deferral-weight-frames/slot-4-s8-current.png",
+      "sha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+      "rawByteExact": true
+    },
+    {
+      "path": "deferral-weight-frames/slot-4-s8-next.png",
+      "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+      "rawByteExact": true
+    },
+    {
+      "path": "deferral-weight-frames/slot-8-s9-current.png",
+      "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+      "rawByteExact": true
+    },
+    {
+      "path": "deferral-weight-frames/slot-8-s9-next.png",
+      "sha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+      "rawByteExact": true
+    }
+  ],
+  "verifiedClaims": {
+    "aggregate": {
+      "attempted": 8,
+      "valid": 6,
+      "invalid": 2,
+      "missing": 0,
+      "requests": 239
+    },
+    "requestStages": {
+      "native": 81,
+      "assessment": 79,
+      "action": 79
+    },
+    "originalStopPreserved": true,
+    "postStopAmendmentDisclosed": true,
+    "opportunityCounts": {
+      "experience-inquiry-policy-off": {
+        "selections": 35,
+        "proposedNonunit": 11,
+        "appliedNonunit": 0,
+        "changes": 0,
+        "retries": 13,
+        "immediate": 0,
+        "ABAB": 0
+      },
+      "experience-inquiry-policy-on": {
+        "selections": 44,
+        "proposedNonunit": 10,
+        "appliedNonunit": 10,
+        "changes": 3,
+        "retries": 8,
+        "immediate": 0,
+        "ABAB": 1
+      }
+    },
+    "initialNativePairsMatched": 4,
+    "fullyValidWorkshopPairs": 2,
+    "fullyValidLibraryPairs": 0,
+    "firstAssessmentActionInputsDivergeInAllPairs": true,
+    "localPolicyOverrides": 3,
+    "OFFRetriesAfterOtherFrames": 13,
+    "immediateRetries": 0,
+    "cases": 5,
+    "PNGReferences": 10,
+    "priorMetadataCount": 7623
+  },
+  "manualStatementReview": {
+    "noSuccessBasedNaturalnessRank": true,
+    "noHumanFidelityClaim": true,
+    "localVersusTrajectoryCausalitySeparated": true,
+    "invalidPrefixesAndUnequalOpportunitiesDisclosed": true,
+    "transportTimeoutSeparateFromAbandonment": true,
+    "nativeReconstructionSeparateFromLaterInputs": true,
+    "publicMetadataInternalAuditPathsIntentionallyPreserved": true
+  },
+  "findings": [],
+  "note": "PASS confirms numerical/evidence fidelity and bounded wording, not human naturalness or exploration performance."
+}

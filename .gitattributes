@@ -8,3 +8,13 @@ docs/virtual-beta/working-inquiry-review-*.json -text whitespace=cr-at-eol
 docs/virtual-beta/inquiry-outcome-review-*.json -text whitespace=cr-at-eol
 docs/virtual-beta/inquiry-alignment-review-*.json -text whitespace=cr-at-eol
 docs/virtual-beta/inquiry-movement-review-independent.txt -text whitespace=cr-at-eol
+
+# Preserve deferral comparison evidence and executed controller bytes.
+docs/virtual-beta/deferral-weight-review-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-producer.json -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-source.json -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-amendment.json -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-motion-plan.json -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-continuation-runner.txt -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-invalid-native.txt -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-source-*.zip binary

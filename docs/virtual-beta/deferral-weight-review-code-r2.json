@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "round": 2,
+  "status": "PASS",
+  "scope": "Frozen code and offline verification only: same-condition correction ON/OFF, saved model-versus-policy attribution, mandatory filters and failure accounting. No claim of real API delivery, human fidelity or naturalness.",
+  "revision": "7df17d726e493893b719f5281ce49a463bb70a8b",
+  "sourceHash": "9f1dc69815b16cfc0eaaec9e5e1386afebb024dd66561e7e1aef29923b511365",
+  "runtimeFiles": 166,
+  "gitVisibleFiles": 1049,
+  "sourceBefore": {
+    "revision": "7df17d726e493893b719f5281ce49a463bb70a8b",
+    "sourceHash": "9f1dc69815b16cfc0eaaec9e5e1386afebb024dd66561e7e1aef29923b511365",
+    "runtimeFiles": 166,
+    "gitVisibleFiles": 1049,
+    "errors": [],
+    "at": "2026-11-05T09:34:18.569Z"
+  },
+  "sourceAfter": {
+    "revision": "7df17d726e493893b719f5281ce49a463bb70a8b",
+    "sourceHash": "9f1dc69815b16cfc0eaaec9e5e1386afebb024dd66561e7e1aef29923b511365",
+    "runtimeFiles": 166,
+    "gitVisibleFiles": 1049,
+    "errors": [],
+    "at": "2026-11-05T09:34:19.377Z"
+  },
+  "archiveVerification": {
+    "file": "reports\\deferral-ablation-2026-11-05\\source-9f1dc698.zip",
+    "sha256": "c27db5d12a4ef4ee166dc1dc94877daa3a393c5bcac86509508d289cfccaef2a",
+    "expectedSha256": "c27db5d12a4ef4ee166dc1dc94877daa3a393c5bcac86509508d289cfccaef2a",
+    "zipHashVerified": true,
+    "sourceFiles": 166,
+    "entryHashErrors": [],
+    "status": "PASS"
+  },
+  "round1PreservedHashes": {
+    "gate.json": "4e49ef8ef7019a3e553cd5b382ed2c09cb132c184be08a396b228f9a06a9d7ec",
+    "response-binding-probe.json": "e9a6a505bed6a4a357d12d98f4f369834c2d1de873fe3d1bc355ce3b943a6621"
+  },
+  "changedSinceRound1": [
+    "tests/deferral-application-integration.test.ts",
+    "runner/virtual-beta-replay.ts"
+  ],
+  "executedRound2": {
+    "focusedOfflineTests": 84,
+    "failedTests": 0,
+    "copiedFictionalBaselineReplays": 3,
+    "rejectedResponseTamperingCases": 15,
+    "validReorderedProbabilityKeyReplays": 3,
+    "archiveEntriesVerified": 166,
+    "sourceSnapshots": 2,
+    "frozenGitVisibleHashesPerSnapshot": 1049
+  },
+  "unchangedRound1Coverage": {
+    "profileIntervention": "Only id/flag differ from unchanged inquiry-aligned base.",
+    "samplerParity": "512 OFF/baseline selections across 32 seeds, global/UI conditional, safety exclusion and four draws.",
+    "applicationReplay": "10 application/config/policy/partial/asset mutations rejected.",
+    "driverCases": "11 actual deferral-weights driver body scenarios executed with service-boundary doubles, including late motion error stop, invalid output, accounting, missing/partial failures, pair mismatch and source identity.",
+    "motion": "Raw model choice, baseline and final selection remain distinct; overlapping ABAB and same-frame retries are descriptive and unknown denominators remain separate.",
+    "reasonForCarryForward": "Only replay binding and its public integration regression changed between freezes; other runtime files and test files match R1 hashes."
+  },
+  "findings": [
+    {
+      "id": "MODEL_RESPONSE_SELECTION_BINDING",
+      "severity": "P2",
+      "status": "FIXED_AND_INDEPENDENTLY_REVERIFIED",
+      "originalGate": "../independent-code/gate.json",
+      "fix": "Before deterministic sampler replay, saved answer choice and probability key/value map must match selection.modelChoice and selection.raw. isDeepStrictEqual ignores object key order without normalizing values.",
+      "evidence": "response-binding-recheck.json",
+      "result": "All 15 inconsistent or missing/invalid answer mutations rejected across legacy, ON and OFF. All 3 valid baselines and all 3 reversed probability-key-order runs accepted."
+    }
+  ],
+  "openFindings": [],
+  "noAPICalls": true,
+  "noCredentialsOrParticipantPayloadsRead": true,
+  "productEditsByVerifier": false,
+  "writtenScope": "reports/deferral-ablation-2026-11-05/independent-code-round2/",
+  "limits": [
+    "Original completed mock8 inspected under R1; new ordinary CLI8 rerun is owned by parent and not yet included here.",
+    "Offline replay fixture was copied from the explicitly allowed fictional UI integration; no participant logs accessed.",
+    "This gate does not judge goal success, route naturalness, human frequency or whole-trajectory causality."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "kind": "post-stop-amendment",
+  "declaredAtUTC": "2026-11-05T09:51:41.852Z",
+  "originalStatus": "MODEL_OUTPUT_FAILURE",
+  "originalTrial": "off-library-r1",
+  "originalRequests": 25,
+  "sourceHash": "9f1dc69815b16cfc0eaaec9e5e1386afebb024dd66561e7e1aef29923b511365",
+  "revision": "6f098d9003f245c9eacb84a1e23dfc2307a50ec2",
+  "continuationRunnerFile": "reports/deferral-ablation-2026-11-05/continuation-runner.ts",
+  "continuationRunnerSha256": "601bb80e75c217fb59414d88f11330865eabbc04d52ecd03d60b9f6a6cf9e2f7",
+  "stoppedTrialReplaced": false,
+  "unattemptedSlotsOnly": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "maximumAdditionalRequests": 252,
+  "maximumAggregateRequests": 277,
+  "parallel": 1,
+  "retries": 0,
+  "phaseMs": 2520000,
+  "perTrialMs": 300000,
+  "unchanged": "Actor code, native schema/instructions, all questions, memory, UI, goal, persona, safety, seed and profile. No invalid output repair, fallback or cached input resend.",
+  "stop": "First subsequent invalid output/accounting/auth/quota/audit failure, or time/request bound.",
+  "interpretation": "Separate diagnostic continuation after original protocol stop. Original failed raw batch retained; aggregate at most7valid and1invalid. No naturalness or goal-success rank.",
+  "freeze": "Controller bytes and this amendment checked initially/between/after trials alongside runtime source, original protocol/charter and prior raw files"
+}

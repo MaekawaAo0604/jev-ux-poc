@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Preflight of explicitly amended continuation only; no new API calls or environment reads.",
+  "controllerSha256": "601bb80e75c217fb59414d88f11330865eabbc04d52ecd03d60b9f6a6cf9e2f7",
+  "amendmentSha256": "676b155843e68ad03fcab02a99aa0a8b9af84baa2a24a5da4581201642809022",
+  "sourceHash": "9f1dc69815b16cfc0eaaec9e5e1386afebb024dd66561e7e1aef29923b511365",
+  "results": [
+    {
+      "name": "exact-hashes-budget-original-prior-and-real-only-guards",
+      "status": "PASS"
+    },
+    {
+      "name": "seven-normal",
+      "status": "PASS",
+      "calls": 7,
+      "aggregateRecords": 8,
+      "aggregateInvalid": 1,
+      "aggregateRequests": 25,
+      "phaseStatus": "COMPLETED"
+    },
+    {
+      "name": "first-new-invalid",
+      "status": "PASS",
+      "calls": 1,
+      "aggregateRecords": 2,
+      "aggregateInvalid": 1,
+      "aggregateRequests": 25,
+      "phaseStatus": "MODEL_OUTPUT_FAILURE"
+    },
+    {
+      "name": "controller-change",
+      "status": "PASS",
+      "calls": 1,
+      "aggregateRecords": 2,
+      "aggregateInvalid": 1,
+      "aggregateRequests": 25,
+      "phaseStatus": "CONTINUATION_CONTROLLER_CHANGED"
+    },
+    {
+      "name": "amendment-change",
+      "status": "PASS",
+      "calls": 1,
+      "aggregateRecords": 2,
+      "aggregateInvalid": 1,
+      "aggregateRequests": 25,
+      "phaseStatus": "CONTINUATION_CONTROLLER_CHANGED"
+    }
+  ],
+  "requestMaximum": {
+    "retained": 25,
+    "remainingSlots": 7,
+    "perRemainingSlot": 36,
+    "additionalMaximum": 252,
+    "aggregateMaximum": 277,
+    "originalCeiling": 288
+  },
+  "review": [
+    "Seeded original full failed record is preserved exactly in derived manifests; original raw file remains immutable.",
+    "Only schedule sequences2 through8 are executed; no retry/replacement of slot1.",
+    "Original protocol/source/charter/prior preservation and existing invalid/accounting/auth/pair/motion stop logic retained.",
+    "Controller and amendment mutations after a trial halt further execution and preservationAfter is false.",
+    "Declaration explicitly separates post-stop diagnostic continuation; aggregate includes original invalid trial with at most7valid.",
+    "New continuation phase has its own42minute deadline; this is a post-stop amendment, not fulfillment of the original stopped protocol."
+  ],
+  "limitation": "Instrumented cases exercise the exact control flow using isolated service boundaries and a one-entry fictional prior containing the original manifest; full final7334 prior metadata was checked in initial audit, and actual execution will preserve all prior files."
+}

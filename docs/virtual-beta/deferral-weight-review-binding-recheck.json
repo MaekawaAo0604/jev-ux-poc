@@ -1,0 +1,163 @@
+{
+  "status": "PASS",
+  "freezeFile": "reports/deferral-ablation-2026-11-05/freeze-code-round2.json",
+  "before": {
+    "revision": "7df17d726e493893b719f5281ce49a463bb70a8b",
+    "sourceHash": "9f1dc69815b16cfc0eaaec9e5e1386afebb024dd66561e7e1aef29923b511365",
+    "runtimeFiles": 166,
+    "gitVisibleFiles": 1049,
+    "errors": [],
+    "at": "2026-11-05T09:34:18.569Z"
+  },
+  "after": {
+    "revision": "7df17d726e493893b719f5281ce49a463bb70a8b",
+    "sourceHash": "9f1dc69815b16cfc0eaaec9e5e1386afebb024dd66561e7e1aef29923b511365",
+    "runtimeFiles": 166,
+    "gitVisibleFiles": 1049,
+    "errors": [],
+    "at": "2026-11-05T09:34:19.377Z"
+  },
+  "evidence": [
+    {
+      "mode": "legacy",
+      "kind": "baseline",
+      "verified": true
+    },
+    {
+      "mode": "legacy",
+      "kind": "mutation",
+      "field": "choice",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "legacy",
+      "kind": "mutation",
+      "field": "probabilities",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "legacy",
+      "kind": "mutation",
+      "field": "missing-response",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "legacy",
+      "kind": "mutation",
+      "field": "missing-nextAction",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "legacy",
+      "kind": "mutation",
+      "field": "invalid-probability",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "legacy",
+      "kind": "reordered-probability-keys",
+      "verified": true
+    },
+    {
+      "mode": "on",
+      "kind": "baseline",
+      "verified": true
+    },
+    {
+      "mode": "on",
+      "kind": "mutation",
+      "field": "choice",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "on",
+      "kind": "mutation",
+      "field": "probabilities",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "on",
+      "kind": "mutation",
+      "field": "missing-response",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "on",
+      "kind": "mutation",
+      "field": "missing-nextAction",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "on",
+      "kind": "mutation",
+      "field": "invalid-probability",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "on",
+      "kind": "reordered-probability-keys",
+      "verified": true
+    },
+    {
+      "mode": "off",
+      "kind": "baseline",
+      "verified": true
+    },
+    {
+      "mode": "off",
+      "kind": "mutation",
+      "field": "choice",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "off",
+      "kind": "mutation",
+      "field": "probabilities",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "off",
+      "kind": "mutation",
+      "field": "missing-response",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "off",
+      "kind": "mutation",
+      "field": "missing-nextAction",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "off",
+      "kind": "mutation",
+      "field": "invalid-probability",
+      "rejected": true,
+      "error": "SELECTION_RESPONSE_BINDING_MISMATCH"
+    },
+    {
+      "mode": "off",
+      "kind": "reordered-probability-keys",
+      "verified": true
+    }
+  ],
+  "counts": {
+    "baselineRuns": 3,
+    "rejectedMutations": 15,
+    "reorderedKeyRuns": 3
+  },
+  "scope": "Offline replay on copied expressly allowed fictional UI inputs, no APIs or participant payloads."
+}
