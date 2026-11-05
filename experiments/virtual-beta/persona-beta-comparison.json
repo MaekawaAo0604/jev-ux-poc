@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "phase": "persona-beta-2026-11-05",
+  "baselineRevision": "129e4527d19c8fa13a1b34ede66e4c459b72184d",
+  "profile": "experience-persona-unweighted",
+  "baseProfile": "experience-inquiry-policy-off",
+  "commonProfileChanges": {
+    "id": "human-screen-persona-unweighted",
+    "behavior": "user"
+  },
+  "onlyBetweenConditionIntervention": "Persona absent versus existing A/B/C JSON. All4 profiles, UI, goal, initial state, caps, model stages, sampler/seed and safety identical.",
+  "personas": [
+    "baseline",
+    "A",
+    "B",
+    "C"
+  ],
+  "personaFiles": [
+    "experiments/persona/persona-a.json",
+    "experiments/persona/persona-b.json",
+    "experiments/persona/persona-c.json"
+  ],
+  "fixture": {
+    "version": 1,
+    "task": "workshop",
+    "condition": "unchanged"
+  },
+  "replicates": 3,
+  "order": "Rotate baseline,A,B,C offsets0,1,2; partial counterbalance, not full4position balance or guaranteed randomized temporal assignment.",
+  "limits": {
+    "trials": 12,
+    "requests": 432,
+    "requestsPerTrial": 36,
+    "judgments": 12,
+    "UI": 15,
+    "looks": 3,
+    "perTrialMs": 300000,
+    "nativeMs": 60000,
+    "phaseMs": 3960000,
+    "parallel": 1,
+    "retry": 0
+  },
+  "analysis": {
+    "primary": [
+      "Canonical executed paths and first same-image/candidate-bound raw distributions",
+      "Reason categories, observed expectations/conditions and actual revisits in context",
+      "Within-persona versus between-persona path distances from valid complete audit trajectories",
+      "Same-image comparisons do not assert matching histories or complete model inputs",
+      "Persona trait consistency/contradictions/unexercised/unknown manually reviewed against observations; tendencies never mandatory",
+      "Exact blocked-label permutation is exploratory reference only on >=2 complete4-actor blocks; exchangeability/time-order assumptions unvalidated"
+    ],
+    "contextOnly": [
+      "Goal success",
+      "API elapsed time",
+      "modelconfidence"
+    ],
+    "invalid": "Preserve prefixes separately; never count infrastructure as user abandonment, never replace invalid trials."
+  },
+  "stop": "Immediate auth/quota/accounting/source/persona/initial-input/replay/audit/safety failure. Isolated model-invalid output or timeout recorded invalid; proceed nextscheduledslot. Stop after2consecutiveinvalidtrials. No retry or replacements.",
+  "interpretation": "No human-fidelity or naturalness verdict;3repeats and one same-structure local task cannot establish broad persona/human prediction accuracy.",
+  "humanInputsRead": false,
+  "savedInputResends": 0
+}
