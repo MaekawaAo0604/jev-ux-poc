@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Bounded manual examination of actual saved current/next PNGs and recorded actions; case-level interpretation only",
+  "sourceHash": "128d87929d31b9ca6e46220c75aa4bb70829a2a5eae818d5835d9a20f359f5f6",
+  "producerRevision": "f0d15c67f2d6679c944788ee52942d9351bf04c0",
+  "casesReviewed": 5,
+  "currentNextPNGReferencesViewed": 9,
+  "caseSelectionValidated": true,
+  "selectionQualification": "Same decision ordinal + same displayed PNG is an exploratory operationalization clarified during live; original prose did not specify ordinal. Revisit fallback now correctly follows performed departure/return between audit routes, independent of same-control retry. No goal-based selection.",
+  "cases": [
+    {
+      "id": "persona-workshop-baseline-r1",
+      "step": 5,
+      "facts": [
+        "On My Page, the actor clicks reservation records (e3). The next delivered screen shows the woodcraft program, saved morning session, request number R-001, and a reconciliation button.",
+        "Preceding operations visited account information, requested confirmation, and returned to My Page. Reason category is confirmation."
+      ],
+      "traitAssessments": [
+        {
+          "trait": "No fixed Persona",
+          "label": "unassessable",
+          "basis": "Baseline observation only; no persona consistency inference applies."
+        }
+      ],
+      "interpretation": "The return and subsequent different destination are actual exploration, not a same-control retry or evidence of human naturalness.",
+      "currentImage": {
+        "file": "input-5.png",
+        "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+      },
+      "nextImage": {
+        "file": "input-6.png",
+        "sha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+      },
+      "reasonCategory": "confirmation",
+      "imageRefsInspected": [
+        {
+          "id": "persona-workshop-baseline-r1",
+          "step": 5,
+          "when": "current",
+          "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-baseline-r1\\exploration\\input-5.png",
+          "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+        },
+        {
+          "id": "persona-workshop-baseline-r1",
+          "step": 5,
+          "when": "next",
+          "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-baseline-r1\\exploration\\input-6.png",
+          "sha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+        }
+      ]
+    },
+    {
+      "id": "persona-workshop-A-r1",
+      "step": 12,
+      "facts": [
+        "The same My Page PNG shows three destinations. A clicks reservation records (e3); baseline at decision12 clicks account information (e2).",
+        "Recorded reason is uncertainty; working inquiry tests a recalled condition. No next delivered input image exists for this final decision."
+      ],
+      "traitAssessments": [
+        {
+          "trait": "Low IT literacy and expectation of following explanations",
+          "label": "evidence-compatible",
+          "basis": "Selecting a visible record-checking destination with an uncertainty report is compatible with exploratory checking. It does not verify reading or low literacy."
+        },
+        {
+          "trait": "Caution around unfamiliar terms",
+          "label": "unassessable",
+          "basis": "No direct observation identifies a particular unfamiliar term or establishes why A was uncertain."
+        },
+        {
+          "trait": "Usual smartphone use",
+          "label": "not-exercised",
+          "basis": "The common desktop viewport is fixed for every condition."
+        }
+      ],
+      "interpretation": "Repeated exploration is not automatically a trait contradiction. The absent next image prevents a delivered-outcome interpretation for this action; terminal audit is not appended as a next observation.",
+      "currentImage": {
+        "file": "input-12.png",
+        "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+      },
+      "nextImage": null,
+      "reasonCategory": "uncertainty",
+      "imageRefsInspected": [
+        {
+          "id": "persona-workshop-A-r1",
+          "step": 12,
+          "when": "current",
+          "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-A-r1\\exploration\\input-12.png",
+          "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+        }
+      ]
+    },
+    {
+      "id": "persona-workshop-B-r1",
+      "step": 5,
+      "facts": [
+        "From My Page, B clicks reservation change (e1), while baseline at the same decision and PNG chooses reservation records (e3).",
+        "The next delivered change page still says changes are unavailable and asks the user to confirm account information. Reason category is confirmation."
+      ],
+      "traitAssessments": [
+        {
+          "trait": "Preference for fewer operations",
+          "label": "evidence-compatible",
+          "basis": "Trying the direct change destination after prior account confirmation is compatible with an efficiency preference. Its actual failure to release the screen does not establish a trait inconsistency."
+        },
+        {
+          "trait": "Knowledge of authentication and general settings",
+          "label": "not-exercised",
+          "basis": "These selected screens contain no authentication task that tests that knowledge."
+        }
+      ],
+      "interpretation": "The case does not show a stable efficiency advantage; the next screen supplies blocking evidence and histories/annotations differ from the baseline comparator.",
+      "currentImage": {
+        "file": "input-5.png",
+        "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+      },
+      "nextImage": {
+        "file": "input-6.png",
+        "sha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396"
+      },
+      "reasonCategory": "confirmation",
+      "imageRefsInspected": [
+        {
+          "id": "persona-workshop-B-r1",
+          "step": 5,
+          "when": "current",
+          "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-B-r1\\exploration\\input-5.png",
+          "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+        },
+        {
+          "id": "persona-workshop-B-r1",
+          "step": 5,
+          "when": "next",
+          "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-B-r1\\exploration\\input-6.png",
+          "sha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396"
+        }
+      ]
+    },
+    {
+      "id": "persona-workshop-C-r1",
+      "step": 6,
+      "facts": [
+        "The reservation records screen shows saved morning session, request number R-001, and the reconciliation button (e1). C clicks that button.",
+        "The next delivered screen visibly states that reconciliation is complete and reservation change can be used. The saved session remains morning on this screen. Reason category is confirmation."
+      ],
+      "traitAssessments": [
+        {
+          "trait": "Confirm safety or consequences of important operations",
+          "label": "evidence-compatible",
+          "basis": "The selected operation and following visible result are compatible with checking an operation outcome; its confirmation report is only a self-reported category."
+        },
+        {
+          "trait": "Caution about personal information",
+          "label": "not-exercised",
+          "basis": "The selected fictional screens offer no personal-data submission, disclosure choice, or privacy warning that tests this constraint."
+        }
+      ],
+      "interpretation": "Baseline repeat2 performs the same reconciliation from the same displayed screen. Compatibility is not a uniquely persona-caused action or proof of security judgment.",
+      "currentImage": {
+        "file": "input-6.png",
+        "sha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+      },
+      "nextImage": {
+        "file": "input-7.png",
+        "sha256": "19efac5b61d30f4675645d3648c84e5746ac93d87343fe35e70a808fedf1c251"
+      },
+      "reasonCategory": "confirmation",
+      "imageRefsInspected": [
+        {
+          "id": "persona-workshop-C-r1",
+          "step": 6,
+          "when": "current",
+          "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-C-r1\\exploration\\input-6.png",
+          "sha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+        },
+        {
+          "id": "persona-workshop-C-r1",
+          "step": 6,
+          "when": "next",
+          "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-C-r1\\exploration\\input-7.png",
+          "sha256": "19efac5b61d30f4675645d3648c84e5746ac93d87343fe35e70a808fedf1c251"
+        }
+      ]
+    },
+    {
+      "id": "persona-workshop-baseline-r2",
+      "step": 6,
+      "facts": [
+        "This baseline repeat clicks reconciliation (e1) where baseline repeat1 instead returned to My Page (e2).",
+        "The next image shows reconciliation completion and availability of reservation change, matching the visible outcome in C repeat1. Reason category is confirmation."
+      ],
+      "traitAssessments": [
+        {
+          "trait": "No fixed Persona",
+          "label": "unassessable",
+          "basis": "This is within-baseline variation, not a persona-trait test."
+        }
+      ],
+      "interpretation": "The same action observed for C also occurs without a Persona. It provides concrete within-condition variation and limits causal interpretation of the C example.",
+      "currentImage": {
+        "file": "input-6.png",
+        "sha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+      },
+      "nextImage": {
+        "file": "input-7.png",
+        "sha256": "19efac5b61d30f4675645d3648c84e5746ac93d87343fe35e70a808fedf1c251"
+      },
+      "reasonCategory": "confirmation",
+      "imageRefsInspected": [
+        {
+          "id": "persona-workshop-baseline-r2",
+          "step": 6,
+          "when": "current",
+          "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-baseline-r2\\exploration\\input-6.png",
+          "sha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+        },
+        {
+          "id": "persona-workshop-baseline-r2",
+          "step": 6,
+          "when": "next",
+          "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-baseline-r2\\exploration\\input-7.png",
+          "sha256": "19efac5b61d30f4675645d3648c84e5746ac93d87343fe35e70a808fedf1c251"
+        }
+      ]
+    }
+  ],
+  "globalLimits": [
+    "No image inspection establishes attention, comprehension, internal reasoning, or human fidelity.",
+    "No trait is a mandatory action rule; speed, repeated visits, or a missing confirmation alone are not contradictions.",
+    "The same-image case comparisons have different candidate annotations and histories; they are not complete-input-controlled comparisons.",
+    "No possible-tension label is warranted by these bounded cases alone; this is not a claim that all traits are validated.",
+    "Privacy/authentication/device-context traits remain unexercised or unassessable."
+  ],
+  "humanFidelity": "UNASSESSED",
+  "naturalness": "UNASSESSED",
+  "modelCallsByReviewer": 0
+}

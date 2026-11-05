@@ -1,0 +1,191 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "runId": "6431acba-5a83-42f2-9b80-d8012e110917-1",
+      "actor": "baseline",
+      "step": 5,
+      "reference": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-1",
+        "step": 2
+      }
+    },
+    {
+      "runId": "6431acba-5a83-42f2-9b80-d8012e110917-2",
+      "actor": "A",
+      "step": 12,
+      "reference": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-1",
+        "step": 12
+      }
+    },
+    {
+      "runId": "6431acba-5a83-42f2-9b80-d8012e110917-3",
+      "actor": "B",
+      "step": 5,
+      "reference": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-1",
+        "step": 5
+      }
+    },
+    {
+      "runId": "6431acba-5a83-42f2-9b80-d8012e110917-4",
+      "actor": "C",
+      "step": 6,
+      "reference": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-1",
+        "step": 6
+      }
+    },
+    {
+      "runId": "6431acba-5a83-42f2-9b80-d8012e110917-8",
+      "actor": "baseline",
+      "step": 6,
+      "reference": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-1",
+        "step": 6
+      }
+    }
+  ],
+  "images": [
+    {
+      "id": "persona-workshop-baseline-r1",
+      "step": 5,
+      "when": "current",
+      "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-baseline-r1\\exploration\\input-5.png",
+      "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+    },
+    {
+      "id": "persona-workshop-baseline-r1",
+      "step": 5,
+      "when": "next",
+      "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-baseline-r1\\exploration\\input-6.png",
+      "sha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+    },
+    {
+      "id": "persona-workshop-A-r1",
+      "step": 12,
+      "when": "current",
+      "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-A-r1\\exploration\\input-12.png",
+      "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+    },
+    {
+      "id": "persona-workshop-B-r1",
+      "step": 5,
+      "when": "current",
+      "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-B-r1\\exploration\\input-5.png",
+      "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f"
+    },
+    {
+      "id": "persona-workshop-B-r1",
+      "step": 5,
+      "when": "next",
+      "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-B-r1\\exploration\\input-6.png",
+      "sha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396"
+    },
+    {
+      "id": "persona-workshop-C-r1",
+      "step": 6,
+      "when": "current",
+      "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-C-r1\\exploration\\input-6.png",
+      "sha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+    },
+    {
+      "id": "persona-workshop-C-r1",
+      "step": 6,
+      "when": "next",
+      "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-C-r1\\exploration\\input-7.png",
+      "sha256": "19efac5b61d30f4675645d3648c84e5746ac93d87343fe35e70a808fedf1c251"
+    },
+    {
+      "id": "persona-workshop-baseline-r2",
+      "step": 6,
+      "when": "current",
+      "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-baseline-r2\\exploration\\input-6.png",
+      "sha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+    },
+    {
+      "id": "persona-workshop-baseline-r2",
+      "step": 6,
+      "when": "next",
+      "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-beta-2026-11-05\\live\\persona-workshop-baseline-r2\\exploration\\input-7.png",
+      "sha256": "19efac5b61d30f4675645d3648c84e5746ac93d87343fe35e70a808fedf1c251"
+    }
+  ],
+  "sourceHash": "128d87929d31b9ca6e46220c75aa4bb70829a2a5eae818d5835d9a20f359f5f6",
+  "caseEvidenceSha256": "41496aa68ecdb260d855704f7ed4e74db855e7a252eb810b29280ed00edce864",
+  "analysisProtocolSha256": "140b60eac468bad5ff66e0a1c20633d839724da0047de899820e4d0f8c326051",
+  "selectionQualification": "Same decision ordinal + same displayed PNG is an exploratory operationalization clarified during live; original prose did not specify ordinal. Revisit fallback now correctly follows performed departure/return between audit routes, independent of same-control retry. No goal-based selection.",
+  "strictComparisonDiagnosis": {
+    "firstOccurrences": 79,
+    "sameImagePairs": 381,
+    "candidateKeySetMismatches": 0,
+    "generatedAnnotationMismatches": 381,
+    "exactBindingPairs": 0,
+    "rawTotalVariation": "UNAVAILABLE; neither zero nor evidence of no effect",
+    "examples": [
+      {
+        "left": {
+          "id": "persona-workshop-baseline-r1",
+          "step": 1
+        },
+        "right": {
+          "id": "persona-workshop-A-r1",
+          "step": 1
+        },
+        "image": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+        "candidateKeysIdentical": true,
+        "differentCriteria": [
+          "e1"
+        ],
+        "exampleCandidate": "e1",
+        "leftCriterion": "[e1] [Model hypothesis: knowledge=insufficient; effect=advances; evidence=o1] [current model goal-search hypothesis, not fact: source=o1; scope=delivered-current-view-only; interpretation=role-state-v2; evidenceMode=source-grounded; finding=prerequisite; requirements=g1 \"参加予約「木の小物づくり」の希望回を午前の回から午後の回へ変更し\" role=required assessment=not_shown | g2 \"保存されたことを確認してください\" role=required assessment=not_shown] [Action relation model hypothesis, not fact: availability=blocked; availabilityEvidence=o1; evidencePolicy=current-candidate; role=prerequisite; evidence=o1; verify=availability-change] [Visual action check model hypothesis, not fact: {\"candidateId\":\"e1\",\"relation\":\"prerequisite\",\"conditions\":[{\"id\":\"c1\",\"description\":\"変更前に、利用情報の確認を済ませる必要がある。\",\"status\":\"unmet\",\"evidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"利用情報の確認が必要です。マイページから利用情報をご確認ください。\",\"quoteStatus\":\"model-transcribed-unverified\"},\"uncertainty\":\"画面では確認が必要と表示されていますが、利用情報を確認した後の状態は不明です。\",\"evidenceScope\":\"current\"}],\"currentControlEvidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"マイページへ\",\"quoteStatus\":\"model-transcribed-unverified\"},\"expectedObservation\":null,\"recalledConditions\":[]}] [Working inquiry model hypothesis, not fact: {\"selectedCondition\":{\"key\":\"current_c1\",\"scope\":\"current-hypothesis\",\"conditionId\":\"c1\",\"description\":\"変更前に、利用情報の確認を済ませる必要がある。\",\"status\":\"unmet\",\"evidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"利用情報の確認が必要です。マイページから利用情報をご確認ください。\",\"quoteStatus\":\"model-transcribed-unverified\"},\"evidenceScope\":\"current\"},\"admittedIntent\":\"change_condition\",\"observableCheck\":\"condition_changed\",\"hasExplicitLink\":true,\"linkStatus\":\"explicit\",\"currentControlEvidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"マイページへ\",\"quoteStatus\":\"model-transcribed-unverified\"},\"expectedObservation\":null}]",
+        "rightCriterion": "[e1] [Model hypothesis: knowledge=insufficient; effect=advances; evidence=o1] [current model goal-search hypothesis, not fact: source=o1; scope=delivered-current-view-only; interpretation=role-state-v2; evidenceMode=source-grounded; finding=prerequisite; requirements=g1 \"参加予約「木の小物づくり」の希望回を午前の回から午後の回へ変更し\" role=required assessment=not_shown | g2 \"保存されたことを確認してください\" role=required assessment=not_shown] [Action relation model hypothesis, not fact: availability=blocked; availabilityEvidence=o1; evidencePolicy=current-candidate; role=prerequisite; evidence=o1; verify=availability-change] [Visual action check model hypothesis, not fact: {\"candidateId\":\"e1\",\"relation\":\"prerequisite\",\"conditions\":[{\"id\":\"c1\",\"description\":\"予約変更の前提として、利用情報の確認が必要。\",\"status\":\"unmet\",\"evidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"利用情報の確認が必要です。\",\"quoteStatus\":\"model-transcribed-unverified\"},\"uncertainty\":\"画面では確認が必要と表示されていますが、確認が完了した状態は見えていません。\",\"evidenceScope\":\"current\"}],\"currentControlEvidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"マイページへ\",\"quoteStatus\":\"model-transcribed-unverified\"},\"expectedObservation\":null,\"recalledConditions\":[]}] [Working inquiry model hypothesis, not fact: {\"selectedCondition\":{\"key\":\"current_c1\",\"scope\":\"current-hypothesis\",\"conditionId\":\"c1\",\"description\":\"予約変更の前提として、利用情報の確認が必要。\",\"status\":\"unmet\",\"evidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"利用情報の確認が必要です。\",\"quoteStatus\":\"model-transcribed-unverified\"},\"evidenceScope\":\"current\"},\"admittedIntent\":\"change_condition\",\"observableCheck\":\"condition_changed\",\"hasExplicitLink\":true,\"linkStatus\":\"explicit\",\"currentControlEvidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"マイページへ\",\"quoteStatus\":\"model-transcribed-unverified\"},\"expectedObservation\":null}]",
+        "classification": "Actual generated model hypothesis/evidence/working-inquiry annotation text differs. No runId/provenance-only renaming demonstrated; strict metric intentionally unavailable."
+      },
+      {
+        "left": {
+          "id": "persona-workshop-baseline-r1",
+          "step": 1
+        },
+        "right": {
+          "id": "persona-workshop-B-r1",
+          "step": 1
+        },
+        "image": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+        "candidateKeysIdentical": true,
+        "differentCriteria": [
+          "e1"
+        ],
+        "exampleCandidate": "e1",
+        "leftCriterion": "[e1] [Model hypothesis: knowledge=insufficient; effect=advances; evidence=o1] [current model goal-search hypothesis, not fact: source=o1; scope=delivered-current-view-only; interpretation=role-state-v2; evidenceMode=source-grounded; finding=prerequisite; requirements=g1 \"参加予約「木の小物づくり」の希望回を午前の回から午後の回へ変更し\" role=required assessment=not_shown | g2 \"保存されたことを確認してください\" role=required assessment=not_shown] [Action relation model hypothesis, not fact: availability=blocked; availabilityEvidence=o1; evidencePolicy=current-candidate; role=prerequisite; evidence=o1; verify=availability-change] [Visual action check model hypothesis, not fact: {\"candidateId\":\"e1\",\"relation\":\"prerequisite\",\"conditions\":[{\"id\":\"c1\",\"description\":\"変更前に、利用情報の確認を済ませる必要がある。\",\"status\":\"unmet\",\"evidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"利用情報の確認が必要です。マイページから利用情報をご確認ください。\",\"quoteStatus\":\"model-transcribed-unverified\"},\"uncertainty\":\"画面では確認が必要と表示されていますが、利用情報を確認した後の状態は不明です。\",\"evidenceScope\":\"current\"}],\"currentControlEvidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"マイページへ\",\"quoteStatus\":\"model-transcribed-unverified\"},\"expectedObservation\":null,\"recalledConditions\":[]}] [Working inquiry model hypothesis, not fact: {\"selectedCondition\":{\"key\":\"current_c1\",\"scope\":\"current-hypothesis\",\"conditionId\":\"c1\",\"description\":\"変更前に、利用情報の確認を済ませる必要がある。\",\"status\":\"unmet\",\"evidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"利用情報の確認が必要です。マイページから利用情報をご確認ください。\",\"quoteStatus\":\"model-transcribed-unverified\"},\"evidenceScope\":\"current\"},\"admittedIntent\":\"change_condition\",\"observableCheck\":\"condition_changed\",\"hasExplicitLink\":true,\"linkStatus\":\"explicit\",\"currentControlEvidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"マイページへ\",\"quoteStatus\":\"model-transcribed-unverified\"},\"expectedObservation\":null}]",
+        "rightCriterion": "[e1] [Model hypothesis: knowledge=insufficient; effect=unknown; evidence=o1; unknown does not establish safety or danger] [current model goal-search hypothesis, not fact: source=o1; scope=delivered-current-view-only; interpretation=role-state-v2; evidenceMode=source-grounded; finding=prerequisite; requirements=g1 \"参加予約「木の小物づくり」の希望回を午前の回から午後の回へ変更し\" role=required assessment=not_shown | g2 \"保存されたことを確認してください\" role=required assessment=not_shown] [Action relation model hypothesis, not fact: availability=blocked; availabilityEvidence=o1; evidencePolicy=current-candidate; role=prerequisite; evidence=o1; verify=availability-change] [Visual action check model hypothesis, not fact: {\"candidateId\":\"e1\",\"relation\":\"navigation\",\"conditions\":[{\"id\":\"c3\",\"description\":\"変更を利用するために必要な利用情報の確認を行う。\",\"status\":\"unmet\",\"evidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"利用情報の確認が必要です。マイページから利用情報をご確認ください。\",\"quoteStatus\":\"model-transcribed-unverified\"},\"uncertainty\":\"この画面では確認の完了は示されていない。\",\"evidenceScope\":\"current\"}],\"currentControlEvidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"マイページへ\",\"quoteStatus\":\"model-transcribed-unverified\"},\"expectedObservation\":null,\"recalledConditions\":[]}] [Working inquiry model hypothesis, not fact: {\"selectedCondition\":{\"key\":\"current_c3\",\"scope\":\"current-hypothesis\",\"conditionId\":\"c3\",\"description\":\"変更を利用するために必要な利用情報の確認を行う。\",\"status\":\"unmet\",\"evidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"利用情報の確認が必要です。マイページから利用情報をご確認ください。\",\"quoteStatus\":\"model-transcribed-unverified\"},\"evidenceScope\":\"current\"},\"admittedIntent\":\"change_condition\",\"observableCheck\":\"condition_changed\",\"hasExplicitLink\":true,\"linkStatus\":\"explicit\",\"currentControlEvidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"マイページへ\",\"quoteStatus\":\"model-transcribed-unverified\"},\"expectedObservation\":null}]",
+        "classification": "Actual generated model hypothesis/evidence/working-inquiry annotation text differs. No runId/provenance-only renaming demonstrated; strict metric intentionally unavailable."
+      },
+      {
+        "left": {
+          "id": "persona-workshop-baseline-r1",
+          "step": 1
+        },
+        "right": {
+          "id": "persona-workshop-C-r1",
+          "step": 1
+        },
+        "image": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+        "candidateKeysIdentical": true,
+        "differentCriteria": [
+          "e1"
+        ],
+        "exampleCandidate": "e1",
+        "leftCriterion": "[e1] [Model hypothesis: knowledge=insufficient; effect=advances; evidence=o1] [current model goal-search hypothesis, not fact: source=o1; scope=delivered-current-view-only; interpretation=role-state-v2; evidenceMode=source-grounded; finding=prerequisite; requirements=g1 \"参加予約「木の小物づくり」の希望回を午前の回から午後の回へ変更し\" role=required assessment=not_shown | g2 \"保存されたことを確認してください\" role=required assessment=not_shown] [Action relation model hypothesis, not fact: availability=blocked; availabilityEvidence=o1; evidencePolicy=current-candidate; role=prerequisite; evidence=o1; verify=availability-change] [Visual action check model hypothesis, not fact: {\"candidateId\":\"e1\",\"relation\":\"prerequisite\",\"conditions\":[{\"id\":\"c1\",\"description\":\"変更前に、利用情報の確認を済ませる必要がある。\",\"status\":\"unmet\",\"evidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"利用情報の確認が必要です。マイページから利用情報をご確認ください。\",\"quoteStatus\":\"model-transcribed-unverified\"},\"uncertainty\":\"画面では確認が必要と表示されていますが、利用情報を確認した後の状態は不明です。\",\"evidenceScope\":\"current\"}],\"currentControlEvidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"マイページへ\",\"quoteStatus\":\"model-transcribed-unverified\"},\"expectedObservation\":null,\"recalledConditions\":[]}] [Working inquiry model hypothesis, not fact: {\"selectedCondition\":{\"key\":\"current_c1\",\"scope\":\"current-hypothesis\",\"conditionId\":\"c1\",\"description\":\"変更前に、利用情報の確認を済ませる必要がある。\",\"status\":\"unmet\",\"evidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"利用情報の確認が必要です。マイページから利用情報をご確認ください。\",\"quoteStatus\":\"model-transcribed-unverified\"},\"evidenceScope\":\"current\"},\"admittedIntent\":\"change_condition\",\"observableCheck\":\"condition_changed\",\"hasExplicitLink\":true,\"linkStatus\":\"explicit\",\"currentControlEvidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"マイページへ\",\"quoteStatus\":\"model-transcribed-unverified\"},\"expectedObservation\":null}]",
+        "rightCriterion": "[e1] [Model hypothesis: knowledge=insufficient; effect=unknown; evidence=o1; unknown does not establish safety or danger] [current model goal-search hypothesis, not fact: source=o1; scope=delivered-current-view-only; interpretation=role-state-v2; evidenceMode=source-grounded; finding=prerequisite; requirements=g1 \"参加予約「木の小物づくり」の希望回を午前の回から午後の回へ変更し\" role=required assessment=not_shown | g2 \"保存されたことを確認してください\" role=required assessment=not_shown] [Action relation model hypothesis, not fact: availability=blocked; availabilityEvidence=o1; evidencePolicy=current-candidate; role=navigation; evidence=o1; verify=availability-change] [Visual action check model hypothesis, not fact: {\"candidateId\":\"e1\",\"relation\":\"navigation\",\"conditions\":[{\"id\":\"c3\",\"description\":\"The required usage-information confirmation is completed so the reservation change can be used.\",\"status\":\"unmet\",\"evidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"現在、変更を利用できません　利用情報の確認が必要です。\",\"quoteStatus\":\"model-transcribed-unverified\"},\"uncertainty\":\"The page says confirmation is required, but does not show whether or where it has been completed.\",\"evidenceScope\":\"current\"}],\"currentControlEvidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"マイページへ\",\"quoteStatus\":\"model-transcribed-unverified\"},\"expectedObservation\":null,\"recalledConditions\":[]}] [Working inquiry model hypothesis, not fact: {\"selectedCondition\":{\"key\":\"current_c3\",\"scope\":\"current-hypothesis\",\"conditionId\":\"c3\",\"description\":\"The required usage-information confirmation is completed so the reservation change can be used.\",\"status\":\"unmet\",\"evidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"現在、変更を利用できません　利用情報の確認が必要です。\",\"quoteStatus\":\"model-transcribed-unverified\"},\"evidenceScope\":\"current\"},\"admittedIntent\":\"find_route\",\"observableCheck\":\"new_route_visible\",\"hasExplicitLink\":true,\"linkStatus\":\"explicit\",\"currentControlEvidence\":{\"observationId\":\"o1\",\"imageSha256\":\"38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396\",\"quote\":\"マイページへ\",\"quoteStatus\":\"model-transcribed-unverified\"},\"expectedObservation\":null}]",
+        "classification": "Actual generated model hypothesis/evidence/working-inquiry annotation text differs. No runId/provenance-only renaming demonstrated; strict metric intentionally unavailable."
+      }
+    ]
+  },
+  "withinVariant": {
+    "left": "persona-workshop-baseline-r1",
+    "right": "persona-workshop-baseline-r2"
+  },
+  "humanFidelity": "UNASSESSED"
+}

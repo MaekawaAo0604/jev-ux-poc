@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "gate": "independent-persona-beta-sealed-live",
+  "status": "PASS",
+  "producerRevision": "f0d15c67f2d6679c944788ee52942d9351bf04c0",
+  "sourceHash": "128d87929d31b9ca6e46220c75aa4bb70829a2a5eae818d5835d9a20f359f5f6",
+  "codeGate": "../independent-code-round2/gate-r2.json",
+  "rawIntegrity": "PASS",
+  "statisticalRecalculation": "PASS",
+  "boundedVisualReview": "PASS",
+  "humanFidelity": "UNASSESSED",
+  "naturalness": "UNASSESSED",
+  "personaTraitValidation": "NOT_ESTABLISHED",
+  "execution": {
+    "status": "COMPLETED",
+    "attempted": 12,
+    "validComplete": 12,
+    "invalid": 0,
+    "missing": 0,
+    "requests": 396,
+    "maximumRequests": 432,
+    "perStage": {
+      "visual-hypotheses": 132,
+      "assessment": 132,
+      "action": 132
+    },
+    "deliveredPersonaStageCounts": {
+      "native": 132,
+      "assessment": 132,
+      "action": 132
+    },
+    "serial": true,
+    "retries": 0,
+    "replacements": 0,
+    "safetyFaultsObserved": 0,
+    "invalidSlotPolicy": "No live invalid slot occurred; code fault handling separately exercised in round2 gate."
+  },
+  "checks": {
+    "freshFilesHashedBeforeAfterAndFinal": 519,
+    "priorMetadataOnly": 7893,
+    "finalPreservationUnion": 8412,
+    "priorPayloadBytesReadByReviewer": false,
+    "allRuntimeFilesStillMatch": 169,
+    "runtimeArchiveSHA256": "c1d76ca2733804f25929856353c5fb556e44c26e3bd4547d48ce8c865adb1cb3",
+    "all12OfflineReplaysWithFinalHTTP": true,
+    "all12PersonaOwnExpectationsAndBindings": true,
+    "initialNativeBodies": {
+      "count": 12,
+      "matched": true,
+      "sha256AfterRemovingOnlyPersona": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "reconstruction": "Current production native request builder + each actual saved PNG; no actual wire-body capture exists"
+    },
+    "effectiveAppliedWeightsAllUnit": true,
+    "selectionEqualsUnweightedBaseline": true,
+    "distributionReplayVerified": true,
+    "freshStateEvidence": {
+      "freshSourcePathVerifiedByFrozenCode": true,
+      "distinctTrialOrigins": 1,
+      "originReuseIsNotSessionReuse": true,
+      "initialMemoryAndStateChecks": true,
+      "noClaimAboutProviderInternals": true
+    },
+    "modelCallsByReviewer": 0
+  },
+  "metrics": {
+    "independentImplementation": true,
+    "complete": 12,
+    "partial": 0,
+    "within": {
+      "count": 12,
+      "mean": 0.3055555555555556
+    },
+    "between": {
+      "count": 54,
+      "mean": 0.32253086419753096
+    },
+    "permutation": {
+      "completeBlocks": 3,
+      "assignments": 13824,
+      "tailCount": 6336,
+      "tailProportion": 0.4583333333333333,
+      "observed": 0.016975308641975384,
+      "interpretation": "conditional exploratory reference; exchangeability and time/order assumptions unvalidated; no naturalness or human-fit verdict"
+    },
+    "sameImages": {
+      "firstOccurrences": 79,
+      "imagePairs": 381,
+      "boundPairs": 0,
+      "bindingMismatches": 381,
+      "unmeasured": 0
+    }
+  },
+  "strictDistributionComparison": {
+    "eligiblePairs": 0,
+    "sameImagePairs": 381,
+    "candidateIDSetMismatches": 0,
+    "generatedSemanticAnnotationMismatches": 381,
+    "rawTV": "UNAVAILABLE, not zero and not evidence of no effect",
+    "matcher": "Frozen exact criteria binding rule retained; representative real semantic condition/evidence/working-inquiry input differences confirmed, not a demonstrated runId-only identity bug."
+  },
+  "boundedCases": {
+    "cases": 5,
+    "currentNextPNGRefsViewed": 9,
+    "selectionValidated": true,
+    "selectionQualification": "Same decision ordinal + same displayed PNG is an exploratory operationalization clarified during live; original prose did not specify ordinal. Revisit fallback now correctly follows performed departure/return between audit routes, independent of same-control retry. No goal-based selection.",
+    "privacyAuthenticationAndDeviceTraits": "Unexercised or unassessable in reviewed opportunities; no mandatory-action checks."
+  },
+  "descriptiveInterpretation": "Between-condition average path distance exceeds within-condition distance by only0.0169753 in this small local sample. The exploratory conditional permutation reference does not establish stable action separation, causal Persona effect, human fit, or naturalness. C repeats share one path also observed in baseline2, B3 and A3. Case-level compatibility is not trait validation.",
+  "evidence": [
+    "raw-audit.json",
+    "raw-audit-r2.log",
+    "case-selection-and-bindings.json",
+    "case-validation.log",
+    "visual-review.json",
+    "preservation-metadata.json"
+  ],
+  "auditCorrections": [
+    {
+      "evidence": [
+        "raw-audit-r1.log",
+        "raw-audit-failure-r1.json"
+      ],
+      "reason": "Initial audit incorrectly required different local server origins per sequential trial. Vite reuses its local port. Assertion corrected only in audit; frozen source creates fresh browser/context each trial, and matching initial state/memory/native bodies support state reset. No provider-internal isolation claim."
+    }
+  ],
+  "openIssues": [],
+  "limitations": [
+    "Native HTTP bodies were reconstructed from frozen production builder and actual saved PNGs; actual outbound wire-body capture was not available.",
+    "Persona traits and reasons are hypotheses/self-reports; screenshots and hash equality do not prove attention or comprehension.",
+    "Three repeats of one local task, partial order rotation, correlated path pairs and unvalidated exchangeability limit interpretation.",
+    "This PASS certifies declared record/code integrity and bounded review, not experimental success ranked by objective outcome."
+  ]
+}

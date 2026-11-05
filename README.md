@@ -1,5 +1,10 @@
 # Jev UX navigation PoC
 
+## Persona比較の実モデル検証：2026-11-05
+
+[実装・結果・実行方法](docs/virtual-beta/persona-beta-comparison.md)、[比較JSON](docs/virtual-beta/persona-beta-results.json)、[独立監査](docs/virtual-beta/persona-beta-review-live.json)。共通の補正なしuserモードでbaseline/A/B/Cを各3回、全12枠有効・396要求・基盤途中停止0を確認した。条件内の経路距離0.306、条件間0.323で、ばらつきを超える経路のPersona効果は確認できていない。Cの確認カテゴリ27/30と3回の経路一致は、他条件でも同じ経路が出た事実と分けて保存する。人間一致と知識・制約全般の遵守は未検証。
+
+
 ## Jev / OpenAI Decisions の実モデル比較
 
 [実行方法・結果](docs/virtual-beta/provider-comparison.md)、[24試行JSON](docs/virtual-beta/provider-comparison-results.json)、[独立検証](docs/virtual-beta/provider-comparison-independent-review.md)。同じ探索設計で判断APIだけを切り替え、並列2で各12試行を実行。目的達成はJev8/12、OpenAI4/12、408要求すべて正常応答でした。入口切替は両方4/4、前提変更後の再訪・保存はJev4/4・OpenAI0/4、照合が必要な条件は両方0/4。今回OpenAIへの差し替えは改善せず、既定はJevを維持します。人間一致は未検証です。

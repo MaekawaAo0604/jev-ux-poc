@@ -1,0 +1,10 @@
+{
+  "kind": "manual-exploratory-operationalization",
+  "atUTC": "2026-11-05T11:52:54.570Z",
+  "runtimeOrMetricChanged": false,
+  "notes": [
+    "Canonical baseline comparison uses same decision ordinal plus same displayedPNG, not its first historical sameframe occurrence.",
+    "Fallback observed revisit uses shared auditroute with actual departed/returnedclick-or-back and an intervening observed otherroute; clicked control may differ. Same-control retry is not required.",
+    "Operationalization clarified with independent reviewer during live; not a formally preregistered confirmatory case test. No selection by goal success."
+  ]
+}

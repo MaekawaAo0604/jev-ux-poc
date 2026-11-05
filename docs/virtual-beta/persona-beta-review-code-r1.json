@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "gate": "independent-persona-beta-code",
+  "status": "FAIL",
+  "sourceHash": "950e2605cd3b3920cc4b33858a1c1efb00c05be9ed79ce7024db2162ddffd6b6",
+  "revision": "129e4527d19c8fa13a1b34ede66e4c459b72184d",
+  "realModelAssessment": "NOT_RUN_BY_REVIEWER",
+  "humanFidelity": "UNASSESSED",
+  "personaTraitConsistency": "UNASSESSED",
+  "modelCalls": 0,
+  "environmentValuesRead": false,
+  "historicalRawPayloadsRead": false,
+  "checks": {
+    "ordinaryWiringAndRelated": {
+      "pass": 38,
+      "fail": 0,
+      "evidence": "related-wiring.log"
+    },
+    "boundedActualDriverControlFlow": {
+      "pass": 11,
+      "fail": 0,
+      "evidence": "driver-r2.log",
+      "instrumentation": "Only runHumanJev/replay/frame service boundaries replaced; actual sourceIdentity, schedule, parsing, ledger reader, stop loop and analysis retained."
+    },
+    "ordinaryCLIMockRawAudit": {
+      "pass": true,
+      "trials": 12,
+      "replayVerified": 12,
+      "matchedInitialInputs": 12,
+      "nativeAssessmentActionPerTrial": [
+        1,
+        1,
+        1
+      ],
+      "sameImageBoundDistributionPairs": 66,
+      "evidence": "ordinary-mock-audit.json"
+    },
+    "typecheck": {
+      "exit": 0,
+      "evidence": "typecheck.log"
+    },
+    "mutations": {
+      "missingStopGateDetected": true,
+      "droppedRunBetaPersonaDetected": true,
+      "evidence": [
+        "mutation-status.json",
+        "mutation-stop.log",
+        "mutation-persona.log"
+      ]
+    },
+    "regressions": {
+      "pass": 0,
+      "fail": 2,
+      "evidence": "blocking-regressions-red.log"
+    },
+    "freeze": {
+      "runtimeFiles": 169,
+      "visibleFiles": 1086,
+      "allMatched": true,
+      "archiveEntries": 169,
+      "archiveSHA256": "20fe4ca7fd2aa4359e62a8593d9ace0bb5203a779d0b65e7938182f7030b8747",
+      "archiveRuntimeEntriesMatched": true,
+      "evidence": [
+        "freeze-before.json",
+        "freeze-after.json"
+      ],
+      "note": "Before audit recorded unrelated non-runtime frozen paths as absent from runtime-only ZIP; final audit correctly checks all169 runtime entries. No runtime entry missing or changed."
+    }
+  },
+  "issues": [
+    {
+      "id": "P1-AUDIT-VALIDITY",
+      "severity": "P1",
+      "location": [
+        "runner/persona-beta-analysis.ts:130",
+        "runner/persona-beta-analysis.ts:141",
+        "runner/persona-beta-comparison.ts:43"
+      ],
+      "problem": "Detected Persona-delivery errors and motion integrity errors do not enter affected run validity. Failed-audit paths can remain complete-valid and enter distances/permutation.",
+      "reproduce": "node --import tsx --test reports/persona-beta-2026-11-05/independent-code/blocking-regressions.test.ts",
+      "expected": "Affected trial is invalid; preserve prefix/reasons separately; exclude it from complete paths, valid path distances, and eligible complete permutation blocks.",
+      "actual": "Both assertions of validity=false fail (actual true). Actual driver Persona tamper stops at slot2 with COMPARISON_AUDIT_ERROR but summary valid=2 invalid=0 complete=2 between.count=1.",
+      "evidence": [
+        "blocking-regressions.test.ts",
+        "blocking-regressions-red.log",
+        "driver-1793877760059-persona-tamper/summary.json"
+      ],
+      "repairScope": "Integrate authoritative per-run audit errors into validity before complete paths, actor counts, distances and permutation are calculated; preserve audit evidence."
+    }
+  ],
+  "limits": [
+    "Code/mock checks do not establish real-model behavior or human fit.",
+    "Initial synthetic driver-fixture attempt contained incomplete metadata and failed; driver.log preserved. Only corrected driver-r2.log supports passing driver checks.",
+    "No source, environment, Git, model settings or product data were edited."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "files": {
+    "raw-audit.json": "9bc8175ed19dc8a0d1aa2d182698e1309f0d10bf3a4f696227e0bac94fdf7b3d",
+    "raw-audit-r2.log": "01baa3818f7d4e8a021e862f680a939421c302306343b8fab597fc4b14a39243",
+    "case-selection-and-bindings.json": "473d89a5b0f66aa42f5cb28f53e5c2ba6b165ff482cdcac8098ca29674ca99ce",
+    "case-validation.log": "2a011ae246e9aa6b704551c72497c10a8cb6cfaca68c7504ffd9120caa68c3cf",
+    "visual-review.json": "3e2cd0ec0ae49eef27dbbb3f9f9c8406b56230660d3cade6eca864241e1740b8",
+    "preservation-metadata.json": "091f151567b2d2aab49215e838a6962153776bc81767dea41924c365df416ff2",
+    "gate-live.json": "8003bf1c1936981f0d8bcf107b78b2be4974fb0d54ce6a0b4e2b4c9940e9fdda"
+  },
+  "liveManifestSha256": "ec5ada1565ce13ad3bf2f02924ed5d828c221ec295cb3273ed6da8cd3fbbc57c",
+  "liveInventorySha256": "3e884e5f5b0032b30e79a45356f457b1ac52d4461398f91f95e0d3445d68b745"
+}

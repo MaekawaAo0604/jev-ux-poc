@@ -18,3 +18,11 @@ docs/virtual-beta/deferral-weight-motion-plan.json -text whitespace=cr-at-eol
 docs/virtual-beta/deferral-weight-continuation-runner.txt -text whitespace=cr-at-eol
 docs/virtual-beta/deferral-weight-invalid-native.txt -text whitespace=cr-at-eol
 docs/virtual-beta/deferral-weight-source-*.zip binary
+
+# Preserve persona comparison raw review and executed-source evidence.
+docs/virtual-beta/persona-beta-review-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-beta-producer.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-beta-source.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-beta-motion-plan.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-beta-execution-control.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-beta-source-*.zip binary

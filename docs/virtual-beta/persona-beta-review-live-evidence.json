@@ -1,0 +1,553 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Sealed fictional real-model raw integrity; no human-fit/naturalness or verified-cognition claim",
+  "sourceHash": "128d87929d31b9ca6e46220c75aa4bb70829a2a5eae818d5835d9a20f359f5f6",
+  "revision": "f0d15c67f2d6679c944788ee52942d9351bf04c0",
+  "batchStatus": "COMPLETED",
+  "attempted": 12,
+  "missing": [],
+  "requests": 396,
+  "independentlyReadCurrentFiles": 519,
+  "sealSha256": "3e884e5f5b0032b30e79a45356f457b1ac52d4461398f91f95e0d3445d68b745",
+  "rows": [
+    {
+      "id": "persona-workshop-baseline-r1",
+      "actor": "baseline",
+      "replicate": 1,
+      "status": "RESULT",
+      "termination": "DECISION_LIMIT",
+      "requests": 36,
+      "ledger": {
+        "used": 36,
+        "sha256": "717cac13175078ad7aa1e0ce207a1601a70442f43531127183b1c71c4b330e57",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      },
+      "stages": {
+        "visual-hypotheses": 12,
+        "assessment": 12,
+        "action": 12
+      },
+      "delivery": {
+        "native": 12,
+        "assessment": 12,
+        "action": 12,
+        "errors": []
+      },
+      "replay": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-1",
+        "choices": 12,
+        "assessments": 12,
+        "images": 68,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": 24,
+      "initialBodyHash": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "objectiveSuccess": false,
+      "uiActions": 12,
+      "decisions": 12,
+      "looks": 0,
+      "validForComparison": true
+    },
+    {
+      "id": "persona-workshop-A-r1",
+      "actor": "A",
+      "replicate": 1,
+      "status": "RESULT",
+      "termination": "DECISION_LIMIT",
+      "requests": 36,
+      "ledger": {
+        "used": 36,
+        "sha256": "5651e4c19f7fe55bef3651b70d735c70251dd03a5179f1f1db6d94b838bda515",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      },
+      "stages": {
+        "visual-hypotheses": 12,
+        "assessment": 12,
+        "action": 12
+      },
+      "delivery": {
+        "native": 12,
+        "assessment": 12,
+        "action": 12,
+        "errors": []
+      },
+      "replay": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-2",
+        "choices": 12,
+        "assessments": 12,
+        "images": 68,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": 24,
+      "initialBodyHash": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "objectiveSuccess": false,
+      "uiActions": 12,
+      "decisions": 12,
+      "looks": 0,
+      "validForComparison": true
+    },
+    {
+      "id": "persona-workshop-B-r1",
+      "actor": "B",
+      "replicate": 1,
+      "status": "RESULT",
+      "termination": "DECISION_LIMIT",
+      "requests": 36,
+      "ledger": {
+        "used": 36,
+        "sha256": "2721d2205fbf9eb988d2c18ee30f5c1366de8e61a939995964e968916bb9b7f9",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      },
+      "stages": {
+        "visual-hypotheses": 12,
+        "assessment": 12,
+        "action": 12
+      },
+      "delivery": {
+        "native": 12,
+        "assessment": 12,
+        "action": 12,
+        "errors": []
+      },
+      "replay": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-3",
+        "choices": 12,
+        "assessments": 12,
+        "images": 70,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": 24,
+      "initialBodyHash": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "objectiveSuccess": false,
+      "uiActions": 12,
+      "decisions": 12,
+      "looks": 0,
+      "validForComparison": true
+    },
+    {
+      "id": "persona-workshop-C-r1",
+      "actor": "C",
+      "replicate": 1,
+      "status": "RESULT",
+      "termination": "SUBJECTIVE_DONE",
+      "requests": 30,
+      "ledger": {
+        "used": 30,
+        "sha256": "8943d010554be3a7d3e7ad485414e1b0ef82a494db8c0fe25b739cc8be3806c4",
+        "reserved": 0,
+        "ok": 30,
+        "errors": 0
+      },
+      "stages": {
+        "visual-hypotheses": 10,
+        "assessment": 10,
+        "action": 10
+      },
+      "delivery": {
+        "native": 10,
+        "assessment": 10,
+        "action": 10,
+        "errors": []
+      },
+      "replay": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-4",
+        "choices": 10,
+        "assessments": 10,
+        "images": 60,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": 20,
+      "initialBodyHash": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "objectiveSuccess": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "validForComparison": true
+    },
+    {
+      "id": "persona-workshop-A-r2",
+      "actor": "A",
+      "replicate": 2,
+      "status": "RESULT",
+      "termination": "DECISION_LIMIT",
+      "requests": 36,
+      "ledger": {
+        "used": 36,
+        "sha256": "d41965f83320642f271707e96dad779b0d58c3c7f42a6fc4b3940a88d802555e",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      },
+      "stages": {
+        "visual-hypotheses": 12,
+        "assessment": 12,
+        "action": 12
+      },
+      "delivery": {
+        "native": 12,
+        "assessment": 12,
+        "action": 12,
+        "errors": []
+      },
+      "replay": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-5",
+        "choices": 12,
+        "assessments": 12,
+        "images": 68,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": 24,
+      "initialBodyHash": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "objectiveSuccess": false,
+      "uiActions": 12,
+      "decisions": 12,
+      "looks": 0,
+      "validForComparison": true
+    },
+    {
+      "id": "persona-workshop-B-r2",
+      "actor": "B",
+      "replicate": 2,
+      "status": "RESULT",
+      "termination": "DECISION_LIMIT",
+      "requests": 36,
+      "ledger": {
+        "used": 36,
+        "sha256": "2c30768ce5feb540dc4d128aa403f11e73adb936b80ad52575535ffa6eb3c279",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      },
+      "stages": {
+        "visual-hypotheses": 12,
+        "assessment": 12,
+        "action": 12
+      },
+      "delivery": {
+        "native": 12,
+        "assessment": 12,
+        "action": 12,
+        "errors": []
+      },
+      "replay": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-6",
+        "choices": 12,
+        "assessments": 12,
+        "images": 68,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": 24,
+      "initialBodyHash": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "objectiveSuccess": false,
+      "uiActions": 12,
+      "decisions": 12,
+      "looks": 0,
+      "validForComparison": true
+    },
+    {
+      "id": "persona-workshop-C-r2",
+      "actor": "C",
+      "replicate": 2,
+      "status": "RESULT",
+      "termination": "SUBJECTIVE_DONE",
+      "requests": 30,
+      "ledger": {
+        "used": 30,
+        "sha256": "f0aa2e10b61f8958fb6c6cc7c2e295b3a9d75c1cc1621cc7b32dd97f55d0fda0",
+        "reserved": 0,
+        "ok": 30,
+        "errors": 0
+      },
+      "stages": {
+        "visual-hypotheses": 10,
+        "assessment": 10,
+        "action": 10
+      },
+      "delivery": {
+        "native": 10,
+        "assessment": 10,
+        "action": 10,
+        "errors": []
+      },
+      "replay": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-7",
+        "choices": 10,
+        "assessments": 10,
+        "images": 60,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": 20,
+      "initialBodyHash": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "objectiveSuccess": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "validForComparison": true
+    },
+    {
+      "id": "persona-workshop-baseline-r2",
+      "actor": "baseline",
+      "replicate": 2,
+      "status": "RESULT",
+      "termination": "SUBJECTIVE_DONE",
+      "requests": 30,
+      "ledger": {
+        "used": 30,
+        "sha256": "08b2cf11ae923ff6874f1e6526972ddd4d046d8af106cd3515211ba7a4c8c4cd",
+        "reserved": 0,
+        "ok": 30,
+        "errors": 0
+      },
+      "stages": {
+        "visual-hypotheses": 10,
+        "assessment": 10,
+        "action": 10
+      },
+      "delivery": {
+        "native": 10,
+        "assessment": 10,
+        "action": 10,
+        "errors": []
+      },
+      "replay": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-8",
+        "choices": 10,
+        "assessments": 10,
+        "images": 60,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": 20,
+      "initialBodyHash": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "objectiveSuccess": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "validForComparison": true
+    },
+    {
+      "id": "persona-workshop-B-r3",
+      "actor": "B",
+      "replicate": 3,
+      "status": "RESULT",
+      "termination": "SUBJECTIVE_DONE",
+      "requests": 30,
+      "ledger": {
+        "used": 30,
+        "sha256": "64312ffba89276520af3e27e915c24cbb2b01152de75816eae63a09729e05080",
+        "reserved": 0,
+        "ok": 30,
+        "errors": 0
+      },
+      "stages": {
+        "visual-hypotheses": 10,
+        "assessment": 10,
+        "action": 10
+      },
+      "delivery": {
+        "native": 10,
+        "assessment": 10,
+        "action": 10,
+        "errors": []
+      },
+      "replay": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-9",
+        "choices": 10,
+        "assessments": 10,
+        "images": 58,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": 20,
+      "initialBodyHash": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "objectiveSuccess": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "validForComparison": true
+    },
+    {
+      "id": "persona-workshop-C-r3",
+      "actor": "C",
+      "replicate": 3,
+      "status": "RESULT",
+      "termination": "SUBJECTIVE_DONE",
+      "requests": 30,
+      "ledger": {
+        "used": 30,
+        "sha256": "d8e8aeeb6af19b9f34367dd763a1378e0678c4a8b8796c57a904b740b0d30400",
+        "reserved": 0,
+        "ok": 30,
+        "errors": 0
+      },
+      "stages": {
+        "visual-hypotheses": 10,
+        "assessment": 10,
+        "action": 10
+      },
+      "delivery": {
+        "native": 10,
+        "assessment": 10,
+        "action": 10,
+        "errors": []
+      },
+      "replay": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-10",
+        "choices": 10,
+        "assessments": 10,
+        "images": 60,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": 20,
+      "initialBodyHash": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "objectiveSuccess": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "validForComparison": true
+    },
+    {
+      "id": "persona-workshop-baseline-r3",
+      "actor": "baseline",
+      "replicate": 3,
+      "status": "RESULT",
+      "termination": "DECISION_LIMIT",
+      "requests": 36,
+      "ledger": {
+        "used": 36,
+        "sha256": "cda513240a0868551c7da28a3f31305d14f2c9ff03b16bc2f39cd019109860b1",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      },
+      "stages": {
+        "visual-hypotheses": 12,
+        "assessment": 12,
+        "action": 12
+      },
+      "delivery": {
+        "native": 12,
+        "assessment": 12,
+        "action": 12,
+        "errors": []
+      },
+      "replay": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-11",
+        "choices": 12,
+        "assessments": 12,
+        "images": 66,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": 24,
+      "initialBodyHash": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "objectiveSuccess": false,
+      "uiActions": 12,
+      "decisions": 12,
+      "looks": 0,
+      "validForComparison": true
+    },
+    {
+      "id": "persona-workshop-A-r3",
+      "actor": "A",
+      "replicate": 3,
+      "status": "RESULT",
+      "termination": "SUBJECTIVE_DONE",
+      "requests": 30,
+      "ledger": {
+        "used": 30,
+        "sha256": "b6932ae1a8bccc1dc088d01bbccc60152eb9064a30fc4216b005e03f644390bc",
+        "reserved": 0,
+        "ok": 30,
+        "errors": 0
+      },
+      "stages": {
+        "visual-hypotheses": 10,
+        "assessment": 10,
+        "action": 10
+      },
+      "delivery": {
+        "native": 10,
+        "assessment": 10,
+        "action": 10,
+        "errors": []
+      },
+      "replay": {
+        "runId": "6431acba-5a83-42f2-9b80-d8012e110917-12",
+        "choices": 10,
+        "assessments": 10,
+        "images": 60,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": 20,
+      "initialBodyHash": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+      "objectiveSuccess": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "validForComparison": true
+    }
+  ],
+  "metrics": {
+    "independentImplementation": true,
+    "complete": 12,
+    "partial": 0,
+    "within": {
+      "count": 12,
+      "mean": 0.3055555555555556
+    },
+    "between": {
+      "count": 54,
+      "mean": 0.32253086419753096
+    },
+    "permutation": {
+      "completeBlocks": 3,
+      "assignments": 13824,
+      "tailCount": 6336,
+      "tailProportion": 0.4583333333333333,
+      "observed": 0.016975308641975384,
+      "interpretation": "conditional exploratory reference; exchangeability and time/order assumptions unvalidated; no naturalness or human-fit verdict"
+    },
+    "sameImages": {
+      "firstOccurrences": 79,
+      "imagePairs": 381,
+      "boundPairs": 0,
+      "bindingMismatches": 381,
+      "unmeasured": 0
+    }
+  },
+  "initialNativeBodies": {
+    "count": 12,
+    "matched": true,
+    "sha256AfterRemovingOnlyPersona": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+    "reconstruction": "Current production native request builder + each actual saved PNG; no actual wire-body capture exists"
+  },
+  "stateIsolation": {
+    "freshSourcePathVerifiedByFrozenCode": true,
+    "distinctTrialOrigins": 1,
+    "originReuseIsNotSessionReuse": true,
+    "initialMemoryAndStateChecks": true,
+    "noClaimAboutProviderInternals": true
+  },
+  "manualConsistency": "PENDING_CASE_REVIEW",
+  "humanFidelity": "UNASSESSED",
+  "modelCallsByReviewer": 0,
+  "priorHistoricalRawPayloadsRead": false,
+  "rawUnchanged": true
+}
