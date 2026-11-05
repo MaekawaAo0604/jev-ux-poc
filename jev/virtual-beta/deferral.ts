@@ -1,7 +1,7 @@
 import type {BetaCandidates,UserObservation} from './contracts.js';
 import type {DeliberationAssessment} from './deliberation-contracts.js';
 import type {ExperienceMemory,ExperienceSource} from './experience-contracts.js';
-import type {DeferralConfig,DeferralMemory,DeferralDecision,DeferralEntry} from './deferral-contracts.js';
+import type {DeferralConfig,DeferralMemory,DeferralDecision,DeferralEntry,DeferralApplication} from './deferral-contracts.js';
 import {experienceContext} from './experience.js';
 import {InvalidDistributionError} from './selection.js';
 
@@ -10,6 +10,10 @@ const nonempty=(value:unknown):value is string=>typeof value==='string'&&value.t
 const sameSource=(a:ExperienceSource,b:ExperienceSource)=>a.observationId===b.observationId&&a.imageSha256===b.imageSha256;
 const entryKey=(entry:Pick<DeferralEntry,'imageSha256'|'candidateId'>)=>JSON.stringify([entry.imageSha256,entry.candidateId]);
 function validateConfig(config:DeferralConfig){
+ if(config&&typeof config==='object'){
+  const flag=Object.getOwnPropertyDescriptor(config,'applyWeights');
+  if(flag? !('value' in flag)||!flag.enumerable||flag.value!==undefined&&(typeof flag.value!=='boolean'||config.enabled!==true):'applyWeights' in config)throw new Error('INVALID_DEFERRAL_CONFIG');
+ }
  if(!config||typeof config.enabled!=='boolean'||!Number.isSafeInteger(config.capacity)||config.capacity<1||config.capacity>8||!Number.isFinite(config.weight)||config.weight<=0||config.weight>=1||!Number.isFinite(config.minAlternativeProbability)||config.minAlternativeProbability<0||config.minAlternativeProbability>1||config.selectionScope!==undefined&&!['global','ui-conditional'].includes(config.selectionScope))throw new Error('INVALID_DEFERRAL_CONFIG');
 }
 function sourceCopy(source:ExperienceSource):ExperienceSource{
@@ -89,4 +93,22 @@ export function deferralDecision(memory:DeferralMemory|undefined,current:UserObs
  else if(plausibleCandidates.every(key=>deferredCandidates.includes(key)))reason='ALTERNATIVES_EXHAUSTED';
  else{reason='DEFER_WITH_ALTERNATIVES';appliedCandidates=[...deferredCandidates];for(const key of appliedCandidates)weights[key]=config.weight;}
  return {kind:'temporary-deferral',weights,plausibleCandidates,deferredCandidates,appliedCandidates,reason};
+}
+/** Application is separate from the unchanged proposal; observe-only still records the proposed multipliers. */
+export function deferralApplication(decision:DeferralDecision,config:DeferralConfig):DeferralApplication{
+ validateConfig(config);
+ const invalid=():never=>{throw new InvalidDistributionError('Deferral weights must be a nonempty plain record of own finite positive multipliers at most one');};
+ const field=decision&&typeof decision==='object'?Object.getOwnPropertyDescriptor(decision,'weights'):undefined;
+ if(!field||!('value' in field))invalid();
+ const weights:unknown=field!.value;
+ if(!isRecord(weights)||![Object.prototype,null].includes(Object.getPrototypeOf(weights)))invalid();
+ const entries:[string,number][]=[];
+ for(const key of Reflect.ownKeys(weights as object)){
+  const descriptor=Object.getOwnPropertyDescriptor(weights,key)!;
+  if(typeof key!=='string'||!descriptor.enumerable||!('value' in descriptor)||typeof descriptor.value!=='number'||!Number.isFinite(descriptor.value)||descriptor.value<=0||descriptor.value>1)invalid();
+  entries.push([key as string,descriptor.value]);
+ }
+ if(!entries.length)invalid();
+ const mode=config.applyWeights===false?'observe-only':'apply';
+ return {kind:'deferral-weight-application',mode,proposedWeights:Object.fromEntries(entries),appliedWeights:Object.fromEntries(entries.map(([key,weight])=>[key,mode==='observe-only'?1:weight]))};
 }

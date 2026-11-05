@@ -1,3 +1,4 @@
+import {isDeepStrictEqual} from 'node:util';
 import {beginInquiryOperation,buildInquiryOutcomeContext,inquiryOutcomeQuestions,admitInquiryOutcome,rememberInquiryOutcome} from '../jev/virtual-beta/inquiry-outcome.js';
 import {inquiryOutcomeUserContext,inquiryOutcomeUserMemory,inquiryOutcomeCriteria} from '../jev/virtual-beta/inquiry-outcome-projection.js';
 import type {InquiryOutcomeContext,InquiryOutcomeRecord,InquiryOutcomeMemory,PendingInquiryOperation} from '../jev/virtual-beta/inquiry-outcome-contracts.js';
@@ -25,7 +26,7 @@ import type {CorrespondenceContext} from '../jev/virtual-beta/correspondence-con
 import {candidatesFor} from '../jev/types.js';
 import {filterCandidates} from '../jev/persona.js';
 import {reconstructReplayCandidates} from './virtual-beta-replay-candidates.js';
-import {copyDeferrals,updateDeferrals,deferralDecision} from '../jev/virtual-beta/deferral.js';
+import {copyDeferrals,updateDeferrals,deferralDecision,deferralApplication} from '../jev/virtual-beta/deferral.js';
 import {arriveExperience,beginExperience,experienceQuestions,admitExperience,experienceContext,experienceCriteria} from '../jev/virtual-beta/experience.js';
 import {prepareReasonContext,requiredReasonSources,reasonQuestions,admitReasons} from '../jev/virtual-beta/deferral-reason.js';
 import type {DeferralReasonMemory,DeferralReasonContext} from '../jev/virtual-beta/deferral-reason-contracts.js';
@@ -350,13 +351,16 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
     if(!equal(step.inquiryOutcome?.operation,pendingInquiry))throw Error('INQUIRY_OUTCOME_PENDING_MISMATCH');
    }else if(step.inquiryOutcome?.operation!==undefined)throw Error('INQUIRY_OUTCOME_UNPERFORMED_OPERATION');
   }
+  if(step.deferral?.application!==undefined&&(!step.selection||!result.config.deferral?.enabled))throw Error('UNEXPECTED_DEFERRAL_APPLICATION');
   if(step.selection&&result.config.deferral?.enabled){
    const candidates:BetaCandidates=Object.fromEntries(Object.keys(step.questions!.nextAction.criteria).map(id=>[id,{action:/^e\d+$/.test(id)?{type:'click',elementId:id}:{type:'stuck'},label:id}]));
    const decision=deferralDecision(effectiveDeferrals,step.userState!.lastObservation!,candidates,step.deliberation!.assessment!,step.selection.raw,result.config.deferral);
    if(!equal(step.deferral?.decision,decision))throw new Error('DEFERRAL_DECISION_MISMATCH');
-   if(!equal(step.selection.policy?.weights,Object.fromEntries(Object.keys(decision.weights).sort().map(id=>[id,decision.weights[id]]))))throw new Error('DEFERRAL_WEIGHT_MISMATCH');
+   const application=result.config.deferral.applyWeights===undefined?undefined:deferralApplication(decision,result.config.deferral);if(!equal(step.deferral?.application,application))throw Error('DEFERRAL_APPLICATION_MISMATCH');const applied=application?.appliedWeights??decision.weights;
+   if(!equal(step.selection.policy?.weights,Object.fromEntries(Object.keys(applied).sort().map(id=>[id,applied[id]]))))throw new Error('DEFERRAL_WEIGHT_MISMATCH');
   }
   if(step.selection){
+   const answer=step.response?.answers?.nextAction;if(!answer||answer.choice!==step.selection.modelChoice||!isDeepStrictEqual(answer.probabilities,step.selection.raw))throw Error('SELECTION_RESPONSE_BINDING_MISMATCH');
    const conditional=result.config.deferral?.enabled===true&&result.config.deferral.selectionScope==='ui-conditional';
    if(conditional?step.selection.policy?.scope?.kind!=='ui-conditional-v1':step.selection.policy?.scope!==undefined)throw Error('DEFERRAL_SCOPE_MISMATCH');
    const candidates=conditional?reconstructReplayCandidates(step.audit!.screen,Object.keys(step.selection.raw)):Object.fromEntries(Object.keys(step.selection.raw).map(k=>[k,{action:{type:'stuck' as const},label:k}]));
