@@ -1,0 +1,25 @@
+{
+  "protocol": "Held-out real public sites; Goals fixed before Jev runs; no production edits during trials",
+  "head": "2852e6846f8612877c42d04a2560049cd6891331",
+  "repeat": 2,
+  "execution": "sequential, fresh browser/context per trial, 2000ms action interval, no action cap",
+  "model": "jev-1.14.0",
+  "flags": ["--reviewed", "--vision", "--image-only", "--image-memory", "--image-memory-proof", "--max-actions", "0", "--interval-ms", "2000"],
+  "scope": "Same-origin public reading only. No form submissions, login, reservations, purchases, contacting operators, admin paths or publishing screenshots. Selected old sources only for completion/outcome checks. No OCR or DOM text to Jev.",
+  "permissionLimit": "No explicit operator permission is claimed; robots allowance/absence is not blanket authorization. Limited low-impact reading only; existing safeguards stop at unsupported content, disallowed navigation or 401/403/429. Policy review is conservative, not legal clearance.",
+  "cases": [
+    {"id":"kiito-closed","family":"single-information","url":"https://kiito.jp/","goal":"KIITOに来館したい。通常の休館日を知りたい。申し込みはしない。"},
+    {"id":"hakone-visit","family":"multi-information","url":"https://www.hakone-oam.or.jp/","goal":"初めて彫刻の森美術館に行きたい。開館時間、一般の入館料、最寄り駅からの行き方を知りたい。予約・購入はしない。"},
+    {"id":"kiito-room","family":"condition-matching","url":"https://kiito.jp/","goal":"10人で打ち合わせできる貸室を探し、その部屋の定員と利用料金が分かる案内を開きたい。予約はしない。"}
+  ],
+  "policyReview": [
+    {"site":"kiito","robots":"https://kiito.jp/robots.txt","status":200,"rule":"Only /wordpress/wp-admin/ disallowed; admin and form use excluded","policy":"https://kiito.jp/privacypolicy/","finding":"Public privacy policy reviewed; no explicit public-reading automation permission claimed"},
+    {"site":"hakone","robots":"https://www.hakone-oam.or.jp/robots.txt","status":404,"policy":"https://www.hakone-oam.or.jp/others/privacypolicy","finding":"Public privacy policy reviewed; no applicable public-reading automation prohibition found. A missing robots file is not permission."}
+  ],
+  "excluded": [
+    {"site":"Backlog","policy":"https://nulab.com/ja/terms/","reason":"Article 7(3) restricts scraping/crawling; excluded conservatively despite robots AI-crawler allowances"},
+    {"site":"FabCafe","reason":"Top-page preflight timed out; omitted rather than increase traffic or bypass access"},
+    {"site":"Japan Post","reason":"robots excludes search/cgi-bin; current unchanged runner lacks path-specific robots enforcement, so omitted"}
+  ],
+  "evaluation": "Retain every trial, original ending and audit errors. Model classifications are not objective facts. Afterwards inspect actual selected images for each requested substantive item; distinguish display exposure, conditional policy, unresolved detail and tool/scope failures. No manual route/expected answer is passed to Jev. Two related cultural facilities do not establish cross-industry generalization."
+}

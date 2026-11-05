@@ -4,6 +4,37 @@ import {chromium} from 'playwright';
 import {PublicSitePage} from '../pages/PublicSitePage.js';
 import {candidatesFor} from '../jev/types.js';
 
+test('Back waits for the approved landing despite a same-URL unload history event',async()=>{
+ const browser=await chromium.launch();
+ try{
+  const page=await browser.newPage();let homeRequests=0;
+  await page.route('https://example.test/**',async route=>{
+   const home=new URL(route.request().url()).pathname==='/';
+   if(home&&++homeRequests>1)await new Promise(r=>setTimeout(r,150));
+   await route.fulfill({contentType:'text/html',headers:{'cache-control':'no-store'},body:`<h1>${home?'Home':'Next'}</h1><a href="/next">Next</a><script>addEventListener('beforeunload',()=>history.replaceState({},'',location.href))</script>`});
+  });
+  const pom=new PublicSitePage(page);await pom.navigateTo('https://example.test/');
+  const screen=await pom.observe(false);await pom.act({type:'click',elementId:screen.elements[0].id});
+  await pom.act({type:'back'});
+  assert.equal(page.url(),'https://example.test/');assert.equal(await page.locator('h1').textContent(),'Home');
+  assert.equal(pom.canGoBack,false);
+ }finally{await browser.close();}
+});
+
+test('Back still rejects a same-origin landing that rewrites the approved URL',async()=>{
+ const browser=await chromium.launch();
+ try{
+  const page=await browser.newPage();let homeRequests=0;
+  await page.route('https://example.test/**',route=>{
+   const home=new URL(route.request().url()).pathname==='/',rewrite=home&&++homeRequests>1;
+   return route.fulfill({contentType:'text/html',headers:{'cache-control':'no-store'},body:`<h1>Page</h1><a href="/next">Next</a>${rewrite?'<script>history.replaceState({},"","/unexpected")</script>':''}`});
+  });
+  const pom=new PublicSitePage(page);await pom.navigateTo('https://example.test/');
+  const screen=await pom.observe(false);await pom.act({type:'click',elementId:screen.elements[0].id});
+  await assert.rejects(pom.act({type:'back'}),/SAFETY_BOUNDARY: back destination changed/);
+ }finally{await browser.close();}
+});
+
 for(const bootstrap of ['explicit-navigation','existing-page'] as const)for(const mutation of ['pushState','replaceState'] as const)test(`initial history baseline rejects ${mutation} before the first click (${bootstrap})`,async()=>{
  const browser=await chromium.launch();
  try{

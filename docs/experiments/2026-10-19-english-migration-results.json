@@ -1,0 +1,332 @@
+{
+  "root": "E:\\ChatGPT\\Ux_test\\reports\\english-migration-2026-10-19T12-35-18.588Z",
+  "codeHashes": [
+    {
+      "file": "jev/goal-completeness.ts",
+      "sha256": "c490cfdf3a64f4da124805ff161af91cb877ed2e202b616fa25e5a0e2256a70b"
+    },
+    {
+      "file": "jev/image-judgments.ts",
+      "sha256": "024bc390dcba4a421218a8ce085537346eacc1e1ba79c4ee3acde15245157893"
+    },
+    {
+      "file": "jev/image-only-input.ts",
+      "sha256": "ecf08a79577cc32e722091e4ce0a26a3209a8f088b1fe44bb34b4925acad1d50"
+    },
+    {
+      "file": "runner/goal-outcome.ts",
+      "sha256": "6f308337b05750aa39e23cfa095547b7981c1c053745c8fed3f4158073c7e0ff"
+    },
+    {
+      "file": "runner/visual-evidence.ts",
+      "sha256": "1260473ead2c7842433056d278690b1131a7525ca0745b951c0b0b4c72dfee83"
+    }
+  ],
+  "sources": [
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\scope-isolation-2026-10-19T12-33-21.524Z\\scope.json",
+      "sha256": "5873f6aac747bb3763523c16e7c62b966dcce799a6a9fd43ec3ecc66a04de526"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T12-27-16.233Z-public\\exploration\\result.json",
+      "sha256": "3ebd17f2a2326ef667c8a6ff0a9e7843d591d0686fd486802630b53a92778032"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T12-33-23.822Z-public\\exploration\\result.json",
+      "sha256": "7242112ae5dac396064154f9b5b575df6857aa1d6a3f2ab32efb8ab91a24ff84"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T12-33-34.390Z-public\\exploration\\result.json",
+      "sha256": "5779de3da83c738f3fb13d66be64d2526be4b45ddaa1f13d7b2a487dce9ebf19"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T12-33-41.661Z-public\\exploration\\result.json",
+      "sha256": "9efe8c6f41d34365d6980e27f0eed77d6516a7890a6e93c02140dc509f074de7"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T12-33-48.297Z-public\\exploration\\result.json",
+      "sha256": "26f2087a2dd5dad6049a8cec489f2822ea577718937610c7855bdfad04d8f94b"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T12-33-58.973Z-public\\exploration\\result.json",
+      "sha256": "df00fcf9f1621f262342dcd35e42f4a9b6230c076db45055aad516dd4b1ddfa2"
+    }
+  ],
+  "sourceFilesUnchanged": true,
+  "localChecks": [
+    {
+      "mode": "same",
+      "reason": "JEV_DONE",
+      "actions": 1,
+      "answerGETs": 1,
+      "audit": "supported",
+      "items": [
+        {
+          "text": "図書室の開館時間を知りたい",
+          "status": "confirmed"
+        },
+        {
+          "text": "予約・問い合わせはしない",
+          "status": "context"
+        }
+      ],
+      "objectiveSuccess": null
+    },
+    {
+      "mode": "cross",
+      "reason": "STUCK",
+      "actions": 0,
+      "answerGETs": 0,
+      "audit": "insufficient",
+      "items": [
+        {
+          "text": "図書室の開館時間を知りたい",
+          "status": "unconfirmed"
+        },
+        {
+          "text": "予約・問い合わせはしない",
+          "status": "unconfirmed"
+        }
+      ],
+      "objectiveSuccess": null
+    },
+    {
+      "mode": "cross",
+      "reason": "STUCK",
+      "actions": 0,
+      "answerGETs": 0,
+      "audit": "insufficient",
+      "items": [
+        {
+          "text": "図書室の開館時間を知りたい",
+          "status": "unconfirmed"
+        },
+        {
+          "text": "予約・問い合わせはしない",
+          "status": "unconfirmed"
+        }
+      ],
+      "objectiveSuccess": null
+    },
+    {
+      "mode": "same",
+      "reason": "JEV_DONE",
+      "actions": 1,
+      "answerGETs": 1,
+      "audit": "supported",
+      "items": [
+        {
+          "text": "図書室の開館時間を知りたい",
+          "status": "confirmed"
+        },
+        {
+          "text": "予約・問い合わせはしない",
+          "status": "unconfirmed"
+        }
+      ],
+      "objectiveSuccess": null
+    },
+    {
+      "mode": "direct-answer",
+      "reason": "JEV_DONE",
+      "actions": 0,
+      "answerGETs": 1,
+      "audit": "supported",
+      "items": [
+        {
+          "text": "図書室の開館時間を知りたい",
+          "status": "confirmed"
+        },
+        {
+          "text": "予約・問い合わせはしない",
+          "status": "context"
+        }
+      ],
+      "objectiveSuccess": null
+    }
+  ],
+  "public": {
+    "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T12-27-16.233Z-public\\exploration\\result.json",
+    "reason": "UNSUPPORTED_CONTENT",
+    "actions": 26,
+    "elapsedMs": 85775.0128,
+    "repairRecords": [
+      {
+        "step": 1,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/"
+      },
+      {
+        "step": 2,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/faq.html"
+      },
+      {
+        "step": 3,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/faq.html"
+      },
+      {
+        "step": 4,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/faq.html"
+      },
+      {
+        "step": 5,
+        "status": "observed",
+        "url": "https://www.7-zip.org/recover.html"
+      },
+      {
+        "step": 6,
+        "status": "observed",
+        "url": "https://www.7-zip.org/recover.html"
+      },
+      {
+        "step": 7,
+        "status": "observed",
+        "url": "https://www.7-zip.org/recover.html"
+      },
+      {
+        "step": 8,
+        "status": "observed",
+        "url": "https://www.7-zip.org/recover.html"
+      },
+      {
+        "step": 9,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/faq.html"
+      },
+      {
+        "step": 10,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/sdk.html"
+      },
+      {
+        "step": 11,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/sdk.html"
+      },
+      {
+        "step": 12,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/faq.html"
+      },
+      {
+        "step": 13,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/faq.html"
+      },
+      {
+        "step": 14,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/faq.html"
+      },
+      {
+        "step": 15,
+        "status": "observed",
+        "url": "https://www.7-zip.org/recover.html"
+      },
+      {
+        "step": 16,
+        "status": "observed",
+        "url": "https://www.7-zip.org/recover.html"
+      },
+      {
+        "step": 17,
+        "status": "observed",
+        "url": "https://www.7-zip.org/recover.html"
+      },
+      {
+        "step": 18,
+        "status": "observed",
+        "url": "https://www.7-zip.org/recover.html"
+      },
+      {
+        "step": 19,
+        "status": "observed",
+        "url": "https://www.7-zip.org/recover.html"
+      },
+      {
+        "step": 20,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/faq.html"
+      },
+      {
+        "step": 21,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/sdk.html"
+      },
+      {
+        "step": 22,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/"
+      },
+      {
+        "step": 23,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/faq.html"
+      },
+      {
+        "step": 24,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/faq.html#user_faq"
+      },
+      {
+        "step": 25,
+        "status": "observed",
+        "url": "https://www.7-zip.org/faq.html#user_faq"
+      },
+      {
+        "step": 26,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/faq.html#user_faq"
+      },
+      {
+        "step": 27,
+        "status": "not_shown",
+        "url": "https://www.7-zip.org/sdk.html"
+      }
+    ],
+    "retrospectiveAudit": {
+      "status": "ERROR",
+      "assessment": "uncertain",
+      "error": {
+        "stage": "completion",
+        "code": "HTTP_ERROR",
+        "statusCode": 400
+      }
+    },
+    "retrospectiveOutcome": {
+      "status": "RECORDED",
+      "items": [
+        {
+          "text": "7-Zipでパスワードを忘れた場合に復元できるかと",
+          "status": "unconfirmed"
+        },
+        {
+          "text": "壊れた7z書庫を修復する方法を知りたい",
+          "status": "unconfirmed"
+        },
+        {
+          "text": "ダウンロード・インストール・問い合わせはしない",
+          "status": "context"
+        }
+      ]
+    }
+  },
+  "qa": {
+    "http": 200,
+    "runCards": 6,
+    "images": 40,
+    "localLinksChecked": 119,
+    "pageErrors": [],
+    "externalRequests": [],
+    "mobileOverflow": false
+  },
+  "caveats": [
+    "One FAQ link-only frame was still misclassified during navigation.",
+    "Public exploration predates the retrospective audit translation; only saved-pixel audits were rerun on final code.",
+    "No controlled end-to-end speed or accuracy comparison.",
+    "Legacy DOM/OCR prompts remain unchanged."
+  ]
+}

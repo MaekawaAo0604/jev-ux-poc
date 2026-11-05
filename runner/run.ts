@@ -2,7 +2,7 @@ import {chromium} from 'playwright';
 import {createServer} from 'vite';
 import {resolve,join} from 'node:path';
 import {existsSync} from 'node:fs';
-import {jevDecide} from '../jev/decide.js';
+import {jevDecide,jevVisualDecide} from '../jev/decide.js';
 import {evaluateChoices} from '../jev/client.js';
 import {fakeDecide} from '../jev/fake.js';
 import {run} from './engine.js';
@@ -11,6 +11,17 @@ import {goals,type GoalId} from '../tests/goals.js';
 if(existsSync('.env'))process.loadEnvFile('.env');
 const args=process.argv.slice(2);const option=(key:string,fallback:string)=>{const i=args.indexOf(key);if(i<0)return fallback;if(!args[i+1]||args[i+1].startsWith('--'))throw new Error(`Missing value: ${key}`);return args[i+1];};
 const fake=args.includes('--fake');
+const vision=args.includes('--vision');
+const visionOCR=args.includes('--vision-ocr');
+const imageOnly=args.includes('--image-only');
+const imageMemory=args.includes('--image-memory');
+const imageMemoryProof=args.includes('--image-memory-proof');
+if(visionOCR&&!vision)throw new Error('--vision-ocr requires --vision');
+if(imageOnly&&!vision)throw new Error('--image-only requires --vision');
+if(imageOnly&&visionOCR)throw new Error('--image-only cannot combine with --vision-ocr');
+if(imageMemory&&!imageOnly)throw new Error('--image-memory requires --image-only');
+if(imageMemoryProof&&!imageMemory)throw new Error('--image-memory-proof requires --image-memory');
+if(vision&&(fake||!process.env.AI_GATEWAY_API_KEY))throw new Error('--vision requires AI_GATEWAY_API_KEY and a real Jev run');
 const maxActions=Number(option('--max-actions','20')),repeats=Number(option('--repeat','1'));
 if(!Number.isInteger(maxActions)||maxActions<0||!Number.isInteger(repeats)||repeats<1)throw new Error('Invalid numeric option');
 const selected=option('--goal','all');if(selected!=='all'&&!Object.hasOwn(goals,selected))throw new Error('Unknown goal');
@@ -29,7 +40,7 @@ try{
     const page=await context.newPage();
     // Keep the experiment local; external fonts are optional and excluded for repeatability.
     await context.route('**/*',route=>new URL(route.request().url()).origin===new URL(server.resolvedUrls!.local[0]).origin?route.continue():route.abort());
-    const result=await run(page,fake?fakeDecide:jevDecide,{variant,font,goal,repeat,fake,maxActions,generateTest:args.includes('--generate-test'),pom:pomOption as 'manual'|'auto',success:successOption as 'oracle'|'jev'|'both',baseURL:server.resolvedUrls!.local[0].replace(/\/$/,''),dir:join(root,`${variant}-${goal}-font-${font}-${repeat}`)},fake?undefined:evaluateChoices);
+    const result=await run(page,fake?fakeDecide:jevDecide,{variant,font,goal,repeat,fake,maxActions,vision,visionOCR,imageOnly,imageMemory,imageMemoryProof,generateTest:args.includes('--generate-test'),pom:pomOption as 'manual'|'auto',success:successOption as 'oracle'|'jev'|'both',baseURL:server.resolvedUrls!.local[0].replace(/\/$/,''),dir:join(root,`${variant}-${goal}-font-${font}-${repeat}`)},fake?undefined:evaluateChoices,vision?jevVisualDecide:undefined);
     results.push(result);await report(root,results);console.log(`${variant} ${goal} font=${font}: ${result.reason} (${result.actionCount} actions)`);await context.close();
   }
   console.log(`Report: ${join(root,'index.html')}`);

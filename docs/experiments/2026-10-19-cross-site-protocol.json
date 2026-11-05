@@ -1,0 +1,13 @@
+{
+ "productionHead":"b6046a6",
+ "purpose":"Validate the visual-numbering fix on other real sites, without changing production code or supplying successful routes.",
+ "settings":{"repeat":2,"viewport":{"width":1440,"height":1000},"locale":"ja-JP","sequential":true,"intervalMs":2000,"maxActions":0,"model":"jev-1.14.0","flags":["--reviewed","--vision","--image-only","--image-memory","--image-memory-proof","--max-actions","0","--interval-ms","2000"]},
+ "cases":[
+  {"id":"library-visit","site":"千代田区立図書館","url":"https://www.library.chiyoda.tokyo.jp/","goal":"初めて千代田図書館に行きたい。通常の開館時間と最寄り駅からの行き方を確認したい。予約・ログイン・問い合わせはしない。"},
+  {"id":"library-card","site":"千代田区立図書館","url":"https://www.library.chiyoda.tokyo.jp/","goal":"千代田区外に住んでいても本を借りられるか知りたい。借りられる場合は、貸出券を作るために必要なものも確認したい。申請・予約・ログイン・問い合わせはしない。"}
+ ],
+ "policy":[{"site":"千代田区立図書館","robots":"https://www.library.chiyoda.tokyo.jp/robots.txt","robotsStatus":404,"policy":"https://www.library.chiyoda.tokyo.jp/sitepolicy/","policyStatus":200,"fullTextReviewed":true,"snapshot":"reports/cross-site-preflight-2026-10-19/1.txt","snapshotSha256":"597daf0f051eb1637205594fa474d64f5777b192ae84a783a74ceced03578e9a","decision":"No applicable public-reading automation ban found; absent robots is not permission. Low-impact public read-only validation only, no explicit operator permission claimed."}],
+ "selectionNotes":["cafebach.com is a parked/for-sale domain, not the cafe official site, and was excluded before exploration.","The correct cafe bach-kaffee.co.jp has purchase links and robots path/query restrictions not enforced by the unchanged runner; excluded.","Miraikan policy bans commercial-purpose activity and preparation, so excluded from this product-validation context."],
+ "evaluation":"Retain every normal or interrupted attempt and raw model verdict. Review actual executed targets and saved images after each run. Do not classify site UX from instrument errors or assert objective success from JEV_DONE. No OCR/DOM text/answers/routes to Jev. Selected prior evidence images used only for completion/outcome checks. No publishing source screenshots.",
+ "stopPolicy":"No arbitrary action-count cap. Stop an experiment for access restriction, unsafe operation risk, or a known instrumentation problem that invalidates additional external exploration; preserve partial evidence and distinguish experimenter abort from Jev ending."
+}

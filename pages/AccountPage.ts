@@ -1,5 +1,6 @@
 import type {Page, Locator,ElementHandle} from 'playwright';
-import {SCROLL_VIEWPORT_FRACTION,type Observation,type Action} from '../jev/types.js';
+import {SCROLL_VIEWPORT_FRACTION,type Observation,type Action,type Candidate} from '../jev/types.js';
+import {numberedScreenshot,type VisualTarget} from './visual-numbering.js';
 import {visibleText} from './visible-text.js';
 import {controlSelector,type PublicControl} from './controls.js';
 import {inspectControl,type ControlObservation,type ObservedControl} from './control-observation.js';
@@ -14,7 +15,7 @@ export class AccountPage {
   protected observedPublicControls=new Map<string,PublicControl>();
   protected observedControlPaths=new Map<string,number[]>();
   private pageIds=new Map<string,string>();
-  constructor(public page:Page){
+  constructor(public page:Page,protected vision=false){
     // A navigation event also fires for hash/pushState changes, which preserve
     // selected nodes. Document replacement invalidates their execution context;
     // release our handles on the next observation (or when the page closes).
@@ -62,7 +63,7 @@ export class AccountPage {
     const {screen,controls}=await this.observeControls(font);
     for(const {locator,handle,type,text,fontSizePx,context,publicControl,identityPath} of controls){
       const id=`e${elements.length+1}`;
-      elements.push({id,type,text,...(font?{fontSizePx}:{}),...(context?{context}:{})});
+      elements.push({id,type,text,...(this.vision&&!text.trim()?{description:`現在画像の候補番号 [${id}] の操作。内容は画像を見て判断する`}:{}),...(font?{fontSizePx}:{}),...(context?{context}:{})});
       this.targets.set(id,locator);this.targetHandles.set(id,handle);
       if(publicControl)this.observedPublicControls.set(id,publicControl);
       if(identityPath)this.observedControlPaths.set(id,identityPath);
@@ -102,6 +103,17 @@ export class AccountPage {
       if(!await locator.evaluate((el,selected)=>el===selected&&el.isConnected,handle))throw new Error('TRACE_TARGET_CHANGED');
     }else if(action.type==='scroll')draft.value=action.direction;
     return draft;
+  }
+  async captureDecisionScreenshot(screen:Observation,candidates:Record<string,Candidate>,path?:string){
+    const targets:VisualTarget[]=[];
+    for(const element of screen.elements){
+      const action=candidates[element.id]?.action;
+      if(element.available===false||action?.type!=='click'||action.elementId!==element.id)continue;
+      const handle=await this.targetElement(element.id),box=await handle.boundingBox();
+      if(!box)throw new Error('ACTION_ERROR: observed target was replaced or detached');
+      targets.push({id:element.id,...box});
+    }
+    return numberedScreenshot(this.page,targets,path);
   }
   async act(action:Action){
     if(action.type==='click'){

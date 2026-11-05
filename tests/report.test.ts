@@ -1,10 +1,161 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {measurementClass,probabilityLabels,report} from '../runner/report.js';
+import {measurementClass,measurementForRun,probabilityLabels,report} from '../runner/report.js';
 import {mkdtemp,mkdir,writeFile,readFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {chromium} from 'playwright';
+
+test('structured outcome shows partial information and source links without replacing the original stopping reason',async()=>{
+ const html=await renderFixture({reason:'STUCK',goalOutcome:{status:'RECORDED',coverage:'selected-images-only',objectiveVerified:false,items:[
+  {text:'料金 <script>',status:'confirmed',evidence:[{id:'v1',step:1,sha256:'a'.repeat(64),phase:'decision'}]},
+  {text:'土日の利用',status:'conditional',evidence:[{id:'final',step:3,sha256:'b'.repeat(64),phase:'final'}]},
+  {text:'所要時間',status:'unconfirmed',evidence:[]},
+ ],warnings:[]}});
+ assert.match(html,/今回確認できたこと・未確定のこと/);assert.match(html,/条件付きの案内/);assert.match(html,/観測範囲では未確認/);
+ assert.match(html,/料金 &lt;script&gt;/);assert.match(html,/href="#trial-0-screen-final"/);assert.match(html,/途中停止/);
+ assert.doesNotMatch(html,/data-outcome="success"/);
+});
+
+test('structured outcome API errors are reported separately, not as missing site information',async()=>{
+ const html=await renderFixture({reason:'JEV_DONE',goalOutcome:{status:'ERROR',items:[],error:{code:'HTTP_ERROR',statusCode:400}}});
+ assert.match(html,/結果整理に失敗/);assert.match(html,/HTTP 400/);assert.match(html,/Jevが完了と判断/);
+});
+test('outcome evidence links can reach the final frame even when legacy completion audit is absent',async()=>{
+ const html=await renderFixture({reason:'STUCK',steps:[step(1,'案内','https://example.test/','STUCK','stuck')],goalOutcome:{status:'RECORDED',items:[],warnings:[],observations:[{id:'final',phase:'final',step:2}]}});
+ assert.ok(html.includes('id="trial-0-screen-final"'),'the selected final image must have a real report anchor');
+});
+
+test('image memory report shows source-linked model judgments without claiming objective evidence or no memory',async()=>{
+ const s:any=step(1,'案内','https://example.test/','STUCK','stuck');
+ s.visualContext={imageJudgments:{requirements:[{id:'g1',text:'条件 <script>',status:'observed',records:[{assessment:'observed',source:{id:'v1',step:1,sha256:'a'.repeat(64)},model:'TEST'}]}],routes:[{targetId:'f1',assessment:'promising',source:{id:'v1',step:1,sha256:'a'.repeat(64)},model:'TEST'}]}};
+ const html=await renderFixture({vision:true,reason:'STUCK',settings:{observationMode:'image-only',visualJudgmentMemory:'enabled'},steps:[s]});
+ assert.match(html,/画像由来の判断記録/);assert.match(html,/モデル判断/);assert.match(html,/条件 &lt;script&gt;/);assert.doesNotMatch(html,/<script>/);
+ assert.match(html,/href="#trial-0-screen-1"/);assert.match(html,/f1/);assert.match(html,/aaaa/);
+ assert.doesNotMatch(html,/過去画像の内容は保持しない/);
+});
+
+test('image-only reports distinguish private DOM logs from model inputs and do not claim site UX validity',async()=>{
+ const run={reason:'STUCK',vision:true,settings:{observationMode:'image-only',completionAuditInput:'disabled'}};
+ assert.equal(measurementForRun(run),'unknown');
+ const html=await renderFixture(run);
+ assert.match(html,/画像のみ/);assert.doesNotMatch(html,/画像 \+ DOM/);
+ assert.match(html,/DOM.*送信していません/);assert.match(html,/過去画像/);
+});
+
+test('readable negative outcomes stay UX observations while unreadability and audit errors are qualified separately',()=>{
+ const base={reason:'STUCK',steps:[step(1,'案内','https://example.test/','STUCK','stuck')],visualCompletionAudit:{status:'RECORDED',assessment:'insufficient',warnings:[],screens:[{readability:'readable'}]}};
+ assert.equal(measurementForRun(base),'ux');
+ assert.equal(measurementForRun({...base,visualCompletionAudit:{...base.visualCompletionAudit,screens:[{readability:'unreadable'}]}}),'instrument');
+ assert.equal(measurementForRun({...base,visualCompletionAudit:{...base.visualCompletionAudit,status:'ERROR'}}),'instrument');
+ assert.equal(measurementForRun({...base,visualCompletionAudit:{...base.visualCompletionAudit,assessment:'uncertain',warnings:['NO_EVIDENCE_SELECTED']}}),'unknown');
+});
+
+const stoppedAfterReselection=()=>({number:23,url:'https://example.test/',result:'STUCK',
+ state:{screen:{title:'FAQ',text:[],elements:[]}},candidates:{scroll_up:{label:'上にスクロール'}},
+ decision:{choice:'stuck',action:{type:'stuck'},recovery:{initialDecision:{choice:'scroll_up',action:{type:'scroll',direction:'up'}},requests:[{model:'TEST'}]}},
+ loopAvoidance:{excludedChoices:['e3']},
+});
+test('a route-reselection stop is not reported as inability to choose the initial action',async()=>{
+ const run={reason:'STUCK',steps:[stoppedAfterReselection()]};
+ assert.equal(measurementForRun(run),'unknown');
+ const html=await renderFixture(run);
+ assert.match(html,/別ルート再選択で停止/);
+ assert.match(html,/再選択前：上にスクロール/);
+ assert.match(html,/再選択後：stuck/);
+ assert.match(html,/再選択のモデル呼出し：1/);
+ assert.match(html,/元の終了理由：STUCK/);
+ assert.doesNotMatch(html,/Jevが次の操作を選べず終了しました/);
+ assert.doesNotMatch(html,/data-action-state="executed"/);
+});
+
+test('restricted controls are observations, not proof that scope caused a primary-model stop',async()=>{
+ const s:any=step(1,'Support','https://example.test/','STUCK','stuck');
+ s.state.screen.elements=[{id:'e18',text:'Forum <script>',available:false,unavailableReason:'SAFETY_BOUNDARY'},
+  {id:'e19',text:'Unread label',available:false,unavailableReason:'UNOBSERVABLE_LABEL'}];
+ const run={reason:'STUCK',steps:[s]};
+ assert.equal(measurementForRun(run),'unknown');
+ const html=await renderFixture(run);
+ assert.match(html,/操作選択で停止/);assert.match(html,/探索制限の観測：1 件/);
+ assert.match(html,/Forum &lt;script&gt;/);assert.doesNotMatch(html,/<script>/);
+ assert.match(html,/停止との因果は未確定/);
+ assert.doesNotMatch(html,/探索範囲外で停止/);
+});
+
+test('unrelated blocked links do not turn successful or unqualified primary stops into scope failures',()=>{
+ const s:any=step(1,'Home','https://example.test/','STUCK','stuck');
+ assert.equal(measurementForRun({reason:'STUCK',steps:[s]}),'ux');
+ s.state.screen.elements=[{id:'e1',text:'Other language',available:false,unavailableReason:'SAFETY_BOUNDARY'}];
+ assert.equal(measurementForRun({reason:'JEV_DONE',steps:[s]}),'ux');
+ assert.equal(measurementForRun({reason:'PAGE_ERROR',steps:[s]}),'instrument');
+ assert.equal(measurementForRun({reason:'SAFETY_BOUNDARY',steps:[s]}),'scope');
+ assert.equal(measurementForRun({reason:'STUCK',steps:[s],reliability:{middlewareFailures:1}}),'instrument');
+});
+
+test('legacy STUCK without a matching terminal decision has unknown decision provenance',async()=>{
+ assert.equal(measurementForRun({reason:'STUCK',steps:[]}),'unknown');
+ const html=await renderFixture({reason:'STUCK',steps:[]});
+ assert.match(html,/停止した判断段階：記録なし/);
+ assert.doesNotMatch(html,/Jevが次の操作を選べず終了しました/);
+});
+
+test('a stale action decision is not presented as a model STUCK verdict',async()=>{
+ const s=step(1,'Home','https://example.test/','STUCK','e1');
+ const html=await renderFixture({reason:'STUCK',steps:[s]});
+ assert.match(html,/停止した判断段階：記録なし/);
+ assert.equal(measurementForRun({reason:'STUCK',steps:[s]}),'unknown');
+});
+
+for(const decision of [
+ {choice:'stuck'},
+ {choice:'e1',action:{type:'stuck'}},
+ {choice:'stuck',action:{type:'stuck'},completionCheck:{assessment:'incomplete'}},
+ {choice:'stuck',action:{type:'stuck'},recovery:{initialDecision:{choice:'scroll_up',action:{type:'scroll',direction:'up'}}}},
+])test(`incomplete legacy decisions remain renderable and unqualified: ${JSON.stringify(decision)}`,async()=>{
+ const s:any=step(1,'Home','https://example.test/','STUCK','stuck');s.decision=decision;
+ assert.equal(measurementForRun({reason:'STUCK',steps:[s]}),'unknown');
+ const html=await renderFixture({reason:'STUCK',steps:[s]});
+ assert.match(html,/停止した判断段階：記録なし/);
+});
+
+test('missing recovery request records are not displayed as zero model calls',async()=>{
+ const s:any=stoppedAfterReselection();delete s.decision.recovery.requests;
+ const html=await renderFixture({reason:'STUCK',steps:[s]});
+ assert.match(html,/再選択のモデル呼出し：記録なし/);
+ assert.doesNotMatch(html,/再選択のモデル呼出し：0/);
+});
+
+test('report summary retains the raw reason and includes separately derived diagnostic facts',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'jev-stop-summary-'));
+ await report(root,[{dir:root,reason:'STUCK',steps:[stoppedAfterReselection()]}]);
+ const [saved]=JSON.parse(await readFile(join(root,'summary.json'),'utf8'));
+ assert.equal(saved.reason,'STUCK');assert.equal(saved.measurement,'unknown');
+ assert.equal(saved.stopAssessment.schemaVersion,1);
+ assert.equal(saved.stopAssessment.terminalDecision.stage,'route-reselection');
+ assert.equal(saved.stopAssessment.terminalDecision.beforeReselection.choice,'scroll_up');
+ assert.equal(saved.stopAssessment.terminalDecision.final.choice,'stuck');
+ assert.deepEqual(saved.stopAssessment.terminalDecision.excludedChoices,['e3']);
+ assert.equal(saved.stopAssessment.attribution,'undetermined');
+});
+
+test('known independent reliability failures cannot count as valid site UX, even with a successful model audit',async()=>{
+ const base={reason:'JEV_DONE',visualCompletionAudit:{status:'RECORDED',assessment:'supported',warnings:[],screens:[{readability:'readable'}]}};
+ assert.equal(measurementForRun({...base,reliability:{middlewareFailures:1}}),'instrument');
+ assert.equal(measurementForRun({...base,reliability:{middlewareFailures:0}}),'ux');
+ assert.equal(measurementForRun({reason:'STUCK',reliability:{middlewareFailures:1}}),'instrument');
+ const html=await renderFixture({...base,reliability:{middlewareFailures:1}});
+ assert.match(html,/独立照合の不一致/);
+});
+
+test('visual audits show reached, unreached and instrument errors without rewriting the exploration ending',async()=>{
+ for(const assessment of ['supported','insufficient','uncertain']){
+  const html=await renderFixture({reason:'STUCK',vision:true,steps:[step(1,'案内','https://example.test/')],visualCompletionAudit:{status:assessment==='uncertain'?'ERROR':'RECORDED',assessment,objectiveVerified:false,evidence:assessment==='supported'?[{id:'v1',step:1,sha256:'a'.repeat(64)}]:[],uncertainEvidence:[],screens:[{}],observations:[{}],warnings:[],...(assessment==='uncertain'?{error:{code:'SOURCE_MISSING'}}:{})}});
+  assert.match(html,/画像記録による到達判定/);assert.match(html,/途中停止/);
+  if(assessment==='supported')assert.match(html,/href="#trial-0-screen-1"/);
+  if(assessment==='insufficient')assert.match(html,/未到達・情報不足/);
+  if(assessment==='uncertain')assert.match(html,/監査エラー/);
+ }
+});
 test('probabilities keep human labels and duplicate labels retain distinct IDs',()=>{
  const text=probabilityLabels({candidates:{e1:{label:'契約情報'},e2:{label:'契約情報'}},decision:{probabilities:{e1:.3,e2:.7}}});
  assert.equal(text,'契約情報 (e2): 70.0%\n契約情報 (e1): 30.0%');
@@ -210,4 +361,26 @@ test('the overview counts how many runs may be aggregated as UX difficulty and s
  assert.match(html,/<b>2<\/b><span>UX指標として有効<\/span>/);
  const summary=JSON.parse(await readFile(join(root,'summary.json'),'utf8'));
  assert.deepEqual(summary.map((r:any)=>r.measurement),['ux','ux','instrument','scope']);
+});
+
+test('a split sufficiency verdict is shown as a split, not just its majority',async()=>{
+ const s=step(1,'料金','https://example.test/','JEV_DONE','done') as any;
+ const a=(choice:string)=>({choice,probabilities:{present:choice==='present'?1:0,absent:choice==='absent'?1:0,uncertain:0}});
+ s.decision.goalAssessment={coverage:{choice:'complete'},checks:[{text:'料金',choice:'present'}],grounding:{requests:[],checks:[
+  {text:'料金',evidence:[{id:'s1-t1',step:1,text:'630円',warnings:[],omitted:false}],relatedEvidence:[],uncertainEvidence:[],
+   assessment:a('present'),contradictions:a('present'),assessmentDraws:[a('absent'),a('present'),a('absent'),a('present'),a('present')]},
+ ]}};
+ const html=await renderFixture({reason:'JEV_DONE',steps:[s]});
+ assert.match(html,/十分性の判定：5回中3回 present/);
+});
+
+test('a single-draw sufficiency verdict adds no split line',async()=>{
+ const s=step(1,'料金','https://example.test/','JEV_DONE','done') as any;
+ const a=(choice:string)=>({choice,probabilities:{present:1,absent:0,uncertain:0}});
+ s.decision.goalAssessment={coverage:{choice:'complete'},checks:[{text:'料金',choice:'present'}],grounding:{requests:[],checks:[
+  {text:'料金',evidence:[{id:'s1-t1',step:1,text:'630円',warnings:[],omitted:false}],relatedEvidence:[],uncertainEvidence:[],
+   assessment:a('present'),contradictions:a('present'),assessmentDraws:[a('present')]},
+ ]}};
+ const html=await renderFixture({reason:'JEV_DONE',steps:[s]});
+ assert.doesNotMatch(html,/十分性の判定：/);
 });

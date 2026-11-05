@@ -1,0 +1,26 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {execFile} from 'node:child_process';
+import {promisify} from 'node:util';
+import {readFile} from 'node:fs/promises';
+import {resolve,join} from 'node:path';
+test('reliability harness measures actual screenshots and DOM without requiring a successful goal or exposing truth',async()=>{
+ const {stdout}=await promisify(execFile)(process.execPath,['--import',import.meta.resolve('tsx'),resolve('runner/reliability-validation.ts'),'--fake','--repeat','1','--cases','dom-complete,dom-partial'],{timeout:45000,maxBuffer:1024*1024});
+ const summary=JSON.parse(stdout.trim().split('\n').at(-1)!);
+ assert.equal(summary.trials,2);assert.ok(summary.totals.images.checked>0);assert.ok(summary.totals.observation.checked>0);
+ assert.equal(summary.totals.images.failed,0);assert.equal(summary.totals.observation.failed,0);assert.equal(summary.totals.separation.failed,0);
+ assert.equal(summary.totals.falseCompletion.failed,0);
+ assert.equal(summary.totals.falseCompletion.checked,0);
+ const data=JSON.parse(await readFile(join(summary.root,'measurements.json'),'utf8'));
+ assert.equal(data.fake,true);assert.ok(data.trials.every((t:any)=>t.reason==='STUCK'));
+ const partial=JSON.parse(await readFile(join(summary.root,'dom-partial-1.json'),'utf8'));
+ assert.deepEqual(partial.input.captures[0].facts,['price']);
+ const screen=partial.input.wires.find((wire:any)=>wire.kind==='screen');assert.ok(screen);assert.equal(screen.oracleLeaked,false);
+ assert.equal(partial.measured.metrics.execution.status,'NOT_MEASURED');
+ assert.equal(partial.measured.metrics.falseCompletion.status,'NOT_MEASURED');
+ const {stdout:rescored}=await promisify(execFile)(process.execPath,['--import',import.meta.resolve('tsx'),resolve('runner/reliability-validation.ts'),'--rescore',summary.root],{timeout:15000,maxBuffer:1024*1024});
+ assert.deepEqual(JSON.parse(rescored.trim().split('\n').at(-1)!).totals,summary.totals);
+ const html=await readFile(join(summary.root,'index.html'),'utf8');
+ assert.equal(html.split('id="reliability"').length-1,1);
+ assert.ok(!html.includes('UX指標として有効'));
+});

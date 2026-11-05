@@ -1,0 +1,55 @@
+{
+  "productionHead": "0b5c9fd73770d85aebc2fc00211f3f5a9ab9c366",
+  "source": "reports/2026-10-19T13-27-02.965Z-public/exploration/result.json",
+  "sourceSha256": "e67e54f9799069a12b723da893cfd174154dbbfb7175034703c1874298ebc82d",
+  "report": "http://127.0.0.1:5173/reports/2026-10-19T13-27-02.965Z-public/index.html",
+  "method": "One fresh production CLI exploration, unchanged Japanese Goal, image-only with isolated requirement reading and selected completion evidence. No supplied answers or routes. Sequential, same-origin, read-only, 2000ms interval, max-actions=0. No production changes in this validation.",
+  "goal": "7-Zipでパスワードを忘れた場合に復元できるかと、壊れた7z書庫を修復する方法を知りたい。ダウンロード・インストール・問い合わせはしない。",
+  "preflight": {"robotsStatus": 200, "robotsBody": "empty", "licenseStatus": 200, "reviewed": "Top page and linked software license; no applicable public-reading automation ban identified. Not operator authorization or permission to publish screenshots."},
+  "reason": "STUCK",
+  "actionCount": 24,
+  "judgments": 25,
+  "perceivedSuccess": false,
+  "objectiveSuccess": null,
+  "timing": {
+    "explorationMs": 117803.4516,
+    "readingMs": 21732.92590000005,
+    "actionJudgmentMs": 22688.735299999968,
+    "postRunVisualAuditMs": 19852.401899999997,
+    "postRunItemAuditMs": 1237.2014999999956,
+    "note": "Reading and action judgment are included in exploration; post-run audits are separate. Not a controlled speed comparison."
+  },
+  "calls": {"reading": 25, "actionAndRoute": 29, "postRunVisualAudit": 27, "postRunItemAudit": 1, "explorationRetries": 0, "visualAuditRetries": 0},
+  "checkpoints": {
+    "linkOnlyFAQStep": 4,
+    "linkOnlyFAQRepairStatus": "not_shown",
+    "concreteRepairObservedSteps": [6, 7, 8, 9],
+    "repairRetainedThroughStep": 25,
+    "committedAlternative": {"backStep": 9, "clickStep": 10, "targetId": "f2", "destination": "https://www.7-zip.org/sdk.html"},
+    "passwordObservedFrames": 0,
+    "sourceImageHashesVerified": 26
+  },
+  "outcome": {"auditStatus": "RECORDED", "wholeGoal": "insufficient", "itemAuditStatus": "RECORDED", "password": "unconfirmed", "repair": "confirmed", "repairEvidence": ["v9"], "constraints": "context"},
+  "terminal": {
+    "step": 25,
+    "stage": "route-reselection",
+    "beforeReselection": "scroll_up",
+    "finalChoice": "stuck",
+    "routeRequestCount": 1,
+    "offeredFrontierTargets": 9,
+    "attribution": "undetermined",
+    "uxCaveats": ["ROUTE_RESELECTION_STOP", "RESTRICTED_CONTROLS_OBSERVED"]
+  },
+  "qa": {"http": 200, "runCards": 1, "images": 26, "localLinks": 78, "pageErrors": [], "externalRequests": [], "mobileOverflow": false},
+  "limits": [
+    "One run, not a general accuracy or completion-rate estimate.",
+    "No whole-Goal completion attempt occurred; nonoccurrence of false completion does not validate every completion condition.",
+    "The route selector changed scroll_up to stuck while nine targets remained. Their presence does not prove relevance, reachable answers, or an incorrect stop.",
+    "Off-origin forum and other controls were blocked by scope; no claim that they contain the answer or caused the stop.",
+    "No exhaustive site search, human baseline, site UX blame, or controlled latency comparison.",
+    "No file navigation occurred this time. The previously found .7z filter gap was not fixed or disproved.",
+    "Reading wire isolation is covered by existing protocol tests; this run records stage/output provenance, not complete HTTP request bodies.",
+    "The post-run audit tagged the final FAQ frame as evidence despite the repair reading being not_shown. Individual evidence-selection accuracy remains unverified; the whole-Goal verdict remained insufficient."
+  ],
+  "sourceUnchanged": true
+}

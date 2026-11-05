@@ -1,6 +1,7 @@
 import {writeFile,access} from 'node:fs/promises';
 import {join,relative,resolve} from 'node:path';
 import {reportStyle} from './report-style.js';
+import {assessStop} from './stop-assessment.js';
 
 const escape=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 export function probabilityLabels(step:any){
@@ -16,8 +17,19 @@ const measurementClasses:Record<string,MeasurementClass>={
   SAFETY_BOUNDARY:'scope',UNSUPPORTED_CONTENT:'scope',
 };
 export const measurementClass=(reason:string):MeasurementClass=>measurementClasses[reason]??'unknown';
+const imageOnlyRun=(r:any)=>r.imageOnly===true||r.settings?.observationMode==='image-only';
+export function measurementForRun(r:any):MeasurementClass{
+ if(r.reliability?.middlewareFailures>0||r.finalCapture?.status==='ERROR')return 'instrument';
+ const base=measurementClass(r.reason),audit=r.visualCompletionAudit;
+ if(base==='ux'&&imageOnlyRun(r))return 'unknown';
+ if(base!=='ux')return base;
+ if(audit?.status==='ERROR'||audit?.screens?.some((s:any)=>s.readability==='unreadable'||s.readability==='uncertain'))return 'instrument';
+ if(assessStop(r).uxCaveats.length)return 'unknown';
+ if(audit?.status==='NOT_RUN'||audit?.warnings?.includes('NO_EVIDENCE_SELECTED'))return 'unknown';
+ return base;
+}
 const measurementNotes:Partial<Record<MeasurementClass,string>>={
-  instrument:'この試行はツール側の失敗で終了しました。操作数はUXの指標としては使えません。',
+  instrument:'この試行には観測・判断処理の失敗、または独立照合の不一致があります。操作数はUXの指標としては使えません。',
   scope:'この試行は探索範囲の外で停止しました。操作数はUXの指標としては使えません。',
   unknown:'終了理由を分類できません。操作数はUXの指標としては使えません。',
 };
@@ -25,7 +37,7 @@ type Outcome={label:string;kind:string;note:string};
 function outcome(reason:string):Outcome{
   const labels:Record<string,Outcome>={
     SUCCESS:{label:'処理成功',kind:'success',note:'スクリプトの成功条件を満たしました。'},
-    STUCK:{label:'途中停止',kind:'stuck',note:'Jevが次の操作を選べず終了しました。'},
+    STUCK:{label:'途中停止',kind:'stuck',note:'記録された終了理由はSTUCKです。判断段階と探索制限の記録を別に確認してください。'},
     LOOP:{label:'ループで停止',kind:'loop',note:'同じ状態・操作の繰り返しを検知し、実行せず停止しました。'},
     JEV_DONE:{label:'Jevが完了と判断',kind:'unverified',note:'Jevの判断による終了です。処理成功の確認とは区別します。'},
     DONE_WITHOUT_SUCCESS:{label:'未達で完了判断',kind:'unverified',note:'Jevは完了と判断しましたが、成功条件を満たしていません。'},
@@ -41,11 +53,56 @@ function outcome(reason:string):Outcome{
   return labels[reason]||{label:reason||'終了理由不明',kind:'unknown',note:'記録された結果を確認してください。'};
 }
 function completionLabel(r:any){
+  if(imageOnlyRun(r)&&(r.imageMemoryProof||r.settings?.completionEvidenceImages==='selected-sources'))return '操作判断は現在画像1枚。完了照合だけ、確認済み項目に紐づく出典画像を SHA-256 で照合して追加します。全履歴画像・OCR・DOM 本文・ラベル・URL は送信しません。モデルの完了判断を客観的な正解とは扱いません。終了後の画像監査は探索判断とは別です。';
+  if(imageOnlyRun(r)&&(r.imageMemory||r.settings?.visualJudgmentMemory==='enabled'))return '画像のみの観察と、過去画像を見た Jev の Choice 判断記録を使う実験です。DOM の本文・ラベル・URL は Jev に送信していません。画像自体の再送と OCR は使わず、モデル判断を客観的な根拠とは扱いません。終了後の画像監査は探索判断とは別です。';
+  if(imageOnlyRun(r))return '画像のみの実験です。DOM の本文・ラベル・URL は Jev に送信していません。DOM は操作と安全確認、ローカルログにだけ使用します。過去画像の内容は保持しないため、未達をサイトの UX の問題とは断定できません。終了後の画像監査は探索判断とは別です。';
   if(!r.successMode)return 'Jevの完了認識は未計測（旧形式のログ）';
+  if(r.visualCompletionAudit&&r.comparison==='UNVERIFIED')return '処理成功の独立確認はありません。探索時の終了判断と、終了後の画像監査・DOM監査をそれぞれ表示します。';
+  if(r.vision&&r.settings?.completionAuditInput==='dom-only')return '処理成功は未検証。操作判断には画面画像を使用。完了後の根拠監査はDOM本文のみを評価し、画像は含みません。';
   const labels:Record<string,string>={CONFIRMED_SUCCESS:'処理成功・Jevの完了認識あり',FALSE_COMPLETION:'成功条件を満たさず完了と判断',SUCCESS_NOT_RECOGNIZED:'処理成功・Jevの完了認識なし',NOT_ASSESSED:'処理成功・完了認識は未計測',NOT_ACHIEVED:'成功条件は未達',ASSESSMENT_INTERRUPTED:'処理成功・完了認識の確認中にエラー',UNVERIFIED:'処理成功は未検証'};
   return labels[r.comparison]||'処理成功と完了認識の照合結果なし';
 }
-function completionEvidence(r:any,index:number){
+function visualCompletionEvidence(r:any,index:number){
+ const audit=r.visualCompletionAudit;
+ if(!audit)return '';
+ const labels:Record<string,string>={supported:'画像記録に達成の根拠あり',insufficient:'画像記録では未到達・情報不足',uncertain:'画像記録からは判定できない'};
+ const label=audit.status==='ERROR'?'画像の監査エラー（未達とは区別）':audit.status==='NOT_RUN'?'画像監査は未実行':labels[audit.assessment]||'画像判定の記録なし';
+ const notes:Record<string,string>={LEGACY_SNAPSHOT_IMPORTED:'過去の保存画像を読み直しました。ハッシュは監査時に作成したもので、撮影時の同一性を保証するものではありません。',VISUAL_READING_UNCERTAIN:'判読できない画面があるため、到達・未到達の判定を保留しています。',NO_EVIDENCE_SELECTED:'達成という返答に対応する根拠画像が選ばれていないため、判定を保留しています。',VISUAL_AUDIT_FAILED:'画像の欠落・変更、APIや返答のエラーなどで監査が完了しませんでした。',NO_VISUAL_OBSERVATIONS:'監査する画面画像がありません。'};
+ const links=(audit.evidence||[]).map((o:any)=>`<li><a href="#trial-${index}-screen-${o.phase==='final'?'final':encodeURIComponent(String(o.step))}">${o.phase==='final'?'探索終了時の根拠画像':`根拠の画面 ${escape(o.step)}`}</a><span class="evidence-meta"> · ${escape(o.id)} · SHA-256 ${escape(String(o.sha256).slice(0,12))}…</span></li>`).join('');
+ return `<section class="completion-audit visual-completion-audit"><h2>画像記録による到達判定</h2><p><span class="badge unverified">${escape(label)}</span></p><p class="hint">探索終了後に保存画像を Jev で再評価した結果です。途中停止も有効な観測結果として残し、元の終了理由は変更しません。サイト全体で達成できないという断定や、客観的な成功確認ではありません。</p><p>画像の確認：${escape(audit.screens?.length??0)} / ${escape(audit.observations?.length??0)} 画面</p>${(audit.warnings||[]).map((w:string)=>`<p class="notice">${escape(notes[w]||w)}</p>`).join('')}${links?`<ul class="evidence-list">${links}</ul>`:'<p>達成の根拠として選ばれた画像はありません。</p>'}${audit.uncertainEvidence?.length?`<p>判読・根拠確認が不確かな画像：${escape(audit.uncertainEvidence.length)} 画面</p>`:''}${audit.error?`<p>監査の記録：${escape(audit.error.code)}${audit.error.statusCode?` (HTTP ${escape(audit.error.statusCode)})`:''}</p>`:''}</section>`;
+}
+function imageJudgmentEvidence(r:any,index:number){
+ const memory=r.steps?.at(-1)?.visualContext?.imageJudgments;if(!memory)return '';
+ const names:Record<string,string>={observed:'画像で確認したというモデル判断',not_shown:'未確認',context:'背景・制約というモデル分類',contradicted:'以前の根拠の否定・取消',uncertain:'不明',promising:'手掛かりになる見込み',unrelated:'関係しないという見込み'};
+ const source=(s:any)=>`${Number.isInteger(s?.step)&&s.step>0&&s.step<=(r.steps?.length||0)?`<a href="#trial-${index}-screen-${s.step}">画面 ${s.step}</a>`:'出典不明'} · ${escape(String(s?.sha256||'').slice(0,12))}`;
+ return `<section class="completion-audit image-judgments"><h2>画像由来の判断記録</h2><p>過去の画像を見た Jev のモデル判断です。正確な回答文や独立検証済みの事実ではありません。入口の見込みと Goal の確認状況は区別しています。</p><ul class="evidence-list">${memory.requirements.map((q:any)=>`<li><h3>${escape(q.text)}</h3><p>${escape(names[q.status]||q.status)}</p><details><summary>判断の出典を見る</summary>${q.records.map((v:any)=>`<p>${source(v.source)} · ${escape(names[v.assessment]||v.assessment)}</p>`).join('')}</details></li>`).join('')}</ul><details><summary>入口の見込み：${memory.routes.length} 件</summary><ul class="evidence-list">${memory.routes.map((v:any)=>`<li>${escape(v.targetId)} · ${escape(names[v.assessment]||v.assessment)} · ${source(v.source)}</li>`).join('')}</ul></details></section>`;
+}
+function goalOutcomeEvidence(r:any,index:number){
+ const audit=r.goalOutcome;if(!audit||audit.status==='NOT_RUN')return '';
+ const heading='<h2>今回確認できたこと・未確定のこと</h2>';
+ if(audit.status==='ERROR')return `<section class="completion-audit goal-outcome">${heading}<p class="notice">結果整理に失敗しました。情報がサイトにないという意味ではありません。元の探索判断は変更していません。</p><p>${escape(audit.error?.code)}${audit.error?.statusCode?` (HTTP ${escape(audit.error.statusCode)})`:''}</p></section>`;
+ const labels:Record<string,string>={confirmed:'具体的な情報・結果あり（モデル判断）',conditional:'条件付きの案内・要問い合わせ',not_achieved:'未達の表示を確認（モデル判断）',unconfirmed:'選択画像の観測範囲では未確認',unreadable:'判読・対応関係が不確か',context:'背景・制約というモデル分類'};
+ return `<section class="completion-audit goal-outcome">${heading}<p>原文の項目ごとに、終了後に選択画像だけを再評価しました。確認済みでも正確な回答文の抽出・独立検証・Goal全体の達成を保証しません。未確認はサイト全体で情報が存在しないという意味ではありません。</p><ul class="evidence-list">${audit.items.map((item:any)=>`<li data-item-status="${escape(item.status)}"><h3>${escape(item.text)}</h3><p>${escape(labels[item.status]||item.status)}</p>${item.evidence.map((o:any)=>`<a href="#trial-${index}-screen-${o.phase==='final'?'final':encodeURIComponent(String(o.step))}">${o.phase==='final'?'最終画面':`根拠の画面 ${escape(o.step)}`}</a> <span class="evidence-meta">SHA-256 ${escape(o.sha256.slice(0,12))}…</span>`).join(' · ')||'<p class="hint">具体的な根拠画像は選ばれていません。</p>'}</li>`).join('')}</ul>${audit.warnings?.length?'<p class="notice">根拠のない肯定分類を未確認へ戻した項目があります。元の返答はJSONに保存しています。</p>':''}<p class="hint">選択範囲は項目別の最新有効判断の出典と最終画面です。全履歴を網羅した監査ではなく、原文断片の項目分けにも見落としがあり得ます。</p></section>`;
+}
+function completionEvidence(r:any,index:number){return stopDiagnostics(r,index)+goalOutcomeEvidence(r,index)+imageJudgmentEvidence(r,index)+visualCompletionEvidence(r,index)+domCompletionEvidence(r,index);}
+function stopDiagnostics(r:any,index:number){
+ const assessment=assessStop(r),d=assessment.terminalDecision;
+ if(r.reason!=='STUCK'&&!assessment.restrictedControls.length)return '';
+ const labels:Record<string,string>={'action-selection':'操作選択で停止','completion-reselection':'完了照合後の操作選択で停止','route-reselection':'別ルート再選択で停止','recorded-route':'記録済み経路の実行段階','unknown':'停止した判断段階：記録なし'};
+ const actionLabel=(v:NonNullable<typeof d.final>)=>{
+  if(v.action.type==='scroll')return v.action.direction==='up'?'上にスクロール':'下にスクロール';
+  if(v.action.type==='back')return '前の画面に戻る';
+  const step=r.steps?.find((s:any)=>s.number===d.step);
+  return step?.candidates?.[v.choice]?.label||v.choice;
+ };
+ const restrictions=assessment.restrictedControls.map(e=>{
+  const position=r.steps?.findIndex((s:any)=>s.number===e.step);
+  const source=position>=0?`<a href="#trial-${index}-screen-${position+1}">判断 ${escape(e.step)}</a>`:`判断 ${escape(e.step)}`;
+  return `<li>${source} · ${escape(e.text||e.id)} (${escape(e.id)}) · ${escape(e.reason)}</li>`;
+ }).join('');
+ return `<section class="completion-audit stop-assessment"><h2>停止判断と探索制限</h2><p>元の終了理由：${escape(r.reason)}</p>${r.reason==='STUCK'?`<h3>${escape(labels[d.stage])}</h3>${d.beforeReselection?`<p>再選択前：${escape(actionLabel(d.beforeReselection))} (${escape(d.beforeReselection.choice)})</p><p>再選択後：${escape(d.final?.choice)}</p><p>再選択のモデル呼出し：${escape(d.routeRequestCount??'記録なし')}</p><p class="hint">再選択前の操作は実行していません。別ルートの判断を挟んだ事実であり、元の操作なら進めたという証明ではありません。</p>`:''}${d.completionReview?`<p>独立した完了照合：${escape(d.completionReview.assessment)}</p>`:''}${d.excludedChoices.length?`<p>停止時に候補から除外：${d.excludedChoices.map(escape).join('、')}</p>`:''}<p class="hint">サイト・モデル・探索制御のどれが停止原因かは、この記録だけでは確定できません。</p>`:''}<p>探索制限の観測：${assessment.restrictedControls.length} 件（同じ操作の再観測を含む）</p>${restrictions?`<details><summary>制限された操作と出典</summary><ul class="evidence-list">${restrictions}</ul></details><p class="hint">実行不可と判定された操作の記録です。Goalとの関連・遷移先の内容・停止との因果は未確定です。この欄は制限の観測記録であり、遷移先の内容を検証した結果ではありません。</p>`:''}</section>`;
+}
+function domCompletionEvidence(r:any,index:number){
  const audit=r.completionAudit;
  if(!audit||audit.status==='NOT_RUN')return '<p class="hint">完了判断の根拠の記録なし（未実行または旧形式のログ）。</p>';
  const labels:Record<string,string>={supported:'記録に達成の根拠があると再評価',insufficient:'記録では達成の根拠が不足',uncertain:'記録からは判断できない'};
@@ -81,7 +138,11 @@ function goalProgress(step:any,trialIndex:number,stepCount:number){
   const label=!proof.evidence?.length?'直接の根拠なし':proof.scope?.choice!=='match'?scope:!proof.assessment?'根拠の照合未完了':proof.assessment.choice!=='present'?labels[proof.assessment.choice]||'判定保留':!proof.contradictions?'矛盾・例外の照合未完了':proof.contradictions.choice!=='present'?'矛盾・例外の確認が必要':labels[c.choice]||'判定保留';
   const batchLabels:Record<string,string>={present:'矛盾なしと判断',absent:'矛盾・例外ありと判断',uncertain:'判定保留'};
   const batchAudit=Array.isArray(proof.contradictionBatches)?`<details><summary>矛盾・例外の確認：${proof.contradictionBatches.length} / ${escape(proof.contradictionBatchCount??'?')} バッチ</summary><p class="hint">全バッチの確認が済むまで、この項目を取得済みにはしません。</p>${proof.contradictionBatches.map((batch:any,i:number)=>`<p>バッチ ${i+1}：${escape(batchLabels[batch.assessment?.choice]||'未判定')} · ${escape((batch.blockKeys||[]).join(', '))}</p>`).join('')}</details>`:'';
-  return `<li><h3>${escape(c.text)}：${escape(label)}</h3><p class="hint">一次判定：${escape(labels[c.choice]||c.choice)}。対象の適合性：${escape(scope)}。情報の十分性：${escape(proof.assessment?labels[proof.assessment.choice]||proof.assessment.choice:'未判定')}。直接の根拠・対象一致・十分性・矛盾の確認が済まなければ完了にはしません。</p>${quotes(proof.evidence||[])}${scopeAudit}${batchAudit}${proof.relatedEvidence?.length?`<details><summary>関連する説明（直接の根拠とは区別）${proof.relatedEvidence.length} 件</summary>${quotes(proof.relatedEvidence)}</details>`:''}${proof.uncertainEvidence?.length?`<details><summary>根拠として扱えるか不明 ${proof.uncertainEvidence.length} 件</summary>${quotes(proof.uncertainEvidence)}</details>`:''}</li>`;
+  // A majority hides how close the call was. Show the split so a 3-2 verdict
+  // reads as a 3-2 verdict rather than as a settled one.
+  const draws=proof.assessmentDraws;
+  const drawNote=Array.isArray(draws)&&draws.length>1?`<p class="hint">十分性の判定：${escape(draws.length)}回中${escape(draws.filter((d:any)=>d.choice===proof.assessment?.choice).length)}回 ${escape(proof.assessment?.choice)}。同じ入力でも判定は揺れます。多数決の結果であり、確信度ではありません。</p>`:'';
+  return `<li><h3>${escape(c.text)}：${escape(label)}</h3><p class="hint">一次判定：${escape(labels[c.choice]||c.choice)}。対象の適合性：${escape(scope)}。情報の十分性：${escape(proof.assessment?labels[proof.assessment.choice]||proof.assessment.choice:'未判定')}。直接の根拠・十分性・矛盾の確認が済まなければ完了にはしません。</p>${drawNote}${quotes(proof.evidence||[])}${scopeAudit}${batchAudit}${proof.relatedEvidence?.length?`<details><summary>関連する説明（直接の根拠とは区別）${proof.relatedEvidence.length} 件</summary>${quotes(proof.relatedEvidence)}</details>`:''}${proof.uncertainEvidence?.length?`<details><summary>根拠として扱えるか不明 ${proof.uncertainEvidence.length} 件</summary>${quotes(proof.uncertainEvidence)}</details>`:''}</li>`;
  }).join('');
  const screening=assessment.grounding?.screening;
  const focus=step.decision?.navigationFocus;
@@ -135,24 +196,25 @@ async function journey(r:any,dir:string,urlDir:string,index:number){
     nodes.push(`<li><section class="screen" id="${id}"><span class="screen-number">画面 ${number} / 判断 ${escape(s.number??number)}</span><h3>${escape(title)}</h3>${revisit}${avoided}${await screenshot(dir,urlDir,s.screenshot,`画面 ${number}：${title}`)}${stop}</section>${connector}</li>`);
   }
   // Screenshots in steps are PRE-action. Add the actual final capture after the last executed action.
-  if(steps.length&&steps.at(-1).result==='OK'){
+  if(steps.length&&(steps.at(-1).result==='OK'||r.visualCompletionAudit?.observations?.some((o:any)=>o.phase==='final')||r.goalOutcome?.observations?.some((o:any)=>o.phase==='final'))){
     const title=clean(r.path?.at(-1)?.result).replace(/^画面:\s*/,'')||'最終画面';
-    nodes.push(`<li><section class="screen"><span class="screen-number">操作後の最終画面</span><h3>${escape(title)}</h3>${await screenshot(dir,urlDir,'final.png','操作後の最終画面')}<div class="stop-note">${badge(end)}<p>${escape(end.note)}</p></div></section></li>`);
+    nodes.push(`<li><section class="screen" id="trial-${index}-screen-final"><span class="screen-number">操作後の最終画面</span><h3>${escape(title)}</h3>${await screenshot(dir,urlDir,'final.png','操作後の最終画面')}<div class="stop-note">${badge(end)}<p>${escape(end.note)}</p></div></section></li>`);
   }
   if(!steps.length)return `<div class="placeholder">画面の記録なし</div><p>${escape(end.note)}</p>`;
   return `<div class="journey" tabindex="0" role="region" aria-label="操作経路"><ol class="flow">${nodes.join('')}</ol></div>`;
 }
 export async function report(root:string,results:any[]){
-  await writeFile(join(root,'summary.json'),JSON.stringify(results.map(({steps,...r})=>({...r,measurement:measurementClass(r.reason)})),null,2));
+  results=results.map(r=>({...r,stopAssessment:assessStop(r)}));
+  await writeFile(join(root,'summary.json'),JSON.stringify(results.map(r=>{const {steps,...saved}=r;return {...saved,explorationMeasurement:measurementClass(r.reason),measurement:measurementForRun(r)};}),null,2));
   const cards=await Promise.all(results.map(async(r,index)=>{
     const dir=resolve(r.dir),rel=relative(root,dir).replaceAll('\\','/');
     const urlDir=rel.split('/').map(encodeURIComponent).join('/')||'.',end=outcome(r.reason);
     const seconds=Number.isFinite(r.elapsedMs)?(r.elapsedMs/1000).toFixed(1):'—';
-    const stats=`${r.actionCount??0} 操作 · ${r.steps?.length??0} 判断 · ${seconds} 秒`;
+    const stats=`${typeof r.vision==='boolean'?(r.vision?(imageOnlyRun(r)?'画像のみ':'画像 + DOM'):'DOMのみ')+' · ':''}${r.actionCount??0} 操作 · ${r.steps?.length??0} 判断 · ${seconds} 秒`;
     const technical=(r.steps||[]).map((s:any)=>`<section><h3>判断 ${escape(s.number)} · ${escape(s.result)}</h3><p>${escape(s.error||'')}</p>${goalProgress(s,index,r.steps.length)}<pre>${escape(probabilityLabels(s)||'操作の選択確率なし')}</pre><a href="${escape(urlDir)}/step-${encodeURIComponent(String(s.number))}.json">判断時の入力・結果 JSON</a></section>`).join('');
-    const measurement=measurementClass(r.reason),measurementNote=measurementNotes[measurement];
+    const measurement=measurementForRun(r),measurementNote=r.reliability?.middlewareFailures>0?measurementNotes.instrument:measurement==='unknown'&&r.stopAssessment.uxCaveats.length?'別ルート再選択・探索制限・判断記録の不足を確認してください。停止の原因をサイトのUXに帰属できないため、UX指標としての利用を保留しています。':imageOnlyRun(r)&&measurement==='unknown'?'過去画像の情報保持を含む画像専用経路の能力は未検証のため、サイトの UX 指標としての利用を保留しています。':r.visualCompletionAudit&&measurementClass(r.reason)==='ux'&&measurement!=='ux'?(measurement==='instrument'?'画像の判読または根拠監査に問題があり、この試行をUXの問題とは断定できません。':'画像監査の返答が整合しない、または監査が未実行のため、UX指標としての利用を保留しています。'):measurementNotes[measurement];
     return `<details class="run" data-outcome="${end.kind}" data-measurement="${measurement}"${index===0?' open':''}><summary><span class="run-heading"><span class="tag">${escape(String(r.variant||'対象').toUpperCase())} · 文字サイズ情報 ${r.font?'あり':'なし'} · 試行 ${escape(r.repeat??1)}${r.fake?' · FAKE':''}</span><span class="run-title">${escape(r.goalText)}</span><span class="metrics">${escape(stats)}</span></span>${badge(end)}</summary><div class="run-body">${measurementNote?`<p class="notice">${escape(measurementNote)}</p>`:''}<p class="completion">${escape(completionLabel(r))}</p>${evidenceAccounting(r)}${goalProgress(r.steps?.at(-1),index,r.steps?.length||0)}<h2>目的までの操作経路</h2><p class="hint">画面 → 選んだ操作 → 次の画面。画像を押すと拡大表示できます。<span class="hint-scroll"> 長い経路は横にスクロールできます。</span></p>${await journey(r,dir,urlDir,index)}${completionEvidence(r,index)}<details class="technical"><summary>判断の詳細・選択確率を見る</summary><p>確率はJevの出力です。人間の離脱率やUXスコアではありません。画面の再訪は、同一URL・同一観察情報に基づく表示です。</p><a href="${escape(urlDir)}/result.json">試行全体の実行ログ JSON</a>${technical}</details></div></details>`;
   }));
-  const counts=[['全試行',results.length],['処理成功',results.filter(r=>r.reason==='SUCCESS').length],['停止・未確認',results.filter(r=>!['success','error'].includes(outcome(r.reason).kind)).length],['実行エラー',results.filter(r=>outcome(r.reason).kind==='error').length],['UX指標として有効',results.filter(r=>measurementClass(r.reason)==='ux').length]];
+  const counts=[['全試行',results.length],['処理成功',results.filter(r=>r.reason==='SUCCESS').length],['停止・未確認',results.filter(r=>!['success','error'].includes(outcome(r.reason).kind)).length],['実行エラー',results.filter(r=>outcome(r.reason).kind==='error').length],['UX指標として有効',results.filter(r=>measurementForRun(r)==='ux').length]];
   await writeFile(join(root,'index.html'),`<!doctype html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jev UX · 操作経路レポート</title><style>${reportStyle}</style></head><body><main><header><p class="eyebrow">JEV / NAVIGATION REPORT</p><h1>目的までの道のりを、見える形に。</h1><p class="intro">何を選び、どこへ進み、どこで止まったか。試行を開いて、画面と操作を順番にたどれます。</p>${results.some(r=>r.fake)?'<p class="notice">FAKE実行を含みます。固定ルールによる配線確認は、Jevの性能・UX評価の証拠には使えません。</p>':''}<div class="overview">${counts.map(([label,n])=>`<div><b>${n}</b><span>${label}</span></div>`).join('')}</div><p class="hint">Jevの行動は人間の行動を再現したものではありません。停止理由と実行エラーを区別して確認してください。</p></header>${cards.join('')}<p class="footer">保存済みログから生成したレポートです。図の描画にモデルの呼び出しはありません。</p></main></body></html>`);
 }

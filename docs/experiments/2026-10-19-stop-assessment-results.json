@@ -1,0 +1,104 @@
+{
+  "root": "E:\\ChatGPT\\Ux_test\\reports\\stop-assessment-review-2026-10-19T11-55-40.415Z",
+  "scopeFile": "E:\\ChatGPT\\Ux_test\\reports\\scope-isolation-2026-10-19T11-50-16.281Z\\scope.json",
+  "scopeSha256": "00ebc67a25dacf11a5bac408debfff640e1d07f773f21c5bf9b0bee2aa0967f6",
+  "checks": [
+    {
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T10-13-03.265Z-public\\exploration\\result.json",
+      "sha256": "1b491cb4380c2d653877789566ec002def5e93f530ff9a2819d9b003f7f67a9c",
+      "kind": "archived-real-site",
+      "rawReason": "STUCK",
+      "actionCount": 22,
+      "diagnosticOrigin": "derived-from-archived-steps",
+      "stage": "route-reselection",
+      "before": "scroll_up",
+      "final": "stuck",
+      "restrictions": 95,
+      "measurement": "unknown"
+    },
+    {
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-50-18.203Z-public\\exploration\\result.json",
+      "sha256": "4b7fb63c38a9b4a3bcb64022f91f0e549c70ba314e850f0daff30004fc9898d6",
+      "kind": "live-local-same",
+      "rawReason": "JEV_DONE",
+      "actionCount": 1,
+      "diagnosticOrigin": "recorded-by-production",
+      "stage": "action-selection",
+      "final": "done",
+      "restrictions": 0,
+      "measurement": "unknown"
+    },
+    {
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-50-28.027Z-public\\exploration\\result.json",
+      "sha256": "d621bd2c58c87e1cbf3b5864e7f069b496df087add6cfdece871f07ec9cae85c",
+      "kind": "live-local-cross",
+      "rawReason": "STUCK",
+      "actionCount": 0,
+      "diagnosticOrigin": "recorded-by-production",
+      "stage": "action-selection",
+      "final": "stuck",
+      "restrictions": 1,
+      "measurement": "unknown"
+    },
+    {
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-50-34.304Z-public\\exploration\\result.json",
+      "sha256": "b05b8962f3297ea0706dd5648ae4a1c17d3d7d8351ba8b3e8c6eb8348bd2dab2",
+      "kind": "live-local-cross",
+      "rawReason": "STUCK",
+      "actionCount": 0,
+      "diagnosticOrigin": "recorded-by-production",
+      "stage": "action-selection",
+      "final": "stuck",
+      "restrictions": 1,
+      "measurement": "unknown"
+    },
+    {
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-50-40.646Z-public\\exploration\\result.json",
+      "sha256": "01c0f24cb4d88cab75206a5ec08cddad6129014067b24ea1e8b22d5ebfb41219",
+      "kind": "live-local-same",
+      "rawReason": "JEV_DONE",
+      "actionCount": 1,
+      "diagnosticOrigin": "recorded-by-production",
+      "stage": "action-selection",
+      "final": "done",
+      "restrictions": 0,
+      "measurement": "unknown"
+    },
+    {
+      "source": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T11-50-49.613Z-public\\exploration\\result.json",
+      "sha256": "c3acb5a938c25db07bd177e1fe8f786b8d3993968006460ffc91c668124a937b",
+      "kind": "live-local-direct-answer",
+      "rawReason": "JEV_DONE",
+      "actionCount": 0,
+      "diagnosticOrigin": "recorded-by-production",
+      "stage": "action-selection",
+      "final": "done",
+      "restrictions": 0,
+      "measurement": "unknown"
+    }
+  ],
+  "sourceFilesUnchanged": true,
+  "caveats": [
+    "Reading-judgment root cause is unresolved.",
+    "Restriction observations do not prove relevance, answer availability, or causal scope failure.",
+    "Model completion is not independent objective success."
+  ],
+  "qa": {
+    "http": 200,
+    "runCards": 6,
+    "localLinksChecked": 105,
+    "pageErrors": [],
+    "externalRequests": [],
+    "mobileOverflow": false
+  },
+  "method": "Post-run diagnostic recording/rendering only. Five live Jev explorations on owned loopback origins plus one unchanged archived real-site result; no fresh public-site exploration.",
+  "validation": {
+    "fullSuiteCommand": "node --import tsx --test --test-concurrency=1 tests/*.test.ts",
+    "fullSuite": {"tests": 507, "pass": 504, "fail": 0, "skipped": 3, "durationMs": 456591.739},
+    "fullSuiteLog": "reports/stop-assessment-full-tests.log",
+    "fullSuiteLogSHA256": "8a76d490822a0b97ce8a786e6d516cda244e450c5464c2a615fe3c91e7dac20f",
+    "buildCommand": "npm run build",
+    "build": "passed",
+    "independentCodeReview": "No remaining Critical, Important, or Minor findings"
+  }
+}

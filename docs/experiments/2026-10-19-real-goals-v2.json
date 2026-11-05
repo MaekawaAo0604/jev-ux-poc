@@ -1,0 +1,14 @@
+{
+ "head":"2852e6846f8612877c42d04a2560049cd6891331",
+ "repeat":2,
+ "scope":"One real museum site, three different read-only task families. No cross-industry generalization. Sequential fresh browsers; 2000ms action interval; no action cap. No login, reservation, purchase, form submission, contacting operator or publishing screenshots.",
+ "flags":["--reviewed","--vision","--image-only","--image-memory","--image-memory-proof","--max-actions","0","--interval-ms","2000"],
+ "cases":[
+  {"id":"hours","family":"single-information","url":"https://www.hakone-oam.or.jp/","goal":"彫刻の森美術館の通常の開館時間を知りたい。予約・購入はしない。"},
+  {"id":"visit","family":"multi-information","url":"https://www.hakone-oam.or.jp/","goal":"初めて彫刻の森美術館に行きたい。開館時間、一般の入館料、最寄り駅からの行き方を知りたい。予約・購入はしない。"},
+  {"id":"family","family":"condition-matching","url":"https://www.hakone-oam.or.jp/","goal":"小学生の子どもが体験できる作品を探し、その作品の対象年齢と雨の日にも利用できるかが分かる案内を開きたい。予約・購入はしない。"}
+ ],
+ "policy":{"robots":"https://www.hakone-oam.or.jp/robots.txt","status":404,"reviewed":"https://www.hakone-oam.or.jp/others/privacypolicy","note":"Privacy policy reviewed and no applicable public-reading automation prohibition found; absent robots is not permission. No explicit operator permission claimed, low-impact limited public reading only."},
+ "selectionCorrection":"Initial batch was stopped after KIITO policy full text revealed content-use restrictions. One KIITO trial completed before the stop; it is excluded from this evaluation. The original protocol/logs are retained separately. Its policy text should have been fully fetched before any trial began. Backlog also excluded for automated-collection restrictions, Japan Post/digital.go.jp for path-specific robots constraints not enforced by the unchanged runner, FabCafe for top-page preflight timeout.",
+ "evaluation":"All six trials retained. Original model endings and source hashes preserved. Manual inspection of saved actual images follows trials, not model answer injection. No OCR/DOM text/expected answer/route to Jev. Past selected sources used only for completion and outcome audits. General site UX and exact answer correctness are not inferred from model statuses."
+}

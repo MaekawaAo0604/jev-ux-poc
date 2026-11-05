@@ -1,0 +1,165 @@
+{
+  "root": "E:\\ChatGPT\\Ux_test\\reports\\context-recovery-review-2026-10-19T12-54-24.645Z",
+  "sources": [
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\audit-capacity-2026-10-19T12-45-59.985Z\\probe.json",
+      "sha256": "a1d171a857e7d80e71c186076d374de9bfa5382155fc5c3b25921a71b93e96a8"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\reading-context-2026-10-19T12-49-05.744Z\\probe.json",
+      "sha256": "751eb4c113098505ae454ae1876418d50298c5c6ab8206273a21da96f9d8c55a"
+    },
+    {
+      "file": "E:\\ChatGPT\\Ux_test\\reports\\audit-recovery-2026-10-19T12-50-36.298Z\\validation.json",
+      "sha256": "5cd0694d89a102f4a447a195477c1cecc682b70f4a900ff5f32e1140355ec417"
+    }
+  ],
+  "publicSource": {
+    "file": "E:\\ChatGPT\\Ux_test\\reports\\2026-10-19T12-27-16.233Z-public\\exploration\\result.json",
+    "sha256": "3ebd17f2a2326ef667c8a6ff0a9e7843d591d0686fd486802630b53a92778032"
+  },
+  "sourceFilesUnchanged": true,
+  "productionCode": [
+    {
+      "file": "jev/client.ts",
+      "sha256": "b89c5dcabf13329d595350c609ad15da8ee9b74ffa4a37d28502b03acfd174e4"
+    },
+    {
+      "file": "runner/visual-evidence.ts",
+      "sha256": "cba6f3e0038e6d0f2f45cac99371031eac1da3a36a9a8200d076038b6fe57ebb"
+    }
+  ],
+  "capacity": [
+    {
+      "name": "original",
+      "images": 11,
+      "questions": 12,
+      "longContext": false,
+      "status": 400,
+      "elapsedMs": 1962.9055000000003,
+      "bodyBytes": 1106068,
+      "errorKeys": [
+        "message",
+        "type",
+        "param"
+      ],
+      "tokenLimitMessage": true
+    },
+    {
+      "name": "one-question",
+      "images": 11,
+      "questions": 1,
+      "longContext": false,
+      "status": 400,
+      "elapsedMs": 1405.1159000000002,
+      "bodyBytes": 1100704,
+      "errorKeys": [
+        "message",
+        "type",
+        "param"
+      ],
+      "tokenLimitMessage": true
+    },
+    {
+      "name": "seven-images",
+      "images": 7,
+      "questions": 8,
+      "longContext": false,
+      "status": 200,
+      "elapsedMs": 1379.1492999999991,
+      "bodyBytes": 658422,
+      "errorKeys": [],
+      "tokenLimitMessage": false,
+      "usage": {
+        "input_tokens": 28236,
+        "output_tokens": 378
+      }
+    },
+    {
+      "name": "seven-one-question",
+      "images": 7,
+      "questions": 1,
+      "longContext": false,
+      "status": 200,
+      "elapsedMs": 1235.5379000000003,
+      "bodyBytes": 655014,
+      "errorKeys": [],
+      "tokenLimitMessage": false,
+      "usage": {
+        "input_tokens": 27379,
+        "output_tokens": 46
+      }
+    },
+    {
+      "name": "original-long-context",
+      "images": 11,
+      "questions": 12,
+      "longContext": true,
+      "status": 200,
+      "elapsedMs": 1492.5167999999994,
+      "bodyBytes": 1106068,
+      "errorKeys": [],
+      "tokenLimitMessage": false,
+      "usage": {
+        "input_tokens": 43942,
+        "output_tokens": 568
+      }
+    }
+  ],
+  "completionRecovery": [
+    {
+      "stage": "completion",
+      "longContext": false,
+      "imageCount": 10,
+      "questionCount": 11,
+      "bodySha256": "d4655434d21a3e7c059c804e5c949db9ee963d55e0dba1a8cfb66d3743d22ceb",
+      "http": 400
+    },
+    {
+      "stage": "completion",
+      "longContext": true,
+      "imageCount": 10,
+      "questionCount": 11,
+      "bodySha256": "d4655434d21a3e7c059c804e5c949db9ee963d55e0dba1a8cfb66d3743d22ceb",
+      "http": 200
+    }
+  ],
+  "assessment": "insufficient",
+  "objectiveVerified": false,
+  "readingGroups": [
+    {
+      "name": "full-batch",
+      "valid": 5,
+      "observed": 4
+    },
+    {
+      "name": "checks-only",
+      "valid": 5,
+      "observed": 4
+    },
+    {
+      "name": "no-judgment-memory",
+      "valid": 5,
+      "observed": 0
+    },
+    {
+      "name": "no-executed-history",
+      "valid": 5,
+      "observed": 0
+    },
+    {
+      "name": "current-image-only",
+      "valid": 5,
+      "observed": 0
+    }
+  ],
+  "readingChangeImplemented": false,
+  "qa": {
+    "http": 200,
+    "images": 28,
+    "checkedLocalLinks": 87,
+    "pageErrors": [],
+    "externalRequests": [],
+    "mobileOverflow": false
+  }
+}

@@ -1,0 +1,14 @@
+{
+ "extends":"docs/experiments/2026-10-19-cross-site-protocol.json",
+ "productionHead":"b6046a6",
+ "site":"7-Zip official website",
+ "reason":"Different sector and layout: open-source software, English static HTML, compact text links rather than a Japanese library's multi-row navigation.",
+ "repeat":2,
+ "cases":[
+  {"id":"software-license-formats","url":"https://www.7-zip.org/","goal":"7-Zipは会社のパソコンでも無料で使えるか知りたい。圧縮できるファイル形式も確認したい。ダウンロード・インストール・問い合わせはしない。"},
+  {"id":"software-recovery","url":"https://www.7-zip.org/","goal":"7-Zipでパスワードを忘れた場合に復元できるかと、壊れた7z書庫を修復する方法を知りたい。ダウンロード・インストール・問い合わせはしない。"}
+ ],
+ "policy":{"robots":"https://www.7-zip.org/robots.txt","robotsStatus":200,"robotsBody":"empty","top":"https://www.7-zip.org/","linkedLicense":"https://www.7-zip.org/license.txt","fullLinkedTextReviewed":true,"snapshots":["reports/cross-site-preflight-2026-10-19/7zip-0.txt","reports/cross-site-preflight-2026-10-19/7zip-1.txt","reports/cross-site-preflight-2026-10-19/7zip-2.txt"],"decision":"No applicable public-reading automation ban identified in reviewed material. Software redistribution/use licensing is not blanket permission for website automation. No explicit operator permission claimed; low-impact public reading only, no published source images."},
+ "selectionNotes":["Old yokohamabashi.com resolves to a parked domain; excluded. Its permissive robots is not evidence about the current shopping district website.","tobezoo.com preflight connection failed; no bypass/retry loop.","kahaku.go.jp has a path restriction not enforced by unchanged runner; not selected."],
+ "settings":"Same existing CLI flags as the base protocol: sequential fresh browsers, image-only, selected completion evidence, 2000ms interval, max-actions=0. No expected answer or route is supplied. Retain every outcome without forcing success."
+}
