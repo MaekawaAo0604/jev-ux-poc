@@ -7,10 +7,11 @@ import {collectAutoControls,inspectControl,type ControlObservation,type Observed
 /** Runtime POM for this PoC: discovers native and ARIA links/buttons, without route knowledge. */
 export class AutoPage extends AccountPage {
   protected classifyNative=false;
+  protected readonlyInformationDocuments:string[]=[];
   protected controlSelector=controlSelector;
   protected nativeControlSelector=nativeControlSelector;
   protected async observeControls(font:boolean):Promise<ControlObservation>{
-    const options=JSON.stringify({font,controlSelector:this.controlSelector,nativeControlSelector:this.nativeControlSelector,classifyNative:this.classifyNative});
+    const options=JSON.stringify({font,controlSelector:this.controlSelector,nativeControlSelector:this.nativeControlSelector,classifyNative:this.classifyNative,informationDocuments:this.readonlyInformationDocuments});
     // Serialize trusted functions together; imported function references do not
     // cross Playwright's execution-context boundary on their own.
     const snapshot=await this.page.evaluateHandle(`(${collectAutoControls.toString()})(${options},${visibleText.toString()},${publicControl.toString()},${inspectControl.toString()})`) as JSHandle<ReturnType<typeof collectAutoControls>>;

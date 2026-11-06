@@ -1,0 +1,524 @@
+{
+  "status": "INDEPENDENT_RECHECK_PASSED_WITH_ENV_SKIPS",
+  "round": 2,
+  "source": {
+    "revision": "3fd144ccbdeb6229ca5b2c873cc711581e9ee647",
+    "sourceHash": "696fd78a43715f17f6b54ecd2bea41ae4589badb2f24a57a6d3ea1dd7643b663",
+    "files": 186,
+    "freezeMatch": true
+  },
+  "before": {
+    "sourceHash": "696fd78a43715f17f6b54ecd2bea41ae4589badb2f24a57a6d3ea1dd7643b663",
+    "revision": "3fd144ccbdeb6229ca5b2c873cc711581e9ee647",
+    "files": 186
+  },
+  "after": {
+    "sourceHash": "696fd78a43715f17f6b54ecd2bea41ae4589badb2f24a57a6d3ea1dd7643b663",
+    "revision": "3fd144ccbdeb6229ca5b2c873cc711581e9ee647",
+    "files": 186
+  },
+  "productionSourceEditsByVerifier": 0,
+  "modelCallsByVerifier": 0,
+  "savedInputResends": 0,
+  "commands": [
+    {
+      "command": "npm run build",
+      "exit": 0,
+      "log": "build-r2.log"
+    },
+    {
+      "command": "8 related test files + independent suite; --test-concurrency=1",
+      "exit": 0,
+      "tests": 78,
+      "pass": 76,
+      "fail": 0,
+      "skipped": 2,
+      "log": "final-verification-r2.log"
+    },
+    {
+      "command": "P1 dedicated regression --test-name-pattern",
+      "exit": 0,
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "internalCases": 6,
+      "log": "missing-body-green-r2.log"
+    },
+    {
+      "command": "verify-prior-hashes.ts",
+      "exit": 0,
+      "checked": 9468,
+      "bytes": 1960682389,
+      "mismatches": 0
+    },
+    {
+      "command": "verify-r2-integrity.ts",
+      "exit": 0
+    },
+    {
+      "command": "verify-r2-original-repro.ts",
+      "exit": 0
+    }
+  ],
+  "findings": {
+    "round": 2,
+    "sourceHash": "696fd78a43715f17f6b54ecd2bea41ae4589badb2f24a57a6d3ea1dd7643b663",
+    "openCriticalFindings": [],
+    "findings": [
+      {
+        "id": "OBS-001",
+        "severity": "P1",
+        "status": "FIXED_RECHECKED",
+        "evidence": [
+          "missing-body-red.log",
+          "missing-body-green-r2.log",
+          "missing-body-reproduction-r2.json",
+          "r2-original-repro-check.json"
+        ],
+        "recheck": "Six unknown/zero-size malformed body cases reject before navigation; exact unchanged failed round1 HTTP HAR now rejected"
+      },
+      {
+        "id": "OBS-002",
+        "severity": "P2",
+        "status": "FIXED_RECHECKED",
+        "evidence": [
+          "final-verification-r2.log"
+        ],
+        "recheck": "Checkpoint ATTEMPTING pending separated from completed invalid; native schema-invalid streak separated from HTTP503/TIMEOUT and provider payload text; planned slots separated from recorded results"
+      },
+      {
+        "id": "OBS-003",
+        "severity": "P1",
+        "status": "FIXED_RECHECK_PRESERVED",
+        "evidence": [
+          "measurements-r2.json"
+        ],
+        "recheck": "Compact cohort4 mock personas remain one compatible group"
+      },
+      {
+        "id": "OBS-004",
+        "severity": "LIMITATION",
+        "status": "UNVERIFIED_ENVIRONMENT",
+        "evidence": [
+          "final-verification-r2.log"
+        ],
+        "reason": "Two symlink tests skip EPERM; hardlink boundary tests executed"
+      }
+    ]
+  },
+  "measurements": {
+    "syntheticDisclaimer": "400 synthetic slots are load-test data; zero real model calls in this independent suite.",
+    "before": {
+      "sourceHash": "696fd78a43715f17f6b54ecd2bea41ae4589badb2f24a57a6d3ea1dd7643b663",
+      "revision": "3fd144ccbdeb6229ca5b2c873cc711581e9ee647",
+      "files": 186
+    },
+    "realCatalog": {
+      "runs": 37,
+      "modelTrials": 36,
+      "mockTrials": 1,
+      "steps": 99,
+      "actions": {
+        "click": 62,
+        "done": 36,
+        "none": 1
+      },
+      "prepared": 1,
+      "attempted": 0,
+      "received": 295,
+      "terminal": 37,
+      "modelVsActualDifferences": 0
+    },
+    "realSnapshot": {
+      "offline": true,
+      "rounds": [
+        {
+          "initialSha256": "c1ef458b50bf8ff2b60eeaeb9a3e2d343e0bb2145c2a052006c6e71aeba8a29c",
+          "screens": [
+            {
+              "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey",
+              "title": "パスキーを使用した認証 - GitHubドキュメント",
+              "controls": 24,
+              "available": 13
+            },
+            {
+              "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey/about-passkeys",
+              "title": "パスキーの概要 - GitHubドキュメント",
+              "controls": 26,
+              "available": 12
+            },
+            {
+              "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey/managing-your-passkeys",
+              "title": "パスキーを管理する - GitHubドキュメント",
+              "controls": 26,
+              "available": 12
+            },
+            {
+              "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey",
+              "title": "パスキーを使ってサインインする - GitHubドキュメント",
+              "controls": 27,
+              "available": 13
+            }
+          ],
+          "events": [
+            {
+              "kind": "blocked-side-effect",
+              "code": "METHOD_BLOCKED",
+              "url": "https://collector.githubapp.com/docs/collect"
+            },
+            {
+              "kind": "snapshot-ready",
+              "code": "HAR_VERIFIED",
+              "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "EXCLUDED_LINKS_5"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "UNSUPPORTED_OR_UNSAFE_CONTROLS_6"
+            },
+            {
+              "kind": "blocked-side-effect",
+              "code": "METHOD_BLOCKED",
+              "url": "https://collector.githubapp.com/docs/collect"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "EXCLUDED_LINKS_5"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "UNSUPPORTED_OR_UNSAFE_CONTROLS_9"
+            },
+            {
+              "kind": "blocked-side-effect",
+              "code": "METHOD_BLOCKED",
+              "url": "https://collector.githubapp.com/docs/collect"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "EXCLUDED_LINKS_5"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "UNSUPPORTED_OR_UNSAFE_CONTROLS_9"
+            },
+            {
+              "kind": "blocked-side-effect",
+              "code": "METHOD_BLOCKED",
+              "url": "https://collector.githubapp.com/docs/collect"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "EXCLUDED_LINKS_5"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "UNSUPPORTED_OR_UNSAFE_CONTROLS_9"
+            }
+          ]
+        },
+        {
+          "initialSha256": "c1ef458b50bf8ff2b60eeaeb9a3e2d343e0bb2145c2a052006c6e71aeba8a29c",
+          "screens": [
+            {
+              "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey",
+              "title": "パスキーを使用した認証 - GitHubドキュメント",
+              "controls": 24,
+              "available": 13
+            },
+            {
+              "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey/about-passkeys",
+              "title": "パスキーの概要 - GitHubドキュメント",
+              "controls": 26,
+              "available": 12
+            },
+            {
+              "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey/managing-your-passkeys",
+              "title": "パスキーを管理する - GitHubドキュメント",
+              "controls": 26,
+              "available": 12
+            },
+            {
+              "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey",
+              "title": "パスキーを使ってサインインする - GitHubドキュメント",
+              "controls": 27,
+              "available": 13
+            }
+          ],
+          "events": [
+            {
+              "kind": "blocked-side-effect",
+              "code": "METHOD_BLOCKED",
+              "url": "https://collector.githubapp.com/docs/collect"
+            },
+            {
+              "kind": "snapshot-ready",
+              "code": "HAR_VERIFIED",
+              "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "EXCLUDED_LINKS_5"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "UNSUPPORTED_OR_UNSAFE_CONTROLS_6"
+            },
+            {
+              "kind": "blocked-side-effect",
+              "code": "METHOD_BLOCKED",
+              "url": "https://collector.githubapp.com/docs/collect"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "EXCLUDED_LINKS_5"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "UNSUPPORTED_OR_UNSAFE_CONTROLS_9"
+            },
+            {
+              "kind": "blocked-side-effect",
+              "code": "METHOD_BLOCKED",
+              "url": "https://collector.githubapp.com/docs/collect"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "EXCLUDED_LINKS_5"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "UNSUPPORTED_OR_UNSAFE_CONTROLS_9"
+            },
+            {
+              "kind": "blocked-side-effect",
+              "code": "METHOD_BLOCKED",
+              "url": "https://collector.githubapp.com/docs/collect"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "EXCLUDED_LINKS_5"
+            },
+            {
+              "kind": "observation-scope",
+              "code": "UNSUPPORTED_OR_UNSAFE_CONTROLS_9"
+            }
+          ]
+        }
+      ]
+    },
+    "synthetic400": {
+      "label": "SYNTHETIC; zero model executions",
+      "planned": 400,
+      "recorded": 390,
+      "valid": 360,
+      "invalid": 20,
+      "unknownRecorded": 10,
+      "pending": 10,
+      "normalizedSteps": 3120,
+      "buildMs": 9114.2539,
+      "initialMs": 199.41410000000178,
+      "secondSelectionMs": 104.89700000000084,
+      "initialDetails": 1,
+      "uniqueSelectedDetails": 2,
+      "catalogBytes": 345604,
+      "allRunsListed": 400,
+      "personaCListed": 100,
+      "mobileHorizontalOverflow": false,
+      "errors": []
+    },
+    "hardlinks": {
+      "serverRejected": true,
+      "builderRejected": true,
+      "originalUnchanged": true
+    },
+    "compactCohort": {
+      "runs": 4,
+      "groups": 1,
+      "mock": true,
+      "objective": {
+        "status": "UNVERIFIED",
+        "value": null
+      },
+      "rawManifestUnchanged": true
+    },
+    "deployedViewer": {
+      "url": "http://127.0.0.1:4175/",
+      "runs": 57,
+      "allRunsVisible": true,
+      "publicObjectiveUnknown": true,
+      "mobileHorizontalOverflow": false,
+      "browserErrors": []
+    },
+    "missingBodyCases": {
+      "tested": 6,
+      "sizes": [
+        -1,
+        0
+      ],
+      "variants": [
+        "absent",
+        "null",
+        "number"
+      ],
+      "allRejectedBeforeNavigation": true
+    },
+    "after": {
+      "sourceHash": "696fd78a43715f17f6b54ecd2bea41ae4589badb2f24a57a6d3ea1dd7643b663",
+      "revision": "3fd144ccbdeb6229ca5b2c873cc711581e9ee647",
+      "files": 186
+    },
+    "finishedAtUTC": "2026-11-06T02:13:45.682Z"
+  },
+  "priorIntegrity": {
+    "mode": "Hash-only integrity check; no historical raw JSON parsed or sent to model",
+    "expected": 9468,
+    "checked": 9468,
+    "bytes": 1960682389,
+    "elapsedMs": 5113.311299999999,
+    "mismatches": [],
+    "checkedAtUTC": "2026-11-06T02:15:12.484Z"
+  },
+  "oldPhaseAndProtocol": {
+    "sourceHash": "696fd78a43715f17f6b54ecd2bea41ae4589badb2f24a57a6d3ea1dd7643b663",
+    "site": {
+      "entries": 120,
+      "documents": [
+        {
+          "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey",
+          "size": 115988,
+          "textBytes": 115988
+        },
+        {
+          "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey/about-passkeys",
+          "size": 147292,
+          "textBytes": 147292
+        },
+        {
+          "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey/managing-your-passkeys",
+          "size": 192230,
+          "textBytes": 192230
+        },
+        {
+          "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey",
+          "size": 145666,
+          "textBytes": 145666
+        }
+      ],
+      "unchangedFromR1": true,
+      "hashes": [
+        {
+          "file": "site.har",
+          "sha256": "2f3ef9f0fbe3d819c824b0381a2f49053b2c20d8350840bef32de6ae04061bb6"
+        },
+        {
+          "file": "original.har",
+          "sha256": "2f3ef9f0fbe3d819c824b0381a2f49053b2c20d8350840bef32de6ae04061bb6"
+        },
+        {
+          "file": "page-0.png",
+          "sha256": "c1ef458b50bf8ff2b60eeaeb9a3e2d343e0bb2145c2a052006c6e71aeba8a29c"
+        },
+        {
+          "file": "page-1.png",
+          "sha256": "4db36a644dc6cc029772e034dcd7bcdf6de279e2c7fad7c709ea804724ced26a"
+        },
+        {
+          "file": "page-2.png",
+          "sha256": "2ca6d01a0b7e951827acfc526151a9b3162f8975e361662f18656768bbef7451"
+        },
+        {
+          "file": "page-3.png",
+          "sha256": "a88f13d867e232cdef7c060fb9cde8a798a48953a8f7ae2384ba4ce2de1f5718"
+        },
+        {
+          "file": "site-spec.json",
+          "sha256": "3961385edd50325e072d748576716460c9bd083aeb5422d0c1edaf2985f960b8"
+        },
+        {
+          "file": "capture-manifest.json",
+          "sha256": "8a3ca1b40677db56590d4d09e97d37bdbdc09d3dde45313ee52b72d3c1067a1d"
+        }
+      ]
+    },
+    "oldPhase": {
+      "status": "FROZEN_SOURCE_CHANGED",
+      "preservationAfter": false,
+      "attempted": 2,
+      "unattempted": 14,
+      "requests": 41,
+      "rows": [
+        {
+          "id": "public-persona-baseline-r1",
+          "actor": "baseline",
+          "status": "RESULT",
+          "valid": false,
+          "termination": "API_ERROR",
+          "requests": 22,
+          "decisions": 8,
+          "rawHashMatches": true,
+          "reserved": 0,
+          "sourceHash": "9f515b8f48648cf5c5f3ef309ddf0ed9c81958baab101b180922288285dff40f"
+        },
+        {
+          "id": "public-persona-A-r1",
+          "actor": "A",
+          "status": "RESULT",
+          "valid": false,
+          "termination": "API_ERROR",
+          "requests": 19,
+          "decisions": 7,
+          "rawHashMatches": true,
+          "reserved": 0,
+          "sourceHash": "9f515b8f48648cf5c5f3ef309ddf0ed9c81958baab101b180922288285dff40f"
+        }
+      ],
+      "acceptedAsSuccess": false,
+      "mergedWithNewMain": false
+    },
+    "protocol": {
+      "profileActorsGoalRepeatsLimitsInterventionObjectiveUnchanged": true,
+      "changedKeys": [
+        "phase",
+        "revisionReason",
+        "previousPhase",
+        "unchangedActorPolicy"
+      ],
+      "revisionReason": [
+        "Require embedded successful document body even with unknown size",
+        "Separate in-progress trial from invalid results in summaries and slot labels",
+        "Count recorded native schema-invalid responses for existing three-consecutive-invalid stopping rule"
+      ]
+    },
+    "actorCharterSiteFilesMatchOldIdentity": true,
+    "priorMetadataMatchesOldIdentity": true,
+    "modelConfigMatchesOldIdentity": true
+  },
+  "exactOriginalRepro": {
+    "sourceHash": "696fd78a43715f17f6b54ecd2bea41ae4589badb2f24a57a6d3ea1dd7643b663",
+    "originalHARUnchanged": true,
+    "originalHARSha256": "86822ec103af94bc0e27ff6442a8cdb11fd4d45c8fbb6cb6554a99855d9b5bad",
+    "error": "Error: SITE_SNAPSHOT_SPEC_INVALID",
+    "url": "about:blank",
+    "events": [
+      {
+        "kind": "snapshot-error",
+        "code": "SITE_SNAPSHOT_SPEC_INVALID"
+      }
+    ]
+  },
+  "notes": [
+    "First-round byte aggregate had an asynchronous addition race; corrected round2 total1960682389. File hash checks and9468 count were unaffected.",
+    "Earlier first-anchor timeout lacked retained HAR; exact cause of that one historical event remains unproven. Current fixture embeds/validates body before replay; reproduced missing-body case is closed."
+  ],
+  "notVerified": [
+    "New actual-model live-r2 results and phase accounting after completion",
+    "Human fidelity, cognition, causality or actual400-model execution",
+    "Repository-wide npm test baseline failures",
+    "Two symlink cases requiring unavailable Windows privileges",
+    "Native response contract/token failures in old2 API_ERROR attempts; distinct from measurement P1/P2"
+  ]
+}

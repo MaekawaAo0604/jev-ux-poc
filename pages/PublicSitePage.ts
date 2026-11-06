@@ -11,7 +11,7 @@ const sameEntry=(a:HistoryEntry|undefined,b:HistoryEntry|undefined)=>!!a&&!!b&&a
 /** Direct link navigation and narrowly classified, network-blocked disclosures. */
 export class PublicSitePage extends AutoPage {
   protected classifyNative=true;
-  constructor(page:Page,private resolveNavigation:(url:string)=>Promise<string>=async url=>url,private releaseNavigation:()=>Promise<void>=async()=>{},vision=false){super(page,vision);}
+  constructor(page:Page,private resolveNavigation:(url:string)=>Promise<string>=async url=>url,private releaseNavigation:()=>Promise<void>=async()=>{},vision=false,informationDocuments:string[]=[]){super(page,vision);this.readonlyInformationDocuments=[...informationDocuments];}
   private localOnly=false;
   private prepared?:Promise<void>;
   private pendingNavigation?:{url:string;request?:Request};
@@ -102,7 +102,7 @@ export class PublicSitePage extends AutoPage {
   async describeAction(action:Action,step:number){
     const draft=await super.describeAction(action,step);
     if(action.type==='click'){
-      const control=await (await this.targetElement(action.elementId)).evaluate(publicControl);
+      const control=await (await this.targetElement(action.elementId)).evaluate(publicControl,{informationDocuments:this.readonlyInformationDocuments});
       if(control.kind==='link')draft.execution={kind:'navigate',url:control.href};
       else if(control.kind==='disclosure')draft.execution={kind:'local-disclosure'};
     }
@@ -139,7 +139,7 @@ export class PublicSitePage extends AutoPage {
     this.assertSafe();
     if(action.type==='click'){
       const locator=await this.targetElement(action.elementId);
-      const control=await locator.evaluate(publicControl);
+      const control=await locator.evaluate(publicControl,{informationDocuments:this.readonlyInformationDocuments});
       if(control.kind==='blocked')throw new Error(`${control.reason}: external destination or unsupported control`);
       if(control.kind==='link'){
         const before=await this.navigationHistory(),source=before.entries[before.currentIndex];
@@ -172,7 +172,7 @@ export class PublicSitePage extends AutoPage {
             if(open===null)throw new Error('ACTION_ERROR: disclosure panel was replaced');
             if(open!==control.open)return;
           }else{
-            const after=await locator.evaluate(publicControl);
+            const after=await locator.evaluate(publicControl,{informationDocuments:this.readonlyInformationDocuments});
             if(after.kind==='disclosure'&&after.open!==control.open)return;
           }
           await this.page.waitForTimeout(50);

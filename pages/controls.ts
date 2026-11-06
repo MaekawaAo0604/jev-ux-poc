@@ -7,7 +7,7 @@ export type PublicControl={kind:'link';href:string}|{kind:'disclosure';open:bool
 // Self-contained for Playwright serialization. A URL + explicit origin also
 // runs in Node, so discovery, stale-target checks and HTTP hops share policy.
 // Never returns hidden panel contents or navigation hints to the model.
-export function publicControl(el:Element|string,origin?:string|void):PublicControl{
+export function publicControl(el:Element|string,origin?:string|void|{informationDocuments?:string[]}):PublicControl{
  if(typeof el==='string'||el instanceof HTMLAnchorElement){
   const blocked:PublicControl={kind:'blocked',reason:'SAFETY_BOUNDARY'};
   const sourceOrigin=typeof origin==='string'?origin:undefined;
@@ -35,7 +35,9 @@ export function publicControl(el:Element|string,origin?:string|void):PublicContr
    if(policy.authentication(policy.decode(url.pathname))||url.hash&&policy.authentication(policy.decode(url.hash.replace(/^#!?/,''))))return blocked;
    for(const [key,value] of url.searchParams)if(/^(action|operation|op|do|cmd|route)$/.test(key.toLowerCase())&&policy.authentication(policy.decode('/'+value),false))return blocked;
   }catch{return blocked;}
-  if(anchor){
+  // Only an explicitly verified readonly document may override the label heuristic.
+  // URL/auth/query/origin checks still run; ordinary public exploration has no list.
+  if(anchor&&!(typeof origin==='object'&&origin?.informationDocuments?.includes(url.origin+url.pathname+url.search))){
    const label=(anchor.innerText||anchor.textContent||anchor.getAttribute('aria-label')||'').normalize('NFKC').trim().replace(/\s+/g,' ');
    if(/(?:ログイン|サインイン|ログアウト|サインアウト|新規登録|会員登録)(?:する|はこちら|へ)?$/.test(label.replaceAll(' ',''))||/^(?:log[- ]?in|sign[- ]?in|log[- ]?out|sign[- ]?out|sign[- ]?up|register)(?:\s+(?:with|via|using)\b.*)?$/i.test(label)||/^continue\s+with\s+(?:google|apple|facebook|microsoft|github)\b/i.test(label))return blocked;
   }

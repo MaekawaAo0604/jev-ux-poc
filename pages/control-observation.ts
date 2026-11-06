@@ -25,7 +25,7 @@ export function inspectControl(el:Element){
 // nodes inspected, so enumeration cannot drift between protocol round trips.
 // Functions are passed as code by AutoPage, never sourced from the website.
 export function collectAutoControls(
- options:{font:boolean;controlSelector:string;nativeControlSelector:string;classifyNative:boolean},
+ options:{font:boolean;controlSelector:string;nativeControlSelector:string;classifyNative:boolean;informationDocuments?:string[]},
  readText:typeof visibleText,classify:typeof publicControl,inspect:typeof inspectControl,
 ){
  const {controlLabels,controlContexts,...screen}=readText(options);
@@ -33,7 +33,7 @@ export function collectAutoControls(
  for(const [index,el] of Array.from(document.querySelectorAll(options.controlSelector)).entries()){
   const metadata=inspect(el);if(!metadata)continue;
   const native=el.matches(options.nativeControlSelector);
-  const control=options.classifyNative||!native?classify(el):undefined;
+  const control=options.classifyNative||!native?classify(el,{informationDocuments:options.informationDocuments}):undefined;
   if(!native&&(control?.kind!=='disclosure'||!control.description))continue;
   const identityPath:number[]=[];
   if(control?.kind==='disclosure')for(let node:Element|null=el;node?.parentElement;node=node.parentElement)identityPath.unshift(Array.from(node.parentElement.children).indexOf(node));
