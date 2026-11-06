@@ -36,13 +36,18 @@ Primary: task-specific observable choices, help/detail visits, persisted-vs-prev
 
 ## Tasks
 
-- [ ] 1. Fixture worker writes failing browser/oracle tests, verifies failure, implements3tasks, tests reachability/reset/back/state separation and no external writes. No human completion claim.
-- [ ] 2. Analysis worker writes failing pure regressions, implements valid-only canonical paths/within-between distances and task-specific factual choices, reasons and candidate target identity vs generated annotations.
-- [ ] 3. Parent integrates adapter/driver with failing tests, runs regression/build and bounded ordinary mock. Freeze/commit code before real execution; archive runtime and all prior raw hashes.
-- [ ] 4. Fresh reviewer checks frozen code, actual mock/browser behavior and fault invalidation. Fix and reverify issues before live.
-- [ ] 5. Execute36real slots, preserve failures, audit perstagePersona/frame/ledger/source/unit weights/initial inputs. Independent reviewer verifies live raw and selected images.
-- [ ] 6. Publish methods/results/images/repro commands and gate evidence, final regression and raw/source preservation, push feature branch.
+- [x] 1. Fixture worker writes failing browser/oracle tests, verifies failure, implements3tasks, tests reachability/reset/back/state separation and no external writes. No human completion claim.
+- [x] 2. Analysis worker writes failing pure regressions, implements valid-only canonical paths/within-between distances and task-specific factual choices, reasons and candidate target identity vs generated annotations.
+- [x] 3. Parent integrates adapter/driver with failing tests, runs regression/build and bounded ordinary mock. Freeze/commit code before real execution; archive runtime and all prior raw hashes.
+- [x] 4. Fresh reviewer checks frozen code, actual mock/browser behavior and fault invalidation. Fix and reverify issues before live.
+- [x] 5. Execute36real slots, preserve failures, audit perstagePersona/frame/ledger/source/unit weights/initial inputs. Independent reviewer verifies live raw and selected images.
+- [x] 6. Publish methods/results/images/repro commands and gate evidence, final regression and raw/source preservation, push feature branch.
 
 ## Decisions
 
 Ruling: proceed without another design/budget question, per repeated user direction and explicit API authorization. Reuse existing isolated worktree and previous mode without an extra framework. Existing fixed A/B/C kept unchanged; do not tailor Persona to the fixture. Smartphone behavior remains out of scope because comparison viewport is fixed.
+
+
+## Execution record
+
+Code2c0876b3dc3848b29ff755885192890c891d2d69/runtime8d591fcb/177files frozen before models. Related67tests/buildPASS; fullsuite2692/2629pass60fail3skip remains nongreen (run overlapped finalassembly, then frozenfocused suite passed). Fresh verifier code/mock/live gates PASS, no productblockingfindings. 36real slots/35valid/1nativeinvalid/292requests; no replacements or retries. Cprivacybasic2/3 vs others0/9, default-basic interpretation preserved, knowledge/experience paths equal. Humanmatch/effectcertainty unvalidated. 9468rawfiles sealed; fullraw and failedharness reports retained. Publication and push tracked in parent/final.json after final checks.

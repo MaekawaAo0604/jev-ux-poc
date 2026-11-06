@@ -1,0 +1,49 @@
+"id","sequence","task","actor","replicate","valid","termination","censored","abandoned","requests","judgments","uiActions","looks","helpClicks","previewClicks","saveClicks","detailsClicks","revisits","firstGrantScope","finalScope","routeSha256","route"
+"persona-task-sessions-baseline-r1","1","sessions","baseline","1","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","0","0","","none","00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f","別端末のセッションを確認・失効 → この別端末のセッションを失効する"
+"persona-task-sessions-A-r1","2","sessions","A","1","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","0","0","","none","00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f","別端末のセッションを確認・失効 → この別端末のセッションを失効する"
+"persona-task-sessions-B-r1","3","sessions","B","1","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","0","0","","none","00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f","別端末のセッションを確認・失効 → この別端末のセッションを失効する"
+"persona-task-sessions-C-r1","4","sessions","C","1","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","0","0","","none","00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f","別端末のセッションを確認・失効 → この別端末のセッションを失効する"
+"persona-task-preferences-A-r1","5","preferences","A","1","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","1","0","0","","none","106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f","コンパクト
+項目の間隔を狭くして一覧表示 → 表示を保存"
+"persona-task-preferences-B-r1","6","preferences","B","1","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","1","0","0","","none","106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f","コンパクト
+項目の間隔を狭くして一覧表示 → 表示を保存"
+"persona-task-preferences-C-r1","7","preferences","C","1","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","1","0","0","","none","106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f","コンパクト
+項目の間隔を狭くして一覧表示 → 表示を保存"
+"persona-task-preferences-baseline-r1","8","preferences","baseline","1","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","1","0","0","","none","106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f","コンパクト
+項目の間隔を狭くして一覧表示 → 表示を保存"
+"persona-task-privacy-B-r1","9","privacy","B","1","true","SUBJECTIVE_DONE","false","false","6","2","1","0","0","0","0","0","0","extended","extended","98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61","拡張アクセスで通知を有効にする"
+"persona-task-privacy-C-r1","10","privacy","C","1","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","1","0","basic","basic","75c79ceaec5363dfc40e3a010d926f8505b0dc86a3307893de8fb6aff8d1b995","情報の利用範囲を詳しく確認・変更 → 選んだ範囲で通知を有効にする"
+"persona-task-privacy-baseline-r1","11","privacy","baseline","1","true","SUBJECTIVE_DONE","false","false","6","2","1","0","0","0","0","0","0","extended","extended","98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61","拡張アクセスで通知を有効にする"
+"persona-task-privacy-A-r1","12","privacy","A","1","true","SUBJECTIVE_DONE","false","false","6","2","1","0","0","0","0","0","0","extended","extended","98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61","拡張アクセスで通知を有効にする"
+"persona-task-sessions-A-r2","13","sessions","A","2","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","0","0","","none","00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f","別端末のセッションを確認・失効 → この別端末のセッションを失効する"
+"persona-task-sessions-B-r2","14","sessions","B","2","false","API_ERROR","false","false","7","3","2","0","0","0","0","0","0","","none","00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f","別端末のセッションを確認・失効 → この別端末のセッションを失効する"
+"persona-task-sessions-C-r2","15","sessions","C","2","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","0","0","","none","00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f","別端末のセッションを確認・失効 → この別端末のセッションを失効する"
+"persona-task-sessions-baseline-r2","16","sessions","baseline","2","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","0","0","","none","00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f","別端末のセッションを確認・失効 → この別端末のセッションを失効する"
+"persona-task-preferences-B-r2","17","preferences","B","2","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","1","0","0","","none","106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f","コンパクト
+項目の間隔を狭くして一覧表示 → 表示を保存"
+"persona-task-preferences-C-r2","18","preferences","C","2","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","1","0","0","","none","106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f","コンパクト
+項目の間隔を狭くして一覧表示 → 表示を保存"
+"persona-task-preferences-baseline-r2","19","preferences","baseline","2","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","1","0","0","","none","106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f","コンパクト
+項目の間隔を狭くして一覧表示 → 表示を保存"
+"persona-task-preferences-A-r2","20","preferences","A","2","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","1","0","0","","none","106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f","コンパクト
+項目の間隔を狭くして一覧表示 → 表示を保存"
+"persona-task-privacy-C-r2","21","privacy","C","2","true","SUBJECTIVE_DONE","false","false","6","2","1","0","0","0","0","0","0","extended","extended","98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61","拡張アクセスで通知を有効にする"
+"persona-task-privacy-baseline-r2","22","privacy","baseline","2","true","SUBJECTIVE_DONE","false","false","6","2","1","0","0","0","0","0","0","extended","extended","98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61","拡張アクセスで通知を有効にする"
+"persona-task-privacy-A-r2","23","privacy","A","2","true","SUBJECTIVE_DONE","false","false","6","2","1","0","0","0","0","0","0","extended","extended","98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61","拡張アクセスで通知を有効にする"
+"persona-task-privacy-B-r2","24","privacy","B","2","true","SUBJECTIVE_DONE","false","false","6","2","1","0","0","0","0","0","0","extended","extended","98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61","拡張アクセスで通知を有効にする"
+"persona-task-sessions-B-r3","25","sessions","B","3","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","0","0","","none","00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f","別端末のセッションを確認・失効 → この別端末のセッションを失効する"
+"persona-task-sessions-C-r3","26","sessions","C","3","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","0","0","","none","00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f","別端末のセッションを確認・失効 → この別端末のセッションを失効する"
+"persona-task-sessions-baseline-r3","27","sessions","baseline","3","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","0","0","","none","00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f","別端末のセッションを確認・失効 → この別端末のセッションを失効する"
+"persona-task-sessions-A-r3","28","sessions","A","3","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","0","0","","none","00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f","別端末のセッションを確認・失効 → この別端末のセッションを失効する"
+"persona-task-preferences-C-r3","29","preferences","C","3","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","1","0","0","","none","106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f","コンパクト
+項目の間隔を狭くして一覧表示 → 表示を保存"
+"persona-task-preferences-baseline-r3","30","preferences","baseline","3","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","1","0","0","","none","106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f","コンパクト
+項目の間隔を狭くして一覧表示 → 表示を保存"
+"persona-task-preferences-A-r3","31","preferences","A","3","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","1","0","0","","none","106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f","コンパクト
+項目の間隔を狭くして一覧表示 → 表示を保存"
+"persona-task-preferences-B-r3","32","preferences","B","3","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","1","0","0","","none","106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f","コンパクト
+項目の間隔を狭くして一覧表示 → 表示を保存"
+"persona-task-privacy-baseline-r3","33","privacy","baseline","3","true","SUBJECTIVE_DONE","false","false","6","2","1","0","0","0","0","0","0","extended","extended","98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61","拡張アクセスで通知を有効にする"
+"persona-task-privacy-A-r3","34","privacy","A","3","true","SUBJECTIVE_DONE","false","false","6","2","1","0","0","0","0","0","0","extended","extended","98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61","拡張アクセスで通知を有効にする"
+"persona-task-privacy-B-r3","35","privacy","B","3","true","SUBJECTIVE_DONE","false","false","6","2","1","0","0","0","0","0","0","extended","extended","98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61","拡張アクセスで通知を有効にする"
+"persona-task-privacy-C-r3","36","privacy","C","3","true","SUBJECTIVE_DONE","false","false","9","3","2","0","0","0","0","1","0","basic","basic","75c79ceaec5363dfc40e3a010d926f8505b0dc86a3307893de8fb6aff8d1b995","情報の利用範囲を詳しく確認・変更 → 選んだ範囲で通知を有効にする"

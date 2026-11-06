@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "gate": "pre-live independent code acceptance",
+  "status": "PASS",
+  "scope": "Frozen Persona-task comparison system for the bounded36trial live run. This is not an overall repository full-regression-green claim or a live-model validity claim.",
+  "reviewer": "fresh independent verifier",
+  "atUTC": "2026-11-05T23:24:46.027Z",
+  "source": {
+    "revision": "2c0876b3dc3848b29ff755885192890c891d2d69",
+    "sourceHash": "8d591fcb465f06293387391e4647a6b705e865c42b9ffc5f8c4ededda22bd4a3",
+    "runtimeFiles": 177,
+    "archiveSha256": "9448a4bcb76ec0b0360cfa5b277db3c959f18f0b2beac5e3089f069bda8caf8b"
+  },
+  "verification": {
+    "offlineChecks": 14,
+    "driverFaultCases": [
+      {
+        "mode": "native-timeout",
+        "status": "PASS",
+        "attempted": 2,
+        "batchStatus": "CONSECUTIVE_INVALID_TRIALS"
+      },
+      {
+        "mode": "native-incomplete",
+        "status": "PASS",
+        "attempted": 2,
+        "batchStatus": "CONSECUTIVE_INVALID_TRIALS"
+      },
+      {
+        "mode": "assessment-timeout",
+        "status": "PASS",
+        "attempted": 2,
+        "batchStatus": "CONSECUTIVE_INVALID_TRIALS"
+      },
+      {
+        "mode": "assessment-invalid",
+        "status": "PASS",
+        "attempted": 2,
+        "batchStatus": "CONSECUTIVE_INVALID_TRIALS"
+      },
+      {
+        "mode": "action-timeout",
+        "status": "PASS",
+        "attempted": 2,
+        "batchStatus": "CONSECUTIVE_INVALID_TRIALS"
+      },
+      {
+        "mode": "action-invalid",
+        "status": "PASS",
+        "attempted": 2,
+        "batchStatus": "CONSECUTIVE_INVALID_TRIALS"
+      },
+      {
+        "mode": "wrong-config",
+        "status": "PASS",
+        "attempted": 1,
+        "batchStatus": "TRIAL_AUDIT_ERROR"
+      },
+      {
+        "mode": "wrong-goal",
+        "status": "PASS",
+        "attempted": 1,
+        "batchStatus": "TRIAL_AUDIT_ERROR"
+      },
+      {
+        "mode": "wrong-source",
+        "status": "PASS",
+        "attempted": 1,
+        "batchStatus": "TRIAL_AUDIT_ERROR"
+      },
+      {
+        "mode": "wrong-fixture",
+        "status": "PASS",
+        "attempted": 1,
+        "batchStatus": "COMPARISON_AUDIT_ERROR"
+      },
+      {
+        "mode": "native-quota",
+        "status": "PASS",
+        "attempted": 1,
+        "batchStatus": "PROVIDER_UNAVAILABLE"
+      },
+      {
+        "mode": "safety",
+        "status": "PASS",
+        "attempted": 1,
+        "batchStatus": "SAFETY_STOP"
+      }
+    ],
+    "browserChecks": [
+      {
+        "name": "actual integrated app sessions retains current login and password; fresh context resets",
+        "status": "PASS"
+      },
+      {
+        "name": "actual app preview remains unsaved; save persists through navigation; changing selection alone retains saved state",
+        "status": "PASS"
+      },
+      {
+        "name": "actual app privacy basic is valid, can change and revoke, sends no external data",
+        "status": "PASS"
+      },
+      {
+        "name": "actual app privacy extended is valid, can change and revoke, sends no external data",
+        "status": "PASS"
+      },
+      {
+        "name": "legacy default routes remain outside Persona fixture",
+        "status": "PASS"
+      }
+    ],
+    "actualCap": {
+      "scope": "Actual ordinary mock runner cap; scripted reread only for verifier test, never experiment treatment",
+      "directory": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-tasks-2026-11-06\\independent-code\\actual-cap-1793920990539",
+      "status": "PASS",
+      "termination": "DECISION_LIMIT",
+      "decisions": 12,
+      "apiCalls": 36,
+      "uiActions": 0,
+      "looks": 0,
+      "valid": {
+        "valid": true,
+        "reasons": []
+      },
+      "censored": true,
+      "abandoned": false,
+      "completePaths": 1,
+      "delivery": {
+        "native": 12,
+        "assessment": 12,
+        "action": 12,
+        "errors": []
+      },
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false
+    },
+    "build": {
+      "buildExit": 0,
+      "typecheckExit": 0
+    },
+    "archive": {
+      "status": "PASS",
+      "entries": 177
+    },
+    "imagesVisuallyInspected": [
+      "ui-preferences-preview-unsaved.png",
+      "ui-privacy-initial.png",
+      "ui-sessions-completed.png"
+    ]
+  },
+  "findings": [
+    {
+      "id": "C01",
+      "severity": "informational",
+      "status": "PASS",
+      "expected": "Isolated invalid model/timeout failures at native, assessment and action stages preserve invalid slot and continue;2consecutive invalid stop.",
+      "actual": "All6 actual driver fault cases continued toslot2 with successful replay;slot2 deliberately identity-faulted to bound test; batchstopped CONSECUTIVE_INVALID_TRIALS and0validpaths.",
+      "repro": "node --import tsx reports/persona-tasks-2026-11-06/independent-code/driver-fault-checks.ts native-timeout native-incomplete assessment-timeout assessment-invalid action-timeout action-invalid",
+      "evidence": "driver-fault-evidence-1793920851725.json"
+    },
+    {
+      "id": "C02",
+      "severity": "informational",
+      "status": "PASS",
+      "expected": "Wronggoal/config/source/fixture,quota andsafety stop before valid-path statistics.",
+      "actual": "All6 driver cases stoppedslot1 with0validpaths. Safety test injected the returned safety termination; network boundary source reviewed separately.",
+      "evidence": "driver-fault-evidence-1793920851725.json"
+    },
+    {
+      "id": "C03",
+      "severity": "low",
+      "status": "NONBLOCKING_BOUNDARY_LIMITATION",
+      "expected": "Receipt-bound driver catches source/config/goal mismatch before analysis.",
+      "actual": "Driver rejects them. Pure analyzePersonaTaskRuns separately trusts prior receipt validation/replay status and does not independently reject arbitrary source/config/goal/cap mutations. Avoid presenting the pure analyzer as a standalone raw-authenticity verifier.",
+      "evidence": "pure-evidence-r2.json"
+    },
+    {
+      "id": "C04",
+      "severity": "informational",
+      "status": "PASS",
+      "expected": "Valid capped observed-to-stop paths included; caps not abandonment.",
+      "actual": "Actual ordinary mock:12decisions36stagecalls, termination DECISION_LIMIT,12native12assessment12action verified, valid/censored true, abandonedfalse,1completepath, objectivefalse separate.",
+      "evidence": "cap-evidence-r2.json"
+    },
+    {
+      "id": "C05",
+      "severity": "informational",
+      "status": "PASS",
+      "expected": "Same UI task initial state/freshcontexts; preview does not save; bothprivacy scopes valid and reversible; audit truth private.",
+      "actual": "Integrated browser checks passed and selected images visually inspected;actual3stage inputs exclude private audit keys; no actor-specific fixture rule or required clickroute found. Fixed PersonaJSON treatment whole, nofield causal score.",
+      "evidence": "browser-evidence-r2.json"
+    }
+  ],
+  "preservedFailedAttempts": [
+    {
+      "file": "pure-evidence-r1.json",
+      "cause": "Test harness used placeholderPNG rejected by requestvalidator;fixed toattach actual savedPNG; no product edit."
+    },
+    {
+      "file": "browser-evidence-r1.json",
+      "cause": "Standalone verification browser initially lacked ordinary fontstylesheet interception and saw GoogleFontsGET. Corrected harness tosame interception+local GET/HEAD boundary asordinary runner; no fixture data write observed."
+    },
+    {
+      "file": "cap-evidence-r1.json",
+      "cause": "Test evaluator reused one-decision default and supplied none for later inquiryOutcome_result requiringunknown. Corrected test evaluator allowedcriterion fallback; no product edit."
+    }
+  ],
+  "limitations": [
+    "RealAPI transport/model behavior/live ledgers and raw selectedimages unverified here; must review after execution. NoAPI requests made by verifier.",
+    "Mock derivative driver rebases imports and substitutes only runHumanJev testwrapper; original driver controlflow untouched. Faulttests use empty prior metadata toavoid historical raw inspection; historical preservation remains parent evidence.",
+    "Overall parent fullsuite reported2692tests:2629pass60fail3skip; not green. Parent preserved failure inventory and froze then reran focused67/67. Independent didnot diagnose every legacy failure. Independent typecheck/build pass and default /bad/ /good/ browser smoke only.",
+    "Trait consistency/human agreement areunassessed. Grounded Persona fields may motivate hypotheses but none dictates a requiredroute. A basic/extended action alone cannot establish knowledge or a stereotype.",
+    "36slot parent ordinarymock andreal execution completeness require separate postrun gate."
+  ],
+  "evidence": [
+    {
+      "file": "pure-evidence-r2.json",
+      "sha256": "97a73b77e04fe50a7b791648a55b2f63b8ce1eb636423095ce9a8449acbaf9d6"
+    },
+    {
+      "file": "driver-fault-evidence-1793920851725.json",
+      "sha256": "d05f1f7e39944c34de57aac3b6fe275fb980141b4d123cfc8fb937154a4fc59f"
+    },
+    {
+      "file": "browser-evidence-r2.json",
+      "sha256": "4bec810d81d9a44853a1d6fa38a6b412777968d301185ad264c3be05f22825b7"
+    },
+    {
+      "file": "cap-evidence-r2.json",
+      "sha256": "a0d5759c78b28d295a731d2eb092b8982ea1f3b369e63829f43764e258dd1eb2"
+    },
+    {
+      "file": "archive-evidence-r1.json",
+      "sha256": "cb942627ea0d75475e0faa5ba82c4482a571fddef3cb68dee55ab632ea8a354a"
+    },
+    {
+      "file": "build-evidence-r1.json",
+      "sha256": "995f1fc76a4e4e583b888bc5b8df4f24bcd6999c933b6e4c82c865be9ad58b01"
+    },
+    {
+      "file": "driver-transform.json",
+      "sha256": "35d0e5f95e033e4f7363450efff2b461f413dcc1a9ddf9f33a4480a78922b06d"
+    },
+    {
+      "file": "pure-checks.ts",
+      "sha256": "d9ef2d446fc776977bc5dc907f9d968df9f34a4862e86458acd29c470e443a55"
+    },
+    {
+      "file": "fault-wrapper.ts",
+      "sha256": "d97ae5c33810921f9eaf2d6bdcb37de93c8e0c43f5315c400aaa165306056b81"
+    },
+    {
+      "file": "driver-fault-checks.ts",
+      "sha256": "e02eb153376830073d229e5f3e658145e76023b37aa0a3b702ea238c774b9ee3"
+    },
+    {
+      "file": "browser-checks.ts",
+      "sha256": "a358f19d9a87f84d7ee4386d5d3e49660f30be87779b292a72a1cf2d352f0949"
+    },
+    {
+      "file": "cap-check.ts",
+      "sha256": "a983bea8ca4d4395a6104d8d002e56f524ff0fd43f006556df77ea1e46a26878"
+    }
+  ]
+}

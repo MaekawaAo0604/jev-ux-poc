@@ -1,0 +1,28 @@
+{
+  "atUTC": "2026-11-05T23:25:36.755Z",
+  "revision": "2c0876b3dc3848b29ff755885192890c891d2d69",
+  "sourceHash": "8d591fcb465f06293387391e4647a6b705e865c42b9ffc5f8c4ededda22bd4a3",
+  "codeGate": {
+    "file": "reports/persona-tasks-2026-11-06/independent-code/code-gate-r1.json",
+    "sha256": "4b3697b4986095b4b9dd9a7e13bcde27db6843400255e7dca2a567cc1892745e",
+    "status": "PASS"
+  },
+  "protocolSha256": "e58b5c99256d763846426366b3ed45f3d4d6d08a8047621a94c7b3ff52a4710a",
+  "priorSha256": "deb924c5ebd7fabad58b7d427f51994c6eabba5b2b46e8b9c8d2380b3d4d550a",
+  "limits": {
+    "trials": 36,
+    "requests": 1296,
+    "perTrial": 36,
+    "phaseMs": 7200000,
+    "realAPIParallel": 1,
+    "retry": 0
+  },
+  "normalMock": {
+    "first12CoverAllTaskActors": true,
+    "ongoing36ZeroAPI": true,
+    "comparison": "Infrastructure smoke only; no model behavior claims"
+  },
+  "rawPreservation": "8412priorfiles hashchecked before/aftereverytrial. OngoingzeroAPI mock not partof frozenprior; rawsealed afterfinish.",
+  "humanInputsRead": false,
+  "savedInputResends": 0
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "offline-diagnostic-synthetic-validation-control",
+  "originalRejected": true,
+  "uniquePriorIdsSyntheticControlAccepted": true,
+  "changedFields": [
+    "continuity[1].priorId",
+    "continuity[2].priorId"
+  ],
+  "actualTrialRepaired": false,
+  "actualTrialStillInvalid": true,
+  "APIRequests": 0,
+  "meaning": "Only diagnoses validator rejection: duplicateIDs suffice to explain this local rejection. Synthetic control is not a valid model response or corrected trial; no actual raw files were written."
+}

@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "atUTC": "2026-11-06T00:12:07.316Z",
+  "source": {
+    "revision": "2c0876b3dc3848b29ff755885192890c891d2d69",
+    "sourceHash": "8d591fcb465f06293387391e4647a6b705e865c42b9ffc5f8c4ededda22bd4a3",
+    "runtimeFiles": 177
+  },
+  "preservation": {
+    "priorFiles": 8412,
+    "mockFiles": 399,
+    "liveFiles": 657,
+    "totalFiles": 9468,
+    "priorRehashedUnchanged": true,
+    "mockRehashedUnchanged": true,
+    "finalSnapshotSha256": "80f261551037872c081fb6531cf6ca08eb63db2b147d896cfc857786932b0832",
+    "liveSnapshotSha256": "495b01d23a6f5908cabc0d2fbd07f2712679d70331924a095c1468ef1fdc56d7"
+  },
+  "phase": {
+    "status": "COMPLETED",
+    "attempted": 36,
+    "requests": 292,
+    "preservationAfter": true
+  }
+}

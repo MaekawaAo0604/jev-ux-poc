@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "phase": "persona-tasks-2026-11-06",
+  "createdBeforeParentResultInspection": true,
+  "timing": "Operational visual-review sampling plan written during batch startup, not formal preregistration.",
+  "sampling": [
+    "Inspect baseline first delivered current image for each task.",
+    "For each task and each A/B/C, compare earliest valid replicate to earliest valid baseline on common delivered PNGs. Choose first actual-action target difference ordered by actor step then baseline step. If none, retain initial same-action example and explicitly report no sampled difference.",
+    "For each task choose earliest within-actor pair with different canonical observed paths, actor order baseline/A/B/C then replicate order, and first actual action difference on common delivered PNG. If no eligible pair, report absent.",
+    "Privacy additionally inspect earliest observed basic and extended enabling actions if both exist, plus earliest C actual permission decision; deduplicate cases. Do not select by objective success."
+  ],
+  "framePolicy": "Use delivered current PNG and next delivered PNG only when exists. Terminal audit image remains separate and never represented as next model input.",
+  "limits": "At most16unique cases/32delivered PNG references; raw complete trials remain available.",
+  "interpretation": "Observation, self-reported basis and inference separated. Do not infer unknown-term comprehension, intent, naturalness, hard trait violation or human fit from one action. No cases sorted by success."
+}

@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "facts": [
+    {
+      "task": "sessions",
+      "firstOccurrences": 36,
+      "pairs": 187,
+      "stableTargetsEqual": 187,
+      "annotationEqual": 0,
+      "strictDistributionPairs": 0,
+      "sharedHistoryEstablished": false,
+      "fullInputEqualityEstablished": false
+    },
+    {
+      "task": "preferences",
+      "firstOccurrences": 36,
+      "pairs": 198,
+      "stableTargetsEqual": 198,
+      "annotationEqual": 0,
+      "strictDistributionPairs": 0,
+      "sharedHistoryEstablished": false,
+      "fullInputEqualityEstablished": false
+    },
+    {
+      "task": "privacy",
+      "firstOccurrences": 26,
+      "pairs": 113,
+      "stableTargetsEqual": 113,
+      "annotationEqual": 0,
+      "strictDistributionPairs": 0,
+      "sharedHistoryEstablished": false,
+      "fullInputEqualityEstablished": false
+    }
+  ],
+  "error": null,
+  "scope": "Independent raw samePNG/candidate binding/probability comparability reconstruction. Fullinput/sharedhistory equality never inferred from PNG equality."
+}

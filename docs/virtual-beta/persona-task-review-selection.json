@@ -1,0 +1,20 @@
+{
+  "kind": "real-request-and-selection-accounting",
+  "requests": 292,
+  "judgments": 98,
+  "UI": 62,
+  "looks": 0,
+  "nativeAttempts": 98,
+  "nativeCompleted": 97,
+  "nativeInvalid": 1,
+  "assessmentResponses": 97,
+  "actionResponses": 97,
+  "selections": 97,
+  "modelChoiceDifferences": 0,
+  "baselineSelectionDifferences": 0,
+  "nonunitApplied": 0,
+  "adjustmentSteps": 0,
+  "apiMs": 1665664.645400001,
+  "uiMs": 4694.451099999977,
+  "modeledUserMs": null
+}

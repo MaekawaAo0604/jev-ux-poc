@@ -26,3 +26,13 @@ docs/virtual-beta/persona-beta-source.json -text whitespace=cr-at-eol
 docs/virtual-beta/persona-beta-motion-plan.json -text whitespace=cr-at-eol
 docs/virtual-beta/persona-beta-execution-control.json -text whitespace=cr-at-eol
 docs/virtual-beta/persona-beta-source-*.zip binary
+
+# Preserve persona-relevant task review and executed-source evidence.
+docs/virtual-beta/persona-task-review-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-producer.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-source.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-execution-control.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-visual-review-plan.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-native-invalid-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-full-suite-findings.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-source-*.zip binary

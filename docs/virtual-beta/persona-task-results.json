@@ -1,0 +1,4945 @@
+{
+  "schemaVersion": 1,
+  "status": "COMPLETED",
+  "planned": 36,
+  "attempted": 36,
+  "valid": 35,
+  "invalid": 1,
+  "missing": [],
+  "requests": 292,
+  "source": {
+    "revision": "2c0876b3dc3848b29ff755885192890c891d2d69",
+    "sourceHash": "8d591fcb465f06293387391e4647a6b705e865c42b9ffc5f8c4ededda22bd4a3"
+  },
+  "initialInputs": [
+    {
+      "sequence": 1,
+      "actor": "baseline",
+      "task": "sessions",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 2,
+      "actor": "A",
+      "task": "sessions",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 3,
+      "actor": "B",
+      "task": "sessions",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 4,
+      "actor": "C",
+      "task": "sessions",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 5,
+      "actor": "A",
+      "task": "preferences",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 6,
+      "actor": "B",
+      "task": "preferences",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 7,
+      "actor": "C",
+      "task": "preferences",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 8,
+      "actor": "baseline",
+      "task": "preferences",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 9,
+      "actor": "B",
+      "task": "privacy",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 10,
+      "actor": "C",
+      "task": "privacy",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 11,
+      "actor": "baseline",
+      "task": "privacy",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 12,
+      "actor": "A",
+      "task": "privacy",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 13,
+      "actor": "A",
+      "task": "sessions",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 14,
+      "actor": "B",
+      "task": "sessions",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 15,
+      "actor": "C",
+      "task": "sessions",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 16,
+      "actor": "baseline",
+      "task": "sessions",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 17,
+      "actor": "B",
+      "task": "preferences",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 18,
+      "actor": "C",
+      "task": "preferences",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 19,
+      "actor": "baseline",
+      "task": "preferences",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 20,
+      "actor": "A",
+      "task": "preferences",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 21,
+      "actor": "C",
+      "task": "privacy",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 22,
+      "actor": "baseline",
+      "task": "privacy",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 23,
+      "actor": "A",
+      "task": "privacy",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 24,
+      "actor": "B",
+      "task": "privacy",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 25,
+      "actor": "B",
+      "task": "sessions",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 26,
+      "actor": "C",
+      "task": "sessions",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 27,
+      "actor": "baseline",
+      "task": "sessions",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 28,
+      "actor": "A",
+      "task": "sessions",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 29,
+      "actor": "C",
+      "task": "preferences",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 30,
+      "actor": "baseline",
+      "task": "preferences",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 31,
+      "actor": "A",
+      "task": "preferences",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 32,
+      "actor": "B",
+      "task": "preferences",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 33,
+      "actor": "baseline",
+      "task": "privacy",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 34,
+      "actor": "A",
+      "task": "privacy",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 35,
+      "actor": "B",
+      "task": "privacy",
+      "measured": true,
+      "matched": true
+    },
+    {
+      "sequence": 36,
+      "actor": "C",
+      "task": "privacy",
+      "measured": true,
+      "matched": true
+    }
+  ],
+  "rows": [
+    {
+      "id": "persona-task-sessions-baseline-r1",
+      "sequence": 1,
+      "task": "sessions",
+      "actor": "baseline",
+      "replicate": 1,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "別端末のセッションを確認・失効",
+          "token": "[\"start\",\"click\",\"別端末のセッションを確認・失効\",null]"
+        },
+        {
+          "step": 2,
+          "route": "review",
+          "type": "click",
+          "text": "この別端末のセッションを失効する",
+          "token": "[\"review\",\"click\",\"この別端末のセッションを失効する\",null]"
+        }
+      ],
+      "routeSha256": "00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "sessions",
+        "route": "complete",
+        "events": [
+          "review-other-session",
+          "revoke-other-session"
+        ],
+        "otherSessionActive": false,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-sessions-A-r1",
+      "sequence": 2,
+      "task": "sessions",
+      "actor": "A",
+      "replicate": 1,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "別端末のセッションを確認・失効",
+          "token": "[\"start\",\"click\",\"別端末のセッションを確認・失効\",null]"
+        },
+        {
+          "step": 2,
+          "route": "review",
+          "type": "click",
+          "text": "この別端末のセッションを失効する",
+          "token": "[\"review\",\"click\",\"この別端末のセッションを失効する\",null]"
+        }
+      ],
+      "routeSha256": "00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "sessions",
+        "route": "complete",
+        "events": [
+          "review-other-session",
+          "revoke-other-session"
+        ],
+        "otherSessionActive": false,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 2
+      }
+    },
+    {
+      "id": "persona-task-sessions-B-r1",
+      "sequence": 3,
+      "task": "sessions",
+      "actor": "B",
+      "replicate": 1,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "別端末のセッションを確認・失効",
+          "token": "[\"start\",\"click\",\"別端末のセッションを確認・失効\",null]"
+        },
+        {
+          "step": 2,
+          "route": "review",
+          "type": "click",
+          "text": "この別端末のセッションを失効する",
+          "token": "[\"review\",\"click\",\"この別端末のセッションを失効する\",null]"
+        }
+      ],
+      "routeSha256": "00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "sessions",
+        "route": "complete",
+        "events": [
+          "review-other-session",
+          "revoke-other-session"
+        ],
+        "otherSessionActive": false,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-sessions-C-r1",
+      "sequence": 4,
+      "task": "sessions",
+      "actor": "C",
+      "replicate": 1,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "別端末のセッションを確認・失効",
+          "token": "[\"start\",\"click\",\"別端末のセッションを確認・失効\",null]"
+        },
+        {
+          "step": 2,
+          "route": "review",
+          "type": "click",
+          "text": "この別端末のセッションを失効する",
+          "token": "[\"review\",\"click\",\"この別端末のセッションを失効する\",null]"
+        }
+      ],
+      "routeSha256": "00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "sessions",
+        "route": "complete",
+        "events": [
+          "review-other-session",
+          "revoke-other-session"
+        ],
+        "otherSessionActive": false,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 2
+      }
+    },
+    {
+      "id": "persona-task-preferences-A-r1",
+      "sequence": 5,
+      "task": "preferences",
+      "actor": "A",
+      "replicate": 1,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "コンパクト\n項目の間隔を狭くして一覧表示",
+          "token": "[\"start\",\"click\",\"コンパクト\\n項目の間隔を狭くして一覧表示\",null]"
+        },
+        {
+          "step": 2,
+          "route": "start",
+          "type": "click",
+          "text": "表示を保存",
+          "token": "[\"start\",\"click\",\"表示を保存\",null]"
+        }
+      ],
+      "routeSha256": "106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 1,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "preferences",
+        "route": "complete",
+        "events": [
+          "layout-compact",
+          "save-layout"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": true,
+        "savedCompact": true,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-preferences-B-r1",
+      "sequence": 6,
+      "task": "preferences",
+      "actor": "B",
+      "replicate": 1,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "コンパクト\n項目の間隔を狭くして一覧表示",
+          "token": "[\"start\",\"click\",\"コンパクト\\n項目の間隔を狭くして一覧表示\",null]"
+        },
+        {
+          "step": 2,
+          "route": "start",
+          "type": "click",
+          "text": "表示を保存",
+          "token": "[\"start\",\"click\",\"表示を保存\",null]"
+        }
+      ],
+      "routeSha256": "106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 1,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "preferences",
+        "route": "complete",
+        "events": [
+          "layout-compact",
+          "save-layout"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": true,
+        "savedCompact": true,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-preferences-C-r1",
+      "sequence": 7,
+      "task": "preferences",
+      "actor": "C",
+      "replicate": 1,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "コンパクト\n項目の間隔を狭くして一覧表示",
+          "token": "[\"start\",\"click\",\"コンパクト\\n項目の間隔を狭くして一覧表示\",null]"
+        },
+        {
+          "step": 2,
+          "route": "start",
+          "type": "click",
+          "text": "表示を保存",
+          "token": "[\"start\",\"click\",\"表示を保存\",null]"
+        }
+      ],
+      "routeSha256": "106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 1,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "preferences",
+        "route": "complete",
+        "events": [
+          "layout-compact",
+          "save-layout"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": true,
+        "savedCompact": true,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 2
+      }
+    },
+    {
+      "id": "persona-task-preferences-baseline-r1",
+      "sequence": 8,
+      "task": "preferences",
+      "actor": "baseline",
+      "replicate": 1,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "コンパクト\n項目の間隔を狭くして一覧表示",
+          "token": "[\"start\",\"click\",\"コンパクト\\n項目の間隔を狭くして一覧表示\",null]"
+        },
+        {
+          "step": 2,
+          "route": "start",
+          "type": "click",
+          "text": "表示を保存",
+          "token": "[\"start\",\"click\",\"表示を保存\",null]"
+        }
+      ],
+      "routeSha256": "106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 1,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "preferences",
+        "route": "complete",
+        "events": [
+          "layout-compact",
+          "save-layout"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": true,
+        "savedCompact": true,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-privacy-B-r1",
+      "sequence": 9,
+      "task": "privacy",
+      "actor": "B",
+      "replicate": 1,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 6,
+      "judgments": 2,
+      "uiActions": 1,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "拡張アクセスで通知を有効にする",
+          "token": "[\"start\",\"click\",\"拡張アクセスで通知を有効にする\",null]"
+        }
+      ],
+      "routeSha256": "98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": {
+        "step": 1,
+        "event": [
+          "quick-enable-extended"
+        ],
+        "scope": "extended",
+        "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+      },
+      "grants": [
+        {
+          "step": 1,
+          "event": [
+            "quick-enable-extended"
+          ],
+          "scope": "extended",
+          "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+        }
+      ],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "privacy",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": true,
+        "scope": "extended",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-privacy-C-r1",
+      "sequence": 10,
+      "task": "privacy",
+      "actor": "C",
+      "replicate": 1,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "情報の利用範囲を詳しく確認・変更",
+          "token": "[\"start\",\"click\",\"情報の利用範囲を詳しく確認・変更\",null]"
+        },
+        {
+          "step": 2,
+          "route": "details",
+          "type": "click",
+          "text": "選んだ範囲で通知を有効にする",
+          "token": "[\"details\",\"click\",\"選んだ範囲で通知を有効にする\",null]"
+        }
+      ],
+      "routeSha256": "75c79ceaec5363dfc40e3a010d926f8505b0dc86a3307893de8fb6aff8d1b995",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 1,
+      "revisits": 0,
+      "firstGrant": {
+        "step": 2,
+        "event": [
+          "enable-reminders"
+        ],
+        "scope": "basic",
+        "currentImage": "9548f7807a8768f62808e359411506a197f7ca35f2344c6795450bce15ee0aea",
+        "nextImage": "890e28cae5dcb5e822ab800b2d29cb493f55d6744b32d068730a64b0ef61ff3d"
+      },
+      "grants": [
+        {
+          "step": 2,
+          "event": [
+            "enable-reminders"
+          ],
+          "scope": "basic",
+          "currentImage": "9548f7807a8768f62808e359411506a197f7ca35f2344c6795450bce15ee0aea",
+          "nextImage": "890e28cae5dcb5e822ab800b2d29cb493f55d6744b32d068730a64b0ef61ff3d"
+        }
+      ],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "privacy",
+        "route": "complete",
+        "events": [
+          "permission-details",
+          "enable-reminders"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": true,
+        "scope": "basic",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-privacy-baseline-r1",
+      "sequence": 11,
+      "task": "privacy",
+      "actor": "baseline",
+      "replicate": 1,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 6,
+      "judgments": 2,
+      "uiActions": 1,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "拡張アクセスで通知を有効にする",
+          "token": "[\"start\",\"click\",\"拡張アクセスで通知を有効にする\",null]"
+        }
+      ],
+      "routeSha256": "98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": {
+        "step": 1,
+        "event": [
+          "quick-enable-extended"
+        ],
+        "scope": "extended",
+        "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+      },
+      "grants": [
+        {
+          "step": 1,
+          "event": [
+            "quick-enable-extended"
+          ],
+          "scope": "extended",
+          "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+        }
+      ],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "privacy",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": true,
+        "scope": "extended",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-privacy-A-r1",
+      "sequence": 12,
+      "task": "privacy",
+      "actor": "A",
+      "replicate": 1,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 6,
+      "judgments": 2,
+      "uiActions": 1,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "拡張アクセスで通知を有効にする",
+          "token": "[\"start\",\"click\",\"拡張アクセスで通知を有効にする\",null]"
+        }
+      ],
+      "routeSha256": "98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": {
+        "step": 1,
+        "event": [
+          "quick-enable-extended"
+        ],
+        "scope": "extended",
+        "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+      },
+      "grants": [
+        {
+          "step": 1,
+          "event": [
+            "quick-enable-extended"
+          ],
+          "scope": "extended",
+          "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+        }
+      ],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "privacy",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": true,
+        "scope": "extended",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-sessions-A-r2",
+      "sequence": 13,
+      "task": "sessions",
+      "actor": "A",
+      "replicate": 2,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "別端末のセッションを確認・失効",
+          "token": "[\"start\",\"click\",\"別端末のセッションを確認・失効\",null]"
+        },
+        {
+          "step": 2,
+          "route": "review",
+          "type": "click",
+          "text": "この別端末のセッションを失効する",
+          "token": "[\"review\",\"click\",\"この別端末のセッションを失効する\",null]"
+        }
+      ],
+      "routeSha256": "00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "sessions",
+        "route": "complete",
+        "events": [
+          "review-other-session",
+          "revoke-other-session"
+        ],
+        "otherSessionActive": false,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 2
+      }
+    },
+    {
+      "id": "persona-task-sessions-B-r2",
+      "sequence": 14,
+      "task": "sessions",
+      "actor": "B",
+      "replicate": 2,
+      "valid": false,
+      "validityReasons": [
+        "INVALID_RESULT",
+        "API_ERROR"
+      ],
+      "termination": "API_ERROR",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 7,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "別端末のセッションを確認・失効",
+          "token": "[\"start\",\"click\",\"別端末のセッションを確認・失効\",null]"
+        },
+        {
+          "step": 2,
+          "route": "review",
+          "type": "click",
+          "text": "この別端末のセッションを失効する",
+          "token": "[\"review\",\"click\",\"この別端末のセッションを失効する\",null]"
+        }
+      ],
+      "routeSha256": "00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "sessions",
+        "route": "complete",
+        "events": [
+          "review-other-session",
+          "revoke-other-session"
+        ],
+        "otherSessionActive": false,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-sessions-C-r2",
+      "sequence": 15,
+      "task": "sessions",
+      "actor": "C",
+      "replicate": 2,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "別端末のセッションを確認・失効",
+          "token": "[\"start\",\"click\",\"別端末のセッションを確認・失効\",null]"
+        },
+        {
+          "step": 2,
+          "route": "review",
+          "type": "click",
+          "text": "この別端末のセッションを失効する",
+          "token": "[\"review\",\"click\",\"この別端末のセッションを失効する\",null]"
+        }
+      ],
+      "routeSha256": "00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "sessions",
+        "route": "complete",
+        "events": [
+          "review-other-session",
+          "revoke-other-session"
+        ],
+        "otherSessionActive": false,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 2
+      }
+    },
+    {
+      "id": "persona-task-sessions-baseline-r2",
+      "sequence": 16,
+      "task": "sessions",
+      "actor": "baseline",
+      "replicate": 2,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "別端末のセッションを確認・失効",
+          "token": "[\"start\",\"click\",\"別端末のセッションを確認・失効\",null]"
+        },
+        {
+          "step": 2,
+          "route": "review",
+          "type": "click",
+          "text": "この別端末のセッションを失効する",
+          "token": "[\"review\",\"click\",\"この別端末のセッションを失効する\",null]"
+        }
+      ],
+      "routeSha256": "00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "sessions",
+        "route": "complete",
+        "events": [
+          "review-other-session",
+          "revoke-other-session"
+        ],
+        "otherSessionActive": false,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-preferences-B-r2",
+      "sequence": 17,
+      "task": "preferences",
+      "actor": "B",
+      "replicate": 2,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "コンパクト\n項目の間隔を狭くして一覧表示",
+          "token": "[\"start\",\"click\",\"コンパクト\\n項目の間隔を狭くして一覧表示\",null]"
+        },
+        {
+          "step": 2,
+          "route": "start",
+          "type": "click",
+          "text": "表示を保存",
+          "token": "[\"start\",\"click\",\"表示を保存\",null]"
+        }
+      ],
+      "routeSha256": "106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 1,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "preferences",
+        "route": "complete",
+        "events": [
+          "layout-compact",
+          "save-layout"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": true,
+        "savedCompact": true,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-preferences-C-r2",
+      "sequence": 18,
+      "task": "preferences",
+      "actor": "C",
+      "replicate": 2,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "コンパクト\n項目の間隔を狭くして一覧表示",
+          "token": "[\"start\",\"click\",\"コンパクト\\n項目の間隔を狭くして一覧表示\",null]"
+        },
+        {
+          "step": 2,
+          "route": "start",
+          "type": "click",
+          "text": "表示を保存",
+          "token": "[\"start\",\"click\",\"表示を保存\",null]"
+        }
+      ],
+      "routeSha256": "106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 1,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "preferences",
+        "route": "complete",
+        "events": [
+          "layout-compact",
+          "save-layout"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": true,
+        "savedCompact": true,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 2
+      }
+    },
+    {
+      "id": "persona-task-preferences-baseline-r2",
+      "sequence": 19,
+      "task": "preferences",
+      "actor": "baseline",
+      "replicate": 2,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "コンパクト\n項目の間隔を狭くして一覧表示",
+          "token": "[\"start\",\"click\",\"コンパクト\\n項目の間隔を狭くして一覧表示\",null]"
+        },
+        {
+          "step": 2,
+          "route": "start",
+          "type": "click",
+          "text": "表示を保存",
+          "token": "[\"start\",\"click\",\"表示を保存\",null]"
+        }
+      ],
+      "routeSha256": "106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 1,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "preferences",
+        "route": "complete",
+        "events": [
+          "layout-compact",
+          "save-layout"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": true,
+        "savedCompact": true,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-preferences-A-r2",
+      "sequence": 20,
+      "task": "preferences",
+      "actor": "A",
+      "replicate": 2,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "コンパクト\n項目の間隔を狭くして一覧表示",
+          "token": "[\"start\",\"click\",\"コンパクト\\n項目の間隔を狭くして一覧表示\",null]"
+        },
+        {
+          "step": 2,
+          "route": "start",
+          "type": "click",
+          "text": "表示を保存",
+          "token": "[\"start\",\"click\",\"表示を保存\",null]"
+        }
+      ],
+      "routeSha256": "106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 1,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "preferences",
+        "route": "complete",
+        "events": [
+          "layout-compact",
+          "save-layout"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": true,
+        "savedCompact": true,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-privacy-C-r2",
+      "sequence": 21,
+      "task": "privacy",
+      "actor": "C",
+      "replicate": 2,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 6,
+      "judgments": 2,
+      "uiActions": 1,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "拡張アクセスで通知を有効にする",
+          "token": "[\"start\",\"click\",\"拡張アクセスで通知を有効にする\",null]"
+        }
+      ],
+      "routeSha256": "98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": {
+        "step": 1,
+        "event": [
+          "quick-enable-extended"
+        ],
+        "scope": "extended",
+        "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+      },
+      "grants": [
+        {
+          "step": 1,
+          "event": [
+            "quick-enable-extended"
+          ],
+          "scope": "extended",
+          "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+        }
+      ],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "privacy",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": true,
+        "scope": "extended",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-privacy-baseline-r2",
+      "sequence": 22,
+      "task": "privacy",
+      "actor": "baseline",
+      "replicate": 2,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 6,
+      "judgments": 2,
+      "uiActions": 1,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "拡張アクセスで通知を有効にする",
+          "token": "[\"start\",\"click\",\"拡張アクセスで通知を有効にする\",null]"
+        }
+      ],
+      "routeSha256": "98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": {
+        "step": 1,
+        "event": [
+          "quick-enable-extended"
+        ],
+        "scope": "extended",
+        "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+      },
+      "grants": [
+        {
+          "step": 1,
+          "event": [
+            "quick-enable-extended"
+          ],
+          "scope": "extended",
+          "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+        }
+      ],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "privacy",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": true,
+        "scope": "extended",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-privacy-A-r2",
+      "sequence": 23,
+      "task": "privacy",
+      "actor": "A",
+      "replicate": 2,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 6,
+      "judgments": 2,
+      "uiActions": 1,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "拡張アクセスで通知を有効にする",
+          "token": "[\"start\",\"click\",\"拡張アクセスで通知を有効にする\",null]"
+        }
+      ],
+      "routeSha256": "98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": {
+        "step": 1,
+        "event": [
+          "quick-enable-extended"
+        ],
+        "scope": "extended",
+        "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+      },
+      "grants": [
+        {
+          "step": 1,
+          "event": [
+            "quick-enable-extended"
+          ],
+          "scope": "extended",
+          "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+        }
+      ],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "privacy",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": true,
+        "scope": "extended",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-privacy-B-r2",
+      "sequence": 24,
+      "task": "privacy",
+      "actor": "B",
+      "replicate": 2,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 6,
+      "judgments": 2,
+      "uiActions": 1,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "拡張アクセスで通知を有効にする",
+          "token": "[\"start\",\"click\",\"拡張アクセスで通知を有効にする\",null]"
+        }
+      ],
+      "routeSha256": "98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": {
+        "step": 1,
+        "event": [
+          "quick-enable-extended"
+        ],
+        "scope": "extended",
+        "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+      },
+      "grants": [
+        {
+          "step": 1,
+          "event": [
+            "quick-enable-extended"
+          ],
+          "scope": "extended",
+          "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+        }
+      ],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "privacy",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": true,
+        "scope": "extended",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-sessions-B-r3",
+      "sequence": 25,
+      "task": "sessions",
+      "actor": "B",
+      "replicate": 3,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "別端末のセッションを確認・失効",
+          "token": "[\"start\",\"click\",\"別端末のセッションを確認・失効\",null]"
+        },
+        {
+          "step": 2,
+          "route": "review",
+          "type": "click",
+          "text": "この別端末のセッションを失効する",
+          "token": "[\"review\",\"click\",\"この別端末のセッションを失効する\",null]"
+        }
+      ],
+      "routeSha256": "00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "sessions",
+        "route": "complete",
+        "events": [
+          "review-other-session",
+          "revoke-other-session"
+        ],
+        "otherSessionActive": false,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 2
+      }
+    },
+    {
+      "id": "persona-task-sessions-C-r3",
+      "sequence": 26,
+      "task": "sessions",
+      "actor": "C",
+      "replicate": 3,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "別端末のセッションを確認・失効",
+          "token": "[\"start\",\"click\",\"別端末のセッションを確認・失効\",null]"
+        },
+        {
+          "step": 2,
+          "route": "review",
+          "type": "click",
+          "text": "この別端末のセッションを失効する",
+          "token": "[\"review\",\"click\",\"この別端末のセッションを失効する\",null]"
+        }
+      ],
+      "routeSha256": "00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "sessions",
+        "route": "complete",
+        "events": [
+          "review-other-session",
+          "revoke-other-session"
+        ],
+        "otherSessionActive": false,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 2
+      }
+    },
+    {
+      "id": "persona-task-sessions-baseline-r3",
+      "sequence": 27,
+      "task": "sessions",
+      "actor": "baseline",
+      "replicate": 3,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "別端末のセッションを確認・失効",
+          "token": "[\"start\",\"click\",\"別端末のセッションを確認・失効\",null]"
+        },
+        {
+          "step": 2,
+          "route": "review",
+          "type": "click",
+          "text": "この別端末のセッションを失効する",
+          "token": "[\"review\",\"click\",\"この別端末のセッションを失効する\",null]"
+        }
+      ],
+      "routeSha256": "00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "sessions",
+        "route": "complete",
+        "events": [
+          "review-other-session",
+          "revoke-other-session"
+        ],
+        "otherSessionActive": false,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 2
+      }
+    },
+    {
+      "id": "persona-task-sessions-A-r3",
+      "sequence": 28,
+      "task": "sessions",
+      "actor": "A",
+      "replicate": 3,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "別端末のセッションを確認・失効",
+          "token": "[\"start\",\"click\",\"別端末のセッションを確認・失効\",null]"
+        },
+        {
+          "step": 2,
+          "route": "review",
+          "type": "click",
+          "text": "この別端末のセッションを失効する",
+          "token": "[\"review\",\"click\",\"この別端末のセッションを失効する\",null]"
+        }
+      ],
+      "routeSha256": "00dc4bdb650b395646ceeac303fb06b0cd6ff62d998edc0c7eaab3a9368e421f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "sessions",
+        "route": "complete",
+        "events": [
+          "review-other-session",
+          "revoke-other-session"
+        ],
+        "otherSessionActive": false,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 2
+      }
+    },
+    {
+      "id": "persona-task-preferences-C-r3",
+      "sequence": 29,
+      "task": "preferences",
+      "actor": "C",
+      "replicate": 3,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "コンパクト\n項目の間隔を狭くして一覧表示",
+          "token": "[\"start\",\"click\",\"コンパクト\\n項目の間隔を狭くして一覧表示\",null]"
+        },
+        {
+          "step": 2,
+          "route": "start",
+          "type": "click",
+          "text": "表示を保存",
+          "token": "[\"start\",\"click\",\"表示を保存\",null]"
+        }
+      ],
+      "routeSha256": "106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 1,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "preferences",
+        "route": "complete",
+        "events": [
+          "layout-compact",
+          "save-layout"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": true,
+        "savedCompact": true,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-preferences-baseline-r3",
+      "sequence": 30,
+      "task": "preferences",
+      "actor": "baseline",
+      "replicate": 3,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "コンパクト\n項目の間隔を狭くして一覧表示",
+          "token": "[\"start\",\"click\",\"コンパクト\\n項目の間隔を狭くして一覧表示\",null]"
+        },
+        {
+          "step": 2,
+          "route": "start",
+          "type": "click",
+          "text": "表示を保存",
+          "token": "[\"start\",\"click\",\"表示を保存\",null]"
+        }
+      ],
+      "routeSha256": "106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 1,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "preferences",
+        "route": "complete",
+        "events": [
+          "layout-compact",
+          "save-layout"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": true,
+        "savedCompact": true,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-preferences-A-r3",
+      "sequence": 31,
+      "task": "preferences",
+      "actor": "A",
+      "replicate": 3,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "コンパクト\n項目の間隔を狭くして一覧表示",
+          "token": "[\"start\",\"click\",\"コンパクト\\n項目の間隔を狭くして一覧表示\",null]"
+        },
+        {
+          "step": 2,
+          "route": "start",
+          "type": "click",
+          "text": "表示を保存",
+          "token": "[\"start\",\"click\",\"表示を保存\",null]"
+        }
+      ],
+      "routeSha256": "106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 1,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "preferences",
+        "route": "complete",
+        "events": [
+          "layout-compact",
+          "save-layout"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": true,
+        "savedCompact": true,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-preferences-B-r3",
+      "sequence": 32,
+      "task": "preferences",
+      "actor": "B",
+      "replicate": 3,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "コンパクト\n項目の間隔を狭くして一覧表示",
+          "token": "[\"start\",\"click\",\"コンパクト\\n項目の間隔を狭くして一覧表示\",null]"
+        },
+        {
+          "step": 2,
+          "route": "start",
+          "type": "click",
+          "text": "表示を保存",
+          "token": "[\"start\",\"click\",\"表示を保存\",null]"
+        }
+      ],
+      "routeSha256": "106e4195e22aa80ce7046060583be3e7e90c9485ce78e1129a9ab6bd32cbf24f",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 1,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": null,
+      "grants": [],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "preferences",
+        "route": "complete",
+        "events": [
+          "layout-compact",
+          "save-layout"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": true,
+        "savedCompact": true,
+        "notifications": false,
+        "scope": "none",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-privacy-baseline-r3",
+      "sequence": 33,
+      "task": "privacy",
+      "actor": "baseline",
+      "replicate": 3,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 6,
+      "judgments": 2,
+      "uiActions": 1,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "拡張アクセスで通知を有効にする",
+          "token": "[\"start\",\"click\",\"拡張アクセスで通知を有効にする\",null]"
+        }
+      ],
+      "routeSha256": "98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": {
+        "step": 1,
+        "event": [
+          "quick-enable-extended"
+        ],
+        "scope": "extended",
+        "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+      },
+      "grants": [
+        {
+          "step": 1,
+          "event": [
+            "quick-enable-extended"
+          ],
+          "scope": "extended",
+          "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+        }
+      ],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "privacy",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": true,
+        "scope": "extended",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-privacy-A-r3",
+      "sequence": 34,
+      "task": "privacy",
+      "actor": "A",
+      "replicate": 3,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 6,
+      "judgments": 2,
+      "uiActions": 1,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "拡張アクセスで通知を有効にする",
+          "token": "[\"start\",\"click\",\"拡張アクセスで通知を有効にする\",null]"
+        }
+      ],
+      "routeSha256": "98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": {
+        "step": 1,
+        "event": [
+          "quick-enable-extended"
+        ],
+        "scope": "extended",
+        "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+      },
+      "grants": [
+        {
+          "step": 1,
+          "event": [
+            "quick-enable-extended"
+          ],
+          "scope": "extended",
+          "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+        }
+      ],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "privacy",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": true,
+        "scope": "extended",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-privacy-B-r3",
+      "sequence": 35,
+      "task": "privacy",
+      "actor": "B",
+      "replicate": 3,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 6,
+      "judgments": 2,
+      "uiActions": 1,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "拡張アクセスで通知を有効にする",
+          "token": "[\"start\",\"click\",\"拡張アクセスで通知を有効にする\",null]"
+        }
+      ],
+      "routeSha256": "98639a5ec3e8975ab0eeb7b649addbf957fc606e7642b339a446a23ffa569f61",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 0,
+      "revisits": 0,
+      "firstGrant": {
+        "step": 1,
+        "event": [
+          "quick-enable-extended"
+        ],
+        "scope": "extended",
+        "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+      },
+      "grants": [
+        {
+          "step": 1,
+          "event": [
+            "quick-enable-extended"
+          ],
+          "scope": "extended",
+          "currentImage": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "nextImage": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c"
+        }
+      ],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "privacy",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": true,
+        "scope": "extended",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 1,
+        "confirmation": 1
+      }
+    },
+    {
+      "id": "persona-task-privacy-C-r3",
+      "sequence": 36,
+      "task": "privacy",
+      "actor": "C",
+      "replicate": 3,
+      "valid": true,
+      "validityReasons": [],
+      "termination": "SUBJECTIVE_DONE",
+      "censored": false,
+      "abandoned": false,
+      "perceivedDone": true,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "requests": 9,
+      "judgments": 3,
+      "uiActions": 2,
+      "looks": 0,
+      "route": [
+        {
+          "step": 1,
+          "route": "start",
+          "type": "click",
+          "text": "情報の利用範囲を詳しく確認・変更",
+          "token": "[\"start\",\"click\",\"情報の利用範囲を詳しく確認・変更\",null]"
+        },
+        {
+          "step": 2,
+          "route": "details",
+          "type": "click",
+          "text": "選んだ範囲で通知を有効にする",
+          "token": "[\"details\",\"click\",\"選んだ範囲で通知を有効にする\",null]"
+        }
+      ],
+      "routeSha256": "75c79ceaec5363dfc40e3a010d926f8505b0dc86a3307893de8fb6aff8d1b995",
+      "helpClicks": 0,
+      "previewClicks": 0,
+      "saveClicks": 0,
+      "detailsClicks": 1,
+      "revisits": 0,
+      "firstGrant": {
+        "step": 2,
+        "event": [
+          "enable-reminders"
+        ],
+        "scope": "basic",
+        "currentImage": "9548f7807a8768f62808e359411506a197f7ca35f2344c6795450bce15ee0aea",
+        "nextImage": "890e28cae5dcb5e822ab800b2d29cb493f55d6744b32d068730a64b0ef61ff3d"
+      },
+      "grants": [
+        {
+          "step": 2,
+          "event": [
+            "enable-reminders"
+          ],
+          "scope": "basic",
+          "currentImage": "9548f7807a8768f62808e359411506a197f7ca35f2344c6795450bce15ee0aea",
+          "nextImage": "890e28cae5dcb5e822ab800b2d29cb493f55d6744b32d068730a64b0ef61ff3d"
+        }
+      ],
+      "terminal": {
+        "schemaVersion": 1,
+        "task": "privacy",
+        "route": "complete",
+        "events": [
+          "permission-details",
+          "enable-reminders"
+        ],
+        "otherSessionActive": true,
+        "currentSessionActive": true,
+        "passwordChanged": false,
+        "draftCompact": false,
+        "savedCompact": false,
+        "notifications": true,
+        "scope": "basic",
+        "complete": true
+      },
+      "reasonCategories": {
+        "goal": 2,
+        "confirmation": 1
+      }
+    }
+  ],
+  "tasks": {
+    "sessions": {
+      "planned": 12,
+      "attempted": 12,
+      "distances": {
+        "within": {
+          "count": 10,
+          "mean": 0,
+          "pairs": [
+            {
+              "left": "persona-task-sessions-baseline-r1",
+              "right": "persona-task-sessions-baseline-r2",
+              "actor": "baseline",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r1",
+              "right": "persona-task-sessions-baseline-r3",
+              "actor": "baseline",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r1",
+              "right": "persona-task-sessions-A-r2",
+              "actor": "A",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r1",
+              "right": "persona-task-sessions-A-r3",
+              "actor": "A",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-B-r1",
+              "right": "persona-task-sessions-B-r3",
+              "actor": "B",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r1",
+              "right": "persona-task-sessions-C-r2",
+              "actor": "C",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r1",
+              "right": "persona-task-sessions-C-r3",
+              "actor": "C",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r2",
+              "right": "persona-task-sessions-A-r3",
+              "actor": "A",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r2",
+              "right": "persona-task-sessions-C-r3",
+              "actor": "C",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r2",
+              "right": "persona-task-sessions-baseline-r3",
+              "actor": "baseline",
+              "distance": 0
+            }
+          ]
+        },
+        "between": {
+          "count": 45,
+          "mean": 0,
+          "pairs": [
+            {
+              "left": "persona-task-sessions-baseline-r1",
+              "right": "persona-task-sessions-A-r1",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r1",
+              "right": "persona-task-sessions-B-r1",
+              "actors": [
+                "baseline",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r1",
+              "right": "persona-task-sessions-C-r1",
+              "actors": [
+                "baseline",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r1",
+              "right": "persona-task-sessions-A-r2",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r1",
+              "right": "persona-task-sessions-C-r2",
+              "actors": [
+                "baseline",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r1",
+              "right": "persona-task-sessions-B-r3",
+              "actors": [
+                "baseline",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r1",
+              "right": "persona-task-sessions-C-r3",
+              "actors": [
+                "baseline",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r1",
+              "right": "persona-task-sessions-A-r3",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r1",
+              "right": "persona-task-sessions-B-r1",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r1",
+              "right": "persona-task-sessions-C-r1",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r1",
+              "right": "persona-task-sessions-C-r2",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r1",
+              "right": "persona-task-sessions-baseline-r2",
+              "actors": [
+                "A",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r1",
+              "right": "persona-task-sessions-B-r3",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r1",
+              "right": "persona-task-sessions-C-r3",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r1",
+              "right": "persona-task-sessions-baseline-r3",
+              "actors": [
+                "A",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-B-r1",
+              "right": "persona-task-sessions-C-r1",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-B-r1",
+              "right": "persona-task-sessions-A-r2",
+              "actors": [
+                "B",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-B-r1",
+              "right": "persona-task-sessions-C-r2",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-B-r1",
+              "right": "persona-task-sessions-baseline-r2",
+              "actors": [
+                "B",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-B-r1",
+              "right": "persona-task-sessions-C-r3",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-B-r1",
+              "right": "persona-task-sessions-baseline-r3",
+              "actors": [
+                "B",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-B-r1",
+              "right": "persona-task-sessions-A-r3",
+              "actors": [
+                "B",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r1",
+              "right": "persona-task-sessions-A-r2",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r1",
+              "right": "persona-task-sessions-baseline-r2",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r1",
+              "right": "persona-task-sessions-B-r3",
+              "actors": [
+                "C",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r1",
+              "right": "persona-task-sessions-baseline-r3",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r1",
+              "right": "persona-task-sessions-A-r3",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r2",
+              "right": "persona-task-sessions-C-r2",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r2",
+              "right": "persona-task-sessions-baseline-r2",
+              "actors": [
+                "A",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r2",
+              "right": "persona-task-sessions-B-r3",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r2",
+              "right": "persona-task-sessions-C-r3",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-A-r2",
+              "right": "persona-task-sessions-baseline-r3",
+              "actors": [
+                "A",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r2",
+              "right": "persona-task-sessions-baseline-r2",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r2",
+              "right": "persona-task-sessions-B-r3",
+              "actors": [
+                "C",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r2",
+              "right": "persona-task-sessions-baseline-r3",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r2",
+              "right": "persona-task-sessions-A-r3",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r2",
+              "right": "persona-task-sessions-B-r3",
+              "actors": [
+                "baseline",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r2",
+              "right": "persona-task-sessions-C-r3",
+              "actors": [
+                "baseline",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r2",
+              "right": "persona-task-sessions-A-r3",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-B-r3",
+              "right": "persona-task-sessions-C-r3",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-B-r3",
+              "right": "persona-task-sessions-baseline-r3",
+              "actors": [
+                "B",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-B-r3",
+              "right": "persona-task-sessions-A-r3",
+              "actors": [
+                "B",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r3",
+              "right": "persona-task-sessions-baseline-r3",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-C-r3",
+              "right": "persona-task-sessions-A-r3",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-sessions-baseline-r3",
+              "right": "persona-task-sessions-A-r3",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            }
+          ]
+        },
+        "betweenMinusWithin": 0,
+        "byActor": {
+          "baseline": {
+            "count": 3,
+            "mean": 0,
+            "pairs": [
+              {
+                "left": "persona-task-sessions-baseline-r1",
+                "right": "persona-task-sessions-baseline-r2",
+                "actor": "baseline",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-sessions-baseline-r1",
+                "right": "persona-task-sessions-baseline-r3",
+                "actor": "baseline",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-sessions-baseline-r2",
+                "right": "persona-task-sessions-baseline-r3",
+                "actor": "baseline",
+                "distance": 0
+              }
+            ]
+          },
+          "A": {
+            "count": 3,
+            "mean": 0,
+            "pairs": [
+              {
+                "left": "persona-task-sessions-A-r1",
+                "right": "persona-task-sessions-A-r2",
+                "actor": "A",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-sessions-A-r1",
+                "right": "persona-task-sessions-A-r3",
+                "actor": "A",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-sessions-A-r2",
+                "right": "persona-task-sessions-A-r3",
+                "actor": "A",
+                "distance": 0
+              }
+            ]
+          },
+          "B": {
+            "count": 1,
+            "mean": 0,
+            "pairs": [
+              {
+                "left": "persona-task-sessions-B-r1",
+                "right": "persona-task-sessions-B-r3",
+                "actor": "B",
+                "distance": 0
+              }
+            ]
+          },
+          "C": {
+            "count": 3,
+            "mean": 0,
+            "pairs": [
+              {
+                "left": "persona-task-sessions-C-r1",
+                "right": "persona-task-sessions-C-r2",
+                "actor": "C",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-sessions-C-r1",
+                "right": "persona-task-sessions-C-r3",
+                "actor": "C",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-sessions-C-r2",
+                "right": "persona-task-sessions-C-r3",
+                "actor": "C",
+                "distance": 0
+              }
+            ]
+          }
+        }
+      },
+      "actorFacts": {
+        "baseline": {
+          "attempted": 3,
+          "valid": 3,
+          "invalid": 0,
+          "helpTrials": 0,
+          "previewTrials": 0,
+          "saveTrials": 0,
+          "detailsTrials": 0,
+          "firstGrantBasic": 0,
+          "firstGrantExtended": 0,
+          "noGrant": 3,
+          "finalBasic": 0,
+          "finalExtended": 0,
+          "routeKinds": 1,
+          "censored": 0
+        },
+        "A": {
+          "attempted": 3,
+          "valid": 3,
+          "invalid": 0,
+          "helpTrials": 0,
+          "previewTrials": 0,
+          "saveTrials": 0,
+          "detailsTrials": 0,
+          "firstGrantBasic": 0,
+          "firstGrantExtended": 0,
+          "noGrant": 3,
+          "finalBasic": 0,
+          "finalExtended": 0,
+          "routeKinds": 1,
+          "censored": 0
+        },
+        "B": {
+          "attempted": 3,
+          "valid": 2,
+          "invalid": 1,
+          "helpTrials": 0,
+          "previewTrials": 0,
+          "saveTrials": 0,
+          "detailsTrials": 0,
+          "firstGrantBasic": 0,
+          "firstGrantExtended": 0,
+          "noGrant": 2,
+          "finalBasic": 0,
+          "finalExtended": 0,
+          "routeKinds": 1,
+          "censored": 0
+        },
+        "C": {
+          "attempted": 3,
+          "valid": 3,
+          "invalid": 0,
+          "helpTrials": 0,
+          "previewTrials": 0,
+          "saveTrials": 0,
+          "detailsTrials": 0,
+          "firstGrantBasic": 0,
+          "firstGrantExtended": 0,
+          "noGrant": 3,
+          "finalBasic": 0,
+          "finalExtended": 0,
+          "routeKinds": 1,
+          "censored": 0
+        }
+      },
+      "sameImages": {
+        "firstOccurrences": 36,
+        "pairs": 187,
+        "stableTargetsEqual": 187,
+        "annotationEqual": 0,
+        "strictDistributionPairs": 0,
+        "sharedHistoryEstablished": false,
+        "fullInputEqualityEstablished": false
+      }
+    },
+    "preferences": {
+      "planned": 12,
+      "attempted": 12,
+      "distances": {
+        "within": {
+          "count": 12,
+          "mean": 0,
+          "pairs": [
+            {
+              "left": "persona-task-preferences-A-r1",
+              "right": "persona-task-preferences-A-r2",
+              "actor": "A",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r1",
+              "right": "persona-task-preferences-A-r3",
+              "actor": "A",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r1",
+              "right": "persona-task-preferences-B-r2",
+              "actor": "B",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r1",
+              "right": "persona-task-preferences-B-r3",
+              "actor": "B",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r1",
+              "right": "persona-task-preferences-C-r2",
+              "actor": "C",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r1",
+              "right": "persona-task-preferences-C-r3",
+              "actor": "C",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r1",
+              "right": "persona-task-preferences-baseline-r2",
+              "actor": "baseline",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r1",
+              "right": "persona-task-preferences-baseline-r3",
+              "actor": "baseline",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r2",
+              "right": "persona-task-preferences-B-r3",
+              "actor": "B",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r2",
+              "right": "persona-task-preferences-C-r3",
+              "actor": "C",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r2",
+              "right": "persona-task-preferences-baseline-r3",
+              "actor": "baseline",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r2",
+              "right": "persona-task-preferences-A-r3",
+              "actor": "A",
+              "distance": 0
+            }
+          ]
+        },
+        "between": {
+          "count": 54,
+          "mean": 0,
+          "pairs": [
+            {
+              "left": "persona-task-preferences-A-r1",
+              "right": "persona-task-preferences-B-r1",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r1",
+              "right": "persona-task-preferences-C-r1",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r1",
+              "right": "persona-task-preferences-baseline-r1",
+              "actors": [
+                "A",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r1",
+              "right": "persona-task-preferences-B-r2",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r1",
+              "right": "persona-task-preferences-C-r2",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r1",
+              "right": "persona-task-preferences-baseline-r2",
+              "actors": [
+                "A",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r1",
+              "right": "persona-task-preferences-C-r3",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r1",
+              "right": "persona-task-preferences-baseline-r3",
+              "actors": [
+                "A",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r1",
+              "right": "persona-task-preferences-B-r3",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r1",
+              "right": "persona-task-preferences-C-r1",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r1",
+              "right": "persona-task-preferences-baseline-r1",
+              "actors": [
+                "B",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r1",
+              "right": "persona-task-preferences-C-r2",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r1",
+              "right": "persona-task-preferences-baseline-r2",
+              "actors": [
+                "B",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r1",
+              "right": "persona-task-preferences-A-r2",
+              "actors": [
+                "B",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r1",
+              "right": "persona-task-preferences-C-r3",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r1",
+              "right": "persona-task-preferences-baseline-r3",
+              "actors": [
+                "B",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r1",
+              "right": "persona-task-preferences-A-r3",
+              "actors": [
+                "B",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r1",
+              "right": "persona-task-preferences-baseline-r1",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r1",
+              "right": "persona-task-preferences-B-r2",
+              "actors": [
+                "C",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r1",
+              "right": "persona-task-preferences-baseline-r2",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r1",
+              "right": "persona-task-preferences-A-r2",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r1",
+              "right": "persona-task-preferences-baseline-r3",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r1",
+              "right": "persona-task-preferences-A-r3",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r1",
+              "right": "persona-task-preferences-B-r3",
+              "actors": [
+                "C",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r1",
+              "right": "persona-task-preferences-B-r2",
+              "actors": [
+                "baseline",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r1",
+              "right": "persona-task-preferences-C-r2",
+              "actors": [
+                "baseline",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r1",
+              "right": "persona-task-preferences-A-r2",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r1",
+              "right": "persona-task-preferences-C-r3",
+              "actors": [
+                "baseline",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r1",
+              "right": "persona-task-preferences-A-r3",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r1",
+              "right": "persona-task-preferences-B-r3",
+              "actors": [
+                "baseline",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r2",
+              "right": "persona-task-preferences-C-r2",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r2",
+              "right": "persona-task-preferences-baseline-r2",
+              "actors": [
+                "B",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r2",
+              "right": "persona-task-preferences-A-r2",
+              "actors": [
+                "B",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r2",
+              "right": "persona-task-preferences-C-r3",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r2",
+              "right": "persona-task-preferences-baseline-r3",
+              "actors": [
+                "B",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-B-r2",
+              "right": "persona-task-preferences-A-r3",
+              "actors": [
+                "B",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r2",
+              "right": "persona-task-preferences-baseline-r2",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r2",
+              "right": "persona-task-preferences-A-r2",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r2",
+              "right": "persona-task-preferences-baseline-r3",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r2",
+              "right": "persona-task-preferences-A-r3",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r2",
+              "right": "persona-task-preferences-B-r3",
+              "actors": [
+                "C",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r2",
+              "right": "persona-task-preferences-A-r2",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r2",
+              "right": "persona-task-preferences-C-r3",
+              "actors": [
+                "baseline",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r2",
+              "right": "persona-task-preferences-A-r3",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r2",
+              "right": "persona-task-preferences-B-r3",
+              "actors": [
+                "baseline",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r2",
+              "right": "persona-task-preferences-C-r3",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r2",
+              "right": "persona-task-preferences-baseline-r3",
+              "actors": [
+                "A",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r2",
+              "right": "persona-task-preferences-B-r3",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r3",
+              "right": "persona-task-preferences-baseline-r3",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r3",
+              "right": "persona-task-preferences-A-r3",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-C-r3",
+              "right": "persona-task-preferences-B-r3",
+              "actors": [
+                "C",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r3",
+              "right": "persona-task-preferences-A-r3",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-baseline-r3",
+              "right": "persona-task-preferences-B-r3",
+              "actors": [
+                "baseline",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-preferences-A-r3",
+              "right": "persona-task-preferences-B-r3",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            }
+          ]
+        },
+        "betweenMinusWithin": 0,
+        "byActor": {
+          "baseline": {
+            "count": 3,
+            "mean": 0,
+            "pairs": [
+              {
+                "left": "persona-task-preferences-baseline-r1",
+                "right": "persona-task-preferences-baseline-r2",
+                "actor": "baseline",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-preferences-baseline-r1",
+                "right": "persona-task-preferences-baseline-r3",
+                "actor": "baseline",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-preferences-baseline-r2",
+                "right": "persona-task-preferences-baseline-r3",
+                "actor": "baseline",
+                "distance": 0
+              }
+            ]
+          },
+          "A": {
+            "count": 3,
+            "mean": 0,
+            "pairs": [
+              {
+                "left": "persona-task-preferences-A-r1",
+                "right": "persona-task-preferences-A-r2",
+                "actor": "A",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-preferences-A-r1",
+                "right": "persona-task-preferences-A-r3",
+                "actor": "A",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-preferences-A-r2",
+                "right": "persona-task-preferences-A-r3",
+                "actor": "A",
+                "distance": 0
+              }
+            ]
+          },
+          "B": {
+            "count": 3,
+            "mean": 0,
+            "pairs": [
+              {
+                "left": "persona-task-preferences-B-r1",
+                "right": "persona-task-preferences-B-r2",
+                "actor": "B",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-preferences-B-r1",
+                "right": "persona-task-preferences-B-r3",
+                "actor": "B",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-preferences-B-r2",
+                "right": "persona-task-preferences-B-r3",
+                "actor": "B",
+                "distance": 0
+              }
+            ]
+          },
+          "C": {
+            "count": 3,
+            "mean": 0,
+            "pairs": [
+              {
+                "left": "persona-task-preferences-C-r1",
+                "right": "persona-task-preferences-C-r2",
+                "actor": "C",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-preferences-C-r1",
+                "right": "persona-task-preferences-C-r3",
+                "actor": "C",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-preferences-C-r2",
+                "right": "persona-task-preferences-C-r3",
+                "actor": "C",
+                "distance": 0
+              }
+            ]
+          }
+        }
+      },
+      "actorFacts": {
+        "baseline": {
+          "attempted": 3,
+          "valid": 3,
+          "invalid": 0,
+          "helpTrials": 0,
+          "previewTrials": 0,
+          "saveTrials": 3,
+          "detailsTrials": 0,
+          "firstGrantBasic": 0,
+          "firstGrantExtended": 0,
+          "noGrant": 3,
+          "finalBasic": 0,
+          "finalExtended": 0,
+          "routeKinds": 1,
+          "censored": 0
+        },
+        "A": {
+          "attempted": 3,
+          "valid": 3,
+          "invalid": 0,
+          "helpTrials": 0,
+          "previewTrials": 0,
+          "saveTrials": 3,
+          "detailsTrials": 0,
+          "firstGrantBasic": 0,
+          "firstGrantExtended": 0,
+          "noGrant": 3,
+          "finalBasic": 0,
+          "finalExtended": 0,
+          "routeKinds": 1,
+          "censored": 0
+        },
+        "B": {
+          "attempted": 3,
+          "valid": 3,
+          "invalid": 0,
+          "helpTrials": 0,
+          "previewTrials": 0,
+          "saveTrials": 3,
+          "detailsTrials": 0,
+          "firstGrantBasic": 0,
+          "firstGrantExtended": 0,
+          "noGrant": 3,
+          "finalBasic": 0,
+          "finalExtended": 0,
+          "routeKinds": 1,
+          "censored": 0
+        },
+        "C": {
+          "attempted": 3,
+          "valid": 3,
+          "invalid": 0,
+          "helpTrials": 0,
+          "previewTrials": 0,
+          "saveTrials": 3,
+          "detailsTrials": 0,
+          "firstGrantBasic": 0,
+          "firstGrantExtended": 0,
+          "noGrant": 3,
+          "finalBasic": 0,
+          "finalExtended": 0,
+          "routeKinds": 1,
+          "censored": 0
+        }
+      },
+      "sameImages": {
+        "firstOccurrences": 36,
+        "pairs": 198,
+        "stableTargetsEqual": 198,
+        "annotationEqual": 0,
+        "strictDistributionPairs": 0,
+        "sharedHistoryEstablished": false,
+        "fullInputEqualityEstablished": false
+      }
+    },
+    "privacy": {
+      "planned": 12,
+      "attempted": 12,
+      "distances": {
+        "within": {
+          "count": 12,
+          "mean": 0.16666666666666666,
+          "pairs": [
+            {
+              "left": "persona-task-privacy-B-r1",
+              "right": "persona-task-privacy-B-r2",
+              "actor": "B",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-B-r1",
+              "right": "persona-task-privacy-B-r3",
+              "actor": "B",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-C-r1",
+              "right": "persona-task-privacy-C-r2",
+              "actor": "C",
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-C-r1",
+              "right": "persona-task-privacy-C-r3",
+              "actor": "C",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r1",
+              "right": "persona-task-privacy-baseline-r2",
+              "actor": "baseline",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r1",
+              "right": "persona-task-privacy-baseline-r3",
+              "actor": "baseline",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-A-r1",
+              "right": "persona-task-privacy-A-r2",
+              "actor": "A",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-A-r1",
+              "right": "persona-task-privacy-A-r3",
+              "actor": "A",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-C-r2",
+              "right": "persona-task-privacy-C-r3",
+              "actor": "C",
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-baseline-r2",
+              "right": "persona-task-privacy-baseline-r3",
+              "actor": "baseline",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-A-r2",
+              "right": "persona-task-privacy-A-r3",
+              "actor": "A",
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-B-r2",
+              "right": "persona-task-privacy-B-r3",
+              "actor": "B",
+              "distance": 0
+            }
+          ]
+        },
+        "between": {
+          "count": 54,
+          "mean": 0.3333333333333333,
+          "pairs": [
+            {
+              "left": "persona-task-privacy-B-r1",
+              "right": "persona-task-privacy-C-r1",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-B-r1",
+              "right": "persona-task-privacy-baseline-r1",
+              "actors": [
+                "B",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-B-r1",
+              "right": "persona-task-privacy-A-r1",
+              "actors": [
+                "B",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-B-r1",
+              "right": "persona-task-privacy-C-r2",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-B-r1",
+              "right": "persona-task-privacy-baseline-r2",
+              "actors": [
+                "B",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-B-r1",
+              "right": "persona-task-privacy-A-r2",
+              "actors": [
+                "B",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-B-r1",
+              "right": "persona-task-privacy-baseline-r3",
+              "actors": [
+                "B",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-B-r1",
+              "right": "persona-task-privacy-A-r3",
+              "actors": [
+                "B",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-B-r1",
+              "right": "persona-task-privacy-C-r3",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-C-r1",
+              "right": "persona-task-privacy-baseline-r1",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-C-r1",
+              "right": "persona-task-privacy-A-r1",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-C-r1",
+              "right": "persona-task-privacy-baseline-r2",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-C-r1",
+              "right": "persona-task-privacy-A-r2",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-C-r1",
+              "right": "persona-task-privacy-B-r2",
+              "actors": [
+                "C",
+                "B"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-C-r1",
+              "right": "persona-task-privacy-baseline-r3",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-C-r1",
+              "right": "persona-task-privacy-A-r3",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-C-r1",
+              "right": "persona-task-privacy-B-r3",
+              "actors": [
+                "C",
+                "B"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-baseline-r1",
+              "right": "persona-task-privacy-A-r1",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r1",
+              "right": "persona-task-privacy-C-r2",
+              "actors": [
+                "baseline",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r1",
+              "right": "persona-task-privacy-A-r2",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r1",
+              "right": "persona-task-privacy-B-r2",
+              "actors": [
+                "baseline",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r1",
+              "right": "persona-task-privacy-A-r3",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r1",
+              "right": "persona-task-privacy-B-r3",
+              "actors": [
+                "baseline",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r1",
+              "right": "persona-task-privacy-C-r3",
+              "actors": [
+                "baseline",
+                "C"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-A-r1",
+              "right": "persona-task-privacy-C-r2",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-A-r1",
+              "right": "persona-task-privacy-baseline-r2",
+              "actors": [
+                "A",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-A-r1",
+              "right": "persona-task-privacy-B-r2",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-A-r1",
+              "right": "persona-task-privacy-baseline-r3",
+              "actors": [
+                "A",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-A-r1",
+              "right": "persona-task-privacy-B-r3",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-A-r1",
+              "right": "persona-task-privacy-C-r3",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-C-r2",
+              "right": "persona-task-privacy-baseline-r2",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-C-r2",
+              "right": "persona-task-privacy-A-r2",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-C-r2",
+              "right": "persona-task-privacy-B-r2",
+              "actors": [
+                "C",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-C-r2",
+              "right": "persona-task-privacy-baseline-r3",
+              "actors": [
+                "C",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-C-r2",
+              "right": "persona-task-privacy-A-r3",
+              "actors": [
+                "C",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-C-r2",
+              "right": "persona-task-privacy-B-r3",
+              "actors": [
+                "C",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r2",
+              "right": "persona-task-privacy-A-r2",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r2",
+              "right": "persona-task-privacy-B-r2",
+              "actors": [
+                "baseline",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r2",
+              "right": "persona-task-privacy-A-r3",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r2",
+              "right": "persona-task-privacy-B-r3",
+              "actors": [
+                "baseline",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r2",
+              "right": "persona-task-privacy-C-r3",
+              "actors": [
+                "baseline",
+                "C"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-A-r2",
+              "right": "persona-task-privacy-B-r2",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-A-r2",
+              "right": "persona-task-privacy-baseline-r3",
+              "actors": [
+                "A",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-A-r2",
+              "right": "persona-task-privacy-B-r3",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-A-r2",
+              "right": "persona-task-privacy-C-r3",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-B-r2",
+              "right": "persona-task-privacy-baseline-r3",
+              "actors": [
+                "B",
+                "baseline"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-B-r2",
+              "right": "persona-task-privacy-A-r3",
+              "actors": [
+                "B",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-B-r2",
+              "right": "persona-task-privacy-C-r3",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-baseline-r3",
+              "right": "persona-task-privacy-A-r3",
+              "actors": [
+                "baseline",
+                "A"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r3",
+              "right": "persona-task-privacy-B-r3",
+              "actors": [
+                "baseline",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-baseline-r3",
+              "right": "persona-task-privacy-C-r3",
+              "actors": [
+                "baseline",
+                "C"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-A-r3",
+              "right": "persona-task-privacy-B-r3",
+              "actors": [
+                "A",
+                "B"
+              ],
+              "distance": 0
+            },
+            {
+              "left": "persona-task-privacy-A-r3",
+              "right": "persona-task-privacy-C-r3",
+              "actors": [
+                "A",
+                "C"
+              ],
+              "distance": 1
+            },
+            {
+              "left": "persona-task-privacy-B-r3",
+              "right": "persona-task-privacy-C-r3",
+              "actors": [
+                "B",
+                "C"
+              ],
+              "distance": 1
+            }
+          ]
+        },
+        "betweenMinusWithin": 0.16666666666666666,
+        "byActor": {
+          "baseline": {
+            "count": 3,
+            "mean": 0,
+            "pairs": [
+              {
+                "left": "persona-task-privacy-baseline-r1",
+                "right": "persona-task-privacy-baseline-r2",
+                "actor": "baseline",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-privacy-baseline-r1",
+                "right": "persona-task-privacy-baseline-r3",
+                "actor": "baseline",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-privacy-baseline-r2",
+                "right": "persona-task-privacy-baseline-r3",
+                "actor": "baseline",
+                "distance": 0
+              }
+            ]
+          },
+          "A": {
+            "count": 3,
+            "mean": 0,
+            "pairs": [
+              {
+                "left": "persona-task-privacy-A-r1",
+                "right": "persona-task-privacy-A-r2",
+                "actor": "A",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-privacy-A-r1",
+                "right": "persona-task-privacy-A-r3",
+                "actor": "A",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-privacy-A-r2",
+                "right": "persona-task-privacy-A-r3",
+                "actor": "A",
+                "distance": 0
+              }
+            ]
+          },
+          "B": {
+            "count": 3,
+            "mean": 0,
+            "pairs": [
+              {
+                "left": "persona-task-privacy-B-r1",
+                "right": "persona-task-privacy-B-r2",
+                "actor": "B",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-privacy-B-r1",
+                "right": "persona-task-privacy-B-r3",
+                "actor": "B",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-privacy-B-r2",
+                "right": "persona-task-privacy-B-r3",
+                "actor": "B",
+                "distance": 0
+              }
+            ]
+          },
+          "C": {
+            "count": 3,
+            "mean": 0.6666666666666666,
+            "pairs": [
+              {
+                "left": "persona-task-privacy-C-r1",
+                "right": "persona-task-privacy-C-r2",
+                "actor": "C",
+                "distance": 1
+              },
+              {
+                "left": "persona-task-privacy-C-r1",
+                "right": "persona-task-privacy-C-r3",
+                "actor": "C",
+                "distance": 0
+              },
+              {
+                "left": "persona-task-privacy-C-r2",
+                "right": "persona-task-privacy-C-r3",
+                "actor": "C",
+                "distance": 1
+              }
+            ]
+          }
+        }
+      },
+      "actorFacts": {
+        "baseline": {
+          "attempted": 3,
+          "valid": 3,
+          "invalid": 0,
+          "helpTrials": 0,
+          "previewTrials": 0,
+          "saveTrials": 0,
+          "detailsTrials": 0,
+          "firstGrantBasic": 0,
+          "firstGrantExtended": 3,
+          "noGrant": 0,
+          "finalBasic": 0,
+          "finalExtended": 3,
+          "routeKinds": 1,
+          "censored": 0
+        },
+        "A": {
+          "attempted": 3,
+          "valid": 3,
+          "invalid": 0,
+          "helpTrials": 0,
+          "previewTrials": 0,
+          "saveTrials": 0,
+          "detailsTrials": 0,
+          "firstGrantBasic": 0,
+          "firstGrantExtended": 3,
+          "noGrant": 0,
+          "finalBasic": 0,
+          "finalExtended": 3,
+          "routeKinds": 1,
+          "censored": 0
+        },
+        "B": {
+          "attempted": 3,
+          "valid": 3,
+          "invalid": 0,
+          "helpTrials": 0,
+          "previewTrials": 0,
+          "saveTrials": 0,
+          "detailsTrials": 0,
+          "firstGrantBasic": 0,
+          "firstGrantExtended": 3,
+          "noGrant": 0,
+          "finalBasic": 0,
+          "finalExtended": 3,
+          "routeKinds": 1,
+          "censored": 0
+        },
+        "C": {
+          "attempted": 3,
+          "valid": 3,
+          "invalid": 0,
+          "helpTrials": 0,
+          "previewTrials": 0,
+          "saveTrials": 0,
+          "detailsTrials": 2,
+          "firstGrantBasic": 2,
+          "firstGrantExtended": 1,
+          "noGrant": 0,
+          "finalBasic": 2,
+          "finalExtended": 1,
+          "routeKinds": 2,
+          "censored": 0
+        }
+      },
+      "sameImages": {
+        "firstOccurrences": 26,
+        "pairs": 113,
+        "stableTargetsEqual": 113,
+        "annotationEqual": 0,
+        "strictDistributionPairs": 0,
+        "sharedHistoryEstablished": false,
+        "fullInputEqualityEstablished": false
+      }
+    }
+  },
+  "integrity": {
+    "ok": true,
+    "errors": []
+  },
+  "interpretation": {
+    "paths": "Only valid fully audited observed-to-stop trajectories enter route distances, including explicitly censored caps. Invalid observed prefixes remain separate. Distances are length-sensitive and imply no behavior beyond the imposed bounds.",
+    "controls": "Tokens use observed route, actual UI action and unique audit control text, never image-local candidate IDs across images. Audit truth remains reviewer-only.",
+    "screens": "Same PNG does not establish identical full decision input or history. recordedActionInputEqual compares only saved action-stage input, questions and assets; it does not compare all native/assessment inputs. Stable observed targets and generated candidate annotations are compared separately; raw TV requires exact candidate bindings and annotations.",
+    "reasons": "Model-reported categories are self-report only, not internal cognition or verified explanations.",
+    "choices": "Facts derive from observed successful UI actions and snapshot event deltas, with before/after references. Valid actor aggregates exclude invalid prefixes; absence is not comprehension.",
+    "limits": "Three repeats are descriptive; correlated pair distances provide no significance, naturalness ranking, field-level Persona attribution or validated human match. Goal outcomes, subjective done, infrastructure and censoring remain separate.",
+    "reuse": "Existing Persona parser, audit records and routeDistance are reused. No research dependency, model or learned weight is introduced."
+  }
+}

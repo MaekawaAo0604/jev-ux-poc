@@ -1,5 +1,9 @@
 # Jev UX navigation PoC
 
+## 知識・経験・制約の3課題で比較：2026-11-06
+
+[結果・画像・実行方法](docs/virtual-beta/persona-task-comparison.md)、[36試行JSON](docs/virtual-beta/persona-task-results.json)。実モデル36枠、35有効・画像抽出の不正1、292要求。認証・表示設定では経路差なし。通知連携ではCが2/3回で詳細画面から基本アクセス、他3条件は9/9回で拡張アクセスだった。C内の揺れと詳細画面の既定選択を残し、安定したPersona効果や人間一致は確定しない。関連67テスト・コード/モックの独立検証は通過。リポジトリ全体のテストは未合格。
+
 ## Persona比較の実モデル検証：2026-11-05
 
 [実装・結果・実行方法](docs/virtual-beta/persona-beta-comparison.md)、[比較JSON](docs/virtual-beta/persona-beta-results.json)、[独立監査](docs/virtual-beta/persona-beta-review-live.json)。共通の補正なしuserモードでbaseline/A/B/Cを各3回、全12枠有効・396要求・基盤途中停止0を確認した。条件内の経路距離0.306、条件間0.323で、ばらつきを超える経路のPersona効果は確認できていない。Cの確認カテゴリ27/30と3回の経路一致は、他条件でも同じ経路が出た事実と分けて保存する。人間一致と知識・制約全般の遵守は未検証。

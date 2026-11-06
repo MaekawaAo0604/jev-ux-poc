@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "All36new browser trace.network payloads. Node modelHTTP is separately audited with ledgers. Browser requests are GET/HEAD local resources or empty intercepted fontstylesheets; no browser data write or existing cookie found.",
+  "trials": [
+    {
+      "id": "persona-task-sessions-baseline-r1",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5174"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-sessions-A-r1",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5174"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-sessions-B-r1",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-sessions-C-r1",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-preferences-A-r1",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-preferences-B-r1",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-preferences-C-r1",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-preferences-baseline-r1",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-privacy-B-r1",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-privacy-C-r1",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-privacy-baseline-r1",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-privacy-A-r1",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-sessions-A-r2",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-sessions-B-r2",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-sessions-C-r2",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-sessions-baseline-r2",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-preferences-B-r2",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-preferences-C-r2",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-preferences-baseline-r2",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-preferences-A-r2",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-privacy-C-r2",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-privacy-baseline-r2",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-privacy-A-r2",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-privacy-B-r2",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-sessions-B-r3",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-sessions-C-r3",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-sessions-baseline-r3",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-sessions-A-r3",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-preferences-C-r3",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-preferences-baseline-r3",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-preferences-A-r3",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-preferences-B-r3",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-privacy-baseline-r3",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-privacy-A-r3",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-privacy-B-r3",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    },
+    {
+      "id": "persona-task-privacy-C-r3",
+      "resources": 50,
+      "localOrigins": [
+        "127.0.0.1:5173"
+      ],
+      "emptyInterceptedFontStylesheets": 2,
+      "requestCookies": 0,
+      "issues": []
+    }
+  ]
+}
