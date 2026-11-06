@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Frozen study, descriptive analysis and local viewer; staged publication gate pending separately",
+  "unresolvedMajorFindings": 0,
+  "resolvedFindings": ["P2_NONCLICK_SELECTED_ACTION_MISMATCH"],
+  "advisories": ["Probe fullValid denotes valid cap1 trials, not full12 flow"],
+  "sourceFiles": 187,
+  "sourceHash": "bfb1e80ee80308bb84ae6cc9dc8aafd27c69ef72c75a59bd9e7739dd129c7f44",
+  "executionRevision": "7905e324a9167b278493703b1c719cea32d76d19",
+  "probe": {"planned":32,"attempted":32,"eligible":32,"requests":96,"plannedCensoring":32},
+  "flow": {"planned":8,"attempted":4,"eligible":0,"requests":65,"deadlineBudgetTimeout":1,"modelInvalid":3,"unexecuted":4,"status":"CONSECUTIVE_INVALID_TRIALS"},
+  "realModelRequestsInStudy": 161,
+  "realModelRequestsByVerifier": 0,
+  "credentialsReadByVerifier": false,
+  "oldHumanContentsReadByVerifier": false,
+  "finalTests": {"passed":14,"failed":0,"skipped":0,"exitCode":0,"includesFreshOrdinaryMockTrials":16},
+  "viewer": {"planned":48,"recorded":44,"real":36,"mock":8,"unexecuted":4,"exportedSteps":64,"rawByteMatches":44,"desktopWidth":1440,"mobileWidth":390,"horizontalOverflow":false},
+  "selection": {"modelChoiceChanged":0,"conditionalDistributionChanged":27,"nonunitPolicyWeights":0},
+  "analysisScriptSha256":"5f3fdc73ce6ab48b28bb40f31c60dab47086bce899e8ea0eba535d7ddc97b83b",
+  "finalAnalysisSha256":"2e754dfb6ca0e958dce2ef5c3309d91320f0a3d6dd4e0419dcfbad2b43f241a8",
+  "evidence": ["postmodel-jfbtZR/audit.json","analysis-review-4OjicZ/review.json","viewer-final-Ep5NMp/audit.json","final-analysis-check.json","latest-r1.json"]
+}

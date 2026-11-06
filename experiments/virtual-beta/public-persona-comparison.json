@@ -1,55 +1,54 @@
 {
   "schemaVersion": 1,
-  "phase": "public-persona-observatory-revision-2-2026-11-06",
-  "baselineRevision": "3fd144ccbdeb6229ca5b2c873cc711581e9ee647",
-  "profile": "experience-persona-unweighted",
+  "phase": "extreme-persona-study-2026-11-06",
+  "baselineRevision": "7905e32",
+  "personaSet": "experiments/persona/extreme-passkeys-v1/set.json",
   "actors": [
-    "baseline",
-    "A",
-    "B",
-    "C"
+    "XK0",
+    "XK1",
+    "XE0",
+    "XE1",
+    "XP0",
+    "XP1",
+    "XD0",
+    "XD1"
   ],
-  "site": "GitHub Docs Japanese passkeys, 4 unmodified captured pages",
-  "goalFile": "experiments/virtual-beta/public-passkeys-charter.json",
-  "mainRepeats": 4,
-  "mainPlannedTrials": 16,
-  "supportedRepeats": {
-    "minimum": 1,
-    "maximum": 100
-  },
-  "order": "Within replicate, cyclic actor rotation; each block of 4 replicates balances all 4 positions. Not randomized.",
-  "limits": {
-    "mainRequests": 576,
-    "perTrialRequests": 36,
-    "decisions": 12,
-    "uiActions": 15,
+  "charter": "experiments/virtual-beta/public-passkeys-charter.json",
+  "siteHarSha256": "2f3ef9f0fbe3d819c824b0381a2f49053b2c20d8350840bef32de6ae04061bb6",
+  "profile": "experience-persona-unweighted",
+  "phases": [
+    {
+      "id": "probe",
+      "repeats": 4,
+      "planned": 32,
+      "maxDecisions": 1,
+      "maxRequests": 1152,
+      "maxPhaseMs": 7200000,
+      "endpoint": "Initial selected action, raw/filtered/normalized distribution and self-reported basis from the shared initial screenshot. Censored at one judgement; not completion or human fidelity."
+    },
+    {
+      "id": "flow",
+      "repeats": 1,
+      "planned": 8,
+      "maxDecisions": 12,
+      "maxRequests": 288,
+      "maxPhaseMs": 3600000,
+      "endpoint": "Observed trajectories and interpretation after the first choice. Invalid prefixes separate; known extractor failures may stop before all8."
+    }
+  ],
+  "sharedLimits": {
+    "perTrialAllocation": 36,
+    "maxTrialMs": 300000,
+    "nativeTimeoutMs": 60000,
+    "UI": 15,
     "looks": 3,
-    "trialMs": 300000,
-    "nativeMs": 60000,
-    "phaseMs": 7200000,
     "parallel": 1,
-    "retries": 0
+    "retry": 0
   },
-  "intervention": "Existing whole Persona JSON vs absent; same image, goal, source, unweighted user-mode profile, locale, initial state. No Persona-specific routes or forced actions.",
-  "primary": "First-choice model-trial distributions, full observed trajectories, non-UI looks/reread/wait/back/abandon, and invalid/infrastructure/censoring counts. Four replicates descriptive; configurable100 does not mean400 executed.",
-  "objective": "UNVERIFIED/null: information acquisition and understanding have no independent oracle. Subjective done and objective success kept separate.",
-  "stop": "Immediate auth/quota/safety/frozen-source/accounting/audit failures; stop at 3 consecutive invalid trials; preserve all invalid prefixes without replacements. Interrupted ATTEMPTING is not rerun.",
-  "capture": "Bounded live acquisition once; main trials replay recorded real-site HTML/CSS/assets offline without network fallback. Out-of-scope links unavailable, search/forms/login disabled; this is a scoped information exploration, not unrestricted site behavior.",
-  "analysis": "Do not pool mock/pilot/real, incompatible source/config/goal/snapshot/initial states. Counts are model trials, not human behavioral frequencies; no single-path repeatability requirement or human fidelity claim.",
+  "order": "Cyclic rotation by replicate;4of8positions in probe, one fixed full block in flow. Partial counterbalance, not randomized.",
+  "stop": "Immediate safety/provider/auth/quota/accounting/source fault;3 consecutive trusted model-invalid stops. HTTP timeout is infrastructure and does not become model-invalid. No failed-trial replacements, no rescue clicks or output repair.",
+  "comparison": "Within each predefined pair: initial action counts/denominators, total-variation distances of normalized distributions within vs between conditions, self-reported basis and native interpretations with source images. Model probabilities are not calibrated human frequencies. Initial native inputs after removing ONLY Persona must match, with initial product/current-model PNG hashes separately identical; goal/date/assets remain in the equality check. Compare identical snapshot/source/profile within each phase only; cap differences prevent pooling probe with flow.",
   "humanInputsRead": false,
   "savedInputResends": 0,
-  "revisionReason": [
-    "Require embedded successful document body even with unknown size",
-    "Separate in-progress trial from invalid results in summaries and slot labels",
-    "Count recorded native schema-invalid responses for existing three-consecutive-invalid stopping rule"
-  ],
-  "previousPhase": {
-    "path": "reports/exploration-observatory-2026-11-06/live-r1",
-    "attempted": 2,
-    "requests": 41,
-    "status": "FROZEN_SOURCE_CHANGED",
-    "operatorHold": "parent/operator-boundary-stop.json",
-    "excludedFromNewMain": true
-  },
-  "unchangedActorPolicy": "Same profile, Persona JSON, goal, snapshot, viewport and12decision/36request bound; no model-output repairs or click-policy changes"
+  "interpretation": "Eight deliberately exaggerated hypotheses,4repeats descriptive. Names/IDs differ; experience may imply knowledge. Do not infer a human trait effect or human agreement. No proof of semantic understanding from a correct action."
 }

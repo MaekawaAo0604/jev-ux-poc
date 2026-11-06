@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {mkdir,mkdtemp,readFile,writeFile,rm} from 'node:fs/promises';
-import {resolve,join} from 'node:path';
+import {resolve,join,relative} from 'node:path';
 import {createHash} from 'node:crypto';
 import {sourceIdentity} from '../runner/virtual-beta-source.js';
 import {humanJevProfile} from '../runner/human-jev-profiles.js';
@@ -24,7 +24,7 @@ async function setup(t:any){
  return {root,options:{out:join(root,'batch'),siteSpec,charter,priorSnapshot,mock:true,repeats:1,maxRequests:144,maxPhaseMs:120000}};
 }
 async function successful(o:any,termination='DONE'){
- await mkdir(join(o.out,'exploration'),{recursive:true});await writeFile(join(o.out,'initial-product.png'),'product');const code=await sourceIdentity(),image=sha('image');const result:any={schemaVersion:1,runId:o.runId,condition:'human-screen-persona-unweighted',code:{revision:code.revision,sourceHash:code.sourceHash},config:humanJevProfile('experience-persona-unweighted',300000,60000).config,input:{charter:o.publicSite.charter,...(o.persona?{persona:o.persona}:{})},initialFingerprint:'same-initial',publicSite:{spec:o.publicSite.spec,networkMode:'frozen-har-no-fallback',events:[],initialProductImage:{file:'initial-product.png',sha256:sha('product')}},objectiveSuccess:null,objectiveAssessment:{status:'UNVERIFIED',value:null},perceivedDone:termination==='DONE',termination,looks:0,uiActions:0,decisions:1,apiCalls:0,apiMs:0,uiMs:0,modeledUserMs:null,elapsedMs:2,terminalObservation:{status:'RECORDED'},validForComparison:!['INVALID_DISTRIBUTION','API_ERROR'].includes(termination),steps:[{number:1,assetFiles:{current:{file:'input-1.png',sha256:image}},visualHypotheses:{request:{goal:o.publicSite.charter.goal,persona:o.persona??null},assetFiles:{current:{file:'s1-current.png',sha256:image}},response:{status:'completed'}}}]};await writeFile(join(o.out,'exploration/result.json'),JSON.stringify(result));return {root:o.out,result,review:{status:'NOT_RUN'}};
+ await mkdir(join(o.out,'exploration'),{recursive:true});await writeFile(join(o.out,'initial-product.png'),'product');const code=await sourceIdentity(),image=sha('image');const result:any={schemaVersion:1,runId:o.runId,condition:'human-screen-persona-unweighted',code:{revision:code.revision,sourceHash:code.sourceHash},config:humanJevProfile('experience-persona-unweighted',300000,60000,o.maxDecisions).config,input:{charter:o.publicSite.charter,...(o.persona?{persona:o.persona}:{})},initialFingerprint:'same-initial',publicSite:{spec:o.publicSite.spec,networkMode:'frozen-har-no-fallback',events:[],initialProductImage:{file:'initial-product.png',sha256:sha('product')}},objectiveSuccess:null,objectiveAssessment:{status:'UNVERIFIED',value:null},perceivedDone:termination==='DONE',termination,looks:0,uiActions:0,decisions:1,apiCalls:0,apiMs:0,uiMs:0,modeledUserMs:null,elapsedMs:2,terminalObservation:{status:'RECORDED'},validForComparison:!['INVALID_DISTRIBUTION','API_ERROR'].includes(termination),steps:[{number:1,assetFiles:{current:{file:'input-1.png',sha256:image}},visualHypotheses:{request:{goal:o.publicSite.charter.goal,persona:o.persona??null},assetFiles:{current:{file:'s1-current.png',sha256:image}},response:{status:'completed'}}}]};await writeFile(join(o.out,'exploration/result.json'),JSON.stringify(result));return {root:o.out,result,review:{status:'NOT_RUN'}};
 }
 
 test('mock cohort stores compact paths/hashes/summaries and fixed inputs; resume never reruns attempted slots',async t=>{
@@ -98,4 +98,46 @@ test('three consecutive classified native schema failures count toward model-inv
 test('transport timeouts and HTTP503 do not become model-invalid from provider payload codes',async t=>{
  const {options}=await setup(t);let index=0;const m=await api.runPublicPersonaComparison(options,async(o:any)=>{const saved=await successful(o,'API_ERROR'),step=saved.result.steps[0];step.error=index++%2?{code:'HTTP_ERROR',statusCode:503}:{code:'TIMEOUT'};step.visualHypotheses.error=step.error;step.visualHypotheses.response.output={code:'INVALID_VISUAL_HYPOTHESES'};await writeFile(join(o.out,'exploration/result.json'),JSON.stringify(saved.result));return saved;});
  assert.equal(m.status,'COMPLETED');assert.equal(m.records.length,4);assert.ok(m.records.every((r:any)=>r.modelInvalid!==true&&!r.valid));
+});
+
+
+test('eight actor set rotates actual actors, freezes raw identity and respects the probe decision cap',async t=>{
+ const {options}=await setup(t),seen:any[]=[];const o={...options,personaSet:'experiments/persona/extreme-passkeys-v1/set.json',repeats:4,maxRequests:1152,maxDecisions:1};
+ const m=await api.runPublicPersonaComparison(o,async(input:any)=>{seen.push(input);return successful(input);});
+ assert.equal(m.status,'COMPLETED');assert.equal(m.records.length,32);assert.equal(m.limits.judgments,1);assert.equal(m.limits.perTrialRequests,36);assert.equal(m.identity.personaSet.selection,o.personaSet);assert.equal(m.identity.personaFiles.length,8);assert.equal(m.identity.mock,true);
+ assert.deepEqual(Object.keys(m.personas),['XK0','XK1','XE0','XE1','XP0','XP1','XD0','XD1']);assert.ok(!Object.hasOwn(m.personas,'baseline'));
+ assert.deepEqual(m.schedule.slice(8,16).map((s:any)=>s.actor),['XK1','XE0','XE1','XP0','XP1','XD0','XD1','XK0']);assert.ok(seen.every(input=>input.persona&&input.maxDecisions===1&&input.maximumRequests===36));
+ const summary=JSON.parse(await readFile(join(o.out,'summary.json'),'utf8'));assert.deepEqual(Object.keys(summary.byActor),Object.keys(m.personas));assert.equal(summary.byActor.XK0.planned,4);assert.equal(summary.byActor.XK0.valid,4);
+ const resumed=await api.runPublicPersonaComparison({...o,resume:true},async()=>{throw Error('MUST_NOT_RUN');});assert.equal(resumed.records.length,32);
+ for(const changed of [{maxDecisions:2},{personaSet:'./experiments/persona/extreme-passkeys-v1/set.json'}])await assert.rejects(()=>api.runPublicPersonaComparison({...o,...changed,resume:true},successful),/RESUME_IDENTITY_MISMATCH/);
+});
+
+test('generic schedule rejects unsafe IDs, duplicate casefold IDs and invalid actor counts',()=>{
+ assert.deepEqual(api.publicPersonaSchedule(2,['X','Y','Z']).map((s:any)=>s.actor),['X','Y','Z','Y','Z','X']);
+ for(const actors of [[],Array.from({length:17},(_,i)=>'X'+i),['A','a'],['../x'],['x/y'],['x\\y'],[' x']])assert.throws(()=>api.publicPersonaSchedule(1,actors));
+});
+
+test('CLI validates decision caps and set paths before output or credential access',()=>{
+ const args=['--out',resolve('reports/parse-test'),'--site-spec','site.json','--charter','charter.json','--prior-snapshot',resolve('reports/prior.json'),'--mock'];
+ const parsed=api.parsePublicPersonaOptions([...args,'--persona-set','experiments/persona/extreme-passkeys-v1/set.json','--max-decisions','1']);assert.equal(parsed.maxDecisions,1);assert.equal(parsed.personaSet,'experiments/persona/extreme-passkeys-v1/set.json');
+ for(const cap of ['0','13','1.5','NaN'])assert.throws(()=>api.parsePublicPersonaOptions([...args,'--max-decisions',cap]));
+});
+
+async function customSet(t:any){
+ const dir=await mkdtemp(resolve('experiments/persona/cohort-set-test-'));t.after(()=>rm(dir,{recursive:true,force:true}));const persona=JSON.parse(await readFile('experiments/persona/persona-a.json','utf8'));persona.id='Z';const file=join(dir,'persona.json'),set=join(dir,'set.json');await writeFile(file,JSON.stringify(persona));await writeFile(set,JSON.stringify({schemaVersion:1,id:'test-custom',personas:[{file:'persona.json',id:'Z',name:persona.name}]}));return {personaSet:relative(process.cwd(),set),file,set};
+}
+test('resume rejects changed raw set bytes and changed raw Persona bytes before another attempt',async t=>{
+ const {options}=await setup(t),files=await customSet(t),o={...options,personaSet:files.personaSet,maxDecisions:1};await api.runPublicPersonaComparison(o,successful);
+ const set=await readFile(files.set);await writeFile(files.set,Buffer.concat([set,Buffer.from(' ')]));await assert.rejects(()=>api.runPublicPersonaComparison({...o,resume:true},successful),/RESUME_IDENTITY_MISMATCH/);await writeFile(files.set,set);
+ const persona=await readFile(files.file);await writeFile(files.file,Buffer.concat([persona,Buffer.from(' ')]));await assert.rejects(()=>api.runPublicPersonaComparison({...o,resume:true},successful),/RESUME_IDENTITY_MISMATCH/);
+});
+test('raw set edits between trials stop the fixed schedule without replacement',async t=>{
+ const {options}=await setup(t),files=await customSet(t);const m=await api.runPublicPersonaComparison({...options,personaSet:files.personaSet,repeats:2},async(o:any)=>{const saved=await successful(o);await writeFile(files.set,(await readFile(files.set,'utf8'))+' ');return saved;});assert.equal(m.status,'FROZEN_SOURCE_CHANGED');assert.equal(m.records.length,1);assert.equal(m.preservationAfter,false);
+});
+test('resume rejects source identity, display Persona, frozen set metadata and cap metadata tampering',async t=>{
+ const {options}=await setup(t),files=await customSet(t),o={...options,personaSet:files.personaSet,maxDecisions:1};const m=await api.runPublicPersonaComparison(o,successful),path=join(options.out,'manifest.json');
+ for(const mutate of [(v:any)=>v.identity.source.sourceHash='0'.repeat(64),(v:any)=>v.personas.Z.name='Changed display',(v:any)=>v.personaSet.sha256='0'.repeat(64),(v:any)=>v.limits.judgments=12]){const changed=structuredClone(m);mutate(changed);await writeFile(path,JSON.stringify(changed));await assert.rejects(()=>api.runPublicPersonaComparison({...o,resume:true},successful),/RESUME_IDENTITY_MISMATCH/);}
+});
+test('probe result exceeding the selected cap is retained and stops immediately',async t=>{
+ const {options}=await setup(t);const m=await api.runPublicPersonaComparison({...options,maxDecisions:1},async(o:any)=>{const saved=await successful(o);saved.result.decisions=2;await writeFile(join(o.out,'exploration/result.json'),JSON.stringify(saved.result));return saved;});assert.equal(m.status,'TRIAL_CAP_EXCEEDED');assert.equal(m.records.length,1);assert.equal(m.records[0].valid,false);assert.equal(JSON.parse(await readFile(m.records[0].resultPath,'utf8')).decisions,2);
 });

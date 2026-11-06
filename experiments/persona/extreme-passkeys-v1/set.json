@@ -111,7 +111,7 @@
     "Names are also model input; experience may induce inferred knowledge. This is not proof of a pure human single-trait causal effect.",
     "No target label, candidate ID, URL route, click order or forced success/abandonment is supplied in Persona files.",
     "Device assumptions are not an actual browser/device emulation or enforced OS policy.",
-    "No model trials have been executed with this set. Existing native output/token/timeout failures are not addressed by these definitions.",
-    "The existing public cohort driver fixes baseline/A/B/C; this set metadata is not yet a supported new CLI input."
+    "Definitions do not establish execution or validation. See the separate extreme-persona-study protocol and results; existing native output/token/timeout limitations are unchanged.",
+    "The public cohort runner accepts this file via explicit --persona-set; the legacy default remains baseline/A/B/C. --max-decisions changes harness censoring only."
   ]
 }
