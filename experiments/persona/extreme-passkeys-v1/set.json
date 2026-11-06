@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "extreme-passkeys-v1",
+  "purpose": "Extreme, hypothetical Persona contrasts for sensitivity checks, not a representative user population or validated human model.",
+  "charter": "experiments/virtual-beta/public-passkeys-charter.json",
+  "baseline": "Existing no-Persona baseline can be run separately; never edit the existing A/B/C.",
+  "identityFields": [
+    "id",
+    "name"
+  ],
+  "pairs": [
+    {
+      "id": "knowledge",
+      "label": "専門用語の事前知識",
+      "changeFields": [
+        "knowledge"
+      ],
+      "personas": [
+        "XK0",
+        "XK1"
+      ]
+    },
+    {
+      "id": "experience",
+      "label": "実利用経験",
+      "changeFields": [
+        "serviceExperience"
+      ],
+      "personas": [
+        "XE0",
+        "XE1"
+      ]
+    },
+    {
+      "id": "priority",
+      "label": "判断で優先するもの",
+      "changeFields": [
+        "expectations",
+        "behavioralTendencies"
+      ],
+      "personas": [
+        "XP0",
+        "XP1"
+      ]
+    },
+    {
+      "id": "devices",
+      "label": "利用できる端末と組織の制約",
+      "changeFields": [
+        "contextAndConstraints"
+      ],
+      "personas": [
+        "XD0",
+        "XD1"
+      ]
+    }
+  ],
+  "personas": [
+    {
+      "file": "knowledge-none.json",
+      "id": "XK0",
+      "name": "パスキー用語の知識ゼロ",
+      "axis": "knowledge"
+    },
+    {
+      "file": "knowledge-deep.json",
+      "id": "XK1",
+      "name": "パスキーの仕組みに詳しい",
+      "axis": "knowledge"
+    },
+    {
+      "file": "experience-never.json",
+      "id": "XE0",
+      "name": "パスキー実利用ゼロ",
+      "axis": "experience"
+    },
+    {
+      "file": "experience-daily.json",
+      "id": "XE1",
+      "name": "他サービスでパスキーを毎日利用",
+      "axis": "experience"
+    },
+    {
+      "file": "priority-speed.json",
+      "id": "XP0",
+      "name": "手早い判断を強く優先",
+      "axis": "priority"
+    },
+    {
+      "file": "priority-evidence.json",
+      "id": "XP1",
+      "name": "判断根拠への納得を強く優先",
+      "axis": "priority"
+    },
+    {
+      "file": "devices-personal.json",
+      "id": "XD0",
+      "name": "私物端末を自由に利用可能",
+      "axis": "devices"
+    },
+    {
+      "file": "devices-shared-only.json",
+      "id": "XD1",
+      "name": "制限された共用PCのみ利用可能",
+      "axis": "devices"
+    }
+  ],
+  "interpretation": [
+    "These are intentionally exaggerated synthetic assumptions, not descriptions of actual people.",
+    "Within each pair only the listed fields and tracking ID/display name differ; across pairs multiple conditions differ.",
+    "Names are also model input; experience may induce inferred knowledge. This is not proof of a pure human single-trait causal effect.",
+    "No target label, candidate ID, URL route, click order or forced success/abandonment is supplied in Persona files.",
+    "Device assumptions are not an actual browser/device emulation or enforced OS policy.",
+    "No model trials have been executed with this set. Existing native output/token/timeout failures are not addressed by these definitions.",
+    "The existing public cohort driver fixes baseline/A/B/C; this set metadata is not yet a supported new CLI input."
+  ]
+}
