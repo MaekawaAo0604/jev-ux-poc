@@ -1,5 +1,7 @@
 # Jev UX navigation PoC
 
+[端末制約を直接使う選択課題](docs/virtual-beta/constraint-choice.md)：同じ画面で PC 保存可否×スマホ有無を比較。探索・保存・機能完了・制約整合を分けて記録します。
+
 [極端な Persona の同条件比較](docs/virtual-beta/extreme-persona-study.md)：8 条件を各 4 回、同じ実サイト保存画面から動かした初回判断と、別枠の経路を記録。
 
 ## 探索ログ一覧と実サイト反復

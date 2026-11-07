@@ -4,7 +4,8 @@ export type {PersonaTaskFixture} from './persona-task-types.js';
 const assignments:Record<string,PersonaTaskFixture>={
  k4:{version:1,task:'sessions'},
  v8:{version:1,task:'preferences'},
- p2:{version:1,task:'privacy'}
+ p2:{version:1,task:'privacy'},
+ m7:{version:1,task:'methods'}
 };
 function token(f:PersonaTaskFixture):string {
  if(!f||Object.keys(f).sort().join(',')!=='task,version'||f.version!==1)throw Error('INVALID_PERSONA_TASK_FIXTURE');
@@ -20,6 +21,11 @@ export function parsePersonaTaskFixture(search:string):PersonaTaskFixture|undefi
 }
 export function personaTaskDefinition(f:PersonaTaskFixture):{goal:string;title:string;objectiveText:string} {
  token(f);
+ if(f.task==='methods')return {
+  title:'ログイン方法',
+  goal:'自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。',
+  objectiveText:'ログイン方法の設定を保存しました。'
+ };
  if(f.task==='sessions')return {
   title:'ログインとセキュリティ',
   goal:'以前使った共用PCから自分のアカウントを使えない状態にしてください。この端末では引き続き使い、パスワードは変えないでください。',

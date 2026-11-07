@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "constraint-choice-v1",
+  "personas": [
+    {
+      "file": "m0.json",
+      "id": "M0",
+      "name": "条件1",
+      "canStoreCredentials": true,
+      "hasPhone": false
+    },
+    {
+      "file": "m1.json",
+      "id": "M1",
+      "name": "条件2",
+      "canStoreCredentials": false,
+      "hasPhone": false
+    },
+    {
+      "file": "m2.json",
+      "id": "M2",
+      "name": "条件3",
+      "canStoreCredentials": true,
+      "hasPhone": true
+    },
+    {
+      "file": "m3.json",
+      "id": "M3",
+      "name": "条件4",
+      "canStoreCredentials": false,
+      "hasPhone": true
+    }
+  ],
+  "pairs": [
+    {
+      "id": "store-no-phone",
+      "personas": [
+        "M0",
+        "M1"
+      ]
+    },
+    {
+      "id": "store-with-phone",
+      "personas": [
+        "M2",
+        "M3"
+      ]
+    },
+    {
+      "id": "phone-private",
+      "personas": [
+        "M0",
+        "M2"
+      ]
+    },
+    {
+      "id": "phone-shared",
+      "personas": [
+        "M1",
+        "M3"
+      ]
+    }
+  ],
+  "interpretation": [
+    "Two device facts only; all knowledge, experience, expectations and behavioral tendencies match.",
+    "Neutral tracking IDs and names also differ and are model inputs.",
+    "Metadata capability flags are harness-only, not supplied as correct method IDs or action filters.",
+    "No method is preselected. Opening an inapplicable method can be exploration; only confirmed saved method is assessed for compatibility.",
+    "This tests descriptive constraint sensitivity in a fictional local choice, not human fidelity or enforced real device policy."
+  ]
+}

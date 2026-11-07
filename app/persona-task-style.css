@@ -34,3 +34,14 @@
 .persona-task-return{margin:18px 0 8px}
 .persona-task-root .persona-task-footer{display:block;max-width:1000px;margin:0 auto;padding:12px 24px 20px;color:#728088;font-size:12px;border:0;background:transparent}
 @media(max-width:700px){.persona-task-root .persona-task-header{padding:0 22px}.persona-task-heading{align-items:flex-start;flex-direction:column;gap:12px}.persona-task-grid{grid-template-columns:1fr}.persona-task-options{flex-direction:column}}
+
+.persona-method-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:20px 0 22px}
+.persona-task-root .persona-method-choice{display:flex;flex-direction:column;align-items:flex-start;width:100%;min-height:300px;padding:22px;text-align:left;background:white;color:#2b4753;border:1px solid #9eb3bb;border-radius:8px}
+.persona-task-root .persona-method-choice:hover{background:#f3f7f8;border-color:#527f8c}
+.persona-task-root .persona-method-choice[aria-pressed="true"]{padding:21px;border:2px solid #286b7b;background:#eaf3f5}
+.persona-method-choice .persona-method-label{font-size:20px;line-height:1.5;margin-bottom:16px}
+.persona-method-choice .persona-method-description{display:block;flex:1;font-size:15px;font-weight:400;line-height:1.7;margin:0}
+.persona-method-choice .persona-method-time{display:block;font-size:14px;font-weight:400;line-height:1.6;margin-top:20px}
+.persona-method-time strong{font-size:19px;color:#233d47}
+.persona-method-review-label{font-size:22px;font-weight:700;color:#233d47}
+@media(max-width:700px){.persona-method-options{grid-template-columns:1fr}.persona-task-root .persona-method-choice{min-height:0}.persona-method-choice .persona-method-time{margin-top:16px}}

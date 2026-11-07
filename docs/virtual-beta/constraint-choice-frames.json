@@ -1,0 +1,51 @@
+{
+  "selection": "First completed valid example of each method; illustrations only, not analysis exclusions. Actual delivered inputs, never terminal audit substituted as model input.",
+  "frames": [
+    {
+      "kind": "initial-model-input",
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-1",
+      "step": 1,
+      "stage": "native",
+      "file": "constraint-choice-frames/initial-model-5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46.png",
+      "imageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46",
+      "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\constraint-choice-2026-11-08\\live-r1\\constraint-M0-r1\\exploration\\result.json",
+      "resultSha256": "15bc9b305517b98d956c1f81d304eb85b57fa7184030e66e34be4cd50750a261"
+    },
+    {
+      "kind": "saved-method-model-input",
+      "method": "local",
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-1",
+      "step": 3,
+      "stage": "action",
+      "file": "constraint-choice-frames/saved-local-24fdef7e9fba1c55dc21e32ac2d96e93b5a35e907d3f00fb511cf989a090bf99.png",
+      "imageSha256": "24fdef7e9fba1c55dc21e32ac2d96e93b5a35e907d3f00fb511cf989a090bf99",
+      "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\constraint-choice-2026-11-08\\live-r1\\constraint-M0-r1\\exploration\\result.json",
+      "resultSha256": "15bc9b305517b98d956c1f81d304eb85b57fa7184030e66e34be4cd50750a261",
+      "deliveredResponse": true
+    },
+    {
+      "kind": "saved-method-model-input",
+      "method": "code",
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-2",
+      "step": 3,
+      "stage": "action",
+      "file": "constraint-choice-frames/saved-code-d9ff8ca025f8d8f74099b04a989d423bbc011f67570d432b34ccc9c4ca4fe10b.png",
+      "imageSha256": "d9ff8ca025f8d8f74099b04a989d423bbc011f67570d432b34ccc9c4ca4fe10b",
+      "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\constraint-choice-2026-11-08\\live-r1\\constraint-M1-r1\\exploration\\result.json",
+      "resultSha256": "641773489529caf195de0bb24ef7b926e054c0e54cda7b82df1a987eb25d43d5",
+      "deliveredResponse": true
+    },
+    {
+      "kind": "saved-method-model-input",
+      "method": "phone",
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-4",
+      "step": 3,
+      "stage": "action",
+      "file": "constraint-choice-frames/saved-phone-38d15fbfe39f565ade660a865e3174db83c0785407208ee1918a543f11151677.png",
+      "imageSha256": "38d15fbfe39f565ade660a865e3174db83c0785407208ee1918a543f11151677",
+      "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\constraint-choice-2026-11-08\\live-r1\\constraint-M3-r1\\exploration\\result.json",
+      "resultSha256": "4454b8af872c7f12072bf330569a222ba3a1a81221073520e355c74065e4269b",
+      "deliveredResponse": true
+    }
+  ]
+}

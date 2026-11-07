@@ -1,0 +1,23 @@
+# Independent actual audit
+
+PASS. The completed batch has 16 valid / 16 attempted / 16 planned trials, 144 charged requests, and no pending, invalid or missing trials. The verifier made zero API requests and read no credential files or old human raw contents.
+
+- All 189 actor source hashes match frozen source `baec5721f39219f227313e4e8b935d076ea97f8ab132c8c388b71eda42124467`; protocol, Persona bytes, balanced schedule, limits and run identities match.
+- Every trial has three decisions, nine stage calls and a settled ledger with no outstanding reservation. Native model is `gpt-6-luna`; assessment and action model is `jev-1.14.0`.
+- All 16 initial product images, model images and native inputs after removing only Persona agree. All traits reach all three stages; no DOM audit or capability flags appear in model inputs. Applied action weights are all one.
+- Every recorded raw distribution binds to the model response; normalized/filtered/conditional records replay; model categorical choice, argmax selection and actual action agree in all 48 decisions. All current-frame bindings, retained assets, 16 traces and 16 terminal PNGs pass.
+- First opening and final saved method agree in these observed trials: M0 local 4/4, M1 code 4/4, M2 local 4/4, M3 phone 4/4. All 16 saves are functionally complete and compatible with the declared device constraints. These two outcomes were checked separately.
+- Final analysis v2 reproduces all 16 denominators and distributions. Within-cell distances use six pairs, between-cell distances use sixteen pairs; independent arithmetic matches. The live viewer at port 4177 renders all 16 trials and 48 steps, all delivered images load, and exported raw bytes match their originals.
+
+The first recorded assessment also changes with the constraints, beyond confirming input delivery. In the references below, `e1` is PC storage, `e2` phone approval and `e3` email code. These are brief structured model self-reports, not evidence about private reasoning or comprehension.
+
+- M0: the native condition summary explicitly mentions “スマートフォンなし、PCとメールは利用可能”; assessment marks e1/e3 `advances` and e2 `unknown`. Local raw `reports/constraint-choice-2026-11-08/live-r1/constraint-M0-r1/exploration/result.json`, `/steps/0/visualHypotheses/record/conditions/1` and `/steps/0/deliberation/assessment/effects`. SHA-256 `15bc9b305517b98d956c1f81d304eb85b57fa7184030e66e34be4cd50750a261`.
+- M1: native relations quote the visible PC-storage and phone requirements; assessment marks e1/e2 `conflicts`, e3 `advances`. Local raw `reports/constraint-choice-2026-11-08/live-r1/constraint-M1-r1/exploration/result.json`, `/steps/0/visualHypotheses/record/relations` and `/steps/0/deliberation/assessment/effects`. SHA-256 `641773489529caf195de0bb24ef7b926e054c0e54cda7b82df1a987eb25d43d5`.
+- M2: all three native relations are `execute`, and all three assessed effects are `advances`; the observed choice is local storage. Local raw `reports/constraint-choice-2026-11-08/live-r1/constraint-M2-r1/exploration/result.json`, `/steps/0/visualHypotheses/record/relations` and `/steps/0/deliberation/assessment/effects`. SHA-256 `dda1f8780e429865e9f23fa5e423c9537815266cb9202a630a1c6d91e98b347a`.
+- M3: native relations retain all three visible alternatives; assessment marks e1 `conflicts` and e2/e3 `advances`; the observed choice is phone approval. Local raw `reports/constraint-choice-2026-11-08/live-r1/constraint-M3-r1/exploration/result.json`, `/steps/0/visualHypotheses/record/relations` and `/steps/0/deliberation/assessment/effects`. SHA-256 `4454b8af872c7f12072bf330569a222ba3a1a81221073520e355c74065e4269b`.
+
+This supports descriptive sensitivity to the supplied device constraints in this fictional task. It does not measure human fidelity, naturalness, or human choice frequencies. Fictional 5/10/60-second product descriptions are not measured times. Recorded trial elapsed time was about 47–80 seconds, including API/runner work; modeled user time is null.
+
+No unresolved actual-data finding. Earlier P1 stopping and two P2 analysis findings were resolved with preserved RED/GREEN evidence. The frozen driver reports prior preservation before/after for 10,379 old files; the verifier did not open their contents. Publication requires the parent's separate preservation and staged-file checks.
+
+Detailed evidence: [actual-latest.json](constraint-choice-independent-actual.json), [actual-supplement.json](constraint-choice-independent-supplement.json), [viewer-4177-audit.json](constraint-choice-independent-viewer.json), [analysis-review-v2.json](constraint-choice-independent-analysis.json).

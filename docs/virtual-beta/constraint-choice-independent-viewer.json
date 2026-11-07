@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "APIRequests": 0,
+  "url": "http://127.0.0.1:4177",
+  "runs": [
+    {
+      "index": 0,
+      "summary": "条件1 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-1\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 63120.6394\nUI ms: 130.33840000000782\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 1,
+      "summary": "条件2 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-2\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 53651.48940000005\nUI ms: 182.98640000000887\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 2,
+      "summary": "条件3 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-3\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 47756.59599999996\nUI ms: 150.87210000000778\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 3,
+      "summary": "条件4 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-4\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 72918.38889999999\nUI ms: 139.9149000000034\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 4,
+      "summary": "条件2 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-5\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 57378.78899999999\nUI ms: 144.9220000000205\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 5,
+      "summary": "条件3 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-6\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 55041.43169999996\nUI ms: 154.07970000000205\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 6,
+      "summary": "条件4 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-7\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 77688.80129999999\nUI ms: 156.3190000000177\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 7,
+      "summary": "条件1 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-8\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 50524.5512000001\nUI ms: 148.33039999991888\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 8,
+      "summary": "条件3 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-9\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 57357.85339999979\nUI ms: 153.87739999999758\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 9,
+      "summary": "条件4 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-10\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 52165.355600000126\nUI ms: 145.14809999987483\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 10,
+      "summary": "条件1 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-11\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 50451.467899999814\nUI ms: 143.74540000001434\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 11,
+      "summary": "条件2 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-12\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 52922.457300000126\nUI ms: 153.61389999999665\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 12,
+      "summary": "条件4 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-13\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 66994.18220000004\nUI ms: 152.67910000006668\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 13,
+      "summary": "条件1 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-14\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 57778.19550000026\nUI ms: 149.06759999983478\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 14,
+      "summary": "条件2 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-15\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 57151.15589999978\nUI ms: 154.7727999999188\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    },
+    {
+      "index": 15,
+      "summary": "条件3 / f43f6d52-a781-44ce-8e2d-641bfd92bbcd-16\n\n自分の利用環境で次回から使うログイン方法を設定し、設定が保存されたことを確認してください。\n\nモデル種別: 実モデル\n記録: recorded\n妥当性: valid\n終了区分: done\n終了理由: SUBJECTIVE_DONE\n主観的完了: true\n客観評価: OK\n客観値: true\n判断: 3\nUI 操作: 2\nlook: 0\nAPI 要求: 9\nAPI ms: 44645.078099999926\nUI ms: 139.2966000001179\nモデル化された利用時間 ms: 不明",
+      "steps": 3,
+      "lastStep": "ステップ 3 / done"
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "stepRows": 48,
+  "csvLines": 17
+}

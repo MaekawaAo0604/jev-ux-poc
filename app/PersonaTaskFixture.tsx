@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react';
 import {personaTaskDefinition} from './persona-task-fixture.js';
 import type {PersonaTaskFixture,PersonaTaskSnapshot} from './persona-task-types.js';
 import './persona-task-style.css';
+import {MethodChoiceFixture} from './MethodChoiceFixture.js';
 
 type Route=PersonaTaskSnapshot['route'];
 const routes:Route[]=['start','help','details','review','complete'];
@@ -16,6 +17,9 @@ function fulfilled(s:PersonaTaskSnapshot):boolean {
 }
 /** Fictional data and local React state only. Remounting starts a new task. */
 export function PersonaTaskFixtureView({fixture}:{fixture:PersonaTaskFixture}) {
+ return fixture.task==='methods'?<MethodChoiceFixture key={fixture.task}/>:<LegacyPersonaTaskFixtureView key={fixture.task} fixture={fixture}/>;
+}
+function LegacyPersonaTaskFixtureView({fixture}:{fixture:PersonaTaskFixture}) {
  const definition=personaTaskDefinition(fixture);
  const [state,setState]=useState(()=>initial(fixture));
  const [review,setReview]=useState<'session'|'password'>('session');

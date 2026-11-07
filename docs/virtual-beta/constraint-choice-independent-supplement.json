@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "APIRequests": 0,
+  "models": {
+    "native": "gpt-6-luna",
+    "assessment": "jev-1.14.0",
+    "action": "jev-1.14.0"
+  },
+  "traceCount": 16,
+  "terminalPNGCount": 16,
+  "stageCalls": 144,
+  "modeledUserTime": null,
+  "humanTimeMeasured": false,
+  "elapsedMs": [
+    65294.7381,
+    55970.6027,
+    49728.84050000002,
+    74899.99120000002,
+    59392.83779999998,
+    57150.89439999999,
+    79688.45120000001,
+    52638.03449999995,
+    59370.18339999998,
+    54209.6176,
+    52412.48139999993,
+    54879.55579999997,
+    69004.72849999997,
+    59928.869599999976,
+    59129.321400000015,
+    47042.26919999998
+  ],
+  "analysisOutputSha256": "a0ab4f8b0b0988507621e478b59cf1eeee758197ca3dad66c340bedf78716998",
+  "pairs": [
+    {
+      "id": "store-no-phone",
+      "actors": [
+        "M0",
+        "M1"
+      ],
+      "within": {
+        "left": 0.005000000000000003,
+        "right": 0.03333333333333335
+      },
+      "between": 0.97
+    },
+    {
+      "id": "store-with-phone",
+      "actors": [
+        "M2",
+        "M3"
+      ],
+      "within": {
+        "left": 0.015000000000000006,
+        "right": 0.011666666666666674
+      },
+      "between": 0.9693750000000002
+    },
+    {
+      "id": "phone-private",
+      "actors": [
+        "M0",
+        "M2"
+      ],
+      "within": {
+        "left": 0.005000000000000003,
+        "right": 0.015000000000000006
+      },
+      "between": 0.03250000000000002
+    },
+    {
+      "id": "phone-shared",
+      "actors": [
+        "M1",
+        "M3"
+      ],
+      "within": {
+        "left": 0.03333333333333335,
+        "right": 0.011666666666666674
+      },
+      "between": 0.9806250000000001
+    }
+  ]
+}
