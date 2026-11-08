@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "status": "GO",
+  "scope": "Independent zero-model-API preflight; actual 16-trial audit remains pending",
+  "sourceHash": "bdf060f57f3c3bc8bf1105682238efc12e21120754ef35b0901f24c3d90d67f2",
+  "freeze": "reports/clear-personas-2026-11-08/freeze-r2.json",
+  "sourceFiles": 190,
+  "actualModelAPIRequestsByVerifier": 0,
+  "checks": {
+    "typecheck": "npx tsc --noEmit: exit 0",
+    "unitAndUI": "4 tests passed; 7 real UI cases; exit 0",
+    "frozenPipeline": "1 integration test passed; exit 0; 81.4 seconds",
+    "ordinaryMockActors": 4,
+    "nativeAssessmentActionBindingsPerActor": [1,1,1],
+    "baseline": "Persona omitted; expectations empty",
+    "initialInputs": "Product/current PNG hashes and native input minus Persona identical across all four actors",
+    "isolation": "Fresh native and condition memory / unique run IDs and directories",
+    "oracle": "Basic and extended access both satisfy the same notification objective",
+    "defaultProvenance": "Initial basic default, explicit basic, explicit extended, quick extended, navigation carry, quick-disable carry, basic-disable carry verified against actual UI",
+    "assessmentInvalid": "Stops after 3; fourth planned slot remains missing",
+    "nativeInvalid": "Stops after 3; fourth planned slot remains missing",
+    "provider429": "Stops after 1",
+    "timeouts": "4 infrastructure failures retained; no abandonment or invalid-model streak",
+    "viewer": "4 actors, one comparison group, byte-identical raw JSON and all three delivered current images",
+    "source": "All 190 source hashes unchanged before/after"
+  },
+  "evidence": ["ui-6nUGAa/evidence.json", "pipeline-2Hgh26/evidence.json", "latest-pipeline.json"],
+  "failedVerifierAttemptsRetained": [
+    {"kind":"sandbox", "actual":"EPERM creating independent report directory", "resolution":"Authorized isolated report execution"},
+    {"kind":"test setup", "actual":"Broad Vite dependency scan / load timeout", "resolution":"React-only optimizer and isolated fixture entry"},
+    {"kind":"test setup", "actual":"Middleware also matched virtual script path", "resolution":"Narrowed test-page path"},
+    {"kind":"test expectation", "actual":"Expected absent policy; actual trace contains all-one weights with applyWeights false", "resolution":"Checks all-one weights and exact deterministic replay; conditional projection remains part of the unchanged actor"}
+  ],
+  "productFindings": [],
+  "limitations": ["Mocks test contracts and control flow, not persona realism", "Human fit is unmeasured", "Final actual-trial and publication audit must run after data collection"]
+}

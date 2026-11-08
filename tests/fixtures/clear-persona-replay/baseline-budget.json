@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "phase": "clear-persona-1",
+  "newMaximum": 36,
+  "perRunMaximum": 12,
+  "used": 6,
+  "attempts": [
+    {
+      "runKey": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1\\clear-persona-baseline-r1/visual-hypotheses",
+      "condition": "human-screen-persona-unweighted",
+      "revision": "fbc1a97f92974d2c3e3ad16065d0ca8e1fe73e23",
+      "sourceHash": "bdf060f57f3c3bc8bf1105682238efc12e21120754ef35b0901f24c3d90d67f2",
+      "id": "fea2c862-6930-4f28-87dd-7746b6a795d2",
+      "ordinal": 1,
+      "status": "OK",
+      "reservedAt": "2026-11-08T00:56:30.159Z",
+      "finishedAt": "2026-11-08T00:56:46.434Z",
+      "metadata": {
+        "attempts": 1
+      }
+    },
+    {
+      "runKey": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1\\clear-persona-baseline-r1/assessment",
+      "condition": "human-screen-persona-unweighted",
+      "revision": "fbc1a97f92974d2c3e3ad16065d0ca8e1fe73e23",
+      "sourceHash": "bdf060f57f3c3bc8bf1105682238efc12e21120754ef35b0901f24c3d90d67f2",
+      "id": "20cb8e32-4991-4781-ba52-0159af781ad8",
+      "ordinal": 2,
+      "status": "OK",
+      "reservedAt": "2026-11-08T00:56:46.457Z",
+      "finishedAt": "2026-11-08T00:56:48.225Z",
+      "metadata": {
+        "attempts": 1
+      }
+    },
+    {
+      "runKey": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1\\clear-persona-baseline-r1/action",
+      "condition": "human-screen-persona-unweighted",
+      "revision": "fbc1a97f92974d2c3e3ad16065d0ca8e1fe73e23",
+      "sourceHash": "bdf060f57f3c3bc8bf1105682238efc12e21120754ef35b0901f24c3d90d67f2",
+      "id": "07dfb28b-baf4-42d4-a514-d88c1dddd210",
+      "ordinal": 3,
+      "status": "OK",
+      "reservedAt": "2026-11-08T00:56:48.241Z",
+      "finishedAt": "2026-11-08T00:56:49.047Z",
+      "metadata": {
+        "attempts": 1
+      }
+    },
+    {
+      "runKey": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1\\clear-persona-baseline-r1/visual-hypotheses",
+      "condition": "human-screen-persona-unweighted",
+      "revision": "fbc1a97f92974d2c3e3ad16065d0ca8e1fe73e23",
+      "sourceHash": "bdf060f57f3c3bc8bf1105682238efc12e21120754ef35b0901f24c3d90d67f2",
+      "id": "d454ff77-4b18-48a8-a19d-ca7cb48b183c",
+      "ordinal": 4,
+      "status": "OK",
+      "reservedAt": "2026-11-08T00:56:49.723Z",
+      "finishedAt": "2026-11-08T00:57:13.793Z",
+      "metadata": {
+        "attempts": 1
+      }
+    },
+    {
+      "runKey": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1\\clear-persona-baseline-r1/assessment",
+      "condition": "human-screen-persona-unweighted",
+      "revision": "fbc1a97f92974d2c3e3ad16065d0ca8e1fe73e23",
+      "sourceHash": "bdf060f57f3c3bc8bf1105682238efc12e21120754ef35b0901f24c3d90d67f2",
+      "id": "f80e2ebe-aeb5-4c39-9ae1-9b5bbaf05fba",
+      "ordinal": 5,
+      "status": "OK",
+      "reservedAt": "2026-11-08T00:57:13.838Z",
+      "finishedAt": "2026-11-08T00:57:15.159Z",
+      "metadata": {
+        "attempts": 1
+      }
+    },
+    {
+      "runKey": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1\\clear-persona-baseline-r1/action",
+      "condition": "human-screen-persona-unweighted",
+      "revision": "fbc1a97f92974d2c3e3ad16065d0ca8e1fe73e23",
+      "sourceHash": "bdf060f57f3c3bc8bf1105682238efc12e21120754ef35b0901f24c3d90d67f2",
+      "id": "f92679c8-3d51-408b-bfdd-41829134b45a",
+      "ordinal": 6,
+      "status": "OK",
+      "reservedAt": "2026-11-08T00:57:15.180Z",
+      "finishedAt": "2026-11-08T00:57:16.303Z",
+      "metadata": {
+        "attempts": 1
+      }
+    }
+  ],
+  "remaining": 30
+}

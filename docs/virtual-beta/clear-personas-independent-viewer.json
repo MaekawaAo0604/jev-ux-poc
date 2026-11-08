@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "actualModelAPIRequests": 0,
+  "sourceArchive": {
+    "file": "docs\\virtual-beta\\clear-personas-source-bdf060f5.zip",
+    "sha256": "3a84542c1749606e65a4d10aad4432984b96a92cee37da431c8a4ff083a7d1cc",
+    "sourceFiles": 190,
+    "entries": 191,
+    "freezeEntry": "freeze.json"
+  },
+  "parentViewer": {
+    "runs": 16,
+    "comparisonGroups": 1,
+    "deliveredImageBindings": 105,
+    "rawBytesMatch": true,
+    "csvFieldsMatch": true
+  },
+  "http": {
+    "/": {
+      "status": 200,
+      "bytes": 4074
+    },
+    "catalog.json": {
+      "status": 200,
+      "bytes": 17838
+    },
+    "catalog.csv": {
+      "status": 200,
+      "bytes": 5238
+    },
+    "viewer.js": {
+      "status": 200,
+      "bytes": 15693
+    }
+  },
+  "verifierSetupFailure": {
+    "original": "Python default cp932 decoding failed on UTF-8 viewer catalog",
+    "resolution": "Explicit UTF-8 decoding"
+  }
+}

@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "modelAPIRequests": 0,
+  "cases": [
+    {
+      "sequence": 4,
+      "actor": "C",
+      "replicate": 1,
+      "result": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1\\clear-persona-C-r1\\exploration\\result.json",
+      "resultSha256": "584d1110bf31eb92f3f30cdd44344237722778fa4b8095e7a0a7407bae9102f9",
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "basic",
+        "route": "complete",
+        "events": [
+          "permission-details",
+          "enable-reminders"
+        ],
+        "helpOpened": false,
+        "detailsOpened": true,
+        "quickEnableCount": 0,
+        "explicitScopeSelections": []
+      },
+      "scopeOrigin": "initial-default",
+      "steps": [
+        {
+          "step": 1,
+          "selected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "reasonCategory": "goal",
+          "reasonKind": "model-self-report",
+          "nativeRelation": "information",
+          "nativeControlQuote": "情報の利用範囲を詳しく確認・変更",
+          "nativeQuoteStatus": "model-transcribed-unverified",
+          "assessmentGoal": {
+            "choice": "unsatisfied",
+            "probabilities": {
+              "satisfied": 0,
+              "unsatisfied": 0.99,
+              "uncertain": 0.01
+            },
+            "confidence": 0.98
+          },
+          "assessmentKnowledge": {
+            "choice": "insufficient",
+            "probabilities": {
+              "sufficient": 0.36,
+              "insufficient": 0.63,
+              "conflicting": 0.01
+            },
+            "confidence": 0.44
+          },
+          "assessmentSelectedEffect": {
+            "choice": "unknown",
+            "probabilities": {
+              "advances": 0.29,
+              "neutral": 0.33,
+              "conflicts": 0,
+              "unknown": 0.38
+            },
+            "confidence": 0.17
+          },
+          "refs": {
+            "native": "steps[0].visualHypotheses.record",
+            "assessment": "steps[0].deliberation.response.answers",
+            "reason": "steps[0].reasonEvidence",
+            "selection": "steps[0].selection"
+          }
+        },
+        {
+          "step": 2,
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "reasonCategory": "goal",
+          "reasonKind": "model-self-report",
+          "nativeRelation": "execute",
+          "nativeControlQuote": "選んだ範囲で通知を有効にする",
+          "nativeQuoteStatus": "model-transcribed-unverified",
+          "assessmentGoal": {
+            "choice": "unsatisfied",
+            "probabilities": {
+              "satisfied": 0,
+              "unsatisfied": 0.99,
+              "uncertain": 0.01
+            },
+            "confidence": 0.98
+          },
+          "assessmentKnowledge": {
+            "choice": "insufficient",
+            "probabilities": {
+              "sufficient": 0.06,
+              "insufficient": 0.92,
+              "conflicting": 0.02
+            },
+            "confidence": 0.88
+          },
+          "assessmentSelectedEffect": {
+            "choice": "advances",
+            "probabilities": {
+              "advances": 0.75,
+              "neutral": 0.02,
+              "conflicts": 0.01,
+              "unknown": 0.22
+            },
+            "confidence": 0.67
+          },
+          "refs": {
+            "native": "steps[1].visualHypotheses.record",
+            "assessment": "steps[1].deliberation.response.answers",
+            "reason": "steps[1].reasonEvidence",
+            "selection": "steps[1].selection"
+          }
+        },
+        {
+          "step": 3,
+          "selected": "done",
+          "action": {
+            "type": "done"
+          },
+          "reasonCategory": "confirmation",
+          "reasonKind": "model-self-report",
+          "nativeRelation": null,
+          "nativeControlQuote": null,
+          "nativeQuoteStatus": null,
+          "assessmentGoal": {
+            "choice": "satisfied",
+            "probabilities": {
+              "satisfied": 0.99,
+              "unsatisfied": 0.01,
+              "uncertain": 0
+            },
+            "confidence": 0.98
+          },
+          "assessmentKnowledge": {
+            "choice": "sufficient",
+            "probabilities": {
+              "sufficient": 0.93,
+              "insufficient": 0.02,
+              "conflicting": 0.05
+            },
+            "confidence": 0.89
+          },
+          "assessmentSelectedEffect": null,
+          "refs": {
+            "native": "steps[2].visualHypotheses.record",
+            "assessment": "steps[2].deliberation.response.answers",
+            "reason": "steps[2].reasonEvidence",
+            "selection": "steps[2].selection"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 7,
+      "actor": "C",
+      "replicate": 2,
+      "result": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1\\clear-persona-C-r2\\exploration\\result.json",
+      "resultSha256": "0d0e4b782321fcf20e5d0d0b45399e8f5c12a35d5ee37e766580dea52bd96c8c",
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "scopeOrigin": "quick-extended",
+      "steps": [
+        {
+          "step": 1,
+          "selected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "reasonCategory": "goal",
+          "reasonKind": "model-self-report",
+          "nativeRelation": "execute",
+          "nativeControlQuote": "拡張アクセスで通知を有効にする",
+          "nativeQuoteStatus": "model-transcribed-unverified",
+          "assessmentGoal": {
+            "choice": "unsatisfied",
+            "probabilities": {
+              "satisfied": 0,
+              "unsatisfied": 0.99,
+              "uncertain": 0.01
+            },
+            "confidence": 0.98
+          },
+          "assessmentKnowledge": {
+            "choice": "insufficient",
+            "probabilities": {
+              "sufficient": 0.22,
+              "insufficient": 0.77,
+              "conflicting": 0.01
+            },
+            "confidence": 0.66
+          },
+          "assessmentSelectedEffect": {
+            "choice": "advances",
+            "probabilities": {
+              "advances": 0.51,
+              "neutral": 0.01,
+              "conflicts": 0.15,
+              "unknown": 0.33
+            },
+            "confidence": 0.35
+          },
+          "refs": {
+            "native": "steps[0].visualHypotheses.record",
+            "assessment": "steps[0].deliberation.response.answers",
+            "reason": "steps[0].reasonEvidence",
+            "selection": "steps[0].selection"
+          }
+        },
+        {
+          "step": 2,
+          "selected": "done",
+          "action": {
+            "type": "done"
+          },
+          "reasonCategory": "confirmation",
+          "reasonKind": "model-self-report",
+          "nativeRelation": null,
+          "nativeControlQuote": null,
+          "nativeQuoteStatus": null,
+          "assessmentGoal": {
+            "choice": "satisfied",
+            "probabilities": {
+              "satisfied": 0.98,
+              "unsatisfied": 0.01,
+              "uncertain": 0.01
+            },
+            "confidence": 0.97
+          },
+          "assessmentKnowledge": {
+            "choice": "sufficient",
+            "probabilities": {
+              "sufficient": 0.96,
+              "insufficient": 0.02,
+              "conflicting": 0.02
+            },
+            "confidence": 0.94
+          },
+          "assessmentSelectedEffect": null,
+          "refs": {
+            "native": "steps[1].visualHypotheses.record",
+            "assessment": "steps[1].deliberation.response.answers",
+            "reason": "steps[1].reasonEvidence",
+            "selection": "steps[1].selection"
+          }
+        }
+      ]
+    }
+  ],
+  "interpretation": [
+    "C used the details route in 3/4 trials and the quick extended route in 1/4.",
+    "No C trial clicked scope-basic or scope-extended. The three basic saves used the existing initial basic default.",
+    "The model self-reported goal and confirmation categories. These records do not establish privacy understanding or deliberate minimization.",
+    "A, B and baseline all used quick extended in 4/4. No help was opened by any actor.",
+    "This is a descriptive four-repeat full-profile comparison; human fit and isolated causal effects are unmeasured."
+  ]
+}

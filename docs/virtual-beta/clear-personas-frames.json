@@ -1,0 +1,53 @@
+{
+  "selection": "Initial shared screen plus first completed C basic and C extended examples. Illustrations only, all16trials remain denominator. Actual delivered images, not terminal audit substitutes.",
+  "frames": [
+    {
+      "kind": "initial-model",
+      "actor": "baseline",
+      "replicate": 1,
+      "step": 1,
+      "stage": "native",
+      "file": "clear-personas-frames/initial-model-33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821.png",
+      "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+      "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1\\clear-persona-baseline-r1\\exploration\\result.json",
+      "resultSha256": "3148aa5dabda2ab0a82cd656b7234028315a89a66aa93115f4c320d092a2791d",
+      "deliveredResponse": true
+    },
+    {
+      "kind": "c-details-default",
+      "actor": "C",
+      "replicate": 1,
+      "step": 2,
+      "stage": "action",
+      "file": "clear-personas-frames/c-details-default-9548f7807a8768f62808e359411506a197f7ca35f2344c6795450bce15ee0aea.png",
+      "imageSha256": "9548f7807a8768f62808e359411506a197f7ca35f2344c6795450bce15ee0aea",
+      "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1\\clear-persona-C-r1\\exploration\\result.json",
+      "resultSha256": "584d1110bf31eb92f3f30cdd44344237722778fa4b8095e7a0a7407bae9102f9",
+      "deliveredResponse": true
+    },
+    {
+      "kind": "c-basic-result",
+      "actor": "C",
+      "replicate": 1,
+      "step": 3,
+      "stage": "action",
+      "file": "clear-personas-frames/c-basic-result-890e28cae5dcb5e822ab800b2d29cb493f55d6744b32d068730a64b0ef61ff3d.png",
+      "imageSha256": "890e28cae5dcb5e822ab800b2d29cb493f55d6744b32d068730a64b0ef61ff3d",
+      "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1\\clear-persona-C-r1\\exploration\\result.json",
+      "resultSha256": "584d1110bf31eb92f3f30cdd44344237722778fa4b8095e7a0a7407bae9102f9",
+      "deliveredResponse": true
+    },
+    {
+      "kind": "c-extended-counterexample",
+      "actor": "C",
+      "replicate": 2,
+      "step": 2,
+      "stage": "action",
+      "file": "clear-personas-frames/c-extended-counterexample-f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c.png",
+      "imageSha256": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c",
+      "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1\\clear-persona-C-r2\\exploration\\result.json",
+      "resultSha256": "0d0e4b782321fcf20e5d0d0b45399e8f5c12a35d5ee37e766580dea52bd96c8c",
+      "deliveredResponse": true
+    }
+  ]
+}

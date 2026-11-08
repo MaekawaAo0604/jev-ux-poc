@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "B",
+  "name": "IT熟練者",
+  "itLiteracy": "高い",
+  "serviceExperience": "このサービスは初回だが、他のWebサービスで通知やアカウント設定を使った経験が豊富。",
+  "knowledge": [
+    "一般的な認証やWebサービスの設定画面の仕組みを理解している"
+  ],
+  "expectations": [
+    "少ない操作で目的を達成できる"
+  ],
+  "behavioralTendencies": [
+    "操作効率を重視する傾向がある。これは行動仮説であり特定の操作を強制しない"
+  ],
+  "contextAndConstraints": [
+    "自分専用のPCのブラウザーから利用している。必要な端末やアカウントを利用できる。"
+  ]
+}

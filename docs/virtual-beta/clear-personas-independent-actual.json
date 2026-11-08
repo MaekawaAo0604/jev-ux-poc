@@ -1,0 +1,879 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "realModelAPIRequests": 0,
+  "batch": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\live-r1",
+  "phaseStatus": "COMPLETED",
+  "planned": 16,
+  "attempted": 16,
+  "valid": 16,
+  "invalid": 0,
+  "requests": 105,
+  "choices": 35,
+  "rawArgmaxMatches": 35,
+  "modelChoiceMatches": 35,
+  "filteredChanged": 20,
+  "checks": [
+    "Frozen source/protocol, full schedule and profile",
+    "Every raw SHA/identity/config/Persona+expectations",
+    "Ledger used matches stages, zero reserved, <=18 requests/trial <=288 effective total",
+    "All step stages and image hashes / native HTTP timing / full deterministic replay",
+    "Raw distribution -> normalized -> conditional filtered argmax -> actual action",
+    "Initial images and native input minus Persona identical; fresh memory",
+    "Independent event reconstruction matches terminal scope and notification effects",
+    "Viewer raw and image fidelity; failed/pending/missing excluded from behavior claims"
+  ],
+  "runs": [
+    {
+      "sequence": 1,
+      "actor": "baseline",
+      "replicate": 1,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-1",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    },
+    {
+      "sequence": 2,
+      "actor": "A",
+      "replicate": 1,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-2",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    },
+    {
+      "sequence": 3,
+      "actor": "B",
+      "replicate": 1,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-3",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    },
+    {
+      "sequence": 4,
+      "actor": "C",
+      "replicate": 1,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 9,
+      "decisions": 3,
+      "events": [
+        "permission-details",
+        "enable-reminders"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "basic",
+        "route": "complete",
+        "events": [
+          "permission-details",
+          "enable-reminders"
+        ],
+        "helpOpened": false,
+        "detailsOpened": true,
+        "quickEnableCount": 0,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "basic",
+        "origin": "initial-default",
+        "originIndex": null,
+        "notifications": true,
+        "scope": "basic",
+        "saves": [
+          {
+            "eventIndex": 1,
+            "event": "enable-reminders",
+            "scope": "basic",
+            "origin": "initial-default",
+            "originIndex": null,
+            "interveningEvents": [
+              "permission-details"
+            ]
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-4",
+        "choices": 3,
+        "assessments": 3,
+        "images": 12,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 6
+    },
+    {
+      "sequence": 5,
+      "actor": "A",
+      "replicate": 2,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-5",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    },
+    {
+      "sequence": 6,
+      "actor": "B",
+      "replicate": 2,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-6",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    },
+    {
+      "sequence": 7,
+      "actor": "C",
+      "replicate": 2,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-7",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    },
+    {
+      "sequence": 8,
+      "actor": "baseline",
+      "replicate": 2,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-8",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    },
+    {
+      "sequence": 9,
+      "actor": "B",
+      "replicate": 3,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-9",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    },
+    {
+      "sequence": 10,
+      "actor": "C",
+      "replicate": 3,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 9,
+      "decisions": 3,
+      "events": [
+        "permission-details",
+        "enable-reminders"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "basic",
+        "route": "complete",
+        "events": [
+          "permission-details",
+          "enable-reminders"
+        ],
+        "helpOpened": false,
+        "detailsOpened": true,
+        "quickEnableCount": 0,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "basic",
+        "origin": "initial-default",
+        "originIndex": null,
+        "notifications": true,
+        "scope": "basic",
+        "saves": [
+          {
+            "eventIndex": 1,
+            "event": "enable-reminders",
+            "scope": "basic",
+            "origin": "initial-default",
+            "originIndex": null,
+            "interveningEvents": [
+              "permission-details"
+            ]
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-10",
+        "choices": 3,
+        "assessments": 3,
+        "images": 12,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 6
+    },
+    {
+      "sequence": 11,
+      "actor": "baseline",
+      "replicate": 3,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-11",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    },
+    {
+      "sequence": 12,
+      "actor": "A",
+      "replicate": 3,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-12",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    },
+    {
+      "sequence": 13,
+      "actor": "C",
+      "replicate": 4,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 9,
+      "decisions": 3,
+      "events": [
+        "permission-details",
+        "enable-reminders"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "basic",
+        "route": "complete",
+        "events": [
+          "permission-details",
+          "enable-reminders"
+        ],
+        "helpOpened": false,
+        "detailsOpened": true,
+        "quickEnableCount": 0,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "basic",
+        "origin": "initial-default",
+        "originIndex": null,
+        "notifications": true,
+        "scope": "basic",
+        "saves": [
+          {
+            "eventIndex": 1,
+            "event": "enable-reminders",
+            "scope": "basic",
+            "origin": "initial-default",
+            "originIndex": null,
+            "interveningEvents": [
+              "permission-details"
+            ]
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-13",
+        "choices": 3,
+        "assessments": 3,
+        "images": 12,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 6
+    },
+    {
+      "sequence": 14,
+      "actor": "baseline",
+      "replicate": 4,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-14",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    },
+    {
+      "sequence": 15,
+      "actor": "A",
+      "replicate": 4,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-15",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    },
+    {
+      "sequence": 16,
+      "actor": "B",
+      "replicate": 4,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "objectiveSuccess": true,
+      "requests": 6,
+      "decisions": 2,
+      "events": [
+        "quick-enable-extended"
+      ],
+      "privacyAudit": {
+        "notifications": true,
+        "scope": "extended",
+        "route": "complete",
+        "events": [
+          "quick-enable-extended"
+        ],
+        "helpOpened": false,
+        "detailsOpened": false,
+        "quickEnableCount": 1,
+        "explicitScopeSelections": []
+      },
+      "effects": {
+        "pending": "extended",
+        "origin": "quick-extended",
+        "originIndex": 0,
+        "notifications": true,
+        "scope": "extended",
+        "saves": [
+          {
+            "eventIndex": 0,
+            "event": "quick-enable-extended",
+            "scope": "extended",
+            "origin": "quick-extended",
+            "originIndex": 0,
+            "interveningEvents": []
+          }
+        ]
+      },
+      "replay": {
+        "runId": "35be5ed6-cb4c-4473-be03-01187a6e43a7-16",
+        "choices": 2,
+        "assessments": 2,
+        "images": 6,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frames": 4
+    }
+  ],
+  "viewer": {
+    "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\clear-personas-2026-11-08\\independent\\actual-rXhDVp\\viewer",
+    "runs": 16,
+    "issues": []
+  },
+  "sourceHash": "bdf060f57f3c3bc8bf1105682238efc12e21120754ef35b0901f24c3d90d67f2",
+  "finishedAtUTC": "2026-11-08T01:12:51.225Z"
+}

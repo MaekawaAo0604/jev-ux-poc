@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "producerSha256": "c7f4e6783bb3eaab042a477aa9fd2017269e58ed57e8d8f25a641140378d516a",
+  "testSha256": "4b8071a0dde1357e694a3e11a8870b4a3c60307063311dd1e0f943717f9265fc",
+  "modelAPIRequestsByVerifier": 0,
+  "checks": {
+    "analyzerTests": {"passed":15,"failed":0,"skipped":0,"exitCode":0},
+    "independentNegativeTest": {"passed":1,"failed":0,"exitCode":0},
+    "typecheckExitCode": 0,
+    "independentActualCLIExitCode": 0,
+    "actualEligible": 16,
+    "actualRequests": 105,
+    "offlineReplayedChoices": 35,
+    "csvRows": 16,
+    "initialGroups": 1,
+    "countsActorSummariesAndAllSixTVUnchanged": true
+  },
+  "resolvedFinding": {
+    "severity": "P2",
+    "original": "Analyzer v1 admitted a hash-consistent changed native conditions record that full replay rejected",
+    "fix": "Every completed raw result now requires full saved-stage replay before entering the denominator; real rows require final native HTTP evidence and mocks receive the same replay without real HTTP requirement",
+    "reproductionAfterFix": "eligible=false; SAVED_STAGE_REPLAY_VISUAL_HYPOTHESES_RECORD_MISMATCH",
+    "experimentChanged": false,
+    "previousFailedEvidenceRetained": ["analyzer-YIGaae/evidence.json", "analyzer-GlAj0i/evidence.json"]
+  },
+  "otherIndependentChecks": ["Missing/wrong real opaque image bindings excluded", "Baseline expectation injection excluded with recomputed hashes", "Pending paths never read", "Invalid prefixes retained outside behavior denominator", "Initial default vs explicit vs quick-disable carry", "Independent hand TV and all actual raw TV pairs", "Portable captured-fixture inventory verified"],
+  "evidence": ["latest-analyzer-negative.json", "analyzer-v2-output-comparison.json", "tv-manual-audit-v1.json", "portable-fixture-audit.json", "analysis-v2/analysis.json", "analysis-v2/runs.csv"],
+  "remainingProductFindings": [],
+  "remainingWork": ["Exact final publication gate and any requested hash-only prior preservation check"]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "phase": "clear-personas-2026-11-08",
+  "personaSet": "experiments/persona/clear-notifications-v1/set.json",
+  "actors": [
+    "baseline",
+    "A",
+    "B",
+    "C"
+  ],
+  "fixture": {
+    "version": 1,
+    "task": "privacy"
+  },
+  "repeats": 4,
+  "planned": 16,
+  "profile": "experience-persona-unweighted",
+  "maxDecisions": 6,
+  "limits": {
+    "trialMs": 300000,
+    "nativeMs": 60000,
+    "phaseMs": 3600000,
+    "parallel": 1,
+    "retry": 0,
+    "allocation": 576,
+    "effectiveStageBound": 288
+  },
+  "endpoint": "Help/details/reference and actual routes, explicit scope choices vs initial/default/prior carry, final scope, model self-reported reasons and distributions; no achievement-based naturalness score.",
+  "stop": "3trustedmodel-invalid; source/accounting/provider/safety/audit immediate; timeouts infrastructure; no failed-slot replacements.",
+  "humanInputsRead": false,
+  "savedInputResends": 0
+}

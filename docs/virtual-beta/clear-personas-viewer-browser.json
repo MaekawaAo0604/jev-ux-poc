@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "modelAPIRequests": 0,
+  "viewerURL": "http://127.0.0.1:4178/",
+  "checks": [
+    "16 trial catalog loaded",
+    "C-r1 native/assessment/action screenshots and actual click displayed",
+    "All three steps navigable; reason changes goal to confirmation",
+    "C filter preserves 4 trials with 3/4 details and 1/4 quick-route aggregate",
+    "No page script errors or external network requests"
+  ],
+  "errors": [],
+  "external": [],
+  "verifierSetupFailure": {
+    "original": "Expected two stage images; actual full three-stage viewer correctly displays three",
+    "resolution": "Checked native, assessment and action image count of three"
+  }
+}
