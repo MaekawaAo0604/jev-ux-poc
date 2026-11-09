@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "id": "factors-seed3001",
+  "configs": [
+    {
+      "schemaVersion": 1,
+      "id": "factor-base",
+      "vision": {
+        "mode": "full",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 0
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "user",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 10,
+      "maxAPICalls": 6,
+      "maxRunMs": 90000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": false,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "factor-sample",
+      "vision": {
+        "mode": "full",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 0
+      },
+      "selection": {
+        "mode": "sample",
+        "seed": 20261027
+      },
+      "behavior": "user",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 10,
+      "maxAPICalls": 6,
+      "maxRunMs": 90000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": false,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "factor-memory",
+      "vision": {
+        "mode": "full",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "user",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 10,
+      "maxAPICalls": 6,
+      "maxRunMs": 90000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": false,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "factor-vocabulary",
+      "vision": {
+        "mode": "full",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 0
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "user",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 10,
+      "maxAPICalls": 6,
+      "maxRunMs": 90000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": true,
+          "wait": true,
+          "abandon": true
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "factor-policy",
+      "vision": {
+        "mode": "full",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 0
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 10,
+      "maxAPICalls": 6,
+      "maxRunMs": 90000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": false,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "factor-channel",
+      "vision": {
+        "mode": "full",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 0
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "user",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 10,
+      "maxAPICalls": 6,
+      "maxRunMs": 90000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "dom-state",
+        "extraActions": {
+          "look": false,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      }
+    }
+  ],
+  "seeds": [
+    3001
+  ],
+  "maxTotalAPI": 36,
+  "maxDurationMs": 600000
+}

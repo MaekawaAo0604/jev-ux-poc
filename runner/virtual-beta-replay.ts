@@ -1,3 +1,4 @@
+import {verifyFactorReplay} from './controlled-factor-replay.js';
 import {isDeepStrictEqual} from 'node:util';
 import {beginInquiryOperation,buildInquiryOutcomeContext,inquiryOutcomeQuestions,admitInquiryOutcome,rememberInquiryOutcome} from '../jev/virtual-beta/inquiry-outcome.js';
 import {inquiryOutcomeUserContext,inquiryOutcomeUserMemory,inquiryOutcomeCriteria} from '../jev/virtual-beta/inquiry-outcome-projection.js';
@@ -107,7 +108,7 @@ function checkVisualStage(step:BetaResult['steps'][number],termination:BetaResul
 }
 export async function replayDirectory(directory:string,requirements:{finalVisualHTTP?:boolean}={}){
  closedKeys(requirements,[],['finalVisualHTTP']);if(requirements.finalVisualHTTP!==undefined&&typeof requirements.finalVisualHTTP!=='boolean')throw Error('INVALID_REPLAY_REQUIREMENTS');
- const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));if(result.config.actionRelations!==undefined||result.config.visualHypotheses!==undefined)validateConfig(result.config);if(result.measurement!==undefined){closedKeys(result.measurement,['visualDispatch'],['visualHTTP']);if(result.measurement.visualDispatch!=='client-timeout-v1'||Object.hasOwn(result.measurement,'visualHTTP')&&result.measurement.visualHTTP!=='final-timeout-v1'||!result.config.visualHypotheses?.enabled)throw Error('INVALID_VISUAL_DISPATCH_MEASUREMENT');}if(requirements.finalVisualHTTP&&result.measurement?.visualHTTP!=='final-timeout-v1')throw Error('FINAL_VISUAL_HTTP_MEASUREMENT_REQUIRED');let choices=0,images=0,assessments=0;
+ const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));if(result.config.factors!==undefined||result.config.actionRelations!==undefined||result.config.visualHypotheses!==undefined)validateConfig(result.config);await verifyFactorReplay(directory,result);if(result.measurement!==undefined){closedKeys(result.measurement,['visualDispatch'],['visualHTTP']);if(result.measurement.visualDispatch!=='client-timeout-v1'||Object.hasOwn(result.measurement,'visualHTTP')&&result.measurement.visualHTTP!=='final-timeout-v1'||!result.config.visualHypotheses?.enabled)throw Error('INVALID_VISUAL_DISPATCH_MEASUREMENT');}if(requirements.finalVisualHTTP&&result.measurement?.visualHTTP!=='final-timeout-v1')throw Error('FINAL_VISUAL_HTTP_MEASUREMENT_REQUIRED');let choices=0,images=0,assessments=0;
  let deferrals=result.config.deferral?.enabled?copyDeferrals(undefined,result.config.deferral):undefined,effectiveDeferrals=deferrals;
  let experience:ExperienceMemory|undefined,pending:ExperienceIntent|undefined,execution:'performed'|'unchanged'='unchanged';
  let inquiryOutcomeMemory:InquiryOutcomeMemory={schemaVersion:1,entries:[]},pendingInquiry:PendingInquiryOperation|null=null;

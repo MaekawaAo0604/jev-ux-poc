@@ -1,3 +1,4 @@
+import {validateFactorControls} from './factors.js';
 import type {BetaConfig} from './contracts.js';
 export function validateConfig(c:BetaConfig):BetaConfig {
  if(c.initialFixation!==undefined&&(!c.initialFixation||!Number.isFinite(c.initialFixation.x)||!Number.isFinite(c.initialFixation.y)||c.initialFixation.x<0||c.initialFixation.x>=1280||c.initialFixation.y<0||c.initialFixation.y>=900))throw new Error('INVALID_INITIAL_FIXATION');
@@ -23,6 +24,7 @@ export function validateConfig(c:BetaConfig):BetaConfig {
  if(c.deferralReason!==undefined&&(!c.deferralReason||typeof c.deferralReason.enabled!=='boolean'||!Number.isSafeInteger(c.deferralReason.capacity)||c.deferralReason.capacity<1||c.deferralReason.capacity>8||c.deferralReason.maxReasonImages!==1||c.deferralReason.basisAdmission!==undefined&&!['negative-evidence','excursion-evidence'].includes(c.deferralReason.basisAdmission)||c.deferralReason.reviewMode!==undefined&&!['separate','grounded-choice'].includes(c.deferralReason.reviewMode)||c.deferralReason.enabled&&(!c.deferral?.enabled||!c.experience?.enabled||!c.deliberation?.enabled)))throw new Error('INVALID_DEFERRAL_REASON_CONFIG');
  if(!['full','crop','foveated'].includes(c.vision.mode)||!Number.isSafeInteger(c.vision.clearWidth)||c.vision.clearWidth<1||c.vision.clearWidth>4096||!Number.isSafeInteger(c.vision.clearHeight)||c.vision.clearHeight<1||c.vision.clearHeight>4096||!Number.isSafeInteger(c.vision.blurRadius)||c.vision.blurRadius<0||c.vision.blurRadius>64||(c.vision.mode==='foveated'&&c.vision.blurRadius===0))throw new Error('INVALID_VISION_CONFIG');
  if(c.modeledActionMs!==null&&(!Number.isFinite(c.modeledActionMs)||c.modeledActionMs<0||c.modeledActionMs>60000))throw new Error('INVALID_MODELED_TIME');
+ validateFactorControls(c);
  return structuredClone(c);
 }
 export function comparisonConfigs(seed=20261027,vision:'crop'|'foveated'='foveated'):BetaConfig[]{

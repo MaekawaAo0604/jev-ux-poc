@@ -1,5 +1,7 @@
 # Jev UX navigation PoC
 
+[予算・seed・機構を分離した比較](docs/virtual-beta/controlled-comparison.md)：条件別予算と5機構の切替を実装し、実Jev54枠・199要求を実行。上限終了15件と、samplingが完了提案をstuckへ変えた例を分けて記録します。
+
 [分かりやすい通知設定画面でのPersona比較](docs/virtual-beta/clear-personas.md)：同じ端末で初心者A・熟練者B・慎重なC・baselineを各4回。A/B/baselineは直接有効化が各4回、Cは詳細確認3回・直接1回。モデル分布と実操作、既定値の保存を分けて記録します。
 
 [端末制約を直接使う選択課題](docs/virtual-beta/constraint-choice.md)：同じ画面で PC 保存可否×スマホ有無を比較。探索・保存・機能完了・制約整合を分けて記録します。

@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "decision": "PASS",
+  "unresolvedP1": 0,
+  "unresolvedP2": 0,
+  "executionSourceHash": "b8c1b8087a05baf5c1c9f0988d08c86caaa21e2a7896ae9a743311b8cc815ee8",
+  "publicationSourceHash": "c91a8213caeb35576e21b0c90c64008b04c016e08db68573bc15c38174fb6389",
+  "onlyPublicationSourceChange": "runner/exploration-viewer-data.ts",
+  "analyzerProducerHash": "b605983dd5d586be6b6f41401e828f1ceb1f40dd7f8f487a09febeaf0f284d74",
+  "analyzerTestHash": "669326ffae255abcf480fc75aadf58a6d7e5a517fec9ab6d899cc3c6220ff500",
+  "finalOwnedTests": {
+    "command": "node --import tsx --test tests/controlled-comparison-independent.test.ts",
+    "tests": 16,
+    "passed": 16,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "log": "independent/final-owned-tests.log"
+  },
+  "viewerCombinedRun": {
+    "tests": 34,
+    "passed": 33,
+    "failed": 0,
+    "skipped": 1,
+    "skipReason": "Existing Windows symlink privilege unavailable test",
+    "note": "Includes the owned16; totals must not be added to finalOwnedTests",
+    "log": "independent/publication-tests.log"
+  },
+  "analyzerTests": {
+    "command": "node --import tsx --test tests/controlled-study-analysis.test.ts",
+    "tests": 11,
+    "passed": 11,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "log": "independent/analysis-tests.log"
+  },
+  "typecheck": {
+    "command": "node node_modules/typescript/bin/tsc --noEmit",
+    "exitCode": 0
+  },
+  "retainedActualAudit": {
+    "batches": 12,
+    "planned": 54,
+    "attempted": 54,
+    "admitted": 54,
+    "completed": 39,
+    "censored": 15,
+    "invalid": 0,
+    "missing": 0,
+    "pending": 0,
+    "actualRequests": 199,
+    "allocatedMaximum": 360,
+    "recordedDecisions": 199,
+    "auditedArtifacts": 813,
+    "auditedPNG": 452,
+    "traceZIPCRC": 54,
+    "offlineReplays": 54,
+    "initialFactorContrasts": 15,
+    "allInitialContrastsInAnalyzer": 51,
+    "sampledDecisionsIndependentlyMapped": 79,
+    "savedStateArgmaxDifferentFromActualSelection": 23,
+    "terminations": {
+      "SUBJECTIVE_DONE": 33,
+      "STUCK": 6,
+      "API_LIMIT": 11,
+      "UI_ACTION_LIMIT": 4
+    },
+    "completedMeaning": "Observed valid terminal outcome, including STUCK; not a claim of goal success",
+    "evidence": [
+      "independent/actual-final-12batches.json",
+      "independent/actual-publication-final-12batches.json",
+      "independent/actual-final-aggregate-preservation.json"
+    ]
+  },
+  "analyzerReview": {
+    "freshOrdinaryCLIOutput": "independent/analysis-final",
+    "matchesIndependentAudit": true,
+    "independentNegativeCases": 8,
+    "negativeCases": [
+      "Hash-consistent config cap alteration",
+      "Current input alteration with recomputed step and retained hashes",
+      "Hash-consistent saved request trace attempts alteration",
+      "Hash-consistent fake budget exclusions",
+      "Ledger used count alteration",
+      "Unallowlisted replay source map alteration",
+      "Changed retained trace ZIP",
+      "RUNNING/PENDING artifact paths never followed"
+    ],
+    "allRejectedOrUnfollowedAsRequired": true,
+    "actualActionAndCandidateMappingsChecked": 199,
+    "initialSemanticComparabilityAndTVPairsChecked": 51,
+    "evidence": "independent/analysis-independent-review.json"
+  },
+  "preservation": {
+    "priorFilesHashedOnceAtFinal": 10954,
+    "mismatches": 0,
+    "hashOnly": true,
+    "priorContentDecoded": false
+  },
+  "fixedFindings": [
+    "P1 exhausted LOOK distribution replay: original RED retained and final GREEN verified",
+    "P2 missing planned Persona baseline label: independent A/baseline/null/explicit/cohort cases and existing viewer regressions verified"
+  ],
+  "scope": {
+    "externalAPICallsByVerifier": 0,
+    "environmentFilesAccessed": false,
+    "liveArtifactEdits": false,
+    "humanRawContentDecoded": false,
+    "productSourceEditsByVerifier": false
+  },
+  "limits": [
+    "Model observations do not establish human fidelity",
+    "Saved-state argmax is a mathematical projection of retained probabilities, not an alternate full run",
+    "Provider cost remains null and is not represented as zero",
+    "Feature commit, push, deployment and issue changes remain parent responsibilities"
+  ]
+}

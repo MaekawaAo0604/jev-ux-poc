@@ -1,3 +1,4 @@
+import {runControlledComparison} from './controlled-comparison.js';
 import {BudgetPersistenceError} from './budget-persistence.js';
 import {analyzeDeliberationRun} from './deliberation-analysis.js';
 import {chromium} from 'playwright';
@@ -20,7 +21,7 @@ import {evaluateBetaRequest} from './virtual-beta-evaluator.js';
 import {comparisonConfigs,validateConfig} from '../jev/virtual-beta/config.js';
 import type {BetaConfig} from '../jev/virtual-beta/contracts.js';
 import {runBeta,sha,BetaBudgetError,BetaAdmissionError,BetaSettlementError,type BetaEvaluator,type BetaResult} from './virtual-beta-core.js';
-function parseArgs(args:string[]){const values=new Map<string,string>(),flags=new Set<string>();for(let i=0;i<args.length;i++){const k=args[i];if(['--mock','--headed','--help','--semantic','--preserve-display'].includes(k)){flags.add(k);continue;}if(!['--charter','--persona','--config','--out','--seed','--vision','--env-file','--repeat','--max-total-api','--conditions','--ui','--phase-budget','--order-seed'].includes(k)||!args[i+1]||args[i+1].startsWith('--')||values.has(k))throw new Error('INVALID_OPTION '+k);values.set(k,args[++i]);}return {values,flags};}
+function parseArgs(args:string[]){const values=new Map<string,string>(),flags=new Set<string>();for(let i=0;i<args.length;i++){const k=args[i];if(['--mock','--headed','--help','--semantic','--preserve-display'].includes(k)){flags.add(k);continue;}if(!['--charter','--persona','--config','--out','--seed','--vision','--env-file','--repeat','--max-total-api','--conditions','--ui','--phase-budget','--order-seed','--comparison-plan'].includes(k)||!args[i+1]||args[i+1].startsWith('--')||values.has(k))throw new Error('INVALID_OPTION '+k);values.set(k,args[++i]);}return {values,flags};}
 export function mockEvaluator():BetaEvaluator{
  let n=0;return async({questions,input})=>{const options=questions.nextAction.criteria;const constrained=!(input.observation as any)?.screen;const script=constrained?['look_3','e5','look_2','e3','done']:['e5','e3','done'];let choice=script[n]??'done';n++;if(!(choice in options))choice=Object.keys(options).find(k=>/^e[1-9]\d*$/.test(k))??'done';return {model:'MOCK_SCRIPTED_FIXTURE',answers:Object.fromEntries(Object.entries(questions).map(([key,q])=>{const selected=key==='nextAction'?choice:'goal';return [key,{choice:selected,probabilities:Object.fromEntries(Object.keys(q.criteria).map(k=>[k,k===selected?1:0]))}];}))};};
 }
@@ -33,7 +34,14 @@ export function comparisonHTML(results:BetaResult[]){
 }
 export async function main(args=process.argv.slice(2)){
  const {values:v,flags:f}=parseArgs(args);
- if(f.has('--help')){console.log('npm run experiment:virtual-beta -- [--mock] [--charter FILE] [--persona FILE] [--config ARRAY_JSON] [--vision crop|foveated] [--seed UINT32] [--repeat 1..3] [--max-total-api 1..48] [--env-file FILE] [--conditions current,combined] [--ui reference,position-only,wording-only] [--phase-budget APPROVED_JSON] [--semantic --order-seed UINT32] [--preserve-display] [--out NEW_DIRECTORY] [--headed]');return;}
+ if(f.has('--help')){console.log('npm run experiment:virtual-beta -- [--comparison-plan FILE] [--mock] [--charter FILE] [--persona FILE] [--config ARRAY_JSON] [--vision crop|foveated] [--seed UINT32] [--repeat 1..3] [--max-total-api 1..48] [--env-file FILE] [--conditions current,combined] [--ui reference,position-only,wording-only] [--phase-budget APPROVED_JSON] [--semantic --order-seed UINT32] [--preserve-display] [--out NEW_DIRECTORY] [--headed]');return;}
+ if(v.has('--comparison-plan')){
+  const allowed=new Set(['--comparison-plan','--out','--env-file','--charter','--persona','--phase-budget']);
+  if([...v.keys()].some(key=>!allowed.has(key))||[...f].some(key=>!['--mock','--headed'].includes(key)))throw Error('CONFLICTING_COMPARISON_OPTIONS');
+  if(!v.has('--out'))throw Error('CONTROLLED_OUTPUT_REQUIRED');
+  const plan=JSON.parse(await readFile(v.get('--comparison-plan')!,'utf8'));
+  return runControlledComparison({plan,out:v.get('--out')!,mock:f.has('--mock'),...(v.has('--env-file')?{envFile:v.get('--env-file')}:{ }),...(v.has('--charter')?{charterFile:v.get('--charter')}:{ }),...(v.has('--persona')?{personaFile:v.get('--persona')}:{ }),...(v.has('--phase-budget')?{phaseBudgetFile:v.get('--phase-budget')}:{ }),headed:f.has('--headed')});
+ }
  const semanticMode=f.has('--semantic'),preserveDisplay=f.has('--preserve-display'),orderSeed=Number(v.get('--order-seed')??20261028);
  const mock=f.has('--mock'),seed=Number(v.get('--seed')??20261027),repeat=Number(v.get('--repeat')??1),maxTotalAPI=Number(v.get('--max-total-api')??24),vision=v.get('--vision')??'foveated';
  if(!Number.isInteger(repeat)||repeat<1||repeat>3||!Number.isInteger(maxTotalAPI)||maxTotalAPI<1||maxTotalAPI>48||!['crop','foveated'].includes(vision))throw new Error('INVALID_BUDGET');

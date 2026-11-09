@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_SCOPED",
+  "newExternalAPIRequestsDuringVerification": 0,
+  "preflight": {
+    "integratedPassed": 62,
+    "failed": 0,
+    "skipped": 0,
+    "log": "parent/integrated-preflight.log"
+  },
+  "runtimeBudgetModule": {
+    "passed": 13,
+    "log": "module-budget/final-focused.log"
+  },
+  "factorModule": {
+    "passed": 7,
+    "log": "module-factors/targeted-tests.log"
+  },
+  "analysis": {
+    "passed": 11,
+    "producerSha256": "b605983dd5d586be6b6f41401e828f1ceb1f40dd7f8f487a09febeaf0f284d74"
+  },
+  "finalBuild": {
+    "exitCode": 0,
+    "log": "parent/final-build.log"
+  },
+  "parentPostExecutionViewerRegression": {
+    "exitCode": 0,
+    "log": "parent/viewer-persona-green.log"
+  },
+  "independent": {
+    "ownedPassed": 16,
+    "analysisPassed": 11,
+    "viewerSuite": {
+      "passed": 33,
+      "skipped": 1,
+      "reason": "Windows symlink privilege; existing test"
+    },
+    "countsOverlap": true
+  },
+  "actualPhase": {
+    "planned": 54,
+    "attempted": 54,
+    "artifactAdmitted": 54,
+    "nonCapTerminal": 39,
+    "censored": 15,
+    "infraInvalid": 0,
+    "missing": 0,
+    "actualHTTPRequests": 199
+  },
+  "globalSuite": "Previously not green; partial broad attempt interrupted during implementation and retained. Not claimed green."
+}

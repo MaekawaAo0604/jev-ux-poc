@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "id": "controlled-study-v1",
+  "purpose": "issues2/3 mechanism pilot, not human validity",
+  "batches": [
+    {
+      "id": "budget-cap3-seed3001",
+      "group": "budget",
+      "seed": 3001,
+      "apiCap": 3,
+      "plan": "experiments/virtual-beta/controlled-v1/budget-cap3-seed3001.json",
+      "allocatedAPIRequests": 12,
+      "plannedTrials": 4
+    },
+    {
+      "id": "budget-cap6-seed3001",
+      "group": "budget",
+      "seed": 3001,
+      "apiCap": 6,
+      "plan": "experiments/virtual-beta/controlled-v1/budget-cap6-seed3001.json",
+      "allocatedAPIRequests": 24,
+      "plannedTrials": 4
+    },
+    {
+      "id": "budget-cap12-seed3001",
+      "group": "budget",
+      "seed": 3001,
+      "apiCap": 12,
+      "plan": "experiments/virtual-beta/controlled-v1/budget-cap12-seed3001.json",
+      "allocatedAPIRequests": 48,
+      "plannedTrials": 4
+    },
+    {
+      "id": "factors-seed3001",
+      "group": "factors",
+      "seed": 3001,
+      "apiCap": 6,
+      "plan": "experiments/virtual-beta/controlled-v1/factors-seed3001.json",
+      "allocatedAPIRequests": 36,
+      "plannedTrials": 6
+    },
+    {
+      "id": "budget-cap6-seed3002",
+      "group": "budget",
+      "seed": 3002,
+      "apiCap": 6,
+      "plan": "experiments/virtual-beta/controlled-v1/budget-cap6-seed3002.json",
+      "allocatedAPIRequests": 24,
+      "plannedTrials": 4
+    },
+    {
+      "id": "budget-cap12-seed3002",
+      "group": "budget",
+      "seed": 3002,
+      "apiCap": 12,
+      "plan": "experiments/virtual-beta/controlled-v1/budget-cap12-seed3002.json",
+      "allocatedAPIRequests": 48,
+      "plannedTrials": 4
+    },
+    {
+      "id": "budget-cap3-seed3002",
+      "group": "budget",
+      "seed": 3002,
+      "apiCap": 3,
+      "plan": "experiments/virtual-beta/controlled-v1/budget-cap3-seed3002.json",
+      "allocatedAPIRequests": 12,
+      "plannedTrials": 4
+    },
+    {
+      "id": "factors-seed3002",
+      "group": "factors",
+      "seed": 3002,
+      "apiCap": 6,
+      "plan": "experiments/virtual-beta/controlled-v1/factors-seed3002.json",
+      "allocatedAPIRequests": 36,
+      "plannedTrials": 6
+    },
+    {
+      "id": "budget-cap12-seed3003",
+      "group": "budget",
+      "seed": 3003,
+      "apiCap": 12,
+      "plan": "experiments/virtual-beta/controlled-v1/budget-cap12-seed3003.json",
+      "allocatedAPIRequests": 48,
+      "plannedTrials": 4
+    },
+    {
+      "id": "budget-cap3-seed3003",
+      "group": "budget",
+      "seed": 3003,
+      "apiCap": 3,
+      "plan": "experiments/virtual-beta/controlled-v1/budget-cap3-seed3003.json",
+      "allocatedAPIRequests": 12,
+      "plannedTrials": 4
+    },
+    {
+      "id": "budget-cap6-seed3003",
+      "group": "budget",
+      "seed": 3003,
+      "apiCap": 6,
+      "plan": "experiments/virtual-beta/controlled-v1/budget-cap6-seed3003.json",
+      "allocatedAPIRequests": 24,
+      "plannedTrials": 4
+    },
+    {
+      "id": "factors-seed3003",
+      "group": "factors",
+      "seed": 3003,
+      "apiCap": 6,
+      "plan": "experiments/virtual-beta/controlled-v1/factors-seed3003.json",
+      "allocatedAPIRequests": 36,
+      "plannedTrials": 6
+    }
+  ],
+  "plannedTrials": 54,
+  "allocatedAPIRequests": 360,
+  "maxPhaseMs": 2700000,
+  "parallel": 1,
+  "retry": 0,
+  "charter": "experiments/persona/charter-good.json",
+  "persona": "experiments/persona/clear-notifications-v1/a.json",
+  "seedMeaning": "Paired across conditions/caps; distinct across three replicates. External model seed unavailable.",
+  "orderMeaning": "Predetermined cyclic rotations across batches. Three replicates cannot fully balance four or six serial positions; no complete balance or randomization claim.",
+  "factorPairs": {
+    "factor-sample": "selection.mode",
+    "factor-memory": "state.memoryCapacity",
+    "factor-vocabulary": "factors.extraActions",
+    "factor-policy": "behavior",
+    "factor-channel": "factors.informationChannel"
+  },
+  "stop": "Any batch fatal stop; 3 consecutive model-invalid; source/accounting/provider/safety/audit;45minphase; missing never replaced.",
+  "batchDurationMs": 600000,
+  "phaseAdmission": "Start another batch only with at least its frozen600000ms remaining in the45minphase; otherwise missing slots remain unattempted."
+}

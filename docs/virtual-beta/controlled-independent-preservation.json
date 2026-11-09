@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-final-aggregate-and-hash-preservation",
+  "createdAt": "2026-11-09T09:24:48.485Z",
+  "executionSourceHash": "b8c1b8087a05baf5c1c9f0988d08c86caaa21e2a7896ae9a743311b8cc815ee8",
+  "publicationSourceHash": "c91a8213caeb35576e21b0c90c64008b04c016e08db68573bc15c38174fb6389",
+  "sourceChangedFiles": [
+    "runner/exploration-viewer-data.ts"
+  ],
+  "trials": 54,
+  "actualAPIRequests": 199,
+  "allocatedMaximum": 360,
+  "phaseElapsedMs": 312697.46239999996,
+  "modelWaitingMs": 157245.27579999983,
+  "modeledUserMs": null,
+  "costUSD": null,
+  "costMeaning": "Provider did not expose request cost; null is unknown, never zero or free.",
+  "statuses": {
+    "completed": 39,
+    "censored": 15
+  },
+  "terminations": {
+    "SUBJECTIVE_DONE": 33,
+    "API_LIMIT": 11,
+    "UI_ACTION_LIMIT": 4,
+    "STUCK": 6
+  },
+  "budgetCaps": {
+    "3": {
+      "trials": 12,
+      "completed": 6,
+      "censored": 6,
+      "apiLimit": 6,
+      "uiLimit": 0,
+      "decisions": 0
+    },
+    "6": {
+      "trials": 12,
+      "completed": 7,
+      "censored": 5,
+      "apiLimit": 5,
+      "uiLimit": 0,
+      "decisions": 0
+    },
+    "12": {
+      "trials": 12,
+      "completed": 8,
+      "censored": 4,
+      "apiLimit": 0,
+      "uiLimit": 4,
+      "decisions": 0
+    }
+  },
+  "priorSnapshotSha256": "ae854149a932b2fc4adc506c5ebecb5ca89507b04e9f00f04f475ead1f42c200",
+  "priorFilesChecked": 10954,
+  "priorMismatches": [],
+  "preservationHashOnly": true,
+  "priorContentDecoded": false,
+  "externalAPICalls": 0,
+  "environmentFilesAccessed": false
+}
