@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-preflight",
+  "version": 1,
+  "verifiedAtUTC": "2026-11-09",
+  "source": {
+    "revision": "9e403ae9ce1f1e29840481a06f1f2504b7cf3058",
+    "sourceHash": "3decbfde991586a623258781f440024255dda55c125ca293c1c950f2a9b6d46a",
+    "files": 195,
+    "allSourceEntriesAndInputsVerified": true
+  },
+  "status": "PASS_PREFLIGHT",
+  "realModelCallsMadeByVerifier": 0,
+  "envFilesReadByVerifier": false,
+  "productFilesEditedByVerifier": [],
+  "checks": [
+    {"command": "npm run build", "result": "PASS", "evidence": "Independent tool command completed TypeScript noEmit and Vite; 43 modules, 2.25s Vite build."},
+    {"command": "npx tsx --test tests/virtual-beta-attention.test.ts tests/virtual-beta-attention-runtime.test.ts tests/virtual-beta-attention-config.test.ts tests/attention-reselection-protocol.test.ts tests/controlled-factor-wiring.test.ts tests/virtual-beta-factors.test.ts tests/virtual-beta-state.test.ts tests/virtual-beta-vision.test.ts tests/virtual-beta-budget.test.ts tests/virtual-beta-independent.test.ts tests/exploration-viewer-data.test.ts", "result": "PASS", "passed": 80, "failed": 0, "durationMs": 46070.8731},
+    {"command": "npx tsx --test tests/attention-independent.test.ts", "result": "PASS", "passed": 6, "failed": 0, "durationMs": 7562.6987, "log": "preflight-tests-v1.log"}
+  ],
+  "independentEvidenceDirectories": ["off-0", "off-1", "person-a", "person-b", "second-admission", "second-settlement", "second-transport", "second-late", "gaze-safety", "tamper"],
+  "verifiedBehavior": [
+    "Actual OFF ordinary wire, questions, images and selections match between attention absence and explicit disable.",
+    "Actual cropped PNG bytes are delivered through evaluator image attachments; nested DOM/audit secrets absent.",
+    "Model choice continue with all probability on look_3 executes look_3 only, no UI adapter call.",
+    "Attention look refreshes next observation, ordinary draw remains 0 after attention draw 1; fresh instances repeat selections and user state without prior-person memory.",
+    "Second-stage admission rejection accounts one admitted call; settlement/transport failure account two; late action response executes no UI.",
+    "Safety stop after gaze inference prevents fixation and UI execution.",
+    "Strict replay rejects coherent attention removal, forged projected input with recomputed request hash, wrong actual look, edited accounting, edited draw and image substitution.",
+    "Existing scoped tests cover deep projection, look budget zero mass/filtering, request budget admission and settlement, attention deadline, unknown failures, API limits, full/crop/foveated image transport, viewer distinction and deterministic selection."
+  ],
+  "findings": [],
+  "fixtureCorrections": [
+    {"priority":"TEST_FIXTURE", "repro":"Initial independent mismatch test proposed e1 after look_3 moved the crop away from e1.","expected":"Only offered choices are valid even when proposed choice differs from distribution winner.","actual":"Runner rejected unavailable proposed choice, so no ordinary selection; corrected proposed choice to always-offered stuck and kept mass on done.","productChange":false},
+    {"priority":"TEST_FIXTURE", "repro":"Initial isolation assertion expected empty first-request memory at memoryCapacity=1.","expected":"Existing user-state.ts retains the current observation in the bounded slot.","actual":"Memory contained o1 with no prior action, consistent existing state and factor tests. Corrected assertion to o1 only, no action, and cross-instance exact state equality.","productChange":false}
+  ],
+  "unverified": [
+    "Actual Jev model runs, phase ledger and paired result analysis pending parent supplied run paths.",
+    "No claim about ON improving success rate, external model seed determinism, human agreement or cross-task generalization.",
+    "Global suite not run; baseline known non-green. Verification limited to listed scoped tests/build.",
+    "Cryptographic records detect inconsistency relative to frozen source and preserved inputs; they are not an externally signed audit log."
+  ]
+}

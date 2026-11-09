@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_SCOPED_IMPLEMENTATION_NEGATIVE_BEHAVIOR_RESULT",
+  "baseRevision": "9e403ae9ce1f1e29840481a06f1f2504b7cf3058",
+  "sourceHash": "3decbfde991586a623258781f440024255dda55c125ca293c1c950f2a9b6d46a",
+  "sourceFiles": 195,
+  "parentChecks": {
+    "regression": {
+      "tests": 91,
+      "passed": 90,
+      "failed": 0,
+      "skipped": 1,
+      "skipReason": "Existing Windows symlink privilege unavailable"
+    },
+    "normalBrowserMockWiring": {
+      "passed": 1,
+      "actualHTTP": 0
+    },
+    "analysisUnit": {
+      "passed": 1
+    },
+    "build": "PASS",
+    "actualViewerBrowserSmoke": "PASS_TECHNICAL_DETAILS_EXPANDED"
+  },
+  "realComparison": {
+    "trials": 12,
+    "actualRequests": 114,
+    "artifactAdmitted": 12,
+    "censored": 12,
+    "infrastructureInvalid": 0,
+    "gateDecisions": 36,
+    "gateContinue": 36,
+    "gateLook": 0,
+    "pairedCommonPrefixIdentical": 6,
+    "improvementConfirmed": false
+  },
+  "sourceArchiveSHA256": "afed9ea043953a6cb4fee744a564a1a6fb1b9d0928475ea47bc811efcee4f105",
+  "analysisSourceArchiveSHA256": "255713a4d6439fc98061213e22266f21160c630b59ee0f7146363c71a526b53a",
+  "fullSuiteGreen": false,
+  "humanValidity": "UNVERIFIED",
+  "earlierTestFailures": "Preserved runtime invalid-error regression was repaired beforefreeze; independent fixture assumptions corrected without product changes; viewer-smoke-v1 did not expand closed technical details, v2expanded andpassed."
+}

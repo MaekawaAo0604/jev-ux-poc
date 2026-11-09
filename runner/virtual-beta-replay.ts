@@ -108,7 +108,7 @@ function checkVisualStage(step:BetaResult['steps'][number],termination:BetaResul
 }
 export async function replayDirectory(directory:string,requirements:{finalVisualHTTP?:boolean}={}){
  closedKeys(requirements,[],['finalVisualHTTP']);if(requirements.finalVisualHTTP!==undefined&&typeof requirements.finalVisualHTTP!=='boolean')throw Error('INVALID_REPLAY_REQUIREMENTS');
- const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));if(result.config.factors!==undefined||result.config.actionRelations!==undefined||result.config.visualHypotheses!==undefined)validateConfig(result.config);await verifyFactorReplay(directory,result);if(result.measurement!==undefined){closedKeys(result.measurement,['visualDispatch'],['visualHTTP']);if(result.measurement.visualDispatch!=='client-timeout-v1'||Object.hasOwn(result.measurement,'visualHTTP')&&result.measurement.visualHTTP!=='final-timeout-v1'||!result.config.visualHypotheses?.enabled)throw Error('INVALID_VISUAL_DISPATCH_MEASUREMENT');}if(requirements.finalVisualHTTP&&result.measurement?.visualHTTP!=='final-timeout-v1')throw Error('FINAL_VISUAL_HTTP_MEASUREMENT_REQUIRED');let choices=0,images=0,assessments=0;
+ const result:BetaResult=JSON.parse(await readFile(join(directory,'result.json'),'utf8'));if(result.config.attention!==undefined||result.attentionContract!==undefined||result.config.factors!==undefined||result.config.actionRelations!==undefined||result.config.visualHypotheses!==undefined)validateConfig(result.config);await verifyFactorReplay(directory,result);if(result.measurement!==undefined){closedKeys(result.measurement,['visualDispatch'],['visualHTTP']);if(result.measurement.visualDispatch!=='client-timeout-v1'||Object.hasOwn(result.measurement,'visualHTTP')&&result.measurement.visualHTTP!=='final-timeout-v1'||!result.config.visualHypotheses?.enabled)throw Error('INVALID_VISUAL_DISPATCH_MEASUREMENT');}if(requirements.finalVisualHTTP&&result.measurement?.visualHTTP!=='final-timeout-v1')throw Error('FINAL_VISUAL_HTTP_MEASUREMENT_REQUIRED');let choices=0,images=0,assessments=0;
  let deferrals=result.config.deferral?.enabled?copyDeferrals(undefined,result.config.deferral):undefined,effectiveDeferrals=deferrals;
  let experience:ExperienceMemory|undefined,pending:ExperienceIntent|undefined,execution:'performed'|'unchanged'='unchanged';
  let inquiryOutcomeMemory:InquiryOutcomeMemory={schemaVersion:1,entries:[]},pendingInquiry:PendingInquiryOperation|null=null;
@@ -121,6 +121,10 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
 
  if(result.transport!==undefined&&(!isRecord(result.transport)||Object.keys(result.transport).length!==1||result.transport.jevImageReferences!=='opaque-v1'))throw Error('INVALID_TRANSPORT_POLICY');
  for(const step of result.steps){
+  if(step.attention){
+   for(const asset of Object.values(step.attention.assetFiles)){if(asset.file!==asset.file.split(/[\\/]/).at(-1))throw Error('UNSAFE_IMAGE_PATH');if(sha(await readFile(join(directory,asset.file)))!==asset.sha256)throw Error('ATTENTION_IMAGE_HASH_MISMATCH');images++;}
+   if(step.attention.selection?.selected==='continue')choices++;
+  }
   let priorProjection:Parameters<typeof visualActionChecks>[4];
   let inquiryOutcomeContext:InquiryOutcomeContext|undefined;
   const outcomeInputs=[step.modelInput,step.deliberation?.modelInput],outcomePrefix=(v:unknown)=>v&&typeof v==='object'&&Object.keys(v).some(k=>k.startsWith('inquiryOutcome'));
@@ -140,8 +144,8 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
   if(!step.visualHypotheses?.record&&priorPresent)throw Error('PARTIAL_VISUAL_PRIOR_RELATIONS');
   if(!result.config.visualHypotheses?.candidateChecks&&step.visualActionChecks!==undefined)throw Error('UNCONFIGURED_VISUAL_ACTION_CHECKS');
   if(result.config.visualHypotheses?.candidateChecks){if(!step.deliberation?.assessment&&step.visualActionChecks!==undefined)throw Error('PARTIAL_VISUAL_ACTION_CHECKS');if(step.questions?.nextAction){closedKeys(step.questions.nextAction,['type','instructions','criteria']);if(step.questions.nextAction.type!=='choice')throw Error('VISUAL_ACTION_CHECKS_QUESTION_TYPE_MISMATCH');if(!step.audit?.screen)throw Error('VISUAL_ACTION_CHECKS_SCREEN_MISSING');const base=requestFor({goal:result.input.charter.goal,currentDate:result.input.charter.initialState.currentDate,screen:step.audit.screen,history:[]},{},'').questions.nextAction.instructions;if(step.questions.nextAction.instructions!==betaActionInstructions(result.config,base))throw Error('VISUAL_ACTION_CHECKS_GUIDANCE_MISMATCH');}}
-  for(const stage of [step.deliberation,step])if(stage){
-   if(stage===step&&!step.response&&[step.deliberation,step.visualHypotheses].some(prior=>prior?.error!==undefined&&equal(prior.error,step.error)))continue;
+  for(const stage of [step.attention,step.deliberation,step])if(stage){
+   if(stage===step&&!step.response&&[step.attention,step.deliberation,step.visualHypotheses].some(prior=>prior?.error!==undefined&&equal(prior.error,step.error)))continue;
    const error=stage.error as any,trace=stage.response?.request??error?.request,binding=trace?.imageBindings;
    const expected=result.transport?.jevImageReferences==='opaque-v1'&&(stage.response!==undefined||['HTTP_ERROR','TIMEOUT','MISSING_CREDENTIALS','INVALID_RESPONSE','REQUEST_FAILED'].includes(error?.code));
    if(expected&&!binding&&!(error?.code==='REQUEST_FAILED'&&trace?.attempts===0))throw Error('MISSING_JEV_IMAGE_BINDINGS');
@@ -361,7 +365,7 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
    if(!equal(step.selection.policy?.weights,Object.fromEntries(Object.keys(applied).sort().map(id=>[id,applied[id]]))))throw new Error('DEFERRAL_WEIGHT_MISMATCH');
   }
   if(step.selection){
-   const answer=step.response?.answers?.nextAction;if(!answer||answer.choice!==step.selection.modelChoice||!isDeepStrictEqual(answer.probabilities,step.selection.raw))throw Error('SELECTION_RESPONSE_BINDING_MISMATCH');
+   const attentionLook=step.attention?.selection&&step.attention.selection.selected!=='continue';const answer=(attentionLook?step.attention!.response:step.response)?.answers?.nextAction;if(!answer||answer.choice!==step.selection.modelChoice||!isDeepStrictEqual(answer.probabilities,step.selection.raw))throw Error('SELECTION_RESPONSE_BINDING_MISMATCH');
    const conditional=result.config.deferral?.enabled===true&&result.config.deferral.selectionScope==='ui-conditional';
    if(conditional?step.selection.policy?.scope?.kind!=='ui-conditional-v1':step.selection.policy?.scope!==undefined)throw Error('DEFERRAL_SCOPE_MISMATCH');
    const candidates=conditional?reconstructReplayCandidates(step.audit!.screen,Object.keys(step.selection.raw)):Object.fromEntries(Object.keys(step.selection.raw).map(k=>[k,{action:{type:'stuck' as const},label:k}]));

@@ -1,0 +1,514 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_DESCRIPTIVE_COMPARISON",
+  "analysisPath": "reports\\attention-reselection-2026-11-09\\analysis-r1\\analysis.json",
+  "analysisSha256": "99a593d4f5210013d80a47fdd4df094c302cc2d981ed0e557e4fec4069e54a3e",
+  "source": {
+    "revision": "9e403ae9ce1f1e29840481a06f1f2504b7cf3058",
+    "sourceHash": "3decbfde991586a623258781f440024255dda55c125ca293c1c950f2a9b6d46a"
+  },
+  "independentVerifierSha256": "7952bed1798156a1ee73e6fb400d02f454c9473b9c724a091114685746ac5ad3",
+  "gateRequests": 36,
+  "gateSelectedLooks": 0,
+  "combinedLookMassExceedsContinueCount": 4,
+  "ordinaryInitialLooks": 12,
+  "achieved": 0,
+  "trials": 12,
+  "totals": [
+    {
+      "runId": "crop-current-seed-5001",
+      "enabled": false,
+      "objectiveSuccess": false,
+      "uiActions": 6,
+      "repeatRaw": 2,
+      "repeatSemantic": 4
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "enabled": true,
+      "objectiveSuccess": false,
+      "uiActions": 5,
+      "repeatRaw": 1,
+      "repeatSemantic": 3
+    },
+    {
+      "runId": "foveated-current-seed-5001",
+      "enabled": false,
+      "objectiveSuccess": false,
+      "uiActions": 6,
+      "repeatRaw": 2,
+      "repeatSemantic": 4
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "enabled": true,
+      "objectiveSuccess": false,
+      "uiActions": 5,
+      "repeatRaw": 1,
+      "repeatSemantic": 3
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "enabled": true,
+      "objectiveSuccess": false,
+      "uiActions": 5,
+      "repeatRaw": 1,
+      "repeatSemantic": 3
+    },
+    {
+      "runId": "foveated-current-seed-5002",
+      "enabled": false,
+      "objectiveSuccess": false,
+      "uiActions": 6,
+      "repeatRaw": 1,
+      "repeatSemantic": 4
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "enabled": true,
+      "objectiveSuccess": false,
+      "uiActions": 5,
+      "repeatRaw": 1,
+      "repeatSemantic": 3
+    },
+    {
+      "runId": "crop-current-seed-5002",
+      "enabled": false,
+      "objectiveSuccess": false,
+      "uiActions": 6,
+      "repeatRaw": 1,
+      "repeatSemantic": 4
+    },
+    {
+      "runId": "foveated-current-seed-5003",
+      "enabled": false,
+      "objectiveSuccess": false,
+      "uiActions": 6,
+      "repeatRaw": 2,
+      "repeatSemantic": 4
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "enabled": true,
+      "objectiveSuccess": false,
+      "uiActions": 5,
+      "repeatRaw": 1,
+      "repeatSemantic": 3
+    },
+    {
+      "runId": "crop-current-seed-5003",
+      "enabled": false,
+      "objectiveSuccess": false,
+      "uiActions": 6,
+      "repeatRaw": 1,
+      "repeatSemantic": 4
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "enabled": true,
+      "objectiveSuccess": false,
+      "uiActions": 5,
+      "repeatRaw": 1,
+      "repeatSemantic": 3
+    }
+  ],
+  "pairs": [
+    {
+      "seed": 5001,
+      "vision": "crop",
+      "commonSemanticDecisions": 6,
+      "commonUIOperations": 5,
+      "offDecisions": 7,
+      "onDecisions": 6,
+      "offTermination": "UI_ACTION_LIMIT",
+      "onTermination": "API_LIMIT",
+      "additionalOffAction": {
+        "type": "back",
+        "point": null,
+        "control": null,
+        "direction": null
+      }
+    },
+    {
+      "seed": 5001,
+      "vision": "foveated",
+      "commonSemanticDecisions": 6,
+      "commonUIOperations": 5,
+      "offDecisions": 7,
+      "onDecisions": 6,
+      "offTermination": "UI_ACTION_LIMIT",
+      "onTermination": "API_LIMIT",
+      "additionalOffAction": {
+        "type": "back",
+        "point": null,
+        "control": null,
+        "direction": null
+      }
+    },
+    {
+      "seed": 5002,
+      "vision": "crop",
+      "commonSemanticDecisions": 6,
+      "commonUIOperations": 5,
+      "offDecisions": 7,
+      "onDecisions": 6,
+      "offTermination": "UI_ACTION_LIMIT",
+      "onTermination": "API_LIMIT",
+      "additionalOffAction": {
+        "type": "back",
+        "point": null,
+        "control": null,
+        "direction": null
+      }
+    },
+    {
+      "seed": 5002,
+      "vision": "foveated",
+      "commonSemanticDecisions": 6,
+      "commonUIOperations": 5,
+      "offDecisions": 7,
+      "onDecisions": 6,
+      "offTermination": "UI_ACTION_LIMIT",
+      "onTermination": "API_LIMIT",
+      "additionalOffAction": {
+        "type": "back",
+        "point": null,
+        "control": null,
+        "direction": null
+      }
+    },
+    {
+      "seed": 5003,
+      "vision": "crop",
+      "commonSemanticDecisions": 6,
+      "commonUIOperations": 5,
+      "offDecisions": 7,
+      "onDecisions": 6,
+      "offTermination": "UI_ACTION_LIMIT",
+      "onTermination": "API_LIMIT",
+      "additionalOffAction": {
+        "type": "back",
+        "point": null,
+        "control": null,
+        "direction": null
+      }
+    },
+    {
+      "seed": 5003,
+      "vision": "foveated",
+      "commonSemanticDecisions": 6,
+      "commonUIOperations": 5,
+      "offDecisions": 7,
+      "onDecisions": 6,
+      "offTermination": "UI_ACTION_LIMIT",
+      "onTermination": "API_LIMIT",
+      "additionalOffAction": {
+        "type": "back",
+        "point": null,
+        "control": null,
+        "direction": null
+      }
+    }
+  ],
+  "distributions": [
+    {
+      "runId": "crop-attention-seed-5001",
+      "decision": 1,
+      "selected": "continue",
+      "continueMass": 0.68,
+      "combinedLookMass": 0.31999999999999995,
+      "largestIndividualLookMass": 0.29
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "decision": 2,
+      "selected": "continue",
+      "continueMass": 0.78,
+      "combinedLookMass": 0.22,
+      "largestIndividualLookMass": 0.16
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "decision": 3,
+      "selected": "continue",
+      "continueMass": 0.5100000000000001,
+      "combinedLookMass": 0.4900000000000001,
+      "largestIndividualLookMass": 0.22000000000000003
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "decision": 4,
+      "selected": "continue",
+      "continueMass": 0.82,
+      "combinedLookMass": 0.17999999999999997,
+      "largestIndividualLookMass": 0.12
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "decision": 5,
+      "selected": "continue",
+      "continueMass": 0.49000000000000005,
+      "combinedLookMass": 0.5100000000000001,
+      "largestIndividualLookMass": 0.21000000000000002
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "decision": 6,
+      "selected": "continue",
+      "continueMass": 0.83,
+      "combinedLookMass": 0.17000000000000004,
+      "largestIndividualLookMass": 0.1
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "decision": 1,
+      "selected": "continue",
+      "continueMass": 0.64,
+      "combinedLookMass": 0.36,
+      "largestIndividualLookMass": 0.33
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "decision": 2,
+      "selected": "continue",
+      "continueMass": 0.69,
+      "combinedLookMass": 0.31,
+      "largestIndividualLookMass": 0.3
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "decision": 3,
+      "selected": "continue",
+      "continueMass": 0.6000000000000001,
+      "combinedLookMass": 0.4,
+      "largestIndividualLookMass": 0.11000000000000001
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "decision": 4,
+      "selected": "continue",
+      "continueMass": 0.72,
+      "combinedLookMass": 0.28,
+      "largestIndividualLookMass": 0.25
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "decision": 5,
+      "selected": "continue",
+      "continueMass": 0.61,
+      "combinedLookMass": 0.38999999999999996,
+      "largestIndividualLookMass": 0.12
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "decision": 6,
+      "selected": "continue",
+      "continueMass": 0.67,
+      "combinedLookMass": 0.33,
+      "largestIndividualLookMass": 0.32
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "decision": 1,
+      "selected": "continue",
+      "continueMass": 0.66,
+      "combinedLookMass": 0.33999999999999997,
+      "largestIndividualLookMass": 0.29
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "decision": 2,
+      "selected": "continue",
+      "continueMass": 0.8,
+      "combinedLookMass": 0.2,
+      "largestIndividualLookMass": 0.15
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "decision": 3,
+      "selected": "continue",
+      "continueMass": 0.5000000000000001,
+      "combinedLookMass": 0.5,
+      "largestIndividualLookMass": 0.24000000000000002
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "decision": 4,
+      "selected": "continue",
+      "continueMass": 0.82,
+      "combinedLookMass": 0.18,
+      "largestIndividualLookMass": 0.11
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "decision": 5,
+      "selected": "continue",
+      "continueMass": 0.47,
+      "combinedLookMass": 0.53,
+      "largestIndividualLookMass": 0.24
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "decision": 6,
+      "selected": "continue",
+      "continueMass": 0.82,
+      "combinedLookMass": 0.18,
+      "largestIndividualLookMass": 0.11
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "decision": 1,
+      "selected": "continue",
+      "continueMass": 0.68,
+      "combinedLookMass": 0.31999999999999995,
+      "largestIndividualLookMass": 0.29
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "decision": 2,
+      "selected": "continue",
+      "continueMass": 0.73,
+      "combinedLookMass": 0.27,
+      "largestIndividualLookMass": 0.26
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "decision": 3,
+      "selected": "continue",
+      "continueMass": 0.6200000000000001,
+      "combinedLookMass": 0.38,
+      "largestIndividualLookMass": 0.11000000000000001
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "decision": 4,
+      "selected": "continue",
+      "continueMass": 0.75,
+      "combinedLookMass": 0.25,
+      "largestIndividualLookMass": 0.23
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "decision": 5,
+      "selected": "continue",
+      "continueMass": 0.5900000000000001,
+      "combinedLookMass": 0.41000000000000003,
+      "largestIndividualLookMass": 0.12000000000000001
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "decision": 6,
+      "selected": "continue",
+      "continueMass": 0.68,
+      "combinedLookMass": 0.31999999999999995,
+      "largestIndividualLookMass": 0.29
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "decision": 1,
+      "selected": "continue",
+      "continueMass": 0.6,
+      "combinedLookMass": 0.39999999999999997,
+      "largestIndividualLookMass": 0.36
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "decision": 2,
+      "selected": "continue",
+      "continueMass": 0.66,
+      "combinedLookMass": 0.34,
+      "largestIndividualLookMass": 0.33
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "decision": 3,
+      "selected": "continue",
+      "continueMass": 0.6600000000000001,
+      "combinedLookMass": 0.3400000000000001,
+      "largestIndividualLookMass": 0.10000000000000002
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "decision": 4,
+      "selected": "continue",
+      "continueMass": 0.79,
+      "combinedLookMass": 0.21,
+      "largestIndividualLookMass": 0.19
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "decision": 5,
+      "selected": "continue",
+      "continueMass": 0.6400000000000001,
+      "combinedLookMass": 0.36000000000000004,
+      "largestIndividualLookMass": 0.11000000000000001
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "decision": 6,
+      "selected": "continue",
+      "continueMass": 0.61,
+      "combinedLookMass": 0.39,
+      "largestIndividualLookMass": 0.38
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "decision": 1,
+      "selected": "continue",
+      "continueMass": 0.77,
+      "combinedLookMass": 0.23,
+      "largestIndividualLookMass": 0.2
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "decision": 2,
+      "selected": "continue",
+      "continueMass": 0.82,
+      "combinedLookMass": 0.18000000000000002,
+      "largestIndividualLookMass": 0.13
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "decision": 3,
+      "selected": "continue",
+      "continueMass": 0.48000000000000004,
+      "combinedLookMass": 0.52,
+      "largestIndividualLookMass": 0.24000000000000002
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "decision": 4,
+      "selected": "continue",
+      "continueMass": 0.76,
+      "combinedLookMass": 0.24,
+      "largestIndividualLookMass": 0.16
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "decision": 5,
+      "selected": "continue",
+      "continueMass": 0.47000000000000003,
+      "combinedLookMass": 0.53,
+      "largestIndividualLookMass": 0.24000000000000002
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "decision": 6,
+      "selected": "continue",
+      "continueMass": 0.8,
+      "combinedLookMass": 0.19999999999999998,
+      "largestIndividualLookMass": 0.11
+    }
+  ],
+  "interpretation": [
+    "All six ON/OFF pairs share the first six semantic decisions and five UI operations.",
+    "ON uses six additional attention requests per trial and reaches API12 after UI5; OFF reaches UI6 after API7.",
+    "Lower raw repetition counts in ON reflect one fewer observed UI operation from API censoring; the common semantic action prefix is unchanged.",
+    "All 36 independent gate choices are continue under argmax; any combined-look mass larger than continue remains split across four individual positions. That split is a candidate design explanation, not an established causal finding.",
+    "Observed distributions are model outputs, not human probabilities or understanding measurements."
+  ],
+  "unverified": [
+    "No cross-task, persona, layout or human validity generalization.",
+    "No claim that choice splitting caused the observed behavior; no alternative gate design was tested."
+  ]
+}

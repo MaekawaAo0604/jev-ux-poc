@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "attention-reselection-v1",
+  "charter": "experiments/persona/charter-good.json",
+  "persona": "experiments/persona/clear-notifications-v1/a.json",
+  "plannedTrials": 12,
+  "allocatedAPIRequests": 144,
+  "maxPhaseMs": 2700000,
+  "batches": [
+    {
+      "id": "attention-seed5001",
+      "plan": "experiments/virtual-beta/attention-reselection-v1/seed5001.json",
+      "allocatedAPIRequests": 48
+    },
+    {
+      "id": "attention-seed5002",
+      "plan": "experiments/virtual-beta/attention-reselection-v1/seed5002.json",
+      "allocatedAPIRequests": 48
+    },
+    {
+      "id": "attention-seed5003",
+      "plan": "experiments/virtual-beta/attention-reselection-v1/seed5003.json",
+      "allocatedAPIRequests": 48
+    }
+  ],
+  "primary": "new fixation selection and subsequent UI actions, repeated semantic UI operations; achievement secondary",
+  "comparison": "Only attention.enabled differs within vision mode; same decision/UI/look/API upper bounds. Extra stage request cost is explicit. Model seed not controlled.",
+  "noHardcodedAnswer": true
+}
