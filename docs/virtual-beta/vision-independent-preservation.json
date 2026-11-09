@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-09T11:18:48.005Z",
+  "method": "stream bytes into SHA256 only; no file content parsed or interpreted",
+  "snapshotSha256": "b0bbfea77520fab117514d67079113c52c51ba61d3dbe53b790015ee06c4a226",
+  "expected": 11852,
+  "checked": 11852,
+  "passed": true,
+  "failures": []
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_SCOPED",
+  "sourceActorUnchanged": true,
+  "sourceHash": "c91a8213caeb35576e21b0c90c64008b04c016e08db68573bc15c38174fb6389",
+  "runtimeFiles": 194,
+  "inputFiles": 9,
+  "protocolTests": {
+    "passed": 3,
+    "failed": 0,
+    "log": "parent/protocol-tests-r2.log"
+  },
+  "mockPhase": {
+    "trials": 6,
+    "simulatedCalls": 30,
+    "externalCalls": 0,
+    "preservationAfter": true
+  },
+  "analysisTests": {
+    "passed": 18,
+    "failed": 0,
+    "newProducerSHA256": "fb4bf8ff37ef744c3f6cfd50b09af1440c12498e562dd1ce55f47932897305d9"
+  },
+  "independent": {
+    "tests": 6,
+    "analysisTests": 18,
+    "dedupRegression": 1,
+    "allActualDecisionsAudited": 102,
+    "knownCountsOverlap": true
+  },
+  "finalBuild": {
+    "exitCode": 0,
+    "log": "parent/final-build-v2.log"
+  },
+  "actual": {
+    "planned": 18,
+    "attempted": 18,
+    "admitted": 18,
+    "completed": 6,
+    "censoredUI": 12,
+    "invalid": 0,
+    "missing": 0,
+    "actualRequests": 102
+  },
+  "priorPreservation": {
+    "files": 11852,
+    "hashOnly": true,
+    "allMatched": true
+  },
+  "globalSuite": "Known unpassed from earlier phases; not rerun or claimed green here."
+}
