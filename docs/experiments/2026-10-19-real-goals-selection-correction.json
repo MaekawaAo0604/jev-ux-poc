@@ -1,0 +1,14 @@
+{
+ "type":"protocol-correction",
+ "initialProtocol":"docs/experiments/2026-10-19-real-goals.json",
+ "initialBatch":"reports/real-goals-2026-10-19T06-32-08.359Z/",
+ "sequence":[
+  "KIITO robots and top-page policy link were obtained, but the web tool could not return the policy body.",
+  "The initial batch was started before the direct-fetch fallback had completed the full policy review. The initial protocol's reviewed-policy statement was premature.",
+  "The full policy contained content-use restrictions outside personal use or other legally permitted cases. Rather than infer permission for potential product evaluation, KIITO was excluded conservatively.",
+  "The initial parent batch and identified child process were stopped. One KIITO trial had already completed; the parent printed a start for the next museum trial before termination. None of this initial batch is pooled into the final six trials.",
+  "The resumed batch uses the reviewed museum site only and all three Goals are fixed in a new v2 protocol before its trials. Production code remains unchanged."
+ ],
+ "scopeOfCorrection":"This is a process error in site selection, not evidence of a KIITO UX defect and not a legal conclusion about all automated reading. Original local logs remain intact; no screenshots or raw website logs are committed or publicly published.",
+ "preventRecurrence":"Require a successful full-text policy review before marking a candidate reviewed or invoking the public runner. Robots alone or a policy URL alone cannot satisfy that preflight. If scope restrictions cannot be enforced by the current runner, exclude the candidate rather than rely on a prompt."
+}

@@ -1,0 +1,46 @@
+{
+  "id": "persona-task-sessions-B-r2",
+  "stage": 3,
+  "status": "invalid-response",
+  "HTTP": {
+    "attempts": 1,
+    "httpReceived": true,
+    "statusCode": 200
+  },
+  "requestedMemoryIds": [
+    "o1_c1",
+    "o1_c2",
+    "o1_c3"
+  ],
+  "continuityPriorIdEnums": [
+    [
+      "o1_c1",
+      "o1_c2",
+      "o1_c3"
+    ],
+    [
+      "o1_c1",
+      "o1_c2",
+      "o1_c3"
+    ]
+  ],
+  "relationEligiblePriorConditionEnums": [
+    [
+      "o1_c1"
+    ],
+    [
+      "o1_c1"
+    ],
+    [
+      "o1_c1"
+    ]
+  ],
+  "returnedPriorIds": [
+    "o1_c1",
+    "o1_c1",
+    "o1_c1"
+  ],
+  "duplicateReturnedPriorIds": true,
+  "interpretation": "Offline reconstruction shows continuity schema allows all3memory IDs; relation priorConditionIds restrict to unresolved1. Model output repeats onepriorID3times and claims otherIDs unavailable. Admission correctlyrejects duplicate continuityIDs. No evidence of schema excludingthoseIDs; no acceptance loosening or API resend.",
+  "rawTextSha256": "00ba537ff0f36e3b2d3aa048db1d72a65dc8c577c3e5394a5eaed7eb97239ab3"
+}

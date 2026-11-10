@@ -1,0 +1,2374 @@
+{
+  "schemaVersion": 1,
+  "gate": "Normal ordinaryCLI mock technical coverage addendum",
+  "status": "PASS",
+  "atUTC": "2026-11-05T23:36:56.750Z",
+  "source": {
+    "revision": "2c0876b3dc3848b29ff755885192890c891d2d69",
+    "sourceHash": "8d591fcb465f06293387391e4647a6b705e865c42b9ffc5f8c4ededda22bd4a3",
+    "runtimeFiles": 177
+  },
+  "batch": {
+    "directory": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-tasks-2026-11-06\\mock-r1",
+    "manifestSha256": "aaff565a715d0df35b2b018a1dcfbfe07787c65db74e503db1330e3b5f9eb30b",
+    "summarySha256": "bf9a3d0967210c42b9609e2c7e283d92b1d9ede2c236e97d9eb2f878cc23ad7b",
+    "slots": 36,
+    "expectedSlots": 36,
+    "realAPIRequests": 0
+  },
+  "checks": [
+    {
+      "name": "source177 frozen and normalCLI batch metadata",
+      "status": "PASS",
+      "detail": {
+        "revision": "2c0876b3dc3848b29ff755885192890c891d2d69",
+        "sourceHash": "8d591fcb465f06293387391e4647a6b705e865c42b9ffc5f8c4ededda22bd4a3",
+        "priorCount": 8412,
+        "preservationBefore": true,
+        "preservationAfter": true
+      }
+    },
+    {
+      "name": "exact task actor replicate schedule",
+      "status": "PASS",
+      "detail": {
+        "cells": 12,
+        "replicates": 3,
+        "slots": 36
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-sessions-baseline-r1",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "8ef09fd9f48344353051308e30db55a8f6aa73183491b574e54cfc989f124832",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-1",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "sessions",
+          "actor": "baseline",
+          "replicate": 1,
+          "id": "persona-task-sessions-baseline-r1",
+          "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+          "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+          "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+          "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+          "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-sessions-A-r1",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "4fe9a9426a1921759d73cb3d2bf4a6d8f28ee282dd4473e856d32c48e954e9c4",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-2",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "sessions",
+          "actor": "A",
+          "replicate": 1,
+          "id": "persona-task-sessions-A-r1",
+          "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+          "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+          "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+          "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+          "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-sessions-B-r1",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "f5a0db5bc5372af3b5b464960626d002bbdde0017b542b27c936ddbe4c670ecf",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-3",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "sessions",
+          "actor": "B",
+          "replicate": 1,
+          "id": "persona-task-sessions-B-r1",
+          "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+          "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+          "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+          "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+          "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-sessions-C-r1",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "bae2a5aa8f227ac1b12c904d712da49cfc2dc8c7182e6e74397a9a0d1e3c6840",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-4",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "sessions",
+          "actor": "C",
+          "replicate": 1,
+          "id": "persona-task-sessions-C-r1",
+          "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+          "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+          "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+          "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+          "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-preferences-A-r1",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "37c8c5052e92c17538976fb7362b3adc391880726701b0726a729c05fe834307",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-5",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "preferences",
+          "actor": "A",
+          "replicate": 1,
+          "id": "persona-task-preferences-A-r1",
+          "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+          "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+          "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+          "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+          "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-preferences-B-r1",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "2fa27bdf59a68255c2900a47f0f777ef3cae1b96ebee855686c6d3bbdbb94fed",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-6",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "preferences",
+          "actor": "B",
+          "replicate": 1,
+          "id": "persona-task-preferences-B-r1",
+          "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+          "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+          "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+          "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+          "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-preferences-C-r1",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "71b1ca49ca03849595eb7d2cfd16a7484d37dbaada38931900266fe0348d2392",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-7",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "preferences",
+          "actor": "C",
+          "replicate": 1,
+          "id": "persona-task-preferences-C-r1",
+          "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+          "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+          "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+          "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+          "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-preferences-baseline-r1",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "269c196c54df68cb52b513e36937ea4decfc05319fc87026320fd6def12d81fd",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-8",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "preferences",
+          "actor": "baseline",
+          "replicate": 1,
+          "id": "persona-task-preferences-baseline-r1",
+          "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+          "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+          "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+          "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+          "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-privacy-B-r1",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "e38cc9ab530380d6611e78e184b8dee111152b15a56872dd7f9af780e247b5cf",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-9",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "privacy",
+          "actor": "B",
+          "replicate": 1,
+          "id": "persona-task-privacy-B-r1",
+          "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+          "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+          "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+          "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-privacy-C-r1",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "0f873f1cef85239d069bc3976c3b376cecbabe1e8028d03cd6076482647b0362",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-10",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "privacy",
+          "actor": "C",
+          "replicate": 1,
+          "id": "persona-task-privacy-C-r1",
+          "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+          "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+          "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+          "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-privacy-baseline-r1",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "52abd79a3244837fc3629e8605f63bc2afa35ab973c96c2102cac9916d44fb25",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-11",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "privacy",
+          "actor": "baseline",
+          "replicate": 1,
+          "id": "persona-task-privacy-baseline-r1",
+          "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+          "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+          "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+          "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-privacy-A-r1",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "0d7ad032ec24b393332271decc2bd827ccd7037e0a8838be67c1259bbc021db5",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-12",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "privacy",
+          "actor": "A",
+          "replicate": 1,
+          "id": "persona-task-privacy-A-r1",
+          "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+          "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+          "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+          "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-sessions-A-r2",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "9b9117c874384d8aa02c05e662e4f0132b0847dca3d3f3dcb517b6df51368588",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-13",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "sessions",
+          "actor": "A",
+          "replicate": 2,
+          "id": "persona-task-sessions-A-r2",
+          "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+          "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+          "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+          "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+          "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-sessions-B-r2",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "a8bc5eeb4bd19a462eaec117e4b8bda8d54ffbac63bad281c164d63aa2028d9b",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-14",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "sessions",
+          "actor": "B",
+          "replicate": 2,
+          "id": "persona-task-sessions-B-r2",
+          "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+          "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+          "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+          "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+          "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-sessions-C-r2",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "49e24e4d342e072036bae4b1bd48f97c81f044418afb851e5a722afd552a6a90",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-15",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "sessions",
+          "actor": "C",
+          "replicate": 2,
+          "id": "persona-task-sessions-C-r2",
+          "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+          "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+          "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+          "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+          "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-sessions-baseline-r2",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "0fcefca92f6ce2af460c871ada20c6f1c7e712f223fa5962f825152734cc2fb0",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-16",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "sessions",
+          "actor": "baseline",
+          "replicate": 2,
+          "id": "persona-task-sessions-baseline-r2",
+          "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+          "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+          "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+          "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+          "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-preferences-B-r2",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "12a8bbbe3463f2550ad22f7e3921181b6a52e5deb161c40206390147f93059df",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-17",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "preferences",
+          "actor": "B",
+          "replicate": 2,
+          "id": "persona-task-preferences-B-r2",
+          "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+          "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+          "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+          "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+          "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-preferences-C-r2",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "555a9cbd61c774d6529437c5c4abfc53f6def8bd18b3c1b39b455b482a9a8135",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-18",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "preferences",
+          "actor": "C",
+          "replicate": 2,
+          "id": "persona-task-preferences-C-r2",
+          "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+          "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+          "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+          "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+          "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-preferences-baseline-r2",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "9a09cb750ac40d6867d8a83d2b82fa14f29feb29d11b99ab8bef53a93cf77b9b",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-19",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "preferences",
+          "actor": "baseline",
+          "replicate": 2,
+          "id": "persona-task-preferences-baseline-r2",
+          "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+          "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+          "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+          "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+          "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-preferences-A-r2",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "70a8e8d2afb2b3c969af4491986f63d034ad3785918e1a54b3f48d5e8ff7b74b",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-20",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "preferences",
+          "actor": "A",
+          "replicate": 2,
+          "id": "persona-task-preferences-A-r2",
+          "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+          "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+          "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+          "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+          "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-privacy-C-r2",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "5159ff3d75122d14989146265a574e7fb8561a7f821c986483a125ae74972a16",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-21",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "privacy",
+          "actor": "C",
+          "replicate": 2,
+          "id": "persona-task-privacy-C-r2",
+          "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+          "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+          "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+          "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-privacy-baseline-r2",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "3cab05a77a5508243cd41b5c7d75f33a77a25de1c85be38fdc701eb97101b74f",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-22",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "privacy",
+          "actor": "baseline",
+          "replicate": 2,
+          "id": "persona-task-privacy-baseline-r2",
+          "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+          "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+          "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+          "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-privacy-A-r2",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "b8cd3bf15c951639e8e56feae07c3e8d5e431d962b11ccc847553b58b818d651",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-23",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "privacy",
+          "actor": "A",
+          "replicate": 2,
+          "id": "persona-task-privacy-A-r2",
+          "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+          "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+          "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+          "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-privacy-B-r2",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "16b6caa25bedcfef1f9dde1c0e171da54c1f6a427099061effe64f94027dff01",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-24",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "privacy",
+          "actor": "B",
+          "replicate": 2,
+          "id": "persona-task-privacy-B-r2",
+          "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+          "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+          "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+          "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-sessions-B-r3",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "f104b1c2c5f755c55a5582a7274ad2dfbf64edd4ec052b10c7f6bad57f296938",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-25",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "sessions",
+          "actor": "B",
+          "replicate": 3,
+          "id": "persona-task-sessions-B-r3",
+          "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+          "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+          "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+          "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+          "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-sessions-C-r3",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "c6841366bb0591124df0574a3bef61dde72bd62b2adc865b4d61c22e6d763830",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-26",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "sessions",
+          "actor": "C",
+          "replicate": 3,
+          "id": "persona-task-sessions-C-r3",
+          "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+          "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+          "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+          "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+          "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-sessions-baseline-r3",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "4446c870f3db32e1ced05ecf6d20e543eadddd99e223465e73e4f6c6d1ae9219",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-27",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "sessions",
+          "actor": "baseline",
+          "replicate": 3,
+          "id": "persona-task-sessions-baseline-r3",
+          "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+          "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+          "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+          "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+          "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-sessions-A-r3",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "612aae0ec48f010c531ab716d66804776b8ae425b1198efb6e56d558bdd98806",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-28",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "sessions",
+          "actor": "A",
+          "replicate": 3,
+          "id": "persona-task-sessions-A-r3",
+          "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+          "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+          "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+          "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+          "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-preferences-C-r3",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "764c4c71fbc7b58e0d27195edbc42d20a3b9c8efb7bb90a433d3c8f2e2241ae4",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-29",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "preferences",
+          "actor": "C",
+          "replicate": 3,
+          "id": "persona-task-preferences-C-r3",
+          "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+          "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+          "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+          "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+          "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-preferences-baseline-r3",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "873a185845502d73cb08ffff558d7eb654c17d6ec27f8cc5fda26cff2b74ebab",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-30",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "preferences",
+          "actor": "baseline",
+          "replicate": 3,
+          "id": "persona-task-preferences-baseline-r3",
+          "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+          "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+          "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+          "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+          "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-preferences-A-r3",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "6745660f47baf2abe3faa16e46e2e518fa6f1bae901e284e425e0c6f89697460",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-31",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "preferences",
+          "actor": "A",
+          "replicate": 3,
+          "id": "persona-task-preferences-A-r3",
+          "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+          "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+          "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+          "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+          "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-preferences-B-r3",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "3dbb37d7f3db9d450fd69386b8ebd70a8247c8133da4a897ecefe98796484163",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-32",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "preferences",
+          "actor": "B",
+          "replicate": 3,
+          "id": "persona-task-preferences-B-r3",
+          "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+          "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+          "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+          "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+          "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-privacy-baseline-r3",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "64193c7687fa29dc929b4fd1e238f20706064f82db17339ce14bec109cba6d37",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-33",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "privacy",
+          "actor": "baseline",
+          "replicate": 3,
+          "id": "persona-task-privacy-baseline-r3",
+          "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+          "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+          "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+          "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-privacy-A-r3",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "a8df65418e3e840e2c67334ee17ab6f999ecba74f1b2db688520b48103a27e05",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-34",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "privacy",
+          "actor": "A",
+          "replicate": 3,
+          "id": "persona-task-privacy-A-r3",
+          "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+          "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+          "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+          "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-privacy-B-r3",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "73db6b4ff90d69ec3b947c4158c4328b851739025380bb3257817194d3959cc2",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-35",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "privacy",
+          "actor": "B",
+          "replicate": 3,
+          "id": "persona-task-privacy-B-r3",
+          "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+          "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+          "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+          "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "raw replay/binding/frame/input persona-task-privacy-C-r3",
+      "status": "PASS",
+      "detail": {
+        "resultSha256": "508964138735103492f0f9a3a01afc81edd16b2c012bd919fa07818b0d4e62f1",
+        "replay": {
+          "runId": "a29e0043-17a6-4fe9-81cd-2bbfd21c0e3c-36",
+          "choices": 1,
+          "assessments": 1,
+          "images": 2,
+          "verified": true,
+          "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+        },
+        "frames": [
+          {
+            "step": 1,
+            "stage": "assessment",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          },
+          {
+            "step": 1,
+            "stage": "action",
+            "observationId": "o1",
+            "imageSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+            "validCurrentFrame": true,
+            "successfulResponse": true,
+            "scope": "full-viewport-current"
+          }
+        ],
+        "binding": {
+          "native": 1,
+          "assessment": 1,
+          "action": 1,
+          "errors": []
+        },
+        "initial": {
+          "task": "privacy",
+          "actor": "C",
+          "replicate": 3,
+          "id": "persona-task-privacy-C-r3",
+          "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+          "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+          "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+          "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+          "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+        },
+        "privateAuditLeaks": []
+      }
+    },
+    {
+      "name": "fresh reanalysis yields36valid and zeroinvalid without behavior inference",
+      "status": "PASS",
+      "detail": {
+        "valid": 36,
+        "invalid": 0,
+        "integrity": {
+          "ok": true,
+          "errors": []
+        }
+      }
+    },
+    {
+      "name": "frozen source remained unchanged during all36 offline replays",
+      "status": "PASS",
+      "detail": null
+    }
+  ],
+  "initialEquality": {
+    "scope": "Within task; all12 initial PNGs and native request/body fields after removing Persona only. Full downstream assessment/action input equality is not claimed.",
+    "groups": [
+      {
+        "task": "sessions",
+        "actor": "baseline",
+        "replicate": 1,
+        "id": "persona-task-sessions-baseline-r1",
+        "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+        "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+        "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+        "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+        "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+      },
+      {
+        "task": "sessions",
+        "actor": "A",
+        "replicate": 1,
+        "id": "persona-task-sessions-A-r1",
+        "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+        "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+        "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+        "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+        "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+      },
+      {
+        "task": "sessions",
+        "actor": "B",
+        "replicate": 1,
+        "id": "persona-task-sessions-B-r1",
+        "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+        "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+        "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+        "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+        "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+      },
+      {
+        "task": "sessions",
+        "actor": "C",
+        "replicate": 1,
+        "id": "persona-task-sessions-C-r1",
+        "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+        "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+        "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+        "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+        "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+      },
+      {
+        "task": "preferences",
+        "actor": "A",
+        "replicate": 1,
+        "id": "persona-task-preferences-A-r1",
+        "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+        "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+        "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+        "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+        "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+      },
+      {
+        "task": "preferences",
+        "actor": "B",
+        "replicate": 1,
+        "id": "persona-task-preferences-B-r1",
+        "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+        "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+        "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+        "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+        "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+      },
+      {
+        "task": "preferences",
+        "actor": "C",
+        "replicate": 1,
+        "id": "persona-task-preferences-C-r1",
+        "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+        "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+        "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+        "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+        "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+      },
+      {
+        "task": "preferences",
+        "actor": "baseline",
+        "replicate": 1,
+        "id": "persona-task-preferences-baseline-r1",
+        "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+        "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+        "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+        "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+        "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+      },
+      {
+        "task": "privacy",
+        "actor": "B",
+        "replicate": 1,
+        "id": "persona-task-privacy-B-r1",
+        "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+        "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+        "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+        "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+      },
+      {
+        "task": "privacy",
+        "actor": "C",
+        "replicate": 1,
+        "id": "persona-task-privacy-C-r1",
+        "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+        "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+        "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+        "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+      },
+      {
+        "task": "privacy",
+        "actor": "baseline",
+        "replicate": 1,
+        "id": "persona-task-privacy-baseline-r1",
+        "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+        "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+        "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+        "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+      },
+      {
+        "task": "privacy",
+        "actor": "A",
+        "replicate": 1,
+        "id": "persona-task-privacy-A-r1",
+        "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+        "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+        "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+        "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+      },
+      {
+        "task": "sessions",
+        "actor": "A",
+        "replicate": 2,
+        "id": "persona-task-sessions-A-r2",
+        "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+        "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+        "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+        "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+        "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+      },
+      {
+        "task": "sessions",
+        "actor": "B",
+        "replicate": 2,
+        "id": "persona-task-sessions-B-r2",
+        "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+        "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+        "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+        "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+        "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+      },
+      {
+        "task": "sessions",
+        "actor": "C",
+        "replicate": 2,
+        "id": "persona-task-sessions-C-r2",
+        "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+        "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+        "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+        "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+        "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+      },
+      {
+        "task": "sessions",
+        "actor": "baseline",
+        "replicate": 2,
+        "id": "persona-task-sessions-baseline-r2",
+        "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+        "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+        "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+        "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+        "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+      },
+      {
+        "task": "preferences",
+        "actor": "B",
+        "replicate": 2,
+        "id": "persona-task-preferences-B-r2",
+        "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+        "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+        "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+        "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+        "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+      },
+      {
+        "task": "preferences",
+        "actor": "C",
+        "replicate": 2,
+        "id": "persona-task-preferences-C-r2",
+        "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+        "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+        "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+        "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+        "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+      },
+      {
+        "task": "preferences",
+        "actor": "baseline",
+        "replicate": 2,
+        "id": "persona-task-preferences-baseline-r2",
+        "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+        "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+        "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+        "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+        "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+      },
+      {
+        "task": "preferences",
+        "actor": "A",
+        "replicate": 2,
+        "id": "persona-task-preferences-A-r2",
+        "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+        "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+        "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+        "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+        "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+      },
+      {
+        "task": "privacy",
+        "actor": "C",
+        "replicate": 2,
+        "id": "persona-task-privacy-C-r2",
+        "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+        "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+        "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+        "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+      },
+      {
+        "task": "privacy",
+        "actor": "baseline",
+        "replicate": 2,
+        "id": "persona-task-privacy-baseline-r2",
+        "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+        "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+        "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+        "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+      },
+      {
+        "task": "privacy",
+        "actor": "A",
+        "replicate": 2,
+        "id": "persona-task-privacy-A-r2",
+        "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+        "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+        "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+        "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+      },
+      {
+        "task": "privacy",
+        "actor": "B",
+        "replicate": 2,
+        "id": "persona-task-privacy-B-r2",
+        "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+        "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+        "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+        "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+      },
+      {
+        "task": "sessions",
+        "actor": "B",
+        "replicate": 3,
+        "id": "persona-task-sessions-B-r3",
+        "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+        "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+        "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+        "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+        "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+      },
+      {
+        "task": "sessions",
+        "actor": "C",
+        "replicate": 3,
+        "id": "persona-task-sessions-C-r3",
+        "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+        "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+        "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+        "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+        "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+      },
+      {
+        "task": "sessions",
+        "actor": "baseline",
+        "replicate": 3,
+        "id": "persona-task-sessions-baseline-r3",
+        "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+        "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+        "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+        "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+        "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+      },
+      {
+        "task": "sessions",
+        "actor": "A",
+        "replicate": 3,
+        "id": "persona-task-sessions-A-r3",
+        "currentSha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+        "productSha256": "128938b3fc529dff77946457a64577fb1ba61b1582edd22cef1f2b81cc2c4300",
+        "nativeInputSha256": "7700791b0786e4520d3ded1de32987e3a56672a31a039556edb3b5607b46028b",
+        "nativeBodyWithoutPersonaSha256": "2dc8eedf7f2379e7d273daf52f48355297287580a2213ba8b5f103106412074d",
+        "nativeAssetsSha256": "852521c2d3db55a63e03e7db514d08c029c5ab7e6342942a8fa355a79196d4b7"
+      },
+      {
+        "task": "preferences",
+        "actor": "C",
+        "replicate": 3,
+        "id": "persona-task-preferences-C-r3",
+        "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+        "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+        "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+        "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+        "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+      },
+      {
+        "task": "preferences",
+        "actor": "baseline",
+        "replicate": 3,
+        "id": "persona-task-preferences-baseline-r3",
+        "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+        "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+        "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+        "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+        "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+      },
+      {
+        "task": "preferences",
+        "actor": "A",
+        "replicate": 3,
+        "id": "persona-task-preferences-A-r3",
+        "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+        "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+        "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+        "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+        "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+      },
+      {
+        "task": "preferences",
+        "actor": "B",
+        "replicate": 3,
+        "id": "persona-task-preferences-B-r3",
+        "currentSha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+        "productSha256": "1239ce5f7f9f8013c8cf2fea74961286263235d05b91ed3dddbcb07270f2997f",
+        "nativeInputSha256": "9caf681d6e850a32ba87b82f36362b757df2380ba314c9b049966450635a2a57",
+        "nativeBodyWithoutPersonaSha256": "5f36b26dc70cfcc82c0c9783c374fc91346df1c830e33677ed26e709b28af96c",
+        "nativeAssetsSha256": "534245cafe1a519d8b365dbaf61c31739734ac414f22512d031ce0dc324ed875"
+      },
+      {
+        "task": "privacy",
+        "actor": "baseline",
+        "replicate": 3,
+        "id": "persona-task-privacy-baseline-r3",
+        "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+        "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+        "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+        "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+      },
+      {
+        "task": "privacy",
+        "actor": "A",
+        "replicate": 3,
+        "id": "persona-task-privacy-A-r3",
+        "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+        "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+        "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+        "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+      },
+      {
+        "task": "privacy",
+        "actor": "B",
+        "replicate": 3,
+        "id": "persona-task-privacy-B-r3",
+        "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+        "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+        "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+        "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+      },
+      {
+        "task": "privacy",
+        "actor": "C",
+        "replicate": 3,
+        "id": "persona-task-privacy-C-r3",
+        "currentSha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+        "productSha256": "3df98a12cb9c8855ebcd435c9ce8a9a7e7ab7a1e3de6da6f41c4f3172081c6c2",
+        "nativeInputSha256": "78b21232f85bfbb6150548b59e1ca0c100c115f55a5e3261ea3aa0f4cdd4f0d4",
+        "nativeBodyWithoutPersonaSha256": "b958308dc5fdba9660e45f51a4bc6ac1495fce527c331921bc7cacd0991ff530",
+        "nativeAssetsSha256": "3045b6b5cc66ddb14ba6193f797e723b3fd124e1957aca56d7beca4845e90c92"
+      }
+    ]
+  },
+  "limitations": [
+    "Normalmock uses scripted done at firstdecision; all36 subjectiveDone/objectivefalse is technicalcoverage only, notbehavioral evidence orPersonaeffect.",
+    "Livepayloads untouched; real model transport/frame/ledger/traitreview pending final livegate.",
+    "Historical raw contents notopened;8412priorpreservation here is manifest metadata only,parentguard performedbytehashing.",
+    "Repository overallfullsuite remainsnongreen; parentfrozenfocused67pass/buildpass; previousindependentbuild/typecheckpass unchanged."
+  ],
+  "addendumTo": "code-gate-r1.json"
+}

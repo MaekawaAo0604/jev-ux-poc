@@ -1,0 +1,1946 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "Implementation local and independent checks passed; autonomous semantic acquisition not achieved; human measurement deferred by user",
+  "budget": {
+    "newMaximum": 48,
+    "used": 47,
+    "remaining": 1,
+    "previousPhaseConsumed": 48,
+    "separatePhase": true,
+    "statuses": {
+      "OK": 47
+    },
+    "noSavedPayloadReplay": true
+  },
+  "batches": [
+    {
+      "name": "live",
+      "revision": "e333750a75dfba596bcb80029bd49614c99d6889",
+      "sourceHash": "5f3e59d19f76f968e35872805171a234530053d5bebf67566d1d7c3e37add276",
+      "model": "jev-1.14.0",
+      "config": [
+        {
+          "schemaVersion": 1,
+          "id": "semantic-capability",
+          "vision": {
+            "mode": "crop",
+            "clearWidth": 640,
+            "clearHeight": 480,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "argmax",
+            "seed": 20261028
+          },
+          "behavior": "goal",
+          "maxUIActions": 4,
+          "maxLooks": 3,
+          "maxDecisions": 4,
+          "maxAPICalls": 4,
+          "maxRunMs": 90000,
+          "modeledActionMs": null
+        }
+      ],
+      "goal": "初めて利用する暮らしクラウドで、メール通知を停止し、停止したことを確認したい",
+      "personaId": "A",
+      "actualAPICalls": 30,
+      "runs": [
+        {
+          "runId": "semantic-01-reference-a-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "A"
+          },
+          "replicate": 1,
+          "slot": 1,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": false,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 2,
+          "apiCalls": 3,
+          "initialProductImageSha256": "5c149a625de87a6d10444d15261efb31b3a707e4e55b5fee6ba9de63b3c2e0cc",
+          "initialInputSha256": "4cb5d29a3d5b8baa1ab031361c129429a54f177983e2a45571f68dbcc3ddc34d",
+          "result": "reports/semantic-controls-2026-10-28/live/semantic-01-reference-a-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": false,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-01-reference-a-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "c2951307a8705aff16dbd7c444c28b15c7e784da25a5013b8a0b5ef2b3615bf1",
+              "selected": "e1",
+              "proposed": "e1",
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "reason": "confirmation",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-01-reference-a-r1/input-2.png"
+            },
+            {
+              "number": 3,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "bcaac1bcbe40baf62b3a79130097cc94167502127ef76117bd44172ef6b9a91f",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-01-reference-a-r1/input-3.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-02-reference-b-r2",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "B"
+          },
+          "replicate": 2,
+          "slot": 2,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": true,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 1,
+          "apiCalls": 2,
+          "initialProductImageSha256": "e3fa7133754045133e4becd69996302278bfb562150f07372d32d7f97bbdcf18",
+          "initialInputSha256": "4cb5d29a3d5b8baa1ab031361c129429a54f177983e2a45571f68dbcc3ddc34d",
+          "result": "reports/semantic-controls-2026-10-28/live/semantic-02-reference-b-r2/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-02-reference-b-r2/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "8311202ae07600d979e8843477e988ba0e7fef5fd32e88d38ae225c7b135a56a",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-02-reference-b-r2/input-2.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-03-position-only-a-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "position-only",
+            "mapping": "A"
+          },
+          "replicate": 1,
+          "slot": 3,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": false,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 2,
+          "apiCalls": 3,
+          "initialProductImageSha256": "a38a46266bd825a949ca946241c87be2629433de288b024011493350321c717b",
+          "initialInputSha256": "4cb5d29a3d5b8baa1ab031361c129429a54f177983e2a45571f68dbcc3ddc34d",
+          "result": "reports/semantic-controls-2026-10-28/live/semantic-03-position-only-a-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": false,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-03-position-only-a-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "c2951307a8705aff16dbd7c444c28b15c7e784da25a5013b8a0b5ef2b3615bf1",
+              "selected": "e1",
+              "proposed": "e1",
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "reason": "confirmation",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-03-position-only-a-r1/input-2.png"
+            },
+            {
+              "number": 3,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "bcaac1bcbe40baf62b3a79130097cc94167502127ef76117bd44172ef6b9a91f",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-03-position-only-a-r1/input-3.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-04-wording-only-b-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "wording-only",
+            "mapping": "B"
+          },
+          "replicate": 1,
+          "slot": 4,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": true,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 1,
+          "apiCalls": 2,
+          "initialProductImageSha256": "13d42e3551d120bcfc2b03e941d70bf5e0cd225eb8a69818998789a68ecc70b9",
+          "initialInputSha256": "4cb5d29a3d5b8baa1ab031361c129429a54f177983e2a45571f68dbcc3ddc34d",
+          "result": "reports/semantic-controls-2026-10-28/live/semantic-04-wording-only-b-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-04-wording-only-b-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "8311202ae07600d979e8843477e988ba0e7fef5fd32e88d38ae225c7b135a56a",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-04-wording-only-b-r1/input-2.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-05-position-only-a-r2",
+          "fixture": {
+            "version": 1,
+            "ui": "position-only",
+            "mapping": "A"
+          },
+          "replicate": 2,
+          "slot": 5,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": false,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 2,
+          "apiCalls": 3,
+          "initialProductImageSha256": "a38a46266bd825a949ca946241c87be2629433de288b024011493350321c717b",
+          "initialInputSha256": "4cb5d29a3d5b8baa1ab031361c129429a54f177983e2a45571f68dbcc3ddc34d",
+          "result": "reports/semantic-controls-2026-10-28/live/semantic-05-position-only-a-r2/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": false,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-05-position-only-a-r2/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "c2951307a8705aff16dbd7c444c28b15c7e784da25a5013b8a0b5ef2b3615bf1",
+              "selected": "e1",
+              "proposed": "e1",
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "reason": "confirmation",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-05-position-only-a-r2/input-2.png"
+            },
+            {
+              "number": 3,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "bcaac1bcbe40baf62b3a79130097cc94167502127ef76117bd44172ef6b9a91f",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-05-position-only-a-r2/input-3.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-06-reference-a-r2",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "A"
+          },
+          "replicate": 2,
+          "slot": 6,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": false,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 2,
+          "apiCalls": 3,
+          "initialProductImageSha256": "5c149a625de87a6d10444d15261efb31b3a707e4e55b5fee6ba9de63b3c2e0cc",
+          "initialInputSha256": "4cb5d29a3d5b8baa1ab031361c129429a54f177983e2a45571f68dbcc3ddc34d",
+          "result": "reports/semantic-controls-2026-10-28/live/semantic-06-reference-a-r2/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": false,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-06-reference-a-r2/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "c2951307a8705aff16dbd7c444c28b15c7e784da25a5013b8a0b5ef2b3615bf1",
+              "selected": "e1",
+              "proposed": "e1",
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "reason": "confirmation",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-06-reference-a-r2/input-2.png"
+            },
+            {
+              "number": 3,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "bcaac1bcbe40baf62b3a79130097cc94167502127ef76117bd44172ef6b9a91f",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-06-reference-a-r2/input-3.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-07-wording-only-a-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "wording-only",
+            "mapping": "A"
+          },
+          "replicate": 1,
+          "slot": 7,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": false,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 2,
+          "apiCalls": 3,
+          "initialProductImageSha256": "e97c7348a727642f9f8ba7ce352caa65be472d097b7ab1e795b36132ea4e0089",
+          "initialInputSha256": "4cb5d29a3d5b8baa1ab031361c129429a54f177983e2a45571f68dbcc3ddc34d",
+          "result": "reports/semantic-controls-2026-10-28/live/semantic-07-wording-only-a-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": false,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-07-wording-only-a-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "c2951307a8705aff16dbd7c444c28b15c7e784da25a5013b8a0b5ef2b3615bf1",
+              "selected": "e1",
+              "proposed": "e1",
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "reason": "confirmation",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-07-wording-only-a-r1/input-2.png"
+            },
+            {
+              "number": 3,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "bcaac1bcbe40baf62b3a79130097cc94167502127ef76117bd44172ef6b9a91f",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-07-wording-only-a-r1/input-3.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-08-reference-b-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "B"
+          },
+          "replicate": 1,
+          "slot": 8,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": true,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 1,
+          "apiCalls": 2,
+          "initialProductImageSha256": "e3fa7133754045133e4becd69996302278bfb562150f07372d32d7f97bbdcf18",
+          "initialInputSha256": "4cb5d29a3d5b8baa1ab031361c129429a54f177983e2a45571f68dbcc3ddc34d",
+          "result": "reports/semantic-controls-2026-10-28/live/semantic-08-reference-b-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-08-reference-b-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "8311202ae07600d979e8843477e988ba0e7fef5fd32e88d38ae225c7b135a56a",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-08-reference-b-r1/input-2.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-09-wording-only-a-r2",
+          "fixture": {
+            "version": 1,
+            "ui": "wording-only",
+            "mapping": "A"
+          },
+          "replicate": 2,
+          "slot": 9,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": false,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 2,
+          "apiCalls": 3,
+          "initialProductImageSha256": "e97c7348a727642f9f8ba7ce352caa65be472d097b7ab1e795b36132ea4e0089",
+          "initialInputSha256": "4cb5d29a3d5b8baa1ab031361c129429a54f177983e2a45571f68dbcc3ddc34d",
+          "result": "reports/semantic-controls-2026-10-28/live/semantic-09-wording-only-a-r2/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": false,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-09-wording-only-a-r2/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "c2951307a8705aff16dbd7c444c28b15c7e784da25a5013b8a0b5ef2b3615bf1",
+              "selected": "e1",
+              "proposed": "e1",
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "reason": "confirmation",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-09-wording-only-a-r2/input-2.png"
+            },
+            {
+              "number": 3,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "bcaac1bcbe40baf62b3a79130097cc94167502127ef76117bd44172ef6b9a91f",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-09-wording-only-a-r2/input-3.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-10-position-only-b-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "position-only",
+            "mapping": "B"
+          },
+          "replicate": 1,
+          "slot": 10,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": true,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 1,
+          "apiCalls": 2,
+          "initialProductImageSha256": "4b527dba99bc07909d63929656be48139c8d15442f01d26d2ae5a21fb811205c",
+          "initialInputSha256": "4cb5d29a3d5b8baa1ab031361c129429a54f177983e2a45571f68dbcc3ddc34d",
+          "result": "reports/semantic-controls-2026-10-28/live/semantic-10-position-only-b-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-10-position-only-b-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "8311202ae07600d979e8843477e988ba0e7fef5fd32e88d38ae225c7b135a56a",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-10-position-only-b-r1/input-2.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-11-position-only-b-r2",
+          "fixture": {
+            "version": 1,
+            "ui": "position-only",
+            "mapping": "B"
+          },
+          "replicate": 2,
+          "slot": 11,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": true,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 1,
+          "apiCalls": 2,
+          "initialProductImageSha256": "4b527dba99bc07909d63929656be48139c8d15442f01d26d2ae5a21fb811205c",
+          "initialInputSha256": "4cb5d29a3d5b8baa1ab031361c129429a54f177983e2a45571f68dbcc3ddc34d",
+          "result": "reports/semantic-controls-2026-10-28/live/semantic-11-position-only-b-r2/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-11-position-only-b-r2/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "8311202ae07600d979e8843477e988ba0e7fef5fd32e88d38ae225c7b135a56a",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-11-position-only-b-r2/input-2.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-12-wording-only-b-r2",
+          "fixture": {
+            "version": 1,
+            "ui": "wording-only",
+            "mapping": "B"
+          },
+          "replicate": 2,
+          "slot": 12,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": true,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 1,
+          "apiCalls": 2,
+          "initialProductImageSha256": "13d42e3551d120bcfc2b03e941d70bf5e0cd225eb8a69818998789a68ecc70b9",
+          "initialInputSha256": "4cb5d29a3d5b8baa1ab031361c129429a54f177983e2a45571f68dbcc3ddc34d",
+          "result": "reports/semantic-controls-2026-10-28/live/semantic-12-wording-only-b-r2/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-12-wording-only-b-r2/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "8311202ae07600d979e8843477e988ba0e7fef5fd32e88d38ae225c7b135a56a",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/live/semantic-12-wording-only-b-r2/input-2.png"
+            }
+          ]
+        }
+      ],
+      "primaryTests": {
+        "mappingTest": {
+          "name": "one-sided paired mapping label-swap",
+          "status": "available",
+          "statistic": 0,
+          "permutations": 64,
+          "pValue": 1,
+          "unavailableReasons": []
+        },
+        "uiTest": {
+          "name": "omnibus UI range of strict-success rates",
+          "status": "available",
+          "statistic": 0,
+          "permutations": 1296,
+          "pValue": 1,
+          "unavailableReasons": []
+        }
+      },
+      "comparison": "reports/semantic-controls-2026-10-28/live/semantic-comparison.json"
+    },
+    {
+      "name": "exposed",
+      "revision": "69b55cc7fb0e4ce92f5526c97becac2288289cdf",
+      "sourceHash": "614879e509b8b395ed275a180be81b9c4ed102c8a935d7710f34fbbf4b62fea9",
+      "model": "jev-1.14.0",
+      "config": [
+        {
+          "schemaVersion": 1,
+          "id": "semantic-capability",
+          "vision": {
+            "mode": "crop",
+            "clearWidth": 640,
+            "clearHeight": 480,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "argmax",
+            "seed": 20261028
+          },
+          "behavior": "goal",
+          "maxUIActions": 4,
+          "maxLooks": 3,
+          "maxDecisions": 1,
+          "maxAPICalls": 1,
+          "maxRunMs": 90000,
+          "modeledActionMs": null,
+          "initialFixation": {
+            "x": 960,
+            "y": 675
+          }
+        }
+      ],
+      "goal": "初めて利用する暮らしクラウドで、メール通知を停止し、停止したことを確認したい",
+      "personaId": "A",
+      "actualAPICalls": 2,
+      "runs": [
+        {
+          "runId": "semantic-01-reference-a-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "A"
+          },
+          "replicate": 1,
+          "slot": 1,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "A",
+          "firstChoiceCorrect": true,
+          "cueInitiallyAbsent": false,
+          "cueAcquiredBeforeChoice": true,
+          "strictEndpoint": false,
+          "semanticValidity": "design-invalid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": false,
+          "termination": "DECISION_LIMIT",
+          "looks": 0,
+          "uiActions": 1,
+          "apiCalls": 1,
+          "initialProductImageSha256": "5c149a625de87a6d10444d15261efb31b3a707e4e55b5fee6ba9de63b3c2e0cc",
+          "initialInputSha256": "00252aeaa4bb668d3f88664268448469a6ca33300ab6d8ebc5be3db782afa072",
+          "result": "reports/semantic-controls-2026-10-28/exposed/semantic-01-reference-a-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 640,
+                "y": 435,
+                "width": 640,
+                "height": 465
+              },
+              "inputImageSha256": "5d73b2aaf96bccec65506a2c3eaee8fc6884a7fb560a95b70e91055d1b403e04",
+              "selected": "e1",
+              "proposed": "e1",
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "reason": "goal",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/exposed/semantic-01-reference-a-r1/input-1.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-02-reference-b-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "B"
+          },
+          "replicate": 1,
+          "slot": 2,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": true,
+          "cueInitiallyAbsent": false,
+          "cueAcquiredBeforeChoice": true,
+          "strictEndpoint": false,
+          "semanticValidity": "design-invalid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": false,
+          "termination": "DECISION_LIMIT",
+          "looks": 0,
+          "uiActions": 1,
+          "apiCalls": 1,
+          "initialProductImageSha256": "e3fa7133754045133e4becd69996302278bfb562150f07372d32d7f97bbdcf18",
+          "initialInputSha256": "1874e13b981ce1cd6a69a3473e49cb058a902f4b941c7df58b960423704d2c62",
+          "result": "reports/semantic-controls-2026-10-28/exposed/semantic-02-reference-b-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 640,
+                "y": 435,
+                "width": 640,
+                "height": 465
+              },
+              "inputImageSha256": "936409a462c02f50a005aeb94f25245df47ddc3552adeebbbfd58258bf972737",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "goal",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/exposed/semantic-02-reference-b-r1/input-1.png"
+            }
+          ]
+        }
+      ],
+      "primaryTests": null,
+      "comparison": "reports/semantic-controls-2026-10-28/exposed/semantic-comparison.json"
+    },
+    {
+      "name": "preservation",
+      "revision": "69b55cc7fb0e4ce92f5526c97becac2288289cdf",
+      "sourceHash": "614879e509b8b395ed275a180be81b9c4ed102c8a935d7710f34fbbf4b62fea9",
+      "model": "jev-1.14.0",
+      "config": [
+        {
+          "schemaVersion": 1,
+          "id": "semantic-capability",
+          "vision": {
+            "mode": "crop",
+            "clearWidth": 640,
+            "clearHeight": 480,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "argmax",
+            "seed": 20261028
+          },
+          "behavior": "goal",
+          "maxUIActions": 4,
+          "maxLooks": 3,
+          "maxDecisions": 4,
+          "maxAPICalls": 4,
+          "maxRunMs": 90000,
+          "modeledActionMs": null,
+          "initialFixation": {
+            "x": 640,
+            "y": 450
+          }
+        }
+      ],
+      "goal": "画面表示の設定は一度も変更せずに、メール通知だけを停止して、停止したことを確認したい",
+      "personaId": "A",
+      "actualAPICalls": 10,
+      "runs": [
+        {
+          "runId": "semantic-01-reference-a-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "A"
+          },
+          "replicate": 1,
+          "slot": 1,
+          "objectivePolicy": "mail-and-display-preserved",
+          "firstChoice": "B",
+          "firstChoiceCorrect": false,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": false
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 2,
+          "apiCalls": 3,
+          "initialProductImageSha256": "5c149a625de87a6d10444d15261efb31b3a707e4e55b5fee6ba9de63b3c2e0cc",
+          "initialInputSha256": "77444aa623cf14125458dabf5bee2ed9c9348ba733b263a6e98e30e1750bd68d",
+          "result": "reports/semantic-controls-2026-10-28/preservation/semantic-01-reference-a-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": false,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/preservation/semantic-01-reference-a-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "c2951307a8705aff16dbd7c444c28b15c7e784da25a5013b8a0b5ef2b3615bf1",
+              "selected": "e1",
+              "proposed": "e1",
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": false,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/preservation/semantic-01-reference-a-r1/input-2.png"
+            },
+            {
+              "number": 3,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "bcaac1bcbe40baf62b3a79130097cc94167502127ef76117bd44172ef6b9a91f",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/preservation/semantic-01-reference-a-r1/input-3.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-02-reference-b-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "B"
+          },
+          "replicate": 1,
+          "slot": 2,
+          "objectivePolicy": "mail-and-display-preserved",
+          "firstChoice": "B",
+          "firstChoiceCorrect": true,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 1,
+          "apiCalls": 2,
+          "initialProductImageSha256": "e3fa7133754045133e4becd69996302278bfb562150f07372d32d7f97bbdcf18",
+          "initialInputSha256": "77444aa623cf14125458dabf5bee2ed9c9348ba733b263a6e98e30e1750bd68d",
+          "result": "reports/semantic-controls-2026-10-28/preservation/semantic-02-reference-b-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/preservation/semantic-02-reference-b-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "8311202ae07600d979e8843477e988ba0e7fef5fd32e88d38ae225c7b135a56a",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/preservation/semantic-02-reference-b-r1/input-2.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-03-reference-a-r2",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "A"
+          },
+          "replicate": 2,
+          "slot": 3,
+          "objectivePolicy": "mail-and-display-preserved",
+          "firstChoice": "A",
+          "firstChoiceCorrect": true,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 1,
+          "apiCalls": 2,
+          "initialProductImageSha256": "5c149a625de87a6d10444d15261efb31b3a707e4e55b5fee6ba9de63b3c2e0cc",
+          "initialInputSha256": "77444aa623cf14125458dabf5bee2ed9c9348ba733b263a6e98e30e1750bd68d",
+          "result": "reports/semantic-controls-2026-10-28/preservation/semantic-03-reference-a-r2/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e1",
+              "proposed": "e1",
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/preservation/semantic-03-reference-a-r2/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "283d3940163e0e0d7493fbfdcd125359065042cd4d983cb88f50b5a01b95aad1",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/preservation/semantic-03-reference-a-r2/input-2.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-04-reference-b-r2",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "B"
+          },
+          "replicate": 2,
+          "slot": 4,
+          "objectivePolicy": "mail-and-display-preserved",
+          "firstChoice": "A",
+          "firstChoiceCorrect": false,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": false
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 2,
+          "apiCalls": 3,
+          "initialProductImageSha256": "e3fa7133754045133e4becd69996302278bfb562150f07372d32d7f97bbdcf18",
+          "initialInputSha256": "77444aa623cf14125458dabf5bee2ed9c9348ba733b263a6e98e30e1750bd68d",
+          "result": "reports/semantic-controls-2026-10-28/preservation/semantic-04-reference-b-r2/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e1",
+              "proposed": "e1",
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": false,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/preservation/semantic-04-reference-b-r2/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "07e058e520a2895a45ae972e3096dbc1f50d178f73d6a22a5f03590c387744e3",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "confirmation",
+              "objectiveSuccess": false,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/preservation/semantic-04-reference-b-r2/input-2.png"
+            },
+            {
+              "number": 3,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "23f0488e3cb25b3c9b59914b80b27859348ef6c34a3816e5f8ee0957f4ebd2b3",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/preservation/semantic-04-reference-b-r2/input-3.png"
+            }
+          ]
+        }
+      ],
+      "primaryTests": null,
+      "comparison": "reports/semantic-controls-2026-10-28/preservation/semantic-comparison.json"
+    },
+    {
+      "name": "viewport-recheck",
+      "revision": "e13a3be291452e56b6ce6522248e92e92a2b1ab4",
+      "sourceHash": "7d27ef96406e10e1a28fd32f1fcf29e2ff676c93c33a8bf42c0ef18d9bf1eab9",
+      "model": "jev-1.14.0",
+      "config": [
+        {
+          "schemaVersion": 1,
+          "id": "semantic-capability",
+          "vision": {
+            "mode": "crop",
+            "clearWidth": 640,
+            "clearHeight": 480,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "argmax",
+            "seed": 20261028
+          },
+          "behavior": "goal",
+          "maxUIActions": 4,
+          "maxLooks": 3,
+          "maxDecisions": 3,
+          "maxAPICalls": 3,
+          "maxRunMs": 90000,
+          "modeledActionMs": null,
+          "initialFixation": {
+            "x": 640,
+            "y": 450
+          }
+        }
+      ],
+      "goal": "初めて利用する暮らしクラウドで、メール通知を停止し、停止したことを確認したい",
+      "personaId": "A",
+      "actualAPICalls": 5,
+      "runs": [
+        {
+          "runId": "semantic-01-reference-a-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "A"
+          },
+          "replicate": 1,
+          "slot": 1,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": false,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 2,
+          "apiCalls": 3,
+          "initialProductImageSha256": "5c149a625de87a6d10444d15261efb31b3a707e4e55b5fee6ba9de63b3c2e0cc",
+          "initialInputSha256": "4457b4e8926a1c89b368c4c970ce4b985def9f0d36662ef3b06de6e191088313",
+          "result": "reports/semantic-controls-2026-10-28/viewport-recheck/semantic-01-reference-a-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": false,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/viewport-recheck/semantic-01-reference-a-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "c2951307a8705aff16dbd7c444c28b15c7e784da25a5013b8a0b5ef2b3615bf1",
+              "selected": "e1",
+              "proposed": "e1",
+              "action": {
+                "type": "click",
+                "elementId": "e1"
+              },
+              "reason": "confirmation",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/viewport-recheck/semantic-01-reference-a-r1/input-2.png"
+            },
+            {
+              "number": 3,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "bcaac1bcbe40baf62b3a79130097cc94167502127ef76117bd44172ef6b9a91f",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/viewport-recheck/semantic-01-reference-a-r1/input-3.png"
+            }
+          ]
+        },
+        {
+          "runId": "semantic-02-reference-b-r1",
+          "fixture": {
+            "version": 1,
+            "ui": "reference",
+            "mapping": "B"
+          },
+          "replicate": 1,
+          "slot": 2,
+          "objectivePolicy": "mail-only",
+          "firstChoice": "B",
+          "firstChoiceCorrect": true,
+          "cueInitiallyAbsent": true,
+          "cueAcquiredBeforeChoice": false,
+          "strictEndpoint": false,
+          "semanticValidity": "semantic-valid",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "termination": "SUBJECTIVE_DONE",
+          "looks": 0,
+          "uiActions": 1,
+          "apiCalls": 2,
+          "initialProductImageSha256": "e3fa7133754045133e4becd69996302278bfb562150f07372d32d7f97bbdcf18",
+          "initialInputSha256": "4457b4e8926a1c89b368c4c970ce4b985def9f0d36662ef3b06de6e191088313",
+          "result": "reports/semantic-controls-2026-10-28/viewport-recheck/semantic-02-reference-b-r1/result.json",
+          "steps": [
+            {
+              "number": 1,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "7a712fff827ea9f277492fb24d866e54779e1f4b65d010b04667edc5e9b268b8",
+              "selected": "e2",
+              "proposed": "e2",
+              "action": {
+                "type": "click",
+                "elementId": "e2"
+              },
+              "reason": "uncertainty",
+              "objectiveSuccess": true,
+              "outcome": "UI_PERFORMED",
+              "image": "reports/semantic-controls-2026-10-28/viewport-recheck/semantic-02-reference-b-r1/input-1.png"
+            },
+            {
+              "number": 2,
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 320,
+                "y": 210,
+                "width": 640,
+                "height": 480
+              },
+              "inputImageSha256": "8311202ae07600d979e8843477e988ba0e7fef5fd32e88d38ae225c7b135a56a",
+              "selected": "done",
+              "proposed": "done",
+              "action": {
+                "type": "done"
+              },
+              "reason": "confirmation",
+              "outcome": "SUBJECTIVE_DONE",
+              "image": "reports/semantic-controls-2026-10-28/viewport-recheck/semantic-02-reference-b-r1/input-2.png"
+            }
+          ]
+        }
+      ],
+      "primaryTests": null,
+      "comparison": "reports/semantic-controls-2026-10-28/viewport-recheck/semantic-comparison.json"
+    }
+  ],
+  "verification": {
+    "productRevision": "e13a3be291452e56b6ce6522248e92e92a2b1ab4",
+    "sourceHash": "7d27ef96406e10e1a28fd32f1fcf29e2ff676c93c33a8bf42c0ef18d9bf1eab9",
+    "build": "PASS",
+    "typecheck": "PASS",
+    "fullRegression": {
+      "tests": 708,
+      "passed": 705,
+      "failed": 0,
+      "skipped": 3,
+      "log": "reports/semantic-controls-2026-10-28/final-regression.log"
+    },
+    "freshScriptedMock": {
+      "runs": 12,
+      "decisions": 36,
+      "actualAPI": 0
+    },
+    "humanRecorderSmoke": {
+      "recordedClicks": 2,
+      "recordingErrors": 0,
+      "actor": "automation",
+      "selfAttested": false,
+      "humanMeasurement": false
+    },
+    "artifactVerification": "reports/semantic-controls-2026-10-28/independent-final-artifact-verification.json",
+    "independentReview": "docs/virtual-beta/semantic-independent-review.md"
+  }
+}

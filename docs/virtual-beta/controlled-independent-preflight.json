@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-controlled-comparison-preflight",
+  "decision": "GO",
+  "sourceHash": "b8c1b8087a05baf5c1c9f0988d08c86caaa21e2a7896ae9a743311b8cc815ee8",
+  "revision": "037c7546bde76f2bf3de456883c990182b8834a2",
+  "frozenInputFilesVerified": 15,
+  "command": "node --import tsx --test tests/controlled-comparison-independent.test.ts",
+  "testFile": "tests/controlled-comparison-independent.test.ts",
+  "log": "reports/controlled-comparison-2026-11-09/independent/preflight-final.log",
+  "tests": 15,
+  "passed": 15,
+  "failed": 0,
+  "exitCode": 0,
+  "durationMs": 44274.9266,
+  "externalAPICalls": 0,
+  "environmentFilesAccessed": false,
+  "productFilesModifiedByVerifier": false,
+  "protocol": {
+    "batches": 12,
+    "plannedTrials": 54,
+    "allocatedStageCalls": 360,
+    "maxBatchMs": 600000,
+    "maxPhaseMs": 2700000,
+    "parallel": 1,
+    "retry": 0,
+    "distinctPairedSeeds": 3,
+    "declaredFactorDifferencesVerified": true
+  },
+  "coverage": [
+    "Current frozen actor source and all 15 protocol input SHA-256 hashes",
+    "Exact48 upfront admission; underfunding, over48, duplicate/invalid seeds and per-trial over12 rejection",
+    "Paired distinct seeds, cyclic serial positions, deep-cloned per-trial configurations",
+    "All16 extra-action masks at memory capacities0 and3; neutral full-image labels",
+    "Memory0 current observation and fixed Persona expectations equal memory3 except retained memory",
+    "Image-state has no DOM, visibleText, semantic labels, or history; DOM-state contains only current DOM",
+    "Legacy4 conditions preserve IDs, bundled config, wire shape and candidate vocabulary",
+    "Actual local browser/runBeta privacy and objective success; fresh local sample indices and independently computed draw hashes",
+    "21 hash-recomputed canonical input/question/criteria/state/assets/config/action/downgrade/draw-counter tamper cases rejected",
+    "Unequal caps1/2/3 across2seeds consume their own caps, with6 explicit censored rows and12 mock stages",
+    "In-flight durable checkpoints, complete CSV/HTML/manifest rows, raw/artifact hashes, offline replay and cap-config binding",
+    "Plan validation precedes fixture/output work; phase deadline preserves all unattempted rows as missing",
+    "Provider503 and timeout stop after1 mocked call and preserve5 missing rows plus error accounting",
+    "Voluntary ABANDONED differs from5 imposed censoring categories;3 trustworthy invalids stop and retain missing",
+    "Exhausted LOOK zero-surviving-mass remains a replayable invalid model record",
+    "Safety after inference preserves selection evidence and executes no action",
+    "Persistent checkpoint replacement failure stops after1 dispatch and retains previous plus attempted snapshots",
+    "Own generated viewer rendered locally with invalid/missing rows, raw hash/trace/image links and no browser page errors"
+  ],
+  "findings": [
+    {
+      "priority": "P1",
+      "status": "fixed-and-independently-verified",
+      "repro": "Enable look, maxLooks0, return look_0 probability1",
+      "expected": "Core INVALID_DISTRIBUTION/ZERO_SURVIVING_MASS is verifiable offline",
+      "actualBeforeFix": "FACTOR_INVALID_DISTRIBUTION_NOT_REPRODUCED because replay omitted LOOK exclusions",
+      "actualAfterFix": "Identical regression passes; shared exclusions applied to selection and invalid reproduction",
+      "evidence": "independent/look-exhausted-red.json and independent/preflight-final.log"
+    },
+    {
+      "priority": "P2",
+      "status": "nonblocking-existing-viewer-limitation",
+      "repro": "Render a controlled batch with1 attempted failure and1 missing planned trial",
+      "expected": "Missing planned trial displays the fixed manifest Persona",
+      "actual": "Missing row displays baseline; attempted raw row displays the actual fixed Persona. Planned trial and manifest Persona remain intact.",
+      "evidence": "runner/exploration-viewer-data.ts Persona fallback omits manifest.persona; independent/viewer-artifact-ye1bf1/viewer-independent.png",
+      "recommendation": "Record limitation; avoid changing frozen actor source during this bounded pilot"
+    }
+  ],
+  "testCorrections": [
+    "Viewer initially shows the first comparison group. An initial assertion expecting both incompatible groups in that filtered list was corrected to select the existing all-trials option, preserving separate-group aggregation. Catalog contained both trials throughout."
+  ],
+  "limits": [
+    "This preflight uses mocked model responses and local browser fixtures; actual external model outputs require a later independent retained-artifact audit",
+    "Does not claim human validity or deterministic external model behavior",
+    "No human raw content was read",
+    "Parent owns integrated build and concurrent offline analysis module verification"
+  ]
+}

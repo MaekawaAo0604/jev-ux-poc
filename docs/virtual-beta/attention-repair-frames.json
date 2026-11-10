@@ -1,0 +1,223 @@
+[
+  {
+    "name": "off-notification-before-back",
+    "runId": "foveated-off-seed-7002",
+    "step": 3,
+    "image": "docs/virtual-beta/attention-repair-frames/off-notification-before-back.png",
+    "inputAsset": {
+      "file": "input-3.png",
+      "sha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485"
+    },
+    "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "fixation": {
+      "x": 960,
+      "y": 675
+    },
+    "gateSelection": null,
+    "gazeSelection": null,
+    "actual": {
+      "type": "back"
+    }
+  },
+  {
+    "name": "framed-notification-before-look",
+    "runId": "foveated-framed-seed-7002",
+    "step": 3,
+    "image": "docs/virtual-beta/attention-repair-frames/framed-notification-before-look.png",
+    "inputAsset": {
+      "file": "input-3.png",
+      "sha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485"
+    },
+    "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "fixation": {
+      "x": 960,
+      "y": 675
+    },
+    "gateSelection": {
+      "modelChoice": "inspect",
+      "raw": {
+        "continue": 0.33,
+        "inspect": 0.67
+      },
+      "normalized": {
+        "continue": 0.33,
+        "inspect": 0.67
+      },
+      "filtered": {
+        "continue": 0.33,
+        "inspect": 0.67
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "argmax",
+      "seed": 1532955401,
+      "drawIndex": 2,
+      "draw": null,
+      "selected": "inspect"
+    },
+    "gazeSelection": {
+      "modelChoice": "look_0",
+      "raw": {
+        "look_0": 0.33,
+        "look_1": 0.29,
+        "look_2": 0.16,
+        "look_3": 0.22
+      },
+      "normalized": {
+        "look_0": 0.33,
+        "look_1": 0.29,
+        "look_2": 0.16,
+        "look_3": 0.22
+      },
+      "filtered": {
+        "look_0": 0.33,
+        "look_1": 0.29,
+        "look_2": 0.16,
+        "look_3": 0.22
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "argmax",
+      "seed": 1018387822,
+      "drawIndex": 1,
+      "draw": null,
+      "selected": "look_0"
+    },
+    "actual": {
+      "type": "look",
+      "point": {
+        "x": 320,
+        "y": 225
+      }
+    }
+  },
+  {
+    "name": "framed-new-view-before-stop",
+    "runId": "foveated-framed-seed-7002",
+    "step": 4,
+    "image": "docs/virtual-beta/attention-repair-frames/framed-new-view-before-stop.png",
+    "inputAsset": {
+      "file": "input-4.png",
+      "sha256": "85a694f28ec579e862447b9ff9d5ded1838845e885599e18670ceaccb55a3aae"
+    },
+    "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "fixation": {
+      "x": 320,
+      "y": 225
+    },
+    "gateSelection": {
+      "modelChoice": "continue",
+      "raw": {
+        "continue": 0.96,
+        "inspect": 0.04
+      },
+      "normalized": {
+        "continue": 0.96,
+        "inspect": 0.04
+      },
+      "filtered": {
+        "continue": 0.96,
+        "inspect": 0.04
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "argmax",
+      "seed": 1532955401,
+      "drawIndex": 3,
+      "draw": null,
+      "selected": "continue"
+    },
+    "gazeSelection": null,
+    "actual": {
+      "type": "click",
+      "elementId": "e3"
+    }
+  },
+  {
+    "name": "framed-search-second-look",
+    "runId": "foveated-framed-seed-7001",
+    "step": 4,
+    "image": "docs/virtual-beta/attention-repair-frames/framed-search-second-look.png",
+    "inputAsset": {
+      "file": "input-4.png",
+      "sha256": "815f38ca950201f0d3f0124337f7493e8ce179986921c38006bbeeccb5c08ddc"
+    },
+    "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "fixation": {
+      "x": 960,
+      "y": 225
+    },
+    "gateSelection": {
+      "modelChoice": "inspect",
+      "raw": {
+        "continue": 0.34,
+        "inspect": 0.66
+      },
+      "normalized": {
+        "continue": 0.34,
+        "inspect": 0.66
+      },
+      "filtered": {
+        "continue": 0.34,
+        "inspect": 0.66
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "argmax",
+      "seed": 3201712013,
+      "drawIndex": 3,
+      "draw": null,
+      "selected": "inspect"
+    },
+    "gazeSelection": {
+      "modelChoice": "look_0",
+      "raw": {
+        "look_0": 0.33,
+        "look_1": 0.26,
+        "look_2": 0.17,
+        "look_3": 0.24
+      },
+      "normalized": {
+        "look_0": 0.33,
+        "look_1": 0.26,
+        "look_2": 0.17,
+        "look_3": 0.24
+      },
+      "filtered": {
+        "look_0": 0.33,
+        "look_1": 0.26,
+        "look_2": 0.17,
+        "look_3": 0.24
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "argmax",
+      "seed": 3646131923,
+      "drawIndex": 2,
+      "draw": null,
+      "selected": "look_0"
+    },
+    "actual": {
+      "type": "look",
+      "point": {
+        "x": 320,
+        "y": 225
+      }
+    }
+  }
+]

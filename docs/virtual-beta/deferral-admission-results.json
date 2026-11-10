@@ -1,0 +1,3639 @@
+{
+  "schemaVersion": 1,
+  "kind": "grounded-deferral-admission-descriptive-comparison",
+  "comparison": "reason-admission",
+  "modes": {
+    "old": "experience-reason",
+    "reason": "experience-reason-excursion"
+  },
+  "baselineRevision": "aed3dcdced08e8b467487ba85e67c6e6039a7612",
+  "frozenRevision": "959c5de32ba5d52ecf13725ef2584c5a4d5a989f",
+  "sourceHash": "e1a64bb13ec7dde4ac703482b7dab5950a987e9ed0cf960d8ac9b018a1677233",
+  "model": "jev-1.14.0",
+  "mock": false,
+  "status": "COMPLETED",
+  "sourceUnchangedAcrossTrials": true,
+  "limits": {
+    "trials": 12,
+    "maxRequests": 288,
+    "phaseMaximumRequests": 288,
+    "maxRequestsPerTrial": 24,
+    "maxJudgmentsPerTrial": 12,
+    "maxUIActionsPerTrial": 15,
+    "maxLooksPerTrial": 3,
+    "maxRunMs": 180000,
+    "phaseMs": 1200000,
+    "parallel": 1
+  },
+  "inputComponents": {
+    "shared": {
+      "fullViewport": true,
+      "recencyImages": 3,
+      "experienceCapacity": 8,
+      "longContext": true,
+      "attempts": 1,
+      "additionalAPIStages": 0
+    },
+    "old": {
+      "mode": "experience-reason",
+      "memoryCapacity": 8,
+      "maxOriginalReasonImages": 1,
+      "maxUniqueImages": 4,
+      "basisAdmission": "negative-evidence"
+    },
+    "reason": {
+      "mode": "experience-reason-excursion",
+      "memoryCapacity": 8,
+      "maxOriginalReasonImages": 1,
+      "maxUniqueImages": 4,
+      "basisAdmission": "excursion-evidence",
+      "declaredDifference": "Only blocker-basis admission from the same performed excursion; no extra API stage or prompt change"
+    }
+  },
+  "requests": {
+    "used": 204,
+    "maximum": 288,
+    "source": "fresh-trial-ledgers-including-incomplete"
+  },
+  "priorLedgers": {
+    "checked": 46,
+    "unchanged": true
+  },
+  "allPairsConsistent": true,
+  "totals": {
+    "old": {
+      "trials": 6,
+      "valid": 6,
+      "successes": 4,
+      "faults": 0,
+      "requests": 100,
+      "reasonCaptures": 16,
+      "admittedReasonCaptures": 2,
+      "reviews": 4,
+      "releases": 2
+    },
+    "reason": {
+      "trials": 6,
+      "valid": 6,
+      "successes": 5,
+      "faults": 0,
+      "requests": 104,
+      "reasonCaptures": 17,
+      "admittedReasonCaptures": 5,
+      "reviews": 7,
+      "releases": 3
+    }
+  },
+  "cells": [
+    {
+      "scenario": "notifications",
+      "condition": "old",
+      "n": 2,
+      "valid": 2,
+      "successes": 0,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 6,
+      "meanDecisions": 7,
+      "policyChanges": 4,
+      "reasonRecordSteps": 14,
+      "reasonCaptures": 4,
+      "admittedReasonCaptures": 0,
+      "reasonReviews": 0,
+      "reasonBasisChangedReports": 0,
+      "actualReasonReleases": 0,
+      "temporaryAlternativeExhaustionSteps": 0
+    },
+    {
+      "scenario": "notifications",
+      "condition": "reason",
+      "n": 2,
+      "valid": 2,
+      "successes": 1,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 6,
+      "meanDecisions": 7,
+      "policyChanges": 3,
+      "reasonRecordSteps": 14,
+      "reasonCaptures": 3,
+      "admittedReasonCaptures": 0,
+      "reasonReviews": 0,
+      "reasonBasisChangedReports": 0,
+      "actualReasonReleases": 0,
+      "temporaryAlternativeExhaustionSteps": 0
+    },
+    {
+      "scenario": "revisit-alpha",
+      "condition": "old",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 7,
+      "meanDecisions": 8,
+      "policyChanges": 0,
+      "reasonRecordSteps": 16,
+      "reasonCaptures": 4,
+      "admittedReasonCaptures": 0,
+      "reasonReviews": 0,
+      "reasonBasisChangedReports": 0,
+      "actualReasonReleases": 0,
+      "temporaryAlternativeExhaustionSteps": 2
+    },
+    {
+      "scenario": "revisit-alpha",
+      "condition": "reason",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 9,
+      "meanDecisions": 10,
+      "policyChanges": 2,
+      "reasonRecordSteps": 20,
+      "reasonCaptures": 8,
+      "admittedReasonCaptures": 2,
+      "reasonReviews": 4,
+      "reasonBasisChangedReports": 3,
+      "actualReasonReleases": 2,
+      "temporaryAlternativeExhaustionSteps": 2
+    },
+    {
+      "scenario": "revisit-beta",
+      "condition": "old",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 9,
+      "meanDecisions": 10,
+      "policyChanges": 2,
+      "reasonRecordSteps": 20,
+      "reasonCaptures": 8,
+      "admittedReasonCaptures": 2,
+      "reasonReviews": 4,
+      "reasonBasisChangedReports": 4,
+      "actualReasonReleases": 2,
+      "temporaryAlternativeExhaustionSteps": 2
+    },
+    {
+      "scenario": "revisit-beta",
+      "condition": "reason",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 8,
+      "meanDecisions": 9,
+      "policyChanges": 1,
+      "reasonRecordSteps": 18,
+      "reasonCaptures": 6,
+      "admittedReasonCaptures": 3,
+      "reasonReviews": 3,
+      "reasonBasisChangedReports": 3,
+      "actualReasonReleases": 1,
+      "temporaryAlternativeExhaustionSteps": 2
+    }
+  ],
+  "pairs": [
+    {
+      "scenario": "notifications",
+      "replicate": 1,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "notifications-r1-old",
+        "notifications-r1-reason"
+      ]
+    },
+    {
+      "scenario": "notifications",
+      "replicate": 2,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "notifications-r2-reason",
+        "notifications-r2-old"
+      ]
+    },
+    {
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-alpha-r1-reason",
+        "revisit-alpha-r1-old"
+      ]
+    },
+    {
+      "scenario": "revisit-alpha",
+      "replicate": 2,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-alpha-r2-old",
+        "revisit-alpha-r2-reason"
+      ]
+    },
+    {
+      "scenario": "revisit-beta",
+      "replicate": 1,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-beta-r1-old",
+        "revisit-beta-r1-reason"
+      ]
+    },
+    {
+      "scenario": "revisit-beta",
+      "replicate": 2,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-beta-r2-reason",
+        "revisit-beta-r2-old"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "notifications-r1-old",
+      "scenario": "notifications",
+      "replicate": 1,
+      "condition": "old",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "success": false,
+      "termination": "STUCK",
+      "perceivedDone": false,
+      "uiActions": 6,
+      "decisions": 7,
+      "looks": 0,
+      "requests": 14,
+      "policyChanges": 2,
+      "captures": [
+        {
+          "step": 4,
+          "identity": {
+            "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+            "candidateId": "e4",
+            "fromObservationId": "o1",
+            "toObservationId": "o4"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        },
+        {
+          "step": 7,
+          "identity": {
+            "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+            "candidateId": "e2",
+            "fromObservationId": "o3",
+            "toObservationId": "o7"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        }
+      ],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 2,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 3,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 4,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "nonDefaultWeights": {
+            "e4": 0.01
+          }
+        },
+        {
+          "step": 5,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 6,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 7,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "nonDefaultWeights": {
+            "e2": 0.01
+          }
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#campaign",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "scroll",
+              "direction": "down"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 17244.519699999997,
+        "uiMs": 281.7205000000067,
+        "elapsedMs": 19718.5041,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "notifications-r1-reason",
+      "scenario": "notifications",
+      "replicate": 1,
+      "condition": "reason",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 6,
+      "decisions": 7,
+      "looks": 0,
+      "requests": 14,
+      "policyChanges": 1,
+      "captures": [
+        {
+          "step": 4,
+          "identity": {
+            "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+            "candidateId": "e4",
+            "fromObservationId": "o1",
+            "toObservationId": "o4"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        }
+      ],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 2,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 3,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 4,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "nonDefaultWeights": {
+            "e4": 0.01
+          }
+        },
+        {
+          "step": 5,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 6,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 7,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#campaign",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e5"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#other",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/bad/#other",
+            "to": "/bad/#preferences",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/bad/#preferences",
+            "to": "/bad/#preferences",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 15668.09379999998,
+        "uiMs": 292.0661000000109,
+        "elapsedMs": 18183.6003,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-alpha-r1-reason",
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "condition": "reason",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "requests": 20,
+      "policyChanges": 1,
+      "captures": [
+        {
+          "step": 3,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "category": "prerequisite",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+          },
+          "admitted": true,
+          "captureProvenance": {
+            "kind": "excursion-evidence",
+            "negativeEvidence": [
+              {
+                "observationId": "o3",
+                "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21"
+              }
+            ],
+            "excursionEvidence": [
+              {
+                "observationId": "o2",
+                "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+              }
+            ]
+          },
+          "adjustments": []
+        },
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e3",
+            "fromObservationId": "o3",
+            "toObservationId": "o6"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NOT_LEARNED",
+            "REVIEW_0_NO_ADMITTED_NEW_EVIDENCE"
+          ]
+        },
+        {
+          "step": 7,
+          "identity": {
+            "imageSha256": "91ecdfe084b891123b9803d49f8baa9d7dcec8a315f4c49d33d415ae6cf66e4b",
+            "candidateId": "e1",
+            "fromObservationId": "o5",
+            "toObservationId": "o7"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        },
+        {
+          "step": 8,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e3",
+            "fromObservationId": "o6",
+            "toObservationId": "o8"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS"
+          ]
+        }
+      ],
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "still_blocks",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+          },
+          "released": false
+        },
+        {
+          "step": 8,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+          },
+          "newEvidence": {
+            "observationId": "o7",
+            "imageSha256": "91ecdfe084b891123b9803d49f8baa9d7dcec8a315f4c49d33d415ae6cf66e4b"
+          },
+          "released": true
+        }
+      ],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 2,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 3,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "nonDefaultWeights": {
+            "e2": 0.01
+          }
+        },
+        {
+          "step": 4,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 5,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 6,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "nonDefaultWeights": {
+            "e2": 0.01
+          }
+        },
+        {
+          "step": 7,
+          "reason": "ALTERNATIVES_EXHAUSTED",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [
+            "e1"
+          ],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 8,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "nonDefaultWeights": {
+            "e3": 0.01
+          }
+        },
+        {
+          "step": 9,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 10,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 8,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 9,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 20999.830599999972,
+        "uiMs": 485.4861000000237,
+        "elapsedMs": 24233.906599999995,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-alpha-r1-old",
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "condition": "old",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 7,
+      "decisions": 8,
+      "looks": 0,
+      "requests": 16,
+      "policyChanges": 0,
+      "captures": [
+        {
+          "step": 3,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_BASIS_NOT_MATCHING_LEARNED_EVIDENCE"
+          ]
+        },
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e3",
+            "fromObservationId": "o3",
+            "toObservationId": "o6"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        }
+      ],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2",
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 2,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 3,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "nonDefaultWeights": {
+            "e2": 0.01
+          }
+        },
+        {
+          "step": 4,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 5,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 6,
+          "reason": "ALTERNATIVES_EXHAUSTED",
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2",
+            "e3"
+          ],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 7,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 8,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 16152.906199999969,
+        "uiMs": 364.02599999998347,
+        "elapsedMs": 18758.710000000006,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-beta-r1-old",
+      "scenario": "revisit-beta",
+      "replicate": 1,
+      "condition": "old",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "requests": 20,
+      "policyChanges": 1,
+      "captures": [
+        {
+          "step": 3,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "category": "prerequisite",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "admitted": true,
+          "adjustments": []
+        },
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e4",
+            "fromObservationId": "o3",
+            "toObservationId": "o6"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NOT_LEARNED",
+            "REVIEW_0_NO_ADMITTED_NEW_EVIDENCE"
+          ]
+        },
+        {
+          "step": 7,
+          "identity": {
+            "imageSha256": "4de865b79f05755eebc087f8e1741a1f78542897bfb0a70c5968f6671c882d8f",
+            "candidateId": "e1",
+            "fromObservationId": "o5",
+            "toObservationId": "o7"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        },
+        {
+          "step": 8,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e4",
+            "fromObservationId": "o6",
+            "toObservationId": "o8"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_BASIS_NOT_MATCHING_LEARNED_EVIDENCE",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        }
+      ],
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "released": false
+        },
+        {
+          "step": 8,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "newEvidence": {
+            "observationId": "o7",
+            "imageSha256": "4de865b79f05755eebc087f8e1741a1f78542897bfb0a70c5968f6671c882d8f"
+          },
+          "released": true
+        }
+      ],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 2,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 3,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "nonDefaultWeights": {
+            "e3": 0.01
+          }
+        },
+        {
+          "step": 4,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 5,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 6,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "nonDefaultWeights": {
+            "e3": 0.01
+          }
+        },
+        {
+          "step": 7,
+          "reason": "ALTERNATIVES_EXHAUSTED",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [
+            "e1"
+          ],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 8,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "nonDefaultWeights": {
+            "e4": 0.01
+          }
+        },
+        {
+          "step": 9,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 10,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 8,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 9,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 22716.557600000044,
+        "uiMs": 1042.7883000000002,
+        "elapsedMs": 26648.31290000002,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-beta-r1-reason",
+      "scenario": "revisit-beta",
+      "replicate": 1,
+      "condition": "reason",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "requests": 20,
+      "policyChanges": 1,
+      "captures": [
+        {
+          "step": 3,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "category": "prerequisite",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "admitted": true,
+          "captureProvenance": {
+            "kind": "excursion-evidence",
+            "negativeEvidence": [
+              {
+                "observationId": "o2",
+                "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+              },
+              {
+                "observationId": "o3",
+                "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d"
+              }
+            ],
+            "excursionEvidence": [
+              {
+                "observationId": "o2",
+                "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+              }
+            ]
+          },
+          "adjustments": []
+        },
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e4",
+            "fromObservationId": "o3",
+            "toObservationId": "o6"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NOT_LEARNED",
+            "REVIEW_0_NO_ADMITTED_NEW_EVIDENCE"
+          ]
+        },
+        {
+          "step": 7,
+          "identity": {
+            "imageSha256": "4de865b79f05755eebc087f8e1741a1f78542897bfb0a70c5968f6671c882d8f",
+            "candidateId": "e1",
+            "fromObservationId": "o5",
+            "toObservationId": "o7"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        },
+        {
+          "step": 8,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e4",
+            "fromObservationId": "o6",
+            "toObservationId": "o8"
+          },
+          "category": "unknown",
+          "basis": {
+            "observationId": "o7",
+            "imageSha256": "4de865b79f05755eebc087f8e1741a1f78542897bfb0a70c5968f6671c882d8f"
+          },
+          "admitted": true,
+          "captureProvenance": {
+            "kind": "excursion-evidence",
+            "negativeEvidence": [
+              {
+                "observationId": "o7",
+                "imageSha256": "4de865b79f05755eebc087f8e1741a1f78542897bfb0a70c5968f6671c882d8f"
+              },
+              {
+                "observationId": "o8",
+                "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d"
+              }
+            ],
+            "excursionEvidence": [
+              {
+                "observationId": "o7",
+                "imageSha256": "4de865b79f05755eebc087f8e1741a1f78542897bfb0a70c5968f6671c882d8f"
+              }
+            ]
+          },
+          "adjustments": [
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        }
+      ],
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "released": false
+        },
+        {
+          "step": 8,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "newEvidence": {
+            "observationId": "o7",
+            "imageSha256": "4de865b79f05755eebc087f8e1741a1f78542897bfb0a70c5968f6671c882d8f"
+          },
+          "released": true
+        }
+      ],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 2,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 3,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "nonDefaultWeights": {
+            "e3": 0.01
+          }
+        },
+        {
+          "step": 4,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 5,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 6,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "nonDefaultWeights": {
+            "e3": 0.01
+          }
+        },
+        {
+          "step": 7,
+          "reason": "ALTERNATIVES_EXHAUSTED",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [
+            "e1"
+          ],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 8,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "nonDefaultWeights": {
+            "e4": 0.01
+          }
+        },
+        {
+          "step": 9,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 10,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 8,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 9,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 22525.70980000001,
+        "uiMs": 488.196900000039,
+        "elapsedMs": 25665.7322,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "notifications-r2-reason",
+      "scenario": "notifications",
+      "replicate": 2,
+      "condition": "reason",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "success": false,
+      "termination": "STUCK",
+      "perceivedDone": false,
+      "uiActions": 6,
+      "decisions": 7,
+      "looks": 0,
+      "requests": 14,
+      "policyChanges": 2,
+      "captures": [
+        {
+          "step": 4,
+          "identity": {
+            "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+            "candidateId": "e4",
+            "fromObservationId": "o1",
+            "toObservationId": "o4"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        },
+        {
+          "step": 7,
+          "identity": {
+            "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+            "candidateId": "e2",
+            "fromObservationId": "o3",
+            "toObservationId": "o7"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        }
+      ],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 2,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 3,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 4,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "nonDefaultWeights": {
+            "e4": 0.01
+          }
+        },
+        {
+          "step": 5,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 6,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 7,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "nonDefaultWeights": {
+            "e2": 0.01
+          }
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#campaign",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "scroll",
+              "direction": "down"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 16010.669200000004,
+        "uiMs": 307.9039000000048,
+        "elapsedMs": 18430.43220000001,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "notifications-r2-old",
+      "scenario": "notifications",
+      "replicate": 2,
+      "condition": "old",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "success": false,
+      "termination": "STUCK",
+      "perceivedDone": false,
+      "uiActions": 6,
+      "decisions": 7,
+      "looks": 0,
+      "requests": 14,
+      "policyChanges": 2,
+      "captures": [
+        {
+          "step": 4,
+          "identity": {
+            "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+            "candidateId": "e4",
+            "fromObservationId": "o1",
+            "toObservationId": "o4"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        },
+        {
+          "step": 7,
+          "identity": {
+            "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+            "candidateId": "e2",
+            "fromObservationId": "o3",
+            "toObservationId": "o7"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        }
+      ],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 2,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 3,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 4,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "nonDefaultWeights": {
+            "e4": 0.01
+          }
+        },
+        {
+          "step": 5,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 6,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 7,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "nonDefaultWeights": {
+            "e2": 0.01
+          }
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#campaign",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "scroll",
+              "direction": "down"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 15546.401499999949,
+        "uiMs": 315.02449999997043,
+        "elapsedMs": 17986.507799999992,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-alpha-r2-old",
+      "scenario": "revisit-alpha",
+      "replicate": 2,
+      "condition": "old",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 7,
+      "decisions": 8,
+      "looks": 0,
+      "requests": 16,
+      "policyChanges": 0,
+      "captures": [
+        {
+          "step": 3,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_BASIS_NOT_MATCHING_LEARNED_EVIDENCE"
+          ]
+        },
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e3",
+            "fromObservationId": "o3",
+            "toObservationId": "o6"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        }
+      ],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 2,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 3,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "nonDefaultWeights": {
+            "e2": 0.01
+          }
+        },
+        {
+          "step": 4,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 5,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 6,
+          "reason": "ALTERNATIVES_EXHAUSTED",
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2",
+            "e3"
+          ],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 7,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 8,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 15897.961499999976,
+        "uiMs": 396.07150000002,
+        "elapsedMs": 18543.2347,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-alpha-r2-reason",
+      "scenario": "revisit-alpha",
+      "replicate": 2,
+      "condition": "reason",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "requests": 20,
+      "policyChanges": 1,
+      "captures": [
+        {
+          "step": 3,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "category": "prerequisite",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+          },
+          "admitted": true,
+          "captureProvenance": {
+            "kind": "excursion-evidence",
+            "negativeEvidence": [
+              {
+                "observationId": "o3",
+                "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21"
+              }
+            ],
+            "excursionEvidence": [
+              {
+                "observationId": "o2",
+                "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+              }
+            ]
+          },
+          "adjustments": []
+        },
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e3",
+            "fromObservationId": "o3",
+            "toObservationId": "o6"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NOT_LEARNED",
+            "REVIEW_0_NO_ADMITTED_NEW_EVIDENCE"
+          ]
+        },
+        {
+          "step": 7,
+          "identity": {
+            "imageSha256": "91ecdfe084b891123b9803d49f8baa9d7dcec8a315f4c49d33d415ae6cf66e4b",
+            "candidateId": "e1",
+            "fromObservationId": "o5",
+            "toObservationId": "o7"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        },
+        {
+          "step": 8,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e3",
+            "fromObservationId": "o6",
+            "toObservationId": "o8"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_BASIS_NOT_MATCHING_LEARNED_EVIDENCE"
+          ]
+        }
+      ],
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+          },
+          "released": false
+        },
+        {
+          "step": 8,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+          },
+          "newEvidence": {
+            "observationId": "o7",
+            "imageSha256": "91ecdfe084b891123b9803d49f8baa9d7dcec8a315f4c49d33d415ae6cf66e4b"
+          },
+          "released": true
+        }
+      ],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2",
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 2,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 3,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "nonDefaultWeights": {
+            "e2": 0.01
+          }
+        },
+        {
+          "step": 4,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 5,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 6,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "nonDefaultWeights": {
+            "e2": 0.01
+          }
+        },
+        {
+          "step": 7,
+          "reason": "ALTERNATIVES_EXHAUSTED",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [
+            "e1"
+          ],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 8,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "nonDefaultWeights": {
+            "e3": 0.01
+          }
+        },
+        {
+          "step": 9,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 10,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 8,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 9,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 21015.88889999996,
+        "uiMs": 497.66809999995166,
+        "elapsedMs": 24257.653499999957,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-beta-r2-reason",
+      "scenario": "revisit-beta",
+      "replicate": 2,
+      "condition": "reason",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 7,
+      "decisions": 8,
+      "looks": 0,
+      "requests": 16,
+      "policyChanges": 0,
+      "captures": [
+        {
+          "step": 3,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "category": "prerequisite",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "admitted": true,
+          "captureProvenance": {
+            "kind": "excursion-evidence",
+            "negativeEvidence": [
+              {
+                "observationId": "o2",
+                "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+              },
+              {
+                "observationId": "o3",
+                "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d"
+              }
+            ],
+            "excursionEvidence": [
+              {
+                "observationId": "o2",
+                "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+              }
+            ]
+          },
+          "adjustments": []
+        },
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e4",
+            "fromObservationId": "o3",
+            "toObservationId": "o6"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_BASIS_NOT_MATCHING_LEARNED_EVIDENCE",
+            "REVIEW_0_NO_ADMITTED_NEW_EVIDENCE"
+          ]
+        }
+      ],
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "released": false
+        }
+      ],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 2,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 3,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e1",
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "nonDefaultWeights": {
+            "e3": 0.01
+          }
+        },
+        {
+          "step": 4,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 5,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 6,
+          "reason": "ALTERNATIVES_EXHAUSTED",
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3",
+            "e4"
+          ],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 7,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 8,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 16974.171599999827,
+        "uiMs": 392.97710000013467,
+        "elapsedMs": 19704.914900000033,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-beta-r2-old",
+      "scenario": "revisit-beta",
+      "replicate": 2,
+      "condition": "old",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "requests": 20,
+      "policyChanges": 1,
+      "captures": [
+        {
+          "step": 3,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "category": "prerequisite",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "admitted": true,
+          "adjustments": []
+        },
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e4",
+            "fromObservationId": "o3",
+            "toObservationId": "o6"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NOT_LEARNED",
+            "REVIEW_0_NO_ADMITTED_NEW_EVIDENCE"
+          ]
+        },
+        {
+          "step": 7,
+          "identity": {
+            "imageSha256": "4de865b79f05755eebc087f8e1741a1f78542897bfb0a70c5968f6671c882d8f",
+            "candidateId": "e1",
+            "fromObservationId": "o5",
+            "toObservationId": "o7"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        },
+        {
+          "step": 8,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e4",
+            "fromObservationId": "o6",
+            "toObservationId": "o8"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_BASIS_NOT_MATCHING_LEARNED_EVIDENCE"
+          ]
+        }
+      ],
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "released": false
+        },
+        {
+          "step": 8,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "newEvidence": {
+            "observationId": "o7",
+            "imageSha256": "4de865b79f05755eebc087f8e1741a1f78542897bfb0a70c5968f6671c882d8f"
+          },
+          "released": true
+        }
+      ],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 2,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 3,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "nonDefaultWeights": {
+            "e3": 0.01
+          }
+        },
+        {
+          "step": 4,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 5,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 6,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "nonDefaultWeights": {
+            "e3": 0.01
+          }
+        },
+        {
+          "step": 7,
+          "reason": "ALTERNATIVES_EXHAUSTED",
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [
+            "e1"
+          ],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 8,
+          "reason": "DEFER_WITH_ALTERNATIVES",
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "nonDefaultWeights": {
+            "e4": 0.01
+          }
+        },
+        {
+          "step": 9,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        },
+        {
+          "step": 10,
+          "reason": "NO_DEFERRED_CANDIDATE",
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "nonDefaultWeights": {}
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 8,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 9,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 21745.07790000009,
+        "uiMs": 470.4704999998794,
+        "elapsedMs": 24893.442499999946,
+        "humanTimeMs": null
+      }
+    }
+  ],
+  "limitations": [
+    "Two replicates per scenario and condition are descriptive, with no reliability or generalization estimate.",
+    "Model reason captures and reviews are self-reports. Actual release records and actual selected actions remain separate.",
+    "Images establish input equality only, not semantic identity or goal equivalence.",
+    "Only a subsequent audited observation establishes a performed action destination.",
+    "Mock scripted done output is a connectivity check and supplies no performance evidence.",
+    "Source, initial image, goal, persona, and config are paired with only config id and deferralReason.basisAdmission excluded."
+  ]
+}

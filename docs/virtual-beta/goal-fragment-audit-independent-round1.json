@@ -1,0 +1,307 @@
+{
+  "status": "CHANGES_REQUESTED",
+  "frozenTarget": "f3836ce09e2afd080e84da7016b59a132fb311ac",
+  "analyzerSha256": "8f204eb89c9398656d23c93a976470a80e1edf07fa499019491fe34aac2edd6c",
+  "rubricSha256": "804db69bb7c58806b7f4f5df3e0fb650fc01f1ae086e9373b54f56f20ced4e29",
+  "producer": {
+    "revision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+    "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186"
+  },
+  "current": {
+    "revision": "f3836ce09e2afd080e84da7016b59a132fb311ac",
+    "sourceHash": "1b8c483b2b89c4f9fea113d2529d902ace425ec1a2a75e207109affa81b084c9",
+    "sourceFiles": 122
+  },
+  "validation": {
+    "developer": {
+      "tests": 30,
+      "pass": 30,
+      "fail": 0,
+      "exitCode": 0,
+      "log": "independent-developer-tests.txt"
+    },
+    "independent": {
+      "tests": 35,
+      "pass": 28,
+      "fail": 7,
+      "exitCode": 1,
+      "log": "independent-adversarial-tests-round1.txt"
+    },
+    "normalCLI": {
+      "exitCode": 0,
+      "report": "independent-cli-audit-round1.json",
+      "replay": {
+        "runId": "notifications-r1-reason",
+        "choices": 10,
+        "assessments": 10,
+        "images": 66,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      }
+    },
+    "baselineRaw121Unchanged": true,
+    "priorRaw214Unchanged": true,
+    "unionRaw215Unchanged": true,
+    "sourceAndModulesUnchanged": true,
+    "baselineProductDiff": "git diff --name-only b51b26a29d4700900305eb8350bd5a5e1f1ebcdf HEAD -- app pages jev runner package.json package-lock.json tests/goals.ts index.html: empty"
+  },
+  "actualSavedRun": {
+    "frames": 10,
+    "selections": [
+      {
+        "id": "g1",
+        "selections": {
+          "context": 10
+        },
+        "conflicts": 0
+      },
+      {
+        "id": "g2",
+        "selections": {
+          "context": 10
+        },
+        "conflicts": 10
+      },
+      {
+        "id": "g3",
+        "selections": {
+          "not_shown": 10
+        },
+        "conflicts": 0
+      }
+    ],
+    "wholeGoalRawUnsatisfied": 10,
+    "wholeGoalAdmittedUncertain": 10,
+    "allFourStoredGoalFieldsPreserved": true,
+    "assessmentResponseRecorded": 10,
+    "actionResponseRecorded": 10,
+    "faultSteps": [
+      {
+        "step": 11,
+        "responseEvidence": {
+          "assessmentResponseRecorded": false,
+          "actionResponseRecorded": false
+        },
+        "outcome": "ASSESSMENT_ERROR",
+        "assessmentResponsePresent": false,
+        "currentRecordPresent": false,
+        "carriedMemoryEntryCount": 8,
+        "error": {
+          "code": "HTTP_ERROR",
+          "statusCode": 402
+        },
+        "goalPreservation": {
+          "assessmentGoal": true,
+          "assessmentCharterGoal": true,
+          "actionGoal": true,
+          "actionCharterGoal": true
+        }
+      }
+    ],
+    "framesWithIssues": 0,
+    "rubricMeaning": "Parent-AI-authored, not human-validated ground truth; conflicts are not semantic accuracy.",
+    "noContradiction": "AVAILABLE means saved classifications are available; framesWithIssues=0 concerns implemented consistency diagnostics, neither establishes semantic accuracy."
+  },
+  "findings": [
+    {
+      "id": "P2-1",
+      "severity": "P2",
+      "title": "Pure audit omits action-side current image provenance checks",
+      "location": "docs/experiments/2026-10-29-goal-fragment-audit.ts:74",
+      "repro": "Run tests/goal-fragment-audit-independent.test.ts lines34-35; change action modelInput.observation.id or action assetFiles.current.sha256 only.",
+      "expected": "Expose action source divergence in consistency/issues.",
+      "actual": "sourceMatchesCurrent=true, all consistency=true, issues=[], framesWithIssues=0.",
+      "evidence": [
+        "actionObservation",
+        "actionAsset"
+      ],
+      "impact": "Exported pure audit can report zero consistency issues while prepared action input points at a different observation/image. Normal replay wrapper performs stronger admission; actual saved run remains consistent."
+    },
+    {
+      "id": "P2-2",
+      "severity": "P2",
+      "title": "Equal memory copies bypass record/memory structural validity",
+      "location": "docs/experiments/2026-10-29-goal-fragment-audit.ts:75",
+      "repro": "Run independent tests lines36-39: alter current record kind/scope and copied entries together, memory schemaVersion99 in all copies, or prepend malformed carried entry to each copy.",
+      "expected": "Validate current and carried record kind/scope and memory schema independently of equality and surface malformed data.",
+      "actual": "All variants retain issues=[] and framesWithIssues=0; malformed scope is echoed as all-history.",
+      "evidence": [
+        "recordKind",
+        "recordScope",
+        "memorySchema",
+        "carriedMemory"
+      ],
+      "impact": "The pure function equates identical copies with valid memory structure, allowing unsupported record meaning to look clean. Does not show corruption of the original live files."
+    },
+    {
+      "id": "P2-3",
+      "severity": "P2",
+      "title": "Invalid admitted whole-Goal status is silently accepted",
+      "location": "docs/experiments/2026-10-29-goal-fragment-audit.ts:88",
+      "repro": "Run independent test line40; set deliberation.assessment.goal=alien.",
+      "expected": "Keep raw and admitted fields separate, validate admitted status enum, and flag malformed admitted Goal without requiring equality to raw.",
+      "actual": "wholeGoal.admittedChoice=alien; issues=[]; framesWithIssues=0.",
+      "evidence": [
+        "admittedGoal"
+      ],
+      "impact": "Unsupported admitted whole-Goal values are presented without a diagnostic in the pure audit. The real raw unsatisfied/admitted uncertain distinction is legitimate and retained."
+    }
+  ],
+  "reproEvidence": [
+    {
+      "case": "actionObservation",
+      "classification": {
+        "status": "AVAILABLE",
+        "classifiedFrames": 1,
+        "unclassifiedSteps": 0,
+        "interpretation": "Current saved responses only; carried memory is not a new classification."
+      },
+      "framesWithIssues": 0,
+      "issues": [],
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "scope": "delivered-current-view-only",
+      "admittedChoice": "uncertain"
+    },
+    {
+      "case": "actionAsset",
+      "classification": {
+        "status": "AVAILABLE",
+        "classifiedFrames": 1,
+        "unclassifiedSteps": 0,
+        "interpretation": "Current saved responses only; carried memory is not a new classification."
+      },
+      "framesWithIssues": 0,
+      "issues": [],
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "scope": "delivered-current-view-only",
+      "admittedChoice": "uncertain"
+    },
+    {
+      "case": "recordKind",
+      "classification": {
+        "status": "AVAILABLE",
+        "classifiedFrames": 1,
+        "unclassifiedSteps": 0,
+        "interpretation": "Current saved responses only; carried memory is not a new classification."
+      },
+      "framesWithIssues": 0,
+      "issues": [],
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "scope": "delivered-current-view-only",
+      "admittedChoice": "uncertain"
+    },
+    {
+      "case": "recordScope",
+      "classification": {
+        "status": "AVAILABLE",
+        "classifiedFrames": 1,
+        "unclassifiedSteps": 0,
+        "interpretation": "Current saved responses only; carried memory is not a new classification."
+      },
+      "framesWithIssues": 0,
+      "issues": [],
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "scope": "all-history",
+      "admittedChoice": "uncertain"
+    },
+    {
+      "case": "memorySchema",
+      "classification": {
+        "status": "AVAILABLE",
+        "classifiedFrames": 1,
+        "unclassifiedSteps": 0,
+        "interpretation": "Current saved responses only; carried memory is not a new classification."
+      },
+      "framesWithIssues": 0,
+      "issues": [],
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "scope": "delivered-current-view-only",
+      "admittedChoice": "uncertain"
+    },
+    {
+      "case": "carriedMemory",
+      "classification": {
+        "status": "AVAILABLE",
+        "classifiedFrames": 1,
+        "unclassifiedSteps": 0,
+        "interpretation": "Current saved responses only; carried memory is not a new classification."
+      },
+      "framesWithIssues": 0,
+      "issues": [],
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "scope": "delivered-current-view-only",
+      "admittedChoice": "uncertain"
+    },
+    {
+      "case": "admittedGoal",
+      "classification": {
+        "status": "AVAILABLE",
+        "classifiedFrames": 1,
+        "unclassifiedSteps": 0,
+        "interpretation": "Current saved responses only; carried memory is not a new classification."
+      },
+      "framesWithIssues": 0,
+      "issues": [],
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "scope": "delivered-current-view-only",
+      "admittedChoice": "alien"
+    }
+  ],
+  "scope": "Read-only offline saved fictional notifications; no API/network, model resend, UI, environment/credential or human-record access.",
+  "unverified": [
+    "Actual request transmission cannot be established from prepared input fields. Missing response does not establish no transmission.",
+    "Semantic accuracy, rendered-view correctness, causality, human fidelity and behavior improvement were not evaluated.",
+    "Original E live-report path is absent (ENOENT); supplied C baseline121 and prior214 snapshots were used. No original E writes were made.",
+    "Full build and broad product regressions are parent-owned and were not run by this verifier.",
+    "Normal wrapper rejection of each individually corrupted real-run clone was not executed; wrapper replay validation is separately verified on real saved run and a malformed synthetic replay."
+  ]
+}

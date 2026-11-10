@@ -1,0 +1,402 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Terminal ordinary CLI mock-round2 supplemental verification only. Saved-frame consistency and mock service wiring, not real API delivery or human naturalness.",
+  "sourceHash": "9f1dc69815b16cfc0eaaec9e5e1386afebb024dd66561e7e1aef29923b511365",
+  "manifestSha256": "1c45e2147777e18c608d9a28611bc5602611bb07d40bf9f1c9d0b0ef793867c1",
+  "summarySha256": "84b973affa22a2ccbd63202d0538c483949d72963f82ad3235397b1358649cc5",
+  "mock": true,
+  "attempted": 8,
+  "valid": 8,
+  "invalid": 0,
+  "missing": 0,
+  "chargedRequests": 0,
+  "replaysVerified": 8,
+  "frameChecksVerified": 16,
+  "pairs": [
+    {
+      "task": "library",
+      "replicate": 1,
+      "initialImageMatched": true,
+      "firstVisualRequestAndAssetsMatched": true,
+      "firstAssessmentInputQuestionsAssetsMatched": true,
+      "firstActionInputQuestionsAssetsMatched": true
+    },
+    {
+      "task": "workshop",
+      "replicate": 1,
+      "initialImageMatched": true,
+      "firstVisualRequestAndAssetsMatched": true,
+      "firstAssessmentInputQuestionsAssetsMatched": true,
+      "firstActionInputQuestionsAssetsMatched": true
+    },
+    {
+      "task": "library",
+      "replicate": 2,
+      "initialImageMatched": true,
+      "firstVisualRequestAndAssetsMatched": true,
+      "firstAssessmentInputQuestionsAssetsMatched": true,
+      "firstActionInputQuestionsAssetsMatched": true
+    },
+    {
+      "task": "workshop",
+      "replicate": 2,
+      "initialImageMatched": true,
+      "firstVisualRequestAndAssetsMatched": true,
+      "firstAssessmentInputQuestionsAssetsMatched": true,
+      "firstActionInputQuestionsAssetsMatched": true
+    }
+  ],
+  "checks": [
+    {
+      "sequence": 1,
+      "actor": "experience-inquiry-policy-off",
+      "runId": "5c07e5c6-4a9b-4565-8757-330746335868-1",
+      "resultSha256": "574db905de1478e89c7497da1846a81c58695be7305d697f2f440d32dcc2d178",
+      "replay": {
+        "runId": "5c07e5c6-4a9b-4565-8757-330746335868-1",
+        "choices": 1,
+        "assessments": 1,
+        "images": 2,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": [
+        {
+          "step": 1,
+          "stage": "assessment",
+          "observationId": "o1",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        },
+        {
+          "step": 1,
+          "stage": "action",
+          "observationId": "o1",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        }
+      ],
+      "steps": 1,
+      "termination": "SUBJECTIVE_DONE",
+      "recordedAPIStages": 3,
+      "chargedRequests": 0
+    },
+    {
+      "sequence": 2,
+      "actor": "experience-inquiry-policy-on",
+      "runId": "5c07e5c6-4a9b-4565-8757-330746335868-2",
+      "resultSha256": "bb49d862e212e017af72dc707fb933d6100dd431d1118c46737ac59981defe28",
+      "replay": {
+        "runId": "5c07e5c6-4a9b-4565-8757-330746335868-2",
+        "choices": 1,
+        "assessments": 1,
+        "images": 2,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": [
+        {
+          "step": 1,
+          "stage": "assessment",
+          "observationId": "o1",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        },
+        {
+          "step": 1,
+          "stage": "action",
+          "observationId": "o1",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        }
+      ],
+      "steps": 1,
+      "termination": "SUBJECTIVE_DONE",
+      "recordedAPIStages": 3,
+      "chargedRequests": 0
+    },
+    {
+      "sequence": 3,
+      "actor": "experience-inquiry-policy-on",
+      "runId": "5c07e5c6-4a9b-4565-8757-330746335868-3",
+      "resultSha256": "2172ae79f7a39cf0fdffe470a5ccf2facaa2d2a32a5421210819cf48bc67c812",
+      "replay": {
+        "runId": "5c07e5c6-4a9b-4565-8757-330746335868-3",
+        "choices": 1,
+        "assessments": 1,
+        "images": 2,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": [
+        {
+          "step": 1,
+          "stage": "assessment",
+          "observationId": "o1",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        },
+        {
+          "step": 1,
+          "stage": "action",
+          "observationId": "o1",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        }
+      ],
+      "steps": 1,
+      "termination": "SUBJECTIVE_DONE",
+      "recordedAPIStages": 3,
+      "chargedRequests": 0
+    },
+    {
+      "sequence": 4,
+      "actor": "experience-inquiry-policy-off",
+      "runId": "5c07e5c6-4a9b-4565-8757-330746335868-4",
+      "resultSha256": "25861582693d0ab0747257d76f044bb70079dc0e4a96373fda4b394c1ccddcd7",
+      "replay": {
+        "runId": "5c07e5c6-4a9b-4565-8757-330746335868-4",
+        "choices": 1,
+        "assessments": 1,
+        "images": 2,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": [
+        {
+          "step": 1,
+          "stage": "assessment",
+          "observationId": "o1",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        },
+        {
+          "step": 1,
+          "stage": "action",
+          "observationId": "o1",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        }
+      ],
+      "steps": 1,
+      "termination": "SUBJECTIVE_DONE",
+      "recordedAPIStages": 3,
+      "chargedRequests": 0
+    },
+    {
+      "sequence": 5,
+      "actor": "experience-inquiry-policy-on",
+      "runId": "5c07e5c6-4a9b-4565-8757-330746335868-5",
+      "resultSha256": "80874ee9be7758e3f22cc087ce15dea1de5d0a2b8594521f49a6810bfa0ed9b9",
+      "replay": {
+        "runId": "5c07e5c6-4a9b-4565-8757-330746335868-5",
+        "choices": 1,
+        "assessments": 1,
+        "images": 2,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": [
+        {
+          "step": 1,
+          "stage": "assessment",
+          "observationId": "o1",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        },
+        {
+          "step": 1,
+          "stage": "action",
+          "observationId": "o1",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        }
+      ],
+      "steps": 1,
+      "termination": "SUBJECTIVE_DONE",
+      "recordedAPIStages": 3,
+      "chargedRequests": 0
+    },
+    {
+      "sequence": 6,
+      "actor": "experience-inquiry-policy-off",
+      "runId": "5c07e5c6-4a9b-4565-8757-330746335868-6",
+      "resultSha256": "52660916e17c3df11019dc1645c17da7731dcf9616ac8e697807f3d7effb669c",
+      "replay": {
+        "runId": "5c07e5c6-4a9b-4565-8757-330746335868-6",
+        "choices": 1,
+        "assessments": 1,
+        "images": 2,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": [
+        {
+          "step": 1,
+          "stage": "assessment",
+          "observationId": "o1",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        },
+        {
+          "step": 1,
+          "stage": "action",
+          "observationId": "o1",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        }
+      ],
+      "steps": 1,
+      "termination": "SUBJECTIVE_DONE",
+      "recordedAPIStages": 3,
+      "chargedRequests": 0
+    },
+    {
+      "sequence": 7,
+      "actor": "experience-inquiry-policy-off",
+      "runId": "5c07e5c6-4a9b-4565-8757-330746335868-7",
+      "resultSha256": "7f034e7b65ff28e48d7e4356c0393014a66b10d4a002dc837fef4ad848bfdf6c",
+      "replay": {
+        "runId": "5c07e5c6-4a9b-4565-8757-330746335868-7",
+        "choices": 1,
+        "assessments": 1,
+        "images": 2,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": [
+        {
+          "step": 1,
+          "stage": "assessment",
+          "observationId": "o1",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        },
+        {
+          "step": 1,
+          "stage": "action",
+          "observationId": "o1",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        }
+      ],
+      "steps": 1,
+      "termination": "SUBJECTIVE_DONE",
+      "recordedAPIStages": 3,
+      "chargedRequests": 0
+    },
+    {
+      "sequence": 8,
+      "actor": "experience-inquiry-policy-on",
+      "runId": "5c07e5c6-4a9b-4565-8757-330746335868-8",
+      "resultSha256": "4edf8880ddbc7601ac4f7d572bedbe0f1b209c6f0c8c3a605226707d80cfc58d",
+      "replay": {
+        "runId": "5c07e5c6-4a9b-4565-8757-330746335868-8",
+        "choices": 1,
+        "assessments": 1,
+        "images": 2,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "frameChecks": [
+        {
+          "step": 1,
+          "stage": "assessment",
+          "observationId": "o1",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        },
+        {
+          "step": 1,
+          "stage": "action",
+          "observationId": "o1",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "validCurrentFrame": true,
+          "successfulResponse": true,
+          "scope": "full-viewport-current"
+        }
+      ],
+      "steps": 1,
+      "termination": "SUBJECTIVE_DONE",
+      "recordedAPIStages": 3,
+      "chargedRequests": 0
+    }
+  ],
+  "motion": {
+    "overall": {
+      "runs": 8,
+      "withResult": 8,
+      "steps": 8,
+      "recordedInputs": 8,
+      "verifiedDeliveredInputs": 8,
+      "deliveryUnverifiedInputs": 0,
+      "unobservedFrames": 0,
+      "observedUIActions": 0,
+      "selectionRecords": 8,
+      "baselineMeasured": 8,
+      "applicationMeasured": 8,
+      "deferralChanges": 0,
+      "deferralAttributionUnmeasured": 0,
+      "modelChoiceDifferences": 0,
+      "baselineDifferences": 0,
+      "mandatoryAdjustmentSteps": 0,
+      "verifiedABAB": 0,
+      "recordedABAB": 0,
+      "sameFrameControlRetries": 0,
+      "immediateSameFrameRetries": 0,
+      "integrityErrors": 0
+    },
+    "integrity": {
+      "ok": true,
+      "errors": []
+    }
+  },
+  "sealedGatesPreserved": [
+    {
+      "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\deferral-ablation-2026-11-05\\independent-code-round2\\gate.json",
+      "sha256": "f7e912315c1d1bde5b4dcecdf37094dd12b312b7034fa0b0351800cefb882873"
+    },
+    {
+      "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\deferral-ablation-2026-11-05\\independent-code\\gate.json",
+      "sha256": "4e49ef8ef7019a3e553cd5b382ed2c09cb132c184be08a396b228f9a06a9d7ec"
+    }
+  ],
+  "protectedTerminalFilesUnchanged": 13,
+  "limitations": [
+    "All eight mocks immediately selected done on their sole decision; no learned nonunit weight application or multi-step motion is exercised by this mock. Those behaviors are covered by the independent code gate and fictional integration challenges.",
+    "Zero charged requests is distinct from stored mock API stage counters.",
+    "Matching successful saved frame checks validate offline asset/response consistency and do not establish real network delivery.",
+    "No API calls, credential/environment reads, prior participant payload reads or product edits."
+  ]
+}

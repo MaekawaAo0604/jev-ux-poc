@@ -1,0 +1,248 @@
+{
+  "status": "PASS_FINAL_PUBLICATION_DELTA_AUDIT",
+  "kind": "EXACT_COPY_AND_DOCUMENTATION_DELTA_VERIFICATION",
+  "reviewer": "independent-ai-agent",
+  "publicationFiles": 30,
+  "previousPublication26": {
+    "immutable20Unchanged": true,
+    "changedOnlyAuthorizedDocs6": [
+      "docs/superpowers/plans/2026-10-30-visual-conditions.md",
+      "docs/virtual-beta/README.md",
+      "docs/virtual-beta/research.md",
+      "docs/virtual-beta/tasks.md",
+      "docs/virtual-beta/visual-conditions-independent-review.md",
+      "docs/virtual-beta/visual-conditions.md"
+    ],
+    "original15PNGsAndOld18ResultsAndOldAuditEvidenceRetained": true
+  },
+  "newFiles": {
+    "runtimeReview": {
+      "file": "docs/virtual-beta/visual-conditions-runtime-review.json",
+      "exactSHA256": "76a274957a9ea8ee94ecdad751f28a3743b435e8f108917de919472dfdfaa299",
+      "exactCopyOfIndependentRound2Gate": true
+    },
+    "smokeReview": {
+      "file": "docs/virtual-beta/visual-conditions-watch-smoke-review.json",
+      "exactSHA256": "a7df4da95c89d19593da1e47da9d8771157d57f0b8c7cd2f586e0a3934ad292b",
+      "exactCopyOfIndependentSmokeFinal": true
+    },
+    "smokeResults": {
+      "file": "docs/virtual-beta/visual-conditions-watch-smoke-results.json",
+      "onlyIndependentAuditChanged": true,
+      "everyOtherObjectDeepEqual": true,
+      "sourceHash": "7e27d09aa2d72d36c26f3a5d583ee0ba9a6804890b01afacb96588a27ee2d5df",
+      "manifestSha256": "6e83dfe03678db6508fa4bf882267b954b17751c7eb69e54cac2b9127a1b8bbf"
+    },
+    "smokeCSV": {
+      "file": "docs/virtual-beta/visual-conditions-watch-smoke-results.csv",
+      "byteIdenticalToConverterOriginal": true
+    },
+    "converterOriginalAuditStillPending": true
+  },
+  "documentation": {
+    "localLinksVerified": 96,
+    "newSmoketoOld18Separation": true,
+    "threeOf18Remaining15Explicit": true,
+    "new28AndEpisode367Explicit": true,
+    "old18Ac2bD36ddRetained": true,
+    "scoped16PassNotWholeSuite": true,
+    "watchOnlyNoEntriesChange": true,
+    "unchangedQuoteAndHumanLimitationsRetained": true,
+    "WindowsOnlyNoLinuxClaim": true,
+    "actualSmokeUsedPriorV6": true,
+    "nextRunCommandUsesPriorV7": true,
+    "rawCount5479Explicit": true,
+    "APIWaitTimesCheckedAgainstActualResultMs": true
+  },
+  "preservation": {
+    "sourceRevision": "d488a9ab6640fd7ce284dfa808862b2cbfcfd60c",
+    "sourceHash": "7e27d09aa2d72d36c26f3a5d583ee0ba9a6804890b01afacb96588a27ee2d5df",
+    "runtimeFiles": 150,
+    "rawSnapshotV7SHA256": "7bffa5e26e548e3838738d5693f5fc84192924fac88abe3db8f9fc0df12d6221",
+    "raw5479ExactUnionAndUnchanged": true,
+    "old5404AndNew75Preserved": true,
+    "ZIP6Unchanged": true,
+    "source150Unchanged": true,
+    "smokeFinalUnchanged": true,
+    "old18FinalAndPublicJSONCSVUnchanged": true
+  },
+  "credentialAndFixturePublishing": {
+    "onlyDeclared30FilesPublished": true,
+    "noEnvOrTemporaryWatchFixtureFilesInInventory": true,
+    "secretPatternChecks": [
+      "OpenAI-like secret token",
+      "AWS access key",
+      "private key",
+      "GitHub token",
+      "credential assignment",
+      "test env sentinel content"
+    ],
+    "secretPatternFindings": [],
+    "note": "Documented env path and credential variable names are retained as reproduction instructions; no credential file contents were read."
+  },
+  "independentExecution": {
+    "modelAPIRequests": 0,
+    "environmentFilesRead": 0,
+    "browserActions": 0,
+    "productOrPublicationEdits": 0
+  },
+  "findings": [],
+  "inventory": [
+    {
+      "file": "docs/superpowers/plans/2026-10-30-visual-conditions.md",
+      "sha256": "d1b2318ff3c27279933943670d444475ecac9676bc75be12a4f9010c59cd780a",
+      "bytes": 19922
+    },
+    {
+      "file": "docs/virtual-beta/README.md",
+      "sha256": "932f8b74e0a96b4a64da9bd2294a9fdf387734dfdf6e4709ecea9cc1b92e4556",
+      "bytes": 23598
+    },
+    {
+      "file": "docs/virtual-beta/research.md",
+      "sha256": "c4456f15a80634cf43c0f23880fa6750013f31d258d03146b01ef9d59cc37e40",
+      "bytes": 25682
+    },
+    {
+      "file": "docs/virtual-beta/tasks.md",
+      "sha256": "b4801195fa897d28c62f6148f87ed77ee498947b14fd9a64173d3feacb166860",
+      "bytes": 41419
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-audit-evidence.json",
+      "sha256": "3d0774fc186dbd0b1773fe26e3c48693cfa60fda2735f2eaa1b0d91d50a39555",
+      "bytes": 118347
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/library-changed-o1.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+      "bytes": 61024
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/library-changed-o2.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+      "bytes": 57109
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/library-switch-o1.png",
+      "sha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+      "bytes": 57781
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/library-switch-o2.png",
+      "sha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+      "bytes": 64645
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/library-unchanged-o1.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+      "bytes": 61024
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/library-unchanged-o2.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+      "bytes": 57109
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/library-unchanged-o4.png",
+      "sha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+      "bytes": 70756
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/library-unchanged-o5.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+      "bytes": 57109
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/library-unchanged-o6.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+      "bytes": 61024
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/workshop-changed-o1.png",
+      "sha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+      "bytes": 59381
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/workshop-changed-o2.png",
+      "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+      "bytes": 56216
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/workshop-switch-o1.png",
+      "sha256": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+      "bytes": 55667
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/workshop-switch-o2.png",
+      "sha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+      "bytes": 63637
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/workshop-unchanged-o1.png",
+      "sha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+      "bytes": 59381
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-evidence/workshop-unchanged-o2.png",
+      "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+      "bytes": 56216
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-independent-review.json",
+      "sha256": "6c9140e743ab7365bea94066af33029e4afebdf3d6fac21b2ca308ef096bda13",
+      "bytes": 13958
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-independent-review.md",
+      "sha256": "823a99f041c486e31502661ca5e83f6d538dcd29d736faee323451407da2487e",
+      "bytes": 6795
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-prior-stops.json",
+      "sha256": "8c104fd0d5983ba3da8d99172f3d751ba2d313b06ff5372114f2c0f4ef232d9b",
+      "bytes": 8392
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-results.csv",
+      "sha256": "153f7bcf7771e7025f43e4e6c8a1d99a751f6e853161cc1233f82053215ba622",
+      "bytes": 2486
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-results.json",
+      "sha256": "08b5e7c3185e7518410de45111be812ec4ed39acab67943eab9c33303ddaaf44",
+      "bytes": 1222052
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-runtime-review.json",
+      "sha256": "76a274957a9ea8ee94ecdad751f28a3743b435e8f108917de919472dfdfaa299",
+      "bytes": 5203
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-watch-smoke-results.csv",
+      "sha256": "30d144e7dc5ef67b89426aeb07eeb8956af819892f392135c214f35aaa20d1de",
+      "bytes": 513
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-watch-smoke-results.json",
+      "sha256": "566807fe46c81b9eeade882e8a0010052a46964daf7677324ac0d1798b7e4d7e",
+      "bytes": 161976
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions-watch-smoke-review.json",
+      "sha256": "a7df4da95c89d19593da1e47da9d8771157d57f0b8c7cd2f586e0a3934ad292b",
+      "bytes": 6145
+    },
+    {
+      "file": "docs/virtual-beta/visual-conditions.md",
+      "sha256": "c147514e63c7320491003851238b1d7f8c85d21708df18eaf344bcf3cf09e331",
+      "bytes": 25863
+    }
+  ],
+  "limitations": [
+    "Content digests and copy fidelity do not certify all model meanings, literal quote accuracy or human fidelity.",
+    "No long test suite or semantic image review was rerun; references retain the independently verified scoped gates.",
+    "Secret-pattern scan covers the listed patterns and declared files; no claim of universal secret detection.",
+    "The parent may add one exact copy of this report as the31st companion; this report inventories the30underlyingfiles, excluding its own future copy to avoid self-reference."
+  ]
+}

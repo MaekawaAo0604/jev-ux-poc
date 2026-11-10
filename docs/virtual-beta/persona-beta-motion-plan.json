@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "declaredAtUTC": "2026-11-05T11:24:14.227Z",
+  "codeSourceHash": "128d87929d31b9ca6e46220c75aa4bb70829a2a5eae818d5835d9a20f359f5f6",
+  "metricPlan": "experiments/virtual-beta/persona-beta-comparison.json",
+  "manualCases": {
+    "perActor": "Earliest valid run for each baseline/A/B/C. Inspect the first decision diverging from the earliest valid baseline executed path at a same displayed frame; if unavailable, earliest revisit after other-screen exploration; if unavailable, first screen with at least2visibleclickcontrols or initial input. Invalid prefixes reviewed separately and never substituted for complete behavior evidence.",
+    "additional": "First remaining distinct same-image different-choice pair across actors and first within-actor divergent repeated run, at most6cases/12current-nextPNGrefs total. If no same-image candidate bindings match, report unmatched context rather than force comparisons.",
+    "selection": "No selection by objective success or by whether a stereotyped persona behavior appears. Keep missing comparisons explicit."
+  },
+  "consistency": {
+    "facts": "Observed frames/actions/quotes and short reason category only.",
+    "interpretation": "Relate visible situation to supplied knowledge/expectation/constraint as a fallible interpretation; reasons are not internal cognition.",
+    "labels": [
+      "evidence-compatible",
+      "possible-tension",
+      "not-exercised",
+      "unassessable"
+    ],
+    "limits": "These are case-level reviewer interpretations, not calibrated scores or automatic mandatory-tendency checks. No contradiction inferred merely from novice acting quickly or cautious user omitting a confirmation."
+  },
+  "inference": "Within/between distance and exact blocked-label tail are exploratory. Statistical reference assumptions unvalidated, invalid complete-block exclusions disclosed, no naturalness/goal/human ranking.",
+  "requestLimit": 432,
+  "parallel": 1,
+  "noCachedResends": true,
+  "humanInputsRead": false,
+  "preExecutionSourceUpdate": {
+    "atUTC": "2026-11-05T11:37:09.073Z",
+    "reason": "Independent P1 audit-invalid trajectory exclusion repaired; case selection and metrics unchanged."
+  }
+}

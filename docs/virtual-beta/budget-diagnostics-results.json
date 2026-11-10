@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "kind": "budget-persistence-diagnostic-verification",
+  "baselineRevision": "92e0cf853ea4ac79c35486a60a18291f6ec498d4",
+  "frozenSourceHash": "1970c415a7c07a8cecf1e0ff258f6f4006109e0e7ff1a1d741b0da18700f6ca6",
+  "realModelRequests": 0,
+  "humanFidelityEvaluated": false,
+  "parentHelperAndBudget": {"tests": 45, "pass": 45},
+  "parentHumanWrapper": {"tests": 5, "pass": 5},
+  "relatedInitialRegression": {"tests": 26, "pass": 24, "fail": 2, "failure": "initial page.goto networkidle timeout 10000ms before HTTP"},
+  "relatedFailedFilesSequential": {"tests": 7, "pass": 7, "causeOfNavigationTimeout": "unverified"},
+  "independent": {"tests": 16, "pass": 16, "fourConditions": "mock scripted fixture; all objective true; real HTTP 0"},
+  "build": "passed",
+  "typecheckWithIndependentTests": "passed",
+  "pastIntermittentFilesystemCause": "unverified",
+  "filesystemRetryAdded": false,
+  "apiRetryAdded": false,
+  "artifacts": "reports/budget-diagnostics-2026-10-29"
+}

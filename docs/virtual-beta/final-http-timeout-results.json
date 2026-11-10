@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "scope": "TRANSPORT_ONLY_NOT_EXPLORATION_PERFORMANCE_OR_HUMAN_FIDELITY",
+  "producer": "111f3f3e4a952a676eb7af120dd4add5be7d0d24",
+  "sourceHash": "8a86d07d95b59e5e27f1469d2b977abd8402663619e641c4b8a338c3bcbea897",
+  "sourceFiles": 155,
+  "setupFailure": {
+    "status": "RUN_ERROR",
+    "APIRequests": 0,
+    "oldFiles": 2,
+    "retained": true,
+    "reason": "Explicit six-request ledger initially rejected by fixed36 profile; independent default-admission regression reproduced it. Smaller opt-in cap fixes this without raising6."
+  },
+  "smoke": {
+    "runId": "final-http-1793312365760",
+    "fixture": {
+      "version": 1,
+      "task": "library",
+      "condition": "unchanged"
+    },
+    "mode": "experience-visual-conditions-retention",
+    "mock": false,
+    "limits": {
+      "maxRequests": 6,
+      "externalDeadlineMs": 35000,
+      "parallel": 1,
+      "retry": 0
+    },
+    "requests": 4,
+    "ledger": {
+      "used": 4,
+      "sha256": "dca6a6b28f1f237662310df314b7e4bd16058bb75cedcb31e3c7741490db5ea5",
+      "reserved": 0,
+      "ok": 3,
+      "errors": 1
+    },
+    "stageCounts": {
+      "visual-hypotheses": {
+        "total": 2,
+        "ok": 1,
+        "error": 1,
+        "reserved": 0
+      },
+      "assessment": {
+        "total": 1,
+        "ok": 1,
+        "error": 0,
+        "reserved": 0
+      },
+      "action": {
+        "total": 1,
+        "ok": 1,
+        "error": 0,
+        "reserved": 0
+      }
+    },
+    "traceAcceptance": "OBSERVED",
+    "shortenedTraces": 2,
+    "externalDeadlineLimitedTraces": 1,
+    "traces": [
+      {
+        "step": 1,
+        "trace": {
+          "schemaVersion": 1,
+          "receivedTimeoutMs": 30000,
+          "externalRemainingMs": 31174,
+          "adapterTimeoutMs": 30000,
+          "adapterStartedMs": 12613.516,
+          "beforeNativeMs": 12616.1846,
+          "reservationElapsedMs": 2.668600000000879,
+          "plannedTimeoutMs": 29997,
+          "limit": "extractor-timeout",
+          "httpTimeoutMs": 29997
+        },
+        "apiCalls": 1,
+        "responseStatus": "completed",
+        "error": null
+      },
+      {
+        "step": 2,
+        "trace": {
+          "schemaVersion": 1,
+          "receivedTimeoutMs": 30000,
+          "externalRemainingMs": 9125,
+          "adapterTimeoutMs": 9125,
+          "adapterStartedMs": 34662.6882,
+          "beforeNativeMs": 34664.7006,
+          "reservationElapsedMs": 2.012399999999616,
+          "plannedTimeoutMs": 9122,
+          "limit": "external-deadline",
+          "httpTimeoutMs": 9122
+        },
+        "apiCalls": 1,
+        "responseStatus": null,
+        "error": {
+          "code": "TIMEOUT",
+          "attempts": 1,
+          "httpReceived": false
+        }
+      }
+    ],
+    "termination": "API_ERROR",
+    "objectiveAssessment": {
+      "status": "OK",
+      "value": false
+    },
+    "perceivedDone": false,
+    "uiActions": 1,
+    "looks": 0,
+    "decisions": 2,
+    "outerElapsedMs": 39399,
+    "coreElapsedMs": 32271.172699999996,
+    "lastLedgerSettlementAfterStartMs": 35016,
+    "coreValidForComparison": false,
+    "excludedFromPerformance": true,
+    "requiredReplay": {
+      "runId": "final-http-1793312365760",
+      "choices": 1,
+      "assessments": 1,
+      "images": 4,
+      "verified": true,
+      "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+    },
+    "measurement": {
+      "visualDispatch": "client-timeout-v1",
+      "visualHTTP": "final-timeout-v1"
+    }
+  },
+  "tests": {
+    "parent": {
+      "relatedTests": 462,
+      "pass": 462,
+      "fail": 0,
+      "typeBuildExitCode": 0
+    },
+    "independent": {
+      "relatedTests": 240,
+      "priorContractTests": 24,
+      "capTests": 9,
+      "allPassed": true,
+      "typeBuildExitCode": 0
+    }
+  },
+  "budget": {
+    "previousUsed": 178,
+    "newUsed": 4,
+    "totalUsed": 182,
+    "maximum": 288,
+    "allocatedRemaining": 92,
+    "unallocated": 14
+  },
+  "raw": {
+    "files": 17,
+    "prior": 5786,
+    "union": 5803,
+    "manifestSha256": "fcea055ae4d944a97ca77a426e87e530d0c4b5ea69a0f0e8b2067c24eb0a03f7"
+  },
+  "gates": [
+    {
+      "file": "final-http-timeout-review-round1.json",
+      "sha256": "fbfb7014dfccbb459d4c629ac74aaab830a653edcedf95f97e8f2b1fa999afe5",
+      "verdict": "FAIL_REQUIRES_FIX"
+    },
+    {
+      "file": "final-http-timeout-review-round2.json",
+      "sha256": "3d0aac87f355cba2b2cccb2f17dfd495f2aa75baac1f2f2adaeedf193bf15c4f",
+      "verdict": "PASS_SCOPED_OFFLINE_PREFLIGHT"
+    },
+    {
+      "file": "final-http-timeout-review-round3.json",
+      "sha256": "ce077c8abf79be97b09711c9d69d283cdb972b2c6dff0304d55213d1059b1030",
+      "verdict": "PASS_SCOPED_OFFLINE_PREFLIGHT"
+    },
+    {
+      "file": "final-http-timeout-review-live.json",
+      "sha256": "2e72c0eedb7bac7fd8271adae6a974f0e0b3d26930e314cf7c58269f1fd80b82",
+      "verdict": "PASS_SCOPED_TRANSPORT_MEASUREMENT"
+    }
+  ],
+  "limitations": [
+    "Client timeout scalar is not HTTP receipt or provider processing start; httpReceived=false means unconfirmed, not proof of nonreceipt.",
+    "The35-second external deadline limits dispatch and HTTP signals, not all setup/cleanup; measured outer elapsed is recorded separately.",
+    "Only one short ordinary-wrapper transport smoke; no comparison, task-performance or human conclusion.",
+    "Earlier retention raw final values remain missing; failed old gates are not retrospectively passed.",
+    "Human records or comments were not read or sent. No saved request was resent.",
+    "Full repository test suite and full external comparison batches not reexecuted."
+  ]
+}

@@ -1,0 +1,16 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {resolve,join,relative} from 'node:path';
+import {createHash} from 'node:crypto';
+const [rootArg,localArg,passArg,skipArg,durationArg]=process.argv.slice(2),root=resolve(rootArg),localFile=resolve(localArg);
+const passed=Number(passArg),skipped=Number(skipArg),durationMs=Number(durationArg);
+if(!Number.isSafeInteger(passed)||passed<1||!Number.isSafeInteger(skipped)||skipped<0||!Number.isFinite(durationMs)||durationMs<=0)throw new Error('Supply the verified complete test counts and duration');
+const localBytes=await readFile(localFile),local=JSON.parse(localBytes.toString()),probeBytes=await readFile(join(root,'probe.json')),probe=JSON.parse(probeBytes.toString());
+if(!probe.production||probe.fake||!local.vision||local.visionOCR||local.reason!=='SUCCESS'||!local.objectiveSuccess||!local.perceivedSuccess)throw new Error('Expected real production entry points and confirmed local success');
+const verificationRequests=local.steps.at(-1).visualContext.requests.filter((r:any)=>r.stage==='verification').length;
+if(verificationRequests||local.steps.some((s:any)=>s.visualContext.ocrStatus!=='disabled'))throw new Error('Local default unexpectedly used OCR');
+const sha=(b:Buffer)=>createHash('sha256').update(b).digest('hex'),href=relative(root,resolve(local.dir,'../index.html')).replaceAll('\\','/');
+const data={production:true,publicSource:{file:'probe.json',sha256:sha(probeBytes),trials:probe.trials.length},local:{file:relative(root,localFile).replaceAll('\\','/'),sha256:sha(localBytes),reason:local.reason,actions:local.actionCount,elapsedMs:local.elapsedMs,objectiveSuccess:local.objectiveSuccess,perceivedSuccess:local.perceivedSuccess,verificationRequests,report:href},tests:{command:'npx tsx --test --test-concurrency=1 tests/*.test.ts',passed,skipped,failed:0,durationMs},sourceVersionNote:'The 14 public trials preceded the full-viewport label fallback. The local live run and full unit/browser suite include that fallback. Existing raw trial files were not rewritten.'};
+await writeFile(join(root,'production-integration.json'),JSON.stringify(data,null,2));
+const html=await readFile(join(root,'index.html'),'utf8'),section=`<section class="completion-audit" id="production-integration"><h2>本番統合の確認</h2><p>標準は --vision（番号付きの現在画像、OCR なし）。従来方式は --vision --vision-ocr（番号なしの現在画像、OCR 文字メモ）。画像なしの経路は変更していない。</p><p><a href="${href}">ローカル用の本番 CLI</a>でも実 Jev を使用し、通知停止を ${local.actionCount} 操作、${(local.elapsedMs/1000).toFixed(2)} 秒で実行した。Jev の完了判断だけでなく、アプリ側の結果確認も成功した。OCR 照合は ${verificationRequests} 件。</p><p>テスト一式は ${passed} 件通過、${skipped} 件スキップ、失敗 0 件。所要時間 ${(durationMs/1000).toFixed(1)} 秒。公開サイト・ローカルの接続、撮影失敗時の片付け、密集した番号、モーダル、全画面リンク、保持した操作対象の同一性を含む。</p><p>独立コードレビューで指摘された番号の重なり、モーダルによる遮蔽、全画面リンクの配置不能を修正し、回帰テストを追加した。14 試行後に全画面リンクの配置フォールバックを追加し、ローカルの実 Jev 実行とテスト一式はその修正後に行った。先の試行の原本は書き換えていない。</p><p>画像だけにある過去情報の保持は未解決。複数画面の情報取得を一律に成功させる変更や、新しい記憶方式は追加していない。任意サイトでの判読精度や、番号表示に反応するサイト独自の JavaScript の挙動までは保証していない。</p><p><a href="production-integration.json">実行記録と出典ハッシュ</a></p></section>`;
+await writeFile(join(root,'index.html'),html.replace(/<section class="completion-audit" id="production-integration">[\s\S]*?<\/section>/,'').replace('</header>','</header>'+section));
+console.log(JSON.stringify(data,null,2));

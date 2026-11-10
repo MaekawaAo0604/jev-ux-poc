@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "round": 2,
+  "kind": "independent-engineering-review",
+  "status": "ENGINEERING_ACCEPTED_MODEL_SEMANTICS_PENDING",
+  "producerRevision": "d6acdb98b68715513d0e706f6c67324e3917ed5e",
+  "sourceHash": "159d5bdbb7bb3dd9ebde3cda18126e6904548fb5425fe048673da1047feace4e",
+  "pinnedEvidence": "independent-1793252753220/report.json",
+  "normalUnpinnedEvidence": "independent-1793252801359/report.json",
+  "command": "$env:JEV_SEMANTICS_AUDIT_SNAPSHOT=\"reports/goal-search-semantics-2026-10-29/frozen-source-round2.json\"; node --import tsx --test --test-concurrency=1 tests/goal-search-semantics-independent.test.ts",
+  "tests": {
+    "pinned": {
+      "tests": 20,
+      "pass": 20,
+      "fail": 0,
+      "skip": 0
+    },
+    "normalUnpinned": {
+      "tests": 20,
+      "pass": 20,
+      "fail": 0,
+      "skip": 0
+    },
+    "typescriptNoEmit": "exit0"
+  },
+  "changedProductFilesSinceRound1": [
+    "runner/deferral-reason-experiment.ts"
+  ],
+  "testFile": "tests/goal-search-semantics-independent.test.ts",
+  "testFileSha256": "97aaed27f6be4b0bdcb48f203a94fdfdadf080f37e39372860783dbb5bd564dd",
+  "resolvedFindings": [
+    {
+      "severity": "P2",
+      "file": "runner/deferral-reason-experiment.ts",
+      "round1Line": 247,
+      "problem": "Semantics comparison inherited old GoalSearch-addition/all-goalSearch-config-excluded description.",
+      "resolution": "Summary now accurately says id/goalSearch.interpretation only and separation of role/evidence plus execution/navigation, with same preexisting bounded memory/images/stages/candidates/controller.",
+      "sameReproductionAssertionPassed": true
+    }
+  ],
+  "openEngineeringFindings": [],
+  "verified": {
+    "productFiles": 122,
+    "sourceBeforeAfterUnchanged": true,
+    "oldLedgerCount": 106,
+    "immutableOldRawAndLedgerFiles": 648,
+    "pastSavedAuditExpectedHashes": 528,
+    "legacySavedReplays": 17,
+    "legacyExactActualQuestionAndRecordComparisons": 60,
+    "localChromium": true,
+    "fullyInterceptedGateway": true,
+    "externalAPIRequests": 0,
+    "normalScriptedRequests": 8,
+    "normalScriptedUIActions": 3,
+    "roleReconsiderationAcrossActualStages": true,
+    "actorCanChooseDifferentCandidateThanFinding": true,
+    "rehashTamperingRejected": [
+      "role",
+      "finding",
+      "question",
+      "mode",
+      "memory"
+    ],
+    "gatewayFaultsDistinguished": [
+      "HTTP402",
+      "INVALID_RESPONSE"
+    ],
+    "experimentPairMutationRejection": [
+      "capacity",
+      "enabled",
+      "seed",
+      "persona",
+      "goal"
+    ],
+    "fixedPlan": "3 scenarios x 2 repetitions x 2 arms, 12 trials, 288 request cap, parallel1",
+    "profileOnlyDifference": "id and goalSearch.interpretation"
+  },
+  "pixelReview": {
+    "files": [
+      "independent-1793252753220/browser/input-1.png",
+      "independent-1793252753220/browser/input-3.png",
+      "independent-1793252753220/browser/input-4.png"
+    ],
+    "observed": [
+      "Notification settings with management-navigation control",
+      "Management screen with stop-email-notification execute control",
+      "Email-notification stopped message"
+    ],
+    "fixtureEncoding": "UTF-8 explicitly declared; earlier plumbing-only runs with fixture mojibake are retained but not used as the final image evidence"
+  },
+  "portableBehavior": {
+    "explicitSnapshot": "JEV_SEMANTICS_AUDIT_SNAPSHOT enables exact full product/revision pin checking",
+    "noSnapshot": "Source identity must remain unchanged during tests; no historical producer hardcode",
+    "missingHistoricalData": "Only the two historical-fixture cases skip, with a reason; pinned audits reject missing data",
+    "missingHistoricalDataBranchRuntimeTested": false
+  },
+  "unverified": [
+    "No real model request was made by this reviewer. Fresh final fixed producer normal-runner raw and actual pixel audit is still required for semantic acceptance.",
+    "Human fidelity, model meaning, generalization, and a causal claim of improved behavior are unverified.",
+    "Full project test command is parent-owned and had reported pre-observation Vite failures; the independent local fixture does not resolve that suite status."
+  ],
+  "scope": "No production edits, commits, credentials, external model calls, human operation files, or old saved input resends."
+}

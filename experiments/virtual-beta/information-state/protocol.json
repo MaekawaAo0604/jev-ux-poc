@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "maximumRequests": 32,
+  "perRunMaximum": 8,
+  "approval": "new32 approved; previous47 ledger untouched",
+  "model": "jev-1.14.0",
+  "goal": "charter-semantic-preservation.json",
+  "persona": "A",
+  "ui": "reference",
+  "orderSeed": 313977649,
+  "replicates": 1,
+  "mappings": [
+    "A",
+    "B"
+  ],
+  "batches": [
+    {
+      "id": "baseline",
+      "maxActionsOrDecisions": 4,
+      "maximumRequests": 8,
+      "reason": "one-stage; max8 API/run but four decisions bounds calls at4/run"
+    },
+    {
+      "id": "two-stage",
+      "maxActionsOrDecisions": 4,
+      "maximumRequests": 16
+    },
+    {
+      "id": "exposed",
+      "maxActionsOrDecisions": 2,
+      "maximumRequests": 8,
+      "initialFixation": {
+        "x": 960,
+        "y": 675
+      }
+    }
+  ],
+  "policy": "No filters, probability reweighting, forced look or oracle-fed choices; all assessment calls count",
+  "interpretation": "Small diagnostic; no human validity or causal performance significance. Exposed controls separate, no replacement/pooling with old12.",
+  "noSavedPayloadReplay": true
+}

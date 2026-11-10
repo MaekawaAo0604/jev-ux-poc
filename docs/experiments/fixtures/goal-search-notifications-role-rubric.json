@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "authored-goal-role-rubric",
+  "goalSha256": "b05e5cd0d439ebac711ad82c991275722f3c69196686c568fb73efd09b77468a",
+  "fragments": [
+    {
+      "id": "g1",
+      "text": "初めて利用する暮らしクラウドで",
+      "role": "context",
+      "rationale": "Authored by the parent audit AI; not validated by human annotators. The service and first-use setting identify context; this fragment alone does not add a requested result."
+    },
+    {
+      "id": "g2",
+      "text": "メール通知を停止し",
+      "role": "required",
+      "rationale": "Authored by the parent audit AI; not validated by human annotators. Within this full Goal, stopping email notifications is a requested action. Its conjunctive grammatical form does not make the action optional background."
+    },
+    {
+      "id": "g3",
+      "text": "停止したことを確認したい",
+      "role": "required",
+      "rationale": "Authored by the parent audit AI; not validated by human annotators. The Goal explicitly requests confirming that notifications were stopped; the requested result remains required."
+    }
+  ]
+}

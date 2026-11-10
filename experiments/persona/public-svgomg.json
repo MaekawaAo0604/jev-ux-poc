@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "svgomg-real-product",
+  "targetWebsite": "https://jakearchibald.github.io/svgomg/",
+  "goal": "このサービスを初めて使う。サイトに用意されているサンプル画像で圧縮を試し、処理前後の容量と見た目の変化を確認したい。ファイルの保存や、自分のファイルの読み込みはしない。",
+  "initialState": {
+    "description": "公開サイトの初期画面。毎試行で新しいブラウザーコンテキストを作る。",
+    "currentDate": "2026-10-26"
+  },
+  "scope": [
+    "開始URLと同じオリジン・パス配下で公開画面と内蔵サンプルを操作する",
+    "画像を見て圧縮結果を確認する。クリック順序や正解経路は与えない"
+  ],
+  "prohibitedActions": {
+    "actionTypes": [],
+    "controlTexts": [],
+    "downloads": true
+  },
+  "maxActions": 8,
+  "repeats": 3,
+  "conditions": [
+    "baseline",
+    "A",
+    "B",
+    "C"
+  ],
+  "seed": 20261026,
+  "comparison": "descriptive exploratory comparison; n=3; no human validity or isolated persona factor claim",
+  "hypotheses": [
+    "操作列・説明や確認の選択に条件差があるかを観察する。差が出るとは仮定しない。"
+  ],
+  "safety": {
+    "network": "same-origin GET/HEAD within /svgomg/ only, form submissions/downloads/file uploads/external navigation blocked",
+    "data": "bundled public sample only; no user files",
+    "evidence": "local screenshots, trace and network-resource hashes"
+  },
+  "capabilityLimit": "Existing click/back/window-scroll. Visible labels for checkbox inputs can now be clicked. No fill, slider, select or nested-container scroll action is added.",
+  "policyReview": {
+    "date": "2026-10-26",
+    "officialSite": "https://jakearchibald.github.io/svgomg/",
+    "source": "https://github.com/jakearchibald/svgomg",
+    "license": "MIT in official source; no claim of blanket automated-service permission",
+    "robots": "No robots.txt available from web lookup; low-volume UI use; stop on blocking response."
+  }
+}

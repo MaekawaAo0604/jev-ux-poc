@@ -1,0 +1,49 @@
+{
+  "dateJst": "2026-10-20",
+  "productionHead": "be2279814b45f41d8afbf0459ff477d1a3a6b889",
+  "method": "Unmodified production CLI, real Jev, fresh browser per run, Goal and starting URL only. Image-only, image judgment memory, selected completion evidence; no OCR, DOM text, answers or correct routes sent to Jev. 2000ms per action; no action cap. Completed runs retained, diagnostic interruption excluded from terminal outcome rates.",
+  "completed": [
+    {"id":"esa-1","label":"esa：料金と試用期間 1回目","source":"reports/2026-10-19T16-36-00.890Z-public/exploration/result.json","sha256":"1d1234e62f17be3f18bea3ba03fd56d9dd322b182b3d378d76a827b63bb43d7d","reason":"JEV_DONE","actions":1,"elapsedMs":13388.1934},
+    {"id":"esa-2","label":"esa：料金と試用期間 2回目","source":"reports/2026-10-19T16-37-17.916Z-public/exploration/result.json","sha256":"9b920002492c41fce8db1d54986702e3a436992c842c3da5cecf94020ef66f75","reason":"JEV_DONE","actions":1,"elapsedMs":11837.0263},
+    {"id":"space-visit","label":"宇宙劇場：料金・当日券・遅刻","source":"reports/2026-10-19T16-36-32.391Z-public/exploration/result.json","sha256":"3c2bbe3e4bfd529f765e426f30f8d3ab5b9b3cf26fa6cb7d9764e3438e3dc3d1","reason":"JEV_DONE","actions":2,"elapsedMs":39800.6089}
+  ],
+  "interrupted": {
+    "id":"space-wheelchair",
+    "directory":"reports/2026-10-19T16-37-44.906Z-public/exploration",
+    "classification":"DIAGNOSTIC_INTERRUPTED",
+    "why":"Controller stopped the experiment after the transit-order cause was reproduced offline, not a model STUCK or site failure.",
+    "persistedCompletedSteps":22,
+    "persistedRecordedActions":22,
+    "lastStep":23,
+    "lastStepStatus":"PENDING",
+    "completedStepTimeLowerBoundMs":237676.16769999996,
+    "originalResultExists":false,
+    "inFlightWorkMayBeUnpersisted":true,
+    "objectiveSuccess":null,
+    "autonomousTerminalOutcome":"NOT_MEASURED"
+  },
+  "probe":{"source":"reports/transit-order-probe-2026-10-19T16-41-15.324Z/probe.json","sha256":"a19b9f29efc4ce82c38791fc4551b05e47f03387a762aae1fb65573136978e05"},
+  "reference":{"source":"reports/transit-order-probe-2026-10-19T16-41-15.324Z/reference.json","sha256":"8759b800212d4ce6555f3db37b41758ac381763c259d743afb8c2a5ddd93b34a","scope":"One current top-page HTML inspected offline after the trial; includes potentially hidden content, not an autonomous Jev observation or a complete site search."},
+  "humanReview": [
+    "esa pricing pixels explicitly show the per-user monthly fee and free-until-end-of-month-two-months-later trial condition. Both trials have identical SHA-256 for the decisive pricing image.",
+    "Space visit step 3 shows adult/child rates, 5th-floor ticket sales, sale times and no late entry. Step 2 also shows no late entry. This is manual image corroboration, not an objectiveSuccess rewrite.",
+    "Space wheelchair step 5 shows a PDF route link and off-origin parking link excluded by current scope. These observations alone do not prove the requested answers exist behind those links.",
+    "The independent HTML reference contains a handbook-dependent companion discount and parking guidance. A wheelchair does not by itself establish possession of a disability handbook. This reference does not establish an explicit wheelchair-in-auditorium answer or exclusive-parking yes/no answer.",
+    "The image-only reader labels the companion-rate fragment observed; no natural-language answer was extracted. Do not infer that Jev preserved or dropped the handbook condition. Whole Goal was not completed."
+  ],
+  "confirmedCause": "At step 6 the primary model chose scroll_down, a first hop shared by several endpoints. jev/decide.ts sorts by travelSteps only and commits the first equal-distance endpoint, f45 (room), although recorded route judgments mark it unrelated and f51 (FAQ) promising. Step 7 preserves that endpoint and clicks e4. Exact-answer offline replay changing enumeration order only commits f51 and clicks e10 instead. This proves order sensitivity of the two-step detour, not whole-Goal reachability after a fix.",
+  "improvements": [
+    {"priority":1,"owner":"middleware","proposal":"For an ambiguous transit first hop, select the endpoint using image-derived route judgments and the existing frontier selector rather than the first equally near entry. Preserve the selected endpoint across movement.","verification":"Saved-answer replay should be invariant to target insertion order, reject the demonstrated unrelated-room commitment, retain Back/scroll safety tests, then rerun the unchanged real-site Goal with no answer/route hints."},
+    {"priority":2,"owner":"middleware","proposal":"Investigate sharing proven identical fragment-navigation destinations for fixed menus across scroll positions. Do not globally ban visited URLs or merge stateful tabs/disclosures merely because hrefs match.","verification":"Use observed destination image/viewport equality and tests for changed DOM state; show fewer duplicate room/schedule visits without deleting legitimate rereads or onward exploration."},
+    {"priority":3,"owner":"reporting","proposal":"Evaluate prohibited actions against recorded execution and safety events separately from information evidence. In both esa trials the prohibition fragment becomes unconfirmed for missing image evidence despite the one-click pricing trace.","verification":"Replay recorded no-submit and prohibited-attempt controls; retain conservative unknown for incomplete traces such as this interrupted run."},
+    {"priority":4,"owner":"site-content suggestion, unvalidated","proposal":"Consider grouping wheelchair viewing conditions, handbook/companion discount conditions and parking guidance in HTML near visitor information, while retaining detailed PDFs. Test with people before calling the site UX defective.","verification":"Compare the same Goal on an owned mockup of the proposed grouping; no changes or messages to the actual site."}
+  ],
+  "policyReview": [
+    {"site":"esa","robots":"https://esa.io/robots.txt","status":200,"finding":"Only commented-out disallow directives. Official terms read at https://docs.esa.io/posts/5 and https://esa.io/terms; no applicable explicit automation prohibition identified. This is not operator permission or screenshot republication permission."},
+    {"site":"Saitama City Space Theater","robots":"https://www.ucyugekijo.jp/robots.txt","status":200,"finding":"Disallows /wp/wp-admin/, with admin-ajax exception. Public homepage and posted policy links checked; no general automation terms located in homepage links. No administrator path, login, form submission, purchase, download or operator contact was attempted. No operator permission claimed."},
+    {"site":"Tamaroku-navi","decision":"EXCLUDED_BEFORE_JEV","policy":"https://www.tama6.jp/post.html","finding":"Content/image secondary-use restriction; not selected for image-saving experiment. robots returned 404. No Jev exploration or screenshots captured."}
+  ],
+  "limits":["Two sites and three Goals, with only the esa Goal repeated: no general accuracy or human UX score.","The accessibility trial was censored by diagnostic interruption, not naturally STUCK and not audited after completion.","No production fix or live fixed-version comparison has been performed.","All original objectiveSuccess values remain null. Public screenshots remain local and are not committed or published.","The Space Theater map iframe was blocked by instrumentation; its blank appearance cannot be attributed to site UX."],
+  "productionCodeChanged":false,
+  "verification":{"build":"PASS","targetedTests":{"passed":30,"failed":0,"skipped":0},"offlineProbe":"PASS"}
+}

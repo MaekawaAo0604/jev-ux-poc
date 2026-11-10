@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "gate": "PASS",
+  "scope": "SEALED_SEPARATE_OPENAI_RAW_INTEGRITY_ONLY",
+  "behavioralEffectivenessApproved": false,
+  "providerSuperiorityApproved": false,
+  "semanticGroundingApproved": false,
+  "humanFidelityApproved": false,
+  "phase": "inquiry-outcome-2026-10-31/openai-sanity",
+  "producerRevision": "5ad0919bbd9b7325fd688f7ba931c691312a4c84",
+  "sourceHash": "58d606cf923d3ec814f6525975dfb673a137f195647a2213ce3cb925f74f467c",
+  "manifestSha256": "6d6ed56c471fe58269e0e2fe8ead1c655ce8e548530c82821a84185553d1da55",
+  "orchestratorSha256": "50f3277dd7939ef17fa79675a129127f6c304fa97c010bdde89a764b6d6d9832",
+  "integrityFindings": [],
+  "unresolvedSemantics": [
+    {
+      "id": "IO-OPENAI-SEM-001",
+      "kind": "model_semantic_limitation",
+      "actual": "All22admitted results unknown. All24working intents find_route;23checks new_route_visible and1unknown. Condition-category replies to routechecks cause10RESULT_CHECK_MISMATCH adjustments;10NO_CURRENT_IMAGE_BASIS corrections also occur, with overlap. No reliable local-result use demonstrated."
+    },
+    {
+      "id": "IO-OPENAI-SEM-002",
+      "kind": "model_behavior_limitation",
+      "actual": "Both12judgment runs remain in home/account/primary screens, never delivered records screen. Actual recordChecks0; verificationAttempts2library/4workshop. Screenshots confirm incomplete-reconciliation receipt persists while accountverification is repeated. Do not call these repeated reconciliation operations or humanconfusion."
+    },
+    {
+      "id": "IO-OPENAI-SEM-003",
+      "kind": "model_evidence_limitation",
+      "actual": "Workshop4receipt contains incomplete-reconciliation status omitted by native currentconditions. Current_image modelbasis on workshop8 does not establish a good answer to the selectedroutecheck. No definite new currentquote transcribing absent text identified in these selected8PNGs; absence of observed error is not allquote verification."
+    }
+  ],
+  "evidence": {
+    "rawAudit": "audit.json",
+    "semantics": "semantic-review.json",
+    "before": "before-snapshot.json",
+    "after": "after-snapshot.json",
+    "protected": "protected-before.json",
+    "scripts": [
+      "snapshot.ts",
+      "audit.ts",
+      "semantic-review.ts",
+      "seal-gate.ts"
+    ]
+  },
+  "executed": {
+    "checks": 7384,
+    "planned": 2,
+    "attempted": 2,
+    "valid": 2,
+    "invalid": 0,
+    "missing": 0,
+    "objectiveSuccesses": 0,
+    "subjectiveDone": 0,
+    "terminations": {
+      "DECISION_LIMIT": 2
+    },
+    "requests": 72,
+    "stageCounts": {
+      "native": 24,
+      "assessment": 24,
+      "action": 24
+    },
+    "returnedModels": {
+      "gpt-6-luna": 72
+    },
+    "receipts": {
+      "validReturnedResponses": 72,
+      "nativeFinalHTTPVerified": 24,
+      "note": "Choice receipt evidence is valid parsed providerresponse/model plus requesttrace attempts1/failures0; no claim that choice traces contain httpReceived flags."
+    },
+    "replay": {
+      "pass": 2,
+      "requirements": {
+        "finalVisualHTTP": true
+      },
+      "note": "Rawresult equals manifestresult and every persisted stepJSON. Source/questions/currentimage/context/pendingoperation/memory/distribution/sampling/stop classifications rederive. No API/UI execution in audit."
+    },
+    "ledger": {
+      "attempts": 72,
+      "uniqueAttemptIDs": 72,
+      "statusOK": 72,
+      "errors": 0,
+      "reserved": 0,
+      "parallel": 1,
+      "retry": 0,
+      "nonoverlappingIntervals": true,
+      "phaseDurationMs": 456917
+    },
+    "selection": {
+      "decisions": 24,
+      "allRequestedAnswerDistributionsValid": true,
+      "allFilteredArgmaxSelectionsValid": true,
+      "sharedNonUnitWeightRows": 5,
+      "modelChoiceActualDifferences": 5,
+      "note": "All5differences in library caused by existing sharedtemporarydeferral policy. No new outcome-specific filter or probability weight."
+    },
+    "summary": {
+      "recomputed": true,
+      "exactMatch": true,
+      "parentOutcomeRowsExact": true,
+      "method": "analyzeRecoveryRuns on actualraw results with2declaredslots; separate from Jev8denominator"
+    },
+    "outcomes": {
+      "records": 22,
+      "perRun": [
+        11,
+        11
+      ],
+      "raw": {
+        "condition_unmet": 1,
+        "unknown": 11,
+        "condition_uncertain": 9,
+        "route_found": 1
+      },
+      "admitted": {
+        "unknown": 22
+      },
+      "basis": {
+        "none": 20,
+        "current_image": 2
+      },
+      "adjustments": {
+        "RESULT_CHECK_MISMATCH": 10,
+        "NO_CURRENT_IMAGE_BASIS": 10
+      },
+      "working": {
+        "intents": {
+          "find_route": 24
+        },
+        "admittedChecks": {
+          "new_route_visible": 23,
+          "unknown": 1
+        }
+      },
+      "actorMemory": "Latest3admitted only; no before-context aftersuccessfuladmit; no rawChoices leakage; emptyfirst/pendingactualpreviousoperation/runisolation verified."
+    },
+    "nativeInitialInput": {
+      "sameByTaskAsJev": true,
+      "evidence": [
+        {
+          "task": "library",
+          "identical": true,
+          "bodySha256": "91d26133bbf03015a65f4957cbf72a0aa0e2191159fb71ed9783c5459ccdf3e3",
+          "qualification": "Initial native body only; subsequent real model outputs/history differ. No same-input provider ranking."
+        },
+        {
+          "task": "workshop",
+          "identical": true,
+          "bodySha256": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+          "qualification": "Initial native body only; subsequent real model outputs/history differ. No same-input provider ranking."
+        }
+      ],
+      "note": "Initialnativebody/schema/actualimage/goal/emptyinitialmemory verified. Different laternativeoutputs/history disallow same-input provider comparison."
+    },
+    "trigger": {
+      "satisfied": true,
+      "protocolDeclaredDuringJev": true,
+      "allOpenAIAttemptsAfterLastJevRequest": true,
+      "jevSealedManifestReferenced": true,
+      "condition": "Validnewlibraryunchanged objectivefalse satisfies predeclared unsuccessful-new-unchanged trigger. Two supplemental slots replace none of Jev8.",
+      "orchestratorSourceMatchesParentAndSavedCopy": true,
+      "currentIdentityMatchesProducer": true
+    },
+    "limits": {
+      "trials": 2,
+      "totalRequests": 72,
+      "perTrialRequests": 36,
+      "judgments": 12,
+      "uiActions": 15,
+      "looks": 3,
+      "trialMs": 300000,
+      "nativeMs": 60000,
+      "phaseMs": 660000,
+      "parallel": 1,
+      "retry": 0
+    },
+    "screenshots": {
+      "selectedActualPNGsInspected": 8,
+      "evidence": "semantic-review.json",
+      "note": "No definite new absent-text quote in selected8PNGs; no blanketallquote certification."
+    },
+    "preservation": {
+      "newFictionalRawFiles": 95,
+      "sealedJevFiles": 306,
+      "protectedFiles": 1486,
+      "frozenFiles": 1016,
+      "runtimeFiles": 164,
+      "beforeAfterHashesMatch": true,
+      "threePreviousGatesAndRawAnalysisSourceProtected": true,
+      "producerZIPHashUnchanged": "0598460e0b3e6bc3ab741727dcf0ee18a47a7d1468403b487a9149892fec87b8",
+      "priorManifestMerge": {
+        "prior": 6852,
+        "new": 95,
+        "final": 6947,
+        "exactPathHashMetadataMatch": true
+      },
+      "priorParticipantPayloadsRead": false,
+      "independentAllPrior6852PayloadHashes": false,
+      "scopeNote": "Only prior manifests/pathhashmetadata inspected. Existing sealedfictionalJev306 and thisnewfictionalOpenAI95 are explicitly permitted raw scopes. No bulk read/hash of the previously6852 participant-containing corpus. Parent6947payload sealing claim remains separate.",
+      "approvalLimitation": "Earlier automaticapprovalreview rejected reading priorparticipantfile payloads forhashing; subsequentexplicitrestriction retained. No retry/workaround. Thisgate preserves manifest-only limitation honestly."
+    }
+  },
+  "interpretation": [
+    "Both validruns fail objectivegoal and end12judgment DECISION_LIMIT; no humanabandonment interpretation. RecordChecks0 and eligiblefalse, savedCentral/morning unchanged.",
+    "All22admittedoutcomesunknown; conditionreply/routecheck mismatch10 and absentcurrentbasis10 demonstrate unresolved model-output semantics rather than an accounting or admission malfunction. No stablefeatureeffect demonstrated.",
+    "Workshop repeated e1is accountverification, not recordsreconciliation. VerificationAttempts4 and library2; no records screen delivered, no reconciliation happened.",
+    "A visible workshop4incomplete-reconciliation receipt is omitted fromnativeconditions. Selectedcurrent_image basis at8 does not establish a semanticallygood reply to routecheck. Keep falliblemodel/unverifiedquotation labels.",
+    "The2postJevfunctionalchecks are separate from Jev8, not replacement trials or extra provider-causal comparison. One per task with differing observations/history supports no provider ranking or humanfidelity conclusion.",
+    "API latency is not userthinkingtime; terminalaudit does not become model-outcome memory."
+  ],
+  "remaining": "No raw-integrity blocker. Preserve unresolved semantics and all previous gates/raw evidence. No product, prompt, docs, Git, API or environment changes were made by this audit."
+}

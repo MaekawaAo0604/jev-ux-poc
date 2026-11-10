@@ -182,3 +182,27 @@ test('previously scrolled ranges stay traversable toward untried controls and ne
  assert.deepEqual(a.transitChoices,['down']);
  assert.ok(a.candidates.down);
 });
+
+test('dead-end input retains observed untried alternatives, not executed controls or private identities',()=>{
+ const memory=new ExplorationMemory();
+ const menu={...screen('Menu'),pageId:'p1'};
+ let a=visit(memory,'Menu',{wrong:'secret:/wrong',other:'secret:/other'},{wrong:click('wrong','Branch A'),other:click('other','Branch B')},menu);
+ memory.executed(a,'wrong');
+ let b=visit(memory,'Dead end',{back:'back:private-entry'},{back:{action:{type:'back'},label:'Back'}},{...screen('Dead end'),pageId:'p2'});
+ assert.deepEqual(memory.observedAlternatives(b),[{pageTitle:'Menu',pageId:'p1',controls:[{label:'Branch B',kind:'click'}]}]);
+ memory.executed(b,'back');
+ a=visit(memory,'Menu',{wrong:'secret:/wrong',other:'secret:/other'},{wrong:click('wrong','Branch A'),other:click('other','Branch B')},menu);
+ assert.deepEqual(memory.observedAlternatives(a),[],'current screen already contains its own candidates');
+ memory.executed(a,'other');
+ b=visit(memory,'Answer',{});
+ assert.deepEqual(memory.observedAlternatives(b),[],'actually executing the alternative retires it');
+});
+
+test('recovery alternatives are scoped to the actual Back document and preserve visible heading context',()=>{
+ const m=new ExplorationMemory(),context={landmark:'main' as const,section:'opaque',headings:['見学施設']};
+ let a=m.observe('https://example.test/root',screen('Root'),{menu:click('menu'),unrelated:click('unrelated')},{menu:'menu',unrelated:'unrelated'});m.executed(a,'menu');
+ const menu={...screen('Menu'),pageId:'p2',elements:[{id:'answer',type:'link' as const,text:'施設・アクセス',context}]};
+ const b=m.observe('https://example.test/menu',menu,{wrong:click('wrong'),answer:click('answer','施設・アクセス')},{wrong:'wrong',answer:'answer'});m.executed(b,'wrong');
+ const c=m.observe('https://example.test/wrong',screen('Wrong'),{back:{action:{type:'back'},label:'Back'}},{back:'back:entry'});
+ assert.deepEqual(m.observedAlternatives(c,'https://example.test/menu#old'),[{pageTitle:'Menu',pageId:'p2',controls:[{label:'施設・アクセス',kind:'click',context}]}]);
+});

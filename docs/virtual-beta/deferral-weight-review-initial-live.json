@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "auditStatus": "STOPPED_BATCH_ACCOUNTED_AND_PRESERVED",
+  "batchStatus": "MODEL_OUTPUT_FAILURE",
+  "comparisonComplete": false,
+  "evidence": "evidence.json",
+  "executed": {
+    "freshFileHashChecksBeforeAndAfter": 40,
+    "priorPathHashMetadataPairsCompared": 7294,
+    "nativeRequests": 9,
+    "assessmentRequests": 8,
+    "actionRequests": 8,
+    "ledgerReservations": 25,
+    "selectionBindingsAndUnitWeightChecks": 8,
+    "finalHTTPReplayChoices": 8,
+    "finalHTTPReplayAssessments": 8,
+    "successfulAssessmentActionFrameChecks": 16,
+    "failedStepFrameChecks": 1,
+    "stepFileResultEqualityChecks": 9,
+    "summaryMotionRecomputations": 1,
+    "recoverySummaryRecomputations": 1,
+    "sourceHashSnapshots": 2
+  },
+  "producer": {
+    "revision": "6f098d9003f245c9eacb84a1e23dfc2307a50ec2",
+    "sourceHash": "9f1dc69815b16cfc0eaaec9e5e1386afebb024dd66561e7e1aef29923b511365"
+  },
+  "inventorySha256": "b67108e934d02744643874bc7eeaf75936bd657fe6029f61f66676f3f7028404",
+  "sealedGatesUnchanged": true,
+  "findings": [],
+  "pairComparison": "UNVERIFIED",
+  "naturalness": "UNVALIDATED",
+  "liveRunNotRetriedOrReplaced": true
+}

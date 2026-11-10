@@ -1,0 +1,21 @@
+# Vision-only loop investigation
+
+2026-11-09JST. User approved executing the next priority: isolate visual constraints and locate the observed loop boundary, with implementation, actualJev and independent verification. Starting feature branch9682397; existing linked worktree; no actor edits unless a reproduced implementation bug warrants them. Existing API/push authorization persists. Do not ask again. No Issue comments/closing or default branch changes.
+
+## Evidence and hypothesis
+Oldcap12vision3runs execute look_3,e5,back,e5,back,e5,back. On notification screens the stop control exists in audit but is outside clearRect, absent from candidates; choosingback executescorrectly. Legacyrestricted/state.disabled sends no priorhistory/images. This supports missing clickeligibility and repeatedbackdecision; it does not prove perception failure or forgetting. Source037+b8c was historical, newsource968+c91 is fixed separately.
+
+## Fixed experiment
+Use unchanged currentrunBeta and controlledcomparison runner/localreference notification UI. Samecharter and beginnerA(dedicatedPC), initialstate/fixation/model/questions/argmax/extraActions(looktrueonly)/limits inallarms. Goal behavior fixed to preserve oldvisionquestion; extra candidate vocabulary isheldconstant evenforfullimages. All opt-in informationChannel image-state and state.engineenabled; memory0 or3, notstate.enabled toggle. The 3 vision modes full/crop/foveated differ onlymode, at each memorycapacity. Compare memory0/3 separately at fixedvision. Do not compare with oldlegacy4 as a one-factor effect.
+
+3vision x2memory x3pairedseeds4001/4002/4003=18trials,6batches(max36allocatedeach),globalmax216requests/45min,10minbatch,1parallel/retry0. maxAPI12/UI6/look4/decisions10/run90000ms. Startbatch onlywith its10minbudgetremaining. Three positions fullycyclicbalanced forvision within eachmemory; memoryblockorder alternatesbut3replicates notfullybalancedacross2positions. External model seed notfixed. Samepolicy atallarms. Preserveallraw/failure/censor/missing and stoponprovider/accounting/source/safety/auditfailure or3trustedmodelinvalid. No failedslot replacement.
+
+## Audit contract
+Use existingraw/config/source/Persona/ledger/replay/framebinding. Goal-control identity is offline audit only (exactknownfixture button text, rejectambiguouscontrols); never send analyst labels/expectedroute toagent. At everydecision record auditcontrolpresence, fullsharpbody+badge, offeredcandidate, rawproposal/probability/selectedaction/actualcontrol/outcome. Record previousgoalobserved boolonlyfromexistingobjectiveevidence, plus deliveredmemory refs wheregoalcontrolhadbeenoffered. Report repeatedrawscreen+semanticcontrol separatelyfromsemantics-onlyrevisit. Lookpair verifies UIoperationcountzero, requestedfixationnext and unchangedrawscreen whereobserved. Do notlabel reuse as forbidden or automatically abnormal.
+
+Classify observable boundary: notin audit / auditedbutnotclickeligible / offeredbutnotselected / selectedandperformed / selectedbutexecutionfailed. Internal recognition, comprehension, attention and forgetting remain unmeasured unless extra evidence exists. No additional model questions, saved-input resend, UI redesign, automaticfixationreset or revisitban inthis experiment. Any futureprobing is a separately declared task.
+
+## Ownership and acceptance
+Parent: configs/study, sourcefreeze/priorrawpreservation, experimentdriver/APIexecution, docs/Git/integration. Worker: new scripts/analyze-vision-isolation.ts +tests/vision-isolation-analysis.test.ts +owned ignoredreports/module-analysis only; reuseauditControlledTrialArtifacts, sourceIdentity, replay etc. Fresh verifier: ownnewtest+ignoredreports only, no product/env/API/Git changes.
+
+Accept when all18planned slots accounted, independentone-axis config/input checks, immutable raw/source/ledger/selection/assets/replay verified; newdiagnostics tested with ambiguous/missing/pending/malformed cases; actualmodel execution undercaps (or explicitstop/missingreason), independentreview/repair<=3rounds; runnablecommands and honestlimitations saved/pushed. Success doesnotrequirehigherachievementorhumanmatch. Do not patch symptoms before observedcausalboundary is established.

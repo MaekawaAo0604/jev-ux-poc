@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Separate two-trial OpenAI RAW provenance, accounting, replay and declared functional-method integrity only. No behavior, performance, comprehension, stability, provider ranking, human fidelity or causal-improvement PASS.",
+  "sourceHash": "ec48493a0e26ce19f7e2742791644fedc3d821ab51074f11da4e3ecb7ff69080",
+  "producerRevision": "a5ffbfb0496a6401c478bf46d4bfe6fc61a74131",
+  "manifestSha256": "ba12ebb1f07e91f72796fa9dfb827a82edd427d62dad1fbd59cbd63419415dbc",
+  "preservation": {
+    "before": {
+      "timestamp": "2026-10-30T04:54:22.919Z",
+      "sourceHash": "ec48493a0e26ce19f7e2742791644fedc3d821ab51074f11da4e3ecb7ff69080",
+      "revision": "a5ffbfb0496a6401c478bf46d4bfe6fc61a74131",
+      "sourceFiles": 161,
+      "frozenFiles": 996,
+      "priorFiles": 6546,
+      "openaiRawFiles": 94,
+      "hashes": {
+        "freeze-round1.json": "12032e63b7b7853dedb67ecb9d3e965f21f0e535aa6a3deeaa59ac8460df7731",
+        "freeze-round2.json": "fd7b60bb7b8af653df0988272de359f1dadc7f8922e8f54b823ba2bbbb0ea91b",
+        "independent-round1/GATE.json": "195b38ac08b6c4c5d690f61b7f91ac69079a6073a8e7d6704e710009e86cfa56",
+        "independent-round2/GATE.json": "e4f1bf12e145030ec9da1276d46921f9a50095aa25d338104427e477554ac7e6",
+        "independent-live/GATE.json": "5383f21a5529adb81add0a9e690cb5303f68c5fe36334119f4edce7b8f8494bb",
+        "producer-source.json": "b95c2a226baacf67a97e6e76aef98eb01fc67e90c9f1cc1f8d9b353b6f93795e",
+        "producer-source-ec48493a.zip": "9a7309e30ad008688191a455e078613126b2f03706b1e5bb63660b2c3d57fe7c",
+        "producer-protocol.json": "2e17d89395c18881a3d2dc583f35669337bb1de2198cbaa21ce89df98415a757",
+        "producer-plan.md": "dcea95c8fc411bc45a1455b4d916de07a4cab49b14a5b9988c1bcc89caf10178",
+        "producer-archive.json": "5efce9fa32b8cdbbbab89a545f827ba8536b3279020cd038a78700c4e0be5c0d",
+        "analysis-protocol-initial.json": "dc142e4755de25be63b86558923e1846755cf81a9f735bf4d86fde1ab961c649",
+        "analysis-protocol.json": "c82d649940fbf13409afff16f6984919d9745cf1ba749e427fe43c7a622bf9d8",
+        "live-observations.json": "d78a0bdc459d1dde877d2804a837c2ac7b2c4461ffd73d3b03c024ac8bbc4ed6",
+        "live-inventory.json": "e81caa0a5f0e3e800e6ef09ed9cad098a8883e22176318106d1fb1bd7799bc6c",
+        "prior-raw.json": "c3af8050179a1b27a949b140ad15ff21d9147867cd864a8d4cc3036637b537c4",
+        "openai-sanity-protocol.json": "34f6a21e4fa947874f0303f2ced658d049bbae59c122536a60323afdebc7a4a1",
+        "openai-sanity-observations.json": "a9b349e6fb46a7e5d9abd3048ca55ce8510ab617d8329117c21ac4b63ee51067",
+        "openai-inventory.json": "bf992ba747f7fcc455e5850d61b815c80ada32346d681d8ba496709c3ad3df91",
+        "final-prior-raw.json": "4f737cae9df64e39f84db50c61531c464fd06ad22cf6b724228e9c59d5520034",
+        "parent/openai-sanity.ts": "2c38bdd849e63b5f0238aaed20ea7d961e297cb4c586346253dfd7caa8a90a9b"
+      },
+      "mismatch": []
+    },
+    "after": {
+      "timestamp": "2026-10-30T04:56:38.355Z",
+      "sourceHash": "ec48493a0e26ce19f7e2742791644fedc3d821ab51074f11da4e3ecb7ff69080",
+      "revision": "a5ffbfb0496a6401c478bf46d4bfe6fc61a74131",
+      "sourceFiles": 161,
+      "frozenFiles": 996,
+      "priorFiles": 6546,
+      "openaiRawFiles": 94,
+      "hashes": {
+        "freeze-round1.json": "12032e63b7b7853dedb67ecb9d3e965f21f0e535aa6a3deeaa59ac8460df7731",
+        "freeze-round2.json": "fd7b60bb7b8af653df0988272de359f1dadc7f8922e8f54b823ba2bbbb0ea91b",
+        "independent-round1/GATE.json": "195b38ac08b6c4c5d690f61b7f91ac69079a6073a8e7d6704e710009e86cfa56",
+        "independent-round2/GATE.json": "e4f1bf12e145030ec9da1276d46921f9a50095aa25d338104427e477554ac7e6",
+        "independent-live/GATE.json": "5383f21a5529adb81add0a9e690cb5303f68c5fe36334119f4edce7b8f8494bb",
+        "producer-source.json": "b95c2a226baacf67a97e6e76aef98eb01fc67e90c9f1cc1f8d9b353b6f93795e",
+        "producer-source-ec48493a.zip": "9a7309e30ad008688191a455e078613126b2f03706b1e5bb63660b2c3d57fe7c",
+        "producer-protocol.json": "2e17d89395c18881a3d2dc583f35669337bb1de2198cbaa21ce89df98415a757",
+        "producer-plan.md": "dcea95c8fc411bc45a1455b4d916de07a4cab49b14a5b9988c1bcc89caf10178",
+        "producer-archive.json": "5efce9fa32b8cdbbbab89a545f827ba8536b3279020cd038a78700c4e0be5c0d",
+        "analysis-protocol-initial.json": "dc142e4755de25be63b86558923e1846755cf81a9f735bf4d86fde1ab961c649",
+        "analysis-protocol.json": "c82d649940fbf13409afff16f6984919d9745cf1ba749e427fe43c7a622bf9d8",
+        "live-observations.json": "d78a0bdc459d1dde877d2804a837c2ac7b2c4461ffd73d3b03c024ac8bbc4ed6",
+        "live-inventory.json": "e81caa0a5f0e3e800e6ef09ed9cad098a8883e22176318106d1fb1bd7799bc6c",
+        "prior-raw.json": "c3af8050179a1b27a949b140ad15ff21d9147867cd864a8d4cc3036637b537c4",
+        "openai-sanity-protocol.json": "34f6a21e4fa947874f0303f2ced658d049bbae59c122536a60323afdebc7a4a1",
+        "openai-sanity-observations.json": "a9b349e6fb46a7e5d9abd3048ca55ce8510ab617d8329117c21ac4b63ee51067",
+        "openai-inventory.json": "bf992ba747f7fcc455e5850d61b815c80ada32346d681d8ba496709c3ad3df91",
+        "final-prior-raw.json": "4f737cae9df64e39f84db50c61531c464fd06ad22cf6b724228e9c59d5520034",
+        "parent/openai-sanity.ts": "2c38bdd849e63b5f0238aaed20ea7d961e297cb4c586346253dfd7caa8a90a9b"
+      },
+      "mismatch": []
+    },
+    "unchanged": true,
+    "frozenFiles": 996,
+    "allSealedRawFiles": 6546,
+    "newOpenAIRawFiles": 94,
+    "producerZIP": {
+      "entries": 161,
+      "zipSha256": "9a7309e30ad008688191a455e078613126b2f03706b1e5bb63660b2c3d57fe7c",
+      "matchesMetadata": true,
+      "mismatch": [],
+      "pass": true
+    },
+    "priorRound1Round2LiveGatesPreserved": true
+  },
+  "validation": {
+    "assertions": 11,
+    "failures": 0,
+    "requiredFinalHTTPReplays": 2,
+    "exactSummaryRecomputed": true,
+    "parentObservationsReconstructedExactly": true,
+    "accounting": {
+      "charged": 72,
+      "attempts": 72,
+      "knownReceipts": 72,
+      "stages": {
+        "native": 24,
+        "assessment": 24,
+        "action": 24
+      },
+      "reserved": 0,
+      "errors": 0,
+      "maxParallelIntervals": 1
+    },
+    "deliveredWorkingInquiryRecords": 24,
+    "rawAdjustedContextQuestionsAndAllProjectedCriteriaRederived": true,
+    "initialComparisons": [
+      {
+        "task": "library",
+        "initialPNG": "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba",
+        "goal": "予約図書「川沿いの暮らし」の受取館を中央図書館から東分館へ変更し、保存されたことを確認してください。",
+        "initialNativeRequestSha256": "1e246701a776cbcd51981c7636adf0fa414a52cae82798f6480badf794b092bc",
+        "nativeHTTPBodySha256": "91d26133bbf03015a65f4957cbf72a0aa0e2191159fb71ed9783c5459ccdf3e3",
+        "emptyBeforeMemory": true,
+        "freshNativeResponsesDiffer": true,
+        "causalProviderComparison": false
+      },
+      {
+        "task": "workshop",
+        "initialPNG": "2426c25ce45e0c932ae6e192b1af8e61122defd5f8c9a3dce2b7a1a473da42f5",
+        "goal": "参加予約「木の小物づくり」の希望回を午前の回から午後の回へ変更し、保存されたことを確認してください。",
+        "initialNativeRequestSha256": "915885a2792252dd27f65757307b7171a0da61e5de1c39d1d3c8bcec7c4ca202",
+        "nativeHTTPBodySha256": "431261b7dffd0cf5ad6b1437261ba59580d7c277d95f7b4fd543a704416d1e10",
+        "emptyBeforeMemory": true,
+        "freshNativeResponsesDiffer": true,
+        "causalProviderComparison": false
+      }
+    ],
+    "configAndModelsMatchProtocol": true
+  },
+  "observedRuns": [
+    {
+      "task": "library",
+      "requests": 36,
+      "judgments": 12,
+      "termination": "DECISION_LIMIT",
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "home",
+        "eligible": false,
+        "verificationAttempts": 3,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "ledger": {
+        "used": 36,
+        "sha256": "4d4b44502493687b92efbe2af1855b7424f5dc36e6e4e53c032f69ae0403f7af",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      }
+    },
+    {
+      "task": "workshop",
+      "requests": 36,
+      "judgments": 12,
+      "termination": "DECISION_LIMIT",
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "terminal": {
+        "schemaVersion": 1,
+        "route": "records",
+        "eligible": true,
+        "verificationAttempts": 3,
+        "recordChecks": 3,
+        "savedValue": "午前の回",
+        "complete": false
+      },
+      "ledger": {
+        "used": 36,
+        "sha256": "b578580e1da4d001dceacbfbc5977385e4a7b853d31136ecb01720ca218bac54",
+        "reserved": 0,
+        "ok": 36,
+        "errors": 0
+      }
+    }
+  ],
+  "workshopReconciliation": {
+    "actions": [
+      10,
+      11,
+      12
+    ],
+    "counterTransitions": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "eligibilityTransitions": [
+      [
+        false,
+        true
+      ],
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ]
+    ],
+    "savedValueAfterEach": "午前の回",
+    "objectiveSuccess": false,
+    "firstPrimaryAfterProgress": null,
+    "allThreeModelChoicesEqualSelected": true,
+    "allThreeLegacyWeightsOne": true,
+    "rawProbabilities": [
+      0.63,
+      0.72,
+      0.4
+    ],
+    "lastOutcome": "terminal-audit-only; no new delivered model judgment after step12",
+    "evidence": "reconciliation-evidence.json"
+  },
+  "legacySelectionCorrections": {
+    "judgments": 24,
+    "nonUnitWeightSteps": 5,
+    "modelChoiceDifferent": 4
+  },
+  "semanticObservations": [
+    {
+      "kind": "intermediate-operation-without-goal",
+      "detail": "Workshop first reconciliation makes eligible=true, but all3 actions retain savedValue=午前の回 and objective=false; no primary return/save-after-progress occurs."
+    },
+    {
+      "kind": "model-link-and-role-ambiguity",
+      "detail": "All3 native e1 relations are unknown with empty conditionIds/expectedResult=null; inquiry selects final-save conditions with find_route intent and no explicit e1 link. Other legacy role/search questions sometimes name e1 navigation/prerequisite despite the visible reconciliation button."
+    },
+    {
+      "kind": "repeated-unchanged-result",
+      "detail": "At o11/o12 native extraction recognizes reconciliation satisfied. The model still chooses e1 again (.72/.40) with all weights1; o12 experience labels the prior repetition neutral. Same delivered PNG hashes at o11/o12 confirm unchanged visible result. Last action outcome is terminal audit only, with no new delivered experience judgment."
+    },
+    {
+      "kind": "not-provider-causal",
+      "detail": "Initial UI/goal/native requests match Jev, but fresh native responses and later histories differ. There is one fresh trial per task; do not infer provider ranking, stability, comprehension or causal improvement."
+    }
+  ],
+  "integrityFindings": [],
+  "semanticCorrectness": {
+    "status": "NOT_ESTABLISHED",
+    "scope": "Personally inspected delivered workshop PNGs10/11/12; complete semantic accuracy not certified.",
+    "claim": "Intermediate reconciliation occurred, but both goals remained false. Repeating a recognized completed check does not establish understanding or improvement."
+  },
+  "limitations": [
+    "One fresh trial per task; no retries or failed-slot replacement. Results are descriptive only.",
+    "Initial UI/goal/native request match Jev, while fresh native responses and later histories differ; this is not a same-input causal provider comparison.",
+    "Shared legacy deferral corrections are active:5 of24 judgments have non-unit weights and4 selections differ from modelChoice. The3 workshop reconciliation actions individually retain all weights1.",
+    "No credentials, environment files, participant data, external API calls, existing raw input resends, source/HEAD/previous documents or artifacts were modified or used to generate new trials in this audit."
+  ],
+  "evidence": [
+    "audit.ts",
+    "audit.json",
+    "working-choices.json",
+    "recomputed-summary.json",
+    "recomputed-observations.json",
+    "reconciliation-evidence.json",
+    "before-hashes.json",
+    "after-hashes.json",
+    "archive-verification.json"
+  ]
+}

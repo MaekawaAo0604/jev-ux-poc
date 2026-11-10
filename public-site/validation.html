@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>匿名化した検証結果 | Jev UX</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header><a class="brand" href="index.html">Jev UX <span>情報到達診断</span></a><nav aria-label="メイン"><a href="service.html">提供範囲</a><a href="validation.html" aria-current="page">検証結果</a></nav></header>
+  <main id="main" class="article">
+    <p class="eyebrow">VALIDATION / 匿名化サマリー</p><h1>到達できたこと、<br>まだ確認できないこと。</h1>
+    <p class="lead">実サイトの試行を匿名化して抜粋しました。
+    サイト全体の品質評価や、顧客実績を示す資料ではありません。</p>
+    <p>2026 年 10 月 20 日時点の記録です。
+    Jev は画像から判断し、Playwright が操作しました。
+    以下の秒数は探索処理の計測値を丸めたもので、担当者の確認や資料作成の時間は含みません。</p>
+    <section aria-labelledby="case-a"><div class="case-heading"><span class="tag">到達・確認済み</span><span class="number">SITE A / 情報共有サービス</span></div><h2 id="case-a">料金と試用条件を探す</h2>
+      <dl class="metrics"><div><dt>完了した操作</dt><dd>1 回</dd></div><div><dt>探索時間</dt><dd>約 12.0 秒</dd></div></dl>
+      <p>Jev が完了と判断し、終了後の保存画像の照合もその判断を支持しました。
+      担当者も料金の根拠画像を確認しています。</p>
+      <p>同じ目的の修正前の試行は約 13.4 秒と約 11.8 秒でした。
+      試行が少ないため、約 12.0 秒という結果から高速化や一般的な再現性は主張しません。</p>
+    </section>
+    <section aria-labelledby="case-b"><div class="case-heading"><span class="tag">到達・確認済み</span><span class="number">SITE B / 施設案内</span></div><h2 id="case-b">一般的な利用条件を探す</h2>
+      <dl class="metrics"><div><dt>完了した操作</dt><dd>2 回</dd></div><div><dt>探索時間</dt><dd>約 39.8 秒</dd></div></dl>
+      <p>Jev の完了判断を、終了後の画像照合が支持しました。
+      担当者は保存画像で必要な情報を確認しています。
+      これは 1 回の試行結果です。</p>
+    </section>
+    <section aria-labelledby="case-c"><div class="case-heading"><span class="tag pending">未確認 / 診断中断</span><span class="number">SITE B / 条件付き利用案内</span></div><h2 id="case-c">複数の利用条件を合わせて確かめる</h2>
+      <p>修正前は、同じ最初の操作から複数の行き先へ進める場面で、コードが列挙順の行き先を採用していました。
+      複数の行き先があるときは、既存の Jev による行き先選択を通すように修正しました。</p>
+      <p>再検証では、選んだ FAQ の入口へ実際に移動できました。
+      ただし、見えている質問の開閉行を操作候補にできず、再訪も残りました。
+      担当者は 33 回の操作完了後、原因確認のため診断を中断しました。</p>
+      <p><strong>目的全体の達成は未確認です。</strong>
+      Jev の自律的な行き詰まり判定でも、サイトの欠陥の確定でもありません。
+      修正前後とも途中で中断したため、所要時間や操作数から改善率は計算していません。</p>
+    </section>
+    <aside class="notice"><h2>残っている制約</h2><ul>
+      <li>画面に見えていても、自動操作の候補にできない開閉部品があります。</li>
+      <li>入口へ到達しても、同じ場所への再訪を解消できていない試行があります。</li>
+      <li>PDF、外部ページ、埋め込み表示の制限により、必要な根拠を確認できない場合があります。</li>
+    </ul><p>これらを利用者の迷いやサイト側の問題と混同しないよう、担当者が原因を分けて報告します。</p></aside>
+    <p class="next"><a href="service.html">診断の提供範囲を読む →</a></p>
+  </main>
+  <footer><p>第三者のサイト名、URL、画面画像、詳細ログは掲載していません。</p><p><a href="index.html">資料一覧に戻る</a></p></footer>
+</body>
+</html>

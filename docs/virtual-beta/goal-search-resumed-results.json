@@ -1,0 +1,2586 @@
+{
+  "schemaVersion": 1,
+  "kind": "post-budget-recovery-real-goal-search-comparison",
+  "status": "COMPLETED",
+  "producer": {
+    "revision": "6cb8c277e410556435006fc57a2f8a451e06ebc5",
+    "sourceHash": "1b8c483b2b89c4f9fea113d2529d902ace425ec1a2a75e207109affa81b084c9"
+  },
+  "startedAtUTC": "2026-10-29T01:49:34.410Z",
+  "limits": {
+    "trials": 12,
+    "maxRequests": 288,
+    "phaseMaximumRequests": 288,
+    "maxRequestsPerTrial": 24,
+    "maxJudgmentsPerTrial": 12,
+    "maxUIActionsPerTrial": 15,
+    "maxLooksPerTrial": 3,
+    "maxRunMs": 180000,
+    "phaseMs": 1200000,
+    "parallel": 1
+  },
+  "requests": {
+    "used": 202,
+    "maximum": 288,
+    "source": "fresh-trial-ledgers-including-incomplete",
+    "statuses": {
+      "OK": 202
+    },
+    "metadataGET": 1
+  },
+  "conditions": [
+    {
+      "condition": "old",
+      "trials": 6,
+      "valid": 6,
+      "successes": 5,
+      "faults": 0,
+      "requests": 102,
+      "searchRecords": 0,
+      "questions": 0,
+      "annotations": 0,
+      "historicalAnnotations": 0,
+      "selectedHistoricalAnnotations": 0,
+      "selectedReportedTargets": 0
+    },
+    {
+      "condition": "reason",
+      "trials": 6,
+      "valid": 6,
+      "successes": 6,
+      "faults": 0,
+      "requests": 100,
+      "searchRecords": 50,
+      "questions": 136,
+      "annotations": 666,
+      "historicalAnnotations": 17,
+      "selectedHistoricalAnnotations": 5,
+      "selectedReportedTargets": 16
+    }
+  ],
+  "cells": [
+    {
+      "scenario": "notifications",
+      "condition": "old",
+      "n": 2,
+      "valid": 2,
+      "successes": 1,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 9,
+      "meanDecisions": 9.5,
+      "policyChanges": 4
+    },
+    {
+      "scenario": "notifications",
+      "condition": "reason",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 8,
+      "meanDecisions": 9,
+      "policyChanges": 3
+    },
+    {
+      "scenario": "revisit-alpha",
+      "condition": "old",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 7,
+      "meanDecisions": 8,
+      "policyChanges": 0
+    },
+    {
+      "scenario": "revisit-alpha",
+      "condition": "reason",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 7,
+      "meanDecisions": 8,
+      "policyChanges": 0
+    },
+    {
+      "scenario": "revisit-beta",
+      "condition": "old",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 7,
+      "meanDecisions": 8,
+      "policyChanges": 0
+    },
+    {
+      "scenario": "revisit-beta",
+      "condition": "reason",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 7,
+      "meanDecisions": 8,
+      "policyChanges": 0
+    }
+  ],
+  "pairs": [
+    {
+      "scenario": "notifications",
+      "replicate": 1,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "notifications-r1-old",
+        "notifications-r1-reason"
+      ]
+    },
+    {
+      "scenario": "notifications",
+      "replicate": 2,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "notifications-r2-reason",
+        "notifications-r2-old"
+      ]
+    },
+    {
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-alpha-r1-reason",
+        "revisit-alpha-r1-old"
+      ]
+    },
+    {
+      "scenario": "revisit-alpha",
+      "replicate": 2,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-alpha-r2-old",
+        "revisit-alpha-r2-reason"
+      ]
+    },
+    {
+      "scenario": "revisit-beta",
+      "replicate": 1,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-beta-r1-old",
+        "revisit-beta-r1-reason"
+      ]
+    },
+    {
+      "scenario": "revisit-beta",
+      "replicate": 2,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-beta-r2-reason",
+        "revisit-beta-r2-old"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "notifications-r1-old",
+      "scenario": "notifications",
+      "condition": "old",
+      "replicate": 1,
+      "initialImageSha256": "03b74136e02c8889c4f07cf73846ad67d9ee1f0516bbee1283b5694e6126bae0",
+      "requests": 14,
+      "valid": true,
+      "fault": false,
+      "objective": true,
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 6,
+      "looks": 0,
+      "decisions": 7,
+      "route": [
+        {
+          "step": 1,
+          "title": "マイページ",
+          "selected": "e4",
+          "rawSelected": 0.95,
+          "filteredSelected": 0.95,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 2,
+          "title": "各種設定",
+          "selected": "e4",
+          "rawSelected": 0.81,
+          "filteredSelected": 0.8526315789473684,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 3,
+          "title": "今月のおすすめ",
+          "selected": "e2",
+          "rawSelected": 0.51,
+          "filteredSelected": 0.5483870967741936,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 4,
+          "title": "マイページ",
+          "selected": "e5",
+          "rawSelected": 0.03,
+          "filteredSelected": 0.4329004329004329,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 5,
+          "title": "その他",
+          "selected": "e3",
+          "rawSelected": 0.99,
+          "filteredSelected": 0.99,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 6,
+          "title": "お知らせの管理",
+          "selected": "e3",
+          "rawSelected": 0.81,
+          "filteredSelected": 0.9759036144578315,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 7,
+          "title": "お知らせの管理",
+          "selected": "done",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "done",
+          "baselineSelected": "done",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        }
+      ]
+    },
+    {
+      "id": "notifications-r1-reason",
+      "scenario": "notifications",
+      "condition": "reason",
+      "replicate": 1,
+      "initialImageSha256": "03b74136e02c8889c4f07cf73846ad67d9ee1f0516bbee1283b5694e6126bae0",
+      "requests": 14,
+      "valid": true,
+      "fault": false,
+      "objective": true,
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 6,
+      "looks": 0,
+      "decisions": 7,
+      "route": [
+        {
+          "step": 1,
+          "title": "マイページ",
+          "selected": "e4",
+          "rawSelected": 0.9400000000000001,
+          "filteredSelected": 0.9591836734693877,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 2,
+          "title": "各種設定",
+          "selected": "e4",
+          "rawSelected": 0.73,
+          "filteredSelected": 0.7849462365591399,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 3,
+          "title": "今月のおすすめ",
+          "selected": "e3",
+          "rawSelected": 0.45,
+          "filteredSelected": 0.4639175257731959,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 4,
+          "title": "マイページ",
+          "selected": "e5",
+          "rawSelected": 0.02,
+          "filteredSelected": 0.2894356005788712,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 5,
+          "title": "その他",
+          "selected": "e3",
+          "rawSelected": 0.93,
+          "filteredSelected": 0.9587628865979382,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e3"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 6,
+          "title": "お知らせの管理",
+          "selected": "e3",
+          "rawSelected": 0.84,
+          "filteredSelected": 0.9655172413793103,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e3"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 7,
+          "title": "お知らせの管理",
+          "selected": "done",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "done",
+          "baselineSelected": "done",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "finding": {
+            "kind": "guidance"
+          },
+          "historicalAnnotationSelected": false
+        }
+      ]
+    },
+    {
+      "id": "revisit-alpha-r1-reason",
+      "scenario": "revisit-alpha",
+      "condition": "reason",
+      "replicate": 1,
+      "initialImageSha256": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+      "requests": 16,
+      "valid": true,
+      "fault": false,
+      "objective": true,
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "route": [
+        {
+          "step": 1,
+          "title": "アルバム管理",
+          "selected": "e2",
+          "rawSelected": 0.99,
+          "filteredSelected": 0.99,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e2"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 2,
+          "title": "共有設定",
+          "selected": "e1",
+          "rawSelected": 0.52,
+          "filteredSelected": 0.7222222222222223,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "prerequisite"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 3,
+          "title": "アルバム管理",
+          "selected": "e3",
+          "rawSelected": 0.59,
+          "filteredSelected": 0.9773066092430014,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e2"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 4,
+          "title": "アカウント情報",
+          "selected": "e2",
+          "rawSelected": 0.98,
+          "filteredSelected": 0.98,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "prerequisite"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 5,
+          "title": "アカウント情報",
+          "selected": "e1",
+          "rawSelected": 0.97,
+          "filteredSelected": 0.97,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "guidance"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 6,
+          "title": "アルバム管理",
+          "selected": "e2",
+          "rawSelected": 0.97,
+          "filteredSelected": 0.9895939604162416,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e2"
+          },
+          "historicalAnnotationSelected": true
+        },
+        {
+          "step": 7,
+          "title": "共有設定",
+          "selected": "e2",
+          "rawSelected": 0.74,
+          "filteredSelected": 0.891566265060241,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e2"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 8,
+          "title": "共有設定",
+          "selected": "done",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "done",
+          "baselineSelected": "done",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "finding": {
+            "kind": "guidance"
+          },
+          "historicalAnnotationSelected": false
+        }
+      ]
+    },
+    {
+      "id": "revisit-alpha-r1-old",
+      "scenario": "revisit-alpha",
+      "condition": "old",
+      "replicate": 1,
+      "initialImageSha256": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+      "requests": 16,
+      "valid": true,
+      "fault": false,
+      "objective": true,
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "route": [
+        {
+          "step": 1,
+          "title": "アルバム管理",
+          "selected": "e2",
+          "rawSelected": 0.99,
+          "filteredSelected": 0.99,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 2,
+          "title": "共有設定",
+          "selected": "e1",
+          "rawSelected": 0.5,
+          "filteredSelected": 0.7142857142857143,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 3,
+          "title": "アルバム管理",
+          "selected": "e3",
+          "rawSelected": 0.8200000000000001,
+          "filteredSelected": 0.9980525803310614,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 4,
+          "title": "アカウント情報",
+          "selected": "e2",
+          "rawSelected": 0.98,
+          "filteredSelected": 0.98,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 5,
+          "title": "アカウント情報",
+          "selected": "e1",
+          "rawSelected": 0.97,
+          "filteredSelected": 0.97,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 6,
+          "title": "アルバム管理",
+          "selected": "e2",
+          "rawSelected": 0.97,
+          "filteredSelected": 0.9996908172730083,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 7,
+          "title": "共有設定",
+          "selected": "e2",
+          "rawSelected": 0.91,
+          "filteredSelected": 0.978494623655914,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 8,
+          "title": "共有設定",
+          "selected": "done",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "done",
+          "baselineSelected": "done",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        }
+      ]
+    },
+    {
+      "id": "revisit-beta-r1-old",
+      "scenario": "revisit-beta",
+      "condition": "old",
+      "replicate": 1,
+      "initialImageSha256": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160",
+      "requests": 16,
+      "valid": true,
+      "fault": false,
+      "objective": true,
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "route": [
+        {
+          "step": 1,
+          "title": "アルバム管理",
+          "selected": "e3",
+          "rawSelected": 0.99,
+          "filteredSelected": 1,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 2,
+          "title": "リンクの公開設定",
+          "selected": "e1",
+          "rawSelected": 0.33,
+          "filteredSelected": 0.559322033898305,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 3,
+          "title": "アルバム管理",
+          "selected": "e4",
+          "rawSelected": 0.64,
+          "filteredSelected": 0.9950248756218906,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 4,
+          "title": "アカウント情報",
+          "selected": "e2",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 5,
+          "title": "アカウント情報",
+          "selected": "e1",
+          "rawSelected": 0.97,
+          "filteredSelected": 0.97,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 6,
+          "title": "アルバム管理",
+          "selected": "e3",
+          "rawSelected": 0.98,
+          "filteredSelected": 0.98,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 7,
+          "title": "リンクの公開設定",
+          "selected": "e2",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 8,
+          "title": "リンクの公開設定",
+          "selected": "done",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "done",
+          "baselineSelected": "done",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        }
+      ]
+    },
+    {
+      "id": "revisit-beta-r1-reason",
+      "scenario": "revisit-beta",
+      "condition": "reason",
+      "replicate": 1,
+      "initialImageSha256": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160",
+      "requests": 16,
+      "valid": true,
+      "fault": false,
+      "objective": true,
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "route": [
+        {
+          "step": 1,
+          "title": "アルバム管理",
+          "selected": "e3",
+          "rawSelected": 0.97,
+          "filteredSelected": 0.9797979797979798,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e3"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 2,
+          "title": "リンクの公開設定",
+          "selected": "e1",
+          "rawSelected": 0.4,
+          "filteredSelected": 0.625,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "prerequisite"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 3,
+          "title": "アルバム管理",
+          "selected": "e4",
+          "rawSelected": 0.53,
+          "filteredSelected": 0.9737277236817932,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e3"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 4,
+          "title": "アカウント情報",
+          "selected": "e2",
+          "rawSelected": 0.99,
+          "filteredSelected": 0.99,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "prerequisite"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 5,
+          "title": "アカウント情報",
+          "selected": "e1",
+          "rawSelected": 0.96,
+          "filteredSelected": 0.96,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "guidance"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 6,
+          "title": "アルバム管理",
+          "selected": "e3",
+          "rawSelected": 0.99,
+          "filteredSelected": 0.99,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e3"
+          },
+          "historicalAnnotationSelected": true
+        },
+        {
+          "step": 7,
+          "title": "リンクの公開設定",
+          "selected": "e2",
+          "rawSelected": 0.99,
+          "filteredSelected": 0.99,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e2"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 8,
+          "title": "リンクの公開設定",
+          "selected": "done",
+          "rawSelected": 0.99,
+          "filteredSelected": 1,
+          "modelChoice": "done",
+          "baselineSelected": "done",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "finding": {
+            "kind": "guidance"
+          },
+          "historicalAnnotationSelected": false
+        }
+      ]
+    },
+    {
+      "id": "notifications-r2-reason",
+      "scenario": "notifications",
+      "condition": "reason",
+      "replicate": 2,
+      "initialImageSha256": "03b74136e02c8889c4f07cf73846ad67d9ee1f0516bbee1283b5694e6126bae0",
+      "requests": 22,
+      "valid": true,
+      "fault": false,
+      "objective": true,
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 10,
+      "looks": 0,
+      "decisions": 11,
+      "route": [
+        {
+          "step": 1,
+          "title": "マイページ",
+          "selected": "e4",
+          "rawSelected": 0.93,
+          "filteredSelected": 0.9393939393939393,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 2,
+          "title": "各種設定",
+          "selected": "e4",
+          "rawSelected": 0.74,
+          "filteredSelected": 0.7956989247311828,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 3,
+          "title": "今月のおすすめ",
+          "selected": "e3",
+          "rawSelected": 0.45,
+          "filteredSelected": 0.4736842105263158,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 4,
+          "title": "マイページ",
+          "selected": "scroll_down",
+          "rawSelected": 0.03,
+          "filteredSelected": 0.37974683544303794,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "scroll",
+            "direction": "down"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 5,
+          "title": "",
+          "selected": "e2",
+          "rawSelected": 0.92,
+          "filteredSelected": 0.9583333333333333,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 6,
+          "title": "各種設定",
+          "selected": "e4",
+          "rawSelected": 0.77,
+          "filteredSelected": 0.8279569892473118,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "historicalAnnotationSelected": true
+        },
+        {
+          "step": 7,
+          "title": "今月のおすすめ",
+          "selected": "e2",
+          "rawSelected": 0.63,
+          "filteredSelected": 0.8607733296898483,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 8,
+          "title": "マイページ",
+          "selected": "e5",
+          "rawSelected": 0.02,
+          "filteredSelected": 0.4065040650406504,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 9,
+          "title": "その他",
+          "selected": "e3",
+          "rawSelected": 0.97,
+          "filteredSelected": 0.9797979797979798,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e3"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 10,
+          "title": "お知らせの管理",
+          "selected": "e3",
+          "rawSelected": 0.8,
+          "filteredSelected": 0.963855421686747,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e3"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 11,
+          "title": "お知らせの管理",
+          "selected": "done",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "done",
+          "baselineSelected": "done",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "finding": {
+            "kind": "guidance"
+          },
+          "historicalAnnotationSelected": false
+        }
+      ]
+    },
+    {
+      "id": "notifications-r2-old",
+      "scenario": "notifications",
+      "condition": "old",
+      "replicate": 2,
+      "initialImageSha256": "03b74136e02c8889c4f07cf73846ad67d9ee1f0516bbee1283b5694e6126bae0",
+      "requests": 24,
+      "valid": true,
+      "fault": false,
+      "objective": false,
+      "perceivedDone": false,
+      "termination": "DECISION_LIMIT",
+      "uiActions": 12,
+      "looks": 0,
+      "decisions": 12,
+      "route": [
+        {
+          "step": 1,
+          "title": "マイページ",
+          "selected": "e4",
+          "rawSelected": 0.95,
+          "filteredSelected": 0.95,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 2,
+          "title": "各種設定",
+          "selected": "e4",
+          "rawSelected": 0.8,
+          "filteredSelected": 0.8247422680412371,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 3,
+          "title": "今月のおすすめ",
+          "selected": "e2",
+          "rawSelected": 0.42,
+          "filteredSelected": 0.4772727272727272,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 4,
+          "title": "マイページ",
+          "selected": "scroll_down",
+          "rawSelected": 0.03,
+          "filteredSelected": 0.606060606060606,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "scroll",
+            "direction": "down"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 5,
+          "title": "",
+          "selected": "e2",
+          "rawSelected": 0.89,
+          "filteredSelected": 0.8989898989898989,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 6,
+          "title": "各種設定",
+          "selected": "e4",
+          "rawSelected": 0.79,
+          "filteredSelected": 0.8229166666666666,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 7,
+          "title": "今月のおすすめ",
+          "selected": "back",
+          "rawSelected": 0.02,
+          "filteredSelected": 0.34071550255536626,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 8,
+          "title": "各種設定",
+          "selected": "e4",
+          "rawSelected": 0.53,
+          "filteredSelected": 0.5955056179775281,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 9,
+          "title": "今月のおすすめ",
+          "selected": "back",
+          "rawSelected": 0.51,
+          "filteredSelected": 0.6455696202531644,
+          "modelChoice": "back",
+          "baselineSelected": "back",
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 10,
+          "title": "各種設定",
+          "selected": "e3",
+          "rawSelected": 0.36,
+          "filteredSelected": 0.6627393225331369,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 11,
+          "title": "利用履歴",
+          "selected": "e2",
+          "rawSelected": 0.45,
+          "filteredSelected": 0.5232558139534884,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 12,
+          "title": "マイページ",
+          "selected": "scroll_down",
+          "rawSelected": 0.03,
+          "filteredSelected": 0.6072874493927125,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "scroll",
+            "direction": "down"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        }
+      ]
+    },
+    {
+      "id": "revisit-alpha-r2-old",
+      "scenario": "revisit-alpha",
+      "condition": "old",
+      "replicate": 2,
+      "initialImageSha256": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+      "requests": 16,
+      "valid": true,
+      "fault": false,
+      "objective": true,
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "route": [
+        {
+          "step": 1,
+          "title": "アルバム管理",
+          "selected": "e2",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 2,
+          "title": "共有設定",
+          "selected": "e1",
+          "rawSelected": 0.49,
+          "filteredSelected": 0.7101449275362319,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 3,
+          "title": "アルバム管理",
+          "selected": "e3",
+          "rawSelected": 0.75,
+          "filteredSelected": 0.9968102073365231,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 4,
+          "title": "アカウント情報",
+          "selected": "e2",
+          "rawSelected": 0.99,
+          "filteredSelected": 0.99,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 5,
+          "title": "アカウント情報",
+          "selected": "e1",
+          "rawSelected": 0.97,
+          "filteredSelected": 0.97,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 6,
+          "title": "アルバム管理",
+          "selected": "e2",
+          "rawSelected": 0.97,
+          "filteredSelected": 0.9996908172730083,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 7,
+          "title": "共有設定",
+          "selected": "e2",
+          "rawSelected": 0.93,
+          "filteredSelected": 0.9893617021276596,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 8,
+          "title": "共有設定",
+          "selected": "done",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "done",
+          "baselineSelected": "done",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        }
+      ]
+    },
+    {
+      "id": "revisit-alpha-r2-reason",
+      "scenario": "revisit-alpha",
+      "condition": "reason",
+      "replicate": 2,
+      "initialImageSha256": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+      "requests": 16,
+      "valid": true,
+      "fault": false,
+      "objective": true,
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "route": [
+        {
+          "step": 1,
+          "title": "アルバム管理",
+          "selected": "e2",
+          "rawSelected": 0.98,
+          "filteredSelected": 0.98,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e2"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 2,
+          "title": "共有設定",
+          "selected": "e1",
+          "rawSelected": 0.45,
+          "filteredSelected": 0.6428571428571429,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "prerequisite"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 3,
+          "title": "アルバム管理",
+          "selected": "e3",
+          "rawSelected": 0.7,
+          "filteredSelected": 0.9958742353108551,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e2"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 4,
+          "title": "アカウント情報",
+          "selected": "e2",
+          "rawSelected": 0.98,
+          "filteredSelected": 0.98,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "prerequisite"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 5,
+          "title": "アカウント情報",
+          "selected": "e1",
+          "rawSelected": 0.99,
+          "filteredSelected": 0.99,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "guidance"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 6,
+          "title": "アルバム管理",
+          "selected": "e2",
+          "rawSelected": 0.98,
+          "filteredSelected": 0.9897990102009898,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e2"
+          },
+          "historicalAnnotationSelected": true
+        },
+        {
+          "step": 7,
+          "title": "共有設定",
+          "selected": "e2",
+          "rawSelected": 0.9,
+          "filteredSelected": 0.9677419354838709,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e2"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 8,
+          "title": "共有設定",
+          "selected": "done",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "done",
+          "baselineSelected": "done",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "finding": {
+            "kind": "guidance"
+          },
+          "historicalAnnotationSelected": false
+        }
+      ]
+    },
+    {
+      "id": "revisit-beta-r2-reason",
+      "scenario": "revisit-beta",
+      "condition": "reason",
+      "replicate": 2,
+      "initialImageSha256": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160",
+      "requests": 16,
+      "valid": true,
+      "fault": false,
+      "objective": true,
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "route": [
+        {
+          "step": 1,
+          "title": "アルバム管理",
+          "selected": "e3",
+          "rawSelected": 0.97,
+          "filteredSelected": 0.97,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e3"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 2,
+          "title": "リンクの公開設定",
+          "selected": "e1",
+          "rawSelected": 0.45,
+          "filteredSelected": 0.6428571428571429,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "prerequisite"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 3,
+          "title": "アルバム管理",
+          "selected": "e4",
+          "rawSelected": 0.5,
+          "filteredSelected": 0.9718172983479106,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e3"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 4,
+          "title": "アカウント情報",
+          "selected": "e2",
+          "rawSelected": 0.99,
+          "filteredSelected": 0.99,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "prerequisite"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 5,
+          "title": "アカウント情報",
+          "selected": "e1",
+          "rawSelected": 0.97,
+          "filteredSelected": 0.97,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "guidance"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 6,
+          "title": "アルバム管理",
+          "selected": "e3",
+          "rawSelected": 0.98,
+          "filteredSelected": 0.9997959600081616,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e3"
+          },
+          "historicalAnnotationSelected": true
+        },
+        {
+          "step": 7,
+          "title": "リンクの公開設定",
+          "selected": "e2",
+          "rawSelected": 0.99,
+          "filteredSelected": 0.99,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": {
+            "kind": "target",
+            "candidateId": "e2"
+          },
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 8,
+          "title": "リンクの公開設定",
+          "selected": "done",
+          "rawSelected": 0.99,
+          "filteredSelected": 1,
+          "modelChoice": "done",
+          "baselineSelected": "done",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "finding": {
+            "kind": "guidance"
+          },
+          "historicalAnnotationSelected": false
+        }
+      ]
+    },
+    {
+      "id": "revisit-beta-r2-old",
+      "scenario": "revisit-beta",
+      "condition": "old",
+      "replicate": 2,
+      "initialImageSha256": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160",
+      "requests": 16,
+      "valid": true,
+      "fault": false,
+      "objective": true,
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "route": [
+        {
+          "step": 1,
+          "title": "アルバム管理",
+          "selected": "e3",
+          "rawSelected": 0.99,
+          "filteredSelected": 1,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 2,
+          "title": "リンクの公開設定",
+          "selected": "e1",
+          "rawSelected": 0.39,
+          "filteredSelected": 0.6,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 3,
+          "title": "アルバム管理",
+          "selected": "e4",
+          "rawSelected": 0.68,
+          "filteredSelected": 0.9958992384299941,
+          "modelChoice": "e4",
+          "baselineSelected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 4,
+          "title": "アカウント情報",
+          "selected": "e2",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 5,
+          "title": "アカウント情報",
+          "selected": "e1",
+          "rawSelected": 0.97,
+          "filteredSelected": 0.97,
+          "modelChoice": "e1",
+          "baselineSelected": "e1",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 6,
+          "title": "アルバム管理",
+          "selected": "e3",
+          "rawSelected": 0.99,
+          "filteredSelected": 0.99,
+          "modelChoice": "e3",
+          "baselineSelected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 7,
+          "title": "リンクの公開設定",
+          "selected": "e2",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "e2",
+          "baselineSelected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        },
+        {
+          "step": 8,
+          "title": "リンクの公開設定",
+          "selected": "done",
+          "rawSelected": 1,
+          "filteredSelected": 1,
+          "modelChoice": "done",
+          "baselineSelected": "done",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "finding": null,
+          "historicalAnnotationSelected": false
+        }
+      ]
+    }
+  ],
+  "fragments": [
+    {
+      "id": "notifications-r1-reason",
+      "frames": 7,
+      "issues": 0,
+      "goalSha256": "b05e5cd0d439ebac711ad82c991275722f3c69196686c568fb73efd09b77468a",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "初めて利用する暮らしクラウドで",
+          "classifiedCount": 7,
+          "validDistributionCount": 7,
+          "invalidDistributionCount": 0,
+          "selections": {
+            "context": 7
+          },
+          "contextProbabilities": [
+            0.82,
+            0.93,
+            0.93,
+            0.91,
+            0.91,
+            0.95,
+            0.95
+          ],
+          "requiredContextConflicts": 0,
+          "undeterminedRoleCount": 0,
+          "rawRecordMismatchCount": 0
+        },
+        {
+          "id": "g2",
+          "text": "メール通知を停止し",
+          "classifiedCount": 7,
+          "validDistributionCount": 7,
+          "invalidDistributionCount": 0,
+          "selections": {
+            "context": 7
+          },
+          "contextProbabilities": [
+            0.65,
+            0.61,
+            0.6900000000000001,
+            0.73,
+            0.67,
+            0.74,
+            0.57
+          ],
+          "requiredContextConflicts": 7,
+          "undeterminedRoleCount": 0,
+          "rawRecordMismatchCount": 0
+        },
+        {
+          "id": "g3",
+          "text": "停止したことを確認したい",
+          "classifiedCount": 7,
+          "validDistributionCount": 7,
+          "invalidDistributionCount": 0,
+          "selections": {
+            "not_shown": 5,
+            "contradicted": 1,
+            "observed": 1
+          },
+          "contextProbabilities": [
+            0.03,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "requiredContextConflicts": 0,
+          "undeterminedRoleCount": 0,
+          "rawRecordMismatchCount": 0
+        }
+      ],
+      "wholeGoalRawCounts": {
+        "satisfied": 1,
+        "unsatisfied": 6,
+        "uncertain": 0
+      },
+      "wholeGoalAdmittedCounts": {
+        "satisfied": 1,
+        "unsatisfied": 0,
+        "uncertain": 6
+      },
+      "replayVerified": true
+    },
+    {
+      "id": "revisit-alpha-r1-reason",
+      "frames": 8,
+      "issues": 0,
+      "goalSha256": "7f0d23976d0283085bea6b58a056b17d46d377bac8dbb4b91566c9eb6e6b270a",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "アルバム「旅の記録」の共有リンクを無効にしてください",
+          "classifiedCount": 8,
+          "validDistributionCount": 8,
+          "invalidDistributionCount": 0,
+          "selections": {
+            "context": 5,
+            "not_shown": 2,
+            "observed": 1
+          },
+          "contextProbabilities": [
+            0.57,
+            0.15,
+            0.58,
+            0.55,
+            0.26,
+            0.7,
+            0.67,
+            0.15
+          ],
+          "requiredContextConflicts": 0,
+          "undeterminedRoleCount": 0,
+          "rawRecordMismatchCount": 0
+        }
+      ],
+      "wholeGoalRawCounts": {
+        "satisfied": 1,
+        "unsatisfied": 7,
+        "uncertain": 0
+      },
+      "wholeGoalAdmittedCounts": {
+        "satisfied": 1,
+        "unsatisfied": 2,
+        "uncertain": 5
+      },
+      "replayVerified": true
+    },
+    {
+      "id": "revisit-beta-r1-reason",
+      "frames": 8,
+      "issues": 0,
+      "goalSha256": "7f0d23976d0283085bea6b58a056b17d46d377bac8dbb4b91566c9eb6e6b270a",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "アルバム「旅の記録」の共有リンクを無効にしてください",
+          "classifiedCount": 8,
+          "validDistributionCount": 8,
+          "invalidDistributionCount": 0,
+          "selections": {
+            "context": 5,
+            "not_shown": 2,
+            "observed": 1
+          },
+          "contextProbabilities": [
+            0.52,
+            0.13,
+            0.52,
+            0.53,
+            0.26,
+            0.67,
+            0.67,
+            0.07
+          ],
+          "requiredContextConflicts": 0,
+          "undeterminedRoleCount": 0,
+          "rawRecordMismatchCount": 0
+        }
+      ],
+      "wholeGoalRawCounts": {
+        "satisfied": 1,
+        "unsatisfied": 7,
+        "uncertain": 0
+      },
+      "wholeGoalAdmittedCounts": {
+        "satisfied": 1,
+        "unsatisfied": 2,
+        "uncertain": 5
+      },
+      "replayVerified": true
+    },
+    {
+      "id": "notifications-r2-reason",
+      "frames": 11,
+      "issues": 0,
+      "goalSha256": "b05e5cd0d439ebac711ad82c991275722f3c69196686c568fb73efd09b77468a",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "初めて利用する暮らしクラウドで",
+          "classifiedCount": 11,
+          "validDistributionCount": 11,
+          "invalidDistributionCount": 0,
+          "selections": {
+            "context": 11
+          },
+          "contextProbabilities": [
+            0.84,
+            0.93,
+            0.94,
+            0.94,
+            0.87,
+            0.91,
+            0.93,
+            0.89,
+            0.91,
+            0.93,
+            0.95
+          ],
+          "requiredContextConflicts": 0,
+          "undeterminedRoleCount": 0,
+          "rawRecordMismatchCount": 0
+        },
+        {
+          "id": "g2",
+          "text": "メール通知を停止し",
+          "classifiedCount": 11,
+          "validDistributionCount": 11,
+          "invalidDistributionCount": 0,
+          "selections": {
+            "context": 11
+          },
+          "contextProbabilities": [
+            0.65,
+            0.68,
+            0.6900000000000001,
+            0.76,
+            0.7,
+            0.59,
+            0.6,
+            0.7,
+            0.65,
+            0.75,
+            0.56
+          ],
+          "requiredContextConflicts": 11,
+          "undeterminedRoleCount": 0,
+          "rawRecordMismatchCount": 0
+        },
+        {
+          "id": "g3",
+          "text": "停止したことを確認したい",
+          "classifiedCount": 11,
+          "validDistributionCount": 11,
+          "invalidDistributionCount": 0,
+          "selections": {
+            "not_shown": 9,
+            "contradicted": 1,
+            "observed": 1
+          },
+          "contextProbabilities": [
+            0.04,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "requiredContextConflicts": 0,
+          "undeterminedRoleCount": 0,
+          "rawRecordMismatchCount": 0
+        }
+      ],
+      "wholeGoalRawCounts": {
+        "satisfied": 1,
+        "unsatisfied": 10,
+        "uncertain": 0
+      },
+      "wholeGoalAdmittedCounts": {
+        "satisfied": 1,
+        "unsatisfied": 0,
+        "uncertain": 10
+      },
+      "replayVerified": true
+    },
+    {
+      "id": "revisit-alpha-r2-reason",
+      "frames": 8,
+      "issues": 0,
+      "goalSha256": "7f0d23976d0283085bea6b58a056b17d46d377bac8dbb4b91566c9eb6e6b270a",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "アルバム「旅の記録」の共有リンクを無効にしてください",
+          "classifiedCount": 8,
+          "validDistributionCount": 8,
+          "invalidDistributionCount": 0,
+          "selections": {
+            "context": 5,
+            "not_shown": 2,
+            "observed": 1
+          },
+          "contextProbabilities": [
+            0.56,
+            0.2,
+            0.6,
+            0.52,
+            0.3,
+            0.66,
+            0.72,
+            0.08
+          ],
+          "requiredContextConflicts": 0,
+          "undeterminedRoleCount": 0,
+          "rawRecordMismatchCount": 0
+        }
+      ],
+      "wholeGoalRawCounts": {
+        "satisfied": 1,
+        "unsatisfied": 7,
+        "uncertain": 0
+      },
+      "wholeGoalAdmittedCounts": {
+        "satisfied": 1,
+        "unsatisfied": 1,
+        "uncertain": 6
+      },
+      "replayVerified": true
+    },
+    {
+      "id": "revisit-beta-r2-reason",
+      "frames": 8,
+      "issues": 0,
+      "goalSha256": "7f0d23976d0283085bea6b58a056b17d46d377bac8dbb4b91566c9eb6e6b270a",
+      "fragments": [
+        {
+          "id": "g1",
+          "text": "アルバム「旅の記録」の共有リンクを無効にしてください",
+          "classifiedCount": 8,
+          "validDistributionCount": 8,
+          "invalidDistributionCount": 0,
+          "selections": {
+            "context": 5,
+            "not_shown": 2,
+            "observed": 1
+          },
+          "contextProbabilities": [
+            0.58,
+            0.16,
+            0.59,
+            0.53,
+            0.3,
+            0.65,
+            0.56,
+            0.08
+          ],
+          "requiredContextConflicts": 0,
+          "undeterminedRoleCount": 0,
+          "rawRecordMismatchCount": 0
+        }
+      ],
+      "wholeGoalRawCounts": {
+        "satisfied": 1,
+        "unsatisfied": 7,
+        "uncertain": 0
+      },
+      "wholeGoalAdmittedCounts": {
+        "satisfied": 1,
+        "unsatisfied": 3,
+        "uncertain": 4
+      },
+      "replayVerified": true
+    }
+  ],
+  "checks": {
+    "parentReplayCount": 12,
+    "priorLedgers": {
+      "checked": 94,
+      "unchanged": true
+    },
+    "goalSearchRecords": 50,
+    "missingOrUnsolicitedGoalSearchResponses": 0
+  },
+  "humanInputsRead": false,
+  "savedInputsResent": false,
+  "humanFidelityEvaluated": false,
+  "limitations": [
+    "Two replicates per scenario and condition are descriptive, with no reliability or generalization estimate.",
+    "Model reason captures and reviews are self-reports. Actual release records and actual selected actions remain separate.",
+    "Images establish input equality only, not semantic identity or goal equivalence.",
+    "Only a subsequent audited observation establishes a performed action destination.",
+    "Mock scripted done output is a connectivity check and supplies no performance evidence.",
+    "Source, initial UI image, goal, persona, and config are paired with only config id and goalSearch excluded. Initial model questions and model inputs intentionally differ.",
+    "Goal-search entries are structured model hypotheses, not a transcript, complete reading record, verified semantic understanding, or evidence of human fidelity. Literal Goal fragments are incomplete subdivisions, not a replacement for whole-Goal verification.",
+    "The bundled intervention adds current-view questions, bounded source-bound memory and action criteria. Initial model questions differ; this comparison does not identify individual subcomponent effects.",
+    "Finding and requirement counts report model judgments about the delivered current view. No-target-in-view is not a claim about hidden content, an entire page, route impossibility, or a reason to forbid revisits. A reported target selected by the sampler is not objective Goal success.",
+    "Question and response counts describe saved objects. Full requested raw answers, missing and unsolicited answers, admitted records, source metadata, assessment/action memories, annotations and actual selected actions remain separate. Metadata matching does not establish correct interpretation or network delivery.",
+    "Annotation counts use the recorded before/after values and exact final action criteria. Audit and actual wire memory are saved separately; no additional top-level goalSearchMemory field is assumed. Faulted runs remain outside valid-run behavior and outcome totals."
+  ],
+  "independentVerification": {
+    "report": "goal-search-resumed-independent-review.json",
+    "verdict": {
+      "pipelineIntegrity": "PASS",
+      "modelSemanticAcceptance": "UNRESOLVED_RUBRIC_CONFLICTS",
+      "behavioralSuperiority": "NOT_ESTABLISHED",
+      "humanFidelity": "UNVERIFIED"
+    },
+    "engineering": {
+      "trials": 12,
+      "validTrials": 12,
+      "pairedInitialConditionsAndConfigChecks": 6,
+      "actualRequests": 202,
+      "OK": 202,
+      "ERROR": 0,
+      "RESERVED": 0,
+      "retryAttemptsPerRequest": 1,
+      "parallel": 1,
+      "duplicateReservationIDs": 0,
+      "replayVerified": 12,
+      "traceArchivesCRCVerified": 12,
+      "priorLedgerHashesMatched": 94,
+      "oldRawAndMetadataHashesMatched": 251,
+      "oldAuditCodeHashesMatched": 3,
+      "freshRawFilesHashed": 434,
+      "totalFilesInRawAuditor": 528,
+      "allAuditedEvidenceUnchanged": true,
+      "noExtraAPIStagesOrImages": true,
+      "perStageImageCap": 4,
+      "memoryCapacity": 8,
+      "arrivalAssessmentActionMemoryRebuilt": true,
+      "questionsRecordsSourcesCriteriaAnnotationsVerified": true,
+      "seedAndRawSelectionVerified": true
+    },
+    "semanticConflictCases": {
+      "navigationAsTarget": 14,
+      "notificationActionAsContext": 18,
+      "revisitActionAsContext": 20
+    },
+    "all50ViewsManuallyLabeled": false
+  },
+  "verification": {
+    "tests": {
+      "passed": 91,
+      "failed": 0,
+      "skipped": 0,
+      "externalModelCalls": 0
+    },
+    "build": {
+      "exitCode": 0,
+      "includesTypeCheck": true
+    }
+  }
+}

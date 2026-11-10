@@ -1,0 +1,326 @@
+{
+  "schemaVersion": 1,
+  "gate": "Scoped independent publication consistency acceptance",
+  "status": "PASS",
+  "atUTC": "2026-11-06T00:33:19.478Z",
+  "source": {
+    "revision": "2c0876b3dc3848b29ff755885192890c891d2d69",
+    "sourceHash": "8d591fcb465f06293387391e4647a6b705e865c42b9ffc5f8c4ededda22bd4a3",
+    "runtimeFiles": 177
+  },
+  "publicationSnapshot": {
+    "file": "reports/persona-tasks-2026-11-06/parent/publication-snapshot.json",
+    "sha256": "5c602a1c8082aac0cce1c5cc0ed36f705c792c63a5d075cc27bc3ecc43e1ca0e",
+    "reviewedFiles": 40,
+    "indexHashes": {
+      ".gitattributes": "791858b71e71eef601c1ea1641ee6761fc0edc172761228fcbffbb46986d1658",
+      "README.md": "f35795e052506d01689bdb45b2780d320e7a1a2cc1fcc82cd48f9f42bf31e13d",
+      "docs/superpowers/plans/2026-11-06-persona-task-comparison.md": "acaf9cfc6bc8f2558fac9eaa02ea985ce90c715d92f3896747a6c80392180ddc",
+      "docs/virtual-beta/README.md": "cbb869d527317cbb19a17f577381fac3285e8059b912ac01c9ea9bed2785e225",
+      "docs/virtual-beta/persona-task-comparison.md": "7adad3546258a136b21f58b7b98c5ab677da599d8f34416ce847969e9b381373",
+      "docs/virtual-beta/persona-task-execution-control.json": "9950f233f251160871b6aa7c21dd4287a774cb2ee62e603a1e677b407f11c453",
+      "docs/virtual-beta/persona-task-frames/frame-33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821.png": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+      "docs/virtual-beta/persona-task-frames/frame-5cf453875f28382add153fdc65c6fe4e1f7d6765ce3bde8fb5e028614639d132.png": "5cf453875f28382add153fdc65c6fe4e1f7d6765ce3bde8fb5e028614639d132",
+      "docs/virtual-beta/persona-task-frames/frame-65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40.png": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+      "docs/virtual-beta/persona-task-frames/frame-6d6c09a4887a8f042edfd0b04a5ca2c7e548d8844e8b48204442b18e23e7bfd0.png": "6d6c09a4887a8f042edfd0b04a5ca2c7e548d8844e8b48204442b18e23e7bfd0",
+      "docs/virtual-beta/persona-task-frames/frame-890e28cae5dcb5e822ab800b2d29cb493f55d6744b32d068730a64b0ef61ff3d.png": "890e28cae5dcb5e822ab800b2d29cb493f55d6744b32d068730a64b0ef61ff3d",
+      "docs/virtual-beta/persona-task-frames/frame-922c21dee97afec5dbb131aacbb4dcf712f99dbf9ee153050e1a17f63c04041e.png": "922c21dee97afec5dbb131aacbb4dcf712f99dbf9ee153050e1a17f63c04041e",
+      "docs/virtual-beta/persona-task-frames/frame-9548f7807a8768f62808e359411506a197f7ca35f2344c6795450bce15ee0aea.png": "9548f7807a8768f62808e359411506a197f7ca35f2344c6795450bce15ee0aea",
+      "docs/virtual-beta/persona-task-frames/frame-aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5.png": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+      "docs/virtual-beta/persona-task-frames/frame-df0536b31e8113bf16e5230dd8854892e3b2abd903810dc586c1f859308ae668.png": "df0536b31e8113bf16e5230dd8854892e3b2abd903810dc586c1f859308ae668",
+      "docs/virtual-beta/persona-task-frames/frame-f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c.png": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c",
+      "docs/virtual-beta/persona-task-full-suite-findings.json": "1ba99942cf4f43641ac023a0940c6d977543bc9b560d052436eb6eef5e167f25",
+      "docs/virtual-beta/persona-task-native-invalid-diagnostic.json": "90a4fb282a82971298a9187d431092a2637b4a3a1ad0d4b48157989a02214d8a",
+      "docs/virtual-beta/persona-task-native-invalid-validation-control.json": "d0a75ef1c003fb5f86dd53e3679ad936a81ea5d74ec94d0c80f40a13e7022fa8",
+      "docs/virtual-beta/persona-task-producer.json": "493defecd9f46d2e419469fb93121c56b7e5a0a2a1d7c858dea61ca951548c67",
+      "docs/virtual-beta/persona-task-results.json": "d51c691f8ee52b0b110d210a3ec460ed21f4c050c4bdb5627e9076bda93d7812",
+      "docs/virtual-beta/persona-task-review-cases.json": "2992c363d939fb7f15b6e246aebe86c20fa551a5d1e446522ee5cd0ed1830ff7",
+      "docs/virtual-beta/persona-task-review-code.json": "4b3697b4986095b4b9dd9a7e13bcde27db6843400255e7dca2a567cc1892745e",
+      "docs/virtual-beta/persona-task-review-frame-map.json": "3dd09dea04d584babde78f2b410689f4b291dfc1781ec73135dafd7c82ce1a05",
+      "docs/virtual-beta/persona-task-review-live-evidence.json": "0263db7a777b4c581b1c55ecc9cd915afc6eb3b4cd0130957a126902e646f6ac",
+      "docs/virtual-beta/persona-task-review-live-raw-r2.json": "10a04435454bc860460c86818b3dc65dbec83b684bd5e2891c84a8aa3695cd7e",
+      "docs/virtual-beta/persona-task-review-live.json": "1c12a093822f29e320c19eff09cb664ebe87e708faf12e83a376776f3ecc655b",
+      "docs/virtual-beta/persona-task-review-mock.json": "c1a370ad31fa80ba2e34d0c79bc8b766d76b0e1617a0fda5c2bceb05463db145",
+      "docs/virtual-beta/persona-task-review-native-invalid.json": "709f3086221c85d2b9bf893f73cf943a900bb2a5a20b132008a96da0c3e1b2d1",
+      "docs/virtual-beta/persona-task-review-network.json": "bbcd853a95b00c799ef7224f913c880b4f25c039de30574ebd8c8db274a1090d",
+      "docs/virtual-beta/persona-task-review-same-image.json": "a9ab637d6a953420c118a00d26925bbdb1b1c8123ff76c6af3a01517912a9d19",
+      "docs/virtual-beta/persona-task-review-seal.json": "1228a635de3ce4694177ad0498f0f875c8f568ab1357280bd138d2d107cdeab0",
+      "docs/virtual-beta/persona-task-review-selection.json": "2134902a406c0242fa90a06d86b42afc24173708cb92a24f9b2dbe96eb30e38b",
+      "docs/virtual-beta/persona-task-review-visual.json": "343cdb4b52429a2dc9a918a0df4de323fa62243937cc0886ad77df9877c9db7e",
+      "docs/virtual-beta/persona-task-runs.csv": "bb94c2e3b2db03217b190821a8d8c297889256a2f4e85912b9b1134e8b9e11d4",
+      "docs/virtual-beta/persona-task-source-8d591fcb.zip": "9448a4bcb76ec0b0360cfa5b277db3c959f18f0b2beac5e3089f069bda8caf8b",
+      "docs/virtual-beta/persona-task-source.json": "ed467bfb748a4cf5b6c6fdbf135ff57f3e9118355a83333545b55210f4c90a42",
+      "docs/virtual-beta/persona-task-visual-review-plan.json": "1cb29f455722a1212a9a1af004e3b3520f5f598f7bf3ee6e371d00a9e7d3b99a",
+      "docs/virtual-beta/research.md": "447d1d99b99269047c9f57e5bf914346241245c404d89f03bdfce5ce671dd817",
+      "docs/virtual-beta/tasks.md": "d90072ca0b4714f89ca7ac110410308abf4d0132f163d75eaa5c51866b9ef36b"
+    },
+    "worktreeHashes": {
+      ".gitattributes": "791858b71e71eef601c1ea1641ee6761fc0edc172761228fcbffbb46986d1658",
+      "README.md": "225c8c7c727cba24debf7d05ffc410c3ab0558d0967ff701088dd23579a62472",
+      "docs/superpowers/plans/2026-11-06-persona-task-comparison.md": "f041a48276dd08cd945587a6aa563d2034b51549b7790c194f3f627f2ad702ee",
+      "docs/virtual-beta/README.md": "cbb869d527317cbb19a17f577381fac3285e8059b912ac01c9ea9bed2785e225",
+      "docs/virtual-beta/persona-task-comparison.md": "e50736c4276a3bd41d668d704ab7ea021e74af671b0b5ca07eceb1b0fe3ed048",
+      "docs/virtual-beta/persona-task-execution-control.json": "9950f233f251160871b6aa7c21dd4287a774cb2ee62e603a1e677b407f11c453",
+      "docs/virtual-beta/persona-task-frames/frame-33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821.png": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+      "docs/virtual-beta/persona-task-frames/frame-5cf453875f28382add153fdc65c6fe4e1f7d6765ce3bde8fb5e028614639d132.png": "5cf453875f28382add153fdc65c6fe4e1f7d6765ce3bde8fb5e028614639d132",
+      "docs/virtual-beta/persona-task-frames/frame-65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40.png": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+      "docs/virtual-beta/persona-task-frames/frame-6d6c09a4887a8f042edfd0b04a5ca2c7e548d8844e8b48204442b18e23e7bfd0.png": "6d6c09a4887a8f042edfd0b04a5ca2c7e548d8844e8b48204442b18e23e7bfd0",
+      "docs/virtual-beta/persona-task-frames/frame-890e28cae5dcb5e822ab800b2d29cb493f55d6744b32d068730a64b0ef61ff3d.png": "890e28cae5dcb5e822ab800b2d29cb493f55d6744b32d068730a64b0ef61ff3d",
+      "docs/virtual-beta/persona-task-frames/frame-922c21dee97afec5dbb131aacbb4dcf712f99dbf9ee153050e1a17f63c04041e.png": "922c21dee97afec5dbb131aacbb4dcf712f99dbf9ee153050e1a17f63c04041e",
+      "docs/virtual-beta/persona-task-frames/frame-9548f7807a8768f62808e359411506a197f7ca35f2344c6795450bce15ee0aea.png": "9548f7807a8768f62808e359411506a197f7ca35f2344c6795450bce15ee0aea",
+      "docs/virtual-beta/persona-task-frames/frame-aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5.png": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+      "docs/virtual-beta/persona-task-frames/frame-df0536b31e8113bf16e5230dd8854892e3b2abd903810dc586c1f859308ae668.png": "df0536b31e8113bf16e5230dd8854892e3b2abd903810dc586c1f859308ae668",
+      "docs/virtual-beta/persona-task-frames/frame-f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c.png": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c",
+      "docs/virtual-beta/persona-task-full-suite-findings.json": "1ba99942cf4f43641ac023a0940c6d977543bc9b560d052436eb6eef5e167f25",
+      "docs/virtual-beta/persona-task-native-invalid-diagnostic.json": "90a4fb282a82971298a9187d431092a2637b4a3a1ad0d4b48157989a02214d8a",
+      "docs/virtual-beta/persona-task-native-invalid-validation-control.json": "d0a75ef1c003fb5f86dd53e3679ad936a81ea5d74ec94d0c80f40a13e7022fa8",
+      "docs/virtual-beta/persona-task-producer.json": "493defecd9f46d2e419469fb93121c56b7e5a0a2a1d7c858dea61ca951548c67",
+      "docs/virtual-beta/persona-task-results.json": "d51c691f8ee52b0b110d210a3ec460ed21f4c050c4bdb5627e9076bda93d7812",
+      "docs/virtual-beta/persona-task-review-cases.json": "2992c363d939fb7f15b6e246aebe86c20fa551a5d1e446522ee5cd0ed1830ff7",
+      "docs/virtual-beta/persona-task-review-code.json": "4b3697b4986095b4b9dd9a7e13bcde27db6843400255e7dca2a567cc1892745e",
+      "docs/virtual-beta/persona-task-review-frame-map.json": "3dd09dea04d584babde78f2b410689f4b291dfc1781ec73135dafd7c82ce1a05",
+      "docs/virtual-beta/persona-task-review-live-evidence.json": "0263db7a777b4c581b1c55ecc9cd915afc6eb3b4cd0130957a126902e646f6ac",
+      "docs/virtual-beta/persona-task-review-live-raw-r2.json": "10a04435454bc860460c86818b3dc65dbec83b684bd5e2891c84a8aa3695cd7e",
+      "docs/virtual-beta/persona-task-review-live.json": "1c12a093822f29e320c19eff09cb664ebe87e708faf12e83a376776f3ecc655b",
+      "docs/virtual-beta/persona-task-review-mock.json": "c1a370ad31fa80ba2e34d0c79bc8b766d76b0e1617a0fda5c2bceb05463db145",
+      "docs/virtual-beta/persona-task-review-native-invalid.json": "709f3086221c85d2b9bf893f73cf943a900bb2a5a20b132008a96da0c3e1b2d1",
+      "docs/virtual-beta/persona-task-review-network.json": "bbcd853a95b00c799ef7224f913c880b4f25c039de30574ebd8c8db274a1090d",
+      "docs/virtual-beta/persona-task-review-same-image.json": "a9ab637d6a953420c118a00d26925bbdb1b1c8123ff76c6af3a01517912a9d19",
+      "docs/virtual-beta/persona-task-review-seal.json": "1228a635de3ce4694177ad0498f0f875c8f568ab1357280bd138d2d107cdeab0",
+      "docs/virtual-beta/persona-task-review-selection.json": "2134902a406c0242fa90a06d86b42afc24173708cb92a24f9b2dbe96eb30e38b",
+      "docs/virtual-beta/persona-task-review-visual.json": "343cdb4b52429a2dc9a918a0df4de323fa62243937cc0886ad77df9877c9db7e",
+      "docs/virtual-beta/persona-task-runs.csv": "bb94c2e3b2db03217b190821a8d8c297889256a2f4e85912b9b1134e8b9e11d4",
+      "docs/virtual-beta/persona-task-source-8d591fcb.zip": "9448a4bcb76ec0b0360cfa5b277db3c959f18f0b2beac5e3089f069bda8caf8b",
+      "docs/virtual-beta/persona-task-source.json": "ed467bfb748a4cf5b6c6fdbf135ff57f3e9118355a83333545b55210f4c90a42",
+      "docs/virtual-beta/persona-task-visual-review-plan.json": "1cb29f455722a1212a9a1af004e3b3520f5f598f7bf3ee6e371d00a9e7d3b99a",
+      "docs/virtual-beta/research.md": "447d1d99b99269047c9f57e5bf914346241245c404d89f03bdfce5ce671dd817",
+      "docs/virtual-beta/tasks.md": "d90072ca0b4714f89ca7ac110410308abf4d0132f163d75eaa5c51866b9ef36b"
+    }
+  },
+  "checks": [
+    {
+      "name": "40 staged/index and worktree files match exact prepared snapshot",
+      "status": "PASS",
+      "detail": {
+        "files": 40,
+        "snapshotSha256": "5c602a1c8082aac0cce1c5cc0ed36f705c792c63a5d075cc27bc3ecc43e1ca0e",
+        "normalization": "Only expected Markdown CRLF/LF index normalization, compared semantically."
+      }
+    },
+    {
+      "name": "producer source HEAD runtime177 before publication check",
+      "status": "PASS",
+      "detail": {
+        "revision": "2c0876b3dc3848b29ff755885192890c891d2d69",
+        "sourceHash": "8d591fcb465f06293387391e4647a6b705e865c42b9ffc5f8c4ededda22bd4a3"
+      }
+    },
+    {
+      "name": "21 published original evidence/result/CSV/source copies byte exact in index and workingtree",
+      "status": "PASS",
+      "detail": [
+        {
+          "source": "comparison-results.json",
+          "published": "persona-task-results.json"
+        },
+        {
+          "source": "runs.csv",
+          "published": "persona-task-runs.csv"
+        },
+        {
+          "source": "producer-source.json",
+          "published": "persona-task-producer.json"
+        },
+        {
+          "source": "producer-archive.json",
+          "published": "persona-task-source.json"
+        },
+        {
+          "source": "source-8d591fcb.zip",
+          "published": "persona-task-source-8d591fcb.zip"
+        },
+        {
+          "source": "independent-code/code-gate-r1.json",
+          "published": "persona-task-review-code.json"
+        },
+        {
+          "source": "independent-code/mock-gate.json",
+          "published": "persona-task-review-mock.json"
+        },
+        {
+          "source": "independent-code/gate-live.json",
+          "published": "persona-task-review-live.json"
+        },
+        {
+          "source": "independent-code/live-raw-audit-final.json",
+          "published": "persona-task-review-live-evidence.json"
+        },
+        {
+          "source": "independent-code/live-raw-audit-r2.json",
+          "published": "persona-task-review-live-raw-r2.json"
+        },
+        {
+          "source": "independent-code/live-visual-review.json",
+          "published": "persona-task-review-visual.json"
+        },
+        {
+          "source": "independent-code/native-invalid-independent.json",
+          "published": "persona-task-review-native-invalid.json"
+        },
+        {
+          "source": "independent-code/live-browser-network-audit.json",
+          "published": "persona-task-review-network.json"
+        },
+        {
+          "source": "independent-code/live-same-image-audit.json",
+          "published": "persona-task-review-same-image.json"
+        },
+        {
+          "source": "evidence-seal.json",
+          "published": "persona-task-review-seal.json"
+        },
+        {
+          "source": "run-audit-summary.json",
+          "published": "persona-task-review-selection.json"
+        },
+        {
+          "source": "execution-control.json",
+          "published": "persona-task-execution-control.json"
+        },
+        {
+          "source": "visual-review-plan.json",
+          "published": "persona-task-visual-review-plan.json"
+        },
+        {
+          "source": "native-invalid-diagnostic.json",
+          "published": "persona-task-native-invalid-diagnostic.json"
+        },
+        {
+          "source": "native-invalid-validation-control.json",
+          "published": "persona-task-native-invalid-validation-control.json"
+        },
+        {
+          "source": "parent/full-suite-r1-findings.json",
+          "published": "persona-task-full-suite-findings.json"
+        }
+      ]
+    },
+    {
+      "name": "published result projections and accounting retain35valid/1invalid/Bauth2 and292requests/97choices",
+      "status": "PASS",
+      "detail": {
+        "slots": 36,
+        "valid": 35,
+        "invalid": 1,
+        "requests": 292,
+        "judgments": 98,
+        "UI": 62,
+        "selected": 97,
+        "BAuthValid": 2
+      }
+    },
+    {
+      "name": "honest originalFAILr2 plus composed raw acceptance and correctedCSV evidence published",
+      "status": "PASS",
+      "detail": {
+        "rawOriginalStatus": "FAIL",
+        "passingRaw": 42,
+        "correctedCsv": "PASS",
+        "rows": 36,
+        "columns": 22
+      }
+    },
+    {
+      "name": "14cases28references and10published PNGs exact original viewed inputs",
+      "status": "PASS",
+      "detail": {
+        "cases": 14,
+        "references": 28,
+        "parentUniquePNGs": 8,
+        "publishedViewedPNGs": 10
+      }
+    },
+    {
+      "name": "report facts and interpretation match independent grounds",
+      "status": "PASS",
+      "detail": {
+        "quantities": "Matched independent raw audit",
+        "interpretation": "Default-basic, soft caution, no isolated field/human-fit/significance claims retained",
+        "fullSuite": "Explicitly non-green",
+        "focused": "67/67 plus build separate"
+      }
+    },
+    {
+      "name": "navigation/plans/task/research new sections keep bounds and links",
+      "status": "PASS",
+      "detail": {
+        "files": 5,
+        "publicationAndPush": "Prepared package only; commit/push are parent final actions after copying this gate."
+      }
+    },
+    {
+      "name": "all local Markdown links/images exist except explicitly pending final publication gate",
+      "status": "PASS",
+      "detail": {
+        "expectedMissing": [
+          {
+            "file": "docs/virtual-beta/persona-task-comparison.md",
+            "target": "persona-task-review-publication.json",
+            "dest": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\docs\\virtual-beta\\persona-task-review-publication.json"
+          }
+        ],
+        "externalLinks": "Not fetched; remote commit may be pushed after this pre-publication gate.",
+        "externalCount": 13
+      }
+    },
+    {
+      "name": "non-green full suite and frozen focused result evidence remain distinct",
+      "status": "PASS",
+      "detail": {
+        "allSuite": "2692/2629 passed/60 failed/3 skipped",
+        "focused": "67/67 and build reported separately; no new test run here."
+      }
+    },
+    {
+      "name": "177runtime and657sealed live files unchanged after publication check",
+      "status": "PASS",
+      "detail": {
+        "runtime": 177,
+        "live": 657,
+        "historical": "9468 final metadata count only; historical payloads not opened",
+        "publicationSnapshotUnchanged": true
+      }
+    },
+    {
+      "name": "resolved receiver/caps wording and refreshed snapshot restricted to one prose correction",
+      "status": "PASS",
+      "detail": {
+        "changedIndexFiles": [
+          "docs/virtual-beta/persona-task-comparison.md"
+        ],
+        "other39IndexHashesUnchanged": true,
+        "correctedParagraph": "通常driver・runner・台帳と原本監査で確認したsource/config/goal/caps",
+        "oldReportIndexSha256": "7c96cbc5bda52d24509767577a35e129cb08ee7aba3f7a100dd61f2928e8b65c",
+        "reviewedReportIndexSha256": "7adad3546258a136b21f58b7b98c5ab677da599d8f34416ce847969e9b381373"
+      }
+    }
+  ],
+  "issues": [
+    {
+      "id": "PUB-01",
+      "severity": "low",
+      "blocking": false,
+      "status": "RESOLVED",
+      "expected": "Attribute cap enforcement to runner/config/ledger and independent raw audit rather than claiming an explicit receipt-only cap check.",
+      "actual": "Parent corrected the paragraph. The refreshed snapshot changes only the main report; all other39 index hashes remain unchanged."
+    }
+  ],
+  "scope": "Only the 40 prepared publication/index files and their copied evidence. No API calls, new model trials, broad tests, product/doc edits, or repeat 36-trial replay run.",
+  "pending": [
+    "Parent copies this completed gate byte-exact to docs/virtual-beta/persona-task-review-publication.json, then verifies the 40 reviewed hashes remain unchanged.",
+    "Commit/push and remote reachability are parent final actions; this pre-publication gate does not claim they already happened.",
+    "Overall repository suite remains non-green; no human-fidelity or stable-causal-effect conclusion."
+  ],
+  "credentials": "No credential files or values accessed by this verifier. Parent key-scan metadata is separate evidence.",
+  "finalizedAtUTC": "2026-11-06T00:33:56.722Z"
+}

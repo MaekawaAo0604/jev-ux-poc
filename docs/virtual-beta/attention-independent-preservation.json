@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "sourceHash": "3decbfde991586a623258781f440024255dda55c125ca293c1c950f2a9b6d46a",
+  "priorCount": 12255,
+  "expectedPriorCount": 12255,
+  "priorHashMatches": 12255,
+  "priorRawManifestSha256": "0c72111824c97165c9481a50c3b87c45658d622451a45a3815ebade0e77c7b5f",
+  "sourceArchiveSha256": "afed9ea043953a6cb4fee744a564a1a6fb1b9d0928475ea47bc811efcee4f105",
+  "archiveSources": 195,
+  "archiveExtraEntries": [
+    "freeze.json"
+  ],
+  "elapsedSeconds": 12.334561586380005,
+  "errors": [],
+  "scope": "Hash-only bytes; no prior content interpretation or uploads; no API calls."
+}

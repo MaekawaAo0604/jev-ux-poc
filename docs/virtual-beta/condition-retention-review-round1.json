@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "status": "FAIL",
+  "scope": "Independent pre-API integration gate for grounded-unresolved condition retention and common client timeout measurement; not whole-suite or model performance approval",
+  "createdAt": "2026-10-29T21:16:17.531Z",
+  "target": {
+    "worktree": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test",
+    "revision": "563389a80bf35b5d8eee370aa94fffafd11a7029",
+    "dirtySourceHash": "b1f1f204df8779617f4f2b19a39720e3544a219d5d3b09c864b0cbaba1c28b4b",
+    "sourceFiles": 154,
+    "freeze": "reports/condition-retention-2026-10-30/freeze-round1.json",
+    "freezeSha256": "39897785e7f84221a6bb5c20fb41ef3ac2cebcbfc02fe3e8222ad424354d6097"
+  },
+  "independence": {
+    "productOrDocumentationEdits": 0,
+    "GitCommits": 0,
+    "GitPushes": 0,
+    "externalAPIRequests": 0,
+    "credentialFilesRead": 0,
+    "humanLogsRead": 0,
+    "normalTestGeneratedArtifacts": "Existing scoped tests generated new reports through their normal paths; explicitly approved by parent. All independent helpers/logs/fixtures reside here."
+  },
+  "executions": [
+    {
+      "name": "Specified serial 11-file scope",
+      "command": "node --import tsx --test --test-concurrency=1 tests/condition-continuity.test.ts tests/condition-continuity-transport.test.ts tests/condition-continuity-comparison.test.ts tests/condition-continuity-integration.test.ts tests/visual-hypotheses.test.ts tests/openai-visual-hypotheses.test.ts tests/visual-conditions-integration.test.ts tests/recovery-transport.test.ts tests/visual-conditions-comparison.test.ts tests/condition-retention-integration.test.ts tests/visual-dispatch-timing.test.ts",
+      "exitCode": 0,
+      "tests": 339,
+      "passed": 339,
+      "failed": 0,
+      "durationMs": 94998.2735,
+      "log": "scoped-tests.log"
+    },
+    {
+      "name": "project typecheck",
+      "command": "npx tsc --noEmit",
+      "exitCode": 0,
+      "log": "typecheck.log"
+    },
+    {
+      "name": "standalone exporter typecheck",
+      "command": "npx tsc --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --jsx react-jsx --strict --esModuleInterop --skipLibCheck --types node --lib ES2022,DOM docs/experiments/2026-10-30-condition-retention-report.ts",
+      "exitCode": 0,
+      "log": "exporter-typecheck.log"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": "build.log"
+    },
+    {
+      "name": "independent requirement-derived and browser adversarial tests",
+      "command": "node --import tsx --test --test-concurrency=1 reports/condition-retention-2026-10-30/independent-round1/independent.test.ts",
+      "exitCode": 0,
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "log": "independent-tests.log"
+    },
+    {
+      "name": "historical source-d7 success and timeout replay",
+      "exitCode": 0,
+      "runs": 2,
+      "verified": 2,
+      "log": "historical-replay.log",
+      "actualHistoricalTimeout": "unknown",
+      "syntheticReplayFallbackMs": 30000
+    },
+    {
+      "name": "actual unmodified exporter synthetic positive and two-actor collision reproduction",
+      "command": "node --import tsx reports/condition-retention-2026-10-30/independent-round1/exporter-repro.ts",
+      "exitCode": 0,
+      "oneActorExporterExitCode": 0,
+      "twoActorExporterExitCode": 1,
+      "twoActorError": "EEXIST",
+      "log": "exporter-repro.log",
+      "fixtureDisclaimer": "Explicitly labeled SYNTHETIC offline copies of mock browser results with synthetic ledgers. mock:false is only an exporter-input fixture switch; no actual provider request or receipt occurred."
+    }
+  ],
+  "verifiedRequirements": [
+    "Default and explicit recent record shapes match; opt-in audit only on grounded-unresolved. Canonical legacy native body SHA256 f43ee86d9780c73b274975d468963224c21362481170d7f42dbff97588592e4a independently reproduced.",
+    "Observed unmet generic root is evicted by recent after three new unknowns; opt-in retains its ID and historical lastGrounded while currentStatus becomes uncertain. New current unmet outranks historical unmet; resolution releases priority; recency ties and original selection/eviction/ranking order verified.",
+    "Null/unknown retention policies, extra fields, duplicate claim aliases, cross-goal state and independent memory mutation tested. Whole-memory substitution after input rehash rejected by run replay chain.",
+    "Logical request policy absent from native HTTP body; first native bodies exactly equal. Audit retention/ranking absent from both Jev stages; projections copied. Native hidden getters for DOM/oracle/human/audit/ranking are not read.",
+    "Core extractor timeout equals saved dispatch.timeoutMs at each of four independently generated observations; pure arithmetic and closed validator boundaries checked. Native transport retains AbortSignal.timeout(request.timeoutMs).",
+    "Six independent saved-result mutations rejected after recomputing model/extractor input hashes: elapsed timestamp, null dispatch, unknown measurement, retention ranking, actor audit insertion, memory substitution.",
+    "Budget admission failure keeps visual apiCalls=0 and total apiCalls=0 despite a planned dispatch timing record; no actor evaluator runs. Fresh denied run starts with empty condition memory.",
+    "Fresh independent mocked pair has distinct run IDs, empty initial memories, initial images/inputs matched and replay passes; image mismatch flags INITIAL_PAIR_MISMATCH; missing extraction input yields integrity error and is not valid.",
+    "Default eight-slot schedule maintained; retention four-slot schedule, max144, 36 requests/trial, 12 judgments,15 UI,3 looks,180sec, parallel1,retry0,phase20min; 145 requests/5 slots rejected. Prior130+new144=274<=288; historical incomplete eight-slot experiment remains separate.",
+    "Static diff shows profile inheritance plus policy only; no route/label registry, forced probabilities, revisit prohibition or altered output schema/admission evidence rules introduced."
+  ],
+  "findings": [
+    {
+      "id": "R1-EXPORT-001",
+      "severity": "P1",
+      "status": "OPEN",
+      "file": "docs/experiments/2026-10-30-condition-retention-report.ts",
+      "line": 29,
+      "title": "Retention comparison actors produce colliding evidence PNG names and abort the report export",
+      "trigger": "Both experience-visual-conditions-continuity and experience-visual-conditions-retention are present for the same task/condition and at least observation1.",
+      "reproduction": "Run exporter-repro.ts: one-actor positive fixture exits0 with results.json/results.csv; two-actor fixture reaches actual exporter image writes then exits1 at library-unchanged-continuity-o1.png.",
+      "expected": "Distinct stable filenames per declared actor; all available actor evidence images and complete JSON/CSV written with exact source bytes.",
+      "actual": "The expression actor===experience-visual-conditions ? control : continuity maps both comparison actors to continuity. Exclusive write flag wx prevents overwrite and raises EEXIST at the second actor. Only first PNG remains; results.json and results.csv are absent.",
+      "impact": "The planned actual comparison cannot produce its required report whenever the first pair has native images for both actors. This blocks the pre-API gate even though retention/timing scoped tests pass.",
+      "evidence": [
+        "exporter-case-1.json",
+        "exporter-case-2.json",
+        "exporter-repro.log"
+      ],
+      "suggestedScope": "Explicit two-actor filename mapping and regression with same-task both-actor images; verify unique output names and exact bytes. No product change made by verifier."
+    }
+  ],
+  "harnessCorrections": [
+    {
+      "log": "independent-tests-attempt1.log",
+      "classification": "Independent checker false positive, not product finding",
+      "details": "An overbroad leak regex included the authorized charter.initialState.description text synthetic generic gate. Actual input inspection showed this ordinary user specification was the only match; removed only that forbidden substring from independent assertion and reran all six tests successfully."
+    },
+    {
+      "log": "exporter-repro-attempt1.log",
+      "classification": "Independent diagnostic preload path issue",
+      "details": "Converted a Windows absolute --import diagnostic path to a file URL. The failed first harness did not reach output creation. Subsequent unchanged exporter positive/negative cases reproduced expected results."
+    }
+  ],
+  "preservation": {
+    "before": {
+      "time": "2026-10-29T21:10:02.147Z",
+      "freezeSha256": "39897785e7f84221a6bb5c20fb41ef3ac2cebcbfc02fe3e8222ad424354d6097",
+      "revision": "563389a80bf35b5d8eee370aa94fffafd11a7029",
+      "expectedRevision": "563389a80bf35b5d8eee370aa94fffafd11a7029",
+      "sourceIdentity": "b1f1f204df8779617f4f2b19a39720e3544a219d5d3b09c864b0cbaba1c28b4b",
+      "source": {
+        "count": 154,
+        "mismatches": []
+      },
+      "files": {
+        "count": 937,
+        "mismatches": []
+      },
+      "protected": {
+        "count": 89,
+        "mismatches": []
+      },
+      "prior": {
+        "count": 5709,
+        "mismatches": []
+      }
+    },
+    "after": {
+      "time": "2026-10-29T21:15:21.487Z",
+      "freezeSha256": "39897785e7f84221a6bb5c20fb41ef3ac2cebcbfc02fe3e8222ad424354d6097",
+      "revision": "563389a80bf35b5d8eee370aa94fffafd11a7029",
+      "expectedRevision": "563389a80bf35b5d8eee370aa94fffafd11a7029",
+      "sourceIdentity": "b1f1f204df8779617f4f2b19a39720e3544a219d5d3b09c864b0cbaba1c28b4b",
+      "source": {
+        "count": 154,
+        "mismatches": []
+      },
+      "files": {
+        "count": 937,
+        "mismatches": []
+      },
+      "protected": {
+        "count": 89,
+        "mismatches": []
+      },
+      "prior": {
+        "count": 5709,
+        "mismatches": []
+      }
+    },
+    "allBeforeAndAfterHashesMatch": true
+  },
+  "notVerified": [
+    {
+      "item": "New actual API comparative effect",
+      "reason": "Independent gate uses deterministic local/mocked scenarios only, with zero external API calls; export defect must be fixed and re-gated first."
+    },
+    {
+      "item": "Human reproduction/persona agreement",
+      "reason": "No human logs or human task executions used; hypothesis retention is an engineering policy, not calibrated human memory."
+    },
+    {
+      "item": "Statistical/causal/generalized stability",
+      "reason": "No actual four-slot experiment or repeated real-model trials executed; planned single-repeat protocol cannot establish generalized causation."
+    },
+    {
+      "item": "HTTP receipt/provider processing start",
+      "reason": "Client timeout supplied is recorded; dispatch planning or apiCalls=0 does not establish HTTP receipt or provider start."
+    },
+    {
+      "item": "Historical actual dispatch timeout",
+      "reason": "Old source-d7 records lack dispatch timing; current replayer accepts historical mode with 30000ms synthetic fallback, which is not a measured value."
+    },
+    {
+      "item": "Whole repository test suite",
+      "reason": "Only the specified 11-file339-test scope plus independent6 tests, typechecks, build and selected historical replay were executed."
+    }
+  ],
+  "evidenceSha256": {
+    "before-preservation.json": "e0e7e025d782d20f597bfa268e9ef12d3e0b8373ec74394f96cc724bc75079ce",
+    "after-preservation.json": "f8417b4b7d9bd7065658a637f8f89a6732ee5feb78d8b021dbbbef2d958787ab",
+    "preserve.mjs": "d2cc454b8041575b5368449994178f68dce92165efb77f8a5096af52aae54f83",
+    "scoped-tests.log": "ee50b7952b5053877a4d8b7607e102812a3e5cc7dffd9b7f19fd8a8c7033453d",
+    "typecheck.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "exporter-typecheck.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build.log": "c286199657eaf8f473612e968287a3bb39fcc7e325342b2c6c0867baf9647fac",
+    "independent.test.ts": "9751b11d944d9df529c4873f8b7d299f4fdb1ff2a9b525b7ad45e32be64d961b",
+    "independent-tests.log": "782cc89bf51ae1b4f095f5e4d0d1e65bdba32b1559f932f73f9a2c693b2e06e4",
+    "independent-tests-attempt1.log": "ead31c99f01828342684c939115f840361f090dcb21e7691cccc9acd4ac8b05b",
+    "mutation-results.json": "76111137ac26850aaaccf2b411fcaad26820d3d14108c27c8064b16ac362b23b",
+    "historical-replay.json": "e0da15971b39f95e3c7646e141f380353d3538d9404d14d372296bb3a53ecac4",
+    "historical-replay.log": "bd1917c523694493d250c461978279f581bc81ec5de922cabab8b371548ca89a",
+    "historical-replay.ts": "fb8c4904f5d2a6fb3b7355078a089856f5910e3ba51153e73b79583291325d7d",
+    "exporter-repro.ts": "425aaf99f2300287f3d6df46c0a3bb042593257efc661b1e80f18a309066c0ec",
+    "export-diagnostics.mjs": "76ea94ba28db2546227e9c95d185a1ec2ed69e6dc67708d9fde376022aead308",
+    "exporter-repro.log": "02350ff51708fce455f2723712867fb515f212d95a302f85d65a0a04436c6dc7",
+    "exporter-repro-attempt1.log": "21e917afa8353b86d926cd616bd18e5b84ebe17dab7c9063f1471d6f657d9983",
+    "exporter-case-1.json": "4d0c2e0bdb6b2fb8599ded596dcaa18f60771e5cd5e09a56fe76b3fcad2db739",
+    "exporter-case-2.json": "74cbdbc8e876bed5090c53044f76b8be98b7ef9068de923343af3d4a5f1da81a"
+  },
+  "editingStoppedAfterThisGate": true
+}

@@ -1,0 +1,8 @@
+"phase","id","actor","replicate","valid","termination","requests","decisions","uiActions","looks","objective","route"
+"live-r1","public-persona-baseline-r1","baseline","1","false","API_ERROR","22","8","7","0","UNVERIFIED/null","パスキーを管理する → scroll:down → アカウントからパスキーを削除する → パスキーの概要 → scroll:down → パスキーを管理する → scroll:down"
+"live-r1","public-persona-A-r1","A","1","false","API_ERROR","19","7","6","0","UNVERIFIED/null","scroll:down → パスキーを管理する → scroll:down → アカウントからパスキーを削除する → scroll:down → パスキーの概要"
+"live-r2","public-persona-baseline-r1","baseline","1","false","API_ERROR","13","5","4","0","UNVERIFIED/null","scroll:down → パスキーを管理する → scroll:down → アカウントからパスキーを削除する"
+"live-r2","public-persona-A-r1","A","1","false","API_ERROR","25","9","8","0","UNVERIFIED/null","scroll:down → パスキーを管理する → scroll:down → パスキーを使ってサインインする → scroll:down → scroll:down → パスキーを管理する → scroll:down"
+"live-r2","public-persona-B-r1","B","1","false","API_ERROR","13","5","4","0","UNVERIFIED/null","scroll:down → 確認に関するトラブルシューティング → パスキーを管理する → パスキーを使ってサインインする"
+"live-r2","public-persona-C-r1","C","1","false","API_ERROR","22","8","7","0","UNVERIFIED/null","scroll:down → パスキーを管理する → scroll:down → scroll:down → scroll:down → パスキーの概要 → scroll:down"
+"live-r2","public-persona-A-r2","A","2","false","API_ERROR","16","6","5","0","UNVERIFIED/null","scroll:down → パスキーを管理する → scroll:down → scroll:down → scroll:down"

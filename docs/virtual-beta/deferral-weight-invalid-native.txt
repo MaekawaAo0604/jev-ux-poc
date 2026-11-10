@@ -1,0 +1,23 @@
+Offline diagnosis: invalid native visual hypothesis output
+
+Run 64172b77-63c3-4dd4-88c1-fdf5d76ae4a4-1; recovery-library-unchanged-r1; step 9.
+Finding: model output violates the explicitly supplied continuity evidence contract. No product validator or accepted output was changed.
+
+First semantic rejection: response.output.continuity[1] (priorId o8_c2) maps change="revised" to conditionId="c2", but response.output.conditions[1].evidence is null.
+Independent second rejection: response.output.continuity[2] (priorId o8_c3) maps change="revised" to conditionId="c3", but response.output.conditions[2].evidence is null.
+Exact local rule: condition-continuity.ts line 76 requires the mapped condition to have evidence from the current observation o9. Revised may describe an uncertain condition only with current-image evidence.
+Native instructions explicitly say evidence:null mappings must use change="unobserved" and conditionId:null. The condition descriptions themselves may remain uncertain.
+
+The native JSON Schema shape accepts this output. It does not encode the cross-field relationship between continuity.conditionId and conditions[].evidence; the source documents local semantic checks in addition to schema checks. The full written contract and validator agree.
+
+Reproduction:
+- Reconstructed all three attached PNGs from saved asset files; every SHA-256 matches. Reconstructed request passes validateVisualHypothesisRequest.
+- Parsed rawText equals saved response.output exactly; the whole output passes the generated supported JSON Schema subset.
+- Saved response.status="invalid-response" fails the outer response-status guard. The adapter had already downgraded the result after admission failed.
+- For diagnosis only, keeping rawText/output intact and projecting status="completed" reproduces INVALID_CONDITION_CONTINUITY_DATA at condition-continuity.ts:76.
+- In unsaved in-memory diagnostic clones only, replacing either invalid mapping individually still fails; replacing both with the explicitly documented unobserved/null form passes the unchanged admission validator. No generated replacement was used for an action or accepted as live evidence.
+
+Observed failure classification: HTTP 200 with completed textual output, rejected by local semantic admission; run terminates API_ERROR / VISUAL_EXTRACTION_OUTPUT_ERROR. This is not an HTTP error, timeout, invalid JSON, safety filter, or observed deferral-weight change at step 9.
+
+No API/network/environment/Git access or product edits performed. This report does not rank naturalness or assign whole-trajectory causation.
+Artifacts: evidence.json, native-schema.json, native-instructions.txt, diagnose.ts. Validator source hashes and call stacks are in evidence.json.

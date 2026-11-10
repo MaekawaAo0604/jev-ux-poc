@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "phase": "condition-retention-2026-10-30",
+  "control": "experience-visual-conditions-continuity",
+  "intervention": "experience-visual-conditions-retention",
+  "fixtures": [
+    "library/unchanged",
+    "workshop/unchanged"
+  ],
+  "trials": 4,
+  "repeats": 1,
+  "persona": null,
+  "maximumRequests": 144,
+  "perTrialRequests": 36,
+  "maxJudgments": 12,
+  "maxUIActions": 15,
+  "maxLooks": 3,
+  "maxTrialMs": 180000,
+  "maxPhaseMs": 1200000,
+  "parallel": 1,
+  "retry": 0,
+  "declaredChange": "Bounded memory selection policy prioritizes current unmet, historical grounded unmet, then other conditions with recency tie-breaks; logged ranking. Both modes share client timeout measurement. No schema/admission/instructions/effort/UI/action policy change.",
+  "initialEvidence": "Match both continuity requests after removing only retentionPolicy. Both initial memories empty; initial product and image assets equal.",
+  "stop": "Authentication/quota/accounting/model-output failure or two consecutive infrastructure failures. Preserve failed and unattempted slots; no replacement.",
+  "limitations": "Descriptive single repeat only, not human agreement or causal performance proof.",
+  "actorOrderOffset": 1,
+  "revisionPolicy": "Separate 4-slot targeted comparison, not replacement or pooled performance for prior5of8. Preserve old5709 raw and all prior gates/publications.",
+  "executionRequestCapPolicy": "New maximum144 plus prior130 <= original288; leave14 unused.",
+  "generationConsistency": "If a matched uncertain condition has null or historical evidence, emit unobserved with null conditionId; revised uncertain requires current-image quote. Do not invent evidence. Validator/schema and selection remain unchanged."
+}

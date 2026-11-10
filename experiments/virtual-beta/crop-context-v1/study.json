@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "crop-context-v1",
+  "charter": "experiments/persona/charter-good.json",
+  "persona": "experiments/persona/clear-notifications-v1/a.json",
+  "plannedTrials": 12,
+  "allocatedAPIRequests": 144,
+  "maxPhaseMs": 2700000,
+  "batches": [
+    {
+      "id": "seed9001",
+      "plan": "experiments/virtual-beta/crop-context-v1/seed9001.json",
+      "allocatedAPIRequests": 48
+    },
+    {
+      "id": "seed9002",
+      "plan": "experiments/virtual-beta/crop-context-v1/seed9002.json",
+      "allocatedAPIRequests": 48
+    },
+    {
+      "id": "seed9003",
+      "plan": "experiments/virtual-beta/crop-context-v1/seed9003.json",
+      "allocatedAPIRequests": 48
+    }
+  ],
+  "arms": [
+    "control",
+    "geometry",
+    "actions",
+    "both"
+  ],
+  "seeds": [
+    9001,
+    9002,
+    9003
+  ],
+  "primary": "crop-control vs crop-both under identicalscreen/initialstate/persona/goal/candidates/limits",
+  "mechanisms": "geometry-only vs actions-only separates explicitcropcontext and clickableactioncontract; both adds noanswercoordinates",
+  "limits": "UI6/look4/decision8/API12/150s;3batch48;concurrency1/retry0",
+  "taskCallCap": 240,
+  "humanValidity": "UNVERIFIED",
+  "visionModes": [
+    "crop"
+  ]
+}

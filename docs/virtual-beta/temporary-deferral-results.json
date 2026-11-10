@@ -1,0 +1,645 @@
+{
+  "schemaVersion": 1,
+  "phase": "temporary-deferral-2026-10-28",
+  "status": "BOUNDED_REAL_MODEL_COMPARISON_COMPLETED",
+  "productRevision": "5abeef326a4f20bb9962aad6a3f34e7b5c5d851f",
+  "sourceHash": "924cd64d79756f4e4c6b85eb71e40abf879e1c10b29c9564e01dede2b0c3f113",
+  "protocol": "experiments/virtual-beta/human-comparison/temporary-deferral-protocol.json",
+  "model": "jev-1.14.0",
+  "trialsPerCondition": 1,
+  "selection": "argmax",
+  "seed": 20261028,
+  "maxRequests": 48,
+  "usedRequests": 38,
+  "priorEightLedgersUnchanged": true,
+  "humanInputsSent": false,
+  "runs": [
+    {
+      "condition": "control",
+      "config": {
+        "schemaVersion": 1,
+        "id": "human-screen-experience-basis",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 4096,
+          "clearHeight": 4096,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 15,
+        "maxLooks": 3,
+        "maxDecisions": 12,
+        "maxAPICalls": 24,
+        "maxRunMs": 180000,
+        "modeledActionMs": null,
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        },
+        "experience": {
+          "enabled": true,
+          "capacity": 8,
+          "evidenceMode": "basis"
+        }
+      },
+      "requests": 24,
+      "remaining": 0,
+      "termination": "DECISION_LIMIT",
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": false,
+      "validForComparison": true,
+      "decisions": 12,
+      "uiActions": 12,
+      "looks": 0,
+      "apiMs": 30043.2008,
+      "elapsedMs": 34136.3637,
+      "modeledHumanTime": null,
+      "initialSha256": "03b74136e02c8889c4f07cf73846ad67d9ee1f0516bbee1283b5694e6126bae0",
+      "replay": {
+        "runId": "exploration",
+        "choices": 12,
+        "assessments": 12,
+        "images": 66,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "route": [
+        {
+          "step": 1,
+          "label": "各種設定\nアカウントを自分らしく",
+          "proposedByModel": "e4",
+          "originalArgmax": "e4",
+          "selected": "e4",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": null,
+          "observedNextURL": "local:/bad/#settings",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 2,
+          "label": "お知らせ",
+          "proposedByModel": "e4",
+          "originalArgmax": "e4",
+          "selected": "e4",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": null,
+          "observedNextURL": "local:/bad/#campaign",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 3,
+          "label": "マイページへ戻る",
+          "proposedByModel": "e3",
+          "originalArgmax": "e3",
+          "selected": "e3",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": null,
+          "observedNextURL": "local:/bad/#home",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 4,
+          "label": "各種設定\nアカウントを自分らしく",
+          "proposedByModel": "e4",
+          "originalArgmax": "e4",
+          "selected": "e4",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": null,
+          "observedNextURL": "local:/bad/#settings",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 5,
+          "label": "お知らせ",
+          "proposedByModel": "e4",
+          "originalArgmax": "e4",
+          "selected": "e4",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": null,
+          "observedNextURL": "local:/bad/#campaign",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 6,
+          "label": "マイページへ戻る",
+          "proposedByModel": "e3",
+          "originalArgmax": "e3",
+          "selected": "e3",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": null,
+          "observedNextURL": "local:/bad/#home",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 7,
+          "label": "各種設定\nアカウントを自分らしく",
+          "proposedByModel": "e4",
+          "originalArgmax": "e4",
+          "selected": "e4",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": null,
+          "observedNextURL": "local:/bad/#settings",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 8,
+          "label": "お知らせ",
+          "proposedByModel": "e4",
+          "originalArgmax": "e4",
+          "selected": "e4",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": null,
+          "observedNextURL": "local:/bad/#campaign",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 9,
+          "label": "マイページ",
+          "proposedByModel": "e2",
+          "originalArgmax": "e2",
+          "selected": "e2",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": null,
+          "observedNextURL": "local:/bad/#home",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 10,
+          "label": "各種設定\nアカウントを自分らしく",
+          "proposedByModel": "e4",
+          "originalArgmax": "e4",
+          "selected": "e4",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": null,
+          "observedNextURL": "local:/bad/#settings",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 11,
+          "label": "お知らせ",
+          "proposedByModel": "e4",
+          "originalArgmax": "e4",
+          "selected": "e4",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": null,
+          "observedNextURL": "local:/bad/#campaign",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 12,
+          "label": "マイページ",
+          "proposedByModel": "e2",
+          "originalArgmax": "e2",
+          "selected": "e2",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": null,
+          "observedNextURL": null,
+          "objectiveAfterAction": false
+        }
+      ]
+    },
+    {
+      "condition": "policy",
+      "config": {
+        "schemaVersion": 1,
+        "id": "human-screen-experience-defer",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 4096,
+          "clearHeight": 4096,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 15,
+        "maxLooks": 3,
+        "maxDecisions": 12,
+        "maxAPICalls": 24,
+        "maxRunMs": 180000,
+        "modeledActionMs": null,
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        },
+        "experience": {
+          "enabled": true,
+          "capacity": 8,
+          "evidenceMode": "basis"
+        },
+        "deferral": {
+          "enabled": true,
+          "capacity": 8,
+          "weight": 0.01,
+          "minAlternativeProbability": 0.01
+        }
+      },
+      "requests": 14,
+      "remaining": 10,
+      "termination": "SUBJECTIVE_DONE",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "validForComparison": true,
+      "decisions": 7,
+      "uiActions": 6,
+      "looks": 0,
+      "apiMs": 15331.572599999996,
+      "elapsedMs": 17885.693700000003,
+      "modeledHumanTime": null,
+      "initialSha256": "03b74136e02c8889c4f07cf73846ad67d9ee1f0516bbee1283b5694e6126bae0",
+      "replay": {
+        "runId": "exploration",
+        "choices": 7,
+        "assessments": 7,
+        "images": 36,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      },
+      "route": [
+        {
+          "step": 1,
+          "label": "各種設定\nアカウントを自分らしく",
+          "proposedByModel": "e4",
+          "originalArgmax": "e4",
+          "selected": "e4",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": "NO_DEFERRED_CANDIDATE",
+          "observedNextURL": "local:/bad/#settings",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 2,
+          "label": "お知らせ",
+          "proposedByModel": "e4",
+          "originalArgmax": "e4",
+          "selected": "e4",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": "NO_DEFERRED_CANDIDATE",
+          "observedNextURL": "local:/bad/#campaign",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 3,
+          "label": "マイページ",
+          "proposedByModel": "e2",
+          "originalArgmax": "e2",
+          "selected": "e2",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": "NO_DEFERRED_CANDIDATE",
+          "observedNextURL": "local:/bad/#home",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 4,
+          "label": "その他",
+          "proposedByModel": "e4",
+          "originalArgmax": "e4",
+          "selected": "e5",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": true,
+          "policyReason": "DEFER_WITH_ALTERNATIVES",
+          "observedNextURL": "local:/bad/#other",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 5,
+          "label": "お知らせの管理",
+          "proposedByModel": "e3",
+          "originalArgmax": "e3",
+          "selected": "e3",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": "NO_DEFERRED_CANDIDATE",
+          "observedNextURL": "local:/bad/#preferences",
+          "objectiveAfterAction": false
+        },
+        {
+          "step": 6,
+          "label": "メール通知を停止する",
+          "proposedByModel": "e3",
+          "originalArgmax": "e3",
+          "selected": "e3",
+          "outcome": "UI_PERFORMED",
+          "changedByPolicy": false,
+          "policyReason": "NO_DEFERRED_CANDIDATE",
+          "observedNextURL": "local:/bad/#preferences",
+          "objectiveAfterAction": true
+        },
+        {
+          "step": 7,
+          "label": "done",
+          "proposedByModel": "done",
+          "originalArgmax": "done",
+          "selected": "done",
+          "outcome": "SUBJECTIVE_DONE",
+          "changedByPolicy": false,
+          "policyReason": "NO_DEFERRED_CANDIDATE",
+          "observedNextURL": null,
+          "objectiveAfterAction": null
+        }
+      ]
+    }
+  ],
+  "changedDecisions": [
+    {
+      "step": 4,
+      "observationId": "o4",
+      "sourceImageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+      "proposedByModel": "e4",
+      "proposedByOriginalDistribution": "e4",
+      "selected": "e5",
+      "label": "その他",
+      "action": {
+        "type": "click",
+        "elementId": "e5"
+      },
+      "outcome": "UI_PERFORMED",
+      "changedByPolicy": true,
+      "deferral": {
+        "state": {
+          "schemaVersion": 1,
+          "entries": [
+            {
+              "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+              "candidateId": "e4",
+              "fromObservationId": "o1",
+              "toObservationId": "o4",
+              "evidence": [
+                {
+                  "observationId": "o3",
+                  "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+                }
+              ]
+            }
+          ]
+        },
+        "decision": {
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 0.01,
+            "e5": 1,
+            "back": 1,
+            "scroll_down": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        }
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0,
+        "e3": 0,
+        "e4": 0.91,
+        "e5": 0.04,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "scroll_down": 0.04,
+        "stuck": 0.01,
+        "wait": 0
+      },
+      "policy": {
+        "kind": "temporary-deferral",
+        "weights": {
+          "abandon": 1,
+          "back": 1,
+          "done": 1,
+          "e1": 1,
+          "e2": 1,
+          "e3": 1,
+          "e4": 0.01,
+          "e5": 1,
+          "look_0": 1,
+          "look_1": 1,
+          "look_2": 1,
+          "look_3": 1,
+          "reread": 1,
+          "scroll_down": 1,
+          "stuck": 1,
+          "wait": 1
+        },
+        "before": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 0,
+          "e4": 0.91,
+          "e5": 0.04,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "scroll_down": 0.04,
+          "stuck": 0.01,
+          "wait": 0
+        },
+        "weightedTotal": 0.09910000000000001
+      },
+      "final": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0,
+        "e3": 0,
+        "e4": 0.09182643794147326,
+        "e5": 0.40363269424823406,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "scroll_down": 0.40363269424823406,
+        "stuck": 0.10090817356205851,
+        "wait": 0
+      },
+      "atHome": true,
+      "returnedRoute": {
+        "fromObservationId": "o1",
+        "toObservationId": "o4",
+        "path": [
+          {
+            "source": {
+              "observationId": "o1",
+              "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+            },
+            "candidateId": "e4",
+            "prediction": "advances",
+            "result": {
+              "observationId": "o2",
+              "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+            },
+            "judgment": {
+              "kind": "model-assessment-not-fact",
+              "progress": "unknown",
+              "expectation": "supported",
+              "evidence": {
+                "observationId": "o2",
+                "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+              },
+              "adjustments": []
+            }
+          },
+          {
+            "source": {
+              "observationId": "o2",
+              "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+            },
+            "candidateId": "e4",
+            "prediction": "advances",
+            "result": {
+              "observationId": "o3",
+              "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+            },
+            "judgment": {
+              "kind": "model-assessment-not-fact",
+              "progress": "neutral",
+              "expectation": "not_supported",
+              "evidence": {
+                "observationId": "o3",
+                "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+              },
+              "adjustments": []
+            }
+          },
+          {
+            "source": {
+              "observationId": "o3",
+              "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+            },
+            "candidateId": "e2",
+            "prediction": "unknown",
+            "result": {
+              "observationId": "o4",
+              "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+            },
+            "judgment": {
+              "kind": "model-assessment-not-fact",
+              "progress": "unknown",
+              "expectation": "unknown",
+              "adjustments": [
+                "NO_ADMITTED_EVIDENCE:progress=neutral->unknown"
+              ]
+            }
+          }
+        ]
+      },
+      "alternativeEntryClickAfterReturn": true,
+      "observedNextURL": "local:/bad/#other",
+      "objectiveAfterAction": false
+    }
+  ],
+  "verification": {
+    "relatedRegression": {
+      "passed": 117,
+      "failed": 0,
+      "skipped": 0
+    },
+    "newImplementationTests": {
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0
+    },
+    "independentTests": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "distinctSelectedTests": 145,
+    "wholeRepositorySuite": false,
+    "typecheck": "PASS",
+    "build": "PASS",
+    "savedRunReplays": "PASS",
+    "releaseAfterAlternativeExhaustion": "PASS_IN_SCRIPTED_BROWSER_FIXTURE_NOT_OBSERVED_IN_LIVE_RUN",
+    "sameWireBody": "PASS_IN_CONTROLLED_IDENTICAL_TRAJECTORY_FIXTURE_NOT_IDENTICAL_ACROSS_DIVERGING_LIVE_TRAJECTORIES",
+    "independentSavedRunAudit": "PASS",
+    "blockingFindings": [],
+    "independentFinalSixCaseRerunMs": 50978.4119
+  },
+  "limits": [
+    "One fresh trial per condition is not a causal effect estimate or human validation",
+    "Policy is a declared engineering heuristic, not a changed Jev model",
+    "Raw-vs-corrected choice compares the same saved distribution at that decision only, not a full counterfactual run",
+    "Only the stated local notification charter was tested with no persona; no persona effect measured",
+    "At corrected step4 e5 and scroll_down tie at 0.40363269424823406; sorted-key argmax selects e5; other probabilities or sampling could choose differently",
+    "Revisit release is implemented and browser-tested with scripted responses, not exercised by this successful live run",
+    "Exact-image matching misses some equivalent views; independently observed hover changes affected 31829 pixels",
+    "Jev supplied grounded non-progress but still proposed the old entry; actual correction was the declared external selection policy",
+    "Human calibration, generalization across products, repeated-trial stability, and semantic understanding remain unverified"
+  ],
+  "artifacts": {
+    "localRoot": "reports/temporary-deferral-2026-10-28",
+    "control": "reports/temporary-deferral-2026-10-28/live-control",
+    "policy": "reports/temporary-deferral-2026-10-28/live-policy",
+    "parentAudit": "reports/temporary-deferral-2026-10-28/parent-audit.json",
+    "independentPreflight": "reports/temporary-deferral-2026-10-28/independent-preflight.json",
+    "independentLiveAudit": "reports/temporary-deferral-2026-10-28/independent-live-audit.json",
+    "rawReportsCommitted": false
+  }
+}

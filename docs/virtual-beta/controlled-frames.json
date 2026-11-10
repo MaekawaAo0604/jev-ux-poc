@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "sourceHash": "b8c1b8087a05baf5c1c9f0988d08c86caaa21e2a7896ae9a743311b8cc815ee8",
+  "examplesOnlyNotDenominators": true,
+  "frames": [
+    {
+      "label": "initial-full-model",
+      "batch": "factors-seed3001",
+      "runId": "factor-base-seed-3001",
+      "step": 1,
+      "stage": "action",
+      "delivery": "response-received",
+      "sourceRaw": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\controlled-comparison-2026-11-09\\live-r1\\factors-seed3001\\factor-base-seed-3001\\result.json",
+      "rawSha256": "5940d52343125099ed78aa05559c1ed478294664c6581f818960f3b603db66a9",
+      "sourceImage": "input-1.png",
+      "imageSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+      "published": "docs/virtual-beta/controlled-frames/initial-full-model-bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802.png",
+      "selection": {
+        "modelChoice": "e5",
+        "raw": {
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 0,
+          "e4": 0,
+          "e5": 1,
+          "e6": 0,
+          "stuck": 0
+        },
+        "normalized": {
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 0,
+          "e4": 0,
+          "e5": 1,
+          "e6": 0,
+          "stuck": 0
+        },
+        "filtered": {
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 0,
+          "e4": 0,
+          "e5": 1,
+          "e6": 0,
+          "stuck": 0
+        },
+        "normalization": {
+          "rawTotal": 1,
+          "filteredTotal": 1
+        },
+        "adjustments": [],
+        "mode": "argmax",
+        "seed": 3001,
+        "drawIndex": 0,
+        "draw": null,
+        "selected": "e5"
+      },
+      "action": {
+        "type": "click",
+        "elementId": "e5"
+      },
+      "objectiveSuccess": true,
+      "termination": "SUBJECTIVE_DONE"
+    },
+    {
+      "label": "vision-before-first-action",
+      "batch": "budget-cap12-seed3001",
+      "runId": "vision-seed-3001",
+      "step": 1,
+      "stage": "action",
+      "delivery": "response-received",
+      "sourceRaw": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\controlled-comparison-2026-11-09\\live-r1\\budget-cap12-seed3001\\vision-seed-3001\\result.json",
+      "rawSha256": "4085b992f691bc6d56b4d8a2bd710e6e55eb271a3cf1fcd1a46e6c8744a31645",
+      "sourceImage": "input-1.png",
+      "imageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+      "published": "docs/virtual-beta/controlled-frames/vision-before-first-action-5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049.png",
+      "selection": {
+        "modelChoice": "look_3",
+        "raw": {
+          "done": 0,
+          "e3": 0,
+          "e4": 0.01,
+          "e6": 0,
+          "look_0": 0.01,
+          "look_1": 0.01,
+          "look_2": 0.05,
+          "look_3": 0.91,
+          "stuck": 0.01
+        },
+        "normalized": {
+          "done": 0,
+          "e3": 0,
+          "e4": 0.01,
+          "e6": 0,
+          "look_0": 0.01,
+          "look_1": 0.01,
+          "look_2": 0.05,
+          "look_3": 0.91,
+          "stuck": 0.01
+        },
+        "filtered": {
+          "done": 0,
+          "e3": 0,
+          "e4": 0.01,
+          "e6": 0,
+          "look_0": 0.01,
+          "look_1": 0.01,
+          "look_2": 0.05,
+          "look_3": 0.91,
+          "stuck": 0.01
+        },
+        "normalization": {
+          "rawTotal": 1,
+          "filteredTotal": 1
+        },
+        "adjustments": [],
+        "mode": "argmax",
+        "seed": 3001,
+        "drawIndex": 0,
+        "draw": null,
+        "selected": "look_3"
+      },
+      "action": {
+        "type": "look",
+        "point": {
+          "x": 960,
+          "y": 675
+        }
+      },
+      "objectiveSuccess": false,
+      "termination": "UI_ACTION_LIMIT"
+    },
+    {
+      "label": "vision-after-first-action",
+      "batch": "budget-cap12-seed3001",
+      "runId": "vision-seed-3001",
+      "step": 2,
+      "stage": "action",
+      "delivery": "response-received",
+      "sourceRaw": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\controlled-comparison-2026-11-09\\live-r1\\budget-cap12-seed3001\\vision-seed-3001\\result.json",
+      "rawSha256": "4085b992f691bc6d56b4d8a2bd710e6e55eb271a3cf1fcd1a46e6c8744a31645",
+      "sourceImage": "input-2.png",
+      "imageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+      "published": "docs/virtual-beta/controlled-frames/vision-after-first-action-2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095.png",
+      "selection": {
+        "modelChoice": "e5",
+        "raw": {
+          "done": 0,
+          "e4": 0,
+          "e5": 0.96,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0.04,
+          "stuck": 0
+        },
+        "normalized": {
+          "done": 0,
+          "e4": 0,
+          "e5": 0.96,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0.04,
+          "stuck": 0
+        },
+        "filtered": {
+          "done": 0,
+          "e4": 0,
+          "e5": 0.96,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0.04,
+          "stuck": 0
+        },
+        "normalization": {
+          "rawTotal": 1,
+          "filteredTotal": 1
+        },
+        "adjustments": [],
+        "mode": "argmax",
+        "seed": 3001,
+        "drawIndex": 1,
+        "draw": null,
+        "selected": "e5"
+      },
+      "action": {
+        "type": "click",
+        "elementId": "e5"
+      },
+      "objectiveSuccess": false,
+      "termination": "UI_ACTION_LIMIT"
+    },
+    {
+      "label": "sample-stuck-after-completion",
+      "batch": "factors-seed3003",
+      "runId": "factor-sample-seed-3003",
+      "step": 3,
+      "stage": "action",
+      "delivery": "response-received",
+      "sourceRaw": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\controlled-comparison-2026-11-09\\live-r1\\factors-seed3003\\factor-sample-seed-3003\\result.json",
+      "rawSha256": "d51f24a5234033f6d0c3ca68b8461b70710f5ae90be7bf350d535a036ce17874",
+      "sourceImage": "input-3.png",
+      "imageSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+      "published": "docs/virtual-beta/controlled-frames/sample-stuck-after-completion-d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da.png",
+      "selection": {
+        "modelChoice": "done",
+        "raw": {
+          "back": 0.01,
+          "done": 0.78,
+          "e1": 0,
+          "e2": 0.04,
+          "e3": 0.16,
+          "stuck": 0.01
+        },
+        "normalized": {
+          "back": 0.01,
+          "done": 0.78,
+          "e1": 0,
+          "e2": 0.04,
+          "e3": 0.16,
+          "stuck": 0.01
+        },
+        "filtered": {
+          "back": 0.01,
+          "done": 0.78,
+          "e1": 0,
+          "e2": 0.04,
+          "e3": 0.16,
+          "stuck": 0.01
+        },
+        "normalization": {
+          "rawTotal": 1,
+          "filteredTotal": 1
+        },
+        "adjustments": [],
+        "mode": "sample",
+        "seed": 3003,
+        "drawIndex": 2,
+        "draw": 0.9901651300024241,
+        "selected": "stuck"
+      },
+      "action": {
+        "type": "stuck"
+      },
+      "objectiveSuccess": true,
+      "termination": "STUCK"
+    }
+  ]
+}

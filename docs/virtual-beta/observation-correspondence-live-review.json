@@ -1,0 +1,31 @@
+{
+ "status":"INDEPENDENT_RAW_AND_VISUAL_AUDIT_COMPLETE",
+ "producerRevision":"b42a41bc4171282f2264983a63ce216945804ddd",
+ "producerSourceHash":"6c32976401b2593ea61a233a20c8bc83b73996a386f384c858a4fea1f54d6b09",
+ "automatedEvidence":"independent-raw-final.json",
+ "counts":{"trials":12,"rawResponsesAndLedgerRequests":224,"replaysVerified":12,"traceZIPsCRCAndClickScrollOrderAndURLProgressionVerified":12,"priorLedgersUnchanged":82,"maximumUniqueImagesPerRequest":4,"recordedModel":"jev-1.14.0","attemptsPerRequest":1,"actualReservationParallelMaximum":1,"auditorNetworkRequests":0,"proposals":35,"unchangedLinks":52,"changedLinks":22,"noneChoices":15,"noninjectiveLinksRejected":4,"annotations":7,"selectedAnnotated":5,"oldSuccess":4,"newSuccess":4,"faults":0},
+ "visualInspectionScope":{"actualPNGFilesViewed":35,"notificationR1DeliveredPNGSteps":[2,3,6,8],"notificationR2DeliveredPNGSteps":[6,8,10],"newRevisitRuns":["revisit-alpha-r1-reason","revisit-beta-r1-reason","revisit-alpha-r2-reason","revisit-beta-r2-reason"],"deliveredPNGStepsPerNewRevisitRun":[2,5,7,8],"terminalFinalPNGViewed":"all12 trials"},
+ "notificationFinding":{
+  "conclusion":"Historical annotation reaches the intended visible control but did not prevent repeated navigation or achieve notification stopping.",
+  "r1":"Delivered input2/6/8 show the same 各種設定 page, [e4]お知らせ control and no visible goal-relevant prerequisite change. Focus/hover rendering differs. input3 shows 今月のおすすめ/季節のキャンペーン, without a notification stopping operation. The unchanged e4 mapping has visual support in these frames; these examples do not establish general correspondence accuracy.",
+  "r1PixelDifferences":"input2->6:21592 pixels/maxchannel73; input2->8:21615 pixels/maxchannel91. Differences are localized to the cards; do not substitute the earlier diagnostic18pixel claim for these actual live PNGs.",
+  "r1RawOrigin":"At o3, experienceProgress raw neutral=.77, experienceExpectation unknown=.99, experienceEvidence o3=.69; source o2 candidate e4 prediction unknown; admitted neutral/unknown/evidenceo3, adjustments[]. This same episode is retained for o6/o8 annotations. Neutral is the actual model choice, not a controller aggregation.",
+  "r1DistinctCurrentEpisodes":"o6 and o8 raw latest-episode progress neutral is changed to unknown because experienceEvidence=none. Those are respectively o5:e2->o6 and o7:back->o8, not the retained o2:e4->o3 annotation source.",
+  "r1Selection":"o6/o8 actual selected e4 with raw .81/.59; UI_PERFORMED then campaign. Final screenshot is campaign, objective false and DECISION_LIMIT.",
+  "r2":"o6 annotation neutral/not_supported from o2->o3 also precedes e4 selection; o8/o10 cite o6->o7 neutral/unknown and select e4. Delivered frames show the same visible control/context; final screenshot is 利用履歴, objective false and DECISION_LIMIT.",
+  "allNotifications":"Both old and both new notifications trials hit12 decisions and remain objectively false. No trial failure is counted as success."
+ },
+ "prerequisiteRevisitFinding":{
+  "visualSequence":"All four new revisit runs show delivered o2 blocked by 本人確認が必要, o5 本人確認が完了, o7 an enabled stop-sharing control, o8 リンクの状態 無効 and 共有リンクを無効にしました. All8 old/new terminal screenshots show the disabled state.",
+  "correspondence":"Changed and none outputs do not transfer old outcomes. All four new revisit runs have zero correspondence annotations. Return e1 links are generally changed once page/goal context changes; the newly available stop control has no old offered counterpart.",
+  "release":"All8 old/new revisit runs release e2(alpha) or e3(beta) at o6 via the existing basis_changed reason review citing blocked o2 and completed-verification o5, then actually select that released control. At that step the new correspondence preparation is EXACT_ALREADY_HANDLED. The release and success cannot be attributed independently to the new correspondence component.",
+  "outcome":"All8 objective true with actual stop-sharing action before done; no old-failure carryover was observed in these inspected prerequisite-change frames."
+ },
+ "limits":[
+  "Mechanical input/provenance/choice/execution consistency passes. The selected visual examples have no independent full ground-truth labeling across all35 proposals; no semantic precision or recall is estimated.",
+  "Saved model tags identify the recorded gateway response label, not independently attested provider internals.",
+  "Traceclick/scroll call order and main-frame URL progression were audited independently. Native CDP Back execution is supported by subsequent trace/saved frame destinations, not a separate visible trace APIcall.",
+  "Old/new4of6 is descriptive;2 replicates per scenario cannot establish improvement, reliability, generalization or human agreement. Retrieval/image/questions/annotations remain a bundled intervention.",
+  "All productsources and before/after checkout identity were checked; no product/HEAD/env/human record was changed/read, no API or UI action was replayed by the auditor."
+ ]
+}

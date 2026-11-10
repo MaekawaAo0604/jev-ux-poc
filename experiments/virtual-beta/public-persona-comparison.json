@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "phase": "extreme-persona-study-2026-11-06",
+  "baselineRevision": "7905e32",
+  "personaSet": "experiments/persona/extreme-passkeys-v1/set.json",
+  "actors": [
+    "XK0",
+    "XK1",
+    "XE0",
+    "XE1",
+    "XP0",
+    "XP1",
+    "XD0",
+    "XD1"
+  ],
+  "charter": "experiments/virtual-beta/public-passkeys-charter.json",
+  "siteHarSha256": "2f3ef9f0fbe3d819c824b0381a2f49053b2c20d8350840bef32de6ae04061bb6",
+  "profile": "experience-persona-unweighted",
+  "phases": [
+    {
+      "id": "probe",
+      "repeats": 4,
+      "planned": 32,
+      "maxDecisions": 1,
+      "maxRequests": 1152,
+      "maxPhaseMs": 7200000,
+      "endpoint": "Initial selected action, raw/filtered/normalized distribution and self-reported basis from the shared initial screenshot. Censored at one judgement; not completion or human fidelity."
+    },
+    {
+      "id": "flow",
+      "repeats": 1,
+      "planned": 8,
+      "maxDecisions": 12,
+      "maxRequests": 288,
+      "maxPhaseMs": 3600000,
+      "endpoint": "Observed trajectories and interpretation after the first choice. Invalid prefixes separate; known extractor failures may stop before all8."
+    }
+  ],
+  "sharedLimits": {
+    "perTrialAllocation": 36,
+    "maxTrialMs": 300000,
+    "nativeTimeoutMs": 60000,
+    "UI": 15,
+    "looks": 3,
+    "parallel": 1,
+    "retry": 0
+  },
+  "order": "Cyclic rotation by replicate;4of8positions in probe, one fixed full block in flow. Partial counterbalance, not randomized.",
+  "stop": "Immediate safety/provider/auth/quota/accounting/source fault;3 consecutive trusted model-invalid stops. HTTP timeout is infrastructure and does not become model-invalid. No failed-trial replacements, no rescue clicks or output repair.",
+  "comparison": "Within each predefined pair: initial action counts/denominators, total-variation distances of normalized distributions within vs between conditions, self-reported basis and native interpretations with source images. Model probabilities are not calibrated human frequencies. Initial native inputs after removing ONLY Persona must match, with initial product/current-model PNG hashes separately identical; goal/date/assets remain in the equality check. Compare identical snapshot/source/profile within each phase only; cap differences prevent pooling probe with flow.",
+  "humanInputsRead": false,
+  "savedInputResends": 0,
+  "interpretation": "Eight deliberately exaggerated hypotheses,4repeats descriptive. Names/IDs differ; experience may imply knowledge. Do not infer a human trait effect or human agreement. No proof of semantic understanding from a correct action."
+}

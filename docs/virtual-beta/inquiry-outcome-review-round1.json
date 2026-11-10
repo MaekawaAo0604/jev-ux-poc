@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "gate": "FAIL",
+  "round": 1,
+  "phase": "inquiry-outcome-2026-10-31",
+  "scope": "Independent execution against frozen source; no source, product, test, config, Git, environment or credential mutations. Only this report directory written.",
+  "snapshot": {
+    "freezeSha256": "6431fbe03cfc96ed1b12e285df9f0c6c8576dbc7063e1c3e5bb24005a6fe7586",
+    "sourceHash": "4d63df6892452161302f0c3b2e68233a4f7a7daddd612806ad9b3c184648bfaf",
+    "revision": "1f28508656c13b6cdcc92768a5c98d4ceec2a587",
+    "runtimeFiles": 164,
+    "frozenFiles": 1016,
+    "beforeAfterMatch": true,
+    "evidence": [
+      "before-snapshot.json",
+      "after-snapshot.json"
+    ]
+  },
+  "findings": [
+    {
+      "id": "IO-R1-001",
+      "severity": "P1",
+      "title": "Action input exceeds declared latest-three outcome capacity from decision five",
+      "location": "runner/virtual-beta-core.ts:228",
+      "repro": "node --import tsx --test reports/inquiry-outcome-2026-10-31/independent-round1/capacity.test.ts",
+      "expected": "Every actually delivered action input exposes at most the latest three distinct admitted inquiry outcome records.",
+      "actual": "After six normal delivered decisions, step5 retains o2,o3,o4 in inquiryOutcomeContext.inquiryOutcomeMemory and o3,o4,o5 in inquiryOutcomeMemory. Union is four records; step6 likewise four. The script captures evaluate arguments, not only persisted sidecars. Baseline replay accepts the run.",
+      "cause": "The assessment before-context remains on wire when the updated action memory is added. Independent module memory capacity3 checks do not catch the union.",
+      "evidence": [
+        "capacity.test.ts",
+        "capacity.json",
+        "capacity.log"
+      ]
+    },
+    {
+      "id": "IO-R1-002",
+      "severity": "P2",
+      "title": "Replay accepts undeclared inquiry outcome questions in action stage, including disabled mode and native failure",
+      "location": "runner/virtual-beta-replay.ts:124",
+      "repro": "node --import tsx runner/virtual-beta-replay.ts reports/inquiry-outcome-2026-10-31/independent-round1/mutant-old-action-stage-question",
+      "expected": "Reject outcome questions outside the configured assessment stage, including unconfigured and early-failure artifacts, even after legitimate outer hashes are recomputed.",
+      "actual": "An added action-stage questions.inquiryOutcome_result with copied valid choice definition and recomputed inputSha256 is accepted by replay. Reproduced on configured normal second step, old experience-working-inquiry first step, and first-step native HTTP failure. The original raw artifacts remain preserved.",
+      "cause": "outcomePresent and expected outcome question checks inspect deliberation.questions, but not step.questions. Thus injected action-only outcome questions evade stage and configuration guards.",
+      "evidence": [
+        "audit.ts",
+        "mutants.json",
+        "extra-mutants.ts",
+        "extra-mutants.json",
+        "mutant-action-stage-question/result.json",
+        "mutant-old-action-stage-question/result.json",
+        "mutant-native-http-injected-question/result.json"
+      ]
+    }
+  ],
+  "executed": {
+    "relatedTests": {
+      "pass": 45,
+      "fail": 0,
+      "evidence": "related.log",
+      "note": "Existing module/projection/profile/comparison tests plus report-local copies of normal four-screen integration and look/reread/wait. Four-screen integration proves specific condition_satisfied at o3 while global goal unsatisfied and experience neutral; admitted memory reaches action request; 3 real UI clicks and12 synthetic stage calls."
+    },
+    "partialFailures": {
+      "pass": 17,
+      "fail": 0,
+      "evidence": [
+        "failures.ts",
+        "failures.json",
+        "failures.log"
+      ],
+      "branches": "Native HTTP/bad output at steps1/2; assessment HTTP/model mismatch at1/2; invalid working/base assessment at1/2; invalid outcome at2; action HTTP/model mismatch at1/2. Every original run has exact expected API_ERROR or INVALID_DISTRIBUTION, valid=false, objective=false, correct calls/actions and replay verified. Model mismatch uses adapter-style BetaResponseError, not live networking."
+    },
+    "mutants": {
+      "distinct": 36,
+      "rejected": 33,
+      "accepted": 3,
+      "evidence": [
+        "mutants.json",
+        "extra-mutants.json"
+      ],
+      "note": "One normal action-question case is repeated across files. Context/goal/source/previous operation/actor memory/raw/choices/criteria/instructions/config/actor-only state/unconfigured fields and partial-state mutants otherwise reject."
+    },
+    "normalCLI": {
+      "command": "node --import tsx runner/condition-continuity-comparison.ts --outcome --mock --trial-ms 300000 --visual-request-ms 60000 --prior-snapshot <absolute experiments/virtual-beta/empty-prior-snapshot.json> --out reports/inquiry-outcome-2026-10-31/independent-round1/cli-mock",
+      "planned": 8,
+      "attempted": 8,
+      "valid": 8,
+      "invalid": 0,
+      "missing": 0,
+      "requests": 0,
+      "objectiveSuccesses": 0,
+      "pairs": 4,
+      "evidence": [
+        "cli-mock.log",
+        "cli-audit.json",
+        "cli-mock/manifest.json",
+        "cli-mock/summary.json"
+      ],
+      "verified": "All8 fresh slots replay. All4 pairs have equal initial PNG, literal goal, null/absent persona, empty memories and actual buildOpenAIVisualHypothesisRequest bodies including images/schema. Limits36requests/12judgments/15UI/3looks/300s/native60s, total288, phase42min, retry0, parallel1. Old profile has no inquiry outcome fields; profile differs only opt-in flag/id."
+    }
+  },
+  "preservation": {
+    "priorManifestCount": 6546,
+    "priorManifestShaBeforeAfterMatches": true,
+    "independentPriorFileContentHashes": false,
+    "participantContentsRead": false,
+    "approvalRejection": "The first bootstrap command was rejected before execution by automatic approval review because it attempted to read all6546 prior files for hashing despite the instruction not to read participant contents. No retry of that operation occurred. Safer manifest-only verification was approved and used. Parent explicitly limited independent scope to manifests thereafter.",
+    "note": "No independent claim that6546 prior file bytes remain unchanged. Parent reports its freeze verified all prior file hashes and will repeat preservation checks. Empty prior snapshot in this mock CLI proves no historical raw preservation."
+  },
+  "limitations": [
+    "Gate concerns implementation/accounting/replay, not semantic grounding of model text. Hash equality does not verify quotes or meaning.",
+    "No real model requests, human-fidelity evidence, stable behavioral improvement, provider ranking or causal claim.",
+    "Prior shared selection weights may still operate; this feature adds no new weight or filter.",
+    "No production build executed by this verifier because scope permits writes only under this report directory. Parent build evidence is separate.",
+    "Initial report harness import depth and a null-vs-absent persona assertion were corrected; their logs are harness issues, not product findings."
+  ],
+  "required": "Repair both findings, add meaningful regression coverage including >=5 action decisions and action-only questions in old/early-failure cases, freeze a new snapshot, then independently verify round2. Keep this round1 FAIL and raw evidence."
+}

@@ -1,2 +1,38 @@
 * text=auto eol=lf
 *.png binary
+
+# Preserve independently captured review evidence byte for byte.
+docs/virtual-beta/final-http-timeout-review-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/visual-prior-links-review-*.json -text
+docs/virtual-beta/working-inquiry-review-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/inquiry-outcome-review-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/inquiry-alignment-review-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/inquiry-movement-review-independent.txt -text whitespace=cr-at-eol
+
+# Preserve deferral comparison evidence and executed controller bytes.
+docs/virtual-beta/deferral-weight-review-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-producer.json -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-source.json -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-amendment.json -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-motion-plan.json -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-continuation-runner.txt -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-invalid-native.txt -text whitespace=cr-at-eol
+docs/virtual-beta/deferral-weight-source-*.zip binary
+
+# Preserve persona comparison raw review and executed-source evidence.
+docs/virtual-beta/persona-beta-review-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-beta-producer.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-beta-source.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-beta-motion-plan.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-beta-execution-control.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-beta-source-*.zip binary
+
+# Preserve persona-relevant task review and executed-source evidence.
+docs/virtual-beta/persona-task-review-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-producer.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-source.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-execution-control.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-visual-review-plan.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-native-invalid-*.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-full-suite-findings.json -text whitespace=cr-at-eol
+docs/virtual-beta/persona-task-source-*.zip binary

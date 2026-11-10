@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Fresh checkout only: no historical raw artifacts claimed. Use your real saved snapshot when prior runs exist.",
+  "count": 0,
+  "files": []
+}

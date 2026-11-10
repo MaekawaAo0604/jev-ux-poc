@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "vision-isolation-v1",
+  "batches": [
+    {
+      "id": "vision-m0-seed4001",
+      "group": "vision-isolation",
+      "memoryCapacity": 0,
+      "seed": 4001,
+      "plan": "experiments/virtual-beta/vision-isolation-v1/vision-m0-seed4001.json",
+      "allocatedAPIRequests": 36,
+      "plannedTrials": 3
+    },
+    {
+      "id": "vision-m3-seed4001",
+      "group": "vision-isolation",
+      "memoryCapacity": 3,
+      "seed": 4001,
+      "plan": "experiments/virtual-beta/vision-isolation-v1/vision-m3-seed4001.json",
+      "allocatedAPIRequests": 36,
+      "plannedTrials": 3
+    },
+    {
+      "id": "vision-m3-seed4002",
+      "group": "vision-isolation",
+      "memoryCapacity": 3,
+      "seed": 4002,
+      "plan": "experiments/virtual-beta/vision-isolation-v1/vision-m3-seed4002.json",
+      "allocatedAPIRequests": 36,
+      "plannedTrials": 3
+    },
+    {
+      "id": "vision-m0-seed4002",
+      "group": "vision-isolation",
+      "memoryCapacity": 0,
+      "seed": 4002,
+      "plan": "experiments/virtual-beta/vision-isolation-v1/vision-m0-seed4002.json",
+      "allocatedAPIRequests": 36,
+      "plannedTrials": 3
+    },
+    {
+      "id": "vision-m0-seed4003",
+      "group": "vision-isolation",
+      "memoryCapacity": 0,
+      "seed": 4003,
+      "plan": "experiments/virtual-beta/vision-isolation-v1/vision-m0-seed4003.json",
+      "allocatedAPIRequests": 36,
+      "plannedTrials": 3
+    },
+    {
+      "id": "vision-m3-seed4003",
+      "group": "vision-isolation",
+      "memoryCapacity": 3,
+      "seed": 4003,
+      "plan": "experiments/virtual-beta/vision-isolation-v1/vision-m3-seed4003.json",
+      "allocatedAPIRequests": 36,
+      "plannedTrials": 3
+    }
+  ],
+  "plannedTrials": 18,
+  "allocatedAPIRequests": 216,
+  "maxPhaseMs": 2700000,
+  "batchDurationMs": 600000,
+  "parallel": 1,
+  "retry": 0,
+  "charter": "experiments/persona/charter-good.json",
+  "persona": "experiments/persona/clear-notifications-v1/a.json",
+  "visionModes": [
+    "full",
+    "crop",
+    "foveated"
+  ],
+  "memoryCapacities": [
+    0,
+    3
+  ],
+  "seeds": [
+    4001,
+    4002,
+    4003
+  ],
+  "primaryContrast": "Within fixedmemorycapacity,onlyvision.modechanges;modelinputpixels/geometry/candidateeligibilityareintended consequences.",
+  "secondaryContrast": "At fixedvisionandseed,onlystate.memoryCapacitychanges;currentobservation,expectations,vocabulary,questions remainfixed.",
+  "order": "Allthreevisionpositionsfullycyclicbalanced within eachmemory; memoryblockorderalternates,butthreeblocksnotfullybalancedacrosstwopositions.",
+  "recognition": "Notdirectlymeasured; diagnostics describe offered/selected/executed boundaries and availablememory only.",
+  "stop": "Provider/source/accounting/safety/audit,3consecutivetrustworthymodelinvalid,phasecap. No replacement."
+}

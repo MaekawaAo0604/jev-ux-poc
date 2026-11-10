@@ -1,0 +1,3009 @@
+{
+  "schemaVersion": 1,
+  "implementationBaseline": "5f7051d0504dd9accef5e309208d39a97904fd64",
+  "productRevision": "ad1d64487e3ba3303bcb6f342878aff64bae9dea",
+  "budget": {
+    "approved": 48,
+    "used": 48,
+    "remaining": 0,
+    "priorPhase": 23,
+    "statusCounts": {
+      "OK": 48
+    },
+    "savedPayloadsResent": 0
+  },
+  "batches": [
+    {
+      "id": "live-diagnostic",
+      "revision": "ff372ab34384803931f86f59198ff7ebc445724f",
+      "sourceHash": "3682d0047b86fd95de78f2b1c5837b45475eb60d87077f4de25aae62fa25ac1d",
+      "model": "jev-1.14.0",
+      "apiCalls": 23,
+      "configs": [
+        {
+          "schemaVersion": 1,
+          "id": "current",
+          "vision": {
+            "mode": "full",
+            "clearWidth": 960,
+            "clearHeight": 620,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": false,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "argmax",
+            "seed": 20261027
+          },
+          "behavior": "goal",
+          "maxUIActions": 6,
+          "maxLooks": 4,
+          "maxDecisions": 12,
+          "maxAPICalls": 12,
+          "maxRunMs": 90000,
+          "modeledActionMs": null
+        },
+        {
+          "schemaVersion": 1,
+          "id": "vision",
+          "vision": {
+            "mode": "foveated",
+            "clearWidth": 960,
+            "clearHeight": 620,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": false,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "argmax",
+            "seed": 20261027
+          },
+          "behavior": "goal",
+          "maxUIActions": 6,
+          "maxLooks": 4,
+          "maxDecisions": 12,
+          "maxAPICalls": 12,
+          "maxRunMs": 90000,
+          "modeledActionMs": null
+        },
+        {
+          "schemaVersion": 1,
+          "id": "state",
+          "vision": {
+            "mode": "full",
+            "clearWidth": 960,
+            "clearHeight": 620,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "sample",
+            "seed": 20261027
+          },
+          "behavior": "user",
+          "maxUIActions": 6,
+          "maxLooks": 4,
+          "maxDecisions": 12,
+          "maxAPICalls": 12,
+          "maxRunMs": 90000,
+          "modeledActionMs": null
+        },
+        {
+          "schemaVersion": 1,
+          "id": "combined",
+          "vision": {
+            "mode": "foveated",
+            "clearWidth": 960,
+            "clearHeight": 620,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "sample",
+            "seed": 20261027
+          },
+          "behavior": "user",
+          "maxUIActions": 6,
+          "maxLooks": 4,
+          "maxDecisions": 12,
+          "maxAPICalls": 12,
+          "maxRunMs": 90000,
+          "modeledActionMs": null
+        }
+      ],
+      "uiVariants": [
+        null
+      ],
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "modelSeedAvailable": false,
+      "initialStateGroups": [
+        {
+          "uiVersion": "legacy",
+          "count": 4,
+          "fingerprints": [
+            "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908"
+          ],
+          "match": true
+        }
+      ],
+      "runs": [
+        {
+          "runId": "current-1",
+          "condition": "current",
+          "uiVersion": null,
+          "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+          "termination": "SUBJECTIVE_DONE",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "validForComparison": true,
+          "counters": {
+            "apiCalls": 3,
+            "decisions": 3,
+            "looks": 0,
+            "uiActions": 2
+          },
+          "classifications": {
+            "artifactValidity": "artifact-valid",
+            "behavior": "perceived-done",
+            "reasons": [],
+            "validForOutcomeComparison": true,
+            "completedUncensored": true
+          },
+          "budgetInfluence": {
+            "steps": [],
+            "anyDecisionBudgetFiltered": false,
+            "terminationBudgetLimited": false,
+            "terminalBudgetFilterPresent": false,
+            "terminalBudgetInfluenced": false,
+            "interpretation": "Recorded budget exclusions and removed probability mass only. A true terminal flag means an explicit resource-limit termination or positive budget mass removed at the terminal decision; it does not prove a different action without the budget."
+          },
+          "roiMetrics": [
+            {
+              "id": "notification-entry",
+              "status": "not-recorded",
+              "observedDecisions": [],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": null,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            },
+            {
+              "id": "notification-stop",
+              "status": "not-recorded",
+              "observedDecisions": [],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": null,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            }
+          ],
+          "lookEffectPairs": [],
+          "trace": [
+            {
+              "n": 1,
+              "model": "jev-1.14.0",
+              "observation": "o1",
+              "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "imageSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 1,
+              "memoryEntries": 0
+            },
+            {
+              "n": 2,
+              "model": "jev-1.14.0",
+              "observation": "o2",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "e3",
+              "selected": "e3",
+              "action": {
+                "type": "click",
+                "elementId": "e3"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 2,
+              "memoryEntries": 0
+            },
+            {
+              "n": 3,
+              "model": "jev-1.14.0",
+              "observation": "o3",
+              "sourceSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+              "imageSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "done",
+              "selected": "done",
+              "action": {
+                "type": "done"
+              },
+              "outcome": "SUBJECTIVE_DONE",
+              "memoryRevision": 3,
+              "memoryEntries": 0
+            }
+          ],
+          "artifacts": "reports/beta-next-phase/live-diagnostic/current-1"
+        },
+        {
+          "runId": "vision-1",
+          "condition": "vision",
+          "uiVersion": null,
+          "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+          "termination": "UI_ACTION_LIMIT",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": false
+          },
+          "perceivedDone": false,
+          "validForComparison": true,
+          "counters": {
+            "apiCalls": 7,
+            "decisions": 7,
+            "looks": 1,
+            "uiActions": 6
+          },
+          "classifications": {
+            "artifactValidity": "artifact-valid",
+            "behavior": "budget-censored",
+            "reasons": [],
+            "validForOutcomeComparison": true,
+            "completedUncensored": false
+          },
+          "budgetInfluence": {
+            "steps": [],
+            "anyDecisionBudgetFiltered": false,
+            "terminationBudgetLimited": true,
+            "terminalBudgetFilterPresent": false,
+            "terminalBudgetInfluenced": true,
+            "interpretation": "Recorded budget exclusions and removed probability mass only. A true terminal flag means an explicit resource-limit termination or positive budget mass removed at the terminal decision; it does not prove a different action without the budget."
+          },
+          "roiMetrics": [
+            {
+              "id": "notification-entry",
+              "status": "not-recorded",
+              "observedDecisions": [],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": null,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            },
+            {
+              "id": "notification-stop",
+              "status": "not-recorded",
+              "observedDecisions": [],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": null,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            }
+          ],
+          "lookEffectPairs": [
+            {
+              "beforeDecision": 1,
+              "afterDecision": 2,
+              "rawScreenRelation": "same",
+              "beforeSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "afterSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "fromFixation": {
+                "x": 640,
+                "y": 450
+              },
+              "requestedFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "observedNextFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "fixationMatchesRequested": true,
+              "beforeClearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "afterClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "beforeInputImageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+              "afterInputImageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+              "newlyOfferedClickIds": [
+                "e5"
+              ],
+              "followingModelProposal": "e5",
+              "followingSelected": "e5",
+              "followingAction": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "followingOutcome": "UI_PERFORMED",
+              "followingSelectedNewClick": true,
+              "interpretation": "available under policy, next selection consistent with using it"
+            }
+          ],
+          "trace": [
+            {
+              "n": 1,
+              "model": "jev-1.14.0",
+              "observation": "o1",
+              "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "imageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "modelProposal": "look_3",
+              "selected": "look_3",
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "memoryRevision": 1,
+              "memoryEntries": 0
+            },
+            {
+              "n": 2,
+              "model": "jev-1.14.0",
+              "observation": "o2",
+              "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "imageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 2,
+              "memoryEntries": 0
+            },
+            {
+              "n": 3,
+              "model": "jev-1.14.0",
+              "observation": "o3",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "back",
+              "selected": "back",
+              "action": {
+                "type": "back"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 3,
+              "memoryEntries": 0
+            },
+            {
+              "n": 4,
+              "model": "jev-1.14.0",
+              "observation": "o4",
+              "sourceSha256": "a2cc3e92bdba84ceb8440d2d2220e496c3940758154e661170919373bf464281",
+              "imageSha256": "4b0e28cd84d68a8ae549a45bf43efff438c5bc77a153ed534f406bc2551034c6",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 4,
+              "memoryEntries": 0
+            },
+            {
+              "n": 5,
+              "model": "jev-1.14.0",
+              "observation": "o5",
+              "sourceSha256": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+              "imageSha256": "7416af44b337ab5d542f8442a2c6577ff50b036c2257fc191c46964a181feadb",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "back",
+              "selected": "back",
+              "action": {
+                "type": "back"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 5,
+              "memoryEntries": 0
+            },
+            {
+              "n": 6,
+              "model": "jev-1.14.0",
+              "observation": "o6",
+              "sourceSha256": "a2cc3e92bdba84ceb8440d2d2220e496c3940758154e661170919373bf464281",
+              "imageSha256": "4b0e28cd84d68a8ae549a45bf43efff438c5bc77a153ed534f406bc2551034c6",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 6,
+              "memoryEntries": 0
+            },
+            {
+              "n": 7,
+              "model": "jev-1.14.0",
+              "observation": "o7",
+              "sourceSha256": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+              "imageSha256": "7416af44b337ab5d542f8442a2c6577ff50b036c2257fc191c46964a181feadb",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "back",
+              "selected": "back",
+              "action": {
+                "type": "back"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 7,
+              "memoryEntries": 0
+            }
+          ],
+          "artifacts": "reports/beta-next-phase/live-diagnostic/vision-1"
+        },
+        {
+          "runId": "state-1",
+          "condition": "state",
+          "uiVersion": null,
+          "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+          "termination": "SUBJECTIVE_DONE",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "validForComparison": true,
+          "counters": {
+            "apiCalls": 3,
+            "decisions": 3,
+            "looks": 0,
+            "uiActions": 2
+          },
+          "classifications": {
+            "artifactValidity": "artifact-valid",
+            "behavior": "perceived-done",
+            "reasons": [],
+            "validForOutcomeComparison": true,
+            "completedUncensored": true
+          },
+          "budgetInfluence": {
+            "steps": [],
+            "anyDecisionBudgetFiltered": false,
+            "terminationBudgetLimited": false,
+            "terminalBudgetFilterPresent": false,
+            "terminalBudgetInfluenced": false,
+            "interpretation": "Recorded budget exclusions and removed probability mass only. A true terminal flag means an explicit resource-limit termination or positive budget mass removed at the terminal decision; it does not prove a different action without the budget."
+          },
+          "roiMetrics": [
+            {
+              "id": "notification-entry",
+              "status": "not-recorded",
+              "observedDecisions": [],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": null,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            },
+            {
+              "id": "notification-stop",
+              "status": "not-recorded",
+              "observedDecisions": [],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": null,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            }
+          ],
+          "lookEffectPairs": [],
+          "trace": [
+            {
+              "n": 1,
+              "model": "jev-1.14.0",
+              "observation": "o1",
+              "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "imageSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 1,
+              "memoryEntries": 1
+            },
+            {
+              "n": 2,
+              "model": "jev-1.14.0",
+              "observation": "o2",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "e3",
+              "selected": "e3",
+              "action": {
+                "type": "click",
+                "elementId": "e3"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 2,
+              "memoryEntries": 2
+            },
+            {
+              "n": 3,
+              "model": "jev-1.14.0",
+              "observation": "o3",
+              "sourceSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+              "imageSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "done",
+              "selected": "done",
+              "action": {
+                "type": "done"
+              },
+              "outcome": "SUBJECTIVE_DONE",
+              "memoryRevision": 3,
+              "memoryEntries": 3
+            }
+          ],
+          "artifacts": "reports/beta-next-phase/live-diagnostic/state-1"
+        },
+        {
+          "runId": "combined-1",
+          "condition": "combined",
+          "uiVersion": null,
+          "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+          "termination": "STUCK",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": false
+          },
+          "perceivedDone": false,
+          "validForComparison": true,
+          "counters": {
+            "apiCalls": 10,
+            "decisions": 10,
+            "looks": 4,
+            "uiActions": 3
+          },
+          "classifications": {
+            "artifactValidity": "artifact-valid",
+            "behavior": "stuck",
+            "reasons": [],
+            "validForOutcomeComparison": true,
+            "completedUncensored": false
+          },
+          "budgetInfluence": {
+            "steps": [
+              {
+                "decision": 10,
+                "evidenceSource": "selection",
+                "excludedCandidates": [
+                  {
+                    "candidate": "look_0",
+                    "reason": "LOOK_BUDGET_EXHAUSTED",
+                    "rawMass": 0.04,
+                    "normalizedMass": 0.04
+                  },
+                  {
+                    "candidate": "look_1",
+                    "reason": "LOOK_BUDGET_EXHAUSTED",
+                    "rawMass": 0.09,
+                    "normalizedMass": 0.09
+                  },
+                  {
+                    "candidate": "look_2",
+                    "reason": "LOOK_BUDGET_EXHAUSTED",
+                    "rawMass": 0.05,
+                    "normalizedMass": 0.05
+                  },
+                  {
+                    "candidate": "look_3",
+                    "reason": "LOOK_BUDGET_EXHAUSTED",
+                    "rawMass": 0.13,
+                    "normalizedMass": 0.13
+                  }
+                ],
+                "rawRemovedMass": 0.31,
+                "normalizedRemovedMass": 0.31
+              }
+            ],
+            "anyDecisionBudgetFiltered": true,
+            "terminationBudgetLimited": false,
+            "terminalBudgetFilterPresent": true,
+            "terminalBudgetInfluenced": true,
+            "interpretation": "Recorded budget exclusions and removed probability mass only. A true terminal flag means an explicit resource-limit termination or positive budget mass removed at the terminal decision; it does not prove a different action without the budget."
+          },
+          "roiMetrics": [
+            {
+              "id": "notification-entry",
+              "status": "not-recorded",
+              "observedDecisions": [],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": null,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            },
+            {
+              "id": "notification-stop",
+              "status": "not-recorded",
+              "observedDecisions": [],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": null,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            }
+          ],
+          "lookEffectPairs": [
+            {
+              "beforeDecision": 1,
+              "afterDecision": 2,
+              "rawScreenRelation": "same",
+              "beforeSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "afterSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "fromFixation": {
+                "x": 640,
+                "y": 450
+              },
+              "requestedFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "observedNextFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "fixationMatchesRequested": true,
+              "beforeClearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "afterClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "beforeInputImageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+              "afterInputImageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+              "newlyOfferedClickIds": [
+                "e5"
+              ],
+              "followingModelProposal": "e5",
+              "followingSelected": "e5",
+              "followingAction": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "followingOutcome": "UI_PERFORMED",
+              "followingSelectedNewClick": true,
+              "interpretation": "available under policy, next selection consistent with using it"
+            },
+            {
+              "beforeDecision": 3,
+              "afterDecision": 4,
+              "rawScreenRelation": "same",
+              "beforeSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "afterSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "fromFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "requestedFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "observedNextFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "fixationMatchesRequested": true,
+              "beforeClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "afterClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "beforeInputImageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "afterInputImageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "newlyOfferedClickIds": [],
+              "followingModelProposal": "stuck",
+              "followingSelected": "back",
+              "followingAction": {
+                "type": "back"
+              },
+              "followingOutcome": "UI_PERFORMED",
+              "followingSelectedNewClick": false,
+              "interpretation": "Same raw screen; observed eligibility and following choice only."
+            },
+            {
+              "beforeDecision": 8,
+              "afterDecision": 9,
+              "rawScreenRelation": "same",
+              "beforeSourceSha256": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+              "afterSourceSha256": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+              "fromFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "requestedFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "observedNextFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "fixationMatchesRequested": true,
+              "beforeClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "afterClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "beforeInputImageSha256": "7416af44b337ab5d542f8442a2c6577ff50b036c2257fc191c46964a181feadb",
+              "afterInputImageSha256": "7416af44b337ab5d542f8442a2c6577ff50b036c2257fc191c46964a181feadb",
+              "newlyOfferedClickIds": [],
+              "followingModelProposal": "reread",
+              "followingSelected": "look_3",
+              "followingAction": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "followingOutcome": "FIXATION_MOVED",
+              "followingSelectedNewClick": false,
+              "interpretation": "Same raw screen; observed eligibility and following choice only."
+            },
+            {
+              "beforeDecision": 9,
+              "afterDecision": 10,
+              "rawScreenRelation": "same",
+              "beforeSourceSha256": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+              "afterSourceSha256": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+              "fromFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "requestedFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "observedNextFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "fixationMatchesRequested": true,
+              "beforeClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "afterClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "beforeInputImageSha256": "7416af44b337ab5d542f8442a2c6577ff50b036c2257fc191c46964a181feadb",
+              "afterInputImageSha256": "7416af44b337ab5d542f8442a2c6577ff50b036c2257fc191c46964a181feadb",
+              "newlyOfferedClickIds": [],
+              "followingModelProposal": "reread",
+              "followingSelected": "stuck",
+              "followingAction": {
+                "type": "stuck"
+              },
+              "followingOutcome": "STUCK",
+              "followingSelectedNewClick": false,
+              "interpretation": "Same raw screen; observed eligibility and following choice only."
+            }
+          ],
+          "trace": [
+            {
+              "n": 1,
+              "model": "jev-1.14.0",
+              "observation": "o1",
+              "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "imageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "modelProposal": "look_3",
+              "selected": "look_3",
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "memoryRevision": 1,
+              "memoryEntries": 1
+            },
+            {
+              "n": 2,
+              "model": "jev-1.14.0",
+              "observation": "o2",
+              "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "imageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 2,
+              "memoryEntries": 2
+            },
+            {
+              "n": 3,
+              "model": "jev-1.14.0",
+              "observation": "o3",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "back",
+              "selected": "look_3",
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "memoryRevision": 3,
+              "memoryEntries": 3
+            },
+            {
+              "n": 4,
+              "model": "jev-1.14.0",
+              "observation": "o4",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "stuck",
+              "selected": "back",
+              "action": {
+                "type": "back"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 4,
+              "memoryEntries": 3
+            },
+            {
+              "n": 5,
+              "model": "jev-1.14.0",
+              "observation": "o5",
+              "sourceSha256": "a2cc3e92bdba84ceb8440d2d2220e496c3940758154e661170919373bf464281",
+              "imageSha256": "4b0e28cd84d68a8ae549a45bf43efff438c5bc77a153ed534f406bc2551034c6",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "e5",
+              "selected": "reread",
+              "action": {
+                "type": "reread"
+              },
+              "outcome": "REREAD",
+              "memoryRevision": 5,
+              "memoryEntries": 3
+            },
+            {
+              "n": 6,
+              "model": "jev-1.14.0",
+              "observation": "o6",
+              "sourceSha256": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+              "imageSha256": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 6,
+              "memoryEntries": 3
+            },
+            {
+              "n": 7,
+              "model": "jev-1.14.0",
+              "observation": "o7",
+              "sourceSha256": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+              "imageSha256": "7416af44b337ab5d542f8442a2c6577ff50b036c2257fc191c46964a181feadb",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "reread",
+              "selected": "reread",
+              "action": {
+                "type": "reread"
+              },
+              "outcome": "REREAD",
+              "memoryRevision": 7,
+              "memoryEntries": 3
+            },
+            {
+              "n": 8,
+              "model": "jev-1.14.0",
+              "observation": "o8",
+              "sourceSha256": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+              "imageSha256": "7416af44b337ab5d542f8442a2c6577ff50b036c2257fc191c46964a181feadb",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "reread",
+              "selected": "look_3",
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "memoryRevision": 8,
+              "memoryEntries": 3
+            },
+            {
+              "n": 9,
+              "model": "jev-1.14.0",
+              "observation": "o9",
+              "sourceSha256": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+              "imageSha256": "7416af44b337ab5d542f8442a2c6577ff50b036c2257fc191c46964a181feadb",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "reread",
+              "selected": "look_3",
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "memoryRevision": 9,
+              "memoryEntries": 3
+            },
+            {
+              "n": 10,
+              "model": "jev-1.14.0",
+              "observation": "o10",
+              "sourceSha256": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+              "imageSha256": "7416af44b337ab5d542f8442a2c6577ff50b036c2257fc191c46964a181feadb",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "reread",
+              "selected": "stuck",
+              "action": {
+                "type": "stuck"
+              },
+              "outcome": "STUCK",
+              "memoryRevision": 10,
+              "memoryEntries": 3
+            }
+          ],
+          "artifacts": "reports/beta-next-phase/live-diagnostic/combined-1"
+        }
+      ]
+    },
+    {
+      "id": "live-ui-response",
+      "revision": "4c72c3f64b96793f20ef8892ad9e941d652d3069",
+      "sourceHash": "ccfbfc4b4593173d8b2b0123cec458eb479c60e229c8b54872e0387980b0f344",
+      "model": "jev-1.14.0",
+      "apiCalls": 21,
+      "configs": [
+        {
+          "schemaVersion": 1,
+          "id": "current",
+          "vision": {
+            "mode": "full",
+            "clearWidth": 960,
+            "clearHeight": 620,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": false,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "argmax",
+            "seed": 20261027
+          },
+          "behavior": "goal",
+          "maxUIActions": 6,
+          "maxLooks": 4,
+          "maxDecisions": 12,
+          "maxAPICalls": 4,
+          "maxRunMs": 90000,
+          "modeledActionMs": null
+        },
+        {
+          "schemaVersion": 1,
+          "id": "combined",
+          "vision": {
+            "mode": "foveated",
+            "clearWidth": 960,
+            "clearHeight": 620,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "sample",
+            "seed": 20261027
+          },
+          "behavior": "user",
+          "maxUIActions": 6,
+          "maxLooks": 4,
+          "maxDecisions": 12,
+          "maxAPICalls": 4,
+          "maxRunMs": 90000,
+          "modeledActionMs": null
+        }
+      ],
+      "uiVariants": [
+        {
+          "id": "reference",
+          "token": "r",
+          "entryLabel": "通知設定",
+          "entryTranslateYPx": 0,
+          "definitionHash": "def5e0a6d4014e1ab100c68afbad4b9d10d2401e84ab00923dd31bc3dcbe7a1f"
+        },
+        {
+          "id": "position-only",
+          "token": "p",
+          "entryLabel": "通知設定",
+          "entryTranslateYPx": 110,
+          "definitionHash": "7f8450d2e9681cac3b15d9ff178fd3a80010736b6f26e4b4002779579c686bfb"
+        },
+        {
+          "id": "wording-only",
+          "token": "w",
+          "entryLabel": "メール受信設定",
+          "entryTranslateYPx": 0,
+          "definitionHash": "d2f2c1c0598eb257c8fbe914e7ae59e003074a8d9809f520fafdb781661c0585"
+        }
+      ],
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "modelSeedAvailable": false,
+      "initialStateGroups": [
+        {
+          "uiVersion": "reference",
+          "count": 2,
+          "fingerprints": [
+            "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908"
+          ],
+          "match": true
+        },
+        {
+          "uiVersion": "position-only",
+          "count": 2,
+          "fingerprints": [
+            "96468c224966b432da0a5c094764285d9f1ba26fd1fa950c8b783d86b34c1982"
+          ],
+          "match": true
+        },
+        {
+          "uiVersion": "wording-only",
+          "count": 2,
+          "fingerprints": [
+            "72409389af8471cfacba7ad87c662f8db6032624f4f6ea7d0f623adec65a820f"
+          ],
+          "match": true
+        }
+      ],
+      "runs": [
+        {
+          "runId": "reference-current-1",
+          "condition": "current",
+          "uiVersion": {
+            "id": "reference",
+            "token": "r",
+            "entryLabel": "通知設定",
+            "entryTranslateYPx": 0,
+            "definitionHash": "def5e0a6d4014e1ab100c68afbad4b9d10d2401e84ab00923dd31bc3dcbe7a1f"
+          },
+          "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+          "termination": "SUBJECTIVE_DONE",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "validForComparison": true,
+          "counters": {
+            "apiCalls": 3,
+            "decisions": 3,
+            "looks": 0,
+            "uiActions": 2
+          },
+          "classifications": {
+            "artifactValidity": "artifact-valid",
+            "behavior": "perceived-done",
+            "reasons": [],
+            "validForOutcomeComparison": true,
+            "completedUncensored": true
+          },
+          "budgetInfluence": {
+            "steps": [],
+            "anyDecisionBudgetFiltered": false,
+            "terminationBudgetLimited": false,
+            "terminalBudgetFilterPresent": false,
+            "terminalBudgetInfluenced": false,
+            "interpretation": "Recorded budget exclusions and removed probability mass only. A true terminal flag means an explicit resource-limit termination or positive budget mass removed at the terminal decision; it does not prove a different action without the budget."
+          },
+          "roiMetrics": [
+            {
+              "id": "notification-entry",
+              "status": "recorded",
+              "observedDecisions": [
+                1
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": 1,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            },
+            {
+              "id": "notification-stop",
+              "status": "recorded",
+              "observedDecisions": [
+                2
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": 2,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            }
+          ],
+          "lookEffectPairs": [],
+          "trace": [
+            {
+              "n": 1,
+              "model": "jev-1.14.0",
+              "observation": "o1",
+              "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "imageSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 1,
+              "memoryEntries": 0
+            },
+            {
+              "n": 2,
+              "model": "jev-1.14.0",
+              "observation": "o2",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "e3",
+              "selected": "e3",
+              "action": {
+                "type": "click",
+                "elementId": "e3"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 2,
+              "memoryEntries": 0
+            },
+            {
+              "n": 3,
+              "model": "jev-1.14.0",
+              "observation": "o3",
+              "sourceSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+              "imageSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "done",
+              "selected": "done",
+              "action": {
+                "type": "done"
+              },
+              "outcome": "SUBJECTIVE_DONE",
+              "memoryRevision": 3,
+              "memoryEntries": 0
+            }
+          ],
+          "artifacts": "reports/beta-next-phase/live-ui-response/reference-current-1"
+        },
+        {
+          "runId": "reference-combined-1",
+          "condition": "combined",
+          "uiVersion": {
+            "id": "reference",
+            "token": "r",
+            "entryLabel": "通知設定",
+            "entryTranslateYPx": 0,
+            "definitionHash": "def5e0a6d4014e1ab100c68afbad4b9d10d2401e84ab00923dd31bc3dcbe7a1f"
+          },
+          "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+          "termination": "API_LIMIT",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": false
+          },
+          "perceivedDone": false,
+          "validForComparison": true,
+          "counters": {
+            "apiCalls": 4,
+            "decisions": 4,
+            "looks": 1,
+            "uiActions": 2
+          },
+          "classifications": {
+            "artifactValidity": "artifact-valid",
+            "behavior": "budget-censored",
+            "reasons": [],
+            "validForOutcomeComparison": true,
+            "completedUncensored": false
+          },
+          "budgetInfluence": {
+            "steps": [],
+            "anyDecisionBudgetFiltered": false,
+            "terminationBudgetLimited": true,
+            "terminalBudgetFilterPresent": false,
+            "terminalBudgetInfluenced": true,
+            "interpretation": "Recorded budget exclusions and removed probability mass only. A true terminal flag means an explicit resource-limit termination or positive budget mass removed at the terminal decision; it does not prove a different action without the budget."
+          },
+          "roiMetrics": [
+            {
+              "id": "notification-entry",
+              "status": "recorded",
+              "observedDecisions": [
+                1,
+                2
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": 2,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            },
+            {
+              "id": "notification-stop",
+              "status": "recorded",
+              "observedDecisions": [
+                3,
+                4
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": null,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            }
+          ],
+          "lookEffectPairs": [
+            {
+              "beforeDecision": 1,
+              "afterDecision": 2,
+              "rawScreenRelation": "same",
+              "beforeSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "afterSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "fromFixation": {
+                "x": 640,
+                "y": 450
+              },
+              "requestedFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "observedNextFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "fixationMatchesRequested": true,
+              "beforeClearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "afterClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "beforeInputImageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+              "afterInputImageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+              "newlyOfferedClickIds": [
+                "e5"
+              ],
+              "followingModelProposal": "e5",
+              "followingSelected": "e5",
+              "followingAction": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "followingOutcome": "UI_PERFORMED",
+              "followingSelectedNewClick": true,
+              "interpretation": "available under policy, next selection consistent with using it"
+            }
+          ],
+          "trace": [
+            {
+              "n": 1,
+              "model": "jev-1.14.0",
+              "observation": "o1",
+              "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "imageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "modelProposal": "look_3",
+              "selected": "look_3",
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "memoryRevision": 1,
+              "memoryEntries": 1
+            },
+            {
+              "n": 2,
+              "model": "jev-1.14.0",
+              "observation": "o2",
+              "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "imageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 2,
+              "memoryEntries": 2
+            },
+            {
+              "n": 3,
+              "model": "jev-1.14.0",
+              "observation": "o3",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "back",
+              "selected": "reread",
+              "action": {
+                "type": "reread"
+              },
+              "outcome": "REREAD",
+              "memoryRevision": 3,
+              "memoryEntries": 3
+            },
+            {
+              "n": 4,
+              "model": "jev-1.14.0",
+              "observation": "o4",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "reread",
+              "selected": "back",
+              "action": {
+                "type": "back"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 4,
+              "memoryEntries": 3
+            }
+          ],
+          "artifacts": "reports/beta-next-phase/live-ui-response/reference-combined-1"
+        },
+        {
+          "runId": "position-only-current-1",
+          "condition": "current",
+          "uiVersion": {
+            "id": "position-only",
+            "token": "p",
+            "entryLabel": "通知設定",
+            "entryTranslateYPx": 110,
+            "definitionHash": "7f8450d2e9681cac3b15d9ff178fd3a80010736b6f26e4b4002779579c686bfb"
+          },
+          "initialFingerprint": "96468c224966b432da0a5c094764285d9f1ba26fd1fa950c8b783d86b34c1982",
+          "termination": "SUBJECTIVE_DONE",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "validForComparison": true,
+          "counters": {
+            "apiCalls": 3,
+            "decisions": 3,
+            "looks": 0,
+            "uiActions": 2
+          },
+          "classifications": {
+            "artifactValidity": "artifact-valid",
+            "behavior": "perceived-done",
+            "reasons": [],
+            "validForOutcomeComparison": true,
+            "completedUncensored": true
+          },
+          "budgetInfluence": {
+            "steps": [],
+            "anyDecisionBudgetFiltered": false,
+            "terminationBudgetLimited": false,
+            "terminalBudgetFilterPresent": false,
+            "terminalBudgetInfluenced": false,
+            "interpretation": "Recorded budget exclusions and removed probability mass only. A true terminal flag means an explicit resource-limit termination or positive budget mass removed at the terminal decision; it does not prove a different action without the budget."
+          },
+          "roiMetrics": [
+            {
+              "id": "notification-entry",
+              "status": "recorded",
+              "observedDecisions": [
+                1
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": 1,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            },
+            {
+              "id": "notification-stop",
+              "status": "recorded",
+              "observedDecisions": [
+                2
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": 2,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            }
+          ],
+          "lookEffectPairs": [],
+          "trace": [
+            {
+              "n": 1,
+              "model": "jev-1.14.0",
+              "observation": "o1",
+              "sourceSha256": "6783e417a72e81e6873e3853fd3c31a530c77921e8decdc3384842212091a074",
+              "imageSha256": "6783e417a72e81e6873e3853fd3c31a530c77921e8decdc3384842212091a074",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 1,
+              "memoryEntries": 0
+            },
+            {
+              "n": 2,
+              "model": "jev-1.14.0",
+              "observation": "o2",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "e3",
+              "selected": "e3",
+              "action": {
+                "type": "click",
+                "elementId": "e3"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 2,
+              "memoryEntries": 0
+            },
+            {
+              "n": 3,
+              "model": "jev-1.14.0",
+              "observation": "o3",
+              "sourceSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+              "imageSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "done",
+              "selected": "done",
+              "action": {
+                "type": "done"
+              },
+              "outcome": "SUBJECTIVE_DONE",
+              "memoryRevision": 3,
+              "memoryEntries": 0
+            }
+          ],
+          "artifacts": "reports/beta-next-phase/live-ui-response/position-only-current-1"
+        },
+        {
+          "runId": "position-only-combined-1",
+          "condition": "combined",
+          "uiVersion": {
+            "id": "position-only",
+            "token": "p",
+            "entryLabel": "通知設定",
+            "entryTranslateYPx": 110,
+            "definitionHash": "7f8450d2e9681cac3b15d9ff178fd3a80010736b6f26e4b4002779579c686bfb"
+          },
+          "initialFingerprint": "96468c224966b432da0a5c094764285d9f1ba26fd1fa950c8b783d86b34c1982",
+          "termination": "API_LIMIT",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": false
+          },
+          "perceivedDone": false,
+          "validForComparison": true,
+          "counters": {
+            "apiCalls": 4,
+            "decisions": 4,
+            "looks": 2,
+            "uiActions": 2
+          },
+          "classifications": {
+            "artifactValidity": "artifact-valid",
+            "behavior": "budget-censored",
+            "reasons": [],
+            "validForOutcomeComparison": true,
+            "completedUncensored": false
+          },
+          "budgetInfluence": {
+            "steps": [],
+            "anyDecisionBudgetFiltered": false,
+            "terminationBudgetLimited": true,
+            "terminalBudgetFilterPresent": false,
+            "terminalBudgetInfluenced": true,
+            "interpretation": "Recorded budget exclusions and removed probability mass only. A true terminal flag means an explicit resource-limit termination or positive budget mass removed at the terminal decision; it does not prove a different action without the budget."
+          },
+          "roiMetrics": [
+            {
+              "id": "notification-entry",
+              "status": "recorded",
+              "observedDecisions": [
+                1,
+                2
+              ],
+              "firstFixationInsideDecision": 2,
+              "firstFullySharpDecision": 2,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            },
+            {
+              "id": "notification-stop",
+              "status": "recorded",
+              "observedDecisions": [
+                3,
+                4
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": null,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            }
+          ],
+          "lookEffectPairs": [
+            {
+              "beforeDecision": 1,
+              "afterDecision": 2,
+              "rawScreenRelation": "same",
+              "beforeSourceSha256": "6783e417a72e81e6873e3853fd3c31a530c77921e8decdc3384842212091a074",
+              "afterSourceSha256": "6783e417a72e81e6873e3853fd3c31a530c77921e8decdc3384842212091a074",
+              "fromFixation": {
+                "x": 640,
+                "y": 450
+              },
+              "requestedFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "observedNextFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "fixationMatchesRequested": true,
+              "beforeClearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "afterClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "beforeInputImageSha256": "cdef41525774603aca538f89de4a5f64ddaa6e4682071f3bf33f47220f57b6a8",
+              "afterInputImageSha256": "c8f2257684168c5ce91f405e7f9d0ab2429e49b9ebfb6df19d78701db7f3765f",
+              "newlyOfferedClickIds": [
+                "e5"
+              ],
+              "followingModelProposal": "e5",
+              "followingSelected": "e5",
+              "followingAction": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "followingOutcome": "UI_PERFORMED",
+              "followingSelectedNewClick": true,
+              "interpretation": "available under policy, next selection consistent with using it"
+            },
+            {
+              "beforeDecision": 3,
+              "afterDecision": 4,
+              "rawScreenRelation": "same",
+              "beforeSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "afterSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "fromFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "requestedFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "observedNextFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "fixationMatchesRequested": true,
+              "beforeClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "afterClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "beforeInputImageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "afterInputImageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "newlyOfferedClickIds": [],
+              "followingModelProposal": "stuck",
+              "followingSelected": "back",
+              "followingAction": {
+                "type": "back"
+              },
+              "followingOutcome": "UI_PERFORMED",
+              "followingSelectedNewClick": false,
+              "interpretation": "Same raw screen; observed eligibility and following choice only."
+            }
+          ],
+          "trace": [
+            {
+              "n": 1,
+              "model": "jev-1.14.0",
+              "observation": "o1",
+              "sourceSha256": "6783e417a72e81e6873e3853fd3c31a530c77921e8decdc3384842212091a074",
+              "imageSha256": "cdef41525774603aca538f89de4a5f64ddaa6e4682071f3bf33f47220f57b6a8",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "modelProposal": "look_3",
+              "selected": "look_3",
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "memoryRevision": 1,
+              "memoryEntries": 1
+            },
+            {
+              "n": 2,
+              "model": "jev-1.14.0",
+              "observation": "o2",
+              "sourceSha256": "6783e417a72e81e6873e3853fd3c31a530c77921e8decdc3384842212091a074",
+              "imageSha256": "c8f2257684168c5ce91f405e7f9d0ab2429e49b9ebfb6df19d78701db7f3765f",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 2,
+              "memoryEntries": 2
+            },
+            {
+              "n": 3,
+              "model": "jev-1.14.0",
+              "observation": "o3",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "back",
+              "selected": "look_3",
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "memoryRevision": 3,
+              "memoryEntries": 3
+            },
+            {
+              "n": 4,
+              "model": "jev-1.14.0",
+              "observation": "o4",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "stuck",
+              "selected": "back",
+              "action": {
+                "type": "back"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 4,
+              "memoryEntries": 3
+            }
+          ],
+          "artifacts": "reports/beta-next-phase/live-ui-response/position-only-combined-1"
+        },
+        {
+          "runId": "wording-only-current-1",
+          "condition": "current",
+          "uiVersion": {
+            "id": "wording-only",
+            "token": "w",
+            "entryLabel": "メール受信設定",
+            "entryTranslateYPx": 0,
+            "definitionHash": "d2f2c1c0598eb257c8fbe914e7ae59e003074a8d9809f520fafdb781661c0585"
+          },
+          "initialFingerprint": "72409389af8471cfacba7ad87c662f8db6032624f4f6ea7d0f623adec65a820f",
+          "termination": "SUBJECTIVE_DONE",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": true
+          },
+          "perceivedDone": true,
+          "validForComparison": true,
+          "counters": {
+            "apiCalls": 3,
+            "decisions": 3,
+            "looks": 0,
+            "uiActions": 2
+          },
+          "classifications": {
+            "artifactValidity": "artifact-valid",
+            "behavior": "perceived-done",
+            "reasons": [],
+            "validForOutcomeComparison": true,
+            "completedUncensored": true
+          },
+          "budgetInfluence": {
+            "steps": [],
+            "anyDecisionBudgetFiltered": false,
+            "terminationBudgetLimited": false,
+            "terminalBudgetFilterPresent": false,
+            "terminalBudgetInfluenced": false,
+            "interpretation": "Recorded budget exclusions and removed probability mass only. A true terminal flag means an explicit resource-limit termination or positive budget mass removed at the terminal decision; it does not prove a different action without the budget."
+          },
+          "roiMetrics": [
+            {
+              "id": "notification-entry",
+              "status": "recorded",
+              "observedDecisions": [
+                1
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": 1,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            },
+            {
+              "id": "notification-stop",
+              "status": "recorded",
+              "observedDecisions": [
+                2
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": 2,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            }
+          ],
+          "lookEffectPairs": [],
+          "trace": [
+            {
+              "n": 1,
+              "model": "jev-1.14.0",
+              "observation": "o1",
+              "sourceSha256": "36403651b98fd0d19e104df25e1ff2f5922f6b406c3e38e3f9e1e916b3e563b0",
+              "imageSha256": "36403651b98fd0d19e104df25e1ff2f5922f6b406c3e38e3f9e1e916b3e563b0",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 1,
+              "memoryEntries": 0
+            },
+            {
+              "n": 2,
+              "model": "jev-1.14.0",
+              "observation": "o2",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "e3",
+              "selected": "e3",
+              "action": {
+                "type": "click",
+                "elementId": "e3"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 2,
+              "memoryEntries": 0
+            },
+            {
+              "n": 3,
+              "model": "jev-1.14.0",
+              "observation": "o3",
+              "sourceSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+              "imageSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 1280,
+                "height": 900
+              },
+              "modelProposal": "done",
+              "selected": "done",
+              "action": {
+                "type": "done"
+              },
+              "outcome": "SUBJECTIVE_DONE",
+              "memoryRevision": 3,
+              "memoryEntries": 0
+            }
+          ],
+          "artifacts": "reports/beta-next-phase/live-ui-response/wording-only-current-1"
+        },
+        {
+          "runId": "wording-only-combined-1",
+          "condition": "combined",
+          "uiVersion": {
+            "id": "wording-only",
+            "token": "w",
+            "entryLabel": "メール受信設定",
+            "entryTranslateYPx": 0,
+            "definitionHash": "d2f2c1c0598eb257c8fbe914e7ae59e003074a8d9809f520fafdb781661c0585"
+          },
+          "initialFingerprint": "72409389af8471cfacba7ad87c662f8db6032624f4f6ea7d0f623adec65a820f",
+          "termination": "API_LIMIT",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": false
+          },
+          "perceivedDone": false,
+          "validForComparison": true,
+          "counters": {
+            "apiCalls": 4,
+            "decisions": 4,
+            "looks": 1,
+            "uiActions": 2
+          },
+          "classifications": {
+            "artifactValidity": "artifact-valid",
+            "behavior": "budget-censored",
+            "reasons": [],
+            "validForOutcomeComparison": true,
+            "completedUncensored": false
+          },
+          "budgetInfluence": {
+            "steps": [],
+            "anyDecisionBudgetFiltered": false,
+            "terminationBudgetLimited": true,
+            "terminalBudgetFilterPresent": false,
+            "terminalBudgetInfluenced": true,
+            "interpretation": "Recorded budget exclusions and removed probability mass only. A true terminal flag means an explicit resource-limit termination or positive budget mass removed at the terminal decision; it does not prove a different action without the budget."
+          },
+          "roiMetrics": [
+            {
+              "id": "notification-entry",
+              "status": "recorded",
+              "observedDecisions": [
+                1,
+                2
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": 2,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            },
+            {
+              "id": "notification-stop",
+              "status": "recorded",
+              "observedDecisions": [
+                3,
+                4
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": null,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            }
+          ],
+          "lookEffectPairs": [
+            {
+              "beforeDecision": 1,
+              "afterDecision": 2,
+              "rawScreenRelation": "same",
+              "beforeSourceSha256": "36403651b98fd0d19e104df25e1ff2f5922f6b406c3e38e3f9e1e916b3e563b0",
+              "afterSourceSha256": "36403651b98fd0d19e104df25e1ff2f5922f6b406c3e38e3f9e1e916b3e563b0",
+              "fromFixation": {
+                "x": 640,
+                "y": 450
+              },
+              "requestedFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "observedNextFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "fixationMatchesRequested": true,
+              "beforeClearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "afterClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "beforeInputImageSha256": "b0fc3d16478a50b6f4679c5d8c079db8b6a7fdfd412d4d6eb5feb8fb3f430727",
+              "afterInputImageSha256": "9e288081c98babbefb01efcf245728043cd47b611a36491282a7839781c6de4f",
+              "newlyOfferedClickIds": [
+                "e5"
+              ],
+              "followingModelProposal": "e5",
+              "followingSelected": "e5",
+              "followingAction": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "followingOutcome": "UI_PERFORMED",
+              "followingSelectedNewClick": true,
+              "interpretation": "available under policy, next selection consistent with using it"
+            }
+          ],
+          "trace": [
+            {
+              "n": 1,
+              "model": "jev-1.14.0",
+              "observation": "o1",
+              "sourceSha256": "36403651b98fd0d19e104df25e1ff2f5922f6b406c3e38e3f9e1e916b3e563b0",
+              "imageSha256": "b0fc3d16478a50b6f4679c5d8c079db8b6a7fdfd412d4d6eb5feb8fb3f430727",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "modelProposal": "look_3",
+              "selected": "look_3",
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "memoryRevision": 1,
+              "memoryEntries": 1
+            },
+            {
+              "n": 2,
+              "model": "jev-1.14.0",
+              "observation": "o2",
+              "sourceSha256": "36403651b98fd0d19e104df25e1ff2f5922f6b406c3e38e3f9e1e916b3e563b0",
+              "imageSha256": "9e288081c98babbefb01efcf245728043cd47b611a36491282a7839781c6de4f",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 2,
+              "memoryEntries": 2
+            },
+            {
+              "n": 3,
+              "model": "jev-1.14.0",
+              "observation": "o3",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "stuck",
+              "selected": "reread",
+              "action": {
+                "type": "reread"
+              },
+              "outcome": "REREAD",
+              "memoryRevision": 3,
+              "memoryEntries": 3
+            },
+            {
+              "n": 4,
+              "model": "jev-1.14.0",
+              "observation": "o4",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "reread",
+              "selected": "back",
+              "action": {
+                "type": "back"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 4,
+              "memoryEntries": 3
+            }
+          ],
+          "artifacts": "reports/beta-next-phase/live-ui-response/wording-only-combined-1"
+        }
+      ]
+    },
+    {
+      "id": "live-final-recheck",
+      "revision": "ad1d64487e3ba3303bcb6f342878aff64bae9dea",
+      "sourceHash": "32b1d2f60c3291fba0487fb666bcad042c047dacdc1daa383bd218792dd3c574",
+      "model": "jev-1.14.0",
+      "apiCalls": 4,
+      "configs": [
+        {
+          "schemaVersion": 1,
+          "id": "combined",
+          "vision": {
+            "mode": "foveated",
+            "clearWidth": 960,
+            "clearHeight": 620,
+            "blurRadius": 12
+          },
+          "state": {
+            "enabled": true,
+            "memoryCapacity": 3
+          },
+          "selection": {
+            "mode": "sample",
+            "seed": 20261027
+          },
+          "behavior": "user",
+          "maxUIActions": 6,
+          "maxLooks": 4,
+          "maxDecisions": 12,
+          "maxAPICalls": 4,
+          "maxRunMs": 90000,
+          "modeledActionMs": null
+        }
+      ],
+      "uiVariants": [
+        {
+          "id": "reference",
+          "token": "r",
+          "entryLabel": "通知設定",
+          "entryTranslateYPx": 0,
+          "definitionHash": "def5e0a6d4014e1ab100c68afbad4b9d10d2401e84ab00923dd31bc3dcbe7a1f"
+        }
+      ],
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "modelSeedAvailable": false,
+      "initialStateGroups": [
+        {
+          "uiVersion": "reference",
+          "count": 1,
+          "fingerprints": [
+            "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908"
+          ],
+          "match": true
+        }
+      ],
+      "runs": [
+        {
+          "runId": "reference-combined-1",
+          "condition": "combined",
+          "uiVersion": {
+            "id": "reference",
+            "token": "r",
+            "entryLabel": "通知設定",
+            "entryTranslateYPx": 0,
+            "definitionHash": "def5e0a6d4014e1ab100c68afbad4b9d10d2401e84ab00923dd31bc3dcbe7a1f"
+          },
+          "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+          "termination": "API_LIMIT",
+          "objectiveAssessment": {
+            "status": "OK",
+            "value": false
+          },
+          "perceivedDone": false,
+          "validForComparison": true,
+          "counters": {
+            "apiCalls": 4,
+            "decisions": 4,
+            "looks": 2,
+            "uiActions": 2
+          },
+          "classifications": {
+            "artifactValidity": "artifact-valid",
+            "behavior": "budget-censored",
+            "reasons": [],
+            "validForOutcomeComparison": true,
+            "completedUncensored": false
+          },
+          "budgetInfluence": {
+            "steps": [],
+            "anyDecisionBudgetFiltered": false,
+            "terminationBudgetLimited": true,
+            "terminalBudgetFilterPresent": false,
+            "terminalBudgetInfluenced": true,
+            "interpretation": "Recorded budget exclusions and removed probability mass only. A true terminal flag means an explicit resource-limit termination or positive budget mass removed at the terminal decision; it does not prove a different action without the budget."
+          },
+          "roiMetrics": [
+            {
+              "id": "notification-entry",
+              "status": "recorded",
+              "observedDecisions": [
+                1,
+                2
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": 2,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            },
+            {
+              "id": "notification-stop",
+              "status": "recorded",
+              "observedDecisions": [
+                3,
+                4
+              ],
+              "firstFixationInsideDecision": null,
+              "firstFullySharpDecision": null,
+              "interpretation": "Viewport geometry only; no inference about reading or cognition."
+            }
+          ],
+          "lookEffectPairs": [
+            {
+              "beforeDecision": 1,
+              "afterDecision": 2,
+              "rawScreenRelation": "same",
+              "beforeSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "afterSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "fromFixation": {
+                "x": 640,
+                "y": 450
+              },
+              "requestedFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "observedNextFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "fixationMatchesRequested": true,
+              "beforeClearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "afterClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "beforeInputImageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+              "afterInputImageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+              "newlyOfferedClickIds": [
+                "e5"
+              ],
+              "followingModelProposal": "e5",
+              "followingSelected": "e5",
+              "followingAction": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "followingOutcome": "UI_PERFORMED",
+              "followingSelectedNewClick": true,
+              "interpretation": "available under policy, next selection consistent with using it"
+            },
+            {
+              "beforeDecision": 3,
+              "afterDecision": 4,
+              "rawScreenRelation": "same",
+              "beforeSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "afterSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "fromFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "requestedFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "observedNextFixation": {
+                "x": 960,
+                "y": 675
+              },
+              "fixationMatchesRequested": true,
+              "beforeClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "afterClearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "beforeInputImageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "afterInputImageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "newlyOfferedClickIds": [],
+              "followingModelProposal": "stuck",
+              "followingSelected": "back",
+              "followingAction": {
+                "type": "back"
+              },
+              "followingOutcome": "UI_PERFORMED",
+              "followingSelectedNewClick": false,
+              "interpretation": "Same raw screen; observed eligibility and following choice only."
+            }
+          ],
+          "trace": [
+            {
+              "n": 1,
+              "model": "jev-1.14.0",
+              "observation": "o1",
+              "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "imageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "clearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "modelProposal": "look_3",
+              "selected": "look_3",
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "memoryRevision": 1,
+              "memoryEntries": 1
+            },
+            {
+              "n": 2,
+              "model": "jev-1.14.0",
+              "observation": "o2",
+              "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+              "imageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "e5",
+              "selected": "e5",
+              "action": {
+                "type": "click",
+                "elementId": "e5"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 2,
+              "memoryEntries": 2
+            },
+            {
+              "n": 3,
+              "model": "jev-1.14.0",
+              "observation": "o3",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "back",
+              "selected": "look_3",
+              "action": {
+                "type": "look",
+                "point": {
+                  "x": 960,
+                  "y": 675
+                }
+              },
+              "outcome": "FIXATION_MOVED",
+              "memoryRevision": 3,
+              "memoryEntries": 3
+            },
+            {
+              "n": 4,
+              "model": "jev-1.14.0",
+              "observation": "o4",
+              "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+              "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "modelProposal": "stuck",
+              "selected": "back",
+              "action": {
+                "type": "back"
+              },
+              "outcome": "UI_PERFORMED",
+              "memoryRevision": 4,
+              "memoryEntries": 3
+            }
+          ],
+          "artifacts": "reports/beta-next-phase/live-final-recheck/reference-combined-1"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Each live condition one diagnostic case; no rates or statistical significance.",
+    "State arm bundles memory, question, vocabulary and sampling.",
+    "Reference step1 already shows notification text; e5 badge/eligibility becomes available after gaze.",
+    "UI response batch API4 deliberately censors combined; not task-performance comparison.",
+    "Model is not seed-controllable; sampler seed alone does not reproduce model distribution.",
+    "API latency is not human task time.",
+    "No human equivalence or public-product generalization tested."
+  ],
+  "liveUIComparisonRevision": "4c72c3f64b96793f20ef8892ad9e941d652d3069",
+  "repeatReferenceEvidence": {
+    "firstRevision": "4c72c3f64b96793f20ef8892ad9e941d652d3069",
+    "secondRevision": "ad1d64487e3ba3303bcb6f342878aff64bae9dea",
+    "firstPath": "reports/beta-next-phase/live-ui-response/reference-combined-1",
+    "secondPath": "reports/beta-next-phase/live-final-recheck/reference-combined-1",
+    "interpretation": "First three recorded model inputs and sampler draws match, but returned distributions differ; actual third selection diverges. This within-reference variation prevents attributing the single position-only trace difference to UI.",
+    "decisions": [
+      {
+        "number": 1,
+        "firstInputSha256": "9702ac7f6bb397a29b3e6bafe1133cec9f70d84dd60a0f1076e0b4eecc7cc0ae",
+        "secondInputSha256": "9702ac7f6bb397a29b3e6bafe1133cec9f70d84dd60a0f1076e0b4eecc7cc0ae",
+        "sameInputSha256": true,
+        "sameDraw": true,
+        "firstModelProposal": "look_3",
+        "secondModelProposal": "look_3",
+        "firstSelected": "look_3",
+        "secondSelected": "look_3",
+        "firstNormalized": {
+          "abandon": 0,
+          "done": 0,
+          "e3": 0,
+          "e4": 0.04,
+          "e6": 0,
+          "look_0": 0.03,
+          "look_1": 0.01,
+          "look_2": 0.04,
+          "look_3": 0.7,
+          "reread": 0.12,
+          "stuck": 0.05,
+          "wait": 0.01
+        },
+        "secondNormalized": {
+          "abandon": 0,
+          "done": 0,
+          "e3": 0,
+          "e4": 0.03,
+          "e6": 0,
+          "look_0": 0.02,
+          "look_1": 0.01,
+          "look_2": 0.03,
+          "look_3": 0.75,
+          "reread": 0.11,
+          "stuck": 0.04,
+          "wait": 0.01
+        }
+      },
+      {
+        "number": 2,
+        "firstInputSha256": "e22af1f4d17d88e4a461c80c89ef79978428928f71a9d9e634d4d2c578d8fa78",
+        "secondInputSha256": "e22af1f4d17d88e4a461c80c89ef79978428928f71a9d9e634d4d2c578d8fa78",
+        "sameInputSha256": true,
+        "sameDraw": true,
+        "firstModelProposal": "e5",
+        "secondModelProposal": "e5",
+        "firstSelected": "e5",
+        "secondSelected": "e5",
+        "firstNormalized": {
+          "abandon": 0,
+          "done": 0,
+          "e4": 0,
+          "e5": 0.93,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0.02,
+          "reread": 0.04,
+          "stuck": 0.01,
+          "wait": 0
+        },
+        "secondNormalized": {
+          "abandon": 0,
+          "done": 0,
+          "e4": 0,
+          "e5": 0.92,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0.03,
+          "reread": 0.04,
+          "stuck": 0.01,
+          "wait": 0
+        }
+      },
+      {
+        "number": 3,
+        "firstInputSha256": "cfdd559da78c4afdf362deffacc340ee27d204e033751ac875d02177302de453",
+        "secondInputSha256": "cfdd559da78c4afdf362deffacc340ee27d204e033751ac875d02177302de453",
+        "sameInputSha256": true,
+        "sameDraw": true,
+        "firstModelProposal": "back",
+        "secondModelProposal": "back",
+        "firstSelected": "reread",
+        "secondSelected": "look_3",
+        "firstNormalized": {
+          "abandon": 0.02,
+          "back": 0.32,
+          "done": 0.02,
+          "look_0": 0.03,
+          "look_1": 0.05,
+          "look_2": 0.04,
+          "look_3": 0.11,
+          "reread": 0.12,
+          "stuck": 0.26,
+          "wait": 0.03
+        },
+        "secondNormalized": {
+          "abandon": 0.02,
+          "back": 0.31,
+          "done": 0.02,
+          "look_0": 0.03,
+          "look_1": 0.04,
+          "look_2": 0.04,
+          "look_3": 0.15,
+          "reread": 0.11,
+          "stuck": 0.24,
+          "wait": 0.04
+        }
+      },
+      {
+        "number": 4,
+        "firstInputSha256": "2717323526a3e2dc953b357ce563b8d31714784d0847f3338633c3f051124fbe",
+        "secondInputSha256": "1fee6a51157dbb21c3efab48f6dfe72a5f6e06cddc1a8053e72ddcc4eec206c5",
+        "sameInputSha256": false,
+        "sameDraw": true,
+        "firstModelProposal": "reread",
+        "secondModelProposal": "stuck",
+        "firstSelected": "back",
+        "secondSelected": "back",
+        "firstNormalized": {
+          "abandon": 0.02,
+          "back": 0.26,
+          "done": 0.01,
+          "look_0": 0.02,
+          "look_1": 0.04,
+          "look_2": 0.03,
+          "look_3": 0.1,
+          "reread": 0.34,
+          "stuck": 0.17,
+          "wait": 0.01
+        },
+        "secondNormalized": {
+          "abandon": 0.02,
+          "back": 0.26,
+          "done": 0.01,
+          "look_0": 0.04,
+          "look_1": 0.06,
+          "look_2": 0.05,
+          "look_3": 0.13,
+          "reread": 0.14,
+          "stuck": 0.27,
+          "wait": 0.02
+        }
+      }
+    ]
+  },
+  "validation": {
+    "productRevision": "ad1d64487e3ba3303bcb6f342878aff64bae9dea",
+    "sourceHash": "32b1d2f60c3291fba0487fb666bcad042c047dacdc1daa383bd218792dd3c574",
+    "build": "PASS",
+    "typecheck": "PASS",
+    "fullRegression": {
+      "tests": 667,
+      "pass": 664,
+      "fail": 0,
+      "skip": 3,
+      "durationMs": 574673.6627,
+      "log": "reports/beta-next-phase/final-regression.log",
+      "logSha256": "208ca2cab7c3882940ab9581595ad0a1a05025ae8f82ea0c1b55e66fafe32727"
+    },
+    "independentTestCount": 5,
+    "independentTestSha256": "cbb5d84e770c728b4bd6c4081360c9daf649c410f2c906c14a7648fe2ea168c9",
+    "mock": {
+      "runs": 12,
+      "fixtureEvaluations": 48,
+      "actualAPIRequests": 0,
+      "choicesReplayed": 48,
+      "imageReferencesVerified": 78
+    },
+    "live": {
+      "actualAPIRequests": 48,
+      "choicesReplayed": 48,
+      "imageReferencesVerified": 77
+    },
+    "sourceFilesVerified": 93,
+    "knownBlockingImplementationBugs": 0,
+    "humanValidity": "UNVERIFIED"
+  }
+}

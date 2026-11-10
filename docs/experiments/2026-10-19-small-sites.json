@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-19",
+  "purpose": "Goal-only image-based exploration of three small-business public websites using the existing production runner",
+  "scope": {
+    "trialsPerSite": 1,
+    "execution": "sequential",
+    "intervalMs": 2000,
+    "maxActions": 0,
+    "flags": ["--vision", "--image-only", "--image-memory", "--image-memory-proof"],
+    "allowed": "Read-only public pages on the starting origin, including the runner's vetted local disclosures",
+    "forbidden": ["login", "form submission", "booking", "purchase", "contacting operators", "external navigation", "publishing screenshots"],
+    "modelInputs": "Start URL handled by the browser, literal Goal, current numbered image and coded history; selected source images for completion only. Search results and expected answers are not passed to Jev.",
+    "permissionNote": "Policy review and absence of an applicable prohibition are not explicit operator permission; robots.txt is not blanket permission. Stop at safety boundaries, challenges, 403 or 429."
+  },
+  "sites": [
+    {
+      "id": "esa",
+      "url": "https://esa.io/",
+      "goal": "少人数のチームでesaを試したい。1人あたりの月額料金、無料で試せる期間、最低利用人数を知りたい。申し込みはしない。",
+      "policyUrls": ["https://esa.io/terms", "https://docs.esa.io/posts/5"],
+      "robotsUrl": "https://esa.io/robots.txt",
+      "robotsStatus": 200,
+      "robotsReview": "Only commented examples; no active restriction",
+      "policyReview": "No applicable automated public-reading prohibition found; service disruption is forbidden. No account use or application."
+    },
+    {
+      "id": "tanemaki",
+      "url": "https://tane-maki.net/",
+      "goal": "タネマキを初めて1日だけ使いたい。ドロップインの料金、利用できる時間、予約が必要かを知りたい。予約はしない。",
+      "policyUrls": ["https://tane-maki.net/legalnotice/", "https://tane-maki.net/privacy/"],
+      "robotsUrl": "https://tane-maki.net/robots.txt",
+      "robotsStatus": 200,
+      "robotsReview": "Disallows /system/wp-admin/ and /?s=*; no site search or admin scope. No crawl-delay for the general user agent.",
+      "policyReview": "No applicable automated public-reading prohibition found. Republishing copyrighted content is prohibited; all screenshots stay local."
+    },
+    {
+      "id": "iwano",
+      "url": "https://www.iwanoheizaburouseisisho.com/",
+      "goal": "岩野平三郎製紙所の工場を見学したい。見学の料金、所要時間、土日でも見学できるかを知りたい。予約はしない。",
+      "policyUrls": ["https://www.iwanoheizaburouseisisho.com/"],
+      "robotsUrl": "https://www.iwanoheizaburouseisisho.com/robots.txt",
+      "robotsStatus": 200,
+      "robotsReview": "General user agent allows / except *?lightbox=. Bot-specific delays do not apply to the browser agent. Gallery/lightbox and booking actions are out of scope.",
+      "policyReview": "Home footer shows terms text but no readable terms link was found. No explicit automated public-reading permission is claimed; one low-impact read-only trial, no forms, gallery, or public reuse."
+    }
+  ],
+  "excluded": [
+    {"url": "https://washicco.jp/", "policyUrl": "https://washicco.jp/rule.html", "reason": "Section 12 restricts use outside private use without consent. Excluded rather than infer permission for the intended evaluation."}
+  ]
+}

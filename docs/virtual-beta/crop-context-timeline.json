@@ -1,0 +1,3614 @@
+[
+  {
+    "runId": "crop-control-seed-9001",
+    "facts": [
+      {
+        "decision": 1,
+        "observationId": "o1",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": null,
+        "everGoalObserved": false,
+        "lastRecordedObjective": null,
+        "recordedObjectiveAfterDecision": null,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "stuck",
+        "selected": "stuck",
+        "actualAction": {
+          "type": "stuck"
+        },
+        "actualControl": null,
+        "outcome": "STUCK",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o1",
+          "kind": "model-self-report",
+          "proposedChoice": "stuck",
+          "selectedChoice": "stuck"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.57,
+            "clarity": 0.05,
+            "efficiency": 0.01,
+            "confirmation": 0.04,
+            "uncertainty": 0.3,
+            "other": 0.03
+          },
+          "confidence": 0.48
+        },
+        "responseDistribution": {
+          "e3": 0.02,
+          "e4": 0.21,
+          "e6": 0.03,
+          "done": 0.03,
+          "stuck": 0.71
+        },
+        "rawDistribution": {
+          "done": 0.03,
+          "e3": 0.02,
+          "e4": 0.21,
+          "e6": 0.03,
+          "stuck": 0.71
+        },
+        "normalizedDistribution": {
+          "done": 0.03,
+          "e3": 0.02,
+          "e4": 0.21,
+          "e6": 0.03,
+          "stuck": 0.71
+        },
+        "filteredDistribution": {
+          "done": 0.03,
+          "e3": 0.02,
+          "e4": 0.21,
+          "e6": 0.03,
+          "stuck": 0.71
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-1.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-1.png",
+          "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        "inputSha256": "e974165634eef2f70748240307fb497f262a5c1aa4b17c991842e946d66e5762",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": null
+      }
+    ]
+  },
+  {
+    "runId": "crop-geometry-seed-9001",
+    "facts": [
+      {
+        "decision": 1,
+        "observationId": "o1",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": null,
+        "everGoalObserved": false,
+        "lastRecordedObjective": null,
+        "recordedObjectiveAfterDecision": null,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "stuck",
+        "selected": "stuck",
+        "actualAction": {
+          "type": "stuck"
+        },
+        "actualControl": null,
+        "outcome": "STUCK",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o1",
+          "kind": "model-self-report",
+          "proposedChoice": "stuck",
+          "selectedChoice": "stuck"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.58,
+            "clarity": 0.07,
+            "efficiency": 0.01,
+            "confirmation": 0.04,
+            "uncertainty": 0.27,
+            "other": 0.03
+          },
+          "confidence": 0.5
+        },
+        "responseDistribution": {
+          "e3": 0.03,
+          "e4": 0.22,
+          "e6": 0.03,
+          "done": 0.04,
+          "stuck": 0.68
+        },
+        "rawDistribution": {
+          "done": 0.04,
+          "e3": 0.03,
+          "e4": 0.22,
+          "e6": 0.03,
+          "stuck": 0.68
+        },
+        "normalizedDistribution": {
+          "done": 0.04,
+          "e3": 0.03,
+          "e4": 0.22,
+          "e6": 0.03,
+          "stuck": 0.68
+        },
+        "filteredDistribution": {
+          "done": 0.04,
+          "e3": 0.03,
+          "e4": 0.22,
+          "e6": 0.03,
+          "stuck": 0.68
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-1.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-1.png",
+          "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        "inputSha256": "e974165634eef2f70748240307fb497f262a5c1aa4b17c991842e946d66e5762",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": null
+      }
+    ]
+  },
+  {
+    "runId": "crop-actions-seed-9001",
+    "facts": [
+      {
+        "decision": 1,
+        "observationId": "o1",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": null,
+        "everGoalObserved": false,
+        "lastRecordedObjective": null,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": null,
+        "selected": "look_3",
+        "actualAction": {
+          "type": "look",
+          "point": {
+            "x": 960,
+            "y": 675
+          }
+        },
+        "actualControl": null,
+        "outcome": "FIXATION_MOVED",
+        "error": null,
+        "reasonEvidence": null,
+        "reasonResponse": null,
+        "responseDistribution": null,
+        "rawDistribution": {
+          "look_0": 0.02,
+          "look_1": 0.04,
+          "look_2": 0.05,
+          "look_3": 0.89
+        },
+        "normalizedDistribution": {
+          "look_0": 0.02,
+          "look_1": 0.04,
+          "look_2": 0.05,
+          "look_3": 0.89
+        },
+        "filteredDistribution": {
+          "look_0": 0.02,
+          "look_1": 0.04,
+          "look_2": 0.05,
+          "look_3": 0.89
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-1.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-1.png",
+          "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        "inputSha256": "f79d044c2811266af5a24bb73f99740551cdc67387ff88dc9af064cd37b77bd2",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      },
+      {
+        "decision": 2,
+        "observationId": "o2",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "e5",
+        "selected": "e5",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e5"
+        },
+        "actualControl": {
+          "id": "e5",
+          "type": "link",
+          "text": "通知設定\nメール通知の受信を変更",
+          "geometry": {
+            "id": "e5",
+            "x": 921,
+            "y": 540.375,
+            "width": 295,
+            "height": 113.796875,
+            "badge": {
+              "x": 1156.203125,
+              "y": 624.171875,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        },
+        "outcome": "UI_PERFORMED",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o2",
+          "kind": "model-self-report",
+          "proposedChoice": "e5",
+          "selectedChoice": "e5"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.88,
+            "clarity": 0.03,
+            "efficiency": 0.01,
+            "confirmation": 0.03,
+            "uncertainty": 0.04,
+            "other": 0.01
+          },
+          "confidence": 0.86
+        },
+        "responseDistribution": {
+          "e4": 0,
+          "e5": 1,
+          "done": 0,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-2.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-2.png",
+          "sha256": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63"
+        },
+        "inputSha256": "c49fb84d1d26588199d3f6e406243a7671bb7f0256f6053d17f8ab0734a772b7",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 2,
+        "semanticControlOccurrence": 2,
+        "rawScreenSelectedUIOccurrence": 1,
+        "semanticSelectedUIOccurrence": 1,
+        "lookPair": null
+      },
+      {
+        "decision": 3,
+        "observationId": "o3",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "audited-not-offered",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [
+            "e3"
+          ],
+          "controlId": "e3",
+          "presentInAudit": true,
+          "bodyAndBadgeFullySharp": false,
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          "offered": false
+        },
+        "modelProposal": null,
+        "selected": "look_0",
+        "actualAction": {
+          "type": "look",
+          "point": {
+            "x": 320,
+            "y": 225
+          }
+        },
+        "actualControl": null,
+        "outcome": "FIXATION_MOVED",
+        "error": null,
+        "reasonEvidence": null,
+        "reasonResponse": null,
+        "responseDistribution": null,
+        "rawDistribution": {
+          "look_0": 0.43,
+          "look_1": 0.26,
+          "look_2": 0.13,
+          "look_3": 0.18
+        },
+        "normalizedDistribution": {
+          "look_0": 0.43,
+          "look_1": 0.26,
+          "look_2": 0.13,
+          "look_3": 0.18
+        },
+        "filteredDistribution": {
+          "look_0": 0.43,
+          "look_1": 0.26,
+          "look_2": 0.13,
+          "look_3": 0.18
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-3.png",
+        "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "preparedImage": {
+          "file": "input-3.png",
+          "sha256": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b"
+        },
+        "inputSha256": "0e43d751435c75394df16fcb2d34cf6572cc6b34211087e8de036b6a9be86048",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"button\",\"text\":\"メール通知を停止する\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": {
+          "nextDecision": 4,
+          "requestedFixation": {
+            "x": 320,
+            "y": 225
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      },
+      {
+        "decision": 4,
+        "observationId": "o4",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "selected-performed",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": true,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [
+            "e3"
+          ],
+          "controlId": "e3",
+          "presentInAudit": true,
+          "bodyAndBadgeFullySharp": true,
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          "offered": true
+        },
+        "modelProposal": "e3",
+        "selected": "e3",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e3"
+        },
+        "actualControl": {
+          "id": "e3",
+          "type": "button",
+          "text": "メール通知を停止する",
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        },
+        "outcome": "UI_PERFORMED",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o4",
+          "kind": "model-self-report",
+          "proposedChoice": "e3",
+          "selectedChoice": "e3"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.86,
+            "clarity": 0.02,
+            "efficiency": 0,
+            "confirmation": 0.09,
+            "uncertainty": 0.02,
+            "other": 0.01
+          },
+          "confidence": 0.83
+        },
+        "responseDistribution": {
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "back": 0,
+          "done": 0,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-4.png",
+        "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "preparedImage": {
+          "file": "input-4.png",
+          "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+        },
+        "inputSha256": "1ff7cbabec1f2df47b92af439ba50c04b39865a163df7027596b4400c916da2b",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"button\",\"text\":\"メール通知を停止する\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 2,
+        "semanticControlOccurrence": 2,
+        "rawScreenSelectedUIOccurrence": 1,
+        "semanticSelectedUIOccurrence": 1,
+        "lookPair": null
+      },
+      {
+        "decision": 5,
+        "observationId": "o5",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": true,
+        "everGoalObserved": true,
+        "lastRecordedObjective": true,
+        "recordedObjectiveAfterDecision": null,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "done",
+        "selected": "done",
+        "actualAction": {
+          "type": "done"
+        },
+        "actualControl": null,
+        "outcome": "SUBJECTIVE_DONE",
+        "error": null,
+        "reasonEvidence": {
+          "category": "confirmation",
+          "observationId": "o5",
+          "kind": "model-self-report",
+          "proposedChoice": "done",
+          "selectedChoice": "done"
+        },
+        "reasonResponse": {
+          "choice": "confirmation",
+          "probabilities": {
+            "goal": 0.19,
+            "clarity": 0.01,
+            "efficiency": 0.01,
+            "confirmation": 0.77,
+            "uncertainty": 0.01,
+            "other": 0.01
+          },
+          "confidence": 0.72
+        },
+        "responseDistribution": {
+          "e1": 0,
+          "e2": 0,
+          "back": 0,
+          "done": 1,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "back": 0,
+          "done": 1,
+          "e1": 0,
+          "e2": 0,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "back": 0,
+          "done": 1,
+          "e1": 0,
+          "e2": 0,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "back": 0,
+          "done": 1,
+          "e1": 0,
+          "e2": 0,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [
+          {
+            "observationId": "o4",
+            "image": "memory_1",
+            "imageSha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07",
+            "asset": {
+              "file": "input-4.png",
+              "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+            },
+            "sourceDecision": 4,
+            "offeredControlId": "e3"
+          }
+        ],
+        "rawScreenshot": "audit-5.png",
+        "rawSourceSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+        "preparedImage": {
+          "file": "input-5.png",
+          "sha256": "1bb0eca0a91a029d1ff804f68c6d46cf64cdcbe95af85d8f4cb530f841a60bf3"
+        },
+        "inputSha256": "7d97e7b03e458f1c051f721528bef5771286e8c732d44c0af4ad6891e7baceaa",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": null
+      }
+    ]
+  },
+  {
+    "runId": "crop-both-seed-9001",
+    "facts": [
+      {
+        "decision": 1,
+        "observationId": "o1",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": null,
+        "everGoalObserved": false,
+        "lastRecordedObjective": null,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": null,
+        "selected": "look_3",
+        "actualAction": {
+          "type": "look",
+          "point": {
+            "x": 960,
+            "y": 675
+          }
+        },
+        "actualControl": null,
+        "outcome": "FIXATION_MOVED",
+        "error": null,
+        "reasonEvidence": null,
+        "reasonResponse": null,
+        "responseDistribution": null,
+        "rawDistribution": {
+          "look_0": 0.03,
+          "look_1": 0.26,
+          "look_2": 0.08,
+          "look_3": 0.63
+        },
+        "normalizedDistribution": {
+          "look_0": 0.03,
+          "look_1": 0.26,
+          "look_2": 0.08,
+          "look_3": 0.63
+        },
+        "filteredDistribution": {
+          "look_0": 0.03,
+          "look_1": 0.26,
+          "look_2": 0.08,
+          "look_3": 0.63
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-1.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-1.png",
+          "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        "inputSha256": "f79d044c2811266af5a24bb73f99740551cdc67387ff88dc9af064cd37b77bd2",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      },
+      {
+        "decision": 2,
+        "observationId": "o2",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "e5",
+        "selected": "e5",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e5"
+        },
+        "actualControl": {
+          "id": "e5",
+          "type": "link",
+          "text": "通知設定\nメール通知の受信を変更",
+          "geometry": {
+            "id": "e5",
+            "x": 921,
+            "y": 540.375,
+            "width": 295,
+            "height": 113.796875,
+            "badge": {
+              "x": 1156.203125,
+              "y": 624.171875,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        },
+        "outcome": "UI_PERFORMED",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o2",
+          "kind": "model-self-report",
+          "proposedChoice": "e5",
+          "selectedChoice": "e5"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.84,
+            "clarity": 0.05,
+            "efficiency": 0.01,
+            "confirmation": 0.04,
+            "uncertainty": 0.05,
+            "other": 0.01
+          },
+          "confidence": 0.81
+        },
+        "responseDistribution": {
+          "e4": 0,
+          "e5": 0.99,
+          "done": 0,
+          "stuck": 0.01
+        },
+        "rawDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 0.99,
+          "stuck": 0.01
+        },
+        "normalizedDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 0.99,
+          "stuck": 0.01
+        },
+        "filteredDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 0.99,
+          "stuck": 0.01
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-2.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-2.png",
+          "sha256": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63"
+        },
+        "inputSha256": "c49fb84d1d26588199d3f6e406243a7671bb7f0256f6053d17f8ab0734a772b7",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 2,
+        "semanticControlOccurrence": 2,
+        "rawScreenSelectedUIOccurrence": 1,
+        "semanticSelectedUIOccurrence": 1,
+        "lookPair": null
+      },
+      {
+        "decision": 3,
+        "observationId": "o3",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "audited-not-offered",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [
+            "e3"
+          ],
+          "controlId": "e3",
+          "presentInAudit": true,
+          "bodyAndBadgeFullySharp": false,
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          "offered": false
+        },
+        "modelProposal": null,
+        "selected": "look_0",
+        "actualAction": {
+          "type": "look",
+          "point": {
+            "x": 320,
+            "y": 225
+          }
+        },
+        "actualControl": null,
+        "outcome": "FIXATION_MOVED",
+        "error": null,
+        "reasonEvidence": null,
+        "reasonResponse": null,
+        "responseDistribution": null,
+        "rawDistribution": {
+          "look_0": 0.45,
+          "look_1": 0.3,
+          "look_2": 0.1,
+          "look_3": 0.15
+        },
+        "normalizedDistribution": {
+          "look_0": 0.45,
+          "look_1": 0.3,
+          "look_2": 0.1,
+          "look_3": 0.15
+        },
+        "filteredDistribution": {
+          "look_0": 0.45,
+          "look_1": 0.3,
+          "look_2": 0.1,
+          "look_3": 0.15
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-3.png",
+        "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "preparedImage": {
+          "file": "input-3.png",
+          "sha256": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b"
+        },
+        "inputSha256": "0e43d751435c75394df16fcb2d34cf6572cc6b34211087e8de036b6a9be86048",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"button\",\"text\":\"メール通知を停止する\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": {
+          "nextDecision": 4,
+          "requestedFixation": {
+            "x": 320,
+            "y": 225
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      },
+      {
+        "decision": 4,
+        "observationId": "o4",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "selected-performed",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": true,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [
+            "e3"
+          ],
+          "controlId": "e3",
+          "presentInAudit": true,
+          "bodyAndBadgeFullySharp": true,
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          "offered": true
+        },
+        "modelProposal": "e3",
+        "selected": "e3",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e3"
+        },
+        "actualControl": {
+          "id": "e3",
+          "type": "button",
+          "text": "メール通知を停止する",
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        },
+        "outcome": "UI_PERFORMED",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o4",
+          "kind": "model-self-report",
+          "proposedChoice": "e3",
+          "selectedChoice": "e3"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.84,
+            "clarity": 0.03,
+            "efficiency": 0.01,
+            "confirmation": 0.09,
+            "uncertainty": 0.02,
+            "other": 0.01
+          },
+          "confidence": 0.81
+        },
+        "responseDistribution": {
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "back": 0,
+          "done": 0,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-4.png",
+        "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "preparedImage": {
+          "file": "input-4.png",
+          "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+        },
+        "inputSha256": "1ff7cbabec1f2df47b92af439ba50c04b39865a163df7027596b4400c916da2b",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"button\",\"text\":\"メール通知を停止する\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 2,
+        "semanticControlOccurrence": 2,
+        "rawScreenSelectedUIOccurrence": 1,
+        "semanticSelectedUIOccurrence": 1,
+        "lookPair": null
+      },
+      {
+        "decision": 5,
+        "observationId": "o5",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": true,
+        "everGoalObserved": true,
+        "lastRecordedObjective": true,
+        "recordedObjectiveAfterDecision": null,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "done",
+        "selected": "done",
+        "actualAction": {
+          "type": "done"
+        },
+        "actualControl": null,
+        "outcome": "SUBJECTIVE_DONE",
+        "error": null,
+        "reasonEvidence": {
+          "category": "confirmation",
+          "observationId": "o5",
+          "kind": "model-self-report",
+          "proposedChoice": "done",
+          "selectedChoice": "done"
+        },
+        "reasonResponse": {
+          "choice": "confirmation",
+          "probabilities": {
+            "goal": 0.17,
+            "clarity": 0.01,
+            "efficiency": 0.01,
+            "confirmation": 0.79,
+            "uncertainty": 0.01,
+            "other": 0.01
+          },
+          "confidence": 0.75
+        },
+        "responseDistribution": {
+          "e1": 0,
+          "e2": 0.01,
+          "back": 0,
+          "done": 0.99,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "back": 0,
+          "done": 0.99,
+          "e1": 0,
+          "e2": 0.01,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "back": 0,
+          "done": 0.99,
+          "e1": 0,
+          "e2": 0.01,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "back": 0,
+          "done": 0.99,
+          "e1": 0,
+          "e2": 0.01,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [
+          {
+            "observationId": "o4",
+            "image": "memory_1",
+            "imageSha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07",
+            "asset": {
+              "file": "input-4.png",
+              "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+            },
+            "sourceDecision": 4,
+            "offeredControlId": "e3"
+          }
+        ],
+        "rawScreenshot": "audit-5.png",
+        "rawSourceSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+        "preparedImage": {
+          "file": "input-5.png",
+          "sha256": "1bb0eca0a91a029d1ff804f68c6d46cf64cdcbe95af85d8f4cb530f841a60bf3"
+        },
+        "inputSha256": "7d97e7b03e458f1c051f721528bef5771286e8c732d44c0af4ad6891e7baceaa",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": null
+      }
+    ]
+  },
+  {
+    "runId": "crop-geometry-seed-9002",
+    "facts": [
+      {
+        "decision": 1,
+        "observationId": "o1",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": null,
+        "everGoalObserved": false,
+        "lastRecordedObjective": null,
+        "recordedObjectiveAfterDecision": null,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "stuck",
+        "selected": "stuck",
+        "actualAction": {
+          "type": "stuck"
+        },
+        "actualControl": null,
+        "outcome": "STUCK",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o1",
+          "kind": "model-self-report",
+          "proposedChoice": "stuck",
+          "selectedChoice": "stuck"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.56,
+            "clarity": 0.06,
+            "efficiency": 0.01,
+            "confirmation": 0.04,
+            "uncertainty": 0.3,
+            "other": 0.03
+          },
+          "confidence": 0.47
+        },
+        "responseDistribution": {
+          "e3": 0.02,
+          "e4": 0.23,
+          "e6": 0.03,
+          "done": 0.05,
+          "stuck": 0.67
+        },
+        "rawDistribution": {
+          "done": 0.05,
+          "e3": 0.02,
+          "e4": 0.23,
+          "e6": 0.03,
+          "stuck": 0.67
+        },
+        "normalizedDistribution": {
+          "done": 0.05,
+          "e3": 0.02,
+          "e4": 0.23,
+          "e6": 0.03,
+          "stuck": 0.67
+        },
+        "filteredDistribution": {
+          "done": 0.05,
+          "e3": 0.02,
+          "e4": 0.23,
+          "e6": 0.03,
+          "stuck": 0.67
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-1.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-1.png",
+          "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        "inputSha256": "e974165634eef2f70748240307fb497f262a5c1aa4b17c991842e946d66e5762",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": null
+      }
+    ]
+  },
+  {
+    "runId": "crop-actions-seed-9002",
+    "facts": [
+      {
+        "decision": 1,
+        "observationId": "o1",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": null,
+        "everGoalObserved": false,
+        "lastRecordedObjective": null,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": null,
+        "selected": "look_3",
+        "actualAction": {
+          "type": "look",
+          "point": {
+            "x": 960,
+            "y": 675
+          }
+        },
+        "actualControl": null,
+        "outcome": "FIXATION_MOVED",
+        "error": null,
+        "reasonEvidence": null,
+        "reasonResponse": null,
+        "responseDistribution": null,
+        "rawDistribution": {
+          "look_0": 0.02,
+          "look_1": 0.03,
+          "look_2": 0.03,
+          "look_3": 0.92
+        },
+        "normalizedDistribution": {
+          "look_0": 0.02,
+          "look_1": 0.03,
+          "look_2": 0.03,
+          "look_3": 0.92
+        },
+        "filteredDistribution": {
+          "look_0": 0.02,
+          "look_1": 0.03,
+          "look_2": 0.03,
+          "look_3": 0.92
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-1.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-1.png",
+          "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        "inputSha256": "f79d044c2811266af5a24bb73f99740551cdc67387ff88dc9af064cd37b77bd2",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      },
+      {
+        "decision": 2,
+        "observationId": "o2",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "e5",
+        "selected": "e5",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e5"
+        },
+        "actualControl": {
+          "id": "e5",
+          "type": "link",
+          "text": "通知設定\nメール通知の受信を変更",
+          "geometry": {
+            "id": "e5",
+            "x": 921,
+            "y": 540.375,
+            "width": 295,
+            "height": 113.796875,
+            "badge": {
+              "x": 1156.203125,
+              "y": 624.171875,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        },
+        "outcome": "UI_PERFORMED",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o2",
+          "kind": "model-self-report",
+          "proposedChoice": "e5",
+          "selectedChoice": "e5"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.82,
+            "clarity": 0.06,
+            "efficiency": 0.01,
+            "confirmation": 0.04,
+            "uncertainty": 0.06,
+            "other": 0.01
+          },
+          "confidence": 0.78
+        },
+        "responseDistribution": {
+          "e4": 0,
+          "e5": 1,
+          "done": 0,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-2.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-2.png",
+          "sha256": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63"
+        },
+        "inputSha256": "c49fb84d1d26588199d3f6e406243a7671bb7f0256f6053d17f8ab0734a772b7",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 2,
+        "semanticControlOccurrence": 2,
+        "rawScreenSelectedUIOccurrence": 1,
+        "semanticSelectedUIOccurrence": 1,
+        "lookPair": null
+      },
+      {
+        "decision": 3,
+        "observationId": "o3",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "audited-not-offered",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [
+            "e3"
+          ],
+          "controlId": "e3",
+          "presentInAudit": true,
+          "bodyAndBadgeFullySharp": false,
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          "offered": false
+        },
+        "modelProposal": null,
+        "selected": "look_0",
+        "actualAction": {
+          "type": "look",
+          "point": {
+            "x": 320,
+            "y": 225
+          }
+        },
+        "actualControl": null,
+        "outcome": "FIXATION_MOVED",
+        "error": null,
+        "reasonEvidence": null,
+        "reasonResponse": null,
+        "responseDistribution": null,
+        "rawDistribution": {
+          "look_0": 0.45,
+          "look_1": 0.27,
+          "look_2": 0.13,
+          "look_3": 0.15
+        },
+        "normalizedDistribution": {
+          "look_0": 0.45,
+          "look_1": 0.27,
+          "look_2": 0.13,
+          "look_3": 0.15
+        },
+        "filteredDistribution": {
+          "look_0": 0.45,
+          "look_1": 0.27,
+          "look_2": 0.13,
+          "look_3": 0.15
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-3.png",
+        "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "preparedImage": {
+          "file": "input-3.png",
+          "sha256": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b"
+        },
+        "inputSha256": "0e43d751435c75394df16fcb2d34cf6572cc6b34211087e8de036b6a9be86048",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"button\",\"text\":\"メール通知を停止する\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": {
+          "nextDecision": 4,
+          "requestedFixation": {
+            "x": 320,
+            "y": 225
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      },
+      {
+        "decision": 4,
+        "observationId": "o4",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "selected-performed",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": true,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [
+            "e3"
+          ],
+          "controlId": "e3",
+          "presentInAudit": true,
+          "bodyAndBadgeFullySharp": true,
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          "offered": true
+        },
+        "modelProposal": "e3",
+        "selected": "e3",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e3"
+        },
+        "actualControl": {
+          "id": "e3",
+          "type": "button",
+          "text": "メール通知を停止する",
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        },
+        "outcome": "UI_PERFORMED",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o4",
+          "kind": "model-self-report",
+          "proposedChoice": "e3",
+          "selectedChoice": "e3"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.79,
+            "clarity": 0.03,
+            "efficiency": 0.01,
+            "confirmation": 0.14,
+            "uncertainty": 0.02,
+            "other": 0.01
+          },
+          "confidence": 0.75
+        },
+        "responseDistribution": {
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "back": 0,
+          "done": 0,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-4.png",
+        "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "preparedImage": {
+          "file": "input-4.png",
+          "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+        },
+        "inputSha256": "1ff7cbabec1f2df47b92af439ba50c04b39865a163df7027596b4400c916da2b",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"button\",\"text\":\"メール通知を停止する\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 2,
+        "semanticControlOccurrence": 2,
+        "rawScreenSelectedUIOccurrence": 1,
+        "semanticSelectedUIOccurrence": 1,
+        "lookPair": null
+      },
+      {
+        "decision": 5,
+        "observationId": "o5",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": true,
+        "everGoalObserved": true,
+        "lastRecordedObjective": true,
+        "recordedObjectiveAfterDecision": null,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "done",
+        "selected": "done",
+        "actualAction": {
+          "type": "done"
+        },
+        "actualControl": null,
+        "outcome": "SUBJECTIVE_DONE",
+        "error": null,
+        "reasonEvidence": {
+          "category": "confirmation",
+          "observationId": "o5",
+          "kind": "model-self-report",
+          "proposedChoice": "done",
+          "selectedChoice": "done"
+        },
+        "reasonResponse": {
+          "choice": "confirmation",
+          "probabilities": {
+            "goal": 0.17,
+            "clarity": 0.01,
+            "efficiency": 0.01,
+            "confirmation": 0.79,
+            "uncertainty": 0.01,
+            "other": 0.01
+          },
+          "confidence": 0.75
+        },
+        "responseDistribution": {
+          "e1": 0,
+          "e2": 0,
+          "back": 0,
+          "done": 1,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "back": 0,
+          "done": 1,
+          "e1": 0,
+          "e2": 0,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "back": 0,
+          "done": 1,
+          "e1": 0,
+          "e2": 0,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "back": 0,
+          "done": 1,
+          "e1": 0,
+          "e2": 0,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [
+          {
+            "observationId": "o4",
+            "image": "memory_1",
+            "imageSha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07",
+            "asset": {
+              "file": "input-4.png",
+              "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+            },
+            "sourceDecision": 4,
+            "offeredControlId": "e3"
+          }
+        ],
+        "rawScreenshot": "audit-5.png",
+        "rawSourceSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+        "preparedImage": {
+          "file": "input-5.png",
+          "sha256": "1bb0eca0a91a029d1ff804f68c6d46cf64cdcbe95af85d8f4cb530f841a60bf3"
+        },
+        "inputSha256": "7d97e7b03e458f1c051f721528bef5771286e8c732d44c0af4ad6891e7baceaa",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": null
+      }
+    ]
+  },
+  {
+    "runId": "crop-both-seed-9002",
+    "facts": [
+      {
+        "decision": 1,
+        "observationId": "o1",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": null,
+        "everGoalObserved": false,
+        "lastRecordedObjective": null,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": null,
+        "selected": "look_3",
+        "actualAction": {
+          "type": "look",
+          "point": {
+            "x": 960,
+            "y": 675
+          }
+        },
+        "actualControl": null,
+        "outcome": "FIXATION_MOVED",
+        "error": null,
+        "reasonEvidence": null,
+        "reasonResponse": null,
+        "responseDistribution": null,
+        "rawDistribution": {
+          "look_0": 0.03,
+          "look_1": 0.35,
+          "look_2": 0.08,
+          "look_3": 0.54
+        },
+        "normalizedDistribution": {
+          "look_0": 0.03,
+          "look_1": 0.35,
+          "look_2": 0.08,
+          "look_3": 0.54
+        },
+        "filteredDistribution": {
+          "look_0": 0.03,
+          "look_1": 0.35,
+          "look_2": 0.08,
+          "look_3": 0.54
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-1.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-1.png",
+          "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        "inputSha256": "f79d044c2811266af5a24bb73f99740551cdc67387ff88dc9af064cd37b77bd2",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      },
+      {
+        "decision": 2,
+        "observationId": "o2",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "e5",
+        "selected": "e5",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e5"
+        },
+        "actualControl": {
+          "id": "e5",
+          "type": "link",
+          "text": "通知設定\nメール通知の受信を変更",
+          "geometry": {
+            "id": "e5",
+            "x": 921,
+            "y": 540.375,
+            "width": 295,
+            "height": 113.796875,
+            "badge": {
+              "x": 1156.203125,
+              "y": 624.171875,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        },
+        "outcome": "UI_PERFORMED",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o2",
+          "kind": "model-self-report",
+          "proposedChoice": "e5",
+          "selectedChoice": "e5"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.85,
+            "clarity": 0.05,
+            "efficiency": 0.01,
+            "confirmation": 0.03,
+            "uncertainty": 0.05,
+            "other": 0.01
+          },
+          "confidence": 0.82
+        },
+        "responseDistribution": {
+          "e4": 0,
+          "e5": 1,
+          "done": 0,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-2.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-2.png",
+          "sha256": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63"
+        },
+        "inputSha256": "c49fb84d1d26588199d3f6e406243a7671bb7f0256f6053d17f8ab0734a772b7",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 2,
+        "semanticControlOccurrence": 2,
+        "rawScreenSelectedUIOccurrence": 1,
+        "semanticSelectedUIOccurrence": 1,
+        "lookPair": null
+      },
+      {
+        "decision": 3,
+        "observationId": "o3",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "audited-not-offered",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [
+            "e3"
+          ],
+          "controlId": "e3",
+          "presentInAudit": true,
+          "bodyAndBadgeFullySharp": false,
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          "offered": false
+        },
+        "modelProposal": null,
+        "selected": "look_0",
+        "actualAction": {
+          "type": "look",
+          "point": {
+            "x": 320,
+            "y": 225
+          }
+        },
+        "actualControl": null,
+        "outcome": "FIXATION_MOVED",
+        "error": null,
+        "reasonEvidence": null,
+        "reasonResponse": null,
+        "responseDistribution": null,
+        "rawDistribution": {
+          "look_0": 0.43,
+          "look_1": 0.32,
+          "look_2": 0.12,
+          "look_3": 0.13
+        },
+        "normalizedDistribution": {
+          "look_0": 0.43,
+          "look_1": 0.32,
+          "look_2": 0.12,
+          "look_3": 0.13
+        },
+        "filteredDistribution": {
+          "look_0": 0.43,
+          "look_1": 0.32,
+          "look_2": 0.12,
+          "look_3": 0.13
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-3.png",
+        "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "preparedImage": {
+          "file": "input-3.png",
+          "sha256": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b"
+        },
+        "inputSha256": "0e43d751435c75394df16fcb2d34cf6572cc6b34211087e8de036b6a9be86048",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"button\",\"text\":\"メール通知を停止する\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": {
+          "nextDecision": 4,
+          "requestedFixation": {
+            "x": 320,
+            "y": 225
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      },
+      {
+        "decision": 4,
+        "observationId": "o4",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "selected-performed",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": true,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [
+            "e3"
+          ],
+          "controlId": "e3",
+          "presentInAudit": true,
+          "bodyAndBadgeFullySharp": true,
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          "offered": true
+        },
+        "modelProposal": "e3",
+        "selected": "e3",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e3"
+        },
+        "actualControl": {
+          "id": "e3",
+          "type": "button",
+          "text": "メール通知を停止する",
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        },
+        "outcome": "UI_PERFORMED",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o4",
+          "kind": "model-self-report",
+          "proposedChoice": "e3",
+          "selectedChoice": "e3"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.79,
+            "clarity": 0.03,
+            "efficiency": 0.01,
+            "confirmation": 0.13,
+            "uncertainty": 0.02,
+            "other": 0.02
+          },
+          "confidence": 0.75
+        },
+        "responseDistribution": {
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "back": 0,
+          "done": 0,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-4.png",
+        "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "preparedImage": {
+          "file": "input-4.png",
+          "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+        },
+        "inputSha256": "1ff7cbabec1f2df47b92af439ba50c04b39865a163df7027596b4400c916da2b",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"button\",\"text\":\"メール通知を停止する\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 2,
+        "semanticControlOccurrence": 2,
+        "rawScreenSelectedUIOccurrence": 1,
+        "semanticSelectedUIOccurrence": 1,
+        "lookPair": null
+      },
+      {
+        "decision": 5,
+        "observationId": "o5",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": true,
+        "everGoalObserved": true,
+        "lastRecordedObjective": true,
+        "recordedObjectiveAfterDecision": null,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "done",
+        "selected": "done",
+        "actualAction": {
+          "type": "done"
+        },
+        "actualControl": null,
+        "outcome": "SUBJECTIVE_DONE",
+        "error": null,
+        "reasonEvidence": {
+          "category": "confirmation",
+          "observationId": "o5",
+          "kind": "model-self-report",
+          "proposedChoice": "done",
+          "selectedChoice": "done"
+        },
+        "reasonResponse": {
+          "choice": "confirmation",
+          "probabilities": {
+            "goal": 0.17,
+            "clarity": 0.01,
+            "efficiency": 0.01,
+            "confirmation": 0.79,
+            "uncertainty": 0.01,
+            "other": 0.01
+          },
+          "confidence": 0.75
+        },
+        "responseDistribution": {
+          "e1": 0,
+          "e2": 0,
+          "back": 0,
+          "done": 1,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "back": 0,
+          "done": 1,
+          "e1": 0,
+          "e2": 0,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "back": 0,
+          "done": 1,
+          "e1": 0,
+          "e2": 0,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "back": 0,
+          "done": 1,
+          "e1": 0,
+          "e2": 0,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [
+          {
+            "observationId": "o4",
+            "image": "memory_1",
+            "imageSha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07",
+            "asset": {
+              "file": "input-4.png",
+              "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+            },
+            "sourceDecision": 4,
+            "offeredControlId": "e3"
+          }
+        ],
+        "rawScreenshot": "audit-5.png",
+        "rawSourceSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+        "preparedImage": {
+          "file": "input-5.png",
+          "sha256": "1bb0eca0a91a029d1ff804f68c6d46cf64cdcbe95af85d8f4cb530f841a60bf3"
+        },
+        "inputSha256": "7d97e7b03e458f1c051f721528bef5771286e8c732d44c0af4ad6891e7baceaa",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": null
+      }
+    ]
+  },
+  {
+    "runId": "crop-control-seed-9002",
+    "facts": [
+      {
+        "decision": 1,
+        "observationId": "o1",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": null,
+        "everGoalObserved": false,
+        "lastRecordedObjective": null,
+        "recordedObjectiveAfterDecision": null,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "stuck",
+        "selected": "stuck",
+        "actualAction": {
+          "type": "stuck"
+        },
+        "actualControl": null,
+        "outcome": "STUCK",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o1",
+          "kind": "model-self-report",
+          "proposedChoice": "stuck",
+          "selectedChoice": "stuck"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.59,
+            "clarity": 0.07,
+            "efficiency": 0.01,
+            "confirmation": 0.03,
+            "uncertainty": 0.27,
+            "other": 0.03
+          },
+          "confidence": 0.51
+        },
+        "responseDistribution": {
+          "e3": 0.03,
+          "e4": 0.2,
+          "e6": 0.04,
+          "done": 0.05,
+          "stuck": 0.68
+        },
+        "rawDistribution": {
+          "done": 0.05,
+          "e3": 0.03,
+          "e4": 0.2,
+          "e6": 0.04,
+          "stuck": 0.68
+        },
+        "normalizedDistribution": {
+          "done": 0.05,
+          "e3": 0.03,
+          "e4": 0.2,
+          "e6": 0.04,
+          "stuck": 0.68
+        },
+        "filteredDistribution": {
+          "done": 0.05,
+          "e3": 0.03,
+          "e4": 0.2,
+          "e6": 0.04,
+          "stuck": 0.68
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-1.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-1.png",
+          "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        "inputSha256": "e974165634eef2f70748240307fb497f262a5c1aa4b17c991842e946d66e5762",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": null
+      }
+    ]
+  },
+  {
+    "runId": "crop-actions-seed-9003",
+    "facts": [
+      {
+        "decision": 1,
+        "observationId": "o1",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": null,
+        "everGoalObserved": false,
+        "lastRecordedObjective": null,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": null,
+        "selected": "look_3",
+        "actualAction": {
+          "type": "look",
+          "point": {
+            "x": 960,
+            "y": 675
+          }
+        },
+        "actualControl": null,
+        "outcome": "FIXATION_MOVED",
+        "error": null,
+        "reasonEvidence": null,
+        "reasonResponse": null,
+        "responseDistribution": null,
+        "rawDistribution": {
+          "look_0": 0.02,
+          "look_1": 0.03,
+          "look_2": 0.04,
+          "look_3": 0.91
+        },
+        "normalizedDistribution": {
+          "look_0": 0.02,
+          "look_1": 0.03,
+          "look_2": 0.04,
+          "look_3": 0.91
+        },
+        "filteredDistribution": {
+          "look_0": 0.02,
+          "look_1": 0.03,
+          "look_2": 0.04,
+          "look_3": 0.91
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-1.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-1.png",
+          "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        "inputSha256": "f79d044c2811266af5a24bb73f99740551cdc67387ff88dc9af064cd37b77bd2",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      },
+      {
+        "decision": 2,
+        "observationId": "o2",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "e5",
+        "selected": "e5",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e5"
+        },
+        "actualControl": {
+          "id": "e5",
+          "type": "link",
+          "text": "通知設定\nメール通知の受信を変更",
+          "geometry": {
+            "id": "e5",
+            "x": 921,
+            "y": 540.375,
+            "width": 295,
+            "height": 113.796875,
+            "badge": {
+              "x": 1156.203125,
+              "y": 624.171875,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        },
+        "outcome": "UI_PERFORMED",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o2",
+          "kind": "model-self-report",
+          "proposedChoice": "e5",
+          "selectedChoice": "e5"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.87,
+            "clarity": 0.05,
+            "efficiency": 0.01,
+            "confirmation": 0.02,
+            "uncertainty": 0.04,
+            "other": 0.01
+          },
+          "confidence": 0.84
+        },
+        "responseDistribution": {
+          "e4": 0,
+          "e5": 1,
+          "done": 0,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-2.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-2.png",
+          "sha256": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63"
+        },
+        "inputSha256": "c49fb84d1d26588199d3f6e406243a7671bb7f0256f6053d17f8ab0734a772b7",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 2,
+        "semanticControlOccurrence": 2,
+        "rawScreenSelectedUIOccurrence": 1,
+        "semanticSelectedUIOccurrence": 1,
+        "lookPair": null
+      },
+      {
+        "decision": 3,
+        "observationId": "o3",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "audited-not-offered",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [
+            "e3"
+          ],
+          "controlId": "e3",
+          "presentInAudit": true,
+          "bodyAndBadgeFullySharp": false,
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          "offered": false
+        },
+        "modelProposal": null,
+        "selected": "look_0",
+        "actualAction": {
+          "type": "look",
+          "point": {
+            "x": 320,
+            "y": 225
+          }
+        },
+        "actualControl": null,
+        "outcome": "FIXATION_MOVED",
+        "error": null,
+        "reasonEvidence": null,
+        "reasonResponse": null,
+        "responseDistribution": null,
+        "rawDistribution": {
+          "look_0": 0.42,
+          "look_1": 0.27,
+          "look_2": 0.13,
+          "look_3": 0.18
+        },
+        "normalizedDistribution": {
+          "look_0": 0.42,
+          "look_1": 0.27,
+          "look_2": 0.13,
+          "look_3": 0.18
+        },
+        "filteredDistribution": {
+          "look_0": 0.42,
+          "look_1": 0.27,
+          "look_2": 0.13,
+          "look_3": 0.18
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-3.png",
+        "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "preparedImage": {
+          "file": "input-3.png",
+          "sha256": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b"
+        },
+        "inputSha256": "0e43d751435c75394df16fcb2d34cf6572cc6b34211087e8de036b6a9be86048",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"button\",\"text\":\"メール通知を停止する\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": {
+          "nextDecision": 4,
+          "requestedFixation": {
+            "x": 320,
+            "y": 225
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      },
+      {
+        "decision": 4,
+        "observationId": "o4",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "selected-performed",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": true,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [
+            "e3"
+          ],
+          "controlId": "e3",
+          "presentInAudit": true,
+          "bodyAndBadgeFullySharp": true,
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          "offered": true
+        },
+        "modelProposal": "e3",
+        "selected": "e3",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e3"
+        },
+        "actualControl": {
+          "id": "e3",
+          "type": "button",
+          "text": "メール通知を停止する",
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        },
+        "outcome": "UI_PERFORMED",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o4",
+          "kind": "model-self-report",
+          "proposedChoice": "e3",
+          "selectedChoice": "e3"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.78,
+            "clarity": 0.04,
+            "efficiency": 0.01,
+            "confirmation": 0.12,
+            "uncertainty": 0.03,
+            "other": 0.02
+          },
+          "confidence": 0.74
+        },
+        "responseDistribution": {
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "back": 0,
+          "done": 0,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-4.png",
+        "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "preparedImage": {
+          "file": "input-4.png",
+          "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+        },
+        "inputSha256": "1ff7cbabec1f2df47b92af439ba50c04b39865a163df7027596b4400c916da2b",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"button\",\"text\":\"メール通知を停止する\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 2,
+        "semanticControlOccurrence": 2,
+        "rawScreenSelectedUIOccurrence": 1,
+        "semanticSelectedUIOccurrence": 1,
+        "lookPair": null
+      },
+      {
+        "decision": 5,
+        "observationId": "o5",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": true,
+        "everGoalObserved": true,
+        "lastRecordedObjective": true,
+        "recordedObjectiveAfterDecision": null,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "done",
+        "selected": "done",
+        "actualAction": {
+          "type": "done"
+        },
+        "actualControl": null,
+        "outcome": "SUBJECTIVE_DONE",
+        "error": null,
+        "reasonEvidence": {
+          "category": "confirmation",
+          "observationId": "o5",
+          "kind": "model-self-report",
+          "proposedChoice": "done",
+          "selectedChoice": "done"
+        },
+        "reasonResponse": {
+          "choice": "confirmation",
+          "probabilities": {
+            "goal": 0.17,
+            "clarity": 0.01,
+            "efficiency": 0.01,
+            "confirmation": 0.79,
+            "uncertainty": 0.01,
+            "other": 0.01
+          },
+          "confidence": 0.75
+        },
+        "responseDistribution": {
+          "e1": 0,
+          "e2": 0.01,
+          "back": 0,
+          "done": 0.99,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "back": 0,
+          "done": 0.99,
+          "e1": 0,
+          "e2": 0.01,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "back": 0,
+          "done": 0.99,
+          "e1": 0,
+          "e2": 0.01,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "back": 0,
+          "done": 0.99,
+          "e1": 0,
+          "e2": 0.01,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [
+          {
+            "observationId": "o4",
+            "image": "memory_1",
+            "imageSha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07",
+            "asset": {
+              "file": "input-4.png",
+              "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+            },
+            "sourceDecision": 4,
+            "offeredControlId": "e3"
+          }
+        ],
+        "rawScreenshot": "audit-5.png",
+        "rawSourceSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+        "preparedImage": {
+          "file": "input-5.png",
+          "sha256": "1bb0eca0a91a029d1ff804f68c6d46cf64cdcbe95af85d8f4cb530f841a60bf3"
+        },
+        "inputSha256": "7d97e7b03e458f1c051f721528bef5771286e8c732d44c0af4ad6891e7baceaa",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": null
+      }
+    ]
+  },
+  {
+    "runId": "crop-both-seed-9003",
+    "facts": [
+      {
+        "decision": 1,
+        "observationId": "o1",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": null,
+        "everGoalObserved": false,
+        "lastRecordedObjective": null,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": null,
+        "selected": "look_3",
+        "actualAction": {
+          "type": "look",
+          "point": {
+            "x": 960,
+            "y": 675
+          }
+        },
+        "actualControl": null,
+        "outcome": "FIXATION_MOVED",
+        "error": null,
+        "reasonEvidence": null,
+        "reasonResponse": null,
+        "responseDistribution": null,
+        "rawDistribution": {
+          "look_0": 0.03,
+          "look_1": 0.21,
+          "look_2": 0.08,
+          "look_3": 0.68
+        },
+        "normalizedDistribution": {
+          "look_0": 0.03,
+          "look_1": 0.21,
+          "look_2": 0.08,
+          "look_3": 0.68
+        },
+        "filteredDistribution": {
+          "look_0": 0.03,
+          "look_1": 0.21,
+          "look_2": 0.08,
+          "look_3": 0.68
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-1.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-1.png",
+          "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        "inputSha256": "f79d044c2811266af5a24bb73f99740551cdc67387ff88dc9af064cd37b77bd2",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      },
+      {
+        "decision": 2,
+        "observationId": "o2",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "e5",
+        "selected": "e5",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e5"
+        },
+        "actualControl": {
+          "id": "e5",
+          "type": "link",
+          "text": "通知設定\nメール通知の受信を変更",
+          "geometry": {
+            "id": "e5",
+            "x": 921,
+            "y": 540.375,
+            "width": 295,
+            "height": 113.796875,
+            "badge": {
+              "x": 1156.203125,
+              "y": 624.171875,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        },
+        "outcome": "UI_PERFORMED",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o2",
+          "kind": "model-self-report",
+          "proposedChoice": "e5",
+          "selectedChoice": "e5"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.88,
+            "clarity": 0.03,
+            "efficiency": 0.01,
+            "confirmation": 0.02,
+            "uncertainty": 0.05,
+            "other": 0.01
+          },
+          "confidence": 0.86
+        },
+        "responseDistribution": {
+          "e4": 0,
+          "e5": 1,
+          "done": 0,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "done": 0,
+          "e4": 0,
+          "e5": 1,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-2.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-2.png",
+          "sha256": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63"
+        },
+        "inputSha256": "c49fb84d1d26588199d3f6e406243a7671bb7f0256f6053d17f8ab0734a772b7",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 2,
+        "semanticControlOccurrence": 2,
+        "rawScreenSelectedUIOccurrence": 1,
+        "semanticSelectedUIOccurrence": 1,
+        "lookPair": null
+      },
+      {
+        "decision": 3,
+        "observationId": "o3",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "audited-not-offered",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": false,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [
+            "e3"
+          ],
+          "controlId": "e3",
+          "presentInAudit": true,
+          "bodyAndBadgeFullySharp": false,
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          "offered": false
+        },
+        "modelProposal": null,
+        "selected": "look_0",
+        "actualAction": {
+          "type": "look",
+          "point": {
+            "x": 320,
+            "y": 225
+          }
+        },
+        "actualControl": null,
+        "outcome": "FIXATION_MOVED",
+        "error": null,
+        "reasonEvidence": null,
+        "reasonResponse": null,
+        "responseDistribution": null,
+        "rawDistribution": {
+          "look_0": 0.43,
+          "look_1": 0.35,
+          "look_2": 0.11,
+          "look_3": 0.11
+        },
+        "normalizedDistribution": {
+          "look_0": 0.43,
+          "look_1": 0.35,
+          "look_2": 0.11,
+          "look_3": 0.11
+        },
+        "filteredDistribution": {
+          "look_0": 0.43,
+          "look_1": 0.35,
+          "look_2": 0.11,
+          "look_3": 0.11
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-3.png",
+        "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "preparedImage": {
+          "file": "input-3.png",
+          "sha256": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b"
+        },
+        "inputSha256": "0e43d751435c75394df16fcb2d34cf6572cc6b34211087e8de036b6a9be86048",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"button\",\"text\":\"メール通知を停止する\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": {
+          "nextDecision": 4,
+          "requestedFixation": {
+            "x": 320,
+            "y": 225
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      },
+      {
+        "decision": 4,
+        "observationId": "o4",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "selected-performed",
+        "priorObjectiveObserved": false,
+        "everGoalObserved": false,
+        "lastRecordedObjective": false,
+        "recordedObjectiveAfterDecision": true,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [
+            "e3"
+          ],
+          "controlId": "e3",
+          "presentInAudit": true,
+          "bodyAndBadgeFullySharp": true,
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          "offered": true
+        },
+        "modelProposal": "e3",
+        "selected": "e3",
+        "actualAction": {
+          "type": "click",
+          "elementId": "e3"
+        },
+        "actualControl": {
+          "id": "e3",
+          "type": "button",
+          "text": "メール通知を停止する",
+          "geometry": {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        },
+        "outcome": "UI_PERFORMED",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o4",
+          "kind": "model-self-report",
+          "proposedChoice": "e3",
+          "selectedChoice": "e3"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.84,
+            "clarity": 0.02,
+            "efficiency": 0,
+            "confirmation": 0.11,
+            "uncertainty": 0.02,
+            "other": 0.01
+          },
+          "confidence": 0.81
+        },
+        "responseDistribution": {
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "back": 0,
+          "done": 0,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0,
+          "e3": 1,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-4.png",
+        "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "preparedImage": {
+          "file": "input-4.png",
+          "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+        },
+        "inputSha256": "1ff7cbabec1f2df47b92af439ba50c04b39865a163df7027596b4400c916da2b",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"button\",\"text\":\"メール通知を停止する\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 2,
+        "semanticControlOccurrence": 2,
+        "rawScreenSelectedUIOccurrence": 1,
+        "semanticSelectedUIOccurrence": 1,
+        "lookPair": null
+      },
+      {
+        "decision": 5,
+        "observationId": "o5",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r#notifications",
+        "screen": "通知設定",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": true,
+        "everGoalObserved": true,
+        "lastRecordedObjective": true,
+        "recordedObjectiveAfterDecision": null,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "done",
+        "selected": "done",
+        "actualAction": {
+          "type": "done"
+        },
+        "actualControl": null,
+        "outcome": "SUBJECTIVE_DONE",
+        "error": null,
+        "reasonEvidence": {
+          "category": "confirmation",
+          "observationId": "o5",
+          "kind": "model-self-report",
+          "proposedChoice": "done",
+          "selectedChoice": "done"
+        },
+        "reasonResponse": {
+          "choice": "confirmation",
+          "probabilities": {
+            "goal": 0.19,
+            "clarity": 0.01,
+            "efficiency": 0.01,
+            "confirmation": 0.77,
+            "uncertainty": 0.01,
+            "other": 0.01
+          },
+          "confidence": 0.72
+        },
+        "responseDistribution": {
+          "e1": 0,
+          "e2": 0,
+          "back": 0,
+          "done": 1,
+          "stuck": 0
+        },
+        "rawDistribution": {
+          "back": 0,
+          "done": 1,
+          "e1": 0,
+          "e2": 0,
+          "stuck": 0
+        },
+        "normalizedDistribution": {
+          "back": 0,
+          "done": 1,
+          "e1": 0,
+          "e2": 0,
+          "stuck": 0
+        },
+        "filteredDistribution": {
+          "back": 0,
+          "done": 1,
+          "e1": 0,
+          "e2": 0,
+          "stuck": 0
+        },
+        "priorGoalControlPresentations": [
+          {
+            "observationId": "o4",
+            "image": "memory_1",
+            "imageSha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07",
+            "asset": {
+              "file": "input-4.png",
+              "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+            },
+            "sourceDecision": 4,
+            "offeredControlId": "e3"
+          }
+        ],
+        "rawScreenshot": "audit-5.png",
+        "rawSourceSha256": "d2f93f9342a9cf59dea351b80383b3932625be65e231635b1e1d72b5dd5a06da",
+        "preparedImage": {
+          "file": "input-5.png",
+          "sha256": "1bb0eca0a91a029d1ff804f68c6d46cf64cdcbe95af85d8f4cb530f841a60bf3"
+        },
+        "inputSha256": "7d97e7b03e458f1c051f721528bef5771286e8c732d44c0af4ad6891e7baceaa",
+        "semanticControlSignature": "{\"title\":\"通知設定\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"マイページへ戻る\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": null
+      }
+    ]
+  },
+  {
+    "runId": "crop-control-seed-9003",
+    "facts": [
+      {
+        "decision": 1,
+        "observationId": "o1",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": null,
+        "everGoalObserved": false,
+        "lastRecordedObjective": null,
+        "recordedObjectiveAfterDecision": null,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "stuck",
+        "selected": "stuck",
+        "actualAction": {
+          "type": "stuck"
+        },
+        "actualControl": null,
+        "outcome": "STUCK",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o1",
+          "kind": "model-self-report",
+          "proposedChoice": "stuck",
+          "selectedChoice": "stuck"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.57,
+            "clarity": 0.06,
+            "efficiency": 0.01,
+            "confirmation": 0.04,
+            "uncertainty": 0.29,
+            "other": 0.03
+          },
+          "confidence": 0.48
+        },
+        "responseDistribution": {
+          "e3": 0.02,
+          "e4": 0.2,
+          "e6": 0.02,
+          "done": 0.03,
+          "stuck": 0.73
+        },
+        "rawDistribution": {
+          "done": 0.03,
+          "e3": 0.02,
+          "e4": 0.2,
+          "e6": 0.02,
+          "stuck": 0.73
+        },
+        "normalizedDistribution": {
+          "done": 0.03,
+          "e3": 0.02,
+          "e4": 0.2,
+          "e6": 0.02,
+          "stuck": 0.73
+        },
+        "filteredDistribution": {
+          "done": 0.03,
+          "e3": 0.02,
+          "e4": 0.2,
+          "e6": 0.02,
+          "stuck": 0.73
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-1.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-1.png",
+          "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        "inputSha256": "e974165634eef2f70748240307fb497f262a5c1aa4b17c991842e946d66e5762",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": null
+      }
+    ]
+  },
+  {
+    "runId": "crop-geometry-seed-9003",
+    "facts": [
+      {
+        "decision": 1,
+        "observationId": "o1",
+        "url": "http://127.0.0.1:5173/good/?betaUI=r",
+        "screen": "マイページ",
+        "boundary": "missing-audit-target",
+        "priorObjectiveObserved": null,
+        "everGoalObserved": false,
+        "lastRecordedObjective": null,
+        "recordedObjectiveAfterDecision": null,
+        "goal": {
+          "identity": "offline exact trimmed button text",
+          "matchingControlIds": [],
+          "controlId": null,
+          "presentInAudit": false,
+          "bodyAndBadgeFullySharp": null,
+          "geometry": null,
+          "offered": false
+        },
+        "modelProposal": "stuck",
+        "selected": "stuck",
+        "actualAction": {
+          "type": "stuck"
+        },
+        "actualControl": null,
+        "outcome": "STUCK",
+        "error": null,
+        "reasonEvidence": {
+          "category": "goal",
+          "observationId": "o1",
+          "kind": "model-self-report",
+          "proposedChoice": "stuck",
+          "selectedChoice": "stuck"
+        },
+        "reasonResponse": {
+          "choice": "goal",
+          "probabilities": {
+            "goal": 0.56,
+            "clarity": 0.06,
+            "efficiency": 0.01,
+            "confirmation": 0.04,
+            "uncertainty": 0.29,
+            "other": 0.04
+          },
+          "confidence": 0.47
+        },
+        "responseDistribution": {
+          "e3": 0.02,
+          "e4": 0.24,
+          "e6": 0.03,
+          "done": 0.03,
+          "stuck": 0.68
+        },
+        "rawDistribution": {
+          "done": 0.03,
+          "e3": 0.02,
+          "e4": 0.24,
+          "e6": 0.03,
+          "stuck": 0.68
+        },
+        "normalizedDistribution": {
+          "done": 0.03,
+          "e3": 0.02,
+          "e4": 0.24,
+          "e6": 0.03,
+          "stuck": 0.68
+        },
+        "filteredDistribution": {
+          "done": 0.03,
+          "e3": 0.02,
+          "e4": 0.24,
+          "e6": 0.03,
+          "stuck": 0.68
+        },
+        "priorGoalControlPresentations": [],
+        "rawScreenshot": "audit-1.png",
+        "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "preparedImage": {
+          "file": "input-1.png",
+          "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        "inputSha256": "e974165634eef2f70748240307fb497f262a5c1aa4b17c991842e946d66e5762",
+        "semanticControlSignature": "{\"title\":\"マイページ\",\"elements\":[{\"type\":\"link\",\"text\":\"暮らし クラウド\"},{\"type\":\"link\",\"text\":\"マイページ\"},{\"type\":\"link\",\"text\":\"請求書\\n毎月の請求書をPDFで保存\"},{\"type\":\"link\",\"text\":\"契約情報\\nご契約中のプランを確認\"},{\"type\":\"link\",\"text\":\"通知設定\\nメール通知の受信を変更\"},{\"type\":\"link\",\"text\":\"お問い合わせ\"}]}",
+        "rawScreenControlOccurrence": 1,
+        "semanticControlOccurrence": 1,
+        "rawScreenSelectedUIOccurrence": null,
+        "semanticSelectedUIOccurrence": null,
+        "lookPair": null
+      }
+    ]
+  }
+]

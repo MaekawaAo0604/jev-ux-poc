@@ -1,0 +1,3 @@
+"actor","task","condition","valid","objective","subjectiveDone","termination","requests","uiActions","looks","judgments","reconcileEvents","confirmEvents","earlyUnchangedRevisits"
+"experience-visual-conditions","library","changed","true","true","true","SUBJECTIVE_DONE","21","6","0","7","0","1","0"
+"experience-visual-conditions-continuity","library","changed","false","false","false","API_ERROR","1","0","0","1","0","0","0"

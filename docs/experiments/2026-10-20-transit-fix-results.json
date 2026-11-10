@@ -1,0 +1,23 @@
+{
+  "kind":"DIAGNOSTIC_INTERRUPTED",
+  "baseCommit":"c563d7128f5d95026fd4cae0705c864e19f6a85d",
+  "dir":"reports/2026-10-19T16-53-01.824Z-public/exploration",
+  "goalText":"車いすを使う家族とさいたま市宇宙劇場のプラネタリウムに行きたい。車いすのまま観覧できるか、付き添いの観覧料、専用駐車場の有無を知りたい。予約・購入・問い合わせはしない。",
+  "settings":{"observationMode":"image-only","maxActions":0,"intervalMs":2000},
+  "persistedCompletedSteps":33,
+  "persistedRecordedActions":33,
+  "lastStep":34,
+  "lastStepStatus":"PENDING",
+  "completedStepTimeLowerBoundMs":333795.69209999987,
+  "originalResultExists":false,
+  "inFlightWorkMayBeUnpersisted":true,
+  "objectiveSuccess":null,
+  "autonomousTerminalOutcome":"NOT_MEASURED",
+  "interruption":"Controller stopped this diagnostic process and its child browser after verifying the changed step-6 decision, actual FAQ entry and unoffered FAQ rows. Not a Jev STUCK or site failure. No source step or result was rewritten.",
+  "fix":{"file":"jev/decide.ts","behavior":"Fast commit only when the selected first hop has exactly one endpoint. Multiple endpoints use existing semantic frontier selection and then preserve that selected destination. No Goal, image/DOM boundary, safety rule or action cap change.","tests":{"redBefore":3,"relatedPassed":39,"fullTotal":520,"fullPassed":517,"fullSkipped":3,"fullFailed":0,"build":"PASS","review":"No blocking findings; read-only reviewer independently ran 11 integration tests and checked selector failures/interruption."}},
+  "liveChecks":{"step6":"Primary scroll_down was followed by a semantic frontier request selecting f53. It was not automatically assigned f45 by array order.","faqEntry":{"actionStep":9,"observedStep":10,"url":"https://www.ucyugekijo.jp/#faq"},"noAmbiguousFastCommit":true,"wholeGoalCompletion":"NOT_VERIFIED","outcomeAudit":"NOT_RUN_AFTER_DIAGNOSTIC_INTERRUPTION"},
+  "remaining":["FAQ questions are visible at step 10 but their open/close rows have no numbered action candidates. This is tool coverage, not evidence of absent site answers or human confusion.","Revisits remain: reaching FAQ did not resolve the original Goal and the diagnostic recorded 33 completed actions before interruption. The transit fix is not a general loop-resolution claim.","PDF, external-page and iframe boundaries are unchanged.","The handicap-handbook condition on companion discounts requires independent review; wheelchair use alone does not establish eligibility.","No post-run completion audit or exact autonomous end-to-end time exists for the interrupted trial. Do not calculate an improvement ratio against the earlier interrupted baseline."],
+  "positiveControl":{"source":"reports/2026-10-19T16-55-34.498Z-public/exploration/result.json","reason":"JEV_DONE","actions":1,"explorationMs":11962.9529,"audit":"supported","pricingImageSha256":"c3b1e50df2f4ef52cf899376e105092d232b5e8d6b8a2e616936b40947d47408","note":"Same starting URL and unchanged Goal as before; the decisive saved pricing image matches the manually inspected baseline image."},
+  "policy":"Same reviewed read-only public-site scopes as 2026-10-20-real-site-results.json; no new origins, submissions, login, purchases, downloads or operator contact enabled.",
+  "sales":{"draft":"docs/sales/pilot.md","mode":"Human-reviewed pilot, not unattended whole-site UX evaluation","recipientConfirmed":false,"messagesSent":0,"thirdPartyImagesPublished":0,"priceAgreed":false,"customerContracted":false}
+}

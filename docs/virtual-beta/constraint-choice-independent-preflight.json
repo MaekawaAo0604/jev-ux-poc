@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS_FOR_BOUNDED_REAL_RUN",
+  "scope": "Independent preflight, no real API calls or credential files read",
+  "revision": "7ef309f81b43246aca6291a6d9973a3726eab982",
+  "sourceHash": "baec5721f39219f227313e4e8b935d076ea97f8ab132c8c388b71eda42124467",
+  "sourceFiles": 189,
+  "sourceFreezeMatches": true,
+  "realAPIRequests": 0,
+  "checks": [
+    "Four persona cells retain identical knowledge, experience, expectations and tendencies, with a complete two-by-two device fact set",
+    "Sixteen slots have unique IDs and each actor appears in every position once; legacy schedule remains 36 unique sequence IDs",
+    "Actual normal /good/ local UI: all three equal prominence enabled options inside 1280x900, no initial selection, fresh initial PNG hashes match",
+    "Actual local UI: all three methods require explicit save, saved state and visible confirmation agree, edited or hidden confirmation fails oracle, reload clears state",
+    "Ordinary runHumanJev mock: all four fresh actors, exact persona traits delivered through native/assessment/action stages, no DOM audit or capability flag leakage",
+    "Ordinary mock: identical product pixels, model pixels and native non-persona inputs; unique run roots and isolated memory; all image/frame and replay checks pass",
+    "Viewer: all four runs in one group, valid mock status and functional objective retained, raw JSON byte identity and delivered PNG hashes match",
+    "Scripted ordinary select-save-observe: three decisions, nine stage calls, two actual UI actions; model choice, argmax selected and actual actions agree; incompatible local save remains functionally complete",
+    "Trusted ordinary native invalid response stops after three trials; provider 429 stops after one; timeouts remain API_ERROR infrastructure and never user abandonment",
+    "Ordinary targeted invalid assessment reaches INVALID_ASSESSMENT, retains durable raw results and stops exactly after three model-invalid trials",
+    "Pending, invalid and missing slots excluded from behavior denominators; first exploration is distinct from saved-method admissibility",
+    "Fresh tsc --noEmit exits zero"
+  ],
+  "findings": [
+    {
+      "severity": "P1",
+      "status": "RESOLVED",
+      "file": "runner/constraint-choice-comparison.ts",
+      "problem": "Trusted INVALID_DISTRIBUTION terminations with detailed INVALID_WORKING_INQUIRY or INVALID_ASSESSMENT errors were omitted from the consecutive invalid classifier",
+      "red": "Original ordinary injected invalid run attempted four trials and returned COMPLETED instead of stopping after three",
+      "green": "Targeted invalid knowledge assessment preserves valid auxiliary answers and returns CONSECUTIVE_INVALID_TRIALS after exactly three durable INVALID_ASSESSMENT results"
+    }
+  ],
+  "verifierCorrections": [
+    "Compared grid dimensions within one pixel to allow observed 1/64px layout rounding while keeping color, border, background and font assertions exact",
+    "Scripted multi-action mock now chooses a valid declared unknown fallback for newly introduced inquiry-outcome questions",
+    "TypeScript action narrowing and explicit dimensions-array type corrected; fresh tsc passes"
+  ],
+  "evidenceDirectories": {
+    "red": "invalid-assessment-w15C3O",
+    "targetedAssessmentGreen": "invalid-assessment-WsRAjN",
+    "ui": "ui-UitPFJ",
+    "scripted": "scripted-l3coDw",
+    "ordinary": "ordinary-ZMutDv",
+    "nativeInvalid": "native-invalid-laXFa7",
+    "nativeProvider": "native-provider-J6WMm3",
+    "nativeTimeout": "native-timeout-8NzgjM"
+  },
+  "limitations": [
+    "This preflight does not validate any future actual model result or claim human fidelity",
+    "Repository-wide known baseline failures are outside this verdict; parent owns scoped legacy regression and build verification",
+    "Real-run raw, accounting, distributions, constraints and publication gate remain to be independently audited"
+  ]
+}

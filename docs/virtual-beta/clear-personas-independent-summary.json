@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Completed actual batch, source archive and local viewer integrity; analyzer/publication review pending",
+  "modelAPIRequestsByVerifier": 0,
+  "sourceHash": "bdf060f57f3c3bc8bf1105682238efc12e21120754ef35b0901f24c3d90d67f2",
+  "planned": 16,
+  "attempted": 16,
+  "valid": 16,
+  "invalid": 0,
+  "missing": 0,
+  "pending": 0,
+  "requests": 105,
+  "reservedLedgerEntries": 0,
+  "selectedChoices": 35,
+  "rawArgmaxModelProposalAndActualActionAgree": 35,
+  "conditionalFilteredDistributionsDifferFromNormalized": 20,
+  "conditionalSelectionChanges": 0,
+  "functionalCompletion": 16,
+  "observableBehavior": {
+    "baseline": {"valid":4,"quickExtended":4,"details":0,"help":0},
+    "A": {"valid":4,"quickExtended":4,"details":0,"help":0},
+    "B": {"valid":4,"quickExtended":4,"details":0,"help":0},
+    "C": {"valid":4,"quickExtended":1,"detailsThenBasicDefault":3,"help":0,"explicitBasicClicks":0,"explicitExtendedClicks":0}
+  },
+  "interpretation": "C's three basic saves used the existing initial default. The extended C trial is a counterexample to a mandatory cautious route. Details openings, model goal/confirmation categories and functional success do not establish reading, privacy understanding, deliberate minimization or human realism.",
+  "verified": ["All 16 raw identities and SHA256 hashes", "105 durable ledger entries and stage/image bindings", "Full frozen-source replay and conditional argmax to actual action", "Initial identical pixels/native input minus Persona and fresh memory", "Independent all-event scope reconstruction", "Parent and independent viewer raw/image copies", "Parent CSV fields and 16-trial browser navigation/filter", "190 source ZIP hashes and exact freeze entry"],
+  "evidence": ["latest-actual.json", "actual-rXhDVp/evidence.json", "parent-viewer-source-audit.json", "viewer-browser.json", "viewer-c-basic-step1.png", "c-route-counterexample.json"],
+  "productFindings": [],
+  "remaining": ["Frozen analyzer review", "Independent hash-only prior preservation check at final publication gate", "Final exact staged publication check"]
+}

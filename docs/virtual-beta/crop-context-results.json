@@ -1,0 +1,5057 @@
+{
+  "schemaVersion": 1,
+  "contrasts": [
+    {
+      "mode": "crop",
+      "seed": 9001,
+      "a": "control",
+      "b": "both",
+      "commonDecisions": 1,
+      "commonPathIdentical": false,
+      "aLooks": 0,
+      "bLooks": 2,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9001,
+      "a": "control",
+      "b": "geometry",
+      "commonDecisions": 1,
+      "commonPathIdentical": true,
+      "aLooks": 0,
+      "bLooks": 0,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9001,
+      "a": "control",
+      "b": "actions",
+      "commonDecisions": 1,
+      "commonPathIdentical": false,
+      "aLooks": 0,
+      "bLooks": 2,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9001,
+      "a": "geometry",
+      "b": "both",
+      "commonDecisions": 1,
+      "commonPathIdentical": false,
+      "aLooks": 0,
+      "bLooks": 2,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9001,
+      "a": "actions",
+      "b": "both",
+      "commonDecisions": 5,
+      "commonPathIdentical": true,
+      "aLooks": 2,
+      "bLooks": 2,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9002,
+      "a": "control",
+      "b": "both",
+      "commonDecisions": 1,
+      "commonPathIdentical": false,
+      "aLooks": 0,
+      "bLooks": 2,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9002,
+      "a": "control",
+      "b": "geometry",
+      "commonDecisions": 1,
+      "commonPathIdentical": true,
+      "aLooks": 0,
+      "bLooks": 0,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9002,
+      "a": "control",
+      "b": "actions",
+      "commonDecisions": 1,
+      "commonPathIdentical": false,
+      "aLooks": 0,
+      "bLooks": 2,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9002,
+      "a": "geometry",
+      "b": "both",
+      "commonDecisions": 1,
+      "commonPathIdentical": false,
+      "aLooks": 0,
+      "bLooks": 2,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9002,
+      "a": "actions",
+      "b": "both",
+      "commonDecisions": 5,
+      "commonPathIdentical": true,
+      "aLooks": 2,
+      "bLooks": 2,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9003,
+      "a": "control",
+      "b": "both",
+      "commonDecisions": 1,
+      "commonPathIdentical": false,
+      "aLooks": 0,
+      "bLooks": 2,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9003,
+      "a": "control",
+      "b": "geometry",
+      "commonDecisions": 1,
+      "commonPathIdentical": true,
+      "aLooks": 0,
+      "bLooks": 0,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9003,
+      "a": "control",
+      "b": "actions",
+      "commonDecisions": 1,
+      "commonPathIdentical": false,
+      "aLooks": 0,
+      "bLooks": 2,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9003,
+      "a": "geometry",
+      "b": "both",
+      "commonDecisions": 1,
+      "commonPathIdentical": false,
+      "aLooks": 0,
+      "bLooks": 2,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    },
+    {
+      "mode": "crop",
+      "seed": 9003,
+      "a": "actions",
+      "b": "both",
+      "commonDecisions": 5,
+      "commonPathIdentical": true,
+      "aLooks": 2,
+      "bLooks": 2,
+      "aRepeats": 0,
+      "bRepeats": 0,
+      "interpretation": "descriptive paired observations; different censoring horizons must not be scored as improvement"
+    }
+  ],
+  "source": {
+    "revision": "7f35def90ca5b21818bb9c6dd0b26578bd6f2646",
+    "sourceHash": "c9a64e1f0ebe75539e346dac6b0b83cf4441c2258085a9baa2ef299a299bdd4c"
+  },
+  "phaseFile": "reports/crop-stuck-2026-11-10/live-r1/phase.json",
+  "phaseSha256": "f3f1415d1528c62210d300cb4c2cb0bb9a3b60c4f95d932cef27ebe5210cb6e3",
+  "producerSha256": "7f3b1657f06671313f6be076ecea020bd57ae9dfc1727939f9c02771aaa228a6",
+  "planned": 12,
+  "actual": 12,
+  "requests": 60,
+  "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+  "byCondition": [
+    {
+      "condition": "crop-control",
+      "arms": [
+        "control"
+      ],
+      "normalLooksAfterContinue": [
+        0,
+        0,
+        0
+      ],
+      "changedFixations": [
+        0,
+        0,
+        0
+      ],
+      "attentionLooks": [
+        0,
+        0,
+        0
+      ],
+      "newGoalEligibleAfterLook": [
+        [],
+        [],
+        []
+      ],
+      "trials": 3,
+      "requests": 6,
+      "objectiveSuccess": 0,
+      "looks": [
+        0,
+        0,
+        0
+      ],
+      "repeatedSemanticUIOperations": [
+        0,
+        0,
+        0
+      ],
+      "uiActions": [
+        0,
+        0,
+        0
+      ],
+      "termination": [
+        "STUCK",
+        "STUCK",
+        "STUCK"
+      ],
+      "paths": [
+        [
+          "stuck"
+        ],
+        [
+          "stuck"
+        ],
+        [
+          "stuck"
+        ]
+      ]
+    },
+    {
+      "condition": "crop-geometry",
+      "arms": [
+        "geometry"
+      ],
+      "normalLooksAfterContinue": [
+        0,
+        0,
+        0
+      ],
+      "changedFixations": [
+        0,
+        0,
+        0
+      ],
+      "attentionLooks": [
+        0,
+        0,
+        0
+      ],
+      "newGoalEligibleAfterLook": [
+        [],
+        [],
+        []
+      ],
+      "trials": 3,
+      "requests": 6,
+      "objectiveSuccess": 0,
+      "looks": [
+        0,
+        0,
+        0
+      ],
+      "repeatedSemanticUIOperations": [
+        0,
+        0,
+        0
+      ],
+      "uiActions": [
+        0,
+        0,
+        0
+      ],
+      "termination": [
+        "STUCK",
+        "STUCK",
+        "STUCK"
+      ],
+      "paths": [
+        [
+          "stuck"
+        ],
+        [
+          "stuck"
+        ],
+        [
+          "stuck"
+        ]
+      ]
+    },
+    {
+      "condition": "crop-actions",
+      "arms": [
+        "actions"
+      ],
+      "normalLooksAfterContinue": [
+        0,
+        0,
+        0
+      ],
+      "changedFixations": [
+        2,
+        2,
+        2
+      ],
+      "attentionLooks": [
+        2,
+        2,
+        2
+      ],
+      "newGoalEligibleAfterLook": [
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "trials": 3,
+      "requests": 24,
+      "objectiveSuccess": 3,
+      "looks": [
+        2,
+        2,
+        2
+      ],
+      "repeatedSemanticUIOperations": [
+        0,
+        0,
+        0
+      ],
+      "uiActions": [
+        2,
+        2,
+        2
+      ],
+      "termination": [
+        "SUBJECTIVE_DONE",
+        "SUBJECTIVE_DONE",
+        "SUBJECTIVE_DONE"
+      ],
+      "paths": [
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "look(320,225)",
+          "メール通知を停止する",
+          "done"
+        ],
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "look(320,225)",
+          "メール通知を停止する",
+          "done"
+        ],
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "look(320,225)",
+          "メール通知を停止する",
+          "done"
+        ]
+      ]
+    },
+    {
+      "condition": "crop-both",
+      "arms": [
+        "both"
+      ],
+      "normalLooksAfterContinue": [
+        0,
+        0,
+        0
+      ],
+      "changedFixations": [
+        2,
+        2,
+        2
+      ],
+      "attentionLooks": [
+        2,
+        2,
+        2
+      ],
+      "newGoalEligibleAfterLook": [
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "trials": 3,
+      "requests": 24,
+      "objectiveSuccess": 3,
+      "looks": [
+        2,
+        2,
+        2
+      ],
+      "repeatedSemanticUIOperations": [
+        0,
+        0,
+        0
+      ],
+      "uiActions": [
+        2,
+        2,
+        2
+      ],
+      "termination": [
+        "SUBJECTIVE_DONE",
+        "SUBJECTIVE_DONE",
+        "SUBJECTIVE_DONE"
+      ],
+      "paths": [
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "look(320,225)",
+          "メール通知を停止する",
+          "done"
+        ],
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "look(320,225)",
+          "メール通知を停止する",
+          "done"
+        ],
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "look(320,225)",
+          "メール通知を停止する",
+          "done"
+        ]
+      ]
+    }
+  ],
+  "trials": [
+    {
+      "runId": "crop-control-seed-9001",
+      "condition": "crop-control",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 9001,
+      "termination": "STUCK",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 2,
+      "decisions": 1,
+      "uiActions": 0,
+      "looks": 0,
+      "repeatedSemanticUIOperations": 0,
+      "repeatedExactScreenUIOperations": 0,
+      "lookChecks": [],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.65,
+            "inspect": 0.35
+          },
+          "filtered": {
+            "continue": 0.65,
+            "inspect": 0.35
+          },
+          "adjustments": [],
+          "continueMass": 0.65,
+          "inspectionMass": 0.35,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 1,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "stuck"
+          },
+          "control": null,
+          "outcome": "STUCK",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "stuck",
+            "selectedChoice": "stuck"
+          }
+        }
+      ],
+      "arm": "control",
+      "observationContexts": [
+        {
+          "decision": 1,
+          "context": null,
+          "gateInputSha256": "e64dbdf4306f43fd7652ea3a3df3be90424e9e848b63665b2d80348d9b49b0e7"
+        }
+      ],
+      "normalLooksAfterContinue": 0,
+      "changedFixations": 0,
+      "lookDecisionsOnNotification": [],
+      "newGoalEligibleAfterLook": [],
+      "rawSha256": "de2488802268a15474bfe519387b116ed63613bfcd0071cbafd881e700546e8a",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9001\\crop-control-seed-9001\\result.json",
+      "status": "completed"
+    },
+    {
+      "runId": "crop-geometry-seed-9001",
+      "condition": "crop-geometry",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 9001,
+      "termination": "STUCK",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 2,
+      "decisions": 1,
+      "uiActions": 0,
+      "looks": 0,
+      "repeatedSemanticUIOperations": 0,
+      "repeatedExactScreenUIOperations": 0,
+      "lookChecks": [],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.62,
+            "inspect": 0.38
+          },
+          "filtered": {
+            "continue": 0.62,
+            "inspect": 0.38
+          },
+          "adjustments": [],
+          "continueMass": 0.62,
+          "inspectionMass": 0.38,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 1,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "stuck"
+          },
+          "control": null,
+          "outcome": "STUCK",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "stuck",
+            "selectedChoice": "stuck"
+          }
+        }
+      ],
+      "arm": "geometry",
+      "observationContexts": [
+        {
+          "decision": 1,
+          "context": {
+            "kind": "geometry-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 960,
+              "height": 620,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "transform": {
+                "offsetX": 160,
+                "offsetY": 140,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              }
+            }
+          },
+          "gateInputSha256": "6fa63dd4bea8a8d1518816d9dd963beb516a46bff44f92e60d7602aa2059851e"
+        }
+      ],
+      "normalLooksAfterContinue": 0,
+      "changedFixations": 0,
+      "lookDecisionsOnNotification": [],
+      "newGoalEligibleAfterLook": [],
+      "rawSha256": "65a147f9864c63eb7434f859c67fa89dafff6d646e77e733585ac805ce7aee65",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9001\\crop-geometry-seed-9001\\result.json",
+      "status": "completed"
+    },
+    {
+      "runId": "crop-actions-seed-9001",
+      "condition": "crop-actions",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 9001,
+      "termination": "SUBJECTIVE_DONE",
+      "valid": true,
+      "objectiveSuccess": true,
+      "subjectiveDone": true,
+      "apiCalls": 8,
+      "decisions": 5,
+      "uiActions": 2,
+      "looks": 2,
+      "repeatedSemanticUIOperations": 0,
+      "repeatedExactScreenUIOperations": 0,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        },
+        {
+          "nextDecision": 4,
+          "requestedFixation": {
+            "x": 320,
+            "y": 225
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      ],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "inspect",
+          "raw": {
+            "continue": 0.11,
+            "inspect": 0.89
+          },
+          "filtered": {
+            "continue": 0.11,
+            "inspect": 0.89
+          },
+          "adjustments": [],
+          "continueMass": 0.11,
+          "inspectionMass": 0.89,
+          "gazeSelection": {
+            "modelChoice": "look_3",
+            "raw": {
+              "look_0": 0.02,
+              "look_1": 0.04,
+              "look_2": 0.05,
+              "look_3": 0.89
+            },
+            "normalized": {
+              "look_0": 0.02,
+              "look_1": 0.04,
+              "look_2": 0.05,
+              "look_3": 0.89
+            },
+            "filtered": {
+              "look_0": 0.02,
+              "look_1": 0.04,
+              "look_2": 0.05,
+              "look_3": 0.89
+            },
+            "normalization": {
+              "rawTotal": 1,
+              "filteredTotal": 1
+            },
+            "adjustments": [],
+            "mode": "argmax",
+            "seed": 2816244572,
+            "drawIndex": 0,
+            "draw": null,
+            "selected": "look_3"
+          },
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 2,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.91,
+            "inspect": 0.09
+          },
+          "filtered": {
+            "continue": 0.91,
+            "inspect": 0.09
+          },
+          "adjustments": [],
+          "continueMass": 0.91,
+          "inspectionMass": 0.09,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 3,
+          "selected": "inspect",
+          "raw": {
+            "continue": 0.25,
+            "inspect": 0.75
+          },
+          "filtered": {
+            "continue": 0.25,
+            "inspect": 0.75
+          },
+          "adjustments": [],
+          "continueMass": 0.25,
+          "inspectionMass": 0.75,
+          "gazeSelection": {
+            "modelChoice": "look_0",
+            "raw": {
+              "look_0": 0.43,
+              "look_1": 0.26,
+              "look_2": 0.13,
+              "look_3": 0.18
+            },
+            "normalized": {
+              "look_0": 0.43,
+              "look_1": 0.26,
+              "look_2": 0.13,
+              "look_3": 0.18
+            },
+            "filtered": {
+              "look_0": 0.43,
+              "look_1": 0.26,
+              "look_2": 0.13,
+              "look_3": 0.18
+            },
+            "normalization": {
+              "rawTotal": 1,
+              "filteredTotal": 1
+            },
+            "adjustments": [],
+            "mode": "argmax",
+            "seed": 2816244572,
+            "drawIndex": 1,
+            "draw": null,
+            "selected": "look_0"
+          },
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 4,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.96,
+            "inspect": 0.04
+          },
+          "filtered": {
+            "continue": 0.96,
+            "inspect": 0.04
+          },
+          "adjustments": [],
+          "continueMass": 0.96,
+          "inspectionMass": 0.04,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 5,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.98,
+            "inspect": 0.02
+          },
+          "filtered": {
+            "continue": 0.98,
+            "inspect": 0.02
+          },
+          "adjustments": [],
+          "continueMass": 0.98,
+          "inspectionMass": 0.02,
+          "gazeSelection": null,
+          "reason": "confirmation",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 5,
+      "attentionLooks": 2,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "inspect",
+          "attentionReason": "goal",
+          "actionReason": null
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 320,
+              "y": 225
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "inspect",
+          "attentionReason": "uncertainty",
+          "actionReason": null
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "control": "メール通知を停止する",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e3",
+            "selectedChoice": "e3"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "done"
+          },
+          "control": null,
+          "outcome": "SUBJECTIVE_DONE",
+          "attention": "continue",
+          "attentionReason": "confirmation",
+          "actionReason": {
+            "category": "confirmation",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "done",
+            "selectedChoice": "done"
+          }
+        }
+      ],
+      "arm": "actions",
+      "observationContexts": [
+        {
+          "decision": 1,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e3",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e3"
+                  },
+                  "label": "[e3]"
+                },
+                {
+                  "id": "e4",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e4"
+                  },
+                  "label": "[e4]"
+                },
+                {
+                  "id": "e6",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e6"
+                  },
+                  "label": "[e6]"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "47b4bc1a71a3af32118d2cbb531c7ff1f5a9ca6bb0326e5b9c018a0f78aae09f"
+        },
+        {
+          "decision": 2,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e4",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e4"
+                  },
+                  "label": "[e4]"
+                },
+                {
+                  "id": "e5",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e5"
+                  },
+                  "label": "[e5]"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "f8ea4a72921910a815c749cb52a434102e05641534be8cc9410d335b8c2f687f"
+        },
+        {
+          "decision": 3,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "3e69874d3fb71e6776a86e1187e44c3186374ba45e7a1693db37127885bc8cb6"
+        },
+        {
+          "decision": 4,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e1",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e1"
+                  },
+                  "label": "[e1]"
+                },
+                {
+                  "id": "e2",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e2"
+                  },
+                  "label": "[e2]"
+                },
+                {
+                  "id": "e3",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e3"
+                  },
+                  "label": "[e3]"
+                },
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "c18ab72d4f70b3eb0e0fe9d4f67cb41ee359964320a2f79260f771a3ee4d35e5"
+        },
+        {
+          "decision": 5,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e1",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e1"
+                  },
+                  "label": "[e1]"
+                },
+                {
+                  "id": "e2",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e2"
+                  },
+                  "label": "[e2]"
+                },
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "9f79ba829c2976947f423ee045d53a8a6230ea7bb645af4036db7d404fe88209"
+        }
+      ],
+      "normalLooksAfterContinue": 0,
+      "changedFixations": 2,
+      "lookDecisionsOnNotification": [
+        3
+      ],
+      "newGoalEligibleAfterLook": [
+        3
+      ],
+      "rawSha256": "8b56310126c70f7b110125fd6d1f83a4cf3065bd2c08dae2aead8fea04451cd9",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9001\\crop-actions-seed-9001\\result.json",
+      "status": "completed"
+    },
+    {
+      "runId": "crop-both-seed-9001",
+      "condition": "crop-both",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 9001,
+      "termination": "SUBJECTIVE_DONE",
+      "valid": true,
+      "objectiveSuccess": true,
+      "subjectiveDone": true,
+      "apiCalls": 8,
+      "decisions": 5,
+      "uiActions": 2,
+      "looks": 2,
+      "repeatedSemanticUIOperations": 0,
+      "repeatedExactScreenUIOperations": 0,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        },
+        {
+          "nextDecision": 4,
+          "requestedFixation": {
+            "x": 320,
+            "y": 225
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      ],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "inspect",
+          "raw": {
+            "continue": 0.12,
+            "inspect": 0.88
+          },
+          "filtered": {
+            "continue": 0.12,
+            "inspect": 0.88
+          },
+          "adjustments": [],
+          "continueMass": 0.12,
+          "inspectionMass": 0.88,
+          "gazeSelection": {
+            "modelChoice": "look_3",
+            "raw": {
+              "look_0": 0.03,
+              "look_1": 0.26,
+              "look_2": 0.08,
+              "look_3": 0.63
+            },
+            "normalized": {
+              "look_0": 0.03,
+              "look_1": 0.26,
+              "look_2": 0.08,
+              "look_3": 0.63
+            },
+            "filtered": {
+              "look_0": 0.03,
+              "look_1": 0.26,
+              "look_2": 0.08,
+              "look_3": 0.63
+            },
+            "normalization": {
+              "rawTotal": 1,
+              "filteredTotal": 1
+            },
+            "adjustments": [],
+            "mode": "argmax",
+            "seed": 2816244572,
+            "drawIndex": 0,
+            "draw": null,
+            "selected": "look_3"
+          },
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 2,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.88,
+            "inspect": 0.12
+          },
+          "filtered": {
+            "continue": 0.88,
+            "inspect": 0.12
+          },
+          "adjustments": [],
+          "continueMass": 0.88,
+          "inspectionMass": 0.12,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 3,
+          "selected": "inspect",
+          "raw": {
+            "continue": 0.2,
+            "inspect": 0.8
+          },
+          "filtered": {
+            "continue": 0.2,
+            "inspect": 0.8
+          },
+          "adjustments": [],
+          "continueMass": 0.2,
+          "inspectionMass": 0.8,
+          "gazeSelection": {
+            "modelChoice": "look_0",
+            "raw": {
+              "look_0": 0.45,
+              "look_1": 0.3,
+              "look_2": 0.1,
+              "look_3": 0.15
+            },
+            "normalized": {
+              "look_0": 0.45,
+              "look_1": 0.3,
+              "look_2": 0.1,
+              "look_3": 0.15
+            },
+            "filtered": {
+              "look_0": 0.45,
+              "look_1": 0.3,
+              "look_2": 0.1,
+              "look_3": 0.15
+            },
+            "normalization": {
+              "rawTotal": 1,
+              "filteredTotal": 1
+            },
+            "adjustments": [],
+            "mode": "argmax",
+            "seed": 2816244572,
+            "drawIndex": 1,
+            "draw": null,
+            "selected": "look_0"
+          },
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 4,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.95,
+            "inspect": 0.05
+          },
+          "filtered": {
+            "continue": 0.95,
+            "inspect": 0.05
+          },
+          "adjustments": [],
+          "continueMass": 0.95,
+          "inspectionMass": 0.05,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 5,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.97,
+            "inspect": 0.03
+          },
+          "filtered": {
+            "continue": 0.97,
+            "inspect": 0.03
+          },
+          "adjustments": [],
+          "continueMass": 0.97,
+          "inspectionMass": 0.03,
+          "gazeSelection": null,
+          "reason": "confirmation",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 5,
+      "attentionLooks": 2,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "inspect",
+          "attentionReason": "goal",
+          "actionReason": null
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 320,
+              "y": 225
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "inspect",
+          "attentionReason": "uncertainty",
+          "actionReason": null
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "control": "メール通知を停止する",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e3",
+            "selectedChoice": "e3"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "done"
+          },
+          "control": null,
+          "outcome": "SUBJECTIVE_DONE",
+          "attention": "continue",
+          "attentionReason": "confirmation",
+          "actionReason": {
+            "category": "confirmation",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "done",
+            "selectedChoice": "done"
+          }
+        }
+      ],
+      "arm": "both",
+      "observationContexts": [
+        {
+          "decision": 1,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 960,
+              "height": 620,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "transform": {
+                "offsetX": 160,
+                "offsetY": 140,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e3",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e3"
+                  },
+                  "label": "[e3]"
+                },
+                {
+                  "id": "e4",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e4"
+                  },
+                  "label": "[e4]"
+                },
+                {
+                  "id": "e6",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e6"
+                  },
+                  "label": "[e6]"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "fa5155481bc6bfb64874705baf33dbb7b8b9913d9a65cbb0bda58fa74bb23cda"
+        },
+        {
+          "decision": 2,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 800,
+              "height": 535,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "transform": {
+                "offsetX": 480,
+                "offsetY": 365,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e4",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e4"
+                  },
+                  "label": "[e4]"
+                },
+                {
+                  "id": "e5",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e5"
+                  },
+                  "label": "[e5]"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "41fac6e891a246e02c7364c66b09d73bd0014f04feec82221ef43ef02c544cf9"
+        },
+        {
+          "decision": 3,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 800,
+              "height": 535,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "transform": {
+                "offsetX": 480,
+                "offsetY": 365,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "ffae5a7a36f488459838bf6180fe1ac1c64955690e77a9f7f63b03878ea708a1"
+        },
+        {
+          "decision": 4,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 800,
+              "height": 535,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 535
+              },
+              "transform": {
+                "offsetX": 0,
+                "offsetY": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 320,
+                "y": 225
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 535
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e1",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e1"
+                  },
+                  "label": "[e1]"
+                },
+                {
+                  "id": "e2",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e2"
+                  },
+                  "label": "[e2]"
+                },
+                {
+                  "id": "e3",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e3"
+                  },
+                  "label": "[e3]"
+                },
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "180adb042bbff202bf0a8ab5244639b1fe2c9db509327c5c697697428a3ee4fc"
+        },
+        {
+          "decision": 5,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 800,
+              "height": 535,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 535
+              },
+              "transform": {
+                "offsetX": 0,
+                "offsetY": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 320,
+                "y": 225
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 535
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e1",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e1"
+                  },
+                  "label": "[e1]"
+                },
+                {
+                  "id": "e2",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e2"
+                  },
+                  "label": "[e2]"
+                },
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "8c56abb9ac2f241831840d00e57cae9e04bc85c4fa96c44cef96d8ccd6b214c7"
+        }
+      ],
+      "normalLooksAfterContinue": 0,
+      "changedFixations": 2,
+      "lookDecisionsOnNotification": [
+        3
+      ],
+      "newGoalEligibleAfterLook": [
+        3
+      ],
+      "rawSha256": "253f6f89917b4a14b3d0f09bdf9fa6f0521ad5607327baf90cc5860edc50f95b",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9001\\crop-both-seed-9001\\result.json",
+      "status": "completed"
+    },
+    {
+      "runId": "crop-geometry-seed-9002",
+      "condition": "crop-geometry",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 9002,
+      "termination": "STUCK",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 2,
+      "decisions": 1,
+      "uiActions": 0,
+      "looks": 0,
+      "repeatedSemanticUIOperations": 0,
+      "repeatedExactScreenUIOperations": 0,
+      "lookChecks": [],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.55,
+            "inspect": 0.45
+          },
+          "filtered": {
+            "continue": 0.55,
+            "inspect": 0.45
+          },
+          "adjustments": [],
+          "continueMass": 0.55,
+          "inspectionMass": 0.45,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 1,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "stuck"
+          },
+          "control": null,
+          "outcome": "STUCK",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "stuck",
+            "selectedChoice": "stuck"
+          }
+        }
+      ],
+      "arm": "geometry",
+      "observationContexts": [
+        {
+          "decision": 1,
+          "context": {
+            "kind": "geometry-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 960,
+              "height": 620,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "transform": {
+                "offsetX": 160,
+                "offsetY": 140,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              }
+            }
+          },
+          "gateInputSha256": "6fa63dd4bea8a8d1518816d9dd963beb516a46bff44f92e60d7602aa2059851e"
+        }
+      ],
+      "normalLooksAfterContinue": 0,
+      "changedFixations": 0,
+      "lookDecisionsOnNotification": [],
+      "newGoalEligibleAfterLook": [],
+      "rawSha256": "910e42991c4e7c7d96fefb4abc0207605a9d92968d23d9986c88215e13bb63e7",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9002\\crop-geometry-seed-9002\\result.json",
+      "status": "completed"
+    },
+    {
+      "runId": "crop-actions-seed-9002",
+      "condition": "crop-actions",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 9002,
+      "termination": "SUBJECTIVE_DONE",
+      "valid": true,
+      "objectiveSuccess": true,
+      "subjectiveDone": true,
+      "apiCalls": 8,
+      "decisions": 5,
+      "uiActions": 2,
+      "looks": 2,
+      "repeatedSemanticUIOperations": 0,
+      "repeatedExactScreenUIOperations": 0,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        },
+        {
+          "nextDecision": 4,
+          "requestedFixation": {
+            "x": 320,
+            "y": 225
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      ],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "inspect",
+          "raw": {
+            "continue": 0.09,
+            "inspect": 0.91
+          },
+          "filtered": {
+            "continue": 0.09,
+            "inspect": 0.91
+          },
+          "adjustments": [],
+          "continueMass": 0.09,
+          "inspectionMass": 0.91,
+          "gazeSelection": {
+            "modelChoice": "look_3",
+            "raw": {
+              "look_0": 0.02,
+              "look_1": 0.03,
+              "look_2": 0.03,
+              "look_3": 0.92
+            },
+            "normalized": {
+              "look_0": 0.02,
+              "look_1": 0.03,
+              "look_2": 0.03,
+              "look_3": 0.92
+            },
+            "filtered": {
+              "look_0": 0.02,
+              "look_1": 0.03,
+              "look_2": 0.03,
+              "look_3": 0.92
+            },
+            "normalization": {
+              "rawTotal": 1,
+              "filteredTotal": 1
+            },
+            "adjustments": [],
+            "mode": "argmax",
+            "seed": 1532293198,
+            "drawIndex": 0,
+            "draw": null,
+            "selected": "look_3"
+          },
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 2,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.86,
+            "inspect": 0.14
+          },
+          "filtered": {
+            "continue": 0.86,
+            "inspect": 0.14
+          },
+          "adjustments": [],
+          "continueMass": 0.86,
+          "inspectionMass": 0.14,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 3,
+          "selected": "inspect",
+          "raw": {
+            "continue": 0.24,
+            "inspect": 0.76
+          },
+          "filtered": {
+            "continue": 0.24,
+            "inspect": 0.76
+          },
+          "adjustments": [],
+          "continueMass": 0.24,
+          "inspectionMass": 0.76,
+          "gazeSelection": {
+            "modelChoice": "look_0",
+            "raw": {
+              "look_0": 0.45,
+              "look_1": 0.27,
+              "look_2": 0.13,
+              "look_3": 0.15
+            },
+            "normalized": {
+              "look_0": 0.45,
+              "look_1": 0.27,
+              "look_2": 0.13,
+              "look_3": 0.15
+            },
+            "filtered": {
+              "look_0": 0.45,
+              "look_1": 0.27,
+              "look_2": 0.13,
+              "look_3": 0.15
+            },
+            "normalization": {
+              "rawTotal": 1,
+              "filteredTotal": 1
+            },
+            "adjustments": [],
+            "mode": "argmax",
+            "seed": 1532293198,
+            "drawIndex": 1,
+            "draw": null,
+            "selected": "look_0"
+          },
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 4,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.97,
+            "inspect": 0.03
+          },
+          "filtered": {
+            "continue": 0.97,
+            "inspect": 0.03
+          },
+          "adjustments": [],
+          "continueMass": 0.97,
+          "inspectionMass": 0.03,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 5,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.99,
+            "inspect": 0.01
+          },
+          "filtered": {
+            "continue": 0.99,
+            "inspect": 0.01
+          },
+          "adjustments": [],
+          "continueMass": 0.99,
+          "inspectionMass": 0.01,
+          "gazeSelection": null,
+          "reason": "confirmation",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 5,
+      "attentionLooks": 2,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "inspect",
+          "attentionReason": "goal",
+          "actionReason": null
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 320,
+              "y": 225
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "inspect",
+          "attentionReason": "uncertainty",
+          "actionReason": null
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "control": "メール通知を停止する",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e3",
+            "selectedChoice": "e3"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "done"
+          },
+          "control": null,
+          "outcome": "SUBJECTIVE_DONE",
+          "attention": "continue",
+          "attentionReason": "confirmation",
+          "actionReason": {
+            "category": "confirmation",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "done",
+            "selectedChoice": "done"
+          }
+        }
+      ],
+      "arm": "actions",
+      "observationContexts": [
+        {
+          "decision": 1,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e3",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e3"
+                  },
+                  "label": "[e3]"
+                },
+                {
+                  "id": "e4",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e4"
+                  },
+                  "label": "[e4]"
+                },
+                {
+                  "id": "e6",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e6"
+                  },
+                  "label": "[e6]"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "47b4bc1a71a3af32118d2cbb531c7ff1f5a9ca6bb0326e5b9c018a0f78aae09f"
+        },
+        {
+          "decision": 2,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e4",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e4"
+                  },
+                  "label": "[e4]"
+                },
+                {
+                  "id": "e5",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e5"
+                  },
+                  "label": "[e5]"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "f8ea4a72921910a815c749cb52a434102e05641534be8cc9410d335b8c2f687f"
+        },
+        {
+          "decision": 3,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "3e69874d3fb71e6776a86e1187e44c3186374ba45e7a1693db37127885bc8cb6"
+        },
+        {
+          "decision": 4,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e1",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e1"
+                  },
+                  "label": "[e1]"
+                },
+                {
+                  "id": "e2",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e2"
+                  },
+                  "label": "[e2]"
+                },
+                {
+                  "id": "e3",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e3"
+                  },
+                  "label": "[e3]"
+                },
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "c18ab72d4f70b3eb0e0fe9d4f67cb41ee359964320a2f79260f771a3ee4d35e5"
+        },
+        {
+          "decision": 5,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e1",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e1"
+                  },
+                  "label": "[e1]"
+                },
+                {
+                  "id": "e2",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e2"
+                  },
+                  "label": "[e2]"
+                },
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "9f79ba829c2976947f423ee045d53a8a6230ea7bb645af4036db7d404fe88209"
+        }
+      ],
+      "normalLooksAfterContinue": 0,
+      "changedFixations": 2,
+      "lookDecisionsOnNotification": [
+        3
+      ],
+      "newGoalEligibleAfterLook": [
+        3
+      ],
+      "rawSha256": "a8f397836e1cc07732726e0bc3c2e4f5e7825f18729a08007233030b66122027",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9002\\crop-actions-seed-9002\\result.json",
+      "status": "completed"
+    },
+    {
+      "runId": "crop-both-seed-9002",
+      "condition": "crop-both",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 9002,
+      "termination": "SUBJECTIVE_DONE",
+      "valid": true,
+      "objectiveSuccess": true,
+      "subjectiveDone": true,
+      "apiCalls": 8,
+      "decisions": 5,
+      "uiActions": 2,
+      "looks": 2,
+      "repeatedSemanticUIOperations": 0,
+      "repeatedExactScreenUIOperations": 0,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        },
+        {
+          "nextDecision": 4,
+          "requestedFixation": {
+            "x": 320,
+            "y": 225
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      ],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "inspect",
+          "raw": {
+            "continue": 0.11,
+            "inspect": 0.89
+          },
+          "filtered": {
+            "continue": 0.11,
+            "inspect": 0.89
+          },
+          "adjustments": [],
+          "continueMass": 0.11,
+          "inspectionMass": 0.89,
+          "gazeSelection": {
+            "modelChoice": "look_3",
+            "raw": {
+              "look_0": 0.03,
+              "look_1": 0.35,
+              "look_2": 0.08,
+              "look_3": 0.54
+            },
+            "normalized": {
+              "look_0": 0.03,
+              "look_1": 0.35,
+              "look_2": 0.08,
+              "look_3": 0.54
+            },
+            "filtered": {
+              "look_0": 0.03,
+              "look_1": 0.35,
+              "look_2": 0.08,
+              "look_3": 0.54
+            },
+            "normalization": {
+              "rawTotal": 1,
+              "filteredTotal": 1
+            },
+            "adjustments": [],
+            "mode": "argmax",
+            "seed": 1532293198,
+            "drawIndex": 0,
+            "draw": null,
+            "selected": "look_3"
+          },
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 2,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.86,
+            "inspect": 0.14
+          },
+          "filtered": {
+            "continue": 0.86,
+            "inspect": 0.14
+          },
+          "adjustments": [],
+          "continueMass": 0.86,
+          "inspectionMass": 0.14,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 3,
+          "selected": "inspect",
+          "raw": {
+            "continue": 0.25,
+            "inspect": 0.75
+          },
+          "filtered": {
+            "continue": 0.25,
+            "inspect": 0.75
+          },
+          "adjustments": [],
+          "continueMass": 0.25,
+          "inspectionMass": 0.75,
+          "gazeSelection": {
+            "modelChoice": "look_0",
+            "raw": {
+              "look_0": 0.43,
+              "look_1": 0.32,
+              "look_2": 0.12,
+              "look_3": 0.13
+            },
+            "normalized": {
+              "look_0": 0.43,
+              "look_1": 0.32,
+              "look_2": 0.12,
+              "look_3": 0.13
+            },
+            "filtered": {
+              "look_0": 0.43,
+              "look_1": 0.32,
+              "look_2": 0.12,
+              "look_3": 0.13
+            },
+            "normalization": {
+              "rawTotal": 1,
+              "filteredTotal": 1
+            },
+            "adjustments": [],
+            "mode": "argmax",
+            "seed": 1532293198,
+            "drawIndex": 1,
+            "draw": null,
+            "selected": "look_0"
+          },
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 4,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.95,
+            "inspect": 0.05
+          },
+          "filtered": {
+            "continue": 0.95,
+            "inspect": 0.05
+          },
+          "adjustments": [],
+          "continueMass": 0.95,
+          "inspectionMass": 0.05,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 5,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.98,
+            "inspect": 0.02
+          },
+          "filtered": {
+            "continue": 0.98,
+            "inspect": 0.02
+          },
+          "adjustments": [],
+          "continueMass": 0.98,
+          "inspectionMass": 0.02,
+          "gazeSelection": null,
+          "reason": "confirmation",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 5,
+      "attentionLooks": 2,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "inspect",
+          "attentionReason": "goal",
+          "actionReason": null
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 320,
+              "y": 225
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "inspect",
+          "attentionReason": "uncertainty",
+          "actionReason": null
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "control": "メール通知を停止する",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e3",
+            "selectedChoice": "e3"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "done"
+          },
+          "control": null,
+          "outcome": "SUBJECTIVE_DONE",
+          "attention": "continue",
+          "attentionReason": "confirmation",
+          "actionReason": {
+            "category": "confirmation",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "done",
+            "selectedChoice": "done"
+          }
+        }
+      ],
+      "arm": "both",
+      "observationContexts": [
+        {
+          "decision": 1,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 960,
+              "height": 620,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "transform": {
+                "offsetX": 160,
+                "offsetY": 140,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e3",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e3"
+                  },
+                  "label": "[e3]"
+                },
+                {
+                  "id": "e4",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e4"
+                  },
+                  "label": "[e4]"
+                },
+                {
+                  "id": "e6",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e6"
+                  },
+                  "label": "[e6]"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "fa5155481bc6bfb64874705baf33dbb7b8b9913d9a65cbb0bda58fa74bb23cda"
+        },
+        {
+          "decision": 2,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 800,
+              "height": 535,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "transform": {
+                "offsetX": 480,
+                "offsetY": 365,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e4",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e4"
+                  },
+                  "label": "[e4]"
+                },
+                {
+                  "id": "e5",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e5"
+                  },
+                  "label": "[e5]"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "41fac6e891a246e02c7364c66b09d73bd0014f04feec82221ef43ef02c544cf9"
+        },
+        {
+          "decision": 3,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 800,
+              "height": 535,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "transform": {
+                "offsetX": 480,
+                "offsetY": 365,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "ffae5a7a36f488459838bf6180fe1ac1c64955690e77a9f7f63b03878ea708a1"
+        },
+        {
+          "decision": 4,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 800,
+              "height": 535,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 535
+              },
+              "transform": {
+                "offsetX": 0,
+                "offsetY": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 320,
+                "y": 225
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 535
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e1",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e1"
+                  },
+                  "label": "[e1]"
+                },
+                {
+                  "id": "e2",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e2"
+                  },
+                  "label": "[e2]"
+                },
+                {
+                  "id": "e3",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e3"
+                  },
+                  "label": "[e3]"
+                },
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "180adb042bbff202bf0a8ab5244639b1fe2c9db509327c5c697697428a3ee4fc"
+        },
+        {
+          "decision": 5,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 800,
+              "height": 535,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 535
+              },
+              "transform": {
+                "offsetX": 0,
+                "offsetY": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 320,
+                "y": 225
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 535
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e1",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e1"
+                  },
+                  "label": "[e1]"
+                },
+                {
+                  "id": "e2",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e2"
+                  },
+                  "label": "[e2]"
+                },
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "8c56abb9ac2f241831840d00e57cae9e04bc85c4fa96c44cef96d8ccd6b214c7"
+        }
+      ],
+      "normalLooksAfterContinue": 0,
+      "changedFixations": 2,
+      "lookDecisionsOnNotification": [
+        3
+      ],
+      "newGoalEligibleAfterLook": [
+        3
+      ],
+      "rawSha256": "843beb9f7a7203df3bccf9bf6d56a9ba352b340f067b50ade01ae093543051c4",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9002\\crop-both-seed-9002\\result.json",
+      "status": "completed"
+    },
+    {
+      "runId": "crop-control-seed-9002",
+      "condition": "crop-control",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 9002,
+      "termination": "STUCK",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 2,
+      "decisions": 1,
+      "uiActions": 0,
+      "looks": 0,
+      "repeatedSemanticUIOperations": 0,
+      "repeatedExactScreenUIOperations": 0,
+      "lookChecks": [],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.63,
+            "inspect": 0.37
+          },
+          "filtered": {
+            "continue": 0.63,
+            "inspect": 0.37
+          },
+          "adjustments": [],
+          "continueMass": 0.63,
+          "inspectionMass": 0.37,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 1,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "stuck"
+          },
+          "control": null,
+          "outcome": "STUCK",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "stuck",
+            "selectedChoice": "stuck"
+          }
+        }
+      ],
+      "arm": "control",
+      "observationContexts": [
+        {
+          "decision": 1,
+          "context": null,
+          "gateInputSha256": "e64dbdf4306f43fd7652ea3a3df3be90424e9e848b63665b2d80348d9b49b0e7"
+        }
+      ],
+      "normalLooksAfterContinue": 0,
+      "changedFixations": 0,
+      "lookDecisionsOnNotification": [],
+      "newGoalEligibleAfterLook": [],
+      "rawSha256": "d7b22fcb662a8d6c05dbe9bf4c6887fb5f8b968784cbd64b859279634a2a3395",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9002\\crop-control-seed-9002\\result.json",
+      "status": "completed"
+    },
+    {
+      "runId": "crop-actions-seed-9003",
+      "condition": "crop-actions",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 9003,
+      "termination": "SUBJECTIVE_DONE",
+      "valid": true,
+      "objectiveSuccess": true,
+      "subjectiveDone": true,
+      "apiCalls": 8,
+      "decisions": 5,
+      "uiActions": 2,
+      "looks": 2,
+      "repeatedSemanticUIOperations": 0,
+      "repeatedExactScreenUIOperations": 0,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        },
+        {
+          "nextDecision": 4,
+          "requestedFixation": {
+            "x": 320,
+            "y": 225
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      ],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "inspect",
+          "raw": {
+            "continue": 0.12,
+            "inspect": 0.88
+          },
+          "filtered": {
+            "continue": 0.12,
+            "inspect": 0.88
+          },
+          "adjustments": [],
+          "continueMass": 0.12,
+          "inspectionMass": 0.88,
+          "gazeSelection": {
+            "modelChoice": "look_3",
+            "raw": {
+              "look_0": 0.02,
+              "look_1": 0.03,
+              "look_2": 0.04,
+              "look_3": 0.91
+            },
+            "normalized": {
+              "look_0": 0.02,
+              "look_1": 0.03,
+              "look_2": 0.04,
+              "look_3": 0.91
+            },
+            "filtered": {
+              "look_0": 0.02,
+              "look_1": 0.03,
+              "look_2": 0.04,
+              "look_3": 0.91
+            },
+            "normalization": {
+              "rawTotal": 1,
+              "filteredTotal": 1
+            },
+            "adjustments": [],
+            "mode": "argmax",
+            "seed": 4007387981,
+            "drawIndex": 0,
+            "draw": null,
+            "selected": "look_3"
+          },
+          "reason": "efficiency",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 2,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.88,
+            "inspect": 0.12
+          },
+          "filtered": {
+            "continue": 0.88,
+            "inspect": 0.12
+          },
+          "adjustments": [],
+          "continueMass": 0.88,
+          "inspectionMass": 0.12,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 3,
+          "selected": "inspect",
+          "raw": {
+            "continue": 0.27,
+            "inspect": 0.73
+          },
+          "filtered": {
+            "continue": 0.27,
+            "inspect": 0.73
+          },
+          "adjustments": [],
+          "continueMass": 0.27,
+          "inspectionMass": 0.73,
+          "gazeSelection": {
+            "modelChoice": "look_0",
+            "raw": {
+              "look_0": 0.42,
+              "look_1": 0.27,
+              "look_2": 0.13,
+              "look_3": 0.18
+            },
+            "normalized": {
+              "look_0": 0.42,
+              "look_1": 0.27,
+              "look_2": 0.13,
+              "look_3": 0.18
+            },
+            "filtered": {
+              "look_0": 0.42,
+              "look_1": 0.27,
+              "look_2": 0.13,
+              "look_3": 0.18
+            },
+            "normalization": {
+              "rawTotal": 1,
+              "filteredTotal": 1
+            },
+            "adjustments": [],
+            "mode": "argmax",
+            "seed": 4007387981,
+            "drawIndex": 1,
+            "draw": null,
+            "selected": "look_0"
+          },
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 4,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.94,
+            "inspect": 0.06
+          },
+          "filtered": {
+            "continue": 0.94,
+            "inspect": 0.06
+          },
+          "adjustments": [],
+          "continueMass": 0.94,
+          "inspectionMass": 0.06,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 5,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.99,
+            "inspect": 0.01
+          },
+          "filtered": {
+            "continue": 0.99,
+            "inspect": 0.01
+          },
+          "adjustments": [],
+          "continueMass": 0.99,
+          "inspectionMass": 0.01,
+          "gazeSelection": null,
+          "reason": "confirmation",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 5,
+      "attentionLooks": 2,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "inspect",
+          "attentionReason": "efficiency",
+          "actionReason": null
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 320,
+              "y": 225
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "inspect",
+          "attentionReason": "uncertainty",
+          "actionReason": null
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "control": "メール通知を停止する",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e3",
+            "selectedChoice": "e3"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "done"
+          },
+          "control": null,
+          "outcome": "SUBJECTIVE_DONE",
+          "attention": "continue",
+          "attentionReason": "confirmation",
+          "actionReason": {
+            "category": "confirmation",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "done",
+            "selectedChoice": "done"
+          }
+        }
+      ],
+      "arm": "actions",
+      "observationContexts": [
+        {
+          "decision": 1,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e3",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e3"
+                  },
+                  "label": "[e3]"
+                },
+                {
+                  "id": "e4",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e4"
+                  },
+                  "label": "[e4]"
+                },
+                {
+                  "id": "e6",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e6"
+                  },
+                  "label": "[e6]"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "47b4bc1a71a3af32118d2cbb531c7ff1f5a9ca6bb0326e5b9c018a0f78aae09f"
+        },
+        {
+          "decision": 2,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e4",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e4"
+                  },
+                  "label": "[e4]"
+                },
+                {
+                  "id": "e5",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e5"
+                  },
+                  "label": "[e5]"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "f8ea4a72921910a815c749cb52a434102e05641534be8cc9410d335b8c2f687f"
+        },
+        {
+          "decision": 3,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "3e69874d3fb71e6776a86e1187e44c3186374ba45e7a1693db37127885bc8cb6"
+        },
+        {
+          "decision": 4,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e1",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e1"
+                  },
+                  "label": "[e1]"
+                },
+                {
+                  "id": "e2",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e2"
+                  },
+                  "label": "[e2]"
+                },
+                {
+                  "id": "e3",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e3"
+                  },
+                  "label": "[e3]"
+                },
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "c18ab72d4f70b3eb0e0fe9d4f67cb41ee359964320a2f79260f771a3ee4d35e5"
+        },
+        {
+          "decision": 5,
+          "context": {
+            "kind": "actions-v1",
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e1",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e1"
+                  },
+                  "label": "[e1]"
+                },
+                {
+                  "id": "e2",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e2"
+                  },
+                  "label": "[e2]"
+                },
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "9f79ba829c2976947f423ee045d53a8a6230ea7bb645af4036db7d404fe88209"
+        }
+      ],
+      "normalLooksAfterContinue": 0,
+      "changedFixations": 2,
+      "lookDecisionsOnNotification": [
+        3
+      ],
+      "newGoalEligibleAfterLook": [
+        3
+      ],
+      "rawSha256": "c7a60a8562f4b4ae6337b46363ea4f806a7b0cc5fa9655e6bc52cc689dd9ac6c",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9003\\crop-actions-seed-9003\\result.json",
+      "status": "completed"
+    },
+    {
+      "runId": "crop-both-seed-9003",
+      "condition": "crop-both",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 9003,
+      "termination": "SUBJECTIVE_DONE",
+      "valid": true,
+      "objectiveSuccess": true,
+      "subjectiveDone": true,
+      "apiCalls": 8,
+      "decisions": 5,
+      "uiActions": 2,
+      "looks": 2,
+      "repeatedSemanticUIOperations": 0,
+      "repeatedExactScreenUIOperations": 0,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        },
+        {
+          "nextDecision": 4,
+          "requestedFixation": {
+            "x": 320,
+            "y": 225
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      ],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "inspect",
+          "raw": {
+            "continue": 0.11,
+            "inspect": 0.89
+          },
+          "filtered": {
+            "continue": 0.11,
+            "inspect": 0.89
+          },
+          "adjustments": [],
+          "continueMass": 0.11,
+          "inspectionMass": 0.89,
+          "gazeSelection": {
+            "modelChoice": "look_3",
+            "raw": {
+              "look_0": 0.03,
+              "look_1": 0.21,
+              "look_2": 0.08,
+              "look_3": 0.68
+            },
+            "normalized": {
+              "look_0": 0.03,
+              "look_1": 0.21,
+              "look_2": 0.08,
+              "look_3": 0.68
+            },
+            "filtered": {
+              "look_0": 0.03,
+              "look_1": 0.21,
+              "look_2": 0.08,
+              "look_3": 0.68
+            },
+            "normalization": {
+              "rawTotal": 1,
+              "filteredTotal": 1
+            },
+            "adjustments": [],
+            "mode": "argmax",
+            "seed": 4007387981,
+            "drawIndex": 0,
+            "draw": null,
+            "selected": "look_3"
+          },
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 2,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.86,
+            "inspect": 0.14
+          },
+          "filtered": {
+            "continue": 0.86,
+            "inspect": 0.14
+          },
+          "adjustments": [],
+          "continueMass": 0.86,
+          "inspectionMass": 0.14,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 3,
+          "selected": "inspect",
+          "raw": {
+            "continue": 0.27,
+            "inspect": 0.73
+          },
+          "filtered": {
+            "continue": 0.27,
+            "inspect": 0.73
+          },
+          "adjustments": [],
+          "continueMass": 0.27,
+          "inspectionMass": 0.73,
+          "gazeSelection": {
+            "modelChoice": "look_0",
+            "raw": {
+              "look_0": 0.43,
+              "look_1": 0.35,
+              "look_2": 0.11,
+              "look_3": 0.11
+            },
+            "normalized": {
+              "look_0": 0.43,
+              "look_1": 0.35,
+              "look_2": 0.11,
+              "look_3": 0.11
+            },
+            "filtered": {
+              "look_0": 0.43,
+              "look_1": 0.35,
+              "look_2": 0.11,
+              "look_3": 0.11
+            },
+            "normalization": {
+              "rawTotal": 1,
+              "filteredTotal": 1
+            },
+            "adjustments": [],
+            "mode": "argmax",
+            "seed": 4007387981,
+            "drawIndex": 1,
+            "draw": null,
+            "selected": "look_0"
+          },
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 4,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.94,
+            "inspect": 0.06
+          },
+          "filtered": {
+            "continue": 0.94,
+            "inspect": 0.06
+          },
+          "adjustments": [],
+          "continueMass": 0.94,
+          "inspectionMass": 0.06,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 5,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.98,
+            "inspect": 0.02
+          },
+          "filtered": {
+            "continue": 0.98,
+            "inspect": 0.02
+          },
+          "adjustments": [],
+          "continueMass": 0.98,
+          "inspectionMass": 0.02,
+          "gazeSelection": null,
+          "reason": "confirmation",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 5,
+      "attentionLooks": 2,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "inspect",
+          "attentionReason": "goal",
+          "actionReason": null
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 320,
+              "y": 225
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "inspect",
+          "attentionReason": "uncertainty",
+          "actionReason": null
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "control": "メール通知を停止する",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e3",
+            "selectedChoice": "e3"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "done"
+          },
+          "control": null,
+          "outcome": "SUBJECTIVE_DONE",
+          "attention": "continue",
+          "attentionReason": "confirmation",
+          "actionReason": {
+            "category": "confirmation",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "done",
+            "selectedChoice": "done"
+          }
+        }
+      ],
+      "arm": "both",
+      "observationContexts": [
+        {
+          "decision": 1,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 960,
+              "height": 620,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "transform": {
+                "offsetX": 160,
+                "offsetY": 140,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e3",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e3"
+                  },
+                  "label": "[e3]"
+                },
+                {
+                  "id": "e4",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e4"
+                  },
+                  "label": "[e4]"
+                },
+                {
+                  "id": "e6",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e6"
+                  },
+                  "label": "[e6]"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "fa5155481bc6bfb64874705baf33dbb7b8b9913d9a65cbb0bda58fa74bb23cda"
+        },
+        {
+          "decision": 2,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 800,
+              "height": 535,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "transform": {
+                "offsetX": 480,
+                "offsetY": 365,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e4",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e4"
+                  },
+                  "label": "[e4]"
+                },
+                {
+                  "id": "e5",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e5"
+                  },
+                  "label": "[e5]"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "41fac6e891a246e02c7364c66b09d73bd0014f04feec82221ef43ef02c544cf9"
+        },
+        {
+          "decision": 3,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 800,
+              "height": 535,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              },
+              "transform": {
+                "offsetX": 480,
+                "offsetY": 365,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 960,
+                "y": 675
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 480,
+                "y": 365,
+                "width": 800,
+                "height": 535
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "ffae5a7a36f488459838bf6180fe1ac1c64955690e77a9f7f63b03878ea708a1"
+        },
+        {
+          "decision": 4,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 800,
+              "height": 535,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 535
+              },
+              "transform": {
+                "offsetX": 0,
+                "offsetY": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 320,
+                "y": 225
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 535
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e1",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e1"
+                  },
+                  "label": "[e1]"
+                },
+                {
+                  "id": "e2",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e2"
+                  },
+                  "label": "[e2]"
+                },
+                {
+                  "id": "e3",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e3"
+                  },
+                  "label": "[e3]"
+                },
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "180adb042bbff202bf0a8ab5244639b1fe2c9db509327c5c697697428a3ee4fc"
+        },
+        {
+          "decision": 5,
+          "context": {
+            "kind": "geometry-actions-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 800,
+              "height": 535,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 535
+              },
+              "transform": {
+                "offsetX": 0,
+                "offsetY": 0,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 320,
+                "y": 225
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 0,
+                "y": 0,
+                "width": 800,
+                "height": 535
+              }
+            },
+            "actions": {
+              "currentNonLookCandidates": [
+                {
+                  "id": "e1",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e1"
+                  },
+                  "label": "[e1]"
+                },
+                {
+                  "id": "e2",
+                  "action": {
+                    "type": "click",
+                    "elementId": "e2"
+                  },
+                  "label": "[e2]"
+                },
+                {
+                  "id": "back",
+                  "action": {
+                    "type": "back"
+                  },
+                  "label": "back"
+                },
+                {
+                  "id": "done",
+                  "action": {
+                    "type": "done"
+                  },
+                  "label": "done"
+                },
+                {
+                  "id": "stuck",
+                  "action": {
+                    "type": "stuck"
+                  },
+                  "label": "stuck"
+                }
+              ],
+              "instructions": [
+                "These are the currently offered non-look actions, described only by anonymous IDs and action types. Only the offered click IDs are currently operable click targets.",
+                "Visible partial control text alone does not make a control an offered click target; use only currently offered click IDs. A constrained-view click candidate requires the control body to be fully inside the clear region; if a badge is provided, it must also be fully inside the clear region.",
+                "The absence of an offered click ID does not establish that its control or an unobserved area is absent from the page. Do not infer any omitted control name, location or count.",
+                "Use the current image, bounded observation memory, persona and goal to judge whether a current non-look action can be chosen or whether another offered look would provide useful evidence. This context does not choose an action or look point."
+              ]
+            }
+          },
+          "gateInputSha256": "8c56abb9ac2f241831840d00e57cae9e04bc85c4fa96c44cef96d8ccd6b214c7"
+        }
+      ],
+      "normalLooksAfterContinue": 0,
+      "changedFixations": 2,
+      "lookDecisionsOnNotification": [
+        3
+      ],
+      "newGoalEligibleAfterLook": [
+        3
+      ],
+      "rawSha256": "412e7028c8fc468ee6b68b88dc1a340ca4817b2f2963679d1f657db9e5e57e15",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9003\\crop-both-seed-9003\\result.json",
+      "status": "completed"
+    },
+    {
+      "runId": "crop-control-seed-9003",
+      "condition": "crop-control",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 9003,
+      "termination": "STUCK",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 2,
+      "decisions": 1,
+      "uiActions": 0,
+      "looks": 0,
+      "repeatedSemanticUIOperations": 0,
+      "repeatedExactScreenUIOperations": 0,
+      "lookChecks": [],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.73,
+            "inspect": 0.27
+          },
+          "filtered": {
+            "continue": 0.73,
+            "inspect": 0.27
+          },
+          "adjustments": [],
+          "continueMass": 0.73,
+          "inspectionMass": 0.27,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 1,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "stuck"
+          },
+          "control": null,
+          "outcome": "STUCK",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "stuck",
+            "selectedChoice": "stuck"
+          }
+        }
+      ],
+      "arm": "control",
+      "observationContexts": [
+        {
+          "decision": 1,
+          "context": null,
+          "gateInputSha256": "e64dbdf4306f43fd7652ea3a3df3be90424e9e848b63665b2d80348d9b49b0e7"
+        }
+      ],
+      "normalLooksAfterContinue": 0,
+      "changedFixations": 0,
+      "lookDecisionsOnNotification": [],
+      "newGoalEligibleAfterLook": [],
+      "rawSha256": "a59a5e050d6d72e15fe96bdd6dc9d46181beb0aa58ecd11267bbe27541fe6d8a",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9003\\crop-control-seed-9003\\result.json",
+      "status": "completed"
+    },
+    {
+      "runId": "crop-geometry-seed-9003",
+      "condition": "crop-geometry",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 9003,
+      "termination": "STUCK",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 2,
+      "decisions": 1,
+      "uiActions": 0,
+      "looks": 0,
+      "repeatedSemanticUIOperations": 0,
+      "repeatedExactScreenUIOperations": 0,
+      "lookChecks": [],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.58,
+            "inspect": 0.42
+          },
+          "filtered": {
+            "continue": 0.58,
+            "inspect": 0.42
+          },
+          "adjustments": [],
+          "continueMass": 0.58,
+          "inspectionMass": 0.42,
+          "gazeSelection": null,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 1,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "stuck"
+          },
+          "control": null,
+          "outcome": "STUCK",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "stuck",
+            "selectedChoice": "stuck"
+          }
+        }
+      ],
+      "arm": "geometry",
+      "observationContexts": [
+        {
+          "decision": 1,
+          "context": {
+            "kind": "geometry-v1",
+            "geometry": {
+              "mode": "crop",
+              "width": 960,
+              "height": 620,
+              "viewport": {
+                "width": 1280,
+                "height": 900
+              },
+              "clearRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              },
+              "transform": {
+                "offsetX": 160,
+                "offsetY": 140,
+                "scaleX": 1,
+                "scaleY": 1
+              },
+              "fixation": {
+                "x": 640,
+                "y": 450
+              },
+              "coordinateFrames": {
+                "image": "image-pixels",
+                "clearRect": "viewport-pixels",
+                "fixation": "viewport-pixels",
+                "look": "viewport-pixels"
+              },
+              "instructions": [
+                "mode describes the delivered image: crop contains only the indicated viewport rectangle; full contains the viewport; foveated contains the viewport with only clearRect clear and the periphery blurred.",
+                "croppedImageCoversRect gives the viewport rectangle covered by the delivered image. An image pixel maps to viewport coordinates as x * scaleX + offsetX, y * scaleY + offsetY.",
+                "A crop edge is not necessarily a viewport edge or a page edge. Areas outside the delivered crop are unobserved and unknown; their contents and available controls cannot be inferred.",
+                "Fixation, clearRect and offered look points use viewport coordinates. Look points do not use crop-local image coordinates; choose only among the existing offered look candidates."
+              ],
+              "croppedImageCoversRect": {
+                "x": 160,
+                "y": 140,
+                "width": 960,
+                "height": 620
+              }
+            }
+          },
+          "gateInputSha256": "6fa63dd4bea8a8d1518816d9dd963beb516a46bff44f92e60d7602aa2059851e"
+        }
+      ],
+      "normalLooksAfterContinue": 0,
+      "changedFixations": 0,
+      "lookDecisionsOnNotification": [],
+      "newGoalEligibleAfterLook": [],
+      "rawSha256": "bedaab0f92ab81182cd50b18dcc34e93ef70d28f84d6b19ab62de54e51928d8e",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9003\\crop-geometry-seed-9003\\result.json",
+      "status": "completed"
+    }
+  ],
+  "limitations": [
+    "External model seed uncontrolled; 3 repetitions per condition",
+    "One goal-policy fixture and beginner persona only",
+    "Additional inference stage is part of intervention; identical input output determinism not assumed",
+    "No human validity claim"
+  ]
+}

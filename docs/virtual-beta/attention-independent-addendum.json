@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "source": {
+    "revision": "9e403ae9ce1f1e29840481a06f1f2504b7cf3058",
+    "sourceHash": "3decbfde991586a623258781f440024255dda55c125ca293c1c950f2a9b6d46a"
+  },
+  "gateRequests": 36,
+  "continueSelections": 36,
+  "reasonCounts": [
+    {
+      "reason": "goal",
+      "count": 24
+    },
+    {
+      "reason": "uncertainty",
+      "count": 12
+    }
+  ],
+  "uncertaintySelfReports": 12,
+  "combinedLookMassExceedsContinue": 4,
+  "pairs": [
+    {
+      "seed": 5001,
+      "vision": "crop",
+      "commonSemanticDecisions": 6,
+      "commonUIOperations": 5,
+      "offDecisions": 7,
+      "onDecisions": 6,
+      "offTermination": "UI_ACTION_LIMIT",
+      "onTermination": "API_LIMIT",
+      "additionalOffAction": {
+        "type": "back",
+        "point": null,
+        "control": null,
+        "direction": null
+      }
+    },
+    {
+      "seed": 5001,
+      "vision": "foveated",
+      "commonSemanticDecisions": 6,
+      "commonUIOperations": 5,
+      "offDecisions": 7,
+      "onDecisions": 6,
+      "offTermination": "UI_ACTION_LIMIT",
+      "onTermination": "API_LIMIT",
+      "additionalOffAction": {
+        "type": "back",
+        "point": null,
+        "control": null,
+        "direction": null
+      }
+    },
+    {
+      "seed": 5002,
+      "vision": "crop",
+      "commonSemanticDecisions": 6,
+      "commonUIOperations": 5,
+      "offDecisions": 7,
+      "onDecisions": 6,
+      "offTermination": "UI_ACTION_LIMIT",
+      "onTermination": "API_LIMIT",
+      "additionalOffAction": {
+        "type": "back",
+        "point": null,
+        "control": null,
+        "direction": null
+      }
+    },
+    {
+      "seed": 5002,
+      "vision": "foveated",
+      "commonSemanticDecisions": 6,
+      "commonUIOperations": 5,
+      "offDecisions": 7,
+      "onDecisions": 6,
+      "offTermination": "UI_ACTION_LIMIT",
+      "onTermination": "API_LIMIT",
+      "additionalOffAction": {
+        "type": "back",
+        "point": null,
+        "control": null,
+        "direction": null
+      }
+    },
+    {
+      "seed": 5003,
+      "vision": "crop",
+      "commonSemanticDecisions": 6,
+      "commonUIOperations": 5,
+      "offDecisions": 7,
+      "onDecisions": 6,
+      "offTermination": "UI_ACTION_LIMIT",
+      "onTermination": "API_LIMIT",
+      "additionalOffAction": {
+        "type": "back",
+        "point": null,
+        "control": null,
+        "direction": null
+      }
+    },
+    {
+      "seed": 5003,
+      "vision": "foveated",
+      "commonSemanticDecisions": 6,
+      "commonUIOperations": 5,
+      "offDecisions": 7,
+      "onDecisions": 6,
+      "offTermination": "UI_ACTION_LIMIT",
+      "onTermination": "API_LIMIT",
+      "additionalOffAction": {
+        "type": "back",
+        "point": null,
+        "control": null,
+        "direction": null
+      }
+    }
+  ],
+  "gateReasonRows": [
+    {
+      "runId": "crop-attention-seed-5001",
+      "decision": 1,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "decision": 2,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "decision": 3,
+      "selected": "continue",
+      "reason": "uncertainty"
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "decision": 4,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "decision": 5,
+      "selected": "continue",
+      "reason": "uncertainty"
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "decision": 6,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "decision": 1,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "decision": 2,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "decision": 3,
+      "selected": "continue",
+      "reason": "uncertainty"
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "decision": 4,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "decision": 5,
+      "selected": "continue",
+      "reason": "uncertainty"
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "decision": 6,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "decision": 1,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "decision": 2,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "decision": 3,
+      "selected": "continue",
+      "reason": "uncertainty"
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "decision": 4,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "decision": 5,
+      "selected": "continue",
+      "reason": "uncertainty"
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "decision": 6,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "decision": 1,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "decision": 2,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "decision": 3,
+      "selected": "continue",
+      "reason": "uncertainty"
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "decision": 4,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "decision": 5,
+      "selected": "continue",
+      "reason": "uncertainty"
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "decision": 6,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "decision": 1,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "decision": 2,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "decision": 3,
+      "selected": "continue",
+      "reason": "uncertainty"
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "decision": 4,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "decision": 5,
+      "selected": "continue",
+      "reason": "uncertainty"
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "decision": 6,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "decision": 1,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "decision": 2,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "decision": 3,
+      "selected": "continue",
+      "reason": "uncertainty"
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "decision": 4,
+      "selected": "continue",
+      "reason": "goal"
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "decision": 5,
+      "selected": "continue",
+      "reason": "uncertainty"
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "decision": 6,
+      "selected": "continue",
+      "reason": "goal"
+    }
+  ],
+  "limitations": [
+    "Reason labels are model self reports, not verified internal reasoning.",
+    "Combined mass on different look positions does not override the frozen argmax rule."
+  ]
+}

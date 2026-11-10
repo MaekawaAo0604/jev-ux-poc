@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "crop-frame-7001",
+  "configs": [
+    {
+      "schemaVersion": 1,
+      "id": "crop-off",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 8,
+      "maxAPICalls": 8,
+      "maxRunMs": 150000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "crop-hierarchical",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 8,
+      "maxAPICalls": 8,
+      "maxRunMs": 150000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      },
+      "attention": {
+        "enabled": true,
+        "policy": "exclusive-hierarchical-v2",
+        "sampling": "domain-separated-v1"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "crop-framed",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 8,
+      "maxAPICalls": 8,
+      "maxRunMs": 150000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      },
+      "attention": {
+        "enabled": true,
+        "policy": "exclusive-hierarchical-v2",
+        "sampling": "domain-separated-v1",
+        "taskFrame": "attention-v1"
+      }
+    }
+  ],
+  "seeds": [
+    7001
+  ],
+  "maxTotalAPI": 24,
+  "maxDurationMs": 600000
+}

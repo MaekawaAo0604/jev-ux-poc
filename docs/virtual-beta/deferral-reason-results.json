@@ -1,0 +1,4655 @@
+{
+  "schemaVersion": 1,
+  "kind": "grounded-deferral-reason-descriptive-comparison",
+  "baselineRevision": "a10621445f9c42bf38abcebf7a604ece3316ced3",
+  "frozenRevision": "08984057c1801eb0af2637551e3c67931ffaceb9",
+  "sourceHash": "b7300a74648308d9ce821c48b1388fee3fc6bc061fd186f71385e74eb3987003",
+  "model": "jev-1.14.0",
+  "mock": false,
+  "status": "COMPLETED",
+  "sourceUnchangedAcrossTrials": true,
+  "limits": {
+    "trials": 12,
+    "maxRequests": 288,
+    "phaseMaximumRequests": 288,
+    "maxRequestsPerTrial": 24,
+    "maxJudgmentsPerTrial": 12,
+    "maxUIActionsPerTrial": 15,
+    "maxLooksPerTrial": 3,
+    "maxRunMs": 180000,
+    "phaseMs": 1200000,
+    "parallel": 1
+  },
+  "inputComponents": {
+    "shared": {
+      "fullViewport": true,
+      "recencyImages": 3,
+      "experienceCapacity": 8,
+      "longContext": true,
+      "additionalAPIStages": 0
+    },
+    "old": {
+      "mode": "experience-defer",
+      "fixedTemporaryDeferral": true,
+      "maxUniqueImages": 3
+    },
+    "reason": {
+      "mode": "experience-reason",
+      "memoryCapacity": 8,
+      "maxOriginalReasonImages": 1,
+      "maxUniqueImages": 4,
+      "declaredDifference": "Reason memory, source evidence image when needed, and capture/review questions within the existing assessment"
+    }
+  },
+  "requests": {
+    "used": 208,
+    "maximum": 288,
+    "source": "fresh-trial-ledgers-including-incomplete"
+  },
+  "priorLedgers": {
+    "checked": 34,
+    "unchanged": true
+  },
+  "allPairsConsistent": true,
+  "totals": {
+    "old": {
+      "trials": 6,
+      "valid": 6,
+      "successes": 4,
+      "faults": 0,
+      "requests": 102,
+      "reasonCaptures": 0,
+      "admittedReasonCaptures": 0,
+      "reviews": 0,
+      "releases": 0
+    },
+    "reason": {
+      "trials": 6,
+      "valid": 6,
+      "successes": 4,
+      "faults": 0,
+      "requests": 106,
+      "reasonCaptures": 14,
+      "admittedReasonCaptures": 1,
+      "reviews": 1,
+      "releases": 1
+    }
+  },
+  "cells": [
+    {
+      "scenario": "notifications",
+      "condition": "old",
+      "n": 2,
+      "valid": 2,
+      "successes": 1,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 7.5,
+      "meanDecisions": 8.5,
+      "policyChanges": 4,
+      "reasonRecordSteps": 0,
+      "reasonCaptures": 0,
+      "admittedReasonCaptures": 0,
+      "reasonReviews": 0,
+      "reasonBasisChangedReports": 0,
+      "actualReasonReleases": 0,
+      "temporaryAlternativeExhaustionSteps": 0
+    },
+    {
+      "scenario": "notifications",
+      "condition": "reason",
+      "n": 2,
+      "valid": 2,
+      "successes": 0,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 9,
+      "meanDecisions": 9.5,
+      "policyChanges": 5,
+      "reasonRecordSteps": 19,
+      "reasonCaptures": 5,
+      "admittedReasonCaptures": 0,
+      "reasonReviews": 0,
+      "reasonBasisChangedReports": 0,
+      "actualReasonReleases": 0,
+      "temporaryAlternativeExhaustionSteps": 0
+    },
+    {
+      "scenario": "revisit-alpha",
+      "condition": "old",
+      "n": 2,
+      "valid": 2,
+      "successes": 1,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 6,
+      "meanDecisions": 7,
+      "policyChanges": 1,
+      "reasonRecordSteps": 0,
+      "reasonCaptures": 0,
+      "admittedReasonCaptures": 0,
+      "reasonReviews": 0,
+      "reasonBasisChangedReports": 0,
+      "actualReasonReleases": 0,
+      "temporaryAlternativeExhaustionSteps": 0
+    },
+    {
+      "scenario": "revisit-alpha",
+      "condition": "reason",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 7,
+      "meanDecisions": 8,
+      "policyChanges": 0,
+      "reasonRecordSteps": 16,
+      "reasonCaptures": 4,
+      "admittedReasonCaptures": 0,
+      "reasonReviews": 0,
+      "reasonBasisChangedReports": 0,
+      "actualReasonReleases": 0,
+      "temporaryAlternativeExhaustionSteps": 1
+    },
+    {
+      "scenario": "revisit-beta",
+      "condition": "old",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 9,
+      "meanDecisions": 10,
+      "policyChanges": 3,
+      "reasonRecordSteps": 0,
+      "reasonCaptures": 0,
+      "admittedReasonCaptures": 0,
+      "reasonReviews": 0,
+      "reasonBasisChangedReports": 0,
+      "actualReasonReleases": 0,
+      "temporaryAlternativeExhaustionSteps": 4
+    },
+    {
+      "scenario": "revisit-beta",
+      "condition": "reason",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 8,
+      "meanDecisions": 9,
+      "policyChanges": 1,
+      "reasonRecordSteps": 18,
+      "reasonCaptures": 5,
+      "admittedReasonCaptures": 1,
+      "reasonReviews": 1,
+      "reasonBasisChangedReports": 1,
+      "actualReasonReleases": 1,
+      "temporaryAlternativeExhaustionSteps": 1
+    }
+  ],
+  "pairs": [
+    {
+      "scenario": "notifications",
+      "replicate": 1,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "notifications-r1-old",
+        "notifications-r1-reason"
+      ]
+    },
+    {
+      "scenario": "notifications",
+      "replicate": 2,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "notifications-r2-reason",
+        "notifications-r2-old"
+      ]
+    },
+    {
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-alpha-r1-reason",
+        "revisit-alpha-r1-old"
+      ]
+    },
+    {
+      "scenario": "revisit-alpha",
+      "replicate": 2,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-alpha-r2-old",
+        "revisit-alpha-r2-reason"
+      ]
+    },
+    {
+      "scenario": "revisit-beta",
+      "replicate": 1,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-beta-r1-old",
+        "revisit-beta-r1-reason"
+      ]
+    },
+    {
+      "scenario": "revisit-beta",
+      "replicate": 2,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-beta-r2-reason",
+        "revisit-beta-r2-old"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "notifications-r1-old",
+      "scenario": "notifications",
+      "replicate": 1,
+      "condition": "old",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 6,
+      "decisions": 7,
+      "looks": 0,
+      "requests": 14,
+      "policyChanges": 1,
+      "captures": [],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "scroll_down": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 4,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 0.01,
+            "e5": 1,
+            "back": 1,
+            "scroll_down": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 5,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 7,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#campaign",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e5"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#other",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/bad/#other",
+            "to": "/bad/#preferences",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/bad/#preferences",
+            "to": "/bad/#preferences",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 16865.075100000002,
+        "uiMs": 300.6712999999945,
+        "elapsedMs": 19404.6572,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "notifications-r1-reason",
+      "scenario": "notifications",
+      "replicate": 1,
+      "condition": "reason",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "success": false,
+      "termination": "DECISION_LIMIT",
+      "perceivedDone": false,
+      "uiActions": 12,
+      "decisions": 12,
+      "looks": 0,
+      "requests": 24,
+      "policyChanges": 3,
+      "captures": [
+        {
+          "step": 4,
+          "identity": {
+            "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+            "candidateId": "e4",
+            "fromObservationId": "o1",
+            "toObservationId": "o4"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        },
+        {
+          "step": 7,
+          "identity": {
+            "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+            "candidateId": "e2",
+            "fromObservationId": "o3",
+            "toObservationId": "o7"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        },
+        {
+          "step": 12,
+          "identity": {
+            "imageSha256": "b0588e21fa147b0743abe7552cab015cfebe496c3d0e4cb765c222e349216fdc",
+            "candidateId": "e4",
+            "fromObservationId": "o10",
+            "toObservationId": "o12"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        }
+      ],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "scroll_down": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 4,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 0.01,
+            "e5": 1,
+            "back": 1,
+            "scroll_down": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 5,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "scroll_up": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 7,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 0.01,
+            "e3": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 8,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 9,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 10,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 11,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 12,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 0.01,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#campaign",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "scroll",
+              "direction": "down"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "back"
+            },
+            "from": "/bad/#campaign",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 8,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          },
+          {
+            "step": 9,
+            "action": {
+              "type": "back"
+            },
+            "from": "/bad/#campaign",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 10,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          },
+          {
+            "step": 11,
+            "action": {
+              "type": "back"
+            },
+            "from": "/bad/#campaign",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 12,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/bad/#settings",
+            "to": null,
+            "status": "unknown"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 26447.00649999999,
+        "uiMs": 578.5731000000014,
+        "elapsedMs": 30471.923199999997,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-alpha-r1-reason",
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "condition": "reason",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 7,
+      "decisions": 8,
+      "looks": 0,
+      "requests": 16,
+      "policyChanges": 0,
+      "captures": [
+        {
+          "step": 3,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_BASIS_NOT_MATCHING_LEARNED_EVIDENCE"
+          ]
+        },
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e3",
+            "fromObservationId": "o3",
+            "toObservationId": "o6"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS"
+          ]
+        }
+      ],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 0.01,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 4,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2",
+            "e3"
+          ],
+          "appliedCandidates": [],
+          "reason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 7,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 8,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 16778.590099999987,
+        "uiMs": 374.93310000002384,
+        "elapsedMs": 19477.062699999995,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-alpha-r1-old",
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "condition": "old",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "success": false,
+      "termination": "STUCK",
+      "perceivedDone": false,
+      "uiActions": 5,
+      "decisions": 6,
+      "looks": 0,
+      "requests": 12,
+      "policyChanges": 1,
+      "captures": [],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 0.01,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 4,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 0.01,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 12612.306800000006,
+        "uiMs": 251.04790000001958,
+        "elapsedMs": 14746.0922,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-beta-r1-old",
+      "scenario": "revisit-beta",
+      "replicate": 1,
+      "condition": "old",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "requests": 20,
+      "policyChanges": 2,
+      "captures": [],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 0.01,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 4,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 0.01,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 7,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [
+            "e1"
+          ],
+          "appliedCandidates": [],
+          "reason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 8,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3",
+            "e4"
+          ],
+          "appliedCandidates": [],
+          "reason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 9,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 10,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 8,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 9,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 21297.870900000096,
+        "uiMs": 469.34590000000026,
+        "elapsedMs": 24390.770399999994,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-beta-r1-reason",
+      "scenario": "revisit-beta",
+      "replicate": 1,
+      "condition": "reason",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 7,
+      "decisions": 8,
+      "looks": 0,
+      "requests": 16,
+      "policyChanges": 0,
+      "captures": [
+        {
+          "step": 3,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "category": "prerequisite",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "admitted": true,
+          "adjustments": []
+        },
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e4",
+            "fromObservationId": "o3",
+            "toObservationId": "o6"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NOT_LEARNED"
+          ]
+        }
+      ],
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "newEvidence": {
+            "observationId": "o5",
+            "imageSha256": "4de865b79f05755eebc087f8e1741a1f78542897bfb0a70c5968f6671c882d8f"
+          },
+          "released": true
+        }
+      ],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 0.01,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 4,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 7,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 8,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 17925.901199999964,
+        "uiMs": 373.3845999999903,
+        "elapsedMs": 20547.32030000002,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "notifications-r2-reason",
+      "scenario": "notifications",
+      "replicate": 2,
+      "condition": "reason",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "success": false,
+      "termination": "STUCK",
+      "perceivedDone": false,
+      "uiActions": 6,
+      "decisions": 7,
+      "looks": 0,
+      "requests": 14,
+      "policyChanges": 2,
+      "captures": [
+        {
+          "step": 4,
+          "identity": {
+            "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+            "candidateId": "e4",
+            "fromObservationId": "o1",
+            "toObservationId": "o4"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        },
+        {
+          "step": 7,
+          "identity": {
+            "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+            "candidateId": "e2",
+            "fromObservationId": "o3",
+            "toObservationId": "o7"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        }
+      ],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "scroll_down": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 4,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 0.01,
+            "e5": 1,
+            "back": 1,
+            "scroll_down": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 5,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "scroll_up": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 7,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 0.01,
+            "e3": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#campaign",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "scroll",
+              "direction": "down"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 15894.945999999909,
+        "uiMs": 285.79060000000754,
+        "elapsedMs": 18317.4908,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "notifications-r2-old",
+      "scenario": "notifications",
+      "replicate": 2,
+      "condition": "old",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "success": false,
+      "termination": "STUCK",
+      "perceivedDone": false,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "requests": 20,
+      "policyChanges": 3,
+      "captures": [],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "scroll_down": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 4,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "scroll_down": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 0.01,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 6,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 7,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 0.01,
+            "e5": 1,
+            "back": 1,
+            "scroll_down": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e4"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 8,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "scroll_up": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 9,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 10,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 0.01,
+            "e3": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#campaign",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#activity",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#activity",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "scroll",
+              "direction": "down"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#home",
+            "status": "observed"
+          },
+          {
+            "step": 8,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/bad/#home",
+            "to": "/bad/#settings",
+            "status": "observed"
+          },
+          {
+            "step": 9,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/bad/#settings",
+            "to": "/bad/#campaign",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 23284.123000000167,
+        "uiMs": 466.999199999962,
+        "elapsedMs": 26641.27369999999,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-alpha-r2-old",
+      "scenario": "revisit-alpha",
+      "replicate": 2,
+      "condition": "old",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 7,
+      "decisions": 8,
+      "looks": 0,
+      "requests": 16,
+      "policyChanges": 0,
+      "captures": [],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e4"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 4,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 7,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 8,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 16452.46379999997,
+        "uiMs": 371.3010999999533,
+        "elapsedMs": 19281.18609999999,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-alpha-r2-reason",
+      "scenario": "revisit-alpha",
+      "replicate": 2,
+      "condition": "reason",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 7,
+      "decisions": 8,
+      "looks": 0,
+      "requests": 16,
+      "policyChanges": 0,
+      "captures": [
+        {
+          "step": 3,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NOT_LEARNED"
+          ]
+        },
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e3",
+            "fromObservationId": "o3",
+            "toObservationId": "o6"
+          },
+          "category": "unknown",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS",
+            "CAPTURE_CATEGORY_UNKNOWN"
+          ]
+        }
+      ],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 4,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 0.01,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 7,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1",
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 8,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1a#account",
+            "to": "/good/?holdout=r1a#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#home",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1a#primary",
+            "to": "/good/?holdout=r1a#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 17323.794000000053,
+        "uiMs": 413.25190000003204,
+        "elapsedMs": 20125.752500000002,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-beta-r2-reason",
+      "scenario": "revisit-beta",
+      "replicate": 2,
+      "condition": "reason",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "requests": 20,
+      "policyChanges": 1,
+      "captures": [
+        {
+          "step": 3,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_BASIS_NOT_MATCHING_LEARNED_EVIDENCE"
+          ]
+        },
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e4",
+            "fromObservationId": "o3",
+            "toObservationId": "o6"
+          },
+          "category": "prerequisite",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS"
+          ]
+        },
+        {
+          "step": 8,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e2",
+            "fromObservationId": "o6",
+            "toObservationId": "o8"
+          },
+          "category": "information_only",
+          "admitted": false,
+          "adjustments": [
+            "CAPTURE_NO_ADMITTED_BASIS"
+          ]
+        }
+      ],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 0.01,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 4,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 0.01,
+            "e4": 0.01,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3",
+            "e4"
+          ],
+          "appliedCandidates": [
+            "e3",
+            "e4"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 7,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 8,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "appliedCandidates": [],
+          "reason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 9,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 10,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#records",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#records",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 8,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 9,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 21532.23219999991,
+        "uiMs": 493.73600000009174,
+        "elapsedMs": 24675.52390000003,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "revisit-beta-r2-old",
+      "scenario": "revisit-beta",
+      "replicate": 2,
+      "condition": "old",
+      "valid": true,
+      "fault": false,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "success": true,
+      "termination": "SUBJECTIVE_DONE",
+      "perceivedDone": true,
+      "uiActions": 9,
+      "decisions": 10,
+      "looks": 0,
+      "requests": 20,
+      "policyChanges": 1,
+      "captures": [],
+      "reviews": [],
+      "deferralDecisions": [
+        {
+          "step": 1,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 0.01,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 4,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 0.01,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3"
+          ],
+          "appliedCandidates": [
+            "e3"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 7,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e1"
+          ],
+          "deferredCandidates": [
+            "e1"
+          ],
+          "appliedCandidates": [],
+          "reason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 8,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e3",
+            "e4"
+          ],
+          "deferredCandidates": [
+            "e3",
+            "e4"
+          ],
+          "appliedCandidates": [],
+          "reason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 9,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2"
+          ],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 10,
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [],
+          "deferredCandidates": [],
+          "appliedCandidates": [],
+          "reason": "NO_DEFERRED_CANDIDATE"
+        }
+      ],
+      "route": {
+        "identity": "actual-audited-local-pathname-search-hash; no semantic aliases",
+        "edges": [
+          {
+            "step": 1,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 2,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 3,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 4,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 5,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e4"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#account",
+            "status": "observed"
+          },
+          {
+            "step": 7,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "from": "/good/?holdout=r1b#account",
+            "to": "/good/?holdout=r1b#home",
+            "status": "observed"
+          },
+          {
+            "step": 8,
+            "action": {
+              "type": "click",
+              "elementId": "e3"
+            },
+            "from": "/good/?holdout=r1b#home",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          },
+          {
+            "step": 9,
+            "action": {
+              "type": "click",
+              "elementId": "e2"
+            },
+            "from": "/good/?holdout=r1b#primary",
+            "to": "/good/?holdout=r1b#primary",
+            "status": "observed"
+          }
+        ]
+      },
+      "timing": {
+        "apiMs": 20620.422000000137,
+        "uiMs": 504.6907999999821,
+        "elapsedMs": 23796.0686,
+        "humanTimeMs": null
+      }
+    }
+  ],
+  "limitations": [
+    "Two replicates per scenario and condition are descriptive, with no reliability or generalization estimate.",
+    "Model reason captures and reviews are self-reports. Actual release records and actual selected actions remain separate.",
+    "Images establish input equality only, not semantic identity or goal equivalence.",
+    "Only a subsequent audited observation establishes a performed action destination.",
+    "Mock scripted done output is a connectivity check and supplies no performance evidence.",
+    "Source, initial image, goal, persona, and config are paired with only config id and the declared deferralReason component excluded."
+  ]
+}

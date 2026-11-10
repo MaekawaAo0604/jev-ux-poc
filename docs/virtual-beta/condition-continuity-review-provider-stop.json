@@ -1,0 +1,3745 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_STOPPED_EVIDENCE_AUDIT",
+  "createdAt": "2026-10-29T19:43:46.407Z",
+  "scope": "Audit of stopped old producer075 only; not an intervention performance pass.",
+  "producer": {
+    "revision": "dd8527b876f61489bdec7fcf0b5df9483ce0e817",
+    "sourceHash": "075a0df4e844e7076beceaf1f2c597b70950943439f3a64359ce3add752344d4",
+    "archiveSha256": "d0e1b557908a43c99f48289a3453930ee2554dc33e9dd530eea83ccb6396600a",
+    "sourceMismatches": []
+  },
+  "manifestSha256": "45f2a57b535151d80760d1c085d74d895780f65f6a601049358e4d697d1bca96",
+  "counts": {
+    "planned": 8,
+    "attempted": 2,
+    "notAttempted": 6,
+    "valid": 1,
+    "invalid": 1,
+    "chargedRequests": 22,
+    "knownHTTPAttempts": 22,
+    "knownHTTPReceipts": 22,
+    "unconfirmedCharges": 0,
+    "successfulControl": 1,
+    "validContinuity": 0
+  },
+  "checks": [
+    {
+      "name": "fixed stopped manifest SHA",
+      "passed": true
+    },
+    {
+      "name": "original producer source/revision",
+      "passed": true
+    },
+    {
+      "name": "original source ZIP exact",
+      "passed": true
+    },
+    {
+      "name": "isolated replay producer153 files exact",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "8 fixed schedule/limits and provider terminal stop",
+      "passed": true
+    },
+    {
+      "name": "old5479 plus stopped48 count5527 preserved before",
+      "passed": true
+    },
+    {
+      "name": "stopped48 complete inventory included in new prior",
+      "passed": true
+    },
+    {
+      "name": "manifest result matches saved raw experience-visual-conditions",
+      "passed": true
+    },
+    {
+      "name": "result binds old producer experience-visual-conditions",
+      "passed": true
+    },
+    {
+      "name": "ledger exact experience-visual-conditions",
+      "passed": true
+    },
+    {
+      "name": "isolated old-source replay experience-visual-conditions",
+      "passed": true
+    },
+    {
+      "name": "manifest result matches saved raw experience-visual-conditions-continuity",
+      "passed": true
+    },
+    {
+      "name": "result binds old producer experience-visual-conditions-continuity",
+      "passed": true
+    },
+    {
+      "name": "ledger exact experience-visual-conditions-continuity",
+      "passed": true
+    },
+    {
+      "name": "isolated old-source replay experience-visual-conditions-continuity",
+      "passed": true
+    },
+    {
+      "name": "raw summary exact recomputation",
+      "passed": true
+    },
+    {
+      "name": "public summary exact old-producer recomputation",
+      "passed": true
+    },
+    {
+      "name": "planned/missing/valid/invalid denominators",
+      "passed": true
+    },
+    {
+      "name": "HTTP receipts and charged reservation total22",
+      "passed": true
+    },
+    {
+      "name": "HTTP400 not user failure or abandonment",
+      "passed": true
+    },
+    {
+      "name": "continuity failed native before model or UI decision",
+      "passed": true
+    },
+    {
+      "name": "initial one actor pair matched and three absent pairs retained",
+      "passed": true
+    },
+    {
+      "name": "independent initial base-request pair matches",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 1 observation 1",
+      "passed": true
+    },
+    {
+      "name": "sample actual delivered/public PNG exact 1/1",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 1 observation 2",
+      "passed": true
+    },
+    {
+      "name": "sample actual delivered/public PNG exact 1/2",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 2 observation 1",
+      "passed": true
+    },
+    {
+      "name": "sample actual delivered/public PNG exact 2/1",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 2 observation 2",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 2/2",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 3 observation 1",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 3/1",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 3 observation 2",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 3/2",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 4 observation 1",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 4/1",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 4 observation 2",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 4/2",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 5 observation 1",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 5/1",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 5 observation 2",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 5/2",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 6 observation 1",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 6/1",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 6 observation 2",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 6/2",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 7 observation 1",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 7/1",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 7 observation 2",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 7/2",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 8 observation 1",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 8/1",
+      "passed": true
+    },
+    {
+      "name": "public preselected slot 8 observation 2",
+      "passed": true
+    },
+    {
+      "name": "public missing frame exact 8/2",
+      "passed": true
+    },
+    {
+      "name": "sample fixed16 retains3 present and13 missing",
+      "passed": true
+    },
+    {
+      "name": "public provenance producer",
+      "passed": true
+    },
+    {
+      "name": "public provenance sourceHash",
+      "passed": true
+    },
+    {
+      "name": "public provenance manifestSha256",
+      "passed": true
+    },
+    {
+      "name": "public provenance status",
+      "passed": true
+    },
+    {
+      "name": "public provenance protocolSha256",
+      "passed": true
+    },
+    {
+      "name": "public provenance profiles",
+      "passed": true
+    },
+    {
+      "name": "public provenance limits",
+      "passed": true
+    },
+    {
+      "name": "public provenance priorCount",
+      "passed": true
+    },
+    {
+      "name": "public provenance preservationBefore",
+      "passed": true
+    },
+    {
+      "name": "public provenance preservationAfter",
+      "passed": true
+    },
+    {
+      "name": "public pending independent status retained",
+      "passed": true
+    },
+    {
+      "name": "public trial count",
+      "passed": true
+    },
+    {
+      "name": "public raw identity/metrics exact experience-visual-conditions",
+      "passed": true
+    },
+    {
+      "name": "public step projection exact experience-visual-conditions/1",
+      "passed": true
+    },
+    {
+      "name": "public step projection exact experience-visual-conditions/2",
+      "passed": true
+    },
+    {
+      "name": "public step projection exact experience-visual-conditions/3",
+      "passed": true
+    },
+    {
+      "name": "public step projection exact experience-visual-conditions/4",
+      "passed": true
+    },
+    {
+      "name": "public step projection exact experience-visual-conditions/5",
+      "passed": true
+    },
+    {
+      "name": "public step projection exact experience-visual-conditions/6",
+      "passed": true
+    },
+    {
+      "name": "public step projection exact experience-visual-conditions/7",
+      "passed": true
+    },
+    {
+      "name": "public raw identity/metrics exact experience-visual-conditions-continuity",
+      "passed": true
+    },
+    {
+      "name": "public step projection exact experience-visual-conditions-continuity/1",
+      "passed": true
+    },
+    {
+      "name": "public CSV exact derived rows",
+      "passed": true
+    },
+    {
+      "name": "old14 producer archives unchanged",
+      "passed": true
+    },
+    {
+      "name": "all5527 protected files unchanged after audit",
+      "passed": true
+    },
+    {
+      "name": "stopped-public5 files unchanged by audit",
+      "passed": true
+    },
+    {
+      "name": "independent API/env0",
+      "passed": true
+    },
+    {
+      "name": "round1 failed gate SHA unchanged",
+      "passed": true
+    },
+    {
+      "name": "round2 software PASS gate SHA unchanged",
+      "passed": true
+    },
+    {
+      "name": "round2 freeze897 metadata bytes unchanged",
+      "passed": true
+    },
+    {
+      "name": "producer charter manifest binding exact",
+      "passed": true
+    },
+    {
+      "name": "producer protocol manifest binding exact",
+      "passed": true
+    }
+  ],
+  "findings": [],
+  "replays": [
+    {
+      "actor": "experience-visual-conditions",
+      "runId": "a309e1bb-0bdc-4c1e-a620-c57a6a0b6c4b-1",
+      "choices": 7,
+      "assessments": 7,
+      "images": 42,
+      "verified": true,
+      "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+    },
+    {
+      "actor": "experience-visual-conditions-continuity",
+      "runId": "a309e1bb-0bdc-4c1e-a620-c57a6a0b6c4b-2",
+      "choices": 0,
+      "assessments": 0,
+      "images": 1,
+      "verified": true,
+      "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+    }
+  ],
+  "ledgerChecks": [
+    {
+      "actor": "experience-visual-conditions",
+      "requests": 21,
+      "used": 21,
+      "sha256": "b9d1fa72da7377151e07aa85d82185bcda3ffcc4d0c257ae128b31d9a9c00602",
+      "reserved": 0,
+      "ok": 21,
+      "errors": 0
+    },
+    {
+      "actor": "experience-visual-conditions-continuity",
+      "requests": 1,
+      "used": 1,
+      "sha256": "d30d80e78a45b6c52de36e72772d47978286bb14865c73463d35b392940ff418",
+      "reserved": 0,
+      "ok": 0,
+      "errors": 1
+    }
+  ],
+  "stageCounts": [
+    {
+      "actor": "experience-visual-conditions",
+      "nativeRequests": 7,
+      "nativeAdmitted": 7,
+      "assessmentRequests": 7,
+      "actionResponses": 7,
+      "continuityRecords": 0,
+      "uiActions": 6,
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "termination": "SUBJECTIVE_DONE"
+    },
+    {
+      "actor": "experience-visual-conditions-continuity",
+      "nativeRequests": 1,
+      "nativeAdmitted": 0,
+      "assessmentRequests": 0,
+      "actionResponses": 0,
+      "continuityRecords": 0,
+      "uiActions": 0,
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "termination": "API_ERROR"
+    }
+  ],
+  "analysis": {
+    "schemaVersion": 1,
+    "kind": "ACTUAL_CONTINUITY_DESCRIPTIVE",
+    "planned": 8,
+    "attempted": 2,
+    "notAttempted": 6,
+    "valid": 1,
+    "invalid": 1,
+    "complete": false,
+    "missing": [
+      {
+        "id": "recovery-library-unchanged-r1",
+        "actor": "experience-visual-conditions-continuity"
+      },
+      {
+        "id": "recovery-library-unchanged-r1",
+        "actor": "experience-visual-conditions"
+      },
+      {
+        "id": "recovery-workshop-changed-r1",
+        "actor": "experience-visual-conditions"
+      },
+      {
+        "id": "recovery-workshop-changed-r1",
+        "actor": "experience-visual-conditions-continuity"
+      },
+      {
+        "id": "recovery-workshop-unchanged-r1",
+        "actor": "experience-visual-conditions-continuity"
+      },
+      {
+        "id": "recovery-workshop-unchanged-r1",
+        "actor": "experience-visual-conditions"
+      }
+    ],
+    "measurements": {
+      "chargedRequests": 22,
+      "knownHTTPAttempts": 22,
+      "knownHTTPReceipts": 22,
+      "receiptUnconfirmedChargedRequests": 0,
+      "httpAttemptCountsComplete": true,
+      "costUSD": null,
+      "humanTimeMs": null
+    },
+    "requestEvidence": [
+      {
+        "runId": "a309e1bb-0bdc-4c1e-a620-c57a6a0b6c4b-1",
+        "chargedRequests": 21,
+        "knownHTTPAttempts": 21,
+        "httpAttemptEvidenceRequests": 21,
+        "httpAttemptCountsComplete": true,
+        "requestAttempted": true,
+        "apiReached": true,
+        "recordedResponses": 21,
+        "returnedModels": {
+          "gpt-6-luna": 7,
+          "jev-1.14.0": 14
+        },
+        "apiMs": 96932.91270000004,
+        "costUSD": null,
+        "humanTimeMs": null,
+        "knownHTTPReceipts": 21
+      },
+      {
+        "runId": "a309e1bb-0bdc-4c1e-a620-c57a6a0b6c4b-2",
+        "chargedRequests": 1,
+        "knownHTTPAttempts": 1,
+        "httpAttemptEvidenceRequests": 1,
+        "httpAttemptCountsComplete": true,
+        "requestAttempted": true,
+        "apiReached": true,
+        "recordedResponses": 0,
+        "returnedModels": {},
+        "apiMs": 391.1064999999944,
+        "costUSD": null,
+        "humanTimeMs": null,
+        "knownHTTPReceipts": 1
+      }
+    ],
+    "integrity": {
+      "ok": true,
+      "errors": []
+    },
+    "actors": {
+      "experience-visual-conditions": {
+        "schemaVersion": 1,
+        "kind": "offline-recovery-transfer-descriptive",
+        "completeness": {
+          "planned": 4,
+          "attempted": 1,
+          "withResult": 1,
+          "valid": 1,
+          "missing": [
+            "library/unchanged/r1",
+            "workshop/changed/r1",
+            "workshop/unchanged/r1"
+          ],
+          "complete": false
+        },
+        "integrity": {
+          "ok": true,
+          "errors": []
+        },
+        "totals": {
+          "planned": 4,
+          "attempted": 1,
+          "notAttempted": 3,
+          "withResult": 1,
+          "valid": 1,
+          "invalid": 0,
+          "objectiveSuccesses": 1,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 1,
+          "falseDone": 0,
+          "subjectiveDone": 1,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {
+            "SUBJECTIVE_DONE": 1
+          },
+          "requests": 21,
+          "meanUIActions": 6,
+          "meanJudgments": 7,
+          "initialBlocked": {
+            "observedRuns": 1,
+            "deliveredRuns": 1,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 1,
+            "occurredRuns": 1,
+            "deliveredRuns": 1,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 1,
+            "completedRuns": 1
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0
+        },
+        "cells": [
+          {
+            "key": "library/changed",
+            "fixture": {
+              "version": 1,
+              "task": "library",
+              "condition": "changed"
+            },
+            "planned": 1,
+            "attempted": 1,
+            "notAttempted": 0,
+            "withResult": 1,
+            "valid": 1,
+            "invalid": 0,
+            "objectiveSuccesses": 1,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 1,
+            "falseDone": 0,
+            "subjectiveDone": 1,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {
+              "SUBJECTIVE_DONE": 1
+            },
+            "requests": 21,
+            "meanUIActions": 6,
+            "meanJudgments": 7,
+            "initialBlocked": {
+              "observedRuns": 1,
+              "deliveredRuns": 1,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 1,
+              "occurredRuns": 1,
+              "deliveredRuns": 1,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 1,
+              "completedRuns": 1
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": [
+                "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba"
+              ]
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          },
+          {
+            "key": "library/unchanged",
+            "fixture": {
+              "version": 1,
+              "task": "library",
+              "condition": "unchanged"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          },
+          {
+            "key": "workshop/changed",
+            "fixture": {
+              "version": 1,
+              "task": "workshop",
+              "condition": "changed"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          },
+          {
+            "key": "workshop/unchanged",
+            "fixture": {
+              "version": 1,
+              "task": "workshop",
+              "condition": "unchanged"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          }
+        ],
+        "runs": [
+          {
+            "id": "recovery-library-changed-r1",
+            "runId": "a309e1bb-0bdc-4c1e-a620-c57a6a0b6c4b-1",
+            "fixture": {
+              "version": 1,
+              "task": "library",
+              "condition": "changed"
+            },
+            "replicate": 1,
+            "status": "RESULT",
+            "dir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\condition-continuity-2026-10-30\\live\\recovery-library-changed-r1-experience-visual-conditions",
+            "resultPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\condition-continuity-2026-10-30\\live\\recovery-library-changed-r1-experience-visual-conditions\\exploration\\result.json",
+            "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\condition-continuity-2026-10-30\\live\\recovery-library-changed-r1-experience-visual-conditions-budget.json",
+            "ledgerEvidence": {
+              "used": 21,
+              "sha256": "b9d1fa72da7377151e07aa85d82185bcda3ffcc4d0c257ae128b31d9a9c00602",
+              "reserved": 0,
+              "ok": 21,
+              "errors": 0
+            },
+            "source": {
+              "revision": "dd8527b876f61489bdec7fcf0b5df9483ce0e817",
+              "sourceHash": "075a0df4e844e7076beceaf1f2c597b70950943439f3a64359ce3add752344d4"
+            },
+            "initialImageSha256": "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba",
+            "objectiveAssessment": {
+              "status": "OK",
+              "value": true
+            },
+            "perceivedDone": true,
+            "termination": "SUBJECTIVE_DONE",
+            "validity": {
+              "valid": true,
+              "reasons": []
+            },
+            "categories": {
+              "infrastructure": false,
+              "invalidDistribution": false,
+              "safety": false,
+              "limit": false,
+              "abandoned": false,
+              "stuck": false
+            },
+            "auditErrors": [],
+            "initialBlocked": {
+              "observed": true,
+              "delivered": true,
+              "evidence": {
+                "kind": "observation",
+                "step": 1,
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "url": "/good/?recovery=v9",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            },
+            "coverageComplete": true,
+            "opportunities": {
+              "prerequisiteChange": "occurred",
+              "unchangedConfirmation": "not-applicable"
+            },
+            "transitions": [
+              {
+                "step": 1,
+                "observationId": "o1",
+                "sourceImageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "action": {
+                  "type": "click",
+                  "elementId": "e1"
+                },
+                "outcome": "UI_PERFORMED",
+                "actualUI": true,
+                "navigation": true,
+                "before": {
+                  "kind": "observation",
+                  "step": 1,
+                  "observationId": "o1",
+                  "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                  "url": "/good/?recovery=v9",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "primary",
+                    "eligible": false,
+                    "verificationAttempts": 0,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "after": {
+                  "kind": "observation",
+                  "step": 2,
+                  "observationId": "o2",
+                  "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                  "url": "/good/?recovery=v9#home",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "home",
+                    "eligible": false,
+                    "verificationAttempts": 0,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "afterKind": "observation",
+                "fromURL": "/good/?recovery=v9",
+                "toURL": "/good/?recovery=v9#home",
+                "stateConsistent": true,
+                "role": null,
+                "eligibleChanged": false,
+                "save": false,
+                "errors": []
+              },
+              {
+                "step": 2,
+                "observationId": "o2",
+                "sourceImageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                "action": {
+                  "type": "click",
+                  "elementId": "e2"
+                },
+                "outcome": "UI_PERFORMED",
+                "actualUI": true,
+                "navigation": true,
+                "before": {
+                  "kind": "observation",
+                  "step": 2,
+                  "observationId": "o2",
+                  "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                  "url": "/good/?recovery=v9#home",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "home",
+                    "eligible": false,
+                    "verificationAttempts": 0,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "after": {
+                  "kind": "observation",
+                  "step": 3,
+                  "observationId": "o3",
+                  "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+                  "url": "/good/?recovery=v9#account",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "account",
+                    "eligible": false,
+                    "verificationAttempts": 0,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "afterKind": "observation",
+                "fromURL": "/good/?recovery=v9#home",
+                "toURL": "/good/?recovery=v9#account",
+                "stateConsistent": true,
+                "role": null,
+                "eligibleChanged": false,
+                "save": false,
+                "errors": []
+              },
+              {
+                "step": 3,
+                "observationId": "o3",
+                "sourceImageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+                "action": {
+                  "type": "click",
+                  "elementId": "e1"
+                },
+                "outcome": "UI_PERFORMED",
+                "actualUI": true,
+                "navigation": true,
+                "before": {
+                  "kind": "observation",
+                  "step": 3,
+                  "observationId": "o3",
+                  "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+                  "url": "/good/?recovery=v9#account",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "account",
+                    "eligible": false,
+                    "verificationAttempts": 0,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "after": {
+                  "kind": "observation",
+                  "step": 4,
+                  "observationId": "o4",
+                  "imageSha256": "07cd262ac342725a506b62ea2bf1b4f3dbbc6538a882ed07375215dded1efd6e",
+                  "url": "/good/?recovery=v9#account",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "account",
+                    "eligible": true,
+                    "verificationAttempts": 1,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "afterKind": "observation",
+                "fromURL": "/good/?recovery=v9#account",
+                "toURL": "/good/?recovery=v9#account",
+                "stateConsistent": true,
+                "role": "confirm",
+                "eligibleChanged": true,
+                "save": false,
+                "errors": []
+              },
+              {
+                "step": 4,
+                "observationId": "o4",
+                "sourceImageSha256": "07cd262ac342725a506b62ea2bf1b4f3dbbc6538a882ed07375215dded1efd6e",
+                "action": {
+                  "type": "click",
+                  "elementId": "e2"
+                },
+                "outcome": "UI_PERFORMED",
+                "actualUI": true,
+                "navigation": true,
+                "before": {
+                  "kind": "observation",
+                  "step": 4,
+                  "observationId": "o4",
+                  "imageSha256": "07cd262ac342725a506b62ea2bf1b4f3dbbc6538a882ed07375215dded1efd6e",
+                  "url": "/good/?recovery=v9#account",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "account",
+                    "eligible": true,
+                    "verificationAttempts": 1,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "after": {
+                  "kind": "observation",
+                  "step": 5,
+                  "observationId": "o5",
+                  "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                  "url": "/good/?recovery=v9#home",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "home",
+                    "eligible": true,
+                    "verificationAttempts": 1,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "afterKind": "observation",
+                "fromURL": "/good/?recovery=v9#account",
+                "toURL": "/good/?recovery=v9#home",
+                "stateConsistent": true,
+                "role": null,
+                "eligibleChanged": false,
+                "save": false,
+                "errors": []
+              },
+              {
+                "step": 5,
+                "observationId": "o5",
+                "sourceImageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                "action": {
+                  "type": "click",
+                  "elementId": "e1"
+                },
+                "outcome": "UI_PERFORMED",
+                "actualUI": true,
+                "navigation": true,
+                "before": {
+                  "kind": "observation",
+                  "step": 5,
+                  "observationId": "o5",
+                  "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                  "url": "/good/?recovery=v9#home",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "home",
+                    "eligible": true,
+                    "verificationAttempts": 1,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "after": {
+                  "kind": "observation",
+                  "step": 6,
+                  "observationId": "o6",
+                  "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+                  "url": "/good/?recovery=v9#primary",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "primary",
+                    "eligible": true,
+                    "verificationAttempts": 1,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "afterKind": "observation",
+                "fromURL": "/good/?recovery=v9#home",
+                "toURL": "/good/?recovery=v9#primary",
+                "stateConsistent": true,
+                "role": null,
+                "eligibleChanged": false,
+                "save": false,
+                "errors": []
+              },
+              {
+                "step": 6,
+                "observationId": "o6",
+                "sourceImageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+                "action": {
+                  "type": "click",
+                  "elementId": "e1"
+                },
+                "outcome": "UI_PERFORMED",
+                "actualUI": true,
+                "navigation": true,
+                "before": {
+                  "kind": "observation",
+                  "step": 6,
+                  "observationId": "o6",
+                  "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+                  "url": "/good/?recovery=v9#primary",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "primary",
+                    "eligible": true,
+                    "verificationAttempts": 1,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "after": {
+                  "kind": "observation",
+                  "step": 7,
+                  "observationId": "o7",
+                  "imageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef",
+                  "url": "/good/?recovery=v9#primary",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "primary",
+                    "eligible": true,
+                    "verificationAttempts": 1,
+                    "recordChecks": 0,
+                    "savedValue": "東分館",
+                    "complete": true
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "afterKind": "observation",
+                "fromURL": "/good/?recovery=v9#primary",
+                "toURL": "/good/?recovery=v9#primary",
+                "stateConsistent": true,
+                "role": null,
+                "eligibleChanged": false,
+                "save": true,
+                "errors": []
+              },
+              {
+                "step": 7,
+                "observationId": "o7",
+                "sourceImageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef",
+                "action": {
+                  "type": "done"
+                },
+                "outcome": "SUBJECTIVE_DONE",
+                "actualUI": false,
+                "navigation": false,
+                "before": {
+                  "kind": "observation",
+                  "step": 7,
+                  "observationId": "o7",
+                  "imageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef",
+                  "url": "/good/?recovery=v9#primary",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "primary",
+                    "eligible": true,
+                    "verificationAttempts": 1,
+                    "recordChecks": 0,
+                    "savedValue": "東分館",
+                    "complete": true
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "after": {
+                  "kind": "terminal",
+                  "step": 7,
+                  "observationId": null,
+                  "imageSha256": null,
+                  "url": null,
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "primary",
+                    "eligible": true,
+                    "verificationAttempts": 1,
+                    "recordChecks": 0,
+                    "savedValue": "東分館",
+                    "complete": true
+                  },
+                  "delivered": false,
+                  "deliveredStages": []
+                },
+                "afterKind": "terminal",
+                "fromURL": "/good/?recovery=v9#primary",
+                "toURL": null,
+                "stateConsistent": true,
+                "role": null,
+                "eligibleChanged": false,
+                "save": false,
+                "errors": []
+              }
+            ],
+            "prerequisiteEvents": [
+              {
+                "step": 3,
+                "kind": "confirm",
+                "eligibleBefore": false,
+                "eligibleAfter": true,
+                "eligibleChanged": true,
+                "delivered": true,
+                "evidence": {
+                  "before": {
+                    "kind": "observation",
+                    "step": 3,
+                    "observationId": "o3",
+                    "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+                    "url": "/good/?recovery=v9#account",
+                    "snapshot": {
+                      "schemaVersion": 1,
+                      "route": "account",
+                      "eligible": false,
+                      "verificationAttempts": 0,
+                      "recordChecks": 0,
+                      "savedValue": "中央図書館",
+                      "complete": false
+                    },
+                    "delivered": true,
+                    "deliveredStages": [
+                      "assessment",
+                      "action"
+                    ]
+                  },
+                  "after": {
+                    "kind": "observation",
+                    "step": 4,
+                    "observationId": "o4",
+                    "imageSha256": "07cd262ac342725a506b62ea2bf1b4f3dbbc6538a882ed07375215dded1efd6e",
+                    "url": "/good/?recovery=v9#account",
+                    "snapshot": {
+                      "schemaVersion": 1,
+                      "route": "account",
+                      "eligible": true,
+                      "verificationAttempts": 1,
+                      "recordChecks": 0,
+                      "savedValue": "中央図書館",
+                      "complete": false
+                    },
+                    "delivered": true,
+                    "deliveredStages": [
+                      "assessment",
+                      "action"
+                    ]
+                  }
+                }
+              }
+            ],
+            "revisits": [
+              {
+                "step": 5,
+                "eligible": true,
+                "afterPrerequisiteChange": true,
+                "afterUnchangedConfirmation": false,
+                "changeStep": 3,
+                "confirmationStep": null,
+                "changeDelivered": true,
+                "confirmationDelivered": false,
+                "evidence": {
+                  "departure": {
+                    "kind": "observation",
+                    "step": 1,
+                    "observationId": "o1",
+                    "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                    "url": "/good/?recovery=v9",
+                    "snapshot": {
+                      "schemaVersion": 1,
+                      "route": "primary",
+                      "eligible": false,
+                      "verificationAttempts": 0,
+                      "recordChecks": 0,
+                      "savedValue": "中央図書館",
+                      "complete": false
+                    },
+                    "delivered": true,
+                    "deliveredStages": [
+                      "assessment",
+                      "action"
+                    ]
+                  },
+                  "before": {
+                    "kind": "observation",
+                    "step": 5,
+                    "observationId": "o5",
+                    "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                    "url": "/good/?recovery=v9#home",
+                    "snapshot": {
+                      "schemaVersion": 1,
+                      "route": "home",
+                      "eligible": true,
+                      "verificationAttempts": 1,
+                      "recordChecks": 0,
+                      "savedValue": "中央図書館",
+                      "complete": false
+                    },
+                    "delivered": true,
+                    "deliveredStages": [
+                      "assessment",
+                      "action"
+                    ]
+                  },
+                  "after": {
+                    "kind": "observation",
+                    "step": 6,
+                    "observationId": "o6",
+                    "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+                    "url": "/good/?recovery=v9#primary",
+                    "snapshot": {
+                      "schemaVersion": 1,
+                      "route": "primary",
+                      "eligible": true,
+                      "verificationAttempts": 1,
+                      "recordChecks": 0,
+                      "savedValue": "中央図書館",
+                      "complete": false
+                    },
+                    "delivered": true,
+                    "deliveredStages": [
+                      "assessment",
+                      "action"
+                    ]
+                  }
+                }
+              }
+            ],
+            "saves": [
+              {
+                "step": 6,
+                "route": "primary",
+                "delivered": true,
+                "evidence": {
+                  "before": {
+                    "kind": "observation",
+                    "step": 6,
+                    "observationId": "o6",
+                    "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+                    "url": "/good/?recovery=v9#primary",
+                    "snapshot": {
+                      "schemaVersion": 1,
+                      "route": "primary",
+                      "eligible": true,
+                      "verificationAttempts": 1,
+                      "recordChecks": 0,
+                      "savedValue": "中央図書館",
+                      "complete": false
+                    },
+                    "delivered": true,
+                    "deliveredStages": [
+                      "assessment",
+                      "action"
+                    ]
+                  },
+                  "after": {
+                    "kind": "observation",
+                    "step": 7,
+                    "observationId": "o7",
+                    "imageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef",
+                    "url": "/good/?recovery=v9#primary",
+                    "snapshot": {
+                      "schemaVersion": 1,
+                      "route": "primary",
+                      "eligible": true,
+                      "verificationAttempts": 1,
+                      "recordChecks": 0,
+                      "savedValue": "東分館",
+                      "complete": true
+                    },
+                    "delivered": true,
+                    "deliveredStages": [
+                      "assessment",
+                      "action"
+                    ]
+                  }
+                }
+              }
+            ],
+            "switchCompletion": {
+              "applicable": false,
+              "completed": false,
+              "evidence": []
+            },
+            "recoveryAfterChange": {
+              "applicable": true,
+              "completed": true,
+              "returns": [
+                {
+                  "step": 5,
+                  "eligible": true,
+                  "afterPrerequisiteChange": true,
+                  "afterUnchangedConfirmation": false,
+                  "changeStep": 3,
+                  "confirmationStep": null,
+                  "changeDelivered": true,
+                  "confirmationDelivered": false,
+                  "evidence": {
+                    "departure": {
+                      "kind": "observation",
+                      "step": 1,
+                      "observationId": "o1",
+                      "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                      "url": "/good/?recovery=v9",
+                      "snapshot": {
+                        "schemaVersion": 1,
+                        "route": "primary",
+                        "eligible": false,
+                        "verificationAttempts": 0,
+                        "recordChecks": 0,
+                        "savedValue": "中央図書館",
+                        "complete": false
+                      },
+                      "delivered": true,
+                      "deliveredStages": [
+                        "assessment",
+                        "action"
+                      ]
+                    },
+                    "before": {
+                      "kind": "observation",
+                      "step": 5,
+                      "observationId": "o5",
+                      "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                      "url": "/good/?recovery=v9#home",
+                      "snapshot": {
+                        "schemaVersion": 1,
+                        "route": "home",
+                        "eligible": true,
+                        "verificationAttempts": 1,
+                        "recordChecks": 0,
+                        "savedValue": "中央図書館",
+                        "complete": false
+                      },
+                      "delivered": true,
+                      "deliveredStages": [
+                        "assessment",
+                        "action"
+                      ]
+                    },
+                    "after": {
+                      "kind": "observation",
+                      "step": 6,
+                      "observationId": "o6",
+                      "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+                      "url": "/good/?recovery=v9#primary",
+                      "snapshot": {
+                        "schemaVersion": 1,
+                        "route": "primary",
+                        "eligible": true,
+                        "verificationAttempts": 1,
+                        "recordChecks": 0,
+                        "savedValue": "中央図書館",
+                        "complete": false
+                      },
+                      "delivered": true,
+                      "deliveredStages": [
+                        "assessment",
+                        "action"
+                      ]
+                    }
+                  }
+                }
+              ],
+              "evidence": [
+                {
+                  "step": 6,
+                  "route": "primary",
+                  "delivered": true,
+                  "evidence": {
+                    "before": {
+                      "kind": "observation",
+                      "step": 6,
+                      "observationId": "o6",
+                      "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+                      "url": "/good/?recovery=v9#primary",
+                      "snapshot": {
+                        "schemaVersion": 1,
+                        "route": "primary",
+                        "eligible": true,
+                        "verificationAttempts": 1,
+                        "recordChecks": 0,
+                        "savedValue": "中央図書館",
+                        "complete": false
+                      },
+                      "delivered": true,
+                      "deliveredStages": [
+                        "assessment",
+                        "action"
+                      ]
+                    },
+                    "after": {
+                      "kind": "observation",
+                      "step": 7,
+                      "observationId": "o7",
+                      "imageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef",
+                      "url": "/good/?recovery=v9#primary",
+                      "snapshot": {
+                        "schemaVersion": 1,
+                        "route": "primary",
+                        "eligible": true,
+                        "verificationAttempts": 1,
+                        "recordChecks": 0,
+                        "savedValue": "東分館",
+                        "complete": true
+                      },
+                      "delivered": true,
+                      "deliveredStages": [
+                        "assessment",
+                        "action"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "choices": [
+              {
+                "step": 1,
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "modelChoice": "e1",
+                "selected": "e1",
+                "differsFromModel": false,
+                "baselineSelected": "e1",
+                "differsFromBaseline": false,
+                "raw": {
+                  "abandon": 0,
+                  "done": 0,
+                  "e1": 0.99,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0.01,
+                  "wait": 0
+                },
+                "filtered": {
+                  "abandon": 0,
+                  "done": 0,
+                  "e1": 1,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "policy": {
+                  "kind": "temporary-deferral",
+                  "weights": {
+                    "abandon": 1,
+                    "done": 1,
+                    "e1": 1,
+                    "look_0": 1,
+                    "look_1": 1,
+                    "look_2": 1,
+                    "look_3": 1,
+                    "reread": 1,
+                    "stuck": 1,
+                    "wait": 1
+                  },
+                  "before": {
+                    "abandon": 0,
+                    "done": 0,
+                    "e1": 0.99,
+                    "look_0": 0,
+                    "look_1": 0,
+                    "look_2": 0,
+                    "look_3": 0,
+                    "reread": 0,
+                    "stuck": 0.01,
+                    "wait": 0
+                  },
+                  "weightedTotal": 1,
+                  "scope": {
+                    "kind": "ui-conditional-v1",
+                    "baselineSelected": "e1",
+                    "baselineClass": "ui",
+                    "uiCandidates": [
+                      "e1"
+                    ],
+                    "uiMass": 0.99,
+                    "weightedUIMass": 0.99,
+                    "marginal": {
+                      "abandon": 0,
+                      "done": 0,
+                      "e1": 0.99,
+                      "look_0": 0,
+                      "look_1": 0,
+                      "look_2": 0,
+                      "look_3": 0,
+                      "reread": 0,
+                      "stuck": 0.01,
+                      "wait": 0
+                    },
+                    "conditionalDraw": null
+                  }
+                }
+              },
+              {
+                "step": 2,
+                "observationId": "o2",
+                "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                "modelChoice": "e2",
+                "selected": "e2",
+                "differsFromModel": false,
+                "baselineSelected": "e2",
+                "differsFromBaseline": false,
+                "raw": {
+                  "abandon": 0,
+                  "back": 0,
+                  "done": 0,
+                  "e1": 0.08,
+                  "e2": 0.92,
+                  "e3": 0,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "filtered": {
+                  "abandon": 0,
+                  "back": 0,
+                  "done": 0,
+                  "e1": 0.08,
+                  "e2": 0.92,
+                  "e3": 0,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "policy": {
+                  "kind": "temporary-deferral",
+                  "weights": {
+                    "abandon": 1,
+                    "back": 1,
+                    "done": 1,
+                    "e1": 1,
+                    "e2": 1,
+                    "e3": 1,
+                    "look_0": 1,
+                    "look_1": 1,
+                    "look_2": 1,
+                    "look_3": 1,
+                    "reread": 1,
+                    "stuck": 1,
+                    "wait": 1
+                  },
+                  "before": {
+                    "abandon": 0,
+                    "back": 0,
+                    "done": 0,
+                    "e1": 0.08,
+                    "e2": 0.92,
+                    "e3": 0,
+                    "look_0": 0,
+                    "look_1": 0,
+                    "look_2": 0,
+                    "look_3": 0,
+                    "reread": 0,
+                    "stuck": 0,
+                    "wait": 0
+                  },
+                  "weightedTotal": 1,
+                  "scope": {
+                    "kind": "ui-conditional-v1",
+                    "baselineSelected": "e2",
+                    "baselineClass": "ui",
+                    "uiCandidates": [
+                      "back",
+                      "e1",
+                      "e2",
+                      "e3"
+                    ],
+                    "uiMass": 1,
+                    "weightedUIMass": 1,
+                    "marginal": {
+                      "abandon": 0,
+                      "back": 0,
+                      "done": 0,
+                      "e1": 0.08,
+                      "e2": 0.92,
+                      "e3": 0,
+                      "look_0": 0,
+                      "look_1": 0,
+                      "look_2": 0,
+                      "look_3": 0,
+                      "reread": 0,
+                      "stuck": 0,
+                      "wait": 0
+                    },
+                    "conditionalDraw": null
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "observationId": "o3",
+                "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+                "modelChoice": "e1",
+                "selected": "e1",
+                "differsFromModel": false,
+                "baselineSelected": "e1",
+                "differsFromBaseline": false,
+                "raw": {
+                  "abandon": 0,
+                  "back": 0,
+                  "done": 0,
+                  "e1": 0.99,
+                  "e2": 0.01,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "filtered": {
+                  "abandon": 0,
+                  "back": 0,
+                  "done": 0,
+                  "e1": 0.99,
+                  "e2": 0.01,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "policy": {
+                  "kind": "temporary-deferral",
+                  "weights": {
+                    "abandon": 1,
+                    "back": 1,
+                    "done": 1,
+                    "e1": 1,
+                    "e2": 1,
+                    "look_0": 1,
+                    "look_1": 1,
+                    "look_2": 1,
+                    "look_3": 1,
+                    "reread": 1,
+                    "stuck": 1,
+                    "wait": 1
+                  },
+                  "before": {
+                    "abandon": 0,
+                    "back": 0,
+                    "done": 0,
+                    "e1": 0.99,
+                    "e2": 0.01,
+                    "look_0": 0,
+                    "look_1": 0,
+                    "look_2": 0,
+                    "look_3": 0,
+                    "reread": 0,
+                    "stuck": 0,
+                    "wait": 0
+                  },
+                  "weightedTotal": 1,
+                  "scope": {
+                    "kind": "ui-conditional-v1",
+                    "baselineSelected": "e1",
+                    "baselineClass": "ui",
+                    "uiCandidates": [
+                      "back",
+                      "e1",
+                      "e2"
+                    ],
+                    "uiMass": 1,
+                    "weightedUIMass": 1,
+                    "marginal": {
+                      "abandon": 0,
+                      "back": 0,
+                      "done": 0,
+                      "e1": 0.99,
+                      "e2": 0.01,
+                      "look_0": 0,
+                      "look_1": 0,
+                      "look_2": 0,
+                      "look_3": 0,
+                      "reread": 0,
+                      "stuck": 0,
+                      "wait": 0
+                    },
+                    "conditionalDraw": null
+                  }
+                }
+              },
+              {
+                "step": 4,
+                "observationId": "o4",
+                "imageSha256": "07cd262ac342725a506b62ea2bf1b4f3dbbc6538a882ed07375215dded1efd6e",
+                "modelChoice": "e2",
+                "selected": "e2",
+                "differsFromModel": false,
+                "baselineSelected": "e2",
+                "differsFromBaseline": false,
+                "raw": {
+                  "abandon": 0.01,
+                  "back": 0.02,
+                  "done": 0,
+                  "e1": 0.01,
+                  "e2": 0.9400000000000001,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0.01,
+                  "wait": 0
+                },
+                "filtered": {
+                  "abandon": 0,
+                  "back": 0.020618556701030927,
+                  "done": 0,
+                  "e1": 0.010309278350515464,
+                  "e2": 0.9690721649484536,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "policy": {
+                  "kind": "temporary-deferral",
+                  "weights": {
+                    "abandon": 1,
+                    "back": 1,
+                    "done": 1,
+                    "e1": 1,
+                    "e2": 1,
+                    "look_0": 1,
+                    "look_1": 1,
+                    "look_2": 1,
+                    "look_3": 1,
+                    "reread": 1,
+                    "stuck": 1,
+                    "wait": 1
+                  },
+                  "before": {
+                    "abandon": 0.0101010101010101,
+                    "back": 0.0202020202020202,
+                    "done": 0,
+                    "e1": 0.0101010101010101,
+                    "e2": 0.9494949494949495,
+                    "look_0": 0,
+                    "look_1": 0,
+                    "look_2": 0,
+                    "look_3": 0,
+                    "reread": 0,
+                    "stuck": 0.0101010101010101,
+                    "wait": 0
+                  },
+                  "weightedTotal": 1,
+                  "scope": {
+                    "kind": "ui-conditional-v1",
+                    "baselineSelected": "e2",
+                    "baselineClass": "ui",
+                    "uiCandidates": [
+                      "back",
+                      "e1",
+                      "e2"
+                    ],
+                    "uiMass": 0.9797979797979798,
+                    "weightedUIMass": 0.9797979797979798,
+                    "marginal": {
+                      "abandon": 0.0101010101010101,
+                      "back": 0.0202020202020202,
+                      "done": 0,
+                      "e1": 0.0101010101010101,
+                      "e2": 0.9494949494949495,
+                      "look_0": 0,
+                      "look_1": 0,
+                      "look_2": 0,
+                      "look_3": 0,
+                      "reread": 0,
+                      "stuck": 0.0101010101010101,
+                      "wait": 0
+                    },
+                    "conditionalDraw": null
+                  }
+                }
+              },
+              {
+                "step": 5,
+                "observationId": "o5",
+                "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                "modelChoice": "e1",
+                "selected": "e1",
+                "differsFromModel": false,
+                "baselineSelected": "e1",
+                "differsFromBaseline": false,
+                "raw": {
+                  "abandon": 0,
+                  "back": 0,
+                  "done": 0,
+                  "e1": 0.97,
+                  "e2": 0,
+                  "e3": 0.03,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "filtered": {
+                  "abandon": 0,
+                  "back": 0,
+                  "done": 0,
+                  "e1": 0.97,
+                  "e2": 0,
+                  "e3": 0.03,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "policy": {
+                  "kind": "temporary-deferral",
+                  "weights": {
+                    "abandon": 1,
+                    "back": 1,
+                    "done": 1,
+                    "e1": 1,
+                    "e2": 1,
+                    "e3": 1,
+                    "look_0": 1,
+                    "look_1": 1,
+                    "look_2": 1,
+                    "look_3": 1,
+                    "reread": 1,
+                    "stuck": 1,
+                    "wait": 1
+                  },
+                  "before": {
+                    "abandon": 0,
+                    "back": 0,
+                    "done": 0,
+                    "e1": 0.97,
+                    "e2": 0,
+                    "e3": 0.03,
+                    "look_0": 0,
+                    "look_1": 0,
+                    "look_2": 0,
+                    "look_3": 0,
+                    "reread": 0,
+                    "stuck": 0,
+                    "wait": 0
+                  },
+                  "weightedTotal": 1,
+                  "scope": {
+                    "kind": "ui-conditional-v1",
+                    "baselineSelected": "e1",
+                    "baselineClass": "ui",
+                    "uiCandidates": [
+                      "back",
+                      "e1",
+                      "e2",
+                      "e3"
+                    ],
+                    "uiMass": 1,
+                    "weightedUIMass": 1,
+                    "marginal": {
+                      "abandon": 0,
+                      "back": 0,
+                      "done": 0,
+                      "e1": 0.97,
+                      "e2": 0,
+                      "e3": 0.03,
+                      "look_0": 0,
+                      "look_1": 0,
+                      "look_2": 0,
+                      "look_3": 0,
+                      "reread": 0,
+                      "stuck": 0,
+                      "wait": 0
+                    },
+                    "conditionalDraw": null
+                  }
+                }
+              },
+              {
+                "step": 6,
+                "observationId": "o6",
+                "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+                "modelChoice": "e1",
+                "selected": "e1",
+                "differsFromModel": false,
+                "baselineSelected": "e1",
+                "differsFromBaseline": false,
+                "raw": {
+                  "abandon": 0,
+                  "back": 0,
+                  "done": 0,
+                  "e1": 0.99,
+                  "e2": 0.01,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "filtered": {
+                  "abandon": 0,
+                  "back": 0,
+                  "done": 0,
+                  "e1": 0.99,
+                  "e2": 0.01,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "policy": {
+                  "kind": "temporary-deferral",
+                  "weights": {
+                    "abandon": 1,
+                    "back": 1,
+                    "done": 1,
+                    "e1": 1,
+                    "e2": 1,
+                    "look_0": 1,
+                    "look_1": 1,
+                    "look_2": 1,
+                    "look_3": 1,
+                    "reread": 1,
+                    "stuck": 1,
+                    "wait": 1
+                  },
+                  "before": {
+                    "abandon": 0,
+                    "back": 0,
+                    "done": 0,
+                    "e1": 0.99,
+                    "e2": 0.01,
+                    "look_0": 0,
+                    "look_1": 0,
+                    "look_2": 0,
+                    "look_3": 0,
+                    "reread": 0,
+                    "stuck": 0,
+                    "wait": 0
+                  },
+                  "weightedTotal": 1,
+                  "scope": {
+                    "kind": "ui-conditional-v1",
+                    "baselineSelected": "e1",
+                    "baselineClass": "ui",
+                    "uiCandidates": [
+                      "back",
+                      "e1",
+                      "e2"
+                    ],
+                    "uiMass": 1,
+                    "weightedUIMass": 1,
+                    "marginal": {
+                      "abandon": 0,
+                      "back": 0,
+                      "done": 0,
+                      "e1": 0.99,
+                      "e2": 0.01,
+                      "look_0": 0,
+                      "look_1": 0,
+                      "look_2": 0,
+                      "look_3": 0,
+                      "reread": 0,
+                      "stuck": 0,
+                      "wait": 0
+                    },
+                    "conditionalDraw": null
+                  }
+                }
+              },
+              {
+                "step": 7,
+                "observationId": "o7",
+                "imageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef",
+                "modelChoice": "done",
+                "selected": "done",
+                "differsFromModel": false,
+                "baselineSelected": "done",
+                "differsFromBaseline": false,
+                "raw": {
+                  "abandon": 0,
+                  "back": 0,
+                  "done": 1,
+                  "e1": 0,
+                  "e2": 0,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "filtered": {
+                  "abandon": 0,
+                  "back": 0,
+                  "done": 1,
+                  "e1": 0,
+                  "e2": 0,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "policy": {
+                  "kind": "temporary-deferral",
+                  "weights": {
+                    "abandon": 1,
+                    "back": 1,
+                    "done": 1,
+                    "e1": 1,
+                    "e2": 1,
+                    "look_0": 1,
+                    "look_1": 1,
+                    "look_2": 1,
+                    "look_3": 1,
+                    "reread": 1,
+                    "stuck": 1,
+                    "wait": 1
+                  },
+                  "before": {
+                    "abandon": 0,
+                    "back": 0,
+                    "done": 1,
+                    "e1": 0,
+                    "e2": 0,
+                    "look_0": 0,
+                    "look_1": 0,
+                    "look_2": 0,
+                    "look_3": 0,
+                    "reread": 0,
+                    "stuck": 0,
+                    "wait": 0
+                  },
+                  "weightedTotal": 1,
+                  "scope": {
+                    "kind": "ui-conditional-v1",
+                    "baselineSelected": "done",
+                    "baselineClass": "non-ui",
+                    "uiCandidates": [
+                      "back",
+                      "e1",
+                      "e2"
+                    ],
+                    "uiMass": 0,
+                    "weightedUIMass": 0,
+                    "marginal": {
+                      "abandon": 0,
+                      "back": 0,
+                      "done": 1,
+                      "e1": 0,
+                      "e2": 0,
+                      "look_0": 0,
+                      "look_1": 0,
+                      "look_2": 0,
+                      "look_3": 0,
+                      "reread": 0,
+                      "stuck": 0,
+                      "wait": 0
+                    },
+                    "conditionalDraw": null
+                  }
+                }
+              }
+            ],
+            "reasonReports": [
+              {
+                "step": 1,
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "kind": "model-self-report-not-verified-truth",
+                "reviews": [],
+                "releasedCandidates": []
+              },
+              {
+                "step": 2,
+                "observationId": "o2",
+                "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                "kind": "model-self-report-not-verified-truth",
+                "reviews": [],
+                "releasedCandidates": []
+              },
+              {
+                "step": 3,
+                "observationId": "o3",
+                "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+                "kind": "model-self-report-not-verified-truth",
+                "reviews": [],
+                "releasedCandidates": []
+              },
+              {
+                "step": 4,
+                "observationId": "o4",
+                "imageSha256": "07cd262ac342725a506b62ea2bf1b4f3dbbc6538a882ed07375215dded1efd6e",
+                "kind": "model-self-report-not-verified-truth",
+                "reviews": [],
+                "releasedCandidates": []
+              },
+              {
+                "step": 5,
+                "observationId": "o5",
+                "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                "kind": "model-self-report-not-verified-truth",
+                "reviews": [],
+                "releasedCandidates": []
+              },
+              {
+                "step": 6,
+                "observationId": "o6",
+                "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+                "kind": "model-self-report-not-verified-truth",
+                "reviews": [],
+                "releasedCandidates": []
+              },
+              {
+                "step": 7,
+                "observationId": "o7",
+                "imageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef",
+                "kind": "model-self-report-not-verified-truth",
+                "reviews": [],
+                "releasedCandidates": []
+              }
+            ],
+            "metrics": {
+              "uiActions": 6,
+              "looks": 0,
+              "judgments": 7,
+              "requests": 21,
+              "recordedAPICalls": 21,
+              "selectionCorrections": 0,
+              "baselineSelectionChanges": 0,
+              "earlyUnchangedRevisits": 0
+            },
+            "timing": {
+              "apiMs": 96932.91270000004,
+              "uiMs": 357.3487000000132,
+              "elapsedMs": 100318.69099999999,
+              "humanTimeMs": null
+            }
+          }
+        ],
+        "limitations": [
+          "All trials start on an explicitly blocked primary screen; initial exposure does not establish self-directed discovery of a dead end.",
+          "Snapshot ground truth, successful current-frame delivery, model self-reports and actual UI operations are separate evidence. Delivered pixels do not establish reading or understanding.",
+          "Behavior counts describe locally established transitions in attempted trials, including partial/faulted trials. Valid objective outcomes and valid-run means have their own denominators.",
+          "Prerequisite roles require actual successful clicks with one matching confirm/reconcile counter increment; certification routes are never consulted.",
+          "Revisits require a recorded UI departure and return. Wait, reread and repeated observations do not establish a revisit. Missing transitions are not interpolated.",
+          "Terminal snapshots may establish actual state after the last UI operation but never establish model exposure or an unrecorded URL.",
+          "An unchanged-eligibility early return records lack of prerequisite progress; it is not a prohibition or a claim about natural human behavior.",
+          "Absence of an observed or delivered opportunity is not evidence of successful avoidance, comprehension or correct release decisions.",
+          "One repeat per task/condition is an initial bounded comparison only; reproducibility, human fidelity and causal effects remain unverified.",
+          "Limits and infrastructure failures remain separate. A final saved UI state may satisfy the objective without a later delivered confirmation or subjective done."
+        ]
+      },
+      "experience-visual-conditions-continuity": {
+        "schemaVersion": 1,
+        "kind": "offline-recovery-transfer-descriptive",
+        "completeness": {
+          "planned": 4,
+          "attempted": 1,
+          "withResult": 1,
+          "valid": 0,
+          "missing": [
+            "library/unchanged/r1",
+            "workshop/changed/r1",
+            "workshop/unchanged/r1"
+          ],
+          "complete": false
+        },
+        "integrity": {
+          "ok": true,
+          "errors": []
+        },
+        "totals": {
+          "planned": 4,
+          "attempted": 1,
+          "notAttempted": 3,
+          "withResult": 1,
+          "valid": 0,
+          "invalid": 1,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 1,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {
+            "API_ERROR": 1
+          },
+          "requests": 1,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 1,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 1,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 1,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0
+        },
+        "cells": [
+          {
+            "key": "library/changed",
+            "fixture": {
+              "version": 1,
+              "task": "library",
+              "condition": "changed"
+            },
+            "planned": 1,
+            "attempted": 1,
+            "notAttempted": 0,
+            "withResult": 1,
+            "valid": 0,
+            "invalid": 1,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 1,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {
+              "API_ERROR": 1
+            },
+            "requests": 1,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 1,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 1,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 1,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": [
+                "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba"
+              ]
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          },
+          {
+            "key": "library/unchanged",
+            "fixture": {
+              "version": 1,
+              "task": "library",
+              "condition": "unchanged"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          },
+          {
+            "key": "workshop/changed",
+            "fixture": {
+              "version": 1,
+              "task": "workshop",
+              "condition": "changed"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          },
+          {
+            "key": "workshop/unchanged",
+            "fixture": {
+              "version": 1,
+              "task": "workshop",
+              "condition": "unchanged"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          }
+        ],
+        "runs": [
+          {
+            "id": "recovery-library-changed-r1",
+            "runId": "a309e1bb-0bdc-4c1e-a620-c57a6a0b6c4b-2",
+            "fixture": {
+              "version": 1,
+              "task": "library",
+              "condition": "changed"
+            },
+            "replicate": 1,
+            "status": "RESULT",
+            "dir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\condition-continuity-2026-10-30\\live\\recovery-library-changed-r1-experience-visual-conditions-continuity",
+            "resultPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\condition-continuity-2026-10-30\\live\\recovery-library-changed-r1-experience-visual-conditions-continuity\\exploration\\result.json",
+            "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\condition-continuity-2026-10-30\\live\\recovery-library-changed-r1-experience-visual-conditions-continuity-budget.json",
+            "ledgerEvidence": {
+              "used": 1,
+              "sha256": "d30d80e78a45b6c52de36e72772d47978286bb14865c73463d35b392940ff418",
+              "reserved": 0,
+              "ok": 0,
+              "errors": 1
+            },
+            "source": {
+              "revision": "dd8527b876f61489bdec7fcf0b5df9483ce0e817",
+              "sourceHash": "075a0df4e844e7076beceaf1f2c597b70950943439f3a64359ce3add752344d4"
+            },
+            "initialImageSha256": "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba",
+            "objectiveAssessment": {
+              "status": "OK",
+              "value": false
+            },
+            "perceivedDone": false,
+            "termination": "API_ERROR",
+            "validity": {
+              "valid": false,
+              "reasons": [
+                "REPORTED_INVALID",
+                "INFRASTRUCTURE_FAULT"
+              ]
+            },
+            "categories": {
+              "infrastructure": true,
+              "invalidDistribution": false,
+              "safety": false,
+              "limit": false,
+              "abandoned": false,
+              "stuck": false
+            },
+            "auditErrors": [],
+            "initialBlocked": {
+              "observed": true,
+              "delivered": false,
+              "evidence": {
+                "kind": "observation",
+                "step": 1,
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "url": "/good/?recovery=v9",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": false,
+                "deliveredStages": []
+              }
+            },
+            "coverageComplete": true,
+            "opportunities": {
+              "prerequisiteChange": "none-observed",
+              "unchangedConfirmation": "not-applicable"
+            },
+            "transitions": [
+              {
+                "step": 1,
+                "observationId": "o1",
+                "sourceImageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "action": null,
+                "outcome": "VISUAL_EXTRACTION_ERROR",
+                "actualUI": false,
+                "navigation": false,
+                "before": {
+                  "kind": "observation",
+                  "step": 1,
+                  "observationId": "o1",
+                  "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                  "url": "/good/?recovery=v9",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "primary",
+                    "eligible": false,
+                    "verificationAttempts": 0,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": false,
+                  "deliveredStages": []
+                },
+                "after": {
+                  "kind": "terminal",
+                  "step": 1,
+                  "observationId": null,
+                  "imageSha256": null,
+                  "url": null,
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "primary",
+                    "eligible": false,
+                    "verificationAttempts": 0,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": false,
+                  "deliveredStages": []
+                },
+                "afterKind": "terminal",
+                "fromURL": "/good/?recovery=v9",
+                "toURL": null,
+                "stateConsistent": true,
+                "role": null,
+                "eligibleChanged": false,
+                "save": false,
+                "errors": []
+              }
+            ],
+            "prerequisiteEvents": [],
+            "revisits": [],
+            "saves": [],
+            "switchCompletion": {
+              "applicable": false,
+              "completed": false,
+              "evidence": []
+            },
+            "recoveryAfterChange": {
+              "applicable": true,
+              "completed": false,
+              "returns": [],
+              "evidence": []
+            },
+            "choices": [],
+            "reasonReports": [],
+            "metrics": {
+              "uiActions": 0,
+              "looks": 0,
+              "judgments": 1,
+              "requests": 1,
+              "recordedAPICalls": 1,
+              "selectionCorrections": 0,
+              "baselineSelectionChanges": 0,
+              "earlyUnchangedRevisits": 0
+            },
+            "timing": {
+              "apiMs": 391.1064999999944,
+              "uiMs": 0,
+              "elapsedMs": 1372.8190000000031,
+              "humanTimeMs": null
+            }
+          }
+        ],
+        "limitations": [
+          "All trials start on an explicitly blocked primary screen; initial exposure does not establish self-directed discovery of a dead end.",
+          "Snapshot ground truth, successful current-frame delivery, model self-reports and actual UI operations are separate evidence. Delivered pixels do not establish reading or understanding.",
+          "Behavior counts describe locally established transitions in attempted trials, including partial/faulted trials. Valid objective outcomes and valid-run means have their own denominators.",
+          "Prerequisite roles require actual successful clicks with one matching confirm/reconcile counter increment; certification routes are never consulted.",
+          "Revisits require a recorded UI departure and return. Wait, reread and repeated observations do not establish a revisit. Missing transitions are not interpolated.",
+          "Terminal snapshots may establish actual state after the last UI operation but never establish model exposure or an unrecorded URL.",
+          "An unchanged-eligibility early return records lack of prerequisite progress; it is not a prohibition or a claim about natural human behavior.",
+          "Absence of an observed or delivered opportunity is not evidence of successful avoidance, comprehension or correct release decisions.",
+          "One repeat per task/condition is an initial bounded comparison only; reproducibility, human fidelity and causal effects remain unverified.",
+          "Limits and infrastructure failures remain separate. A final saved UI state may satisfy the objective without a later delivered confirmation or subjective done."
+        ]
+      }
+    },
+    "pairs": [
+      {
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "changed"
+        },
+        "present": true,
+        "evidenceAvailable": true,
+        "matched": true,
+        "reasons": []
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "unchanged"
+        },
+        "present": false,
+        "evidenceAvailable": false,
+        "matched": false,
+        "reasons": [
+          "MISSING_OR_DUPLICATE_ACTOR"
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "changed"
+        },
+        "present": false,
+        "evidenceAvailable": false,
+        "matched": false,
+        "reasons": [
+          "MISSING_OR_DUPLICATE_ACTOR"
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "unchanged"
+        },
+        "present": false,
+        "evidenceAvailable": false,
+        "matched": false,
+        "reasons": [
+          "MISSING_OR_DUPLICATE_ACTOR"
+        ]
+      }
+    ],
+    "limitations": [
+      "One trial per mode/task/condition; no statistical, causal or human-reproduction claim.",
+      "Explicit native continuity context/schema/instructions and decision guidance form one declared intervention; model, image transport, UI and effort are unchanged.",
+      "Grounded quotations remain model-transcribed-unverified. Current uncertainty and historical evidence are distinct.",
+      "Infrastructure failures, API waiting and unattempted slots are not user confusion, human thought time or abandonment.",
+      "Models choose condition mappings and actions; no correct route or revisit ban is registered."
+    ]
+  },
+  "preservation": {
+    "before": {
+      "count": 5527,
+      "changed": []
+    },
+    "after": {
+      "count": 5527,
+      "changed": []
+    }
+  },
+  "publicFiles": [
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\condition-continuity-evidence\\library-changed-continuity-o1.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+    },
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\condition-continuity-evidence\\library-changed-control-o1.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+    },
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\condition-continuity-evidence\\library-changed-control-o2.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+    },
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\results.csv",
+      "sha256": "a5235fe7e125e395fe3b75c8a1ed5f7d8e0176e6ece5b73e47c096a4ae026f9a"
+    },
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\results.json",
+      "sha256": "9ef431e326e5373f328f35f660bdf0606a05e98d37d74b0bd81067e33699c4b7"
+    }
+  ],
+  "preselectedSample": [
+    {
+      "sequence": 1,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "observation": 1,
+      "file": "condition-continuity-evidence/library-changed-control-o1.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+      "status": "NATIVE_OUTPUT_ADMITTED",
+      "quoteStatus": "model-transcribed-unverified",
+      "verified": true,
+      "conditions": [
+        {
+          "id": "c1",
+          "description": "予約図書「川沿いの暮らし」の保存済み受取館は現在「中央図書館」で、これを東分館へ変更する対象である。",
+          "status": "satisfied",
+          "evidence": {
+            "observationId": "o1",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "予約図書　川沿いの暮らし／保存済みの受取館　中央図書館",
+            "quoteStatus": "model-transcribed-unverified"
+          },
+          "uncertainty": "画面上の表示として確認できるが、実際の保存状態は未検証。"
+        },
+        {
+          "id": "c2",
+          "description": "受取館変更を利用するには利用情報の確認が必要であり、現在は変更を利用できない状態である。",
+          "status": "unmet",
+          "evidence": {
+            "observationId": "o1",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "現在、変更を利用できません　利用情報の確認が必要です。",
+            "quoteStatus": "model-transcribed-unverified"
+          },
+          "uncertainty": "画面の案内に基づく状態解釈であり、確認操作の状況は未検証。"
+        },
+        {
+          "id": "c3",
+          "description": "予約図書「川沿いの暮らし」の保存済み受取館が東分館になり、保存されたことを確認できる。",
+          "status": "uncertain",
+          "evidence": null,
+          "uncertainty": "現在の画面には東分館への変更や保存完了の表示がない。"
+        }
+      ],
+      "nativeFailure": null
+    },
+    {
+      "sequence": 1,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "observation": 2,
+      "file": "condition-continuity-evidence/library-changed-control-o2.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+      "status": "NATIVE_OUTPUT_ADMITTED",
+      "quoteStatus": "model-transcribed-unverified",
+      "verified": true,
+      "conditions": [
+        {
+          "id": "c1",
+          "description": "予約図書「川沿いの暮らし」の保存済み受取館は現在「中央図書館」である。",
+          "status": "satisfied",
+          "evidence": {
+            "observationId": "o1",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "保存済みの受取館　中央図書館",
+            "quoteStatus": "model-transcribed-unverified"
+          },
+          "uncertainty": "履歴画像上の表示であり、現在もこの状態かは未確認。"
+        },
+        {
+          "id": "c2",
+          "description": "受取館の変更を利用するため、利用情報の確認が必要である。",
+          "status": "unmet",
+          "evidence": {
+            "observationId": "o1",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "現在、変更を利用できません　利用情報の確認が必要です。",
+            "quoteStatus": "model-transcribed-unverified"
+          },
+          "uncertainty": "履歴画像の案内に基づく状態で、現在の確認状況は未確認。"
+        },
+        {
+          "id": "c3",
+          "description": "「川沿いの暮らし」の保存済み受取館が「東分館」になり、保存されたことを確認できる。",
+          "status": "uncertain",
+          "evidence": null,
+          "uncertainty": "現在の画像には変更後の受取館や保存完了の表示がない。"
+        }
+      ],
+      "nativeFailure": null
+    },
+    {
+      "sequence": 2,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "observation": 1,
+      "file": "condition-continuity-evidence/library-changed-continuity-o1.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+      "status": "HTTP_RECEIVED_NO_OUTPUT",
+      "quoteStatus": "model-transcribed-unverified",
+      "verified": true,
+      "conditions": null,
+      "nativeFailure": {
+        "code": "HTTP_ERROR",
+        "attempts": 1,
+        "httpReceived": true,
+        "statusCode": 400
+      }
+    },
+    {
+      "sequence": 2,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "NATIVE_OBSERVATION_UNAVAILABLE",
+      "verified": true
+    },
+    {
+      "sequence": 3,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 3,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 4,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 4,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 5,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 5,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 6,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 6,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 7,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 7,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 8,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 8,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    }
+  ],
+  "visualReview": {
+    "performed": true,
+    "frames": 3,
+    "missing": 13,
+    "notes": [
+      "Controlo1 and continuityo1 identical delivered pixels show current change unavailable, pending user information confirmation, saved central library and only e1 My Page link.",
+      "Control o1 c2 unmet and quoted pending-confirmation wording are supported by visible text. c1 describes the displayed existing reservation, not proof target changed; c3 uncertain correctly has no current completion evidence.",
+      "Controlo2 shows My Page navigation links; remembered c1/c2 evidence remains explicitly sourced to o1 with uncertainty text acknowledging historical state. No stable continuity claim exists in this actor.",
+      "O2 model expectedResult for e2 is a hypothesis: the actual immediate action navigates to account; eligibility changes only after later confirmation. Candidate role labels are not verified causal effects.",
+      "Continuityo1 has no model output or admitted claim, so no quote/mapping/continuity behavioral-content assessment is possible."
+    ],
+    "additionalInspectionLabel": "POSTHOC_STRUCTURAL_ACTION_TRACE_NOT_ADDITIONAL_IMAGE_SAMPLE",
+    "additionalInspectionScope": "Full control7-step structural inspection included native condition text/source fields during trace discovery; semantic image conclusions remain limited to fixed first2 observations per planned trial."
+  },
+  "posthocStructuralActionTrace": [
+    {
+      "label": "POSTHOC_STRUCTURAL_ACTION_TRACE_NOT_ADDITIONAL_IMAGE_SAMPLE",
+      "actor": "experience-visual-conditions",
+      "number": 1,
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "candidateText": "マイページへ",
+      "before": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": false,
+        "verificationAttempts": 0,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "after": {
+        "schemaVersion": 1,
+        "route": "home",
+        "eligible": false,
+        "verificationAttempts": 0,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "nativeConditionSources": [
+        {
+          "id": "c1",
+          "status": "satisfied",
+          "evidenceSource": {
+            "observationId": "o1",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+          }
+        },
+        {
+          "id": "c2",
+          "status": "unmet",
+          "evidenceSource": {
+            "observationId": "o1",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+          }
+        },
+        {
+          "id": "c3",
+          "status": "uncertain",
+          "evidenceSource": null
+        }
+      ],
+      "continuity": null
+    },
+    {
+      "label": "POSTHOC_STRUCTURAL_ACTION_TRACE_NOT_ADDITIONAL_IMAGE_SAMPLE",
+      "actor": "experience-visual-conditions",
+      "number": 2,
+      "selected": "e2",
+      "action": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "candidateText": "利用情報の確認\n登録情報と利用状況の確認",
+      "before": {
+        "schemaVersion": 1,
+        "route": "home",
+        "eligible": false,
+        "verificationAttempts": 0,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "after": {
+        "schemaVersion": 1,
+        "route": "account",
+        "eligible": false,
+        "verificationAttempts": 0,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "nativeConditionSources": [
+        {
+          "id": "c1",
+          "status": "satisfied",
+          "evidenceSource": {
+            "observationId": "o1",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+          }
+        },
+        {
+          "id": "c2",
+          "status": "unmet",
+          "evidenceSource": {
+            "observationId": "o1",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+          }
+        },
+        {
+          "id": "c3",
+          "status": "uncertain",
+          "evidenceSource": null
+        }
+      ],
+      "continuity": null
+    },
+    {
+      "label": "POSTHOC_STRUCTURAL_ACTION_TRACE_NOT_ADDITIONAL_IMAGE_SAMPLE",
+      "actor": "experience-visual-conditions",
+      "number": 3,
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "candidateText": "利用情報を確認する",
+      "before": {
+        "schemaVersion": 1,
+        "route": "account",
+        "eligible": false,
+        "verificationAttempts": 0,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "after": {
+        "schemaVersion": 1,
+        "route": "account",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "nativeConditionSources": [
+        {
+          "id": "c1",
+          "status": "satisfied",
+          "evidenceSource": {
+            "observationId": "o1",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+          }
+        },
+        {
+          "id": "c2",
+          "status": "uncertain",
+          "evidenceSource": null
+        },
+        {
+          "id": "c3",
+          "status": "uncertain",
+          "evidenceSource": null
+        }
+      ],
+      "continuity": null
+    },
+    {
+      "label": "POSTHOC_STRUCTURAL_ACTION_TRACE_NOT_ADDITIONAL_IMAGE_SAMPLE",
+      "actor": "experience-visual-conditions",
+      "number": 4,
+      "selected": "e2",
+      "action": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "candidateText": "マイページへ",
+      "before": {
+        "schemaVersion": 1,
+        "route": "account",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "after": {
+        "schemaVersion": 1,
+        "route": "home",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "nativeConditionSources": [
+        {
+          "id": "c1",
+          "status": "uncertain",
+          "evidenceSource": null
+        },
+        {
+          "id": "c2",
+          "status": "satisfied",
+          "evidenceSource": {
+            "observationId": "o4",
+            "imageSha256": "07cd262ac342725a506b62ea2bf1b4f3dbbc6538a882ed07375215dded1efd6e"
+          }
+        },
+        {
+          "id": "c3",
+          "status": "uncertain",
+          "evidenceSource": null
+        }
+      ],
+      "continuity": null
+    },
+    {
+      "label": "POSTHOC_STRUCTURAL_ACTION_TRACE_NOT_ADDITIONAL_IMAGE_SAMPLE",
+      "actor": "experience-visual-conditions",
+      "number": 5,
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "candidateText": "予約内容の変更\n「 川沿いの暮らし 」の 受取館 を管理",
+      "before": {
+        "schemaVersion": 1,
+        "route": "home",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "after": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "nativeConditionSources": [
+        {
+          "id": "c1",
+          "status": "uncertain",
+          "evidenceSource": null
+        },
+        {
+          "id": "c2",
+          "status": "satisfied",
+          "evidenceSource": {
+            "observationId": "o4",
+            "imageSha256": "07cd262ac342725a506b62ea2bf1b4f3dbbc6538a882ed07375215dded1efd6e"
+          }
+        },
+        {
+          "id": "c3",
+          "status": "uncertain",
+          "evidenceSource": null
+        }
+      ],
+      "continuity": null
+    },
+    {
+      "label": "POSTHOC_STRUCTURAL_ACTION_TRACE_NOT_ADDITIONAL_IMAGE_SAMPLE",
+      "actor": "experience-visual-conditions",
+      "number": 6,
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "candidateText": "東分館 に変更して保存",
+      "before": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "after": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "東分館",
+        "complete": true
+      },
+      "nativeConditionSources": [
+        {
+          "id": "c1",
+          "status": "satisfied",
+          "evidenceSource": {
+            "observationId": "o6",
+            "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7"
+          }
+        },
+        {
+          "id": "c3",
+          "status": "uncertain",
+          "evidenceSource": null
+        }
+      ],
+      "continuity": null
+    },
+    {
+      "label": "POSTHOC_STRUCTURAL_ACTION_TRACE_NOT_ADDITIONAL_IMAGE_SAMPLE",
+      "actor": "experience-visual-conditions",
+      "number": 7,
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "candidateText": null,
+      "before": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "東分館",
+        "complete": true
+      },
+      "after": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": true,
+        "verificationAttempts": 1,
+        "recordChecks": 0,
+        "savedValue": "東分館",
+        "complete": true
+      },
+      "nativeConditionSources": [
+        {
+          "id": "c1",
+          "status": "satisfied",
+          "evidenceSource": {
+            "observationId": "o6",
+            "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7"
+          }
+        },
+        {
+          "id": "c3",
+          "status": "satisfied",
+          "evidenceSource": {
+            "observationId": "o7",
+            "imageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef"
+          }
+        }
+      ],
+      "continuity": null
+    },
+    {
+      "label": "POSTHOC_STRUCTURAL_ACTION_TRACE_NOT_ADDITIONAL_IMAGE_SAMPLE",
+      "actor": "experience-visual-conditions-continuity",
+      "number": 1,
+      "selected": null,
+      "action": null,
+      "candidateText": null,
+      "before": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": false,
+        "verificationAttempts": 0,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "after": {
+        "schemaVersion": 1,
+        "route": "primary",
+        "eligible": false,
+        "verificationAttempts": 0,
+        "recordChecks": 0,
+        "savedValue": "中央図書館",
+        "complete": false
+      },
+      "nativeConditionSources": [],
+      "continuity": null
+    }
+  ],
+  "stoppingReason": {
+    "status": "PROVIDER_UNAVAILABLE",
+    "stage": "first continuity native HTTP request",
+    "httpStatus": 400,
+    "providerResponseBodyRetained": false,
+    "exactCause": "UNKNOWN",
+    "lookaheadHypothesis": "UNCONFIRMED",
+    "notUserAbandonment": true,
+    "notSemanticExplorationFailure": true
+  },
+  "constraints": {
+    "actualModelCalls": 0,
+    "externalEnvironmentFilesRead": 0,
+    "humanRecordContentsRead": 0,
+    "productEdits": 0,
+    "liveRawEdits": 0,
+    "publicDocEdits": 0,
+    "browserLaunches": 0,
+    "currentChangingSourceUsedForReplay": false
+  },
+  "limitations": [
+    "Only1 valid control and0 valid continuity runs; no actor performance comparison, causal effect, human agreement or semantic understanding claim.",
+    "This22-request stopped phase is preserved separately; later producer must have its own source/raw and shared authorized new-phase ceiling288, remaining266. Historical367/554 requests are separate.",
+    "HTTP400 proves provider receipt/rejection; exact provider error reason is unknown because safe metadata omitted body.",
+    "Replays used isolated153-file old ZIP source and existing local runtime; no API or UI actions reexecuted.",
+    "Public independentAudit PENDING is preserved in original draft; this separate GATE records completed audit."
+  ],
+  "staticPreservation": {
+    "round1GateSha256": "2c83057fd557874cebd173809abf6d149ebd139335eb3ccba03a4f393cdda3e4",
+    "round2GateSha256": "69b50aa132062a15111ddf30739385f158e88072d66f71c7617312b0d67eb2ae",
+    "freezeRound2Sha256": "95e08a48ffed299ce99ee51facca871b5cf149626c2f5610a38b8a743d6e519c",
+    "priorV2Sha256": "7e3071c3477854a4fd83627caab78b3ec79b2098221967bbb4caf0f54157d7ab",
+    "inventorySha256": "ad3c96f1fd949f059a736aabcb035242cfd8b447880befcfb925c18282924b89"
+  }
+}

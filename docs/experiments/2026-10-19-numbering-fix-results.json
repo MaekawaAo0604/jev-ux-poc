@@ -1,0 +1,28 @@
+{
+ "base":"69e8be5e6e83e867199bcdd15618e3a9d1abb879",
+ "scope":"Fix visual-number association only; no Goal, Choice instructions, exploration algorithm, action bindings or completion threshold changes.",
+ "implementation":"Prefer a badge in its own outlined control's unused padding, avoiding visible DOM text rectangles and unrelated offered controls. Otherwise use a nearest readable outside position. Containing background controls do not prohibit foreground numbering. Text strings, style cache and collision rectangles remain local to the browser evaluation; no DOM/OCR text is added to Jev input.",
+ "regressions":{"redThenGreen":["e4 badge obscures second-row e9", "packed navigation sends badges to remote rows", "full-screen background control prevents foreground badge placement", "invisible text consumes all placement space, including inherited opacity/filter, visibility and transparent text fill"],"focusedTests":12,"preserved":["candidate identity and actual click binding","screenshot and DOM cleanup including capture failure","modal focus","full-viewport image link"]},
+ "pairedProbe":{
+  "script":"docs/experiments/2026-10-19-numbering-fix.ts",
+  "raw":"reports/numbering-fix-2026-10-19T07-05-21.036Z/probe.json",
+  "protocol":"Same frozen page, current screenshot only, identical questions/candidates/state, pinned Jev 1.14.0. Three fresh requests per annotation variant, each asks two link-number questions. No expected ID or route supplied. This is a separate instrument probe, not Goal exploration or a human UX measurement.",
+  "pageUnchanged":true,
+  "plainSha256":"5a8bcd1e1652a5577a3ff7d6bfcb8a680a852495a9a06e3b9b19d508e17c63c8",
+  "beforeSha256":"691cfaa86eab0caa2a95b7d211c539043dd819b27fe7b2c703884c1278ec05ce",
+  "beforeMatchesOriginalFailingCapture":true,
+  "afterSha256":"5b5dafcf35bda9716b271f770f718f6dd381f983f6ae0a4dca58f762f088b38b",
+  "expectedBySavedGeometryAndExecutedTargets":{"kids":"e9","rules":"e7"},
+  "before":[{"kids":"e4","rules":"e2"},{"kids":"e4","rules":"e2"},{"kids":"e4","rules":"e2"}],
+  "after":[{"kids":"e9","rules":"e7"},{"kids":"e9","rules":"e7"},{"kids":"e9","rules":"e7"}],
+  "rejectedAttempt":"Avoiding other target rectangles without an explicit local association was insufficient: kids=uncertain/rules=e2 in all three paired after requests. Retained locally at reports/numbering-fix-2026-10-19T06-58-10.715Z/."
+ },
+ "originalGoalReruns":[
+  {"source":"reports/2026-10-19T07-01-00.348Z-public/exploration/","phase":"main rendering intervention, before visibility edge-case fixes","modelEnding":"JEV_DONE","actions":3,"explorationMs":24130.1605},
+  {"source":"reports/2026-10-19T07-05-48.564Z-public/exploration/","phase":"final production code","modelEnding":"JEV_DONE","actions":3,"explorationMs":24288.993000000002}
+ ],
+ "execution":{"route":["e9: キッズ・ファミリー", "e19: 体験型アート作品", "scroll down"],"finalURL":"https://www.hakone-oam.or.jp/kidsandfamily/handsonartworks","imageReview":"The final captured image visibly includes the work, the rule 遊べるのは小学生まで, and クツはぬいでね（雨の日もだよ）. This is a source-image check, not an assertion that all weather/operation conditions have been exhaustively verified.","finalImageSha256":"7f8d941ed644f05878fe5cfc8805ae6bf8e8c1081b6e82889651ed64a24e3286","finalTraceSha256":"511f0d768a4d6b12b50626caa8a49feeb815f972debb5b85ee69d24f4715218f","objectiveSuccess":null},
+ "publicScope":"Previously reviewed same museum, read-only, sequential, 2000ms action interval, no action-count cap. No forms, login, purchases or policy bypass. Original reports untouched. Site images and raw model responses remain local, not committed.",
+ "verification":{"build":"PASS","focused":"12/12 PASS","fullSuite":{"total":466,"pass":463,"fail":0,"skip":3,"durationMs":435574.6454,"exitCode":0,"command":"npx tsx --test --test-concurrency=1 tests/*.test.ts","log":"reports/numbering-fix-final-tests-2026-10-19.log"},"testedSourceSha256":{"pages/visual-numbering.ts":"5538ae12c7340e0c2f1f17d3c47f7fc069364b615ba2e942da9005a129dcb159","tests/vision-numbering.test.ts":"5eb9b1db6aae8214f210aac9a17bae45af05fd49929289e9441cd288cb2c1dda"},"note":"An earlier full suite was intentionally interrupted before final review fixes; it is not claimed as a pass. The completed final suite ran against fixed production and test files from scratch; file hashes were rechecked unchanged afterwards.","review":"All independently reproduced Important findings resolved; no outstanding Critical or Important findings in reviewed scope."},
+ "limits":["One real site and three fresh paired requests per variant do not establish a general accuracy rate", "Arbitrary pseudo-element/shadow/iframe/image text and full CSS paint reconstruction are not implemented", "An image-only logo/icon can still be partly covered by its own badge", "A fully packed viewport may still explicitly fail placement instead of painting an ambiguous number", "Goal completion remains model perceived; original objectiveSuccess stays null"]
+}

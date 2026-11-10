@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "mode": "experience-goal-search-grounded",
+  "providers": [
+    "jev",
+    "openai-decisions"
+  ],
+  "models": {
+    "jev": "jev-1.14.0",
+    "openai-decisions": "gpt-6-luna"
+  },
+  "repeats": 2,
+  "persona": null,
+  "actorChangesAllowed": false,
+  "limits": {
+    "trials": 24,
+    "maxRequests": 576,
+    "maxRequestsPerTrial": 24,
+    "maxJudgmentsPerTrial": 12,
+    "maxUIActionsPerTrial": 15,
+    "maxLooksPerTrial": 3,
+    "maxRunMsPerTrial": 180000,
+    "phaseMs": 2400000,
+    "parallel": 2
+  },
+  "initialState": "Each provider starts a fresh browser on the same explicitly blocked primary page. No spontaneous discovery of dead end is claimed.",
+  "pairPolicy": "same initial product and first assessment evidence/questions; later model-dependent trajectories may differ",
+  "retryPolicy": "none; failures remain attempted; stop next pair on auth/quota/accounting fault"
+}

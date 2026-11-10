@@ -1,0 +1,639 @@
+{
+  "schemaVersion": 1,
+  "phase": "working-inquiry-2026-10-30",
+  "scope": "Implementation and descriptive fresh trials; no human reproduction or stable improvement claim",
+  "producer": {
+    "revision": "a5ffbfb0496a6401c478bf46d4bfe6fc61a74131",
+    "sourceHash": "ec48493a0e26ce19f7e2742791644fedc3d821ab51074f11da4e3ecb7ff69080",
+    "runtimeFiles": 161,
+    "archive": {
+      "file": "producer-source-ec48493a.zip",
+      "sha256": "9a7309e30ad008688191a455e078613126b2f03706b1e5bb63660b2c3d57fe7c",
+      "fileCount": 161
+    }
+  },
+  "protocol": {
+    "schemaVersion": 1,
+    "phase": "working-inquiry-2026-10-30",
+    "control": "experience-visual-conditions-prior-links",
+    "intervention": "experience-working-inquiry",
+    "fixtures": [
+      "library/unchanged",
+      "workshop/unchanged"
+    ],
+    "persona": null,
+    "trials": 4,
+    "repeats": 1,
+    "maximumRequests": 144,
+    "perTrialRequests": 36,
+    "maxJudgments": 12,
+    "maxUIActions": 15,
+    "maxLooks": 3,
+    "maxTrialMs": 300000,
+    "maxVisualRequestMs": 60000,
+    "maxPhaseMs": 1260000,
+    "parallel": 1,
+    "retry": 0,
+    "declaredChange": "Three categorical assessment questions selecting unresolved working condition, intent and observable check; bounded context and admitted choices passed to action criteria/guidance. No extra API stage, native request/body/schema change, UI, sampler, role or weight changes.",
+    "initialEvidence": "Identical initial UI PNG, literal goal, persona(null), empty memory and native request input.",
+    "actorOrderOffset": 1,
+    "stop": "Stop authentication/quota/model-output/accounting failure or two consecutive infrastructure failures. Preserve all original failed/missing slots; no replacement.",
+    "limitations": "Single repeat, no causal stability/provider/human fidelity claim. Do not pool earlier phases.",
+    "prior": "Preserve all6270 previously sealed raw files. No saved-input resends or human participant data."
+  },
+  "analysisProtocol": {
+    "schemaVersion": 1,
+    "kind": "FRESH_WORKING_INQUIRY_DESCRIPTIVE_ANALYSIS",
+    "frozenSource": "ec48493a0e26ce19f7e2742791644fedc3d821ab51074f11da4e3ecb7ff69080",
+    "acceptance": "Implementation integrity and observed behavior reported separately. No human comparison.",
+    "primary": "Objective goal status in valid runs with denominator; invalid and missing separated.",
+    "secondary": [
+      "Actual reconciliation counter increments, never role/expected-label as success",
+      "First visit to records and actual candidate performed; modelChoice vs selected and weights",
+      "Selected working condition, current/historical scope, raw/admitted intent/check and adjustments",
+      "Whether selected candidate has explicit model link; absent link is unknown, not unrelated",
+      "Same-source same-candidate unchanged-result repetitions from existing bounded experience, not automatic user confusion"
+    ],
+    "sampling": "One repeat each library/workshop unchanged, prior-links vs working-inquiry, alternating order, parallel1. Same prior bounds and12judgments/15UI/3looks/300s/native60s/36requests. Maximum144requests; no failed-slot replacement.",
+    "evidencePolicy": "Only originally delivered current images, bounded recalled conditions/experience, normal runner. No participant data or saved-input resends.",
+    "framePolicy": "First records observation for each run, plus first primary observation after actual recordChecks increment if present. Missing means missing; no substituted frame.",
+    "nonClaims": [
+      "Statistical significance",
+      "Stable transfer or causal effect from one repeat",
+      "Meaning comprehension or human fidelity",
+      "Model probability/confidence as human frequency"
+    ],
+    "optionalOpenAIFunctional": {
+      "trials": 2,
+      "maxRequests": 72,
+      "limits": "same36 pertrial12judgments300s/native60; retry0/parallel1",
+      "purpose": "New-input functional check on two tasks; separate from provider ranking or same-input evaluation",
+      "executeWhen": "If Jev comparison leaves intermediate-operation selection unresolved, run fresh new mode on OpenAI using unchanged normal decision backend. Preserve Jev results and original slots."
+    },
+    "preExecutionAmendment": {
+      "reason": "Independent P1 save-hash failure fixed before any live call; only immediate hashes after2new wire mutations plus3regression tests. Initial protocol retained.",
+      "behaviorContractChanged": false,
+      "previousSource": "1bd1107b528f083aa20304a1d29cd68bc5a9da4aeaa1c2241e10bd31b22c9cac"
+    }
+  },
+  "jev": {
+    "status": "COMPLETED",
+    "requests": 138,
+    "planned": 4,
+    "attempted": 4,
+    "valid": 4,
+    "invalid": 0,
+    "missing": 0,
+    "newGoal": 1,
+    "newDenominator": 2,
+    "controlGoal": 0,
+    "controlDenominator": 2,
+    "manifestSha256": "86f89edda57539fc860d8850c6ea45eca2d8ca89f187d91a890c3d3946252551",
+    "rows": [
+      {
+        "task": "library",
+        "actor": "experience-working-inquiry",
+        "runId": "4c92cfe7-3a0c-4a00-88fa-d24202518cd6-1",
+        "requests": 30,
+        "status": "RESULT",
+        "termination": "SUBJECTIVE_DONE",
+        "validForComparison": true,
+        "objective": {
+          "status": "OK",
+          "value": true
+        },
+        "terminal": {
+          "schemaVersion": 1,
+          "route": "primary",
+          "eligible": true,
+          "verificationAttempts": 1,
+          "recordChecks": 1,
+          "savedValue": "東分館",
+          "complete": true
+        },
+        "firstRecords": {
+          "step": 6,
+          "image": "input-6.png",
+          "sha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3"
+        },
+        "firstPrimaryAfterProgress": {
+          "step": 9,
+          "image": "input-9.png",
+          "sha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7"
+        },
+        "actualReconciliationEvents": [
+          {
+            "step": 6,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "candidate": "e1",
+            "modelChoice": "e1",
+            "rawProbability": 0.54,
+            "weights": {
+              "abandon": 1,
+              "back": 1,
+              "done": 1,
+              "e1": 1,
+              "e2": 1,
+              "look_0": 1,
+              "look_1": 1,
+              "look_2": 1,
+              "look_3": 1,
+              "reread": 1,
+              "stuck": 1,
+              "wait": 1
+            },
+            "before": {
+              "schemaVersion": 1,
+              "route": "records",
+              "eligible": false,
+              "verificationAttempts": 1,
+              "recordChecks": 0,
+              "savedValue": "中央図書館",
+              "complete": false
+            },
+            "after": {
+              "schemaVersion": 1,
+              "route": "records",
+              "eligible": true,
+              "verificationAttempts": 1,
+              "recordChecks": 1,
+              "savedValue": "中央図書館",
+              "complete": false
+            },
+            "afterKind": "next-delivered-observation"
+          }
+        ],
+        "workingJudgments": 10,
+        "adjustedJudgments": 2,
+        "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\working-inquiry-2026-10-30\\live\\recovery-library-unchanged-r1-experience-working-inquiry\\exploration\\result.json"
+      },
+      {
+        "task": "library",
+        "actor": "experience-visual-conditions-prior-links",
+        "runId": "4c92cfe7-3a0c-4a00-88fa-d24202518cd6-2",
+        "requests": 36,
+        "status": "RESULT",
+        "termination": "DECISION_LIMIT",
+        "validForComparison": true,
+        "objective": {
+          "status": "OK",
+          "value": false
+        },
+        "terminal": {
+          "schemaVersion": 1,
+          "route": "account",
+          "eligible": false,
+          "verificationAttempts": 2,
+          "recordChecks": 0,
+          "savedValue": "中央図書館",
+          "complete": false
+        },
+        "firstRecords": {
+          "step": 8,
+          "image": "input-8.png",
+          "sha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3"
+        },
+        "firstPrimaryAfterProgress": null,
+        "actualReconciliationEvents": [],
+        "workingJudgments": 0,
+        "adjustedJudgments": 0,
+        "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\working-inquiry-2026-10-30\\live\\recovery-library-unchanged-r1-experience-visual-conditions-prior-links\\exploration\\result.json"
+      },
+      {
+        "task": "workshop",
+        "actor": "experience-visual-conditions-prior-links",
+        "runId": "4c92cfe7-3a0c-4a00-88fa-d24202518cd6-3",
+        "requests": 36,
+        "status": "RESULT",
+        "termination": "DECISION_LIMIT",
+        "validForComparison": true,
+        "objective": {
+          "status": "OK",
+          "value": false
+        },
+        "terminal": {
+          "schemaVersion": 1,
+          "route": "account",
+          "eligible": false,
+          "verificationAttempts": 4,
+          "recordChecks": 0,
+          "savedValue": "午前の回",
+          "complete": false
+        },
+        "firstRecords": null,
+        "firstPrimaryAfterProgress": null,
+        "actualReconciliationEvents": [],
+        "workingJudgments": 0,
+        "adjustedJudgments": 0,
+        "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\working-inquiry-2026-10-30\\live\\recovery-workshop-unchanged-r1-experience-visual-conditions-prior-links\\exploration\\result.json"
+      },
+      {
+        "task": "workshop",
+        "actor": "experience-working-inquiry",
+        "runId": "4c92cfe7-3a0c-4a00-88fa-d24202518cd6-4",
+        "requests": 36,
+        "status": "RESULT",
+        "termination": "DECISION_LIMIT",
+        "validForComparison": true,
+        "objective": {
+          "status": "OK",
+          "value": false
+        },
+        "terminal": {
+          "schemaVersion": 1,
+          "route": "home",
+          "eligible": false,
+          "verificationAttempts": 1,
+          "recordChecks": 0,
+          "savedValue": "午前の回",
+          "complete": false
+        },
+        "firstRecords": null,
+        "firstPrimaryAfterProgress": null,
+        "actualReconciliationEvents": [],
+        "workingJudgments": 12,
+        "adjustedJudgments": 4,
+        "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\working-inquiry-2026-10-30\\live\\recovery-workshop-unchanged-r1-experience-working-inquiry\\exploration\\result.json"
+      }
+    ]
+  },
+  "openaiFunctional": {
+    "status": "COMPLETED",
+    "requests": 72,
+    "planned": 2,
+    "attempted": 2,
+    "valid": 2,
+    "invalid": 0,
+    "missing": 0,
+    "goal": 0,
+    "denominator": 2,
+    "manifestSha256": "ba12ebb1f07e91f72796fa9dfb827a82edd427d62dad1fbd59cbd63419415dbc",
+    "rows": [
+      {
+        "task": "library",
+        "actor": "experience-working-inquiry/openai-decisions",
+        "runId": "f2244211-b3f3-487f-8f67-a88d473b9e76-recovery-library-unchanged-r1",
+        "requests": 36,
+        "status": "RESULT",
+        "termination": "DECISION_LIMIT",
+        "validForComparison": true,
+        "objective": {
+          "status": "OK",
+          "value": false
+        },
+        "terminal": {
+          "schemaVersion": 1,
+          "route": "home",
+          "eligible": false,
+          "verificationAttempts": 3,
+          "recordChecks": 0,
+          "savedValue": "中央図書館",
+          "complete": false
+        },
+        "firstRecords": null,
+        "firstPrimaryAfterProgress": null,
+        "actualReconciliationEvents": [],
+        "workingJudgments": 12,
+        "adjustedJudgments": 4,
+        "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\working-inquiry-2026-10-30\\openai-sanity\\recovery-library-unchanged-r1\\exploration\\result.json"
+      },
+      {
+        "task": "workshop",
+        "actor": "experience-working-inquiry/openai-decisions",
+        "runId": "f2244211-b3f3-487f-8f67-a88d473b9e76-recovery-workshop-unchanged-r1",
+        "requests": 36,
+        "status": "RESULT",
+        "termination": "DECISION_LIMIT",
+        "validForComparison": true,
+        "objective": {
+          "status": "OK",
+          "value": false
+        },
+        "terminal": {
+          "schemaVersion": 1,
+          "route": "records",
+          "eligible": true,
+          "verificationAttempts": 3,
+          "recordChecks": 3,
+          "savedValue": "午前の回",
+          "complete": false
+        },
+        "firstRecords": {
+          "step": 10,
+          "image": "input-10.png",
+          "sha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490"
+        },
+        "firstPrimaryAfterProgress": null,
+        "actualReconciliationEvents": [
+          {
+            "step": 10,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "candidate": "e1",
+            "modelChoice": "e1",
+            "rawProbability": 0.63,
+            "weights": {
+              "abandon": 1,
+              "back": 1,
+              "done": 1,
+              "e1": 1,
+              "e2": 1,
+              "look_0": 1,
+              "look_1": 1,
+              "look_2": 1,
+              "look_3": 1,
+              "reread": 1,
+              "stuck": 1,
+              "wait": 1
+            },
+            "before": {
+              "schemaVersion": 1,
+              "route": "records",
+              "eligible": false,
+              "verificationAttempts": 3,
+              "recordChecks": 0,
+              "savedValue": "午前の回",
+              "complete": false
+            },
+            "after": {
+              "schemaVersion": 1,
+              "route": "records",
+              "eligible": true,
+              "verificationAttempts": 3,
+              "recordChecks": 1,
+              "savedValue": "午前の回",
+              "complete": false
+            },
+            "afterKind": "next-delivered-observation"
+          },
+          {
+            "step": 11,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "candidate": "e1",
+            "modelChoice": "e1",
+            "rawProbability": 0.72,
+            "weights": {
+              "abandon": 1,
+              "back": 1,
+              "done": 1,
+              "e1": 1,
+              "e2": 1,
+              "look_0": 1,
+              "look_1": 1,
+              "look_2": 1,
+              "look_3": 1,
+              "reread": 1,
+              "stuck": 1,
+              "wait": 1
+            },
+            "before": {
+              "schemaVersion": 1,
+              "route": "records",
+              "eligible": true,
+              "verificationAttempts": 3,
+              "recordChecks": 1,
+              "savedValue": "午前の回",
+              "complete": false
+            },
+            "after": {
+              "schemaVersion": 1,
+              "route": "records",
+              "eligible": true,
+              "verificationAttempts": 3,
+              "recordChecks": 2,
+              "savedValue": "午前の回",
+              "complete": false
+            },
+            "afterKind": "next-delivered-observation"
+          },
+          {
+            "step": 12,
+            "action": {
+              "type": "click",
+              "elementId": "e1"
+            },
+            "candidate": "e1",
+            "modelChoice": "e1",
+            "rawProbability": 0.4,
+            "weights": {
+              "abandon": 1,
+              "back": 1,
+              "done": 1,
+              "e1": 1,
+              "e2": 1,
+              "look_0": 1,
+              "look_1": 1,
+              "look_2": 1,
+              "look_3": 1,
+              "reread": 1,
+              "stuck": 1,
+              "wait": 1
+            },
+            "before": {
+              "schemaVersion": 1,
+              "route": "records",
+              "eligible": true,
+              "verificationAttempts": 3,
+              "recordChecks": 2,
+              "savedValue": "午前の回",
+              "complete": false
+            },
+            "after": {
+              "schemaVersion": 1,
+              "route": "records",
+              "eligible": true,
+              "verificationAttempts": 3,
+              "recordChecks": 3,
+              "savedValue": "午前の回",
+              "complete": false
+            },
+            "afterKind": "terminal-audit-only"
+          }
+        ],
+        "workingJudgments": 12,
+        "adjustedJudgments": 3,
+        "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\working-inquiry-2026-10-30\\openai-sanity\\recovery-workshop-unchanged-r1\\exploration\\result.json"
+      }
+    ],
+    "protocol": {
+      "schemaVersion": 1,
+      "purpose": "Optional fresh OpenAI working-inquiry functional check after Jev terminal audit",
+      "backend": "openai-decisions",
+      "mode": "experience-working-inquiry",
+      "model": "gpt-6-luna",
+      "nativeModel": "gpt-6-luna",
+      "tasks": [
+        "library/unchanged",
+        "workshop/unchanged"
+      ],
+      "trials": 2,
+      "maximumRequests": 72,
+      "perTrialRequests": 36,
+      "maxJudgments": 12,
+      "maxUIActions": 15,
+      "maxLooks": 3,
+      "trialMs": 300000,
+      "nativeRequestMs": 60000,
+      "phaseMs": 660000,
+      "parallel": 1,
+      "retry": 0,
+      "stop": "Authentication/quota/accounting/model-output failure; preserve attempted and missing slots. No replacement.",
+      "data": "Normal runner fresh local fictional UI/current and bounded-memory images+goal+persona(null); no participant records or saved-input resends.",
+      "limitation": "No same-input/provider causal/stability or human fidelity claim. Intermediate action alone not objective success.",
+      "condition": "Run only if Jev leaves intermediate-operation selection unresolved. Start after Jev terminal/sealed."
+    }
+  },
+  "tests": {
+    "parentBeforeRepair": {
+      "pass": 260,
+      "fail": 0
+    },
+    "parentAfterRepair": {
+      "pass": 65,
+      "fail": 0
+    },
+    "independentModules": {
+      "pass": 41,
+      "fail": 0
+    },
+    "independentRuntimeAssertions": 33,
+    "independentAdditionalAssertions": 3,
+    "rehashedMutantsRejected": 22,
+    "partialFailurePaths": 8,
+    "build": "PASS",
+    "overlappingSets": true,
+    "fullSuiteClaim": false
+  },
+  "independentReviews": [
+    {
+      "file": "working-inquiry-review-round1.json",
+      "sha256": "195b38ac08b6c4c5d690f61b7f91ac69079a6073a8e7d6704e710009e86cfa56",
+      "status": "FAIL"
+    },
+    {
+      "file": "working-inquiry-review-round2.json",
+      "sha256": "e4f1bf12e145030ec9da1276d46921f9a50095aa25d338104427e477554ac7e6",
+      "status": "PASS"
+    },
+    {
+      "file": "working-inquiry-review-live.json",
+      "sha256": "5383f21a5529adb81add0a9e690cb5303f68c5fe36334119f4edce7b8f8494bb",
+      "status": "PASS"
+    },
+    {
+      "file": "working-inquiry-review-openai.json",
+      "sha256": "2a8e56cd566960d288888540bb4052b99e5f9991ded389731ae387daf3c708f2",
+      "status": "PASS"
+    }
+  ],
+  "images": [
+    {
+      "file": "assets/working-inquiry-records.png",
+      "sha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+      "source": "reports/working-inquiry-2026-10-30/live/recovery-library-unchanged-r1-experience-working-inquiry/exploration/input-6.png"
+    },
+    {
+      "file": "assets/working-inquiry-save.png",
+      "sha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+      "source": "reports/working-inquiry-2026-10-30/live/recovery-library-unchanged-r1-experience-working-inquiry/exploration/input-9.png"
+    }
+  ],
+  "semanticIssues": [
+    {
+      "id": "CURRENT_QUOTE",
+      "trial": "Jev/library/new",
+      "step": 5,
+      "fact": "Historical sentence absent from current PNG attributed to o5",
+      "status": "unresolved model transcription/source fidelity"
+    },
+    {
+      "id": "CONDITION_VS_GOAL_PROGRESS",
+      "trial": "Jev/library/new",
+      "step": 7,
+      "fact": "Reconciliation0to1 and eligibletrue; continuity resolved but experience neutral/expectationunknown",
+      "status": "inquiry-specific outcome not persisted"
+    },
+    {
+      "id": "INTENT_CHECK",
+      "trial": "Jev/library/new",
+      "steps": [
+        9,
+        10
+      ],
+      "fact": "Incompatible raw intent/check downgraded check to unknown",
+      "status": "admission correct; semantic consistency unresolved"
+    },
+    {
+      "id": "ACTIVE_VS_RETAINED",
+      "trial": "Jev/library/new",
+      "step": 10,
+      "fact": "Goal satisfied/done while inquiry recalls old unresolved claim",
+      "status": "active target relevance distinct from retaining memory"
+    },
+    {
+      "id": "REPEATED_RECONCILIATION",
+      "trial": "OpenAI/workshop/new",
+      "steps": [
+        10,
+        11,
+        12
+      ],
+      "fact": "Three actual checks; first changes eligiblefalseToTrue, later checks keep eligibletrue and savedmorning",
+      "status": "no final save, no stable switching claim"
+    }
+  ],
+  "limitations": [
+    "Single repeat per task/condition",
+    "persona null; no new persona-effect test",
+    "No human comparison, stable causal effect or provider-ranking claim",
+    "Native quotation remains model-transcribed-unverified",
+    "Working inquiry ephemeral; no inquiry-specific outcome memory",
+    "Raw and admitted inquiry both delivered, explicitly labeled",
+    "Existing shared policy active: nonunit weights16/46 and modelChoice differs9/46; library step6 all weights1"
+  ],
+  "raw": {
+    "root": "reports/working-inquiry-2026-10-30",
+    "priorBefore": 6270,
+    "jevFiles": 182,
+    "afterJev": 6452,
+    "openaiFiles": 94,
+    "finalCount": 6546,
+    "finalSnapshotSha256": "4f737cae9df64e39f84db50c61531c464fd06ad22cf6b724228e9c59d5520034",
+    "ignoredByGit": true
+  },
+  "nextTasks": [
+    {
+      "priority": 1,
+      "change": "Carry selected condition/check/action into next observation; assess condition-specific outcome separately from overall goal",
+      "verify": "New frozen comparison plus intermediate-progress and unchanged-repeat cases"
+    },
+    {
+      "priority": 2,
+      "change": "Generate compatible intent/check together; keep raw audit and admitted-only actor projection",
+      "verify": "Reject malformed pairs, exact replay, matched fresh old/new trials"
+    },
+    {
+      "priority": 3,
+      "change": "Separate active inquiry relevance from retained historical unresolved memory",
+      "verify": "Completed goal allows none without deleting past memory"
+    },
+    {
+      "priority": 4,
+      "change": "Validate quote source/transcription independently of source hash binding",
+      "verify": "Current input5 lacks historical sentence negative case"
+    },
+    {
+      "priority": 5,
+      "change": "Repeat across tasks, necessary revisits and non-null personas",
+      "verify": "Predeclared repeated trials; independent human comparison data"
+    }
+  ]
+}

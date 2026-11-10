@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "status": "FAIL",
+  "reviewedRuntimeHash": "21d8464272ddc7498bf6a330fc190b03bd25ca20d51c9ba0ea37bdb67fd0d562",
+  "sourceUnchanged": true,
+  "gitVisibleFrozenMismatches": [],
+  "protocolUnchanged": true,
+  "testResults": {
+    "boundedRelevantNodeTests": {
+      "passed": 28,
+      "failed": 0,
+      "log": "targeted-tests.txt"
+    },
+    "runnerInjectedChallenges": {
+      "executed": 3,
+      "requirementsFailed": 3,
+      "evidence": "runner-reproductions.json"
+    },
+    "normalParentMock": {
+      "status": "COMPLETED",
+      "attempted": 8,
+      "valid": 8,
+      "invalid": 0,
+      "missing": 0,
+      "pairsMatched": 4,
+      "preservationAfter": true
+    },
+    "independentNormalReplay": {
+      "runId": "09224eb0-61a6-41cf-b252-e4d0e52b4927-1",
+      "verified": true
+    }
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "P1",
+      "file": "runner/inquiry-alignment-comparison.ts",
+      "lines": "23-24",
+      "trigger": "First returned trial INVALID_DISTRIBUTION with step.error INVALID_WORKING_INQUIRY",
+      "expected": "Stop immediately; preserve 1 invalid attempted and 7 unattempted slots",
+      "actual": "COMPLETED; 8 attempted, 7 valid, 1 invalid; 0 missing",
+      "rootCause": "visualConditionsStopReason recognizes only INVALID_VISUAL_HYPOTHESES; runner does not independently stop invalid distributions or new contract failures."
+    },
+    {
+      "id": "F2",
+      "severity": "P1",
+      "file": "runner/inquiry-alignment-comparison.ts",
+      "lines": "13,24",
+      "trigger": "First pair native extraction request differs on goal",
+      "expected": "Mark pair invalid and stop after second trial",
+      "actual": "summary.pairs[0].matched false; COMPLETED, 8 valid",
+      "rootCause": "Pair comparisons are informational only in save(); no execution/validity gate consumes mismatches."
+    },
+    {
+      "id": "F3",
+      "severity": "P1",
+      "file": "runner/inquiry-alignment-comparison.ts",
+      "lines": "25-26",
+      "trigger": "sourceIdentity differs at first loop preserve",
+      "expected": "Persist terminal audit failure and preservation failure status before returning/throwing",
+      "actual": "Throws FROZEN_SOURCE_CHANGED; saved manifest status RUNNING and preservationAfter false",
+      "rootCause": "No outer catch assigns fatal status; finally runs preserve before save, so the same rejection prevents final save."
+    }
+  ],
+  "scope": [
+    "Working joint tuple/results families, malformed/accessor/probability and config tests",
+    "Existing working/outcome runtime/failure/nonUI regression",
+    "Independent actual replay of completed parent mock aligned record",
+    "Runner dependency-injected stop, pair mismatch and source-preservation failure cases",
+    "165 runtime and 1030 frozen Git-visible file hashes"
+  ],
+  "limitations": [
+    "Fault-injection isolates orchestration by stubbing run/replay/frame/source dependencies; no claim those injected failures occurred in real API calls",
+    "No API calls, .env, participant logs or older payloads read",
+    "Compound supplied conditions and model semantic/human validity remain unverified",
+    "Tests use existing test-owned report destinations; verifier-authored outputs only independent-code"
+  ],
+  "scopeComplete": true
+}

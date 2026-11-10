@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "gate": "PASS",
+  "scope": "SEALED_JEV_RAW_INTEGRITY_ONLY",
+  "behavioralEffectivenessApproved": false,
+  "semanticGroundingApproved": false,
+  "humanFidelityApproved": false,
+  "phase": "inquiry-outcome-2026-10-31/live",
+  "producerRevision": "5ad0919bbd9b7325fd688f7ba931c691312a4c84",
+  "sourceHash": "58d606cf923d3ec814f6525975dfb673a137f195647a2213ce3cb925f74f467c",
+  "manifestSha256": "9a134150242f96c0aa41d2a6b892cc359dcb9a80b7b04a634bf8fe7510543ed6",
+  "revisionTransition": "Expected producer commit after frozen code review; all164runtime and1016frozen filebytes still match round2. No stale HEAD mismatch or source changes.",
+  "integrityFindings": [],
+  "unresolvedSemantics": [
+    {
+      "id": "IO-LIVE-SEM-001",
+      "severity": "semantic limitation; raw gate unaffected",
+      "run": "new library unchanged",
+      "step": 8,
+      "claim": "Currento8c2 evidence quotes 保存済みの受取館　中央図書館",
+      "actual": "input8PNG has no saved-value row; only unavailablewarning and home link. Historical/audit correctness of saved value does not validate quotation from current image.",
+      "evidence": "The native record is still marked model-transcribed-unverified. Preserve counterexample; no productionpatch in audit."
+    },
+    {
+      "id": "IO-LIVE-SEM-002",
+      "severity": "semantic limitation; raw gate unaffected",
+      "run": "new workshop unchanged",
+      "steps": [
+        6,
+        7,
+        9,
+        10
+      ],
+      "claim": "Successful reconciliation/save does not prove precise local outcome assessment.",
+      "actual": "Step7 selectedcondition combines reconciliation and savedresult. Rawuncertain/none yieldsunknown although prerequisite visibly progresses. At step10 raw satisfied/current_image normalizesunknown due previous working-check mismatch; at done it still selects recalledo1c3. All9 admitted outcomes in this successful run are unknown. Outcome syntax and image hashes do not prove stable semantic understanding."
+    },
+    {
+      "id": "IO-LIVE-SEM-003",
+      "severity": "behavioral limitation",
+      "run": "new library unchanged",
+      "steps": [
+        6,
+        8,
+        10,
+        12
+      ],
+      "actual": "Reconciliation is offered at step6 but e2selected; eligiblefalse, savedCentral and recordChecks0 persist. Repeated unmet conditions and navigation do not establish human confusion. Specific memory reaches action and remains bounded, yet goal fails."
+    }
+  ],
+  "evidence": {
+    "audit": "audit.json",
+    "semantic": "semantic-review.json",
+    "before": "before-snapshot.json",
+    "after": "after-snapshot.json",
+    "archive": "archive.json",
+    "sourceScripts": [
+      "snapshot.ts",
+      "audit.ts",
+      "semantic-review.ts",
+      "archive.py"
+    ]
+  },
+  "executed": {
+    "rawChecks": 1158,
+    "planned": 8,
+    "attempted": 8,
+    "valid": 8,
+    "invalid": 0,
+    "missing": 0,
+    "objective": {
+      "experience-inquiry-outcome": {
+        "valid": 4,
+        "objectiveSuccess": 3
+      },
+      "experience-working-inquiry": {
+        "valid": 4,
+        "objectiveSuccess": 2
+      }
+    },
+    "chargedRequests": 222,
+    "knownHTTPAttempts": 222,
+    "knownHTTPReceipts": 222,
+    "receiptUnconfirmed": 0,
+    "stageCounts": {
+      "native": 74,
+      "assessment": 74,
+      "action": 74
+    },
+    "models": {
+      "gpt-6-luna": 74,
+      "jev-1.14.0": 148
+    },
+    "replay": {
+      "verified": 8,
+      "requirements": {
+        "finalVisualHTTP": true
+      },
+      "note": "Fresh actual result.json equals manifest embedded result; all saved stepJSON equal result steps. Recomputed9argument outcome-mode summary equals sealed summary; row outcomes/events/frame policy rederived."
+    },
+    "ledger": {
+      "attempts": 222,
+      "statusOK": 222,
+      "errors": 0,
+      "reserved": 0,
+      "retry": 0,
+      "parallel": 1,
+      "allIntervalsNonoverlapping": true,
+      "note": "Checked all attempt IDs/status/metadata1/source/timestamps and used=result.apiCalls=requests. No replay resends/API access."
+    },
+    "initialPairs": {
+      "count": 4,
+      "identical": true,
+      "note": "Actual delivered initial image bytes, literal goals, null/absent persona, before-assessment memory, empty native/continuity/experience memory and reconstructed native request bodies including schema all match perpair. Post-assessment state was deliberately excluded because real model outputs can differ."
+    },
+    "limits": {
+      "perTrialRequests": 36,
+      "judgments": 12,
+      "uiActions": 15,
+      "looks": 3,
+      "trialMs": 300000,
+      "nativeMs": 60000,
+      "totalRequests": 288,
+      "phaseMs": 2520000,
+      "parallel": 1,
+      "retry": 0
+    },
+    "outcomes": {
+      "records": 32,
+      "perNewRun": [
+        6,
+        11,
+        6,
+        9
+      ],
+      "raw": {
+        "route_found": 2,
+        "condition_uncertain": 18,
+        "condition_satisfied": 5,
+        "condition_unmet": 7
+      },
+      "admitted": {
+        "unknown": 27,
+        "condition_satisfied": 3,
+        "condition_unmet": 2
+      },
+      "adjustments": {
+        "RESULT_CHECK_MISMATCH": 11,
+        "NO_CURRENT_IMAGE_BASIS": 25
+      },
+      "note": "Source/goal/pendingoperation/input hashes and normalization rederive via replay; admitted-only latest3 reaches action with no before-context. First observation empty and trials isolated. Terminal-onlyaudit never creates new model-outcome record."
+    },
+    "selection": {
+      "decisions": 74,
+      "nonUnitSharedWeightRows": 11,
+      "modelChoiceActualDifferences": 3,
+      "note": "No new outcome-specific weights/filter claimed. Successful workshop actualreconcile step6/save step9 both use unitweights and modelChoice=selection."
+    },
+    "screenshotInspection": {
+      "count": 12,
+      "evidence": "semantic-review.json",
+      "selection": "Newworkshopunchanged4/6/7/9/10;newlibraryunchanged4/6/8/10/12;newlibrarychanged4;newworkshopchanged7",
+      "qualification": "Human visual review of selected actual delivered PNGs only; no all-quotes certification."
+    },
+    "producerArchive": {
+      "entries": 164,
+      "entryHashesMatch": true,
+      "sha256": "0598460e0b3e6bc3ab741727dcf0ee18a47a7d1468403b487a9149892fec87b8"
+    },
+    "preservation": {
+      "liveInventoryFiles": 306,
+      "inventoryHashesMatchBeforeAfter": true,
+      "frozenFiles": 1016,
+      "runtimeFiles": 164,
+      "protectedFiles": 1370,
+      "roundOneTwoGatesRawScriptsSourceProtected": true,
+      "protocolPlanAnalysisAnalyzerProducerZipProtected": true,
+      "priorManifestMerge": {
+        "prior": 6546,
+        "new": 306,
+        "total": 6852,
+        "pass": true
+      },
+      "priorPayloadContentHashesIndependentlyVerified": false,
+      "priorScope": "MANIFEST_ONLY",
+      "priorContentsRead": false,
+      "approvalLimitation": "Earlier automatic approval review rejected opening all6546 prior files for hashing because participant contents must not be read. This audit obeys the subsequent explicit parent restriction: hash prior manifests and merge path/hash metadata only. No workaround/retry of the rejected operation. Parent prior-payload sealing evidence is separate.",
+      "excluded": "Mutable openai-sanity outputs and optionalOpenAI phase were excluded completely."
+    }
+  },
+  "interpretation": [
+    "Descriptive objective results are new3/4 andold2/4, valid4each. One repeat peractor/task/condition cannot establish stable/causal benefit or human reproduction.",
+    "Bothchangedtasks succeed forbothactors in7decisions/21requests; bothlibraryunchanged fail at12decisions/36requests with0recordchecks. Oldworkshopunchanged alsofails; newworkshopunchanged succeeds at10decisions/30requests with1actualreconciliation.",
+    "Successful workshop step6 causes recordChecks0->1 and eligiblefalse->true while savedvalue stillmorning. Actualinput7 displays reconciliationcomplete. Step9 actualsave and actualinput10 show afternoon/saveconfirmation. Completion is supported, precise semantic understanding is not.",
+    "All9 specificoutcomes in successful workshop remain admittedunknown. Step7 selectedcondition includes both reconciliation and postsaveconfirmation, so unknown is not proof of isolatedprerequisite recognitionfailure. Step10 raw satisfied/current_image becomesunknown because priorworkingcheckunknown.",
+    "Concrete negative case: libraryunchangedstep8 nativequotes savedCentral from currento8 even though actualPNG lacks thatrow. Hash/source binding does not verify transcription. Preserve model-transcribed-unverified and counterexample.",
+    "afterKind=next-audit-observation is not automatic proof of modeldelivery; transport/imagebinding/finalHTTPreplay are separate checks. Lastterminalaudit is not an observed modeloutcome.",
+    "DECISION_LIMIT is an evaluation limit, not inferred humanabandonment. API latency and waittime are not userthinkingtime."
+  ],
+  "harnessNotes": [
+    "One initial verifier assertion compared post-assessment userstate; it was corrected to compare actualpre-assessment memory and nativeempty state. Original harness log preserved; this was not a productiondefect.",
+    "Report-local semantic JSON brace syntax was corrected before sealing. No product or source change."
+  ],
+  "remaining": "No raw-integrity blocker. Preserve unresolved semantics and source evidence; optional OpenAI has a separate audit only after it is terminal/sealed."
+}

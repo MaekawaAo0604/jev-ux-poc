@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Independent preflight, frozen analysis v2 and all16 actual completed-trial audits; publication staging gate remains separate",
+  "source": {
+    "revision": "7ef309f81b43246aca6291a6d9973a3726eab982",
+    "sourceHash": "baec5721f39219f227313e4e8b935d076ea97f8ab132c8c388b71eda42124467",
+    "files": 189
+  },
+  "APIRequests": 0,
+  "credentialFilesRead": false,
+  "oldHumanContentsRead": false,
+  "counts": {
+    "planned": 16,
+    "attempted": 16,
+    "valid": 16,
+    "pending": 0,
+    "invalid": 0,
+    "missing": 0,
+    "chargedRequests": 144,
+    "decisions": 48,
+    "selectionActionMismatches": 0
+  },
+  "savedMethods": {
+    "M0": {
+      "local": 4
+    },
+    "M1": {
+      "code": 4
+    },
+    "M2": {
+      "local": 4
+    },
+    "M3": {
+      "phone": 4
+    }
+  },
+  "functionalComplete": 16,
+  "compatibleSaved": 16,
+  "sourceAndProtocolFrozen": true,
+  "unresolvedFindings": [],
+  "resolvedFindings": [
+    "P1 consecutive trusted invalid termination classifier",
+    "P2 stage expectations binding",
+    "P2 current-image provenance binding"
+  ],
+  "limitations": [
+    "Descriptive constraint sensitivity in a fictional local choice; no human fidelity or naturalness claim",
+    "Model probabilities are not human frequencies; structured effects and native summaries are model self-reports",
+    "Verifier references driver/parent preservation evidence for10379oldfiles, without opening old contents"
+  ],
+  "files": [
+    {
+      "file": "preflight.json",
+      "sha256": "fbfbf2087cb2a5dcd8590378471c4a915732256055670ca1d2a485e9c45397a3"
+    },
+    {
+      "file": "analysis-review-v2.json",
+      "sha256": "554e8cdcc18c5936e484163441b66951c30ddede4f6dd5b1e653480e63b83bab"
+    },
+    {
+      "file": "actual-latest.json",
+      "sha256": "4419e8cfbdb8f2d500d756c41bccc38b254c69a10633407dd4c53a172899cc7b"
+    },
+    {
+      "file": "actual-supplement.json",
+      "sha256": "faeb277aa36717e4235bc2a49fcd094b9f9bb0acedfaa9992e3112eeca9b8aea"
+    },
+    {
+      "file": "viewer-4177-audit.json",
+      "sha256": "b4532814530996a1c8e0f627d55bcc809bdbf7d92fc4de327836772ce8286709"
+    },
+    {
+      "file": "actual-audit.md",
+      "sha256": "081448a7e133ed2a8115610e98eea9b81327c09ffacb4cbf2abddaa2a48a21e5"
+    }
+  ]
+}

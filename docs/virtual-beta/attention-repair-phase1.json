@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "study": "experiments/virtual-beta/attention-repair-v2/study.json",
+  "studySha256": "44c4d03a791f1869cfb33ea33b961d0d34cdec8ecf9161d32a8c211d3626cc43",
+  "inputHashes": {
+    "experiments/virtual-beta/attention-repair-v2/study.json": "44c4d03a791f1869cfb33ea33b961d0d34cdec8ecf9161d32a8c211d3626cc43",
+    "experiments/persona/charter-good.json": "419ebb939b18fadb01f7a2db17da0fc31d817641b1b695411af37bf77004d176",
+    "experiments/persona/clear-notifications-v1/a.json": "8c4cbeeaadde52f98c0433e2f1a15ad6416183f450806048e918e808e4c315c1",
+    "experiments/virtual-beta/attention-repair-v2/crop-seed6001.json": "824e22febeddf3aaf28d9eafc9e63a4e135dd624ebe11e3da78c2dc537c1e982",
+    "experiments/virtual-beta/attention-repair-v2/foveated-seed6001.json": "9fc4852f6bee6cf38c7e2b5d26ae0d3442314a4b4dca28d000314b93ad739172",
+    "experiments/virtual-beta/attention-repair-v2/foveated-seed6002.json": "90824270ab5b0ae86c2f88df167367c2bad2e0b2f80c5e54fe5937eb95fe3965",
+    "experiments/virtual-beta/attention-repair-v2/crop-seed6002.json": "356197bc0bff5c7dce1522cd3bd6b1f4c7477e49de7cfbcb4b22e0ac0ac2466b",
+    "experiments/virtual-beta/attention-repair-v2/crop-seed6003.json": "ac16788960f908b8f6f5f94e4190984ca21ec329b360bf347a908a5a830fa13f",
+    "experiments/virtual-beta/attention-repair-v2/foveated-seed6003.json": "6e7df885f9ec48b8b04ed7c53e9b818676e45e380641ab21f00b87ef918ef647"
+  },
+  "source": {
+    "revision": "5eb463e5cddbd8ddc17c833c8b7df0fd05259d08",
+    "sourceHash": "a997e3ac7e7f7ddb1f09e7257828ad94cd2893fb1c5fbb4b66b85dc4a494e976"
+  },
+  "driverSha256": "1e296344ae0069269f4f082a3dd2bb2bb74d188ed0d12bbb256e36025333453c",
+  "mock": false,
+  "status": "COMPLETED",
+  "allocation": 288,
+  "plannedTrials": 24,
+  "preservationBefore": true,
+  "preservationAfter": true,
+  "batches": [
+    {
+      "id": "crop-seed6001",
+      "plan": "experiments/virtual-beta/attention-repair-v2/crop-seed6001.json",
+      "allocatedAPIRequests": 48,
+      "outDir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6001",
+      "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6001-budget.json",
+      "status": "COMPLETED",
+      "actualAPIRequests": 23,
+      "summarySha256": "cae0090fe5f362028c4765e34714e6e49711def26f7d050d4c84583602670ee3"
+    },
+    {
+      "id": "foveated-seed6001",
+      "plan": "experiments/virtual-beta/attention-repair-v2/foveated-seed6001.json",
+      "allocatedAPIRequests": 48,
+      "outDir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6001",
+      "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6001-budget.json",
+      "status": "COMPLETED",
+      "actualAPIRequests": 23,
+      "summarySha256": "3a117d57a10cb1d5a9b8daf3c5ca9cc0cb5f3df44e7989bd7bd2fb1fee9f305f"
+    },
+    {
+      "id": "foveated-seed6002",
+      "plan": "experiments/virtual-beta/attention-repair-v2/foveated-seed6002.json",
+      "allocatedAPIRequests": 48,
+      "outDir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6002",
+      "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6002-budget.json",
+      "status": "COMPLETED",
+      "actualAPIRequests": 23,
+      "summarySha256": "40ea45a0c0201cc12f4f3fdac1889eb1b218d7a39c5a1f12da7e27604e9f66af"
+    },
+    {
+      "id": "crop-seed6002",
+      "plan": "experiments/virtual-beta/attention-repair-v2/crop-seed6002.json",
+      "allocatedAPIRequests": 48,
+      "outDir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6002",
+      "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6002-budget.json",
+      "status": "COMPLETED",
+      "actualAPIRequests": 23,
+      "summarySha256": "c1cc49c1e2fa6ffe0707b530898e57becd43cec2422d1b7bd4c7520d17398ce9"
+    },
+    {
+      "id": "crop-seed6003",
+      "plan": "experiments/virtual-beta/attention-repair-v2/crop-seed6003.json",
+      "allocatedAPIRequests": 48,
+      "outDir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6003",
+      "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6003-budget.json",
+      "status": "COMPLETED",
+      "actualAPIRequests": 23,
+      "summarySha256": "a7c86c9fd91a82f2d5a17ce8742fbede4d057999f8ea104ec3e9f2a236de3b8a"
+    },
+    {
+      "id": "foveated-seed6003",
+      "plan": "experiments/virtual-beta/attention-repair-v2/foveated-seed6003.json",
+      "allocatedAPIRequests": 48,
+      "outDir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6003",
+      "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6003-budget.json",
+      "status": "COMPLETED",
+      "actualAPIRequests": 23,
+      "summarySha256": "03e68145a01bf4ec526bb7bcfd7e12c95f3a80a359369b4d630fe7b22d9075b9"
+    }
+  ],
+  "elapsedMs": 219898.0268
+}

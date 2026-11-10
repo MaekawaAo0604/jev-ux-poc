@@ -1,0 +1,18 @@
+[
+  {
+    "file": "scripts/analyze-vision-isolation.ts",
+    "beforeSHA256": "5bf256770789dc73a61a0e3fe3c41d82d626f5f9cf798b97581f9fa64b6c1302",
+    "afterSHA256": "fb4bf8ff37ef744c3f6cfd50b09af1440c12498e562dd1ce55f47932897305d9",
+    "prefixPreserved": true,
+    "removedSuffixHex": "0d0a",
+    "removedBytes": 2
+  },
+  {
+    "file": "tests/vision-isolation-analysis.test.ts",
+    "beforeSHA256": "95b14ac391542182f447c3537d8506193b8b9b80524fee39bb486cf5ab739758",
+    "afterSHA256": "28b81bd397a24bf939d8d724c1bfba4e9d62fba18e53519f3df82dde7c14ef17",
+    "prefixPreserved": true,
+    "removedSuffixHex": "0d0a",
+    "removedBytes": 2
+  }
+]

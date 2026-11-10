@@ -1,0 +1,38 @@
+import {readFile,writeFile,mkdir,rename} from 'node:fs/promises';
+import {resolve,join,dirname} from 'node:path';
+import {pathToFileURL} from 'node:url';
+import {createHash,randomUUID} from 'node:crypto';
+const root=resolve('.'),sha=(b:Buffer|string)=>createHash('sha256').update(b).digest('hex');
+const {sourceIdentity}=await import(pathToFileURL(join(root,'runner/virtual-beta-source.ts')).href);
+const {runControlledComparison}=await import(pathToFileURL(join(root,'runner/controlled-comparison.ts')).href);
+const {scheduleControlledComparison,parseControlledComparisonPlan}=await import(pathToFileURL(join(root,'runner/controlled-comparison-plan.ts')).href);
+const args=process.argv.slice(2),mock=args.includes('--mock'),get=(name:string)=>args[args.indexOf(name)+1];
+const out=resolve(get('--out')),limit=args.includes('--limit')?Number(get('--limit')):12;
+if(!args.includes('--out')||!Number.isSafeInteger(limit)||limit<1||limit>12||!mock&&limit!==12)throw Error('INVALID_PHASE_OPTIONS');
+const studyFile='experiments/virtual-beta/controlled-v1/study.json',studyBytes=await readFile(studyFile),study=JSON.parse(studyBytes.toString()),freeze=JSON.parse((await readFile('reports/controlled-comparison-2026-11-09/freeze.json')).toString()),prior=JSON.parse((await readFile('reports/controlled-comparison-2026-11-09/prior-raw.json')).toString());
+const frozen=async()=>{const c=await sourceIdentity();if(c.revision!==freeze.revision||c.sourceHash!==freeze.sourceHash)throw Error('SOURCE_CHANGED');for(const [file,hash]of Object.entries(freeze.inputs))if(sha(await readFile(file))!==hash)throw Error('INPUT_CHANGED');};
+const preserve=async()=>{for(const f of prior.files)if(sha(await readFile(f.path))!==f.sha256)throw Error('PRIOR_RAW_CHANGED');};
+await frozen();await preserve();await mkdir(out,{recursive:false});
+const phase:any={schemaVersion:1,study:studyFile,studySha256:sha(studyBytes),inputHashes:freeze.inputs,source:{revision:freeze.revision,sourceHash:freeze.sourceHash},driverSha256:sha(await readFile(process.argv[1])),mock,status:'RUNNING',startedAt:new Date().toISOString(),maxPhaseMs:study.maxPhaseMs,allocation:study.allocatedAPIRequests,plannedTrials:study.plannedTrials,priorFiles:prior.count,preservationBefore:true,preservationAfter:false,batches:study.batches.map((b:any)=>({...b,outDir:join(out,b.id),status:'PENDING',ledger:mock?null:join(out,b.id+'-budget.json')}))};
+const atomic=async(file:string,value:any)=>{const temp=file+'.'+randomUUID()+'.tmp';await writeFile(temp,JSON.stringify(value,null,2)+'\n',{flag:'wx'});await rename(temp,file);},save=()=>atomic(join(out,'phase.json'),phase);
+const started=performance.now();await save();let streak=0;
+try{
+ for(const [i,b]of phase.batches.entries()){
+  if(i>=limit){phase.status='PREFLIGHT_LIMIT';break;}
+  const plan=JSON.parse((await readFile(b.plan)).toString());
+  if(study.maxPhaseMs-(performance.now()-started)<plan.maxDurationMs){phase.status='PHASE_TIME_LIMIT';break;}
+  await frozen();
+  if(b.ledger)await writeFile(b.ledger,JSON.stringify({schemaVersion:1,status:'APPROVED',phase:b.id,newMaximum:b.allocatedAPIRequests,perRunMaximum:12,used:0,attempts:[]})+'\n',{flag:'wx'});
+  b.status='RUNNING';b.startedAt=new Date().toISOString();await save();
+  const returned=await runControlledComparison({plan,out:b.outDir,mock,envFile:'E:/ChatGPT/Ux_test/.env',charterFile:study.charter,personaFile:study.persona,...(b.ledger?{phaseBudgetFile:b.ledger}:{})});
+  const s=returned.summary;b.status=s.stopReason?'STOPPED':'COMPLETED';b.stopReason=s.stopReason;b.actualAPIRequests=s.actualAPIRequests;b.summarySha256=sha(await readFile(join(b.outDir,'comparison.json')));b.finishedAt=new Date().toISOString();
+  for(const row of s.trials.filter((r:any)=>r.status!=='missing'))streak=row.reason==='INVALID_DISTRIBUTION'?streak+1:0;
+  await frozen();await save();console.log(JSON.stringify({batch:b.id,status:b.status,requests:s.actualAPIRequests,simulated:s.simulatedAPIRequests,completed:s.completedTrials,censored:s.censoredTrials,invalid:s.invalidTrials,missing:s.missingTrials}));
+  if(s.stopReason){phase.status=s.stopReason;break;}
+  if(streak>=3){phase.status='THREE_CONSECUTIVE_MODEL_INVALID';break;}
+ }
+ if(phase.status==='RUNNING')phase.status=phase.batches.every((b:any)=>b.status==='COMPLETED')?'COMPLETED':'INCOMPLETE';
+}catch(error){phase.status=error instanceof Error&&/^[A-Z_]+$/.test(error.message)?error.message:'PHASE_INFRASTRUCTURE_ERROR';}
+finally{try{await frozen();await preserve();phase.preservationAfter=true;}catch{phase.preservationAfter=false;phase.status='PRESERVATION_OR_FREEZE_ERROR';}phase.elapsedMs=performance.now()-started;phase.finishedAt=new Date().toISOString();await save();}
+console.log(JSON.stringify({phase:phase.status,batches:phase.batches.filter((b:any)=>b.status!=='PENDING').length,actual:phase.batches.reduce((n:number,b:any)=>n+(b.actualAPIRequests??0),0),preservation:phase.preservationAfter}));
+if(!['COMPLETED','PREFLIGHT_LIMIT'].includes(phase.status))process.exitCode=1;

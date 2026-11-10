@@ -1,0 +1,122 @@
+{
+  "status": "PASS_WATCH_FIX_ROUND2_OFFLINE_GATE",
+  "source": {
+    "revision": "ac2b8d792d3971f7d02526e9eb43c843d82c0ac8",
+    "sourceHash": "7e27d09aa2d72d36c26f3a5d583ee0ba9a6804890b01afacb96588a27ee2d5df",
+    "runtimeSourceCount": 150,
+    "actualViteConfigSHA256": "16a26d04a201083887f31512d38d7df09c1b339441ee57a39a82162d7aa016dd",
+    "resolvedConfigFile": "C:/Users/Maekawa Ao/.codex/worktrees/virtual-beta/Ux_test/vite.config.ts",
+    "watchIgnored": [
+      "**/reports/**"
+    ],
+    "optimizeDepsEntriesChanged": false
+  },
+  "frozenFiles": {
+    "vite.config.ts": "16a26d04a201083887f31512d38d7df09c1b339441ee57a39a82162d7aa016dd",
+    "runner/virtual-beta-source.ts": "6321043f08e77fe5536ddbf66ec6ac06d6bf4a90010111c53ebf3e547c457cb1",
+    "tests/recovery-transport.test.ts": "85a26a7e53a6ca998b3d59c6fed1f05d619000faed1068bdd09d737803bcd884",
+    "tests/recovery-compatibility-helper.ts": "6b4f8f78b070b8fef28c411d1b74ef01a9bae6a1aff6e2821e007288219d382c",
+    "tests/vite-artifact-watch.test.ts": "6c06bbd17b37ab1ed7316f835ea862fae61c17b3d34ffa50d69f7ee1f271fd67"
+  },
+  "tests": {
+    "command": "node --import tsx --test --test-concurrency=1 tests/vite-artifact-watch.test.ts tests/recovery-transport.test.ts tests/visual-conditions-comparison.test.ts",
+    "total": 16,
+    "passed": 16,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 39478.8306,
+    "affectedTestTimes": [
+      {
+        "test": "recovery HTTP current images contain visible UI while audit groundtruth and condition are excluded",
+        "elapsedMs": 5898.2626
+      },
+      {
+        "test": "old sentinel and transfer first images, wire inputs and questions remain byte equivalent",
+        "elapsedMs": 5339.1406
+      },
+      {
+        "test": "Vite excludes report artifacts while actual app file watching remains active",
+        "elapsedMs": 914.4409
+      }
+    ],
+    "previousFailed7TestRunRetained": true,
+    "oldWhole8File49PASS4FAILNotRelabeled": true,
+    "buildAndTypes": "Parent reported PASS; not repeated in this round as requested"
+  },
+  "watcher": {
+    "actualAppChangeObserved": true,
+    "reportsAbsentFromActualWatchInventory": true,
+    "reportMutationEvents": 0,
+    "evidence": "reports/visual-conditions-2026-10-30/stale-baseline-review/watch-fix/watch-e90c6584-d5eb-4cbb-888a-f2803ab70399.json"
+  },
+  "compatibility": {
+    "oldOnlyB7Expected": true,
+    "oldRuntimeSources": 129,
+    "currentIsolatedOverlaySources": 151,
+    "uncommittedTrackedAndUntrackedSentinelsIncluded": true,
+    "logicalTraceUIInputAndPNGsEqual": true,
+    "UUIDBindingsVerified": 10,
+    "seedDistributionsActionsOracleLedgerTerminationReplayEqual": true,
+    "originalMutationRejects": 4,
+    "independentAdditionalMutationRejects": 8,
+    "fourEnvSentinelsNotCopiedOrRead": true,
+    "LinuxExecuted": false,
+    "details": "compatibility-audit.json"
+  },
+  "normalRootWrappers": [
+    {
+      "path": "reports\\recovery-transfer-2026-10-29\\compat-7KnDTD\\sentinel",
+      "mock": true,
+      "sourceHash": "7e27d09aa2d72d36c26f3a5d583ee0ba9a6804890b01afacb96588a27ee2d5df",
+      "configSHA256": "16a26d04a201083887f31512d38d7df09c1b339441ee57a39a82162d7aa016dd",
+      "recordedCalls": 2,
+      "termination": "SUBJECTIVE_DONE"
+    },
+    {
+      "path": "reports\\recovery-transfer-2026-10-29\\compat-KC9DQv\\help",
+      "mock": true,
+      "sourceHash": "7e27d09aa2d72d36c26f3a5d583ee0ba9a6804890b01afacb96588a27ee2d5df",
+      "configSHA256": "16a26d04a201083887f31512d38d7df09c1b339441ee57a39a82162d7aa016dd",
+      "recordedCalls": 2,
+      "termination": "SUBJECTIVE_DONE"
+    },
+    {
+      "path": "reports\\recovery-transfer-2026-10-29\\transport-Yxq9VX\\changed",
+      "mock": false,
+      "sourceHash": "7e27d09aa2d72d36c26f3a5d583ee0ba9a6804890b01afacb96588a27ee2d5df",
+      "configSHA256": "16a26d04a201083887f31512d38d7df09c1b339441ee57a39a82162d7aa016dd",
+      "recordedCalls": 2,
+      "termination": "SUBJECTIVE_DONE"
+    },
+    {
+      "path": "reports\\recovery-transfer-2026-10-29\\transport-Yxq9VX\\unchanged",
+      "mock": false,
+      "sourceHash": "7e27d09aa2d72d36c26f3a5d583ee0ba9a6804890b01afacb96588a27ee2d5df",
+      "configSHA256": "16a26d04a201083887f31512d38d7df09c1b339441ee57a39a82162d7aa016dd",
+      "recordedCalls": 2,
+      "termination": "SUBJECTIVE_DONE"
+    }
+  ],
+  "preservation": {
+    "raw5404Unchanged": true,
+    "ZIP5Unchanged": true,
+    "publication26Unchanged": true,
+    "freeze5FileSHAUnchanged": true,
+    "source150Stable": true,
+    "oldReal18ProducerRetained": "ac2b8d7/source d36dd",
+    "newSourceNotPresentedAsExecutedLive": true
+  },
+  "independentExecution": {
+    "modelAPIRequests": 0,
+    "environmentFilesRead": 0,
+    "productOrTestFilesEdited": 0,
+    "browserParallel": 1
+  },
+  "findings": [],
+  "limitations": [
+    "This closes scoped offline watcher/compatibility regressions, not a full-suite all-green claim.",
+    "New watcher source150 has not been run against real models by this verifier; old18trial data remains producer ac2b/source d36dd.",
+    "Windows only; no Linux/cross-platform image claim.",
+    "Scripted compatibility and source binding do not establish model semantics or human fidelity."
+  ]
+}

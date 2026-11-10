@@ -1,0 +1,3252 @@
+{
+  "producer": "ac2b8d792d3971f7d02526e9eb43c843d82c0ac8",
+  "sourceHash": "d36dd19f6076cff468bcafe01e71ad194c1dab44080a942d183dda30c9ba98da",
+  "manifestSha256": "58e8854facaf40fa8060d1e5e7e116ee2809b7b09e53f98673d9506b9159d179",
+  "reviewer": "independent-ai-agent",
+  "humanParticipantReview": false,
+  "offlineGate": {
+    "status": "PASS_OFFLINE_GATE",
+    "producer": {
+      "revision": "d6796fca744ee3b9b33f075d45eb2eda4432339f",
+      "sourceHash": "d36dd19f6076cff468bcafe01e71ad194c1dab44080a942d183dda30c9ba98da"
+    },
+    "scope": "evidence-conditional-v1 and balanced visual-first rotation; independent offline integration verification",
+    "frozenFilesChecked": 367,
+    "changedFrozenFiles": [],
+    "protectedRawChecked": 4798,
+    "changedProtectedRaw": [],
+    "producerZIPs": {
+      "producer-source-6162dce0.zip": "01377149bef116163a0db7737f4762937949865767da455225aec458aea93e35",
+      "producer-source-a1643a44.zip": "133ea53fa7a87fff72a80c2d7840f4673f742172854b59be8f356515278b775a",
+      "producer-source-de20ac6b.zip": "f196f353130a972a8f9c41ae77ad1ee3093b13eb0a47bc1cb44da82e04d1e644",
+      "producer-source-dffaab9d.zip": "df0631f28d9fb99f46e29277927cccdb0b66427ab03652b2e0797b3c19ca1761"
+    },
+    "declaredChangedFiles": [
+      "docs/experiments/2026-10-30-visual-conditions-report.ts",
+      "docs/superpowers/plans/2026-10-30-visual-conditions.md",
+      "docs/virtual-beta/tasks.md",
+      "docs/virtual-beta/visual-conditions.md",
+      "experiments/virtual-beta/visual-conditions-comparison.json",
+      "jev/virtual-beta/visual-hypotheses.ts",
+      "runner/human-jev-experiment.ts",
+      "runner/openai-visual-hypotheses.ts",
+      "runner/visual-conditions-comparison.ts",
+      "tests/openai-visual-hypotheses.test.ts",
+      "tests/visual-conditions-comparison.test.ts",
+      "tests/visual-hypotheses.test.ts"
+    ],
+    "selfTests": {
+      "passed": 116,
+      "failed": 0,
+      "skipped": 0,
+      "files": 5,
+      "adaptation": "imports and evidence output paths only; dummy credentials injected before test processes"
+    },
+    "independent": {
+      "conditionExpectedCases": 12,
+      "relationExpectedCases": 48,
+      "negativeCases": 11,
+      "nativeHTTPPipelineCases": 3,
+      "mockBatchTrials": 3,
+      "replayVerifiedRuns": 6,
+      "converterNegativeCases": 16
+    },
+    "build": {
+      "typescript": "PASS",
+      "vite": "PASS",
+      "converterTypescript": "PASS"
+    },
+    "transport": {
+      "nativeResponsesExactBody": true,
+      "nativeAssetNamesUnchanged": true,
+      "jevOnlyOpaqueUUIDImageLeaves": true,
+      "invalidOldOutputStopsBeforeJev": true
+    },
+    "consumerInvariant": "all code outside visualHypothesisSchema unchanged against HEAD after repository LF normalization; OpenAI module outside instructions unchanged",
+    "officialSchemaSupport": {
+      "url": "https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses",
+      "verified": [
+        "root object without anyOf",
+        "nested anyOf branch schemas supported",
+        "all object properties required",
+        "additionalProperties false",
+        "if/then/else/not omitted",
+        "pattern and minItems/maxItems supported for base models"
+      ],
+      "serverAcceptanceTested": false
+    },
+    "actualExternalAPIRequests": 0,
+    "environmentFilesRead": 0,
+    "productFilesWritten": 0,
+    "findings": [],
+    "limitations": [
+      "Offline gate does not verify OpenAI server acceptance of the actual schema, real context fit, extraction performance, Jev model performance, or agreement with humans.",
+      "Cross-reference uniqueness and whitespace rejection remain unchanged local admission guards and are intentionally not encoded completely in the sent schema.",
+      "Previously reported broad regression 49 PASS / 4 FAIL was not rerun here and is not represented as all green; this gate covers the scoped 116 related tests.",
+      "Mock batch is INCOMPLETE at explicit limit3 and is integration evidence only, not model performance."
+    ]
+  },
+  "quoteReview": {
+    "status": "BOUNDED_VISUAL_REVIEW_COMPLETE_WITH_LITERAL_QUOTE_FINDING",
+    "producer": "ac2b8d792d3971f7d02526e9eb43c843d82c0ac8",
+    "sourceHash": "d36dd19f6076cff468bcafe01e71ad194c1dab44080a942d183dda30c9ba98da",
+    "manifestSha256": "58e8854facaf40fa8060d1e5e7e116ee2809b7b09e53f98673d9506b9159d179",
+    "plannedFrames": 12,
+    "inspectedFrames": 12,
+    "availableOutputs": 11,
+    "noOutputFrames": 1,
+    "admittedOutputsDeliveredToBothJevStages": 11,
+    "quoteChecks": 47,
+    "modelAddedSlashQuoteInstances": 8,
+    "transcripts": {
+      "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21": {
+        "source": "Manual transcription of relevant visible words from directly inspected delivered PNG; no whitespace/codepoint exactness certification",
+        "lines": [
+          "予約図書",
+          "川沿いの暮らし",
+          "保存済みの受取館",
+          "中央図書館",
+          "この画面は閲覧専用です",
+          "受取館の変更は、マイページの予約一覧で受け付けています。",
+          "マイページへ"
+        ]
+      },
+      "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011": {
+        "source": "Manual transcription of relevant visible words from directly inspected delivered PNG; no whitespace/codepoint exactness certification",
+        "lines": [
+          "予約内容の変更",
+          "「川沿いの暮らし」の受取館を管理",
+          "予約一覧",
+          "予約中の内容と変更のお手続き",
+          "利用情報の確認",
+          "登録情報と利用状況の確認",
+          "予約記録",
+          "予約情報の照合と記録の確認"
+        ]
+      },
+      "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f": {
+        "source": "Manual transcription of relevant visible words from directly inspected delivered PNG; no whitespace/codepoint exactness certification",
+        "lines": [
+          "予約図書",
+          "川沿いの暮らし",
+          "保存済みの受取館",
+          "中央図書館",
+          "現在、変更を利用できません",
+          "利用情報の確認が必要です。マイページから利用情報をご確認ください。",
+          "マイページへ"
+        ]
+      },
+      "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9": {
+        "source": "Manual transcription of relevant visible words from directly inspected delivered PNG; no whitespace/codepoint exactness certification",
+        "lines": [
+          "予約内容の変更",
+          "「川沿いの暮らし」の受取館を管理",
+          "利用情報の確認",
+          "登録情報と利用状況の確認",
+          "予約記録",
+          "予約情報の照合と記録の確認"
+        ]
+      },
+      "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd": {
+        "source": "Manual transcription of relevant visible words from directly inspected delivered PNG; no whitespace/codepoint exactness certification",
+        "lines": [
+          "参加プログラム",
+          "木の小物づくり",
+          "保存済みの希望回",
+          "午前の回",
+          "この画面は閲覧専用です",
+          "希望回の変更は、マイページの予約一覧で受け付けています。",
+          "マイページへ"
+        ]
+      },
+      "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88": {
+        "source": "Manual transcription of relevant visible words from directly inspected delivered PNG; no whitespace/codepoint exactness certification",
+        "lines": [
+          "予約内容の変更",
+          "「木の小物づくり」の希望回を管理",
+          "予約一覧",
+          "予約中の内容と変更のお手続き",
+          "利用情報の確認",
+          "登録情報と利用状況の確認",
+          "予約記録",
+          "予約情報の照合と記録の確認"
+        ]
+      },
+      "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396": {
+        "source": "Manual transcription of relevant visible words from directly inspected delivered PNG; no whitespace/codepoint exactness certification",
+        "lines": [
+          "参加プログラム",
+          "木の小物づくり",
+          "保存済みの希望回",
+          "午前の回",
+          "現在、変更を利用できません",
+          "利用情報の確認が必要です。マイページから利用情報をご確認ください。",
+          "マイページへ"
+        ]
+      },
+      "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f": {
+        "source": "Manual transcription of relevant visible words from directly inspected delivered PNG; no whitespace/codepoint exactness certification",
+        "lines": [
+          "予約内容の変更",
+          "「木の小物づくり」の希望回を管理",
+          "利用情報の確認",
+          "登録情報と利用状況の確認",
+          "予約記録",
+          "予約情報の照合と記録の確認"
+        ]
+      }
+    },
+    "frames": [
+      {
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "switch"
+        },
+        "observationId": "o1",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-library-switch-r1-experience-visual-conditions\\exploration\\input-1.png",
+        "imageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+        "imageInspected": true,
+        "outputStatus": "completed",
+        "outputAvailable": true,
+        "admitted": true,
+        "deliveredHypothesis": {
+          "assessment": true,
+          "action": true
+        },
+        "checks": [
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+            "quote": "予約図書　川沿いの暮らし",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c2",
+            "observationId": "o1",
+            "sourceImageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+            "quote": "保存済みの受取館　中央図書館",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e1",
+            "observationId": "o1",
+            "sourceImageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+            "quote": "マイページへ",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          }
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "switch"
+        },
+        "observationId": "o2",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-library-switch-r1-experience-visual-conditions\\exploration\\input-2.png",
+        "imageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+        "imageInspected": true,
+        "outputStatus": "completed",
+        "outputAvailable": true,
+        "admitted": true,
+        "deliveredHypothesis": {
+          "assessment": true,
+          "action": true
+        },
+        "checks": [
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+            "quote": "予約図書　川沿いの暮らし",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c2",
+            "observationId": "o1",
+            "sourceImageSha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+            "quote": "保存済みの受取館　中央図書館",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e1",
+            "observationId": "o2",
+            "sourceImageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+            "quote": "予約内容の変更",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e2",
+            "observationId": "o2",
+            "sourceImageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+            "quote": "予約中の内容と変更のお手続き",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e3",
+            "observationId": "o2",
+            "sourceImageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+            "quote": "利用情報の確認",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e4",
+            "observationId": "o2",
+            "sourceImageSha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+            "quote": "予約記録",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          }
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "changed"
+        },
+        "observationId": "o1",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-library-changed-r1-experience-visual-conditions\\exploration\\input-1.png",
+        "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "imageInspected": true,
+        "outputStatus": "completed",
+        "outputAvailable": true,
+        "admitted": true,
+        "deliveredHypothesis": {
+          "assessment": true,
+          "action": true
+        },
+        "checks": [
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "予約図書　川沿いの暮らし",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c2",
+            "observationId": "o1",
+            "sourceImageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "保存済みの受取館　中央図書館",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e1",
+            "observationId": "o1",
+            "sourceImageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "マイページへ",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          }
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "changed"
+        },
+        "observationId": "o2",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-library-changed-r1-experience-visual-conditions\\exploration\\input-2.png",
+        "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "imageInspected": true,
+        "outputStatus": null,
+        "outputAvailable": false,
+        "admitted": false,
+        "deliveredHypothesis": {
+          "assessment": false,
+          "action": false
+        },
+        "checks": []
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "unchanged"
+        },
+        "observationId": "o1",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-library-unchanged-r1-experience-visual-conditions\\exploration\\input-1.png",
+        "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "imageInspected": true,
+        "outputStatus": "completed",
+        "outputAvailable": true,
+        "admitted": true,
+        "deliveredHypothesis": {
+          "assessment": true,
+          "action": true
+        },
+        "checks": [
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "予約図書　川沿いの暮らし　保存済みの受取館　中央図書館",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c2",
+            "observationId": "o1",
+            "sourceImageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "利用情報の確認が必要です。マイページから利用情報をご確認ください。",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c3",
+            "observationId": "o1",
+            "sourceImageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "保存済みの受取館　中央図書館",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e1",
+            "observationId": "o1",
+            "sourceImageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "マイページへ",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          }
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "unchanged"
+        },
+        "observationId": "o2",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-library-unchanged-r1-experience-visual-conditions\\exploration\\input-2.png",
+        "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "imageInspected": true,
+        "outputStatus": "completed",
+        "outputAvailable": true,
+        "admitted": true,
+        "deliveredHypothesis": {
+          "assessment": true,
+          "action": true
+        },
+        "checks": [
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "保存済みの受取館　中央図書館",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c2",
+            "observationId": "o1",
+            "sourceImageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "quote": "利用情報の確認が必要です。マイページから利用情報をご確認ください。",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e1",
+            "observationId": "o2",
+            "sourceImageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+            "quote": "予約内容の変更　「川沿いの暮らし」の受取館を管理",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e2",
+            "observationId": "o2",
+            "sourceImageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+            "quote": "利用情報の確認　登録情報と利用状況の確認",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e3",
+            "observationId": "o2",
+            "sourceImageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+            "quote": "予約記録　予約情報の照合と記録の確認",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          }
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "switch"
+        },
+        "observationId": "o1",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-workshop-switch-r1-experience-visual-conditions\\exploration\\input-1.png",
+        "imageSha256": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+        "imageInspected": true,
+        "outputStatus": "completed",
+        "outputAvailable": true,
+        "admitted": true,
+        "deliveredHypothesis": {
+          "assessment": true,
+          "action": true
+        },
+        "checks": [
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+            "quote": "参加プログラム　木の小物づくり／保存済みの希望回　午前の回",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c2",
+            "observationId": "o1",
+            "sourceImageSha256": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+            "quote": "保存済みの希望回　午前の回",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e1",
+            "observationId": "o1",
+            "sourceImageSha256": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+            "quote": "マイページへ",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          }
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "switch"
+        },
+        "observationId": "o2",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-workshop-switch-r1-experience-visual-conditions\\exploration\\input-2.png",
+        "imageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+        "imageInspected": true,
+        "outputStatus": "completed",
+        "outputAvailable": true,
+        "admitted": true,
+        "deliveredHypothesis": {
+          "assessment": true,
+          "action": true
+        },
+        "checks": [
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+            "quote": "参加プログラム　木の小物づくり／保存済みの希望回　午前の回",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e1",
+            "observationId": "o2",
+            "sourceImageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+            "quote": "予約内容の変更／「木の小物づくり」の希望回を管理",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e2",
+            "observationId": "o2",
+            "sourceImageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+            "quote": "予約一覧／予約中の内容と変更のお手続き",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e3",
+            "observationId": "o2",
+            "sourceImageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+            "quote": "利用情報の確認／登録情報と利用状況の確認",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e4",
+            "observationId": "o2",
+            "sourceImageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+            "quote": "予約記録／予約情報の照合と記録の確認",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          }
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "changed"
+        },
+        "observationId": "o1",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-workshop-changed-r1-experience-visual-conditions\\exploration\\input-1.png",
+        "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+        "imageInspected": true,
+        "outputStatus": "completed",
+        "outputAvailable": true,
+        "admitted": true,
+        "deliveredHypothesis": {
+          "assessment": true,
+          "action": true
+        },
+        "checks": [
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "参加プログラム　木の小物づくり／保存済みの希望回　午前の回",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c2",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "現在、変更を利用できません　利用情報の確認が必要です。マイページから利用情報をご確認ください。",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e1",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "マイページへ",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          }
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "changed"
+        },
+        "observationId": "o2",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-workshop-changed-r1-experience-visual-conditions\\exploration\\input-2.png",
+        "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+        "imageInspected": true,
+        "outputStatus": "completed",
+        "outputAvailable": true,
+        "admitted": true,
+        "deliveredHypothesis": {
+          "assessment": true,
+          "action": true
+        },
+        "checks": [
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "参加プログラム　木の小物づくり／保存済みの希望回　午前の回",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c3",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "利用情報の確認が必要です。",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e1",
+            "observationId": "o2",
+            "sourceImageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+            "quote": "「木の小物づくり」の希望回を管理",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e2",
+            "observationId": "o2",
+            "sourceImageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+            "quote": "登録情報と利用状況の確認",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e3",
+            "observationId": "o2",
+            "sourceImageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+            "quote": "予約情報の照合と記録の確認",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          }
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "unchanged"
+        },
+        "observationId": "o1",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-workshop-unchanged-r1-experience-visual-conditions\\exploration\\input-1.png",
+        "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+        "imageInspected": true,
+        "outputStatus": "completed",
+        "outputAvailable": true,
+        "admitted": true,
+        "deliveredHypothesis": {
+          "assessment": true,
+          "action": true
+        },
+        "checks": [
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "参加プログラム　木の小物づくり",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c2",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "保存済みの希望回　午前の回",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c3",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "利用情報の確認が必要です。",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e1",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "マイページへ",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          }
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "unchanged"
+        },
+        "observationId": "o2",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-workshop-unchanged-r1-experience-visual-conditions\\exploration\\input-2.png",
+        "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+        "imageInspected": true,
+        "outputStatus": "completed",
+        "outputAvailable": true,
+        "admitted": true,
+        "deliveredHypothesis": {
+          "assessment": true,
+          "action": true
+        },
+        "checks": [
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "参加プログラム　木の小物づくり",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c2",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "保存済みの希望回　午前の回",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c3",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "利用情報の確認が必要です。",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e1",
+            "observationId": "o2",
+            "sourceImageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+            "quote": "「木の小物づくり」の希望回を管理",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e2",
+            "observationId": "o2",
+            "sourceImageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+            "quote": "利用情報の確認",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e3",
+            "observationId": "o2",
+            "sourceImageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+            "quote": "予約情報の照合と記録の確認",
+            "visibleWordsMatchIgnoringWhitespace": true,
+            "modelAddedSlashSeparator": false,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          }
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "id": "QUOTE_JOINER_INSERTION",
+        "severity": "model-content-limitation",
+        "actual": "Eight quote instances include U+FF0F ／ that is absent from the cited image, joining visible rows or heading/subtitle strings.",
+        "expected": "Instructions request a short literal image transcription. Visible component words do not certify an added separator.",
+        "impact": "Do not publish all quotes as verbatim or semantically verified. Preserve raw quote and model-transcribed-unverified label.",
+        "evidence": [
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+            "quote": "参加プログラム　木の小物づくり／保存済みの希望回　午前の回",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+            "quote": "参加プログラム　木の小物づくり／保存済みの希望回　午前の回",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e1",
+            "observationId": "o2",
+            "sourceImageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+            "quote": "予約内容の変更／「木の小物づくり」の希望回を管理",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e2",
+            "observationId": "o2",
+            "sourceImageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+            "quote": "予約一覧／予約中の内容と変更のお手続き",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e3",
+            "observationId": "o2",
+            "sourceImageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+            "quote": "利用情報の確認／登録情報と利用状況の確認",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "relation",
+            "id": "e4",
+            "observationId": "o2",
+            "sourceImageSha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+            "quote": "予約記録／予約情報の照合と記録の確認",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "参加プログラム　木の小物づくり／保存済みの希望回　午前の回",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          },
+          {
+            "kind": "condition",
+            "id": "c1",
+            "observationId": "o1",
+            "sourceImageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+            "quote": "参加プログラム　木の小物づくり／保存済みの希望回　午前の回",
+            "visibleWordsMatchIgnoringWhitespace": false,
+            "modelAddedSlashSeparator": true,
+            "visibleWordsAfterRemovingModelSeparator": true,
+            "storedRawQuoteUnchanged": true
+          }
+        ]
+      },
+      {
+        "id": "CURRENT_LINK_EFFECT_UNPROVEN",
+        "severity": "semantic-uncertainty",
+        "actual": "library/unchanged o2 and workshop/unchanged o2 describe the management entry as execute. The viewed cards expose navigation text, with no save result or selected target value.",
+        "impact": "A valid current-source citation does not validate execute/prerequisite semantics or future expectedResult. No global role-accuracy score is assigned."
+      }
+    ],
+    "limits": [
+      "Preselected first2observations in6visual trials; exactly12frames inspected in this bounded review, including one frame without a native output.",
+      "Whitespace and visual layout joins are not certified as literal codepoint transcription. Matching after whitespace removal is a limited word-support check.",
+      "Hypothesis admission and HTTP200 do not establish global semantic correctness, human mental state, or human agreement."
+    ],
+    "reviewer": {
+      "kind": "independent-ai-agent",
+      "method": "Direct visual inspection and transcription of local PNG pixels by the independent AI agent",
+      "humanParticipantReview": false,
+      "humanParticipantOperationRecordObtained": false
+    }
+  },
+  "posthoc": {
+    "status": "POSTHOC_DIAGNOSTIC_COMPLETE",
+    "selection": "Parent agent requested library/unchanged o4/o5/o6 after observing the trajectory; post-hoc diagnostic, not preregistered",
+    "runId": "94157c9a-9a6d-44db-aa2f-e242b9b37164-recovery-library-unchanged-r1-experience-visual-conditions",
+    "fixture": {
+      "version": 1,
+      "task": "library",
+      "condition": "unchanged"
+    },
+    "framesInspected": 3,
+    "o4ToO5": {
+      "imageRetainedAndAttached": true,
+      "imageLogicalIdAtO5": "memory_1",
+      "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+      "priorRecordRetainedExactly": true,
+      "previousMatchUnmetQuote": {
+        "id": "c2",
+        "description": "予約記録との照合を完了する。",
+        "status": "unmet",
+        "evidence": {
+          "observationId": "o4",
+          "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+          "quote": "予約記録との照合がまだ完了していません。予約記録をご確認ください。",
+          "quoteStatus": "model-transcribed-unverified"
+        },
+        "uncertainty": "照合が未完了と表示されていますが、どの操作で完了するかは不明です。"
+      },
+      "nextRelatedCondition": {
+        "id": "c3",
+        "description": "予約記録との照合や利用情報の確認が、受取館変更の前提条件かどうかを確認する。",
+        "status": "uncertain",
+        "evidence": null,
+        "uncertainty": "前提条件かどうか、また現在の確認状況は不明です。"
+      },
+      "conditionIDsAreNotStableSemanticIDs": true
+    },
+    "steps": [
+      {
+        "observationId": "o4",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-library-unchanged-r1-experience-visual-conditions/exploration/input-4.png",
+        "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+        "manualVisualObservation": "A status notice visibly states the request was accepted but reservation-record matching has not completed and asks the user to check reservation records.",
+        "nativeMemorySources": [
+          "o1",
+          "o2",
+          "o3"
+        ],
+        "nativeAttachedSources": [
+          {
+            "observationId": "o2",
+            "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+            "image": "memory_0"
+          },
+          {
+            "observationId": "o3",
+            "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+            "image": "memory_1"
+          },
+          {
+            "observationId": "o4",
+            "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+            "image": "current"
+          },
+          {
+            "observationId": "o1",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "image": "correspondence_0"
+          }
+        ],
+        "nativeConditions": [
+          {
+            "id": "c1",
+            "description": "予約図書は「川沿いの暮らし」で、変更前の保存済み受取館は中央図書館。",
+            "status": "satisfied",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+              "quote": "予約図書　川沿いの暮らし　保存済みの受取館　中央図書館",
+              "quoteStatus": "model-transcribed-unverified"
+            },
+            "uncertainty": "履歴画像に表示された変更前の状態です。"
+          },
+          {
+            "id": "c2",
+            "description": "予約記録との照合を完了する。",
+            "status": "unmet",
+            "evidence": {
+              "observationId": "o4",
+              "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+              "quote": "予約記録との照合がまだ完了していません。予約記録をご確認ください。",
+              "quoteStatus": "model-transcribed-unverified"
+            },
+            "uncertainty": "照合が未完了と表示されていますが、どの操作で完了するかは不明です。"
+          },
+          {
+            "id": "c3",
+            "description": "「川沿いの暮らし」の受取館を東分館に変更し、保存されたことを確認する。",
+            "status": "uncertain",
+            "evidence": null,
+            "uncertainty": "現在の画面に受取館や変更の保存結果は表示されていません。"
+          }
+        ],
+        "nativeRelations": [
+          {
+            "candidateId": "e1",
+            "conditionIds": [
+              "c2"
+            ],
+            "relation": "unknown",
+            "currentEvidence": null,
+            "expectedResult": null
+          },
+          {
+            "candidateId": "e2",
+            "conditionIds": [],
+            "relation": "navigation",
+            "currentEvidence": {
+              "observationId": "o4",
+              "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+              "quote": "マイページへ",
+              "quoteStatus": "model-transcribed-unverified"
+            },
+            "expectedResult": null
+          },
+          {
+            "candidateId": "back",
+            "conditionIds": [],
+            "relation": "unknown",
+            "currentEvidence": null,
+            "expectedResult": null
+          }
+        ],
+        "jevAvailability": {
+          "status": "unknown"
+        },
+        "jevCandidateRoles": {
+          "e1": {
+            "role": "unknown",
+            "evidence": {
+              "observationId": "o4",
+              "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf"
+            },
+            "verify": "availability-change"
+          },
+          "e2": {
+            "role": "navigation",
+            "evidence": {
+              "observationId": "o4",
+              "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf"
+            },
+            "verify": "navigation"
+          },
+          "back": {
+            "role": "unknown",
+            "verify": "unknown"
+          }
+        },
+        "selected": "e2",
+        "modelChoice": "e2",
+        "rawDistribution": {
+          "abandon": 0.02,
+          "back": 0.01,
+          "done": 0,
+          "e1": 0.06999999999999999,
+          "e2": 0.83,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0.03,
+          "wait": 0.04
+        },
+        "filteredDistribution": {
+          "abandon": 0,
+          "back": 0.01098901098901099,
+          "done": 0,
+          "e1": 0.07692307692307693,
+          "e2": 0.9120879120879122,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "selectionPolicy": {
+          "kind": "temporary-deferral",
+          "weights": {
+            "abandon": 1,
+            "back": 1,
+            "done": 1,
+            "e1": 1,
+            "e2": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "stuck": 1,
+            "wait": 1
+          },
+          "before": {
+            "abandon": 0.02,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0.06999999999999999,
+            "e2": 0.83,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.03,
+            "wait": 0.04
+          },
+          "weightedTotal": 1,
+          "scope": {
+            "kind": "ui-conditional-v1",
+            "baselineSelected": "e2",
+            "baselineClass": "ui",
+            "uiCandidates": [
+              "back",
+              "e1",
+              "e2"
+            ],
+            "uiMass": 0.9099999999999999,
+            "weightedUIMass": 0.9099999999999999,
+            "marginal": {
+              "abandon": 0.02,
+              "back": 0.01,
+              "done": 0,
+              "e1": 0.06999999999999999,
+              "e2": 0.83,
+              "look_0": 0,
+              "look_1": 0,
+              "look_2": 0,
+              "look_3": 0,
+              "reread": 0,
+              "stuck": 0.03,
+              "wait": 0.04
+            },
+            "conditionalDraw": null
+          }
+        },
+        "deliveries": [
+          {
+            "stage": "assessment",
+            "recordDeliveredExactly": true,
+            "memoryDeliveredExactly": true,
+            "HTTPResponsePresent": true,
+            "o4ImageBound": true
+          },
+          {
+            "stage": "action",
+            "recordDeliveredExactly": true,
+            "memoryDeliveredExactly": true,
+            "HTTPResponsePresent": true,
+            "o4ImageBound": true
+          }
+        ]
+      },
+      {
+        "observationId": "o5",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-library-unchanged-r1-experience-visual-conditions/exploration/input-5.png",
+        "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "manualVisualObservation": "Home offers e1 reservation change, e2 user-information confirmation and e3 reservation records with subtitle 予約情報の照合と記録の確認.",
+        "nativeMemorySources": [
+          "o2",
+          "o3",
+          "o4"
+        ],
+        "nativeAttachedSources": [
+          {
+            "observationId": "o3",
+            "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+            "image": "memory_0"
+          },
+          {
+            "observationId": "o4",
+            "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+            "image": "memory_1"
+          },
+          {
+            "observationId": "o5",
+            "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+            "image": "current"
+          }
+        ],
+        "nativeConditions": [
+          {
+            "id": "c1",
+            "description": "現在の予約内容変更の対象として、「川沿いの暮らし」の受取館が示されている。",
+            "status": "satisfied",
+            "evidence": {
+              "observationId": "o5",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+              "quote": "「川沿いの暮らし」の受取館を管理",
+              "quoteStatus": "model-transcribed-unverified"
+            },
+            "uncertainty": "画面は管理対象を示していますが、現在保存されている受取館は示していません。"
+          },
+          {
+            "id": "c2",
+            "description": "「川沿いの暮らし」の受取館を東分館に変更し、変更が保存されたことを確認する。",
+            "status": "uncertain",
+            "evidence": null,
+            "uncertainty": "東分館への変更や保存結果は現在の画面では確認できません。"
+          },
+          {
+            "id": "c3",
+            "description": "予約記録との照合や利用情報の確認が、受取館変更の前提条件かどうかを確認する。",
+            "status": "uncertain",
+            "evidence": null,
+            "uncertainty": "前提条件かどうか、また現在の確認状況は不明です。"
+          }
+        ],
+        "nativeRelations": [
+          {
+            "candidateId": "e1",
+            "conditionIds": [
+              "c2"
+            ],
+            "relation": "execute",
+            "currentEvidence": {
+              "observationId": "o5",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+              "quote": "予約内容の変更",
+              "quoteStatus": "model-transcribed-unverified"
+            },
+            "expectedResult": "保存済みの受取館が東分館と表示される。"
+          },
+          {
+            "candidateId": "e2",
+            "conditionIds": [
+              "c3"
+            ],
+            "relation": "information",
+            "currentEvidence": {
+              "observationId": "o5",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+              "quote": "登録情報と利用状況の確認",
+              "quoteStatus": "model-transcribed-unverified"
+            },
+            "expectedResult": "利用情報の確認状況が表示される。"
+          },
+          {
+            "candidateId": "e3",
+            "conditionIds": [
+              "c3"
+            ],
+            "relation": "information",
+            "currentEvidence": {
+              "observationId": "o5",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+              "quote": "予約情報の照合と記録の確認",
+              "quoteStatus": "model-transcribed-unverified"
+            },
+            "expectedResult": "予約記録との照合状況が表示される。"
+          },
+          {
+            "candidateId": "back",
+            "conditionIds": [],
+            "relation": "unknown",
+            "currentEvidence": null,
+            "expectedResult": null
+          }
+        ],
+        "jevAvailability": {
+          "status": "unknown",
+          "evidence": {
+            "observationId": "o5",
+            "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+          }
+        },
+        "jevCandidateRoles": {
+          "e1": {
+            "role": "execute",
+            "evidence": {
+              "observationId": "o5",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "verify": "goal-change"
+          },
+          "e2": {
+            "role": "information",
+            "evidence": {
+              "observationId": "o5",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "verify": "information"
+          },
+          "e3": {
+            "role": "information",
+            "evidence": {
+              "observationId": "o5",
+              "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+            },
+            "verify": "information"
+          },
+          "back": {
+            "role": "unknown",
+            "verify": "unknown"
+          }
+        },
+        "selected": "e1",
+        "modelChoice": "e1",
+        "rawDistribution": {
+          "abandon": 0.01,
+          "back": 0,
+          "done": 0,
+          "e1": 0.79,
+          "e2": 0.01,
+          "e3": 0.17,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0.01,
+          "wait": 0
+        },
+        "filteredDistribution": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0.8228309551088429,
+          "e2": 0.00010415581710238518,
+          "e3": 0.1770648890740548,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "selectionPolicy": {
+          "kind": "temporary-deferral",
+          "weights": {
+            "abandon": 1,
+            "back": 1,
+            "done": 1,
+            "e1": 1,
+            "e2": 0.01,
+            "e3": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "stuck": 1,
+            "wait": 1
+          },
+          "before": {
+            "abandon": 0.010101010101010102,
+            "back": 0,
+            "done": 0,
+            "e1": 0.7979797979797981,
+            "e2": 0.010101010101010102,
+            "e3": 0.17171717171717174,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.010101010101010102,
+            "wait": 0
+          },
+          "weightedTotal": 0.99,
+          "scope": {
+            "kind": "ui-conditional-v1",
+            "baselineSelected": "e1",
+            "baselineClass": "ui",
+            "uiCandidates": [
+              "back",
+              "e1",
+              "e2",
+              "e3"
+            ],
+            "uiMass": 0.9797979797979799,
+            "weightedUIMass": 0.9697979797979799,
+            "marginal": {
+              "abandon": 0.010101010101010102,
+              "back": 0,
+              "done": 0,
+              "e1": 0.8062081075308865,
+              "e2": 0.00010205165918112488,
+              "e3": 0.1734878206079123,
+              "look_0": 0,
+              "look_1": 0,
+              "look_2": 0,
+              "look_3": 0,
+              "reread": 0,
+              "stuck": 0.010101010101010102,
+              "wait": 0
+            },
+            "conditionalDraw": null
+          }
+        },
+        "deliveries": [
+          {
+            "stage": "assessment",
+            "recordDeliveredExactly": true,
+            "memoryDeliveredExactly": true,
+            "HTTPResponsePresent": true,
+            "o4ImageBound": true
+          },
+          {
+            "stage": "action",
+            "recordDeliveredExactly": true,
+            "memoryDeliveredExactly": true,
+            "HTTPResponsePresent": true,
+            "o4ImageBound": true
+          }
+        ]
+      },
+      {
+        "observationId": "o6",
+        "imageFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\evidence-conditioned-live\\recovery-library-unchanged-r1-experience-visual-conditions/exploration/input-6.png",
+        "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+        "manualVisualObservation": "Returned blocked change page shows current saved location 中央図書館 and asks for user-information confirmation.",
+        "nativeMemorySources": [
+          "o3",
+          "o4",
+          "o5"
+        ],
+        "nativeAttachedSources": [
+          {
+            "observationId": "o4",
+            "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+            "image": "memory_0"
+          },
+          {
+            "observationId": "o5",
+            "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+            "image": "memory_1"
+          },
+          {
+            "observationId": "o6",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+            "image": "current"
+          }
+        ],
+        "nativeConditions": [
+          {
+            "id": "c1",
+            "description": "予約図書は「川沿いの暮らし」で、現在保存済みの受取館は中央図書館。",
+            "status": "satisfied",
+            "evidence": {
+              "observationId": "o6",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+              "quote": "予約図書　川沿いの暮らし　保存済みの受取館　中央図書館",
+              "quoteStatus": "model-transcribed-unverified"
+            },
+            "uncertainty": "画面に表示された現在の保存済み受取館です。"
+          },
+          {
+            "id": "c2",
+            "description": "受取館の変更に必要な利用情報の確認を完了する。",
+            "status": "unmet",
+            "evidence": {
+              "observationId": "o6",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+              "quote": "現在、変更を利用できません　利用情報の確認が必要です。マイページから利用情報をご確認ください。",
+              "quoteStatus": "model-transcribed-unverified"
+            },
+            "uncertainty": "画面には確認が必要とありますが、確認完了の方法や変更再開の条件は不明です。"
+          },
+          {
+            "id": "c3",
+            "description": "「川沿いの暮らし」の受取館を東分館に変更し、保存されたことを確認する。",
+            "status": "uncertain",
+            "evidence": null,
+            "uncertainty": "東分館への変更や保存結果は現在の画面に表示されていません。"
+          }
+        ],
+        "nativeRelations": [
+          {
+            "candidateId": "e1",
+            "conditionIds": [
+              "c2"
+            ],
+            "relation": "navigation",
+            "currentEvidence": {
+              "observationId": "o6",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+              "quote": "マイページへ",
+              "quoteStatus": "model-transcribed-unverified"
+            },
+            "expectedResult": null
+          },
+          {
+            "candidateId": "back",
+            "conditionIds": [],
+            "relation": "unknown",
+            "currentEvidence": null,
+            "expectedResult": null
+          }
+        ],
+        "jevAvailability": {
+          "status": "blocked",
+          "evidence": {
+            "observationId": "o6",
+            "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+          }
+        },
+        "jevCandidateRoles": {
+          "e1": {
+            "role": "navigation",
+            "evidence": {
+              "observationId": "o6",
+              "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+            },
+            "verify": "availability-change"
+          },
+          "back": {
+            "role": "unknown",
+            "verify": "unknown"
+          }
+        },
+        "selected": "e1",
+        "modelChoice": "e1",
+        "rawDistribution": {
+          "abandon": 0.04,
+          "back": 0.01,
+          "done": 0.01,
+          "e1": 0.79,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0.01,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0.14,
+          "wait": 0
+        },
+        "filteredDistribution": {
+          "abandon": 0,
+          "back": 0.012499999999999999,
+          "done": 0,
+          "e1": 0.9875,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "selectionPolicy": {
+          "kind": "temporary-deferral",
+          "weights": {
+            "abandon": 1,
+            "back": 1,
+            "done": 1,
+            "e1": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "stuck": 1,
+            "wait": 1
+          },
+          "before": {
+            "abandon": 0.04,
+            "back": 0.01,
+            "done": 0.01,
+            "e1": 0.79,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.14,
+            "wait": 0
+          },
+          "weightedTotal": 1,
+          "scope": {
+            "kind": "ui-conditional-v1",
+            "baselineSelected": "e1",
+            "baselineClass": "ui",
+            "uiCandidates": [
+              "back",
+              "e1"
+            ],
+            "uiMass": 0.8,
+            "weightedUIMass": 0.8,
+            "marginal": {
+              "abandon": 0.04,
+              "back": 0.01,
+              "done": 0.01,
+              "e1": 0.79,
+              "look_0": 0,
+              "look_1": 0,
+              "look_2": 0.01,
+              "look_3": 0,
+              "reread": 0,
+              "stuck": 0.14,
+              "wait": 0
+            },
+            "conditionalDraw": null
+          }
+        },
+        "deliveries": [
+          {
+            "stage": "assessment",
+            "recordDeliveredExactly": true,
+            "memoryDeliveredExactly": true,
+            "HTTPResponsePresent": true,
+            "o4ImageBound": true
+          },
+          {
+            "stage": "action",
+            "recordDeliveredExactly": true,
+            "memoryDeliveredExactly": true,
+            "HTTPResponsePresent": true,
+            "o4ImageBound": true
+          }
+        ]
+      }
+    ],
+    "interpretation": "The o4 image and exact o4 record remained attached/in memory at o5 and reached both Jev stages. The newly emitted matching/precondition hypothesis weakened to uncertain and was assigned a different condition ID. This trace supports input retention plus changed interpretation; it does not demonstrate transport loss. At o5 the native model and Jev categorical judgments both labelled e1 execute/e3 information, and raw argmax preferred e1 (0.79 vs0.17). o6 visibly returned to the original blocked page. Internal reasoning, causal responsibility among stages, and human fidelity cannot be inferred.",
+    "limits": [
+      "Posthoc3frame diagnostic remains separate from the preselected12frame review.",
+      "No hidden model reasoning was observed. Bounded memory does not guarantee its effective use.",
+      "Current quotes support displayed words, not the future action effect.",
+      "This incomplete trial ended in native TIMEOUT and remains infrastructure-invalid, not a valid objective-failure observation."
+    ],
+    "reviewer": {
+      "kind": "independent-ai-agent",
+      "method": "Direct visual inspection and transcription of local PNG pixels by the independent AI agent",
+      "humanParticipantReview": false,
+      "humanParticipantOperationRecordObtained": false
+    }
+  },
+  "paths": {
+    "status": "PASS_COMPARISON",
+    "plannedCells": 6,
+    "equalSelectedSequences": 5,
+    "equalOperations": 5,
+    "alignedDecisions": 46,
+    "differentRawDistributions": 37,
+    "differentFilteredDistributions": 33,
+    "sequence": [
+      {
+        "task": "library",
+        "condition": "switch",
+        "selectedSequenceLegacy": [
+          "e1",
+          "e2",
+          "e1",
+          "done"
+        ],
+        "selectedSequenceCurrent": [
+          "e1",
+          "e2",
+          "e1",
+          "done"
+        ],
+        "selectedSequencesEqual": true,
+        "operationsLegacy": [
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "done"
+          }
+        ],
+        "operationsCurrent": [
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "done"
+          }
+        ],
+        "operationsEqual": true,
+        "countsEqual": true,
+        "apiCalls": [
+          8,
+          8
+        ],
+        "uiActions": [
+          3,
+          3
+        ],
+        "probabilities": [
+          {
+            "observationId": "o1",
+            "sameRaw": true,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o2",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.020000000000000018,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o3",
+            "sameRaw": true,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o4",
+            "sameRaw": true,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          }
+        ]
+      },
+      {
+        "task": "library",
+        "condition": "changed",
+        "selectedSequenceLegacy": [
+          "e1",
+          "e2",
+          "e1",
+          "e2",
+          "e1",
+          "e1",
+          "done"
+        ],
+        "selectedSequenceCurrent": [
+          "e1",
+          "e2",
+          "e1",
+          "e2",
+          "e1",
+          "e1",
+          "done"
+        ],
+        "selectedSequencesEqual": true,
+        "operationsLegacy": [
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "done"
+          }
+        ],
+        "operationsCurrent": [
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "done"
+          }
+        ],
+        "operationsEqual": true,
+        "countsEqual": true,
+        "apiCalls": [
+          14,
+          14
+        ],
+        "uiActions": [
+          6,
+          6
+        ],
+        "probabilities": [
+          {
+            "observationId": "o1",
+            "sameRaw": false,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0.010000000000000009,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o2",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.010000000000000009,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o3",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.009999999999999898,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o4",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.020000000000000018,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o5",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": false,
+            "maxRawDelta": 0.010000000000000009,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": false,
+            "comparisonScope": "ordinal-only-after-trajectory-divergence"
+          },
+          {
+            "observationId": "o6",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.039999999999999925,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": false,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o7",
+            "sameRaw": true,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": false,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          }
+        ]
+      },
+      {
+        "task": "library",
+        "condition": "unchanged",
+        "selectedSequenceLegacy": [
+          "e1",
+          "e2",
+          "e1",
+          "e2",
+          "e1",
+          "e1",
+          "e2",
+          "e2",
+          "e1",
+          "e1",
+          "e3",
+          "e2"
+        ],
+        "selectedSequenceCurrent": [
+          "e1",
+          "e2",
+          "e1",
+          "e2",
+          "e1",
+          "e1",
+          "e2",
+          "e2",
+          "e1",
+          "e1",
+          "e3",
+          "e2"
+        ],
+        "selectedSequencesEqual": true,
+        "operationsLegacy": [
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e3"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          }
+        ],
+        "operationsCurrent": [
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e3"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          }
+        ],
+        "operationsEqual": true,
+        "countsEqual": true,
+        "apiCalls": [
+          24,
+          24
+        ],
+        "uiActions": [
+          12,
+          12
+        ],
+        "probabilities": [
+          {
+            "observationId": "o1",
+            "sameRaw": false,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0.010000000000000009,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o2",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.019999999999999907,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o3",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.009999999999999995,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o4",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.040000000000000036,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o5",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.07,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o6",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.050000000000000044,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o7",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.14,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o8",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.020000000000000018,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o9",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.06999999999999995,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o10",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.07000000000000006,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o11",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.08999999999999997,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o12",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.1499999999999999,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          }
+        ]
+      },
+      {
+        "task": "workshop",
+        "condition": "switch",
+        "selectedSequenceLegacy": [
+          "e1",
+          "e2",
+          "e1",
+          "done"
+        ],
+        "selectedSequenceCurrent": [
+          "e1",
+          "e2",
+          "e1",
+          "done"
+        ],
+        "selectedSequencesEqual": true,
+        "operationsLegacy": [
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "done"
+          }
+        ],
+        "operationsCurrent": [
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "done"
+          }
+        ],
+        "operationsEqual": true,
+        "countsEqual": true,
+        "apiCalls": [
+          8,
+          8
+        ],
+        "uiActions": [
+          3,
+          3
+        ],
+        "probabilities": [
+          {
+            "observationId": "o1",
+            "sameRaw": true,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o2",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.010000000000000009,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o3",
+            "sameRaw": true,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o4",
+            "sameRaw": true,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          }
+        ]
+      },
+      {
+        "task": "workshop",
+        "condition": "changed",
+        "selectedSequenceLegacy": [
+          "e1",
+          "e2",
+          "e1",
+          "e2",
+          "e1",
+          "e1",
+          "done"
+        ],
+        "selectedSequenceCurrent": [
+          "e1",
+          "e2",
+          "e1",
+          "e2",
+          "e1",
+          "e1",
+          "done"
+        ],
+        "selectedSequencesEqual": true,
+        "operationsLegacy": [
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "done"
+          }
+        ],
+        "operationsCurrent": [
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "done"
+          }
+        ],
+        "operationsEqual": true,
+        "countsEqual": true,
+        "apiCalls": [
+          14,
+          14
+        ],
+        "uiActions": [
+          6,
+          6
+        ],
+        "probabilities": [
+          {
+            "observationId": "o1",
+            "sameRaw": false,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0.010000000000000009,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o2",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.010000000000000009,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o3",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.010000000000000009,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o4",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.11000000000000001,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o5",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": false,
+            "maxRawDelta": 0.06999999999999995,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": false,
+            "comparisonScope": "ordinal-only-after-trajectory-divergence"
+          },
+          {
+            "observationId": "o6",
+            "sameRaw": true,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": false,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o7",
+            "sameRaw": true,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": false,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          }
+        ]
+      },
+      {
+        "task": "workshop",
+        "condition": "unchanged",
+        "selectedSequenceLegacy": [
+          "e1",
+          "e2",
+          "e1",
+          "e2",
+          "e1",
+          "e1",
+          "e2",
+          "e1",
+          "e2",
+          "e3",
+          "e2",
+          "e1"
+        ],
+        "selectedSequenceCurrent": [
+          "e1",
+          "e2",
+          "e1",
+          "e2",
+          "e1",
+          "e1",
+          "e2",
+          "e2",
+          "e1",
+          "e1",
+          "e2",
+          "e1"
+        ],
+        "selectedSequencesEqual": false,
+        "operationsLegacy": [
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e3"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          }
+        ],
+        "operationsCurrent": [
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          },
+          {
+            "type": "click",
+            "elementId": "e2"
+          },
+          {
+            "type": "click",
+            "elementId": "e1"
+          }
+        ],
+        "operationsEqual": false,
+        "countsEqual": true,
+        "apiCalls": [
+          24,
+          24
+        ],
+        "uiActions": [
+          12,
+          12
+        ],
+        "probabilities": [
+          {
+            "observationId": "o1",
+            "sameRaw": false,
+            "sameFiltered": true,
+            "sameImage": true,
+            "maxRawDelta": 0.010000000000000009,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o2",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.04,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o3",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.010000000000000002,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o4",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.03999999999999998,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o5",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.08000000000000007,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o6",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.09999999999999998,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o7",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": true,
+            "maxRawDelta": 0.06,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": true,
+            "comparisonScope": "same-current-image-and-choice-domain"
+          },
+          {
+            "observationId": "o8",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": false,
+            "maxRawDelta": 0.019999999999999907,
+            "sameCandidateDomain": true,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": false,
+            "comparisonScope": "ordinal-only-after-trajectory-divergence"
+          },
+          {
+            "observationId": "o9",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": false,
+            "maxRawDelta": null,
+            "sameCandidateDomain": false,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": false,
+            "comparisonScope": "ordinal-only-after-trajectory-divergence"
+          },
+          {
+            "observationId": "o10",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": false,
+            "maxRawDelta": null,
+            "sameCandidateDomain": false,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": false,
+            "comparisonScope": "ordinal-only-after-trajectory-divergence"
+          },
+          {
+            "observationId": "o11",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": false,
+            "maxRawDelta": null,
+            "sameCandidateDomain": false,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": false,
+            "comparisonScope": "ordinal-only-after-trajectory-divergence"
+          },
+          {
+            "observationId": "o12",
+            "sameRaw": false,
+            "sameFiltered": false,
+            "sameImage": false,
+            "maxRawDelta": null,
+            "sameCandidateDomain": false,
+            "sameRecordedLogicalInput": false,
+            "sameDeliveredAssetHashes": false,
+            "comparisonScope": "ordinal-only-after-trajectory-divergence"
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "One run in each fixed cell; identical observed operation sequences do not establish population equivalence.",
+      "Different choice probabilities and unchanged operation paths are separate observations.",
+      "No causal performance improvement claim from these comparisons."
+    ],
+    "sameCurrentImageAndChoiceDomainDecisions": 39,
+    "differentRawOnSameCurrentImageAndDomain": 30
+  },
+  "timeouts": {
+    "status": "PASS_CLASSIFICATION",
+    "sourceEvidence": {
+      "scheduler": "runner/visual-conditions-comparison.ts deadlineEpochMs=min(phaseDeadline,Date.now()+180000) before runHumanJev setup",
+      "wrapper": "runner/human-jev-experiment.ts clamps each dispatch to external deadline; runBeta.elapsedMs begins after preparatory server/browser/page load",
+      "native": "runner/openai-visual-hypotheses.ts AbortSignal.timeout(request.timeoutMs)"
+    },
+    "timeouts": [
+      {
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "changed"
+        },
+        "observationId": "o2",
+        "ledgerOrdinal": 4,
+        "error": {
+          "code": "TIMEOUT",
+          "attempts": 1,
+          "httpReceived": false
+        },
+        "nativeApiMs": 30012.522499999963,
+        "runBetaElapsedMs": 43041.547500000044,
+        "wrapperCreatedAtUTC": "2026-10-29T17:37:00.112Z",
+        "firstReservationAt": "2026-10-29T17:37:26.567Z",
+        "lastReservationAt": "2026-10-29T17:37:38.568Z",
+        "lastSettlementAt": "2026-10-29T17:38:08.574Z",
+        "wallFromWrapperToLastSettlementMs": 68462,
+        "approxSetupAndClockBoundaryGapMs": 25420.452499999956,
+        "lastReservationDurationMs": 30006,
+        "approxRemainingTrialMsAtLastReservation": 141544,
+        "classification": "per-call cap about30s",
+        "limitation": "Wrapper creation is a timestamp proxy after sourceIdentity; exact runBeta start and dispatch timeoutMs were not serialized. Residual/setup estimates are approximate, not an exact recorded timeout parameter.",
+        "objectiveFailureCounted": false
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "unchanged"
+        },
+        "observationId": "o10",
+        "ledgerOrdinal": 28,
+        "error": {
+          "code": "TIMEOUT",
+          "attempts": 1,
+          "httpReceived": false
+        },
+        "nativeApiMs": 1444.308699999936,
+        "runBetaElapsedMs": 154554.23890000005,
+        "wrapperCreatedAtUTC": "2026-10-29T17:39:20.547Z",
+        "firstReservationAt": "2026-10-29T17:39:46.965Z",
+        "lastReservationAt": "2026-10-29T17:42:19.059Z",
+        "lastSettlementAt": "2026-10-29T17:42:20.497Z",
+        "wallFromWrapperToLastSettlementMs": 179950,
+        "approxSetupAndClockBoundaryGapMs": 25395.761099999945,
+        "lastReservationDurationMs": 1438,
+        "approxRemainingTrialMsAtLastReservation": 1488,
+        "classification": "trial-deadline remainder",
+        "limitation": "Wrapper creation is a timestamp proxy after sourceIdentity; exact runBeta start and dispatch timeoutMs were not serialized. Residual/setup estimates are approximate, not an exact recorded timeout parameter.",
+        "objectiveFailureCounted": false
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "unchanged"
+        },
+        "observationId": "o10",
+        "ledgerOrdinal": 28,
+        "error": {
+          "code": "TIMEOUT",
+          "attempts": 1,
+          "httpReceived": false
+        },
+        "nativeApiMs": 5186.774999999907,
+        "runBetaElapsedMs": 154395.71200000006,
+        "wrapperCreatedAtUTC": "2026-10-29T17:51:23.849Z",
+        "firstReservationAt": "2026-10-29T17:51:50.465Z",
+        "lastReservationAt": "2026-10-29T17:54:18.627Z",
+        "lastSettlementAt": "2026-10-29T17:54:23.806Z",
+        "wallFromWrapperToLastSettlementMs": 179957,
+        "approxSetupAndClockBoundaryGapMs": 25561.287999999942,
+        "lastReservationDurationMs": 5179,
+        "approxRemainingTrialMsAtLastReservation": 5222,
+        "classification": "trial-deadline remainder",
+        "limitation": "Wrapper creation is a timestamp proxy after sourceIdentity; exact runBeta start and dispatch timeoutMs were not serialized. Residual/setup estimates are approximate, not an exact recorded timeout parameter.",
+        "objectiveFailureCounted": false
+      }
+    ]
+  },
+  "publishedImages": [
+    {
+      "group": "preselected",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "switch"
+      },
+      "observationId": "o1",
+      "file": "visual-conditions-evidence/library-switch-o1.png",
+      "sha256": "2153efb62b202caccff3567f9c9810b6517a628fb34a75422cc397546f894e21",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-library-switch-r1-experience-visual-conditions/exploration/input-1.png"
+    },
+    {
+      "group": "preselected",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "switch"
+      },
+      "observationId": "o2",
+      "file": "visual-conditions-evidence/library-switch-o2.png",
+      "sha256": "5b0d715d5239f9571b1510afed4dbf400fa41a7b245e65b0377ca4792a51c011",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-library-switch-r1-experience-visual-conditions/exploration/input-2.png"
+    },
+    {
+      "group": "preselected",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "observationId": "o1",
+      "file": "visual-conditions-evidence/library-changed-o1.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-library-changed-r1-experience-visual-conditions/exploration/input-1.png"
+    },
+    {
+      "group": "preselected",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "observationId": "o2",
+      "file": "visual-conditions-evidence/library-changed-o2.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-library-changed-r1-experience-visual-conditions/exploration/input-2.png"
+    },
+    {
+      "group": "preselected",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observationId": "o1",
+      "file": "visual-conditions-evidence/library-unchanged-o1.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-library-unchanged-r1-experience-visual-conditions/exploration/input-1.png"
+    },
+    {
+      "group": "preselected",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observationId": "o2",
+      "file": "visual-conditions-evidence/library-unchanged-o2.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-library-unchanged-r1-experience-visual-conditions/exploration/input-2.png"
+    },
+    {
+      "group": "preselected",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "switch"
+      },
+      "observationId": "o1",
+      "file": "visual-conditions-evidence/workshop-switch-o1.png",
+      "sha256": "ef28606b6b2e71177a1855796b421a667515c7a703d329fa0ebabe90aaef82cd",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-workshop-switch-r1-experience-visual-conditions/exploration/input-1.png"
+    },
+    {
+      "group": "preselected",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "switch"
+      },
+      "observationId": "o2",
+      "file": "visual-conditions-evidence/workshop-switch-o2.png",
+      "sha256": "8413473ad0c79ca50334afbdce16e7f68bd23a593027091ca1af7418b60b1d88",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-workshop-switch-r1-experience-visual-conditions/exploration/input-2.png"
+    },
+    {
+      "group": "preselected",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "observationId": "o1",
+      "file": "visual-conditions-evidence/workshop-changed-o1.png",
+      "sha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-workshop-changed-r1-experience-visual-conditions/exploration/input-1.png"
+    },
+    {
+      "group": "preselected",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "observationId": "o2",
+      "file": "visual-conditions-evidence/workshop-changed-o2.png",
+      "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-workshop-changed-r1-experience-visual-conditions/exploration/input-2.png"
+    },
+    {
+      "group": "preselected",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "observationId": "o1",
+      "file": "visual-conditions-evidence/workshop-unchanged-o1.png",
+      "sha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-workshop-unchanged-r1-experience-visual-conditions/exploration/input-1.png"
+    },
+    {
+      "group": "preselected",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "observationId": "o2",
+      "file": "visual-conditions-evidence/workshop-unchanged-o2.png",
+      "sha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-workshop-unchanged-r1-experience-visual-conditions/exploration/input-2.png"
+    },
+    {
+      "group": "posthoc",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observationId": "o4",
+      "file": "visual-conditions-evidence/library-unchanged-o4.png",
+      "sha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-library-unchanged-r1-experience-visual-conditions/exploration/input-4.png"
+    },
+    {
+      "group": "posthoc",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observationId": "o5",
+      "file": "visual-conditions-evidence/library-unchanged-o5.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-library-unchanged-r1-experience-visual-conditions/exploration/input-5.png"
+    },
+    {
+      "group": "posthoc",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observationId": "o6",
+      "file": "visual-conditions-evidence/library-unchanged-o6.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+      "sourceFile": "reports/visual-conditions-2026-10-30/evidence-conditioned-live/recovery-library-unchanged-r1-experience-visual-conditions/exploration/input-6.png"
+    }
+  ],
+  "originalEvidence": [
+    {
+      "file": "raw-audit.json",
+      "sha256": "6ae10be5410262cf631281aee4f44103b8a66aabdb0f122b23c9358dcc4915b7"
+    },
+    {
+      "file": "raw-inventory-before.json",
+      "sha256": "9980f40d2e0d1ba73516009382357f9b48e7ee7a4b5d99a5b8ee735d0cf7b29c"
+    },
+    {
+      "file": "raw-inventory-after.json",
+      "sha256": "33dcc996b33f4e0185886fff5d5dfa4866f0df847f792daf22abda5b163ffc19"
+    },
+    {
+      "file": "quote-slots.json",
+      "sha256": "37ba1ebf23f8eb5f5688e280ec9f0085e1ba74dda1abc9f7a2dc3780da91b709"
+    },
+    {
+      "file": "bounded-quote-review.json",
+      "sha256": "e0fa56268bc0cd7d58fc6cc874d0085ed37d4bc7e283b70cdf161871e47be3e8"
+    },
+    {
+      "file": "posthoc-library-unchanged.json",
+      "sha256": "8a32d91cea282ba8255304f21246d3e92549720d1882bac0491670cb85bea932"
+    },
+    {
+      "file": "legacy-current-paths.json",
+      "sha256": "fd4f7964ef881548df5b3e3bb760c56b2be8f09a4242bef6af96b8ddf1645af6"
+    },
+    {
+      "file": "timeouts-and-deadlines.json",
+      "sha256": "a5ebf541b46bf68c0c2aa97aa29fd9d0207a6c4dd12243d4ca466ad7b7318945"
+    },
+    {
+      "file": "public-original-derivation.json",
+      "sha256": "78396f71a635a0d52bcc1f3be9cb690d49c9a9b93af480800af83a62d04af71a"
+    },
+    {
+      "file": "episode-summary-audit.json",
+      "sha256": "9d8c4eae2a2b7e6d83bf50634f6117e7ea426d06a0428717ddc91b422bf34322"
+    }
+  ]
+}

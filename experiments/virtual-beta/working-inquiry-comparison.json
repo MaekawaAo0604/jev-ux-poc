@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "phase": "working-inquiry-2026-10-30",
+  "control": "experience-visual-conditions-prior-links",
+  "intervention": "experience-working-inquiry",
+  "fixtures": [
+    "library/unchanged",
+    "workshop/unchanged"
+  ],
+  "persona": null,
+  "trials": 4,
+  "repeats": 1,
+  "maximumRequests": 144,
+  "perTrialRequests": 36,
+  "maxJudgments": 12,
+  "maxUIActions": 15,
+  "maxLooks": 3,
+  "maxTrialMs": 300000,
+  "maxVisualRequestMs": 60000,
+  "maxPhaseMs": 1260000,
+  "parallel": 1,
+  "retry": 0,
+  "declaredChange": "Three categorical assessment questions selecting unresolved working condition, intent and observable check; bounded context and admitted choices passed to action criteria/guidance. No extra API stage, native request/body/schema change, UI, sampler, role or weight changes.",
+  "initialEvidence": "Identical initial UI PNG, literal goal, persona(null), empty memory and native request input.",
+  "actorOrderOffset": 1,
+  "stop": "Stop authentication/quota/model-output/accounting failure or two consecutive infrastructure failures. Preserve all original failed/missing slots; no replacement.",
+  "limitations": "Single repeat, no causal stability/provider/human fidelity claim. Do not pool earlier phases.",
+  "prior": "Preserve all6270 previously sealed raw files. No saved-input resends or human participant data."
+}

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-preflight",
+  "status": "GO_FOR_FROZEN_MODEL_RUN",
+  "createdAt": "2026-11-10T02:28:25.448Z",
+  "source": {
+    "revision": "5eb463e5cddbd8ddc17c833c8b7df0fd05259d08",
+    "sourceHash": "a997e3ac7e7f7ddb1f09e7257828ad94cd2893fb1c5fbb4b66b85dc4a494e976",
+    "files": 195
+  },
+  "freeze": {
+    "file": "reports/attention-repair-2026-11-10/freeze.json",
+    "sha256": "3380563aabea46f82fa969fa3d740a9ca9b1e7c0d44cac3351c5c913ab5bf2f3",
+    "inputs": {
+      "experiments/virtual-beta/attention-repair-v2/study.json": "44c4d03a791f1869cfb33ea33b961d0d34cdec8ecf9161d32a8c211d3626cc43",
+      "experiments/persona/charter-good.json": "419ebb939b18fadb01f7a2db17da0fc31d817641b1b695411af37bf77004d176",
+      "experiments/persona/clear-notifications-v1/a.json": "8c4cbeeaadde52f98c0433e2f1a15ad6416183f450806048e918e808e4c315c1",
+      "experiments/virtual-beta/attention-repair-v2/crop-seed6001.json": "824e22febeddf3aaf28d9eafc9e63a4e135dd624ebe11e3da78c2dc537c1e982",
+      "experiments/virtual-beta/attention-repair-v2/foveated-seed6001.json": "9fc4852f6bee6cf38c7e2b5d26ae0d3442314a4b4dca28d000314b93ad739172",
+      "experiments/virtual-beta/attention-repair-v2/foveated-seed6002.json": "90824270ab5b0ae86c2f88df167367c2bad2e0b2f80c5e54fe5937eb95fe3965",
+      "experiments/virtual-beta/attention-repair-v2/crop-seed6002.json": "356197bc0bff5c7dce1522cd3bd6b1f4c7477e49de7cfbcb4b22e0ac0ac2466b",
+      "experiments/virtual-beta/attention-repair-v2/crop-seed6003.json": "ac16788960f908b8f6f5f94e4190984ca21ec329b360bf347a908a5a830fa13f",
+      "experiments/virtual-beta/attention-repair-v2/foveated-seed6003.json": "6e7df885f9ec48b8b04ed7c53e9b818676e45e380641ab21f00b87ef918ef647"
+    }
+  },
+  "driver": {
+    "file": "scripts/run-attention-repair.ts",
+    "sha256": "1e296344ae0069269f4f082a3dd2bb2bb74d188ed0d12bbb256e36025333453c"
+  },
+  "analyzer": {
+    "file": "scripts/analyze-attention-repair.ts",
+    "sha256": "cbe35d73c89164b24b0a1b1c7625d170d53a27a74f9259b64cc16b4e7de5f40e"
+  },
+  "checks": {
+    "focusedAttention": {
+      "command": "node --import tsx --test tests/attention-policy-v2.test.ts tests/attention-engine-v2.test.ts tests/attention-repair-config.test.ts tests/attention-repair-protocol.test.ts tests/virtual-beta-attention.test.ts tests/virtual-beta-attention-runtime.test.ts tests/virtual-beta-attention-config.test.ts",
+      "passed": 43,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "independent": {
+      "command": "node --import tsx --test tests/attention-repair-independent.test.ts",
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "log": "reports/attention-repair-2026-11-10/independent/preflight-independent-tests-v1.log",
+      "logSha256": "f6b002b0ceb7c667ab18aa6fc36c6803ae10538189b2375968b926be339d9d43",
+      "test": "tests/attention-repair-independent.test.ts",
+      "testSha256": "53789e8ee8110df9eef6742dd26299717ea2a5d895355fabc375d161872edd4c"
+    },
+    "build": {
+      "command": "npm run build",
+      "exitCode": 0,
+      "result": "tsc --noEmit and Vite production build passed"
+    },
+    "historicalRawReplay": {
+      "runs": 12,
+      "legacy": 6,
+      "off": 6,
+      "requests": 114,
+      "passed": true
+    }
+  },
+  "review": {
+    "actorBlockers": [],
+    "verified": [
+      "New policies are opt-in; absent policy retains legacy candidates, questions and historical replays.",
+      "Continue removes only look; back and other non-look actions remain available.",
+      "Gate and gaze use actual probability distributions, with separately saved replayable counters.",
+      "Gaze selection executes bound viewport coordinates; inspect uses one request and zero UI actions.",
+      "Crop and foveated requests omit hidden DOM, oracle, targets and history; bounded images and observations persist across steps.",
+      "Exhausted inspection mass and invalid unused gaze fail before any UI or fallback selection.",
+      "Deadline, safety, admission, settlement, partial requests and replay tampering pass focused tests.",
+      "Two fresh people per policy and vision mode have matching initial memory and sampler counters."
+    ],
+    "note": "Gate, gaze and ordinary samplers have independent counters but intentionally share the configured seed and deterministic hash sequence; no claim of statistical independence.",
+    "analyzerHardening": "PAIR_CONFOUNDED only compares the first two normalized configs. Exact frozen schedules still bind all four arms; parent notified to compare every config before final publication.",
+    "initialTestCorrection": "Two assertions initially assumed every inspection must change image bytes. The model sampler selected an allowed same-point revisit. Test corrected to require fresh capture while allowing identical transformed bytes; actor unchanged."
+  },
+  "limitations": [
+    "No actual model runs executed by this verifier.",
+    "Full historical artifact suite can demand old source hash; this report covers 51 focused runtime/config/protocol tests plus build and all 12 retained attention raw replays.",
+    "Model understanding and human validity are unmeasured."
+  ]
+}

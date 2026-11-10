@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "study": "experiments/virtual-beta/attention-reselection-v1/study.json",
+  "studySha256": "ab016de98ee8f09261866bf1025bf9e89d14266875bd7c3c77b95de7ebdaaa65",
+  "inputHashes": {
+    "experiments/virtual-beta/attention-reselection-v1/study.json": "ab016de98ee8f09261866bf1025bf9e89d14266875bd7c3c77b95de7ebdaaa65",
+    "experiments/persona/charter-good.json": "419ebb939b18fadb01f7a2db17da0fc31d817641b1b695411af37bf77004d176",
+    "experiments/persona/clear-notifications-v1/a.json": "8c4cbeeaadde52f98c0433e2f1a15ad6416183f450806048e918e808e4c315c1",
+    "experiments/virtual-beta/attention-reselection-v1/seed5001.json": "1ac49bfc6295c6e59bc86697020bd5bce8c33b0d55df8e1f0c4f64b788d281ac",
+    "experiments/virtual-beta/attention-reselection-v1/seed5002.json": "6caaa7d3d504ef2d967e559258a97b70af9879a11dc8c1f5619c5be82a446eb8",
+    "experiments/virtual-beta/attention-reselection-v1/seed5003.json": "6f9453af2bb99c50279d619817767344dce90267636ab074c784370af58d8ddc"
+  },
+  "source": {
+    "revision": "9e403ae9ce1f1e29840481a06f1f2504b7cf3058",
+    "sourceHash": "3decbfde991586a623258781f440024255dda55c125ca293c1c950f2a9b6d46a"
+  },
+  "driverSha256": "99bcd1dc1d7903180b27a858f7479db9bf24e986c3866c9433698d939c2cb142",
+  "mock": false,
+  "status": "COMPLETED",
+  "allocation": 144,
+  "plannedTrials": 12,
+  "preservationBefore": true,
+  "preservationAfter": true,
+  "batches": [
+    {
+      "id": "attention-seed5001",
+      "plan": "experiments/virtual-beta/attention-reselection-v1/seed5001.json",
+      "allocatedAPIRequests": 48,
+      "outDir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001",
+      "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001-budget.json",
+      "status": "COMPLETED",
+      "actualAPIRequests": 38,
+      "summarySha256": "e3585bc2784e7ca5a0b26f1bb0509dd68738a19409fed0af6421c274c73cc63b"
+    },
+    {
+      "id": "attention-seed5002",
+      "plan": "experiments/virtual-beta/attention-reselection-v1/seed5002.json",
+      "allocatedAPIRequests": 48,
+      "outDir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002",
+      "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002-budget.json",
+      "status": "COMPLETED",
+      "actualAPIRequests": 38,
+      "summarySha256": "913fc2deda9000770277a076648ee9fd0c732c263df39c72bd57c2c920d7f211"
+    },
+    {
+      "id": "attention-seed5003",
+      "plan": "experiments/virtual-beta/attention-reselection-v1/seed5003.json",
+      "allocatedAPIRequests": 48,
+      "outDir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003",
+      "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003-budget.json",
+      "status": "COMPLETED",
+      "actualAPIRequests": 38,
+      "summarySha256": "5538e8547e247c059c2e16f03cfba92da583e0015cb337b0c4fd20f2df9afdc1"
+    }
+  ],
+  "elapsedMs": 204488.86349999998
+}

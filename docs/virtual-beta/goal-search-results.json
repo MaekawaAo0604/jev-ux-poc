@@ -1,0 +1,3094 @@
+{
+  "schemaVersion": 1,
+  "status": "INTERRUPTED_PARTIAL_RAW_AUDIT",
+  "manifestStatus": "RUNNING",
+  "manifestRequestAccounting": {
+    "used": 0,
+    "maximum": 288,
+    "source": "fresh-trial-ledgers-including-incomplete"
+  },
+  "producer": {
+    "revision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+    "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186"
+  },
+  "currentBefore": {
+    "revision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+    "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186"
+  },
+  "currentRevisionDiffers": false,
+  "revisionPolicy": "Producer revision identical across trial manifests/results/ledgers. Current docs-only revision differences permitted only with identical complete product sourceHashes and sourceHash.",
+  "completedRecords": 5,
+  "priorLedgerCount": 94,
+  "trials": [
+    {
+      "id": "notifications-r1-old",
+      "scenario": "notifications",
+      "replicate": 1,
+      "condition": "old",
+      "producer": {
+        "revision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+        "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186"
+      },
+      "initialImageSha256": "03b74136e02c8889c4f07cf73846ad67d9ee1f0516bbee1283b5694e6126bae0",
+      "initialFingerprint": "08ba69b5ddd9be68f2e275cdf8fd27c22f4e2661942e5923c72d6fd5d89dbce1",
+      "input": {
+        "charter": {
+          "schemaVersion": 1,
+          "id": "notifications-bad",
+          "targetWebsite": "local:bad",
+          "goal": "初めて利用する暮らしクラウドで、メール通知を停止し、停止したことを確認したい",
+          "initialState": {
+            "description": "デモアカウントのマイページ。通知は受信中。毎回、新しいブラウザーコンテキストで開始する。",
+            "currentDate": "2026-09-19"
+          },
+          "scope": [
+            "同じローカル検証サイト内の画面を探索する",
+            "デモアカウントのメール通知を停止する操作を許可する"
+          ],
+          "prohibitedActions": {
+            "actionTypes": [],
+            "controlTexts": [],
+            "downloads": true
+          },
+          "maxActions": 15
+        }
+      },
+      "config": {
+        "schemaVersion": 1,
+        "id": "human-screen-experience-correspondence",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 4096,
+          "clearHeight": 4096,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 15,
+        "maxLooks": 3,
+        "maxDecisions": 12,
+        "maxAPICalls": 24,
+        "maxRunMs": 180000,
+        "modeledActionMs": null,
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        },
+        "experience": {
+          "enabled": true,
+          "capacity": 8,
+          "evidenceMode": "basis"
+        },
+        "deferral": {
+          "enabled": true,
+          "capacity": 8,
+          "weight": 0.01,
+          "minAlternativeProbability": 0.01,
+          "selectionScope": "ui-conditional"
+        },
+        "deferralReason": {
+          "enabled": true,
+          "capacity": 8,
+          "maxReasonImages": 1,
+          "basisAdmission": "excursion-evidence",
+          "reviewMode": "grounded-choice"
+        },
+        "correspondence": {
+          "enabled": true,
+          "capacity": 8,
+          "maxCurrentCandidates": 8,
+          "maxPastCandidates": 12,
+          "maxUniqueImages": 4
+        }
+      },
+      "apiCalls": 14,
+      "successfulResponses": 14,
+      "errors": [],
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "perceivedDone": true,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": true
+      },
+      "uiActions": 6,
+      "decisions": 7,
+      "looks": 0,
+      "finalImage": {
+        "file": "reports\\goal-search-2026-10-29\\live\\notifications-r1-old\\exploration\\final.png",
+        "sha256": "a5779550560f33a2f2a5d0bdc85d6fafd38f4b68aa918b15140f45916979c2bf"
+      },
+      "stageImageReferences": 42,
+      "maxImages": 4,
+      "currentAnnotations": 0,
+      "historicalAnnotations": 0,
+      "historicalSelected": 0,
+      "selectedTargets": 0,
+      "findings": [],
+      "historical": [],
+      "transitions": [
+        {
+          "step": 1,
+          "sourceImage": {
+            "file": "input-1.png",
+            "sha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+          },
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "url": "http://127.0.0.1:5173/bad/",
+          "nextURL": "http://127.0.0.1:5173/bad/#settings",
+          "nextImage": {
+            "file": "input-2.png",
+            "sha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+          }
+        },
+        {
+          "step": 2,
+          "sourceImage": {
+            "file": "input-2.png",
+            "sha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+          },
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "nextURL": "http://127.0.0.1:5173/bad/#campaign",
+          "nextImage": {
+            "file": "input-3.png",
+            "sha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+          }
+        },
+        {
+          "step": 3,
+          "sourceImage": {
+            "file": "input-3.png",
+            "sha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+          },
+          "selected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "url": "http://127.0.0.1:5173/bad/#campaign",
+          "nextURL": "http://127.0.0.1:5173/bad/#home",
+          "nextImage": {
+            "file": "input-4.png",
+            "sha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+          }
+        },
+        {
+          "step": 4,
+          "sourceImage": {
+            "file": "input-4.png",
+            "sha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+          },
+          "selected": "e5",
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "url": "http://127.0.0.1:5173/bad/#home",
+          "nextURL": "http://127.0.0.1:5173/bad/#other",
+          "nextImage": {
+            "file": "input-5.png",
+            "sha256": "8f0877d692e51594149160d7c650d5cfb1dbc844b5302083c1a70495d53ca3ff"
+          }
+        },
+        {
+          "step": 5,
+          "sourceImage": {
+            "file": "input-5.png",
+            "sha256": "8f0877d692e51594149160d7c650d5cfb1dbc844b5302083c1a70495d53ca3ff"
+          },
+          "selected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "url": "http://127.0.0.1:5173/bad/#other",
+          "nextURL": "http://127.0.0.1:5173/bad/#preferences",
+          "nextImage": {
+            "file": "input-6.png",
+            "sha256": "56070b4ebf74236b89da9b4655ffb52bcea6913d168e633e177ec765160d2aa3"
+          }
+        },
+        {
+          "step": 6,
+          "sourceImage": {
+            "file": "input-6.png",
+            "sha256": "56070b4ebf74236b89da9b4655ffb52bcea6913d168e633e177ec765160d2aa3"
+          },
+          "selected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "url": "http://127.0.0.1:5173/bad/#preferences",
+          "nextURL": "http://127.0.0.1:5173/bad/#preferences",
+          "nextImage": {
+            "file": "input-7.png",
+            "sha256": "c6804ce447d1e65bd039a0c5a8ca72425f6f9d8145c3c0cda6529398da7b800f"
+          }
+        }
+      ],
+      "steps": [
+        {
+          "number": 1,
+          "url": "http://127.0.0.1:5173/bad/",
+          "title": "マイページ",
+          "modelChoice": "e4",
+          "raw": {
+            "abandon": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.95,
+            "e5": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.05,
+            "stuck": 0,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.95,
+            "e5": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.05,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": null,
+          "currentMemorySize": 0,
+          "assessmentMemorySize": 0,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 2,
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "title": "各種設定",
+          "modelChoice": "e4",
+          "raw": {
+            "abandon": 0,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.01,
+            "e3": 0.09,
+            "e4": 0.83,
+            "e5": 0.02,
+            "look_0": 0.01,
+            "look_1": 0.02,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0.010416666666666668,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.010416666666666668,
+            "e3": 0.09375,
+            "e4": 0.8645833333333334,
+            "e5": 0.020833333333333336,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": null,
+          "currentMemorySize": 0,
+          "assessmentMemorySize": 0,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 3,
+          "url": "http://127.0.0.1:5173/bad/#campaign",
+          "title": "今月のおすすめ",
+          "modelChoice": "e2",
+          "raw": {
+            "abandon": 0,
+            "back": 0.09,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.53,
+            "e3": 0.3,
+            "look_0": 0.02,
+            "look_1": 0.01,
+            "look_2": 0.01,
+            "look_3": 0.01,
+            "reread": 0,
+            "stuck": 0.03,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0.09782608695652174,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.5760869565217392,
+            "e3": 0.32608695652173914,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": null,
+          "currentMemorySize": 0,
+          "assessmentMemorySize": 0,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 4,
+          "url": "http://127.0.0.1:5173/bad/#home",
+          "title": "マイページ",
+          "modelChoice": "e4",
+          "raw": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.93,
+            "e5": 0.03,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.03,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.1341991341991342,
+            "e5": 0.4329004329004329,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.4329004329004329,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e5",
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": null,
+          "currentMemorySize": 0,
+          "assessmentMemorySize": 0,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 5,
+          "url": "http://127.0.0.1:5173/bad/#other",
+          "title": "その他",
+          "modelChoice": "e3",
+          "raw": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 1,
+            "e4": 0,
+            "e5": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 1,
+            "e4": 0,
+            "e5": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": null,
+          "currentMemorySize": 0,
+          "assessmentMemorySize": 0,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 6,
+          "url": "http://127.0.0.1:5173/bad/#preferences",
+          "title": "お知らせの管理",
+          "modelChoice": "e3",
+          "raw": {
+            "abandon": 0.01,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.01,
+            "e3": 0.81,
+            "e4": 0.02,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0,
+            "look_3": 0.01,
+            "reread": 0.03,
+            "stuck": 0.05,
+            "wait": 0.04
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.011904761904761904,
+            "e3": 0.9642857142857143,
+            "e4": 0.023809523809523808,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": null,
+          "currentMemorySize": 0,
+          "assessmentMemorySize": 0,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": true
+        },
+        {
+          "number": 7,
+          "url": "http://127.0.0.1:5173/bad/#preferences",
+          "title": "お知らせの管理",
+          "modelChoice": "done",
+          "raw": {
+            "abandon": 0,
+            "back": 0,
+            "done": 1,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0,
+            "done": 1,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "done",
+          "action": {
+            "type": "done"
+          },
+          "outcome": "SUBJECTIVE_DONE",
+          "error": null,
+          "currentFinding": null,
+          "currentMemorySize": 0,
+          "assessmentMemorySize": 0,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": null
+        }
+      ],
+      "replay": {
+        "runId": "notifications-r1-old",
+        "choices": 7,
+        "assessments": 7,
+        "images": 42,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      }
+    },
+    {
+      "id": "notifications-r1-reason",
+      "scenario": "notifications",
+      "replicate": 1,
+      "condition": "reason",
+      "producer": {
+        "revision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+        "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186"
+      },
+      "initialImageSha256": "03b74136e02c8889c4f07cf73846ad67d9ee1f0516bbee1283b5694e6126bae0",
+      "initialFingerprint": "08ba69b5ddd9be68f2e275cdf8fd27c22f4e2661942e5923c72d6fd5d89dbce1",
+      "input": {
+        "charter": {
+          "schemaVersion": 1,
+          "id": "notifications-bad",
+          "targetWebsite": "local:bad",
+          "goal": "初めて利用する暮らしクラウドで、メール通知を停止し、停止したことを確認したい",
+          "initialState": {
+            "description": "デモアカウントのマイページ。通知は受信中。毎回、新しいブラウザーコンテキストで開始する。",
+            "currentDate": "2026-09-19"
+          },
+          "scope": [
+            "同じローカル検証サイト内の画面を探索する",
+            "デモアカウントのメール通知を停止する操作を許可する"
+          ],
+          "prohibitedActions": {
+            "actionTypes": [],
+            "controlTexts": [],
+            "downloads": true
+          },
+          "maxActions": 15
+        }
+      },
+      "config": {
+        "schemaVersion": 1,
+        "id": "human-screen-goal-search",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 4096,
+          "clearHeight": 4096,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 15,
+        "maxLooks": 3,
+        "maxDecisions": 12,
+        "maxAPICalls": 24,
+        "maxRunMs": 180000,
+        "modeledActionMs": null,
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        },
+        "experience": {
+          "enabled": true,
+          "capacity": 8,
+          "evidenceMode": "basis"
+        },
+        "deferral": {
+          "enabled": true,
+          "capacity": 8,
+          "weight": 0.01,
+          "minAlternativeProbability": 0.01,
+          "selectionScope": "ui-conditional"
+        },
+        "deferralReason": {
+          "enabled": true,
+          "capacity": 8,
+          "maxReasonImages": 1,
+          "basisAdmission": "excursion-evidence",
+          "reviewMode": "grounded-choice"
+        },
+        "correspondence": {
+          "enabled": true,
+          "capacity": 8,
+          "maxCurrentCandidates": 8,
+          "maxPastCandidates": 12,
+          "maxUniqueImages": 4
+        },
+        "goalSearch": {
+          "enabled": true,
+          "capacity": 8
+        }
+      },
+      "apiCalls": 21,
+      "successfulResponses": 20,
+      "errors": [
+        {
+          "ordinal": 21,
+          "status": "ERROR",
+          "metadata": {
+            "attempts": 1,
+            "failureCode": "HTTP_ERROR"
+          }
+        }
+      ],
+      "termination": "API_ERROR",
+      "validForComparison": false,
+      "perceivedDone": false,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": false
+      },
+      "uiActions": 10,
+      "decisions": 11,
+      "looks": 0,
+      "finalImage": {
+        "file": "reports\\goal-search-2026-10-29\\live\\notifications-r1-reason\\exploration\\final.png",
+        "sha256": "f4505c70883d419414a1efd1d03f9c8b78ae66aed8627916de5046d5e41dfa95"
+      },
+      "stageImageReferences": 66,
+      "maxImages": 4,
+      "currentAnnotations": 146,
+      "historicalAnnotations": 5,
+      "historicalSelected": 2,
+      "selectedTargets": 0,
+      "findings": [
+        {
+          "step": 1,
+          "source": {
+            "observationId": "o1",
+            "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+          },
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "requirements": [
+            {
+              "id": "g1",
+              "text": "初めて利用する暮らしクラウドで",
+              "assessment": "context"
+            },
+            {
+              "id": "g2",
+              "text": "メール通知を停止し",
+              "assessment": "context"
+            },
+            {
+              "id": "g3",
+              "text": "停止したことを確認したい",
+              "assessment": "not_shown"
+            }
+          ],
+          "rawFindingAnswer": {
+            "choice": "no_target_in_view",
+            "probabilities": {
+              "target_e1": 0,
+              "target_e2": 0,
+              "target_e3": 0,
+              "target_e4": 0.16,
+              "target_e5": 0,
+              "prerequisite": 0,
+              "guidance": 0,
+              "no_target_in_view": 0.82,
+              "uncertain": 0.02
+            },
+            "confidence": 0.8
+          },
+          "image": "reports\\goal-search-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-1.png",
+          "controls": [
+            {
+              "id": "e1",
+              "text": "暮らし クラウド"
+            },
+            {
+              "id": "e2",
+              "text": "マイページ"
+            },
+            {
+              "id": "e3",
+              "text": "利用情報\nご利用に関する情報を確認"
+            },
+            {
+              "id": "e4",
+              "text": "各種設定\nアカウントを自分らしく"
+            },
+            {
+              "id": "e5",
+              "text": "その他"
+            }
+          ],
+          "wholeGoalAssessment": "uncertain"
+        },
+        {
+          "step": 2,
+          "source": {
+            "observationId": "o2",
+            "imageSha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+          },
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "requirements": [
+            {
+              "id": "g1",
+              "text": "初めて利用する暮らしクラウドで",
+              "assessment": "context"
+            },
+            {
+              "id": "g2",
+              "text": "メール通知を停止し",
+              "assessment": "context"
+            },
+            {
+              "id": "g3",
+              "text": "停止したことを確認したい",
+              "assessment": "not_shown"
+            }
+          ],
+          "rawFindingAnswer": {
+            "choice": "no_target_in_view",
+            "probabilities": {
+              "target_e1": 0,
+              "target_e2": 0,
+              "target_e3": 0,
+              "target_e4": 0.16,
+              "target_e5": 0,
+              "prerequisite": 0,
+              "guidance": 0,
+              "no_target_in_view": 0.78,
+              "uncertain": 0.06
+            },
+            "confidence": 0.75
+          },
+          "image": "reports\\goal-search-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-2.png",
+          "controls": [
+            {
+              "id": "e1",
+              "text": "暮らし クラウド"
+            },
+            {
+              "id": "e2",
+              "text": "マイページ"
+            },
+            {
+              "id": "e3",
+              "text": "アカウント情報"
+            },
+            {
+              "id": "e4",
+              "text": "お知らせ"
+            },
+            {
+              "id": "e5",
+              "text": "マイページへ戻る"
+            }
+          ],
+          "wholeGoalAssessment": "uncertain"
+        },
+        {
+          "step": 3,
+          "source": {
+            "observationId": "o3",
+            "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+          },
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "requirements": [
+            {
+              "id": "g1",
+              "text": "初めて利用する暮らしクラウドで",
+              "assessment": "context"
+            },
+            {
+              "id": "g2",
+              "text": "メール通知を停止し",
+              "assessment": "context"
+            },
+            {
+              "id": "g3",
+              "text": "停止したことを確認したい",
+              "assessment": "not_shown"
+            }
+          ],
+          "rawFindingAnswer": {
+            "choice": "no_target_in_view",
+            "probabilities": {
+              "target_e1": 0,
+              "target_e2": 0.01,
+              "target_e3": 0.01,
+              "prerequisite": 0,
+              "guidance": 0,
+              "no_target_in_view": 0.97,
+              "uncertain": 0.01
+            },
+            "confidence": 0.96
+          },
+          "image": "reports\\goal-search-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-3.png",
+          "controls": [
+            {
+              "id": "e1",
+              "text": "暮らし クラウド"
+            },
+            {
+              "id": "e2",
+              "text": "マイページ"
+            },
+            {
+              "id": "e3",
+              "text": "マイページへ戻る"
+            }
+          ],
+          "wholeGoalAssessment": "uncertain"
+        },
+        {
+          "step": 4,
+          "source": {
+            "observationId": "o4",
+            "imageSha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+          },
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "requirements": [
+            {
+              "id": "g1",
+              "text": "初めて利用する暮らしクラウドで",
+              "assessment": "context"
+            },
+            {
+              "id": "g2",
+              "text": "メール通知を停止し",
+              "assessment": "context"
+            },
+            {
+              "id": "g3",
+              "text": "停止したことを確認したい",
+              "assessment": "not_shown"
+            }
+          ],
+          "rawFindingAnswer": {
+            "choice": "no_target_in_view",
+            "probabilities": {
+              "target_e1": 0,
+              "target_e2": 0,
+              "target_e3": 0,
+              "target_e4": 0.1,
+              "target_e5": 0,
+              "prerequisite": 0,
+              "guidance": 0,
+              "no_target_in_view": 0.89,
+              "uncertain": 0.01
+            },
+            "confidence": 0.88
+          },
+          "image": "reports\\goal-search-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-4.png",
+          "controls": [
+            {
+              "id": "e1",
+              "text": "暮らし クラウド"
+            },
+            {
+              "id": "e2",
+              "text": "マイページ"
+            },
+            {
+              "id": "e3",
+              "text": "利用情報\nご利用に関する情報を確認"
+            },
+            {
+              "id": "e4",
+              "text": "各種設定\nアカウントを自分らしく"
+            },
+            {
+              "id": "e5",
+              "text": "その他"
+            }
+          ],
+          "wholeGoalAssessment": "uncertain"
+        },
+        {
+          "step": 5,
+          "source": {
+            "observationId": "o5",
+            "imageSha256": "f3d65a715fa0fdcdfb388ade04c6e6d3f00f65335b21beea6c6855ef7755a0b2"
+          },
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "requirements": [
+            {
+              "id": "g1",
+              "text": "初めて利用する暮らしクラウドで",
+              "assessment": "context"
+            },
+            {
+              "id": "g2",
+              "text": "メール通知を停止し",
+              "assessment": "context"
+            },
+            {
+              "id": "g3",
+              "text": "停止したことを確認したい",
+              "assessment": "not_shown"
+            }
+          ],
+          "rawFindingAnswer": {
+            "choice": "no_target_in_view",
+            "probabilities": {
+              "target_e1": 0,
+              "target_e2": 0.11,
+              "target_e3": 0,
+              "target_e4": 0,
+              "target_e5": 0,
+              "prerequisite": 0,
+              "guidance": 0,
+              "no_target_in_view": 0.85,
+              "uncertain": 0.04
+            },
+            "confidence": 0.83
+          },
+          "image": "reports\\goal-search-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-5.png",
+          "controls": [
+            {
+              "id": "e1",
+              "text": "利用情報\nご利用に関する情報を確認"
+            },
+            {
+              "id": "e2",
+              "text": "各種設定\nアカウントを自分らしく"
+            },
+            {
+              "id": "e3",
+              "text": "その他"
+            },
+            {
+              "id": "e4",
+              "text": "特典を見る"
+            },
+            {
+              "id": "e5",
+              "text": "お問い合わせ"
+            }
+          ],
+          "wholeGoalAssessment": "uncertain"
+        },
+        {
+          "step": 6,
+          "source": {
+            "observationId": "o6",
+            "imageSha256": "9e31a25ca2c1c73b0aeecc5d45daa2d0f530e0feddcbe1991739f2b33104c53a"
+          },
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "requirements": [
+            {
+              "id": "g1",
+              "text": "初めて利用する暮らしクラウドで",
+              "assessment": "context"
+            },
+            {
+              "id": "g2",
+              "text": "メール通知を停止し",
+              "assessment": "context"
+            },
+            {
+              "id": "g3",
+              "text": "停止したことを確認したい",
+              "assessment": "not_shown"
+            }
+          ],
+          "rawFindingAnswer": {
+            "choice": "no_target_in_view",
+            "probabilities": {
+              "target_e1": 0,
+              "target_e2": 0,
+              "target_e3": 0,
+              "target_e4": 0.31,
+              "target_e5": 0,
+              "prerequisite": 0,
+              "guidance": 0,
+              "no_target_in_view": 0.64,
+              "uncertain": 0.05
+            },
+            "confidence": 0.6
+          },
+          "image": "reports\\goal-search-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-6.png",
+          "controls": [
+            {
+              "id": "e1",
+              "text": "暮らし クラウド"
+            },
+            {
+              "id": "e2",
+              "text": "マイページ"
+            },
+            {
+              "id": "e3",
+              "text": "アカウント情報"
+            },
+            {
+              "id": "e4",
+              "text": "お知らせ"
+            },
+            {
+              "id": "e5",
+              "text": "マイページへ戻る"
+            }
+          ],
+          "wholeGoalAssessment": "uncertain"
+        },
+        {
+          "step": 7,
+          "source": {
+            "observationId": "o7",
+            "imageSha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+          },
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "requirements": [
+            {
+              "id": "g1",
+              "text": "初めて利用する暮らしクラウドで",
+              "assessment": "context"
+            },
+            {
+              "id": "g2",
+              "text": "メール通知を停止し",
+              "assessment": "context"
+            },
+            {
+              "id": "g3",
+              "text": "停止したことを確認したい",
+              "assessment": "not_shown"
+            }
+          ],
+          "rawFindingAnswer": {
+            "choice": "no_target_in_view",
+            "probabilities": {
+              "target_e1": 0,
+              "target_e2": 0.01,
+              "target_e3": 0,
+              "prerequisite": 0,
+              "guidance": 0,
+              "no_target_in_view": 0.98,
+              "uncertain": 0.01
+            },
+            "confidence": 0.98
+          },
+          "image": "reports\\goal-search-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-7.png",
+          "controls": [
+            {
+              "id": "e1",
+              "text": "暮らし クラウド"
+            },
+            {
+              "id": "e2",
+              "text": "マイページ"
+            },
+            {
+              "id": "e3",
+              "text": "マイページへ戻る"
+            }
+          ],
+          "wholeGoalAssessment": "uncertain"
+        },
+        {
+          "step": 8,
+          "source": {
+            "observationId": "o8",
+            "imageSha256": "80e0bf87dadb41940bd578cc80d823095334b4fea2b4790a57249164b2fc60ec"
+          },
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "requirements": [
+            {
+              "id": "g1",
+              "text": "初めて利用する暮らしクラウドで",
+              "assessment": "context"
+            },
+            {
+              "id": "g2",
+              "text": "メール通知を停止し",
+              "assessment": "context"
+            },
+            {
+              "id": "g3",
+              "text": "停止したことを確認したい",
+              "assessment": "not_shown"
+            }
+          ],
+          "rawFindingAnswer": {
+            "choice": "no_target_in_view",
+            "probabilities": {
+              "target_e1": 0,
+              "target_e2": 0,
+              "target_e3": 0.01,
+              "target_e4": 0.19,
+              "target_e5": 0,
+              "prerequisite": 0,
+              "guidance": 0,
+              "no_target_in_view": 0.76,
+              "uncertain": 0.04
+            },
+            "confidence": 0.73
+          },
+          "image": "reports\\goal-search-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-8.png",
+          "controls": [
+            {
+              "id": "e1",
+              "text": "暮らし クラウド"
+            },
+            {
+              "id": "e2",
+              "text": "マイページ"
+            },
+            {
+              "id": "e3",
+              "text": "アカウント情報"
+            },
+            {
+              "id": "e4",
+              "text": "お知らせ"
+            },
+            {
+              "id": "e5",
+              "text": "マイページへ戻る"
+            }
+          ],
+          "wholeGoalAssessment": "uncertain"
+        },
+        {
+          "step": 9,
+          "source": {
+            "observationId": "o9",
+            "imageSha256": "23d84ea305604c1c4622aafc4fadce2aca7900a10b9c675ae155c948a7311c79"
+          },
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "requirements": [
+            {
+              "id": "g1",
+              "text": "初めて利用する暮らしクラウドで",
+              "assessment": "context"
+            },
+            {
+              "id": "g2",
+              "text": "メール通知を停止し",
+              "assessment": "context"
+            },
+            {
+              "id": "g3",
+              "text": "停止したことを確認したい",
+              "assessment": "not_shown"
+            }
+          ],
+          "rawFindingAnswer": {
+            "choice": "no_target_in_view",
+            "probabilities": {
+              "target_e1": 0,
+              "target_e2": 0.01,
+              "target_e3": 0,
+              "prerequisite": 0.01,
+              "guidance": 0,
+              "no_target_in_view": 0.97,
+              "uncertain": 0.01
+            },
+            "confidence": 0.96
+          },
+          "image": "reports\\goal-search-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-9.png",
+          "controls": [
+            {
+              "id": "e1",
+              "text": "暮らし クラウド"
+            },
+            {
+              "id": "e2",
+              "text": "マイページ"
+            },
+            {
+              "id": "e3",
+              "text": "マイページへ戻る"
+            }
+          ],
+          "wholeGoalAssessment": "uncertain"
+        },
+        {
+          "step": 10,
+          "source": {
+            "observationId": "o10",
+            "imageSha256": "80e0bf87dadb41940bd578cc80d823095334b4fea2b4790a57249164b2fc60ec"
+          },
+          "finding": {
+            "kind": "no-target-in-view"
+          },
+          "requirements": [
+            {
+              "id": "g1",
+              "text": "初めて利用する暮らしクラウドで",
+              "assessment": "context"
+            },
+            {
+              "id": "g2",
+              "text": "メール通知を停止し",
+              "assessment": "context"
+            },
+            {
+              "id": "g3",
+              "text": "停止したことを確認したい",
+              "assessment": "not_shown"
+            }
+          ],
+          "rawFindingAnswer": {
+            "choice": "no_target_in_view",
+            "probabilities": {
+              "target_e1": 0,
+              "target_e2": 0,
+              "target_e3": 0.01,
+              "target_e4": 0.18,
+              "target_e5": 0,
+              "prerequisite": 0,
+              "guidance": 0,
+              "no_target_in_view": 0.78,
+              "uncertain": 0.03
+            },
+            "confidence": 0.75
+          },
+          "image": "reports\\goal-search-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-10.png",
+          "controls": [
+            {
+              "id": "e1",
+              "text": "暮らし クラウド"
+            },
+            {
+              "id": "e2",
+              "text": "マイページ"
+            },
+            {
+              "id": "e3",
+              "text": "アカウント情報"
+            },
+            {
+              "id": "e4",
+              "text": "お知らせ"
+            },
+            {
+              "id": "e5",
+              "text": "マイページへ戻る"
+            }
+          ],
+          "wholeGoalAssessment": "uncertain"
+        }
+      ],
+      "historical": [
+        {
+          "step": 4,
+          "candidateId": "e4",
+          "source": 1,
+          "actualPriorClick": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "result": 2,
+          "resultFinding": {
+            "kind": "no-target-in-view"
+          },
+          "progress": "unknown",
+          "expectation": "supported",
+          "currentRaw": 0.9400000000000001,
+          "currentSelected": "scroll_down",
+          "actualAction": {
+            "type": "scroll",
+            "direction": "down"
+          },
+          "actualOutcome": "UI_PERFORMED",
+          "nextImage": {
+            "file": "input-5.png",
+            "sha256": "f3d65a715fa0fdcdfb388ade04c6e6d3f00f65335b21beea6c6855ef7755a0b2"
+          },
+          "annotation": "[e4] [Model hypothesis: knowledge=insufficient; effect=advances; evidence=o2] [previous model hypothesis: source=o1; prediction=advances; result=o2; execution=performed; progress=unknown; expectation=supported | previous observed return route (image recurrence, not a failure judgment): o1 --e4--> o2; o2 --e4--> o3; o3 --e2--> o4] [current model goal-search hypothesis, not fact: source=o4; scope=delivered-current-view-only; finding=no-target-in-view; requirements=g1 \"初めて利用する暮らしクラウドで\" assessment=context | g2 \"メール通知を停止し\" assessment=context | g3 \"停止したことを確認したい\" assessment=not_shown | historical model goal-search hypothesis, not a current fact or revisit ban: source=o1; prior candidate=e4; result=o2; finding source=o2; execution=performed; progress=unknown; expectation=supported; scope=delivered-current-view-only; finding=no-target-in-view; requirements=g1 \"初めて利用する暮らしクラウドで\" assessment=context | g2 \"メール通知を停止し\" assessment=context | g3 \"停止したことを確認したい\" assessment=not_shown; the result describes only its originally inspected view; prerequisites may change and new information can justify a revisit; historical pixels are not asserted to be attached now]"
+        },
+        {
+          "step": 6,
+          "candidateId": "e4",
+          "source": 2,
+          "actualPriorClick": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "result": 3,
+          "resultFinding": {
+            "kind": "no-target-in-view"
+          },
+          "progress": "neutral",
+          "expectation": "unknown",
+          "currentRaw": 0.81,
+          "currentSelected": "e4",
+          "actualAction": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "actualOutcome": "UI_PERFORMED",
+          "nextImage": {
+            "file": "input-7.png",
+            "sha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+          },
+          "annotation": "[e4] [Model hypothesis: knowledge=insufficient; effect=unknown; evidence=o6; unknown does not establish safety or danger] [fallible correspondence hypothesis and historical model recollection, not current fact: source=o2; prior candidate=e4; result=o3; execution=performed; progress=neutral; expectation=unknown; historical result pixels are not asserted to be attached or current; no new visual judgment] [current model goal-search hypothesis, not fact: source=o6; scope=delivered-current-view-only; finding=no-target-in-view; requirements=g1 \"初めて利用する暮らしクラウドで\" assessment=context | g2 \"メール通知を停止し\" assessment=context | g3 \"停止したことを確認したい\" assessment=not_shown | historical model goal-search hypothesis, not a current fact or revisit ban: source=o2; prior candidate=e4; result=o3; finding source=o3; execution=performed; progress=neutral; expectation=unknown; scope=delivered-current-view-only; finding=no-target-in-view; requirements=g1 \"初めて利用する暮らしクラウドで\" assessment=context | g2 \"メール通知を停止し\" assessment=context | g3 \"停止したことを確認したい\" assessment=not_shown; the result describes only its originally inspected view; prerequisites may change and new information can justify a revisit; historical pixels are not asserted to be attached now]"
+        },
+        {
+          "step": 7,
+          "candidateId": "e2",
+          "source": 3,
+          "actualPriorClick": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "result": 4,
+          "resultFinding": {
+            "kind": "no-target-in-view"
+          },
+          "progress": "unknown",
+          "expectation": "unknown",
+          "currentRaw": 0.84,
+          "currentSelected": "back",
+          "actualAction": {
+            "type": "back"
+          },
+          "actualOutcome": "UI_PERFORMED",
+          "nextImage": {
+            "file": "input-8.png",
+            "sha256": "80e0bf87dadb41940bd578cc80d823095334b4fea2b4790a57249164b2fc60ec"
+          },
+          "annotation": "[e2] [Model hypothesis: knowledge=insufficient; effect=unknown; evidence=o6; unknown does not establish safety or danger] [previous model hypothesis: source=o3; prediction=neutral; result=o4; execution=performed; progress=unknown; expectation=unknown | previous observed return route (image recurrence, not a failure judgment): o3 --e2--> o4; o4 --scroll_down--> o5; o5 --e2--> o6; o6 --e4--> o7] [current model goal-search hypothesis, not fact: source=o7; scope=delivered-current-view-only; finding=no-target-in-view; requirements=g1 \"初めて利用する暮らしクラウドで\" assessment=context | g2 \"メール通知を停止し\" assessment=context | g3 \"停止したことを確認したい\" assessment=not_shown | historical model goal-search hypothesis, not a current fact or revisit ban: source=o3; prior candidate=e2; result=o4; finding source=o4; execution=performed; progress=unknown; expectation=unknown; scope=delivered-current-view-only; finding=no-target-in-view; requirements=g1 \"初めて利用する暮らしクラウドで\" assessment=context | g2 \"メール通知を停止し\" assessment=context | g3 \"停止したことを確認したい\" assessment=not_shown; the result describes only its originally inspected view; prerequisites may change and new information can justify a revisit; historical pixels are not asserted to be attached now]"
+        },
+        {
+          "step": 8,
+          "candidateId": "e4",
+          "source": 6,
+          "actualPriorClick": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "result": 7,
+          "resultFinding": {
+            "kind": "no-target-in-view"
+          },
+          "progress": "neutral",
+          "expectation": "unknown",
+          "currentRaw": 0.59,
+          "currentSelected": "e4",
+          "actualAction": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "actualOutcome": "UI_PERFORMED",
+          "nextImage": {
+            "file": "input-9.png",
+            "sha256": "23d84ea305604c1c4622aafc4fadce2aca7900a10b9c675ae155c948a7311c79"
+          },
+          "annotation": "[e4] [Model hypothesis: knowledge=insufficient; effect=unknown; evidence=none; unknown does not establish safety or danger] [fallible correspondence hypothesis and historical model recollection, not current fact: source=o6; prior candidate=e4; result=o7; execution=performed; progress=neutral; expectation=unknown; historical result pixels are not asserted to be attached or current; no new visual judgment] [current model goal-search hypothesis, not fact: source=o8; scope=delivered-current-view-only; finding=no-target-in-view; requirements=g1 \"初めて利用する暮らしクラウドで\" assessment=context | g2 \"メール通知を停止し\" assessment=context | g3 \"停止したことを確認したい\" assessment=not_shown | historical model goal-search hypothesis, not a current fact or revisit ban: source=o6; prior candidate=e4; result=o7; finding source=o7; execution=performed; progress=neutral; expectation=unknown; scope=delivered-current-view-only; finding=no-target-in-view; requirements=g1 \"初めて利用する暮らしクラウドで\" assessment=context | g2 \"メール通知を停止し\" assessment=context | g3 \"停止したことを確認したい\" assessment=not_shown; the result describes only its originally inspected view; prerequisites may change and new information can justify a revisit; historical pixels are not asserted to be attached now]"
+        },
+        {
+          "step": 10,
+          "candidateId": "e4",
+          "source": 8,
+          "actualPriorClick": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "result": 9,
+          "resultFinding": {
+            "kind": "no-target-in-view"
+          },
+          "progress": "unknown",
+          "expectation": "unknown",
+          "currentRaw": 0.24,
+          "currentSelected": "e3",
+          "actualAction": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "actualOutcome": "UI_PERFORMED",
+          "nextImage": {
+            "file": "input-11.png",
+            "sha256": "dd4f68a001f7654b3d19e48de27e14d80463d33ac807ab3147f3262babbb6e4f"
+          },
+          "annotation": "[e4] [Model hypothesis: knowledge=insufficient; effect=unknown; evidence=o10; unknown does not establish safety or danger] [previous model hypothesis: source=o8; prediction=unknown; result=o9; execution=performed; progress=unknown; expectation=unknown | previous observed return route (image recurrence, not a failure judgment): o8 --e4--> o9; o9 --back--> o10] [current model goal-search hypothesis, not fact: source=o10; scope=delivered-current-view-only; finding=no-target-in-view; requirements=g1 \"初めて利用する暮らしクラウドで\" assessment=context | g2 \"メール通知を停止し\" assessment=context | g3 \"停止したことを確認したい\" assessment=not_shown | historical model goal-search hypothesis, not a current fact or revisit ban: source=o8; prior candidate=e4; result=o9; finding source=o9; execution=performed; progress=unknown; expectation=unknown; scope=delivered-current-view-only; finding=no-target-in-view; requirements=g1 \"初めて利用する暮らしクラウドで\" assessment=context | g2 \"メール通知を停止し\" assessment=context | g3 \"停止したことを確認したい\" assessment=not_shown; the result describes only its originally inspected view; prerequisites may change and new information can justify a revisit; historical pixels are not asserted to be attached now]"
+        }
+      ],
+      "transitions": [
+        {
+          "step": 1,
+          "sourceImage": {
+            "file": "input-1.png",
+            "sha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+          },
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "url": "http://127.0.0.1:5173/bad/",
+          "nextURL": "http://127.0.0.1:5173/bad/#settings",
+          "nextImage": {
+            "file": "input-2.png",
+            "sha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+          }
+        },
+        {
+          "step": 2,
+          "sourceImage": {
+            "file": "input-2.png",
+            "sha256": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6"
+          },
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "nextURL": "http://127.0.0.1:5173/bad/#campaign",
+          "nextImage": {
+            "file": "input-3.png",
+            "sha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+          }
+        },
+        {
+          "step": 3,
+          "sourceImage": {
+            "file": "input-3.png",
+            "sha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+          },
+          "selected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "url": "http://127.0.0.1:5173/bad/#campaign",
+          "nextURL": "http://127.0.0.1:5173/bad/#home",
+          "nextImage": {
+            "file": "input-4.png",
+            "sha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+          }
+        },
+        {
+          "step": 4,
+          "sourceImage": {
+            "file": "input-4.png",
+            "sha256": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586"
+          },
+          "selected": "scroll_down",
+          "action": {
+            "type": "scroll",
+            "direction": "down"
+          },
+          "url": "http://127.0.0.1:5173/bad/#home",
+          "nextURL": "http://127.0.0.1:5173/bad/#home",
+          "nextImage": {
+            "file": "input-5.png",
+            "sha256": "f3d65a715fa0fdcdfb388ade04c6e6d3f00f65335b21beea6c6855ef7755a0b2"
+          }
+        },
+        {
+          "step": 5,
+          "sourceImage": {
+            "file": "input-5.png",
+            "sha256": "f3d65a715fa0fdcdfb388ade04c6e6d3f00f65335b21beea6c6855ef7755a0b2"
+          },
+          "selected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "url": "http://127.0.0.1:5173/bad/#home",
+          "nextURL": "http://127.0.0.1:5173/bad/#settings",
+          "nextImage": {
+            "file": "input-6.png",
+            "sha256": "9e31a25ca2c1c73b0aeecc5d45daa2d0f530e0feddcbe1991739f2b33104c53a"
+          }
+        },
+        {
+          "step": 6,
+          "sourceImage": {
+            "file": "input-6.png",
+            "sha256": "9e31a25ca2c1c73b0aeecc5d45daa2d0f530e0feddcbe1991739f2b33104c53a"
+          },
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "nextURL": "http://127.0.0.1:5173/bad/#campaign",
+          "nextImage": {
+            "file": "input-7.png",
+            "sha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+          }
+        },
+        {
+          "step": 7,
+          "sourceImage": {
+            "file": "input-7.png",
+            "sha256": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257"
+          },
+          "selected": "back",
+          "action": {
+            "type": "back"
+          },
+          "url": "http://127.0.0.1:5173/bad/#campaign",
+          "nextURL": "http://127.0.0.1:5173/bad/#settings",
+          "nextImage": {
+            "file": "input-8.png",
+            "sha256": "80e0bf87dadb41940bd578cc80d823095334b4fea2b4790a57249164b2fc60ec"
+          }
+        },
+        {
+          "step": 8,
+          "sourceImage": {
+            "file": "input-8.png",
+            "sha256": "80e0bf87dadb41940bd578cc80d823095334b4fea2b4790a57249164b2fc60ec"
+          },
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "nextURL": "http://127.0.0.1:5173/bad/#campaign",
+          "nextImage": {
+            "file": "input-9.png",
+            "sha256": "23d84ea305604c1c4622aafc4fadce2aca7900a10b9c675ae155c948a7311c79"
+          }
+        },
+        {
+          "step": 9,
+          "sourceImage": {
+            "file": "input-9.png",
+            "sha256": "23d84ea305604c1c4622aafc4fadce2aca7900a10b9c675ae155c948a7311c79"
+          },
+          "selected": "back",
+          "action": {
+            "type": "back"
+          },
+          "url": "http://127.0.0.1:5173/bad/#campaign",
+          "nextURL": "http://127.0.0.1:5173/bad/#settings",
+          "nextImage": {
+            "file": "input-10.png",
+            "sha256": "80e0bf87dadb41940bd578cc80d823095334b4fea2b4790a57249164b2fc60ec"
+          }
+        },
+        {
+          "step": 10,
+          "sourceImage": {
+            "file": "input-10.png",
+            "sha256": "80e0bf87dadb41940bd578cc80d823095334b4fea2b4790a57249164b2fc60ec"
+          },
+          "selected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "nextURL": "http://127.0.0.1:5173/bad/#activity",
+          "nextImage": {
+            "file": "input-11.png",
+            "sha256": "dd4f68a001f7654b3d19e48de27e14d80463d33ac807ab3147f3262babbb6e4f"
+          }
+        }
+      ],
+      "steps": [
+        {
+          "number": 1,
+          "url": "http://127.0.0.1:5173/bad/",
+          "title": "マイページ",
+          "modelChoice": "e4",
+          "raw": {
+            "abandon": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.93,
+            "e5": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0.01,
+            "scroll_down": 0.05,
+            "stuck": 0,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.9489795918367347,
+            "e5": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.05102040816326531,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": {
+            "kind": "no-target-in-view"
+          },
+          "currentMemorySize": 1,
+          "assessmentMemorySize": 0,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 2,
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "title": "各種設定",
+          "modelChoice": "e4",
+          "raw": {
+            "abandon": 0.01,
+            "back": 0.03,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.01,
+            "e3": 0.08,
+            "e4": 0.8,
+            "e5": 0.02,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0,
+            "look_3": 0.01,
+            "reread": 0.01,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0.031914893617021274,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.010638297872340425,
+            "e3": 0.0851063829787234,
+            "e4": 0.851063829787234,
+            "e5": 0.02127659574468085,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": {
+            "kind": "no-target-in-view"
+          },
+          "currentMemorySize": 2,
+          "assessmentMemorySize": 1,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 3,
+          "url": "http://127.0.0.1:5173/bad/#campaign",
+          "title": "今月のおすすめ",
+          "modelChoice": "e2",
+          "raw": {
+            "abandon": 0,
+            "back": 0.09,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.51,
+            "e3": 0.36,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.03,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0.09375,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.53125,
+            "e3": 0.375,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": {
+            "kind": "no-target-in-view"
+          },
+          "currentMemorySize": 3,
+          "assessmentMemorySize": 2,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 4,
+          "url": "http://127.0.0.1:5173/bad/#home",
+          "title": "マイページ",
+          "modelChoice": "e4",
+          "raw": {
+            "abandon": 0,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.9400000000000001,
+            "e5": 0.01,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.02,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0.20242914979757085,
+            "done": 0,
+            "e1": 0,
+            "e2": 0,
+            "e3": 0,
+            "e4": 0.19028340080971665,
+            "e5": 0.20242914979757085,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_down": 0.4048582995951417,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "scroll_down",
+          "action": {
+            "type": "scroll",
+            "direction": "down"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": {
+            "kind": "no-target-in-view"
+          },
+          "currentMemorySize": 4,
+          "assessmentMemorySize": 3,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 5,
+          "url": "http://127.0.0.1:5173/bad/#home",
+          "title": "",
+          "modelChoice": "e2",
+          "raw": {
+            "abandon": 0,
+            "back": 0.03,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.9,
+            "e3": 0.03,
+            "e4": 0,
+            "e5": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_up": 0.02,
+            "stuck": 0.01,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0.03061224489795918,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.9183673469387754,
+            "e3": 0.03061224489795918,
+            "e4": 0,
+            "e5": 0,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "scroll_up": 0.02040816326530612,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e2",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": {
+            "kind": "no-target-in-view"
+          },
+          "currentMemorySize": 5,
+          "assessmentMemorySize": 4,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 6,
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "title": "各種設定",
+          "modelChoice": "e4",
+          "raw": {
+            "abandon": 0.01,
+            "back": 0.01,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.02,
+            "e3": 0.09,
+            "e4": 0.81,
+            "e5": 0.01,
+            "look_0": 0,
+            "look_1": 0.01,
+            "look_2": 0,
+            "look_3": 0.01,
+            "reread": 0.01,
+            "stuck": 0.02,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0.010638297872340425,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.02127659574468085,
+            "e3": 0.09574468085106382,
+            "e4": 0.8617021276595744,
+            "e5": 0.010638297872340425,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": {
+            "kind": "no-target-in-view"
+          },
+          "currentMemorySize": 6,
+          "assessmentMemorySize": 5,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 7,
+          "url": "http://127.0.0.1:5173/bad/#campaign",
+          "title": "今月のおすすめ",
+          "modelChoice": "e2",
+          "raw": {
+            "abandon": 0.01,
+            "back": 0.06,
+            "done": 0,
+            "e1": 0.01,
+            "e2": 0.84,
+            "e3": 0.02,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0.05,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0.6097560975609756,
+            "done": 0,
+            "e1": 0.1016260162601626,
+            "e2": 0.08536585365853658,
+            "e3": 0.2032520325203252,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "back",
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": {
+            "kind": "no-target-in-view"
+          },
+          "currentMemorySize": 7,
+          "assessmentMemorySize": 6,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 8,
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "title": "各種設定",
+          "modelChoice": "e4",
+          "raw": {
+            "abandon": 0.02,
+            "back": 0.02,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.04,
+            "e3": 0.23,
+            "e4": 0.59,
+            "e5": 0.01,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0,
+            "look_3": 0.01,
+            "reread": 0.01,
+            "stuck": 0.05,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0.02247191011235955,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.0449438202247191,
+            "e3": 0.25842696629213485,
+            "e4": 0.6629213483146067,
+            "e5": 0.011235955056179775,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e4",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": {
+            "kind": "no-target-in-view"
+          },
+          "currentMemorySize": 8,
+          "assessmentMemorySize": 7,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 9,
+          "url": "http://127.0.0.1:5173/bad/#campaign",
+          "title": "今月のおすすめ",
+          "modelChoice": "back",
+          "raw": {
+            "abandon": 0.02,
+            "back": 0.62,
+            "done": 0,
+            "e1": 0.03,
+            "e2": 0.13,
+            "e3": 0.04,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.01,
+            "look_3": 0.01,
+            "reread": 0.01,
+            "stuck": 0.11,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0.7560975609756097,
+            "done": 0,
+            "e1": 0.03658536585365853,
+            "e2": 0.15853658536585363,
+            "e3": 0.048780487804878044,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "back",
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": {
+            "kind": "no-target-in-view"
+          },
+          "currentMemorySize": 8,
+          "assessmentMemorySize": 8,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 10,
+          "url": "http://127.0.0.1:5173/bad/#settings",
+          "title": "各種設定",
+          "modelChoice": "e3",
+          "raw": {
+            "abandon": 0.02,
+            "back": 0.02,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.18,
+            "e3": 0.37,
+            "e4": 0.24,
+            "e5": 0.05,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0,
+            "look_3": 0.02,
+            "reread": 0.01,
+            "stuck": 0.07,
+            "wait": 0
+          },
+          "filtered": {
+            "abandon": 0,
+            "back": 0.03213367609254499,
+            "done": 0,
+            "e1": 0,
+            "e2": 0.2892030848329049,
+            "e3": 0.5944730077120823,
+            "e4": 0.0038560411311053984,
+            "e5": 0.08033419023136248,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0,
+            "look_3": 0,
+            "reread": 0,
+            "stuck": 0,
+            "wait": 0
+          },
+          "selected": "e3",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "error": null,
+          "currentFinding": {
+            "kind": "no-target-in-view"
+          },
+          "currentMemorySize": 8,
+          "assessmentMemorySize": 8,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": false
+        },
+        {
+          "number": 11,
+          "url": "http://127.0.0.1:5173/bad/#activity",
+          "title": "利用履歴",
+          "modelChoice": null,
+          "raw": null,
+          "filtered": null,
+          "selected": null,
+          "action": null,
+          "outcome": "ASSESSMENT_ERROR",
+          "error": {
+            "code": "HTTP_ERROR",
+            "statusCode": 402
+          },
+          "currentFinding": null,
+          "currentMemorySize": 8,
+          "assessmentMemorySize": 8,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": null
+        }
+      ],
+      "replay": {
+        "runId": "notifications-r1-reason",
+        "choices": 10,
+        "assessments": 10,
+        "images": 66,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      }
+    },
+    {
+      "id": "revisit-alpha-r1-reason",
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "condition": "reason",
+      "producer": {
+        "revision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+        "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186"
+      },
+      "initialImageSha256": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+      "initialFingerprint": "e61cf99d6445205976f86cb34961c0355f9d16caaef207e9b028159b3f76a6c4",
+      "input": {
+        "charter": {
+          "schemaVersion": 1,
+          "id": "holdout-task",
+          "targetWebsite": "local:demo",
+          "goal": "アルバム「旅の記録」の共有リンクを無効にしてください。",
+          "initialState": {
+            "description": "架空サービスの初期画面。毎回新しいブラウザーで開始する。",
+            "currentDate": "2026-09-19"
+          },
+          "scope": [
+            "同じローカル検証サイトで、目的の設定変更と保存確認を行う"
+          ],
+          "prohibitedActions": {
+            "actionTypes": [],
+            "controlTexts": [],
+            "downloads": true
+          },
+          "maxActions": 15
+        }
+      },
+      "config": {
+        "schemaVersion": 1,
+        "id": "human-screen-goal-search",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 4096,
+          "clearHeight": 4096,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 15,
+        "maxLooks": 3,
+        "maxDecisions": 12,
+        "maxAPICalls": 24,
+        "maxRunMs": 180000,
+        "modeledActionMs": null,
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        },
+        "experience": {
+          "enabled": true,
+          "capacity": 8,
+          "evidenceMode": "basis"
+        },
+        "deferral": {
+          "enabled": true,
+          "capacity": 8,
+          "weight": 0.01,
+          "minAlternativeProbability": 0.01,
+          "selectionScope": "ui-conditional"
+        },
+        "deferralReason": {
+          "enabled": true,
+          "capacity": 8,
+          "maxReasonImages": 1,
+          "basisAdmission": "excursion-evidence",
+          "reviewMode": "grounded-choice"
+        },
+        "correspondence": {
+          "enabled": true,
+          "capacity": 8,
+          "maxCurrentCandidates": 8,
+          "maxPastCandidates": 12,
+          "maxUniqueImages": 4
+        },
+        "goalSearch": {
+          "enabled": true,
+          "capacity": 8
+        }
+      },
+      "apiCalls": 1,
+      "successfulResponses": 0,
+      "errors": [
+        {
+          "ordinal": 1,
+          "status": "ERROR",
+          "metadata": {
+            "attempts": 1,
+            "failureCode": "HTTP_ERROR"
+          }
+        }
+      ],
+      "termination": "API_ERROR",
+      "validForComparison": false,
+      "perceivedDone": false,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": false
+      },
+      "uiActions": 0,
+      "decisions": 1,
+      "looks": 0,
+      "finalImage": {
+        "file": "reports\\goal-search-2026-10-29\\live\\revisit-alpha-r1-reason\\exploration\\final.png",
+        "sha256": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b"
+      },
+      "stageImageReferences": 2,
+      "maxImages": 1,
+      "currentAnnotations": 0,
+      "historicalAnnotations": 0,
+      "historicalSelected": 0,
+      "selectedTargets": 0,
+      "findings": [],
+      "historical": [],
+      "transitions": [],
+      "steps": [
+        {
+          "number": 1,
+          "url": "http://127.0.0.1:5173/good/?holdout=r1a",
+          "title": "アルバム管理",
+          "modelChoice": null,
+          "raw": null,
+          "filtered": null,
+          "selected": null,
+          "action": null,
+          "outcome": "ASSESSMENT_ERROR",
+          "error": {
+            "code": "HTTP_ERROR",
+            "statusCode": 402
+          },
+          "currentFinding": null,
+          "currentMemorySize": 0,
+          "assessmentMemorySize": 0,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": null
+        }
+      ],
+      "replay": {
+        "runId": "revisit-alpha-r1-reason",
+        "choices": 0,
+        "assessments": 0,
+        "images": 2,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      }
+    },
+    {
+      "id": "revisit-alpha-r1-old",
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "condition": "old",
+      "producer": {
+        "revision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+        "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186"
+      },
+      "initialImageSha256": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+      "initialFingerprint": "e61cf99d6445205976f86cb34961c0355f9d16caaef207e9b028159b3f76a6c4",
+      "input": {
+        "charter": {
+          "schemaVersion": 1,
+          "id": "holdout-task",
+          "targetWebsite": "local:demo",
+          "goal": "アルバム「旅の記録」の共有リンクを無効にしてください。",
+          "initialState": {
+            "description": "架空サービスの初期画面。毎回新しいブラウザーで開始する。",
+            "currentDate": "2026-09-19"
+          },
+          "scope": [
+            "同じローカル検証サイトで、目的の設定変更と保存確認を行う"
+          ],
+          "prohibitedActions": {
+            "actionTypes": [],
+            "controlTexts": [],
+            "downloads": true
+          },
+          "maxActions": 15
+        }
+      },
+      "config": {
+        "schemaVersion": 1,
+        "id": "human-screen-experience-correspondence",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 4096,
+          "clearHeight": 4096,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 15,
+        "maxLooks": 3,
+        "maxDecisions": 12,
+        "maxAPICalls": 24,
+        "maxRunMs": 180000,
+        "modeledActionMs": null,
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        },
+        "experience": {
+          "enabled": true,
+          "capacity": 8,
+          "evidenceMode": "basis"
+        },
+        "deferral": {
+          "enabled": true,
+          "capacity": 8,
+          "weight": 0.01,
+          "minAlternativeProbability": 0.01,
+          "selectionScope": "ui-conditional"
+        },
+        "deferralReason": {
+          "enabled": true,
+          "capacity": 8,
+          "maxReasonImages": 1,
+          "basisAdmission": "excursion-evidence",
+          "reviewMode": "grounded-choice"
+        },
+        "correspondence": {
+          "enabled": true,
+          "capacity": 8,
+          "maxCurrentCandidates": 8,
+          "maxPastCandidates": 12,
+          "maxUniqueImages": 4
+        }
+      },
+      "apiCalls": 1,
+      "successfulResponses": 0,
+      "errors": [
+        {
+          "ordinal": 1,
+          "status": "ERROR",
+          "metadata": {
+            "attempts": 1,
+            "failureCode": "HTTP_ERROR"
+          }
+        }
+      ],
+      "termination": "API_ERROR",
+      "validForComparison": false,
+      "perceivedDone": false,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": false
+      },
+      "uiActions": 0,
+      "decisions": 1,
+      "looks": 0,
+      "finalImage": {
+        "file": "reports\\goal-search-2026-10-29\\live\\revisit-alpha-r1-old\\exploration\\final.png",
+        "sha256": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b"
+      },
+      "stageImageReferences": 2,
+      "maxImages": 1,
+      "currentAnnotations": 0,
+      "historicalAnnotations": 0,
+      "historicalSelected": 0,
+      "selectedTargets": 0,
+      "findings": [],
+      "historical": [],
+      "transitions": [],
+      "steps": [
+        {
+          "number": 1,
+          "url": "http://127.0.0.1:5173/good/?holdout=r1a",
+          "title": "アルバム管理",
+          "modelChoice": null,
+          "raw": null,
+          "filtered": null,
+          "selected": null,
+          "action": null,
+          "outcome": "ASSESSMENT_ERROR",
+          "error": {
+            "code": "HTTP_ERROR",
+            "statusCode": 402
+          },
+          "currentFinding": null,
+          "currentMemorySize": 0,
+          "assessmentMemorySize": 0,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": null
+        }
+      ],
+      "replay": {
+        "runId": "revisit-alpha-r1-old",
+        "choices": 0,
+        "assessments": 0,
+        "images": 2,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      }
+    },
+    {
+      "id": "revisit-beta-r1-old",
+      "scenario": "revisit-beta",
+      "replicate": 1,
+      "condition": "old",
+      "producer": {
+        "revision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+        "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186"
+      },
+      "initialImageSha256": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160",
+      "initialFingerprint": "d77fb10fcd756e490d034a75d7aebc0d0049649027bf608c5bd29bbb8be75c92",
+      "input": {
+        "charter": {
+          "schemaVersion": 1,
+          "id": "holdout-task",
+          "targetWebsite": "local:demo",
+          "goal": "アルバム「旅の記録」の共有リンクを無効にしてください。",
+          "initialState": {
+            "description": "架空サービスの初期画面。毎回新しいブラウザーで開始する。",
+            "currentDate": "2026-09-19"
+          },
+          "scope": [
+            "同じローカル検証サイトで、目的の設定変更と保存確認を行う"
+          ],
+          "prohibitedActions": {
+            "actionTypes": [],
+            "controlTexts": [],
+            "downloads": true
+          },
+          "maxActions": 15
+        }
+      },
+      "config": {
+        "schemaVersion": 1,
+        "id": "human-screen-experience-correspondence",
+        "vision": {
+          "mode": "crop",
+          "clearWidth": 4096,
+          "clearHeight": 4096,
+          "blurRadius": 12
+        },
+        "state": {
+          "enabled": true,
+          "memoryCapacity": 3
+        },
+        "selection": {
+          "mode": "argmax",
+          "seed": 20261028
+        },
+        "behavior": "goal",
+        "maxUIActions": 15,
+        "maxLooks": 3,
+        "maxDecisions": 12,
+        "maxAPICalls": 24,
+        "maxRunMs": 180000,
+        "modeledActionMs": null,
+        "deliberation": {
+          "enabled": true,
+          "memoryCapacity": 3,
+          "candidateEffects": true
+        },
+        "experience": {
+          "enabled": true,
+          "capacity": 8,
+          "evidenceMode": "basis"
+        },
+        "deferral": {
+          "enabled": true,
+          "capacity": 8,
+          "weight": 0.01,
+          "minAlternativeProbability": 0.01,
+          "selectionScope": "ui-conditional"
+        },
+        "deferralReason": {
+          "enabled": true,
+          "capacity": 8,
+          "maxReasonImages": 1,
+          "basisAdmission": "excursion-evidence",
+          "reviewMode": "grounded-choice"
+        },
+        "correspondence": {
+          "enabled": true,
+          "capacity": 8,
+          "maxCurrentCandidates": 8,
+          "maxPastCandidates": 12,
+          "maxUniqueImages": 4
+        }
+      },
+      "apiCalls": 1,
+      "successfulResponses": 0,
+      "errors": [
+        {
+          "ordinal": 1,
+          "status": "ERROR",
+          "metadata": {
+            "attempts": 1,
+            "failureCode": "HTTP_ERROR"
+          }
+        }
+      ],
+      "termination": "API_ERROR",
+      "validForComparison": false,
+      "perceivedDone": false,
+      "objectiveAssessment": {
+        "status": "OK",
+        "value": false
+      },
+      "uiActions": 0,
+      "decisions": 1,
+      "looks": 0,
+      "finalImage": {
+        "file": "reports\\goal-search-2026-10-29\\live\\revisit-beta-r1-old\\exploration\\final.png",
+        "sha256": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160"
+      },
+      "stageImageReferences": 2,
+      "maxImages": 1,
+      "currentAnnotations": 0,
+      "historicalAnnotations": 0,
+      "historicalSelected": 0,
+      "selectedTargets": 0,
+      "findings": [],
+      "historical": [],
+      "transitions": [],
+      "steps": [
+        {
+          "number": 1,
+          "url": "http://127.0.0.1:5173/good/?holdout=r1b",
+          "title": "アルバム管理",
+          "modelChoice": null,
+          "raw": null,
+          "filtered": null,
+          "selected": null,
+          "action": null,
+          "outcome": "ASSESSMENT_ERROR",
+          "error": {
+            "code": "HTTP_ERROR",
+            "statusCode": 402
+          },
+          "currentFinding": null,
+          "currentMemorySize": 0,
+          "assessmentMemorySize": 0,
+          "releasedCandidates": [],
+          "reasonReviews": [],
+          "objectiveSuccess": null
+        }
+      ],
+      "replay": {
+        "runId": "revisit-beta-r1-old",
+        "choices": 0,
+        "assessments": 0,
+        "images": 2,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "scenario": "notifications",
+      "replicate": 1,
+      "inputAndInitialPixelsEqual": true,
+      "onlyIdAndGoalSearchDiffer": true,
+      "validBehaviorPair": false,
+      "old": {
+        "success": true,
+        "termination": "SUBJECTIVE_DONE"
+      },
+      "search": {
+        "success": false,
+        "termination": "API_ERROR"
+      }
+    },
+    {
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "inputAndInitialPixelsEqual": true,
+      "onlyIdAndGoalSearchDiffer": true,
+      "validBehaviorPair": false,
+      "old": {
+        "success": false,
+        "termination": "API_ERROR"
+      },
+      "search": {
+        "success": false,
+        "termination": "API_ERROR"
+      }
+    }
+  ],
+  "sourcePaths": {
+    "root": "reports\\goal-search-2026-10-29\\live",
+    "manifest": "reports\\goal-search-2026-10-29\\live\\manifest.json"
+  },
+  "limitations": [
+    "Offline saved evidence cannot independently prove what remote model backend processed; recorded model and request metadata are checked.",
+    "No human data read. Human fidelity and generalization remain unverified.",
+    "No complete semantic ground truth labels for every offered control or finding; accuracy cannot be estimated from these records."
+  ],
+  "totalRequests": 38,
+  "successfulResponses": 34,
+  "faultTrials": [
+    "notifications-r1-reason",
+    "revisit-alpha-r1-reason",
+    "revisit-alpha-r1-old",
+    "revisit-beta-r1-old"
+  ],
+  "validTrialCount": 1,
+  "validPairCount": 0,
+  "durableLedgers": [
+    {
+      "id": "notifications-r1-old",
+      "recordExists": true,
+      "used": 14,
+      "statusCounts": {
+        "OK": 14,
+        "ERROR": 0,
+        "RESERVED": 0
+      }
+    },
+    {
+      "id": "notifications-r1-reason",
+      "recordExists": true,
+      "used": 21,
+      "statusCounts": {
+        "OK": 20,
+        "ERROR": 1,
+        "RESERVED": 0
+      }
+    },
+    {
+      "id": "revisit-alpha-r1-old",
+      "recordExists": true,
+      "used": 1,
+      "statusCounts": {
+        "OK": 0,
+        "ERROR": 1,
+        "RESERVED": 0
+      }
+    },
+    {
+      "id": "revisit-alpha-r1-reason",
+      "recordExists": true,
+      "used": 1,
+      "statusCounts": {
+        "OK": 0,
+        "ERROR": 1,
+        "RESERVED": 0
+      }
+    },
+    {
+      "id": "revisit-beta-r1-old",
+      "recordExists": true,
+      "used": 1,
+      "statusCounts": {
+        "OK": 0,
+        "ERROR": 1,
+        "RESERVED": 0
+      }
+    },
+    {
+      "id": "revisit-beta-r1-reason",
+      "recordExists": false,
+      "used": 0,
+      "statusCounts": {
+        "OK": 0,
+        "ERROR": 0,
+        "RESERVED": 0
+      }
+    }
+  ],
+  "ledgerTotalRequests": 38,
+  "ledgerStatusCounts": {
+    "OK": 34,
+    "ERROR": 4,
+    "RESERVED": 0
+  },
+  "manifestAccountingStale": true,
+  "incompleteLedgers": [
+    {
+      "id": "revisit-beta-r1-reason",
+      "recordExists": false,
+      "used": 0,
+      "statusCounts": {
+        "OK": 0,
+        "ERROR": 0,
+        "RESERVED": 0
+      }
+    }
+  ],
+  "pendingScheduleSlots": 7,
+  "comparisonEstablished": false,
+  "currentAfter": {
+    "revision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+    "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186"
+  },
+  "rawFilesHashed": 214,
+  "rawHashes": {
+    "reports/information-state-2026-10-28/api-budget.json": "eca2367c8d660c1bd0a12cdf959180b902fb239f5c63ee2b32e0d565bd093894",
+    "reports/semantic-controls-2026-10-28/api-budget.json": "74715fa358ad9243592be5ada54361bf1bce25f52a538202806b253cc0e63a49",
+    "reports/human-jev-2026-10-28/api-budget.json": "c1d375d1e7c40adc97986a172ea8d608c0f44380c90ec66360560aa663602756",
+    "reports/human-deliberation-2026-10-28/api-budget.json": "724c9413c4c9bbbbb1c417f34331e254764281258fa673d77ad7549ee0c92b9b",
+    "reports/human-deliberation-2026-10-28/api-budget-round2.json": "5899fd853f52c84714392b39d478b30f8bf8a8db034b17ccdfc742c6b7865543",
+    "reports/experience-recovery-2026-10-28/api-budget-1.json": "062972fcd3f99c149394ef909a947d68bc0236327361da602d15a66ade45f7fb",
+    "reports/experience-recovery-2026-10-28/api-budget-2.json": "8a354c17c5c43d52654c616309ff27e2fd810923650cf9cc0ff86e4254f814db",
+    "reports/experience-recovery-2026-10-28/api-budget-basis.json": "aceebd385065308a8b4a1ff414b2a78c4e1fc1b81d3b0ade7b9e42c1bdb55994",
+    "reports/temporary-deferral-2026-10-28/api-budget-control.json": "254dc2a9dad052b7e70af83c427e75073b1db52686385e52aaa538616a5a9e53",
+    "reports/temporary-deferral-2026-10-28/api-budget-policy.json": "c97e6c11e16e49c80b3f7b662256ac3a1913d81b53c909be14d46e48942d41ee",
+    "reports/holdout-stability-2026-10-28/live/switch-alpha-r1-control-budget.json": "c765f7ba8e3b90a2c292ff860da69d3bd7df6dcf05751086cb9c4bae45f24fdb",
+    "reports/holdout-stability-2026-10-28/live/switch-alpha-r1-policy-budget.json": "a53b143a521e460d9074f4da57e34985931f110197d6c9cdb3dc327a0457d2f7",
+    "reports/holdout-stability-2026-10-28/live/switch-beta-r1-policy-budget.json": "3cd3bee1b6d09e1267c7c891e1229c529753716c8b8a3984ebdfc502eba2d145",
+    "reports/holdout-stability-2026-10-28/live/switch-beta-r1-control-budget.json": "fe468440a3250e52644d13553d72bd7a75c66b4fcf4748ddeda6099734c8dba0",
+    "reports/holdout-stability-2026-10-28/live/revisit-alpha-r1-control-budget.json": "f992e04335ec2e7d3400da9eef85e2f3bf7fff79691f52bac17d19e411258b86",
+    "reports/holdout-stability-2026-10-28/live/revisit-alpha-r1-policy-budget.json": "dc7209d54d5abcf2f7ef1778b92cd320ce0feec931590b4df17d61503ead791e",
+    "reports/holdout-stability-2026-10-28/live/revisit-beta-r1-policy-budget.json": "afe53d5fedbf067742ac6e217a0f08bbeba79ad03ddef59a42f57898726af55c",
+    "reports/holdout-stability-2026-10-28/live/revisit-beta-r1-control-budget.json": "da2d79555db66e478e4f7151edf91db8f623eb19447f3f5e0033f2bdd9b66ee8",
+    "reports/holdout-stability-2026-10-28/live/direct-alpha-r1-control-budget.json": "111ee58b9d08a759d88ac77f19120422dfc2721fe566661dc61d38b76835356e",
+    "reports/holdout-stability-2026-10-28/live/direct-alpha-r1-policy-budget.json": "90f239ad8133bfa2dc6166e7ccd4bf3ef40b2ce400dbe8a5ee2ec6e65db6c88c",
+    "reports/holdout-stability-2026-10-28/live/direct-beta-r1-policy-budget.json": "364d7e53899aa47a3d43e74251bf355746b4c4d42f90be28caeafea18afe66ec",
+    "reports/holdout-stability-2026-10-28/live/direct-beta-r1-control-budget.json": "52927ecaa8eee5e33dbbe8decb56d0e82b333c8f889f070346d18615f35dc377",
+    "reports/holdout-stability-2026-10-28/live/switch-alpha-r2-policy-budget.json": "fec5ca3df303994c8b0f822fc402b2f3fae6170b4aeade090493ae6dc9ded970",
+    "reports/holdout-stability-2026-10-28/live/switch-alpha-r2-control-budget.json": "e55dd016249346a1dba5d4c0a3bf04c1c46513ec6a0c9356c9a07650c8c7be8b",
+    "reports/holdout-stability-2026-10-28/live/switch-beta-r2-control-budget.json": "d2cc010b1726892ca2767b3dde03dacd07f3f814e2b6ecbb154f7e08e9d0b651",
+    "reports/holdout-stability-2026-10-28/live/switch-beta-r2-policy-budget.json": "b2003e8659508d705a08bd6667e6a1d531053115413568571fa77406c32a5c20",
+    "reports/holdout-stability-2026-10-28/live/revisit-alpha-r2-policy-budget.json": "699015d5e5f4312133415591b08a5a70a0bbce73eff4f9c337c973283556dbb5",
+    "reports/holdout-stability-2026-10-28/live/revisit-alpha-r2-control-budget.json": "77e3b94f04a0be17b99d0c5324ac20ac4aad716c7a5eddbf124c22e9d97ac046",
+    "reports/holdout-stability-2026-10-28/live/revisit-beta-r2-control-budget.json": "8b34c1166c05605ad0788606e9e20c50a41d787bf79a78069b77286513b8a735",
+    "reports/holdout-stability-2026-10-28/live/revisit-beta-r2-policy-budget.json": "fec4bf50f4a6dc19df7456066c42213849d427605724847a66bc6295e765ae43",
+    "reports/holdout-stability-2026-10-28/live/direct-alpha-r2-policy-budget.json": "75a6bc4ea74a28425bb97383cb98549486690c2a1fd295930238b71ce655921a",
+    "reports/holdout-stability-2026-10-28/live/direct-alpha-r2-control-budget.json": "bfeea413b38079f0be8c737f6ade3f35b1f0994273165cd38f6b0dc976541bfd",
+    "reports/holdout-stability-2026-10-28/live/direct-beta-r2-control-budget.json": "761625cbc0c2b0248731652057c9d9e5eab2da11c66358c6895fb40cfae881c0",
+    "reports/holdout-stability-2026-10-28/live/direct-beta-r2-policy-budget.json": "df8e9726096691e72bfd9ab759beb710bbb679194b2fc78a3fc3d9fa2663abb7",
+    "reports/deferral-reason-2026-10-28/live/notifications-r1-old-budget.json": "ddf1978ebef8e62ad6f96369d291eeb5a931594be9fbca47925ca666e9c44ada",
+    "reports/deferral-reason-2026-10-28/live/notifications-r1-reason-budget.json": "7bdf7b5b26375f277b9be6675d950faf6c574ab1fef7cad2b0e79c3cd723c0a9",
+    "reports/deferral-reason-2026-10-28/live/revisit-alpha-r1-reason-budget.json": "43abb9b7822a9a2d9a1f8729c7bab0944866502c382d0638706a7e5cc3126058",
+    "reports/deferral-reason-2026-10-28/live/revisit-alpha-r1-old-budget.json": "1dce8f0142d93bd8e0e14df1e95b0f4de8942fdf2469778abe4baa7283ce05bf",
+    "reports/deferral-reason-2026-10-28/live/revisit-beta-r1-old-budget.json": "a7b251df13d92bb27df5778ae11ea4570789f61efb2bf85665a12e068ce622ec",
+    "reports/deferral-reason-2026-10-28/live/revisit-beta-r1-reason-budget.json": "fa4ec8e9e5ce9c625a42114ff64f4f24aadaf09f439d83a30ea80e519d30010f",
+    "reports/deferral-reason-2026-10-28/live/notifications-r2-reason-budget.json": "bda809d7a836be1b7eccfe1c550a906cf81ee934ac9dfaba8517ead5637a4780",
+    "reports/deferral-reason-2026-10-28/live/notifications-r2-old-budget.json": "dd02e92a1365cf61bcb567bf012650845895376a6696a829738e4b4a93e45a0c",
+    "reports/deferral-reason-2026-10-28/live/revisit-alpha-r2-old-budget.json": "3255e2c98dfafe46344e4052d593db957322f1b10cced7a57f01dc7195757cff",
+    "reports/deferral-reason-2026-10-28/live/revisit-alpha-r2-reason-budget.json": "523ffa3021cbc61ebdc216b7988502631d7de47c71412556913f136338155a8b",
+    "reports/deferral-reason-2026-10-28/live/revisit-beta-r2-reason-budget.json": "711a159806e3e958ffd7b453039ba8aed48413a23469decf4354ea2363304caa",
+    "reports/deferral-reason-2026-10-28/live/revisit-beta-r2-old-budget.json": "baa5e2c1dbe718ce92d8c4227014301f482cd82aace00753e263ca183bc98f71",
+    "reports/deferral-admission-2026-10-29/live/notifications-r1-old-budget.json": "e1ef7738d59f5b4255ab8e0bfbbbad17f608fd45c179a4d732c74d4b028ad4d8",
+    "reports/deferral-admission-2026-10-29/live/notifications-r1-reason-budget.json": "e512b8778413b9f00020ca6b61cc8a2590b7e3efd5a1d88095db8038c51dd71e",
+    "reports/deferral-admission-2026-10-29/live/revisit-alpha-r1-reason-budget.json": "187eb1bf1390d8c67fe6bbf96ebf5c47910d6ade6687806277974512b93c9a33",
+    "reports/deferral-admission-2026-10-29/live/revisit-alpha-r1-old-budget.json": "95627bea6ba6e6ced8075a987e187ba5986635710ac79afb0f5cd3d1cc083c0c",
+    "reports/deferral-admission-2026-10-29/live/revisit-beta-r1-old-budget.json": "30faaea40cc2da31743d93c17f8cb1fb57e9b43b80c9d3c4de126ef436468479",
+    "reports/deferral-admission-2026-10-29/live/revisit-beta-r1-reason-budget.json": "c1b0c7dde0b038e4195e05d3cba0bd5d3009d2228a090c3c5cafa406167d1dc6",
+    "reports/deferral-admission-2026-10-29/live/notifications-r2-reason-budget.json": "16d51d36d17028eba7eb39bdf01a21a36ef6d1a97290a40efb7667ede63c12e4",
+    "reports/deferral-admission-2026-10-29/live/notifications-r2-old-budget.json": "bc6570c0e1dd3305ccbb5ac876df7bb01a1b8f8d803c296ca8c4715cb3fb3f93",
+    "reports/deferral-admission-2026-10-29/live/revisit-alpha-r2-old-budget.json": "76fe16f3de69150b3630d91af481f87e91f136351b8e603350d5479385891c39",
+    "reports/deferral-admission-2026-10-29/live/revisit-alpha-r2-reason-budget.json": "282a74f29f45f011b4c7c8a06d40a3ba81b93e82ad6207b1702452427b5c1289",
+    "reports/deferral-admission-2026-10-29/live/revisit-beta-r2-reason-budget.json": "67cf39cd0b0377c11db1922855ab8b9d609f66144323e0dc48665435948f301f",
+    "reports/deferral-admission-2026-10-29/live/revisit-beta-r2-old-budget.json": "d8a75ab0f4eabc87fe61cf326851d24482ba147c57fc9cc5f90b6b484893c279",
+    "reports/deferral-grounding-2026-10-29/live/notifications-r1-old-budget.json": "535306283f0435e0860ec51010c24ece1126cd368d1a3f501827bd09eb828ee3",
+    "reports/deferral-grounding-2026-10-29/live/notifications-r1-reason-budget.json": "50ebf8635c0bec12f38bb3ee4f26c9588a0700388a68c369e304dba6de5ca764",
+    "reports/deferral-grounding-2026-10-29/live/revisit-alpha-r1-reason-budget.json": "20e25738f9b7507cf7c4bd86113caa0280124cd28182e66e6027eab49a805207",
+    "reports/deferral-grounding-2026-10-29/live/revisit-alpha-r1-old-budget.json": "1ca05a6c4a019381dac9a24b48f959ca75db590ff8778c73822f31ff8e372383",
+    "reports/deferral-grounding-2026-10-29/live/revisit-beta-r1-old-budget.json": "ab2fb15609edeb35b41d5ca46f6dfafe9fce4ec64449468b3d410b5b09a52caf",
+    "reports/deferral-grounding-2026-10-29/live/revisit-beta-r1-reason-budget.json": "1ce8d4036b5b947f26f82a76e245a2ebc2b2d5a71b46cb6ca5dc785a51b7c62a",
+    "reports/deferral-grounding-2026-10-29/live/notifications-r2-reason-budget.json": "1eea4f4d1ce3dd49f6be386d1fab8aef04c7db17dfad55f9915bed45e58435d1",
+    "reports/deferral-grounding-2026-10-29/live/notifications-r2-old-budget.json": "2e0d06a6bfdfe7c7ac277210c74def2974ed2180fb53e37b638a54fe3b653514",
+    "reports/deferral-grounding-2026-10-29/live/revisit-alpha-r2-old-budget.json": "9ce442c854b00c362a25ece79cd36050aec5170a0da5e1e26476dc762b5edbdd",
+    "reports/deferral-grounding-2026-10-29/live/revisit-alpha-r2-reason-budget.json": "83c961c2df3b289306a45469762d39db238e2e81ed22b58ec52f90264862477b",
+    "reports/deferral-grounding-2026-10-29/live/revisit-beta-r2-reason-budget.json": "5dfc77e350b6c8d0fe4d328454147591cb0e2a97b09b95c487a9b7871e4d3f99",
+    "reports/deferral-grounding-2026-10-29/live/revisit-beta-r2-old-budget.json": "5ae5a5233f0f3259e22ad17fcb4dfe05ffcec109884a94876765f52f39472b70",
+    "reports/notification-switch-2026-10-29/live/notifications-r1-old-budget.json": "d6ae82fa200fa439bb7f0d7ac1442db9d2f006121dca45d6ce46da78229be739",
+    "reports/notification-switch-2026-10-29/live/notifications-r1-reason-budget.json": "10731088e3ae57e72b9972e87b0cef6f4f42490260b5687f73e333ec46e2986d",
+    "reports/notification-switch-2026-10-29/live/revisit-alpha-r1-reason-budget.json": "5f55e85a581aee23c227fb1152b3246c43c82a4e647e3281ad8c87dcc36ed507",
+    "reports/notification-switch-2026-10-29/live/revisit-alpha-r1-old-budget.json": "f362fcda77a2e06ac2c5bbb0a4d76369fc2a45659ab0a3f4696ab5929742f203",
+    "reports/notification-switch-2026-10-29/live/revisit-beta-r1-old-budget.json": "bf7ff14e564940d6f46de72f4299819bbbf22b7e197fcf1e33082db782632ea4",
+    "reports/notification-switch-2026-10-29/live/revisit-beta-r1-reason-budget.json": "3f9075b93384d2dc678ae5d53b17f42ab49b53219375091761f55fa35855c65d",
+    "reports/notification-switch-2026-10-29/live/notifications-r2-reason-budget.json": "7d2c7273a4d5e6cfba3758c715b2b97937300163e9112cc4ac683299d92d25f4",
+    "reports/notification-switch-2026-10-29/live/notifications-r2-old-budget.json": "53dcfca37ef1bc20039ff9d3026ec8c310d8e2dc477fa8a392100a50b5eab5f3",
+    "reports/notification-switch-2026-10-29/live/revisit-alpha-r2-old-budget.json": "bd2b33f9b3f4c6bb31f6415ac6e1389e1ebdecb09a06f382e956937c0ae741fa",
+    "reports/notification-switch-2026-10-29/live/revisit-alpha-r2-reason-budget.json": "0392913ecd4d35d8cd923f699ac70d63aab45365bfea0aae67c8c9c3505e0e8b",
+    "reports/notification-switch-2026-10-29/live/revisit-beta-r2-reason-budget.json": "e0541cb8657808d8b4102aa66f04a3ae36ec3567de387f4f707be0ee0d2a28f3",
+    "reports/notification-switch-2026-10-29/live/revisit-beta-r2-old-budget.json": "0615c8a859e1d2c27f402e2ad4fa691dceb390767ae16b787123a40af12649ae",
+    "reports/observation-correspondence-2026-10-29/live/notifications-r1-old-budget.json": "350bc3a4d8ecd1b062ba4a090cebf626adbdf3cea3773bd57105d866fdde6d1a",
+    "reports/observation-correspondence-2026-10-29/live/notifications-r1-reason-budget.json": "0d8429e9ab791fb409c706ac3d117495b47cd1e20b93c3fd4f74ea772c726b4f",
+    "reports/observation-correspondence-2026-10-29/live/revisit-alpha-r1-reason-budget.json": "25e15e2fa6ee7dba411d75ad6f9aa0032eb7abafeccd565daba1d899e2d91382",
+    "reports/observation-correspondence-2026-10-29/live/revisit-alpha-r1-old-budget.json": "eaf66dbb32d8a76c1a5929a7ccfea782eef07ccefe98198b309373c0b12774ce",
+    "reports/observation-correspondence-2026-10-29/live/revisit-beta-r1-old-budget.json": "33d48f30c71dee7c1e935bd5b3c64c370b935bf83d358a73149c735b2b57aef8",
+    "reports/observation-correspondence-2026-10-29/live/revisit-beta-r1-reason-budget.json": "2971ec6ed46759ef31cf89073503261f6dc444dca88830a905232b398845e0ed",
+    "reports/observation-correspondence-2026-10-29/live/notifications-r2-reason-budget.json": "fa9df57f9b318e48ef241edbd06769933bf403d4e1b8ce17b80976c80b5baacd",
+    "reports/observation-correspondence-2026-10-29/live/notifications-r2-old-budget.json": "a2e67bef5846748159218f3a57dd6e5cb486c680f1378d49c380ea008b23594f",
+    "reports/observation-correspondence-2026-10-29/live/revisit-alpha-r2-old-budget.json": "3d19e9100b83b6aefa6b450b1f854ad9284e239a700426e631964e947cf98055",
+    "reports/observation-correspondence-2026-10-29/live/revisit-alpha-r2-reason-budget.json": "3127c4255e07dd4819b672859c6d978a5ac6e683f1d9b9a9e74e4f04a337502d",
+    "reports/observation-correspondence-2026-10-29/live/revisit-beta-r2-reason-budget.json": "063d7d0de59fdc72356fd9fbd93b80a2d890f247935b50bdbecc85813f1043a2",
+    "reports/observation-correspondence-2026-10-29/live/revisit-beta-r2-old-budget.json": "f5d35c91a62f644e90157724cc7d60f82184aa02742276ac5cc4c67552179a84",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/audit-1.png": "3296017eca59bc0056ad20c20376c569dc0a145b2a396223d1a432ad6837473a",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/audit-2.png": "eeeb368a004f639dec618c686eb626914cacefdb694bd97913e24b95e6250d7e",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/audit-3.png": "de5cfce4438fe8cc139b976be42bbf88dd21eb6797bf0cf1014db3b7a088da18",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/audit-4.png": "3296017eca59bc0056ad20c20376c569dc0a145b2a396223d1a432ad6837473a",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/audit-5.png": "a07c819787638a7044fb182ae48ea35f955305efb76278a9ba13b16e23e7bd98",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/audit-6.png": "da8743f0130b97da65835495e7c20821a298a409d48fd8b11de8387ebe81bbef",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/audit-7.png": "2207afa8ecb1fac1291ecd65ecf9f3c4c84b74f6fa310960b996939ad8d6b4f7",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/final.png": "a5779550560f33a2f2a5d0bdc85d6fafd38f4b68aa918b15140f45916979c2bf",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/input-1.png": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/input-2.png": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/input-3.png": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/input-4.png": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/input-5.png": "8f0877d692e51594149160d7c650d5cfb1dbc844b5302083c1a70495d53ca3ff",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/input-6.png": "56070b4ebf74236b89da9b4655ffb52bcea6913d168e633e177ec765160d2aa3",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/input-7.png": "c6804ce447d1e65bd039a0c5a8ca72425f6f9d8145c3c0cda6529398da7b800f",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/result.json": "9ce4c536096909f06e0f4831ca8238300351036e5fb04b496f8e44cfbfa7c85c",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/step-1.json": "cfe39bf6bb9e4fb3fa3d39a779a5ac9b750e7432aaaf647f94ba50597c37a0c0",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/step-2.json": "358bbe0c8c87175b9b0c3302ceebdce50f13c5e296788b7bcfb38d400338cf21",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/step-3.json": "6407daed662d7bae40d096e8d9c2e615756c8de3056e2839f29345ae76ab6a75",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/step-4.json": "5d878e93f0004b6f157161be94c113c1affddcf1efead65cbb039f0d3eb5a73d",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/step-5.json": "cb117f8f0160932514b4f2b869fa55a3cace1c411477fb1c711911c103c96b09",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/step-6.json": "72e472aa4a7b7a6784e77b6137e28bb06270afb296e29d79a9a752c3024b4192",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/step-7.json": "591196622c0d16b543f8751ad59245bd1e385b07942f5c82b547fe0010dfd9a0",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/trace.zip": "677b50fb5cec4f8244e5807f4e2732d89d57908540a177a31c1ac21e867a5a64",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/initial-product.json": "9c5ef6f1a807249191ac20f301c8644428d181e6fd97f6dcd4194c11baa1c2a2",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/initial-product.png": "03b74136e02c8889c4f07cf73846ad67d9ee1f0516bbee1283b5694e6126bae0",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/manifest.json": "8022c1fdc63a7d2f45bdd5a4bbad6505bf5dc3e13c5df91b04fe805f345bb47c",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/offline-replay.json": "2598ca09b0dbbc525809c0f29941bafcdcc5a5d134efe0f2530e56a1424ed6c8",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/phase-budget-after.json": "95e792abf32975ee403f050cdbe955a1c77611d2964914cc28ca09bd57fd0b6c",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old/review.json": "745e4da92b45c4e97478dc7644357529356c5a186c8a47f2084d7ed7aeaab4c7",
+    "reports/goal-search-2026-10-29/live/notifications-r1-old-budget.json": "71ad72813fd31c047774bfbe612fcd99c185c8fb87afc679543c82fdcc3675d0",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/audit-1.png": "3296017eca59bc0056ad20c20376c569dc0a145b2a396223d1a432ad6837473a",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/audit-10.png": "883b11c7cb1fc83ea00f807f65493dff6b61698c510d4e44d188da74e2534672",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/audit-11.png": "4f056fc2b2d246f1b2aba814c9288585f11545d0b8e5f70feeba7a394f1083a5",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/audit-2.png": "eeeb368a004f639dec618c686eb626914cacefdb694bd97913e24b95e6250d7e",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/audit-3.png": "de5cfce4438fe8cc139b976be42bbf88dd21eb6797bf0cf1014db3b7a088da18",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/audit-4.png": "3296017eca59bc0056ad20c20376c569dc0a145b2a396223d1a432ad6837473a",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/audit-5.png": "4e3222fc30b84e042a70379ac0691c49ceb2f9d83c4fe30a74fc2189b56c97e0",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/audit-6.png": "fd8e76a8b0f8010aed3358aca8d8ab08611d96f52ca5f47694b95756aae542b6",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/audit-7.png": "de5cfce4438fe8cc139b976be42bbf88dd21eb6797bf0cf1014db3b7a088da18",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/audit-8.png": "883b11c7cb1fc83ea00f807f65493dff6b61698c510d4e44d188da74e2534672",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/audit-9.png": "514fab931b85bbb9511b3152a2fc38fcf7e3df867792c907dac0e310208fad5d",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/final.png": "f4505c70883d419414a1efd1d03f9c8b78ae66aed8627916de5046d5e41dfa95",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-1.png": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-10.png": "80e0bf87dadb41940bd578cc80d823095334b4fea2b4790a57249164b2fc60ec",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-11.png": "dd4f68a001f7654b3d19e48de27e14d80463d33ac807ab3147f3262babbb6e4f",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-2.png": "532bf3b80778a5b5ac58d5c9d9f293a87bb9a7342fd94cb31b4d42d72dabb8e6",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-3.png": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-4.png": "03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-5.png": "f3d65a715fa0fdcdfb388ade04c6e6d3f00f65335b21beea6c6855ef7755a0b2",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-6.png": "9e31a25ca2c1c73b0aeecc5d45daa2d0f530e0feddcbe1991739f2b33104c53a",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-7.png": "224d4dc602ffff0c81787a097a00c4f969de97e62b2369b3ad24295fb033d257",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-8.png": "80e0bf87dadb41940bd578cc80d823095334b4fea2b4790a57249164b2fc60ec",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-9.png": "23d84ea305604c1c4622aafc4fadce2aca7900a10b9c675ae155c948a7311c79",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/result.json": "c21153f39b9b7eb301cc70d04d49bef7189df7d1f50f3f3e85a4faae70dbc829",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-1.json": "d016d79418127b70c23f7326dcb7141274055f57bebdb78cf6b5a43480db8c8d",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-10.json": "97a72386479344e3261f13fd8f381436ca5d62ecff49f0289c96a65e727cfc38",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-11.json": "4e09a6529662ebe27c13d8fbcce51122c99d60ce01d8ee7a9f49bf3a94b9b977",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-2.json": "fc5bee0a69edfe102f6852522fd3adcefed993824a6c51c7ac013df40303bfdd",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-3.json": "a04ea3ac5f84c3219ce912df1a1fa93fe594e17ec8a44c7bdcad0ad075483566",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-4.json": "39df94b897fdba35b9f9418d2a274cbe224be844fc14b8059163439c808620dd",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-5.json": "3430769a5da4e4cbfb47ec0ceed0cfb27797500f7ffc28d56b619bf78a1a496d",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-6.json": "b3ef0147286828b0a63d5c096b0b338c80e01607da087529fbe3b1af3aeefcd1",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-7.json": "b51d51916c6c0ea7ac30dcc8f33428c71f2b1aaaaa27c5617bd3b1c140be10ba",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-8.json": "d2af0e972be184e89dd759348adf31a71654fe8877e99cc400c20e8a2891c53e",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-9.json": "85b484307d1272f2687f4d5113b089ebba3cbd30326f3cf14914077f5ac51d05",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/trace.zip": "00ec20851ceea54e15d8ffa92c4c7a70c702a2ab7959ff03c561038ba6b8bc47",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/initial-product.json": "9c5ef6f1a807249191ac20f301c8644428d181e6fd97f6dcd4194c11baa1c2a2",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/initial-product.png": "03b74136e02c8889c4f07cf73846ad67d9ee1f0516bbee1283b5694e6126bae0",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/manifest.json": "afb53f48ca63df0cc0a98dc642f26d7d79852fda867bd62c8b3b2e8c4f706905",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/offline-replay.json": "daf8e1d35bb52233977da3d7c01371254a0b7fc988a51b52a2059f014a9d0f1e",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/phase-budget-after.json": "c095e14b570dcf7334d08cd5ebdfe0dacae6289944f36838a82ad3b263b81683",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason/review.json": "745e4da92b45c4e97478dc7644357529356c5a186c8a47f2084d7ed7aeaab4c7",
+    "reports/goal-search-2026-10-29/live/notifications-r1-reason-budget.json": "d2fadbece55280885748da276ce5573d646a99252cf93d40538cc08d68ec0e75",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/exploration/audit-1.png": "06ac02e475417a623f21a6073c0091fca7583cae2d8b9a03b2315abfecb531a3",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/exploration/final.png": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/exploration/initial-product.png": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/exploration/input-1.png": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/exploration/result.json": "6638eb6a28be0024451fe497282b9688cc21c80a1ff8634b7ae84128629ef0bd",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/exploration/step-1.json": "aff5ff63183cd841546fe90d0f1d7c148fa2a7e9118c09e0ab00a573d9070326",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/exploration/trace.zip": "6ed684bb545f92cf34bf1d2069e2fddf6243b5c710025a26c33b10720a659acb",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/initial-product.json": "a47eee96af5fee11cb155ff96a12630412db054e5b3cfe939708811c2b9525bb",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/initial-product.png": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/manifest.json": "ead13fbf540f3a873a5977ce0e6c5abbb5df8488af36e6dabdf65762ec275d27",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/offline-replay.json": "ea002a6e09ca7c77d8086fbe594501e6681ee5b54fbd435340c0135dbae85bc4",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/phase-budget-after.json": "15bb0cdffae9a94a91f24d3d5daf5bce1d19d9b488bf5d4fed1851c1af5aaa4f",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/review.json": "745e4da92b45c4e97478dc7644357529356c5a186c8a47f2084d7ed7aeaab4c7",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason-budget.json": "b293c68603a3850a6440ec78455e3df4aadc508bd269a3382a1ad381a68c2b35",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/exploration/audit-1.png": "06ac02e475417a623f21a6073c0091fca7583cae2d8b9a03b2315abfecb531a3",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/exploration/final.png": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/exploration/initial-product.png": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/exploration/input-1.png": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/exploration/result.json": "b569921d26443dcd2fd30f436e3ec9d009b7c9a867a18dae1fbf5ff4d67da864",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/exploration/step-1.json": "41ca27dc0741ed0ea78168399d48b41c18dae130bcf83cf9bea17ad1a2f7742a",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/exploration/trace.zip": "909f3a5aa153ba36c3de949ad48aa690b95a376ffe4af06d80ab8f95b2eb5b09",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/initial-product.json": "a47eee96af5fee11cb155ff96a12630412db054e5b3cfe939708811c2b9525bb",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/initial-product.png": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/manifest.json": "a37b25536e5faec383c6e2dd742d732a14a0bd3b49e4b2d54c176e9440241591",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/offline-replay.json": "395f2f0a784930a597f40e5df394b12b42450ec274e157fcf125dd1b4a39011e",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/phase-budget-after.json": "77f7786ca372d77eb6ddefe6bf9ee47c55a4b6ad7200be6cfe218004b9c4d375",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/review.json": "745e4da92b45c4e97478dc7644357529356c5a186c8a47f2084d7ed7aeaab4c7",
+    "reports/goal-search-2026-10-29/live/revisit-alpha-r1-old-budget.json": "832f3719e4634c23a19abaeb768268ca3c54c01066ebf84942fac56fc7bf7304",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/exploration/audit-1.png": "c28652efde2b7f300571d029c99ae477e67cd1e7ef17a27a8d95194e4a1316c3",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/exploration/final.png": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/exploration/initial-product.png": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/exploration/input-1.png": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/exploration/result.json": "48225fa5411d7ebfaea04681e6198c9edcd6fdaea6179c403fa2fa2251acf831",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/exploration/step-1.json": "a45a0ff60b274551d11c57d93aef5e6809d5574dd44bd41a74e23e3f09f35dae",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/exploration/trace.zip": "ef3603524ce256ba3bb7729330e03eb84ad7f751247a5a1de8335db43e74fb08",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/initial-product.json": "056505653b0282bc086b1fc0d5e6f1c02347476a9152af7051dc7d9d86a26104",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/initial-product.png": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/manifest.json": "8836b622a9e52554158c66bf85563fc39223ca5b3f5c6bea0a572eeebdcef925",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/offline-replay.json": "c2d6d1d9b3f2d601d29db02aaf9b81a7ee79238e8a2fa276878aa23a2b2b0cb1",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/phase-budget-after.json": "76ed4aa54d07ffe7b4a8c6ad12f8d35cb0e61cf0beed472abd8af5eb712594fb",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old/review.json": "745e4da92b45c4e97478dc7644357529356c5a186c8a47f2084d7ed7aeaab4c7",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-old-budget.json": "bbcede942766d1a493502326ed33ff084ec7c204f86af1c76df2c63380fa5fe1",
+    "reports/goal-search-2026-10-29/live/manifest.json": "22617ee049fd0bfc3b9858ec95760a3cd9e9f9136d08e386fe3251332cadaf6d",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-reason/manifest.json": "c3e9e4082087204d1657167911ca04e94bb6ff8566ed6c5f974e0d6b21679ea0",
+    "reports/goal-search-2026-10-29/live/revisit-beta-r1-reason-budget.json": "b117859f8a815c8d571641995ce07184b118f98d064882865f95fec32a52a4f9",
+    "reports/goal-search-2026-10-29/live/summary.json": "915b0a9f4a1075f71772c81e17348b715374970db92b599d2a54e119037971f1"
+  },
+  "rawEvidenceUnchanged": true,
+  "priorLedgersUnchanged": true,
+  "requestReservationIdsUnique": true,
+  "noRequestOverlap": true
+}

@@ -1,0 +1,6 @@
+"actor","task","condition","valid","objective","subjectiveDone","termination","requests","uiActions","looks","judgments","reconcileEvents","confirmEvents","earlyUnchangedRevisits"
+"experience-visual-conditions","library","changed","true","true","true","SUBJECTIVE_DONE","21","6","0","7","0","1","0"
+"experience-visual-conditions","library","unchanged","true","true","true","SUBJECTIVE_DONE","30","9","0","10","1","1","0"
+"experience-visual-conditions-continuity","library","changed","true","true","true","SUBJECTIVE_DONE","21","6","0","7","0","1","0"
+"experience-visual-conditions-continuity","library","unchanged","false","false","false","API_ERROR","25","8","0","9","0","1","1"
+"experience-visual-conditions-continuity","workshop","changed","false","false","false","API_ERROR","7","2","0","3","0","0","0"

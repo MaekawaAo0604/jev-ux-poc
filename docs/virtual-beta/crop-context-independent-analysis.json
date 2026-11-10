@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "gate": "ANALYSIS_GO",
+  "analysisFile": "reports\\crop-stuck-2026-11-10\\analysis-r1\\analysis.json",
+  "analysisSha256": "eb048354551015626142dfa456f33870c1a6a69273ba9f154d1db801758be6e7",
+  "timelineSha256": "aab90fd012dcbaa6aa0a90290d7141a18cf2ae34584d7301be4bcf9263af1e87",
+  "producerSha256": "eb76187d1004ecf713e4ae748313adcf7eebf8429548f1af092b4d3b2ab01c6c",
+  "source": {
+    "revision": "7f35def90ca5b21818bb9c6dd0b26578bd6f2646",
+    "sourceHash": "c9a64e1f0ebe75539e346dac6b0b83cf4441c2258085a9baa2ef299a299bdd4c"
+  },
+  "phaseSha256": "f3f1415d1528c62210d300cb4c2cb0bb9a3b60c4f95d932cef27ebe5210cb6e3",
+  "trials": 12,
+  "completed": 12,
+  "censored": 0,
+  "invalid": 0,
+  "missing": 0,
+  "requests": 60,
+  "decisions": 36,
+  "statuses": [
+    {
+      "runId": "crop-control-seed-9001",
+      "status": "completed",
+      "objectiveSuccess": false,
+      "termination": "STUCK"
+    },
+    {
+      "runId": "crop-geometry-seed-9001",
+      "status": "completed",
+      "objectiveSuccess": false,
+      "termination": "STUCK"
+    },
+    {
+      "runId": "crop-actions-seed-9001",
+      "status": "completed",
+      "objectiveSuccess": true,
+      "termination": "SUBJECTIVE_DONE"
+    },
+    {
+      "runId": "crop-both-seed-9001",
+      "status": "completed",
+      "objectiveSuccess": true,
+      "termination": "SUBJECTIVE_DONE"
+    },
+    {
+      "runId": "crop-geometry-seed-9002",
+      "status": "completed",
+      "objectiveSuccess": false,
+      "termination": "STUCK"
+    },
+    {
+      "runId": "crop-actions-seed-9002",
+      "status": "completed",
+      "objectiveSuccess": true,
+      "termination": "SUBJECTIVE_DONE"
+    },
+    {
+      "runId": "crop-both-seed-9002",
+      "status": "completed",
+      "objectiveSuccess": true,
+      "termination": "SUBJECTIVE_DONE"
+    },
+    {
+      "runId": "crop-control-seed-9002",
+      "status": "completed",
+      "objectiveSuccess": false,
+      "termination": "STUCK"
+    },
+    {
+      "runId": "crop-actions-seed-9003",
+      "status": "completed",
+      "objectiveSuccess": true,
+      "termination": "SUBJECTIVE_DONE"
+    },
+    {
+      "runId": "crop-both-seed-9003",
+      "status": "completed",
+      "objectiveSuccess": true,
+      "termination": "SUBJECTIVE_DONE"
+    },
+    {
+      "runId": "crop-control-seed-9003",
+      "status": "completed",
+      "objectiveSuccess": false,
+      "termination": "STUCK"
+    },
+    {
+      "runId": "crop-geometry-seed-9003",
+      "status": "completed",
+      "objectiveSuccess": false,
+      "termination": "STUCK"
+    }
+  ],
+  "interpretation": "The actions context bundle (offered action list plus generic eligibility guidance) separates observed outcomes from control/geometry in this fixed crop task. The intervention does not isolate each sentence/list contribution or internal causal reasoning, and does not validate human behavior.",
+  "verifierSha256": "a9643165cac9aa14baf2f2aab9a7777c023f0eacd5695e5ee87b931d8ea08149"
+}

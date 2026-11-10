@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "clear-notifications-v1",
+  "personas": [
+    {
+      "id": "A",
+      "name": "IT初心者",
+      "file": "a.json"
+    },
+    {
+      "id": "B",
+      "name": "IT熟練者",
+      "file": "b.json"
+    },
+    {
+      "id": "C",
+      "name": "セキュリティに慎重な利用者",
+      "file": "c.json"
+    }
+  ],
+  "interpretation": [
+    "Baseline is supplied by the driver as no Persona, not a fourth fabricated profile.",
+    "Device context shared; full knowledge/experience/expectations/tendencies profiles differ.",
+    "Tendencies are hypotheses, never mandatory clicks or action filters.",
+    "Basic saved through an existing default does not establish intentional minimization."
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "round": 2,
+  "sourceHash": "9ffb0aa77e39c5d8cb4a14837781459f4802e5e20befecf8eff461e379ae5aa3",
+  "APIRequests": 0,
+  "authEnvAccess": false,
+  "productModified": false,
+  "freeze": {
+    "before": true,
+    "after": true,
+    "source158": true,
+    "trackedUntracked977": true,
+    "protected911": true,
+    "prior6006": true,
+    "round1EvidencePreserved": true
+  },
+  "correction": {
+    "issue": "Round1 P2 incomplete nextAction question validation",
+    "verified": "17/17 rehashed probes rejected, including forged type, missing type, extra field and null type",
+    "evidence": "tamper-outcomes.json; ordinary-and-additional-audit.json"
+  },
+  "acceptance": {
+    "1": "PASS:236 related regressions including old checks integration and four-argument golden",
+    "2": "PASS:prior admission/schema/runtime related regression",
+    "3": "PASS:independent-ui/result.json and delivered-second-observation.json; historical sidecar remains distinct from current conditions and continuity reassessment",
+    "4": "PASS_TECHNICAL_SCOPE:dispatch sender/core/selection bytes unchanged; actual selection preserved",
+    "5": "PASS:native-scalars.json actual AbortSignal/observer30k/60k/1231 and no timing in body; runtime clipping regression",
+    "6": "PASS:17/17 independent rehashed sidecar/delivery/localcriteria/full action/effect questions/partial/config probes reject",
+    "7": "PASS:ordinary CLI planned4 attempted2 missing2 valid2 invalid0 API0; initial pair matched; wrong configuration/old180s/duplicate pool rejected; distinct Round1/Round2 batch and run IDs",
+    "8": "PASS:objective false remains separate from subjective done; infrastructure affected actor successes0; failure-accounting regression",
+    "9": "NOT_CLAIMED:semantic correspondence/human reproduction/performance improvement remain unverified"
+  },
+  "executedTests": [
+    {
+      "file": "ui-independent.log",
+      "pass": 1,
+      "fail": 0,
+      "tamperProbes": 17
+    },
+    {
+      "file": "native-independent.log",
+      "pass": 1,
+      "fail": 0,
+      "offlineOnly": true
+    },
+    {
+      "file": "related-regression.log",
+      "files": 7,
+      "pass": 236,
+      "fail": 0
+    },
+    {
+      "file": "ordinary-pair.log",
+      "planned": 4,
+      "attempted": 2,
+      "missing": 2,
+      "valid": 2,
+      "APIRequests": 0
+    },
+    {
+      "file": "additional-audit.log",
+      "exitCode": 0
+    },
+    {
+      "file": "compare-dispatch.log",
+      "exitCode": 0
+    }
+  ],
+  "round1Round2Dispatch": {
+    "sourceDelta": [
+      "runner/virtual-beta-replay.ts"
+    ],
+    "nativeBodiesByteEqual": 2,
+    "bothStageInputsAndQuestionsByteEqual": true,
+    "evidence": "round1-round2-dispatch-identity.json",
+    "scope": "Captured mock inputs and reconstructed native bodies; no live API result claim."
+  },
+  "issues": [],
+  "unverified": [
+    "Live external native API run",
+    "Semantic link correctness",
+    "Human reproducibility",
+    "Performance improvement",
+    "All repository tests; focused subset used"
+  ]
+}

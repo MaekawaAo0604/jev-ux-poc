@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-analyzer-review",
+  "producerSHA256": "b605983dd5d586be6b6f41401e828f1ceb1f40dd7f8f487a09febeaf0f284d74",
+  "testSHA256": "669326ffae255abcf480fc75aadf58a6d7e5a517fec9ab6d899cc3c6220ff500",
+  "producerHashMatched": true,
+  "denominators": {
+    "planned": 54,
+    "attempted": 54,
+    "admitted": 54,
+    "completed": 39,
+    "censored": 15,
+    "invalid": 0,
+    "missing": 0,
+    "pending": 0
+  },
+  "actualAPIRequests": 199,
+  "mappedActualSteps": 199,
+  "independentlyComputedSavedStateArgmax": 79,
+  "argmaxDiffersFromActual": 23,
+  "verifiedInitialPairs": 51,
+  "publicationOnlyChanges": [
+    "runner/exploration-viewer-data.ts"
+  ],
+  "negativeCases": [
+    {
+      "name": "hash-consistent config",
+      "expected": "RESULT_CONFIG_MISMATCH",
+      "rejected": true
+    },
+    {
+      "name": "hash-recomputed current input",
+      "expected": "STEP_SHARED_INPUT_MISMATCH",
+      "rejected": true
+    },
+    {
+      "name": "hash-consistent saved request trace",
+      "expected": "REQUEST_TRACE_ACCOUNTING_MISMATCH",
+      "rejected": true
+    },
+    {
+      "name": "hash-consistent fake exclusions",
+      "expected": "SELECTION_ACTION_BINDING_MISMATCH",
+      "rejected": true
+    },
+    {
+      "name": "ledger count",
+      "expected": "LEDGER_ACCOUNTING_MISMATCH",
+      "rejected": true
+    },
+    {
+      "name": "unallowlisted replay source map",
+      "expected": "REPLAY_IMPLEMENTATION_SOURCE_MISMATCH",
+      "rejected": true
+    },
+    {
+      "name": "retained trace ZIP changed",
+      "expected": "ARTIFACT_HASH_MISMATCH",
+      "rejected": true
+    },
+    {
+      "name": "RUNNING/PENDING paths never followed",
+      "all54Pending": true,
+      "followed": false
+    }
+  ],
+  "findings": [],
+  "externalAPICalls": 0,
+  "environmentFilesAccessed": false
+}

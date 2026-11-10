@@ -1,0 +1,14 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><title>画像案内の検証画面</title>
+<style>body{margin:40px;background:#f5f7fa;color:#152331;font:24px sans-serif}main{max-width:900px;margin:auto}canvas{width:880px;height:300px;background:white;border:1px solid #ccc}button{font:32px sans-serif;margin:24px 32px;padding:20px 100px}p{font-size:24px}</style>
+<main><h1>各種お手続き</h1><p>下の案内を見て操作してください。</p><canvas width="880" height="300"></canvas><div><button>A</button><button>B</button></div><p role="status"></p></main>
+<script>
+const target='__TARGET__';
+const context=document.querySelector('canvas').getContext('2d');
+context.fillStyle='#152331';context.font='bold 38px sans-serif';
+context.fillText('メール通知を停止する',50,90);
+context.font='32px sans-serif';context.fillText(target+' を押してください',50,175);
+context.font='24px sans-serif';context.fillText('もう一方のボタンは契約内容の確認です',50,245);
+document.querySelectorAll('button').forEach(button=>button.onclick=()=>{
+ document.querySelector('[role=status]').textContent=button.textContent===target?'メール通知を停止しました':'この操作では通知設定は変わりません';
+});
+</script></html>

@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {mkdtemp,mkdir,writeFile} from 'node:fs/promises';import {resolve,join} from 'node:path';import {buildExplorationViewer} from '../runner/exploration-viewer-data.js';
+test('planned missing rows inherit single cohort Persona while recorded or explicitly absent Persona stays baseline',async()=>{
+ const root=await mkdtemp(resolve('reports/controlled-comparison-2026-11-09/parent/viewer-persona-')),run=join(root,'recorded');await mkdir(run);
+ await writeFile(join(run,'result.json'),JSON.stringify({schemaVersion:1,runId:'recorded-none',condition:'current',config:{id:'current'},input:{charter:{goal:'G',targetWebsite:'local:demo'}},objectiveAssessment:{status:'OK',value:false},objectiveSuccess:false,perceivedDone:false,termination:'SUBJECTIVE_DONE',decisions:0,looks:0,uiActions:0,apiCalls:0,validForComparison:true,steps:[]}));
+ await writeFile(join(root,'manifest.json'),JSON.stringify({schemaVersion:1,status:'STOPPED',mock:true,persona:{id:'A',name:'初心者'},records:[{id:'recorded-none',runId:'recorded-none',status:'RESULT',resultPath:join(run,'result.json')}],schedule:[{id:'recorded-none'},{id:'missing-a'},{id:'explicit-none',persona:null}]}));
+ const v=await buildExplorationViewer({batches:[root],out:root+'-viewer'});assert.equal(v.runs.length,3);assert.equal(v.runs.find(r=>r.runId==='missing-a')!.personaId,'A');assert.equal(v.runs.find(r=>r.runId==='recorded-none')!.personaId,'baseline');assert.equal(v.runs.find(r=>r.runId==='explicit-none')!.personaId,'baseline');
+});

@@ -1,0 +1,3384 @@
+{
+  "schemaVersion": 1,
+  "scope": "Post hoc motion review prompted by user clarification. No human naturalness metric, no pass/fail by goal success, no new model calls.",
+  "baseRevision": "cd5541388ab3ef0bf054cf84f4390a7f1eb2efda",
+  "sourceManifest": "reports/inquiry-alignment-2026-11-05/live/manifest.json",
+  "sourceManifestSha256": "87338b614d7bfb9445568ea2c342c38f9c295ad16e4a26dfb06d7d2b16898148",
+  "trials": 8,
+  "modelsCalled": 0,
+  "criteria": [
+    "Unmet goal or skipping an available correct control is not by itself abnormal.",
+    "Revisiting after exploring other plausible places may be reasonable.",
+    "Separate raw model choice, policy-modified choice and actual UI execution.",
+    "Repeated visible route patterns are observations, not proof of implausible behavior.",
+    "Check available history and new information before inferring forgetting."
+  ],
+  "selectionOverrides": 7,
+  "overrideByActor": {
+    "experience-inquiry-aligned": 5,
+    "experience-inquiry-outcome": 2
+  },
+  "fourObservedInputAlternation": [
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-1",
+      "actor": "experience-inquiry-aligned",
+      "task": "library",
+      "replicate": 1,
+      "present": true,
+      "kind": "four-delivered-input-pattern-not-naturalness-verdict",
+      "steps": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "routes": [
+        "home",
+        "account",
+        "home",
+        "account"
+      ],
+      "imageHashes": [
+        "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+        "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+        "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+      ],
+      "policyOverrides": [
+        10,
+        12
+      ],
+      "terminalRoute": "home",
+      "terminalModelDelivered": false
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-4",
+      "actor": "experience-inquiry-aligned",
+      "task": "workshop",
+      "replicate": 1,
+      "present": true,
+      "kind": "four-delivered-input-pattern-not-naturalness-verdict",
+      "steps": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "routes": [
+        "home",
+        "account",
+        "home",
+        "account"
+      ],
+      "imageHashes": [
+        "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+        "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+        "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+        "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+      ],
+      "policyOverrides": [],
+      "terminalRoute": "home",
+      "terminalModelDelivered": false
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-7",
+      "actor": "experience-inquiry-aligned",
+      "task": "workshop",
+      "replicate": 2,
+      "present": true,
+      "kind": "four-delivered-input-pattern-not-naturalness-verdict",
+      "steps": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "routes": [
+        "home",
+        "account",
+        "home",
+        "account"
+      ],
+      "imageHashes": [
+        "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+        "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+        "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+        "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+      ],
+      "policyOverrides": [
+        10,
+        12
+      ],
+      "terminalRoute": "home",
+      "terminalModelDelivered": false
+    }
+  ],
+  "rows": [
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-1",
+      "actor": "experience-inquiry-aligned",
+      "task": "library",
+      "replicate": 1,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-alignment-2026-11-05\\live\\recovery-library-unchanged-r1-experience-inquiry-aligned\\exploration\\result.json",
+      "goalAttainmentContextOnly": false,
+      "steps": [
+        {
+          "step": 1,
+          "route": "primary",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "sourceAsset": "input-1.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "マイページへ",
+          "selected": "e1",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": null,
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 1
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-2.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.96,
+          "selectedOutputValue": 0.96,
+          "selectedFilteredValue": 0.96
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+          "sourceAsset": "input-3.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e1",
+          "selectedLabel": "利用情報を確認する",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 1,
+          "selectedOutputValue": 1,
+          "selectedFilteredValue": 1
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+          "sourceAsset": "input-4.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.72,
+          "selectedOutputValue": 0.72,
+          "selectedFilteredValue": 0.888888888888889
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-5.png",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "modelChoice": "e3",
+          "modelLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selected": "e3",
+          "selectedLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.66,
+          "selectedOutputValue": 0.66,
+          "selectedFilteredValue": 0.6802019993816345
+        },
+        {
+          "step": 6,
+          "route": "records",
+          "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+          "sourceAsset": "input-6.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.56,
+          "selectedOutputValue": 0.56,
+          "selectedFilteredValue": 0.5833333333333334
+        },
+        {
+          "step": 7,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-7.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "予約内容の変更\n「 川沿いの暮らし 」の 受取館 を管理",
+          "selected": "e1",
+          "selectedLabel": "予約内容の変更\n「 川沿いの暮らし 」の 受取館 を管理",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.92,
+          "selectedOutputValue": 0.92,
+          "selectedFilteredValue": 0.9992397089171283
+        },
+        {
+          "step": 8,
+          "route": "primary",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "sourceAsset": "input-8.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "マイページへ",
+          "selected": "e1",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.96,
+          "selectedOutputValue": 0.96,
+          "selectedFilteredValue": 0.9896907216494846
+        },
+        {
+          "step": 9,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-9.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "recalled_o1_c3",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.9,
+          "selectedOutputValue": 0.9,
+          "selectedFilteredValue": 0.9090909090909092
+        },
+        {
+          "step": 10,
+          "route": "account",
+          "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+          "sourceAsset": "input-10.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": true,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.96,
+          "selectedOutputValue": 0.04,
+          "selectedFilteredValue": 0.8064516129032259
+        },
+        {
+          "step": 11,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-11.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.62,
+          "selectedOutputValue": 0.62,
+          "selectedFilteredValue": 0.6391752577319588
+        },
+        {
+          "step": 12,
+          "route": "account",
+          "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+          "sourceAsset": "input-12.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": true,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.56,
+          "selectedOutputValue": 0.4,
+          "selectedFilteredValue": 0.9624639076034649
+        }
+      ],
+      "tailABAB": {
+        "present": true,
+        "kind": "four-delivered-input-pattern-not-naturalness-verdict",
+        "steps": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "routes": [
+          "home",
+          "account",
+          "home",
+          "account"
+        ],
+        "imageHashes": [
+          "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+          "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef"
+        ],
+        "policyOverrides": [
+          10,
+          12
+        ],
+        "terminalRoute": "home",
+        "terminalModelDelivered": false
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-2",
+      "actor": "experience-inquiry-outcome",
+      "task": "library",
+      "replicate": 1,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-alignment-2026-11-05\\live\\recovery-library-unchanged-r1-experience-inquiry-outcome\\exploration\\result.json",
+      "goalAttainmentContextOnly": true,
+      "steps": [
+        {
+          "step": 1,
+          "route": "primary",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "sourceAsset": "input-1.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "マイページへ",
+          "selected": "e1",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "find_route",
+            "check": "unknown"
+          },
+          "previousOutcome": null,
+          "modelOutputValue": 1,
+          "selectedOutputValue": 1,
+          "selectedFilteredValue": 1
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-2.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.94,
+          "selectedOutputValue": 0.94,
+          "selectedFilteredValue": 0.94
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+          "sourceAsset": "input-3.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e1",
+          "selectedLabel": "利用情報を確認する",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 0.99
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+          "sourceAsset": "input-4.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.71,
+          "selectedOutputValue": 0.71,
+          "selectedFilteredValue": 0.8255813953488372
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-5.png",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "modelChoice": "e3",
+          "modelLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selected": "e3",
+          "selectedLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.75,
+          "selectedOutputValue": 0.75,
+          "selectedFilteredValue": 0.7575757575757576
+        },
+        {
+          "step": 6,
+          "route": "records",
+          "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+          "sourceAsset": "input-6.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "予約記録を照合する",
+          "selected": "e1",
+          "selectedLabel": "予約記録を照合する",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.78,
+          "selectedOutputValue": 0.78,
+          "selectedFilteredValue": 0.7959183673469388
+        },
+        {
+          "step": 7,
+          "route": "records",
+          "imageSha256": "2df66fed86005dd01d9e6992efe6debfae8955e0ae58a8071e90048926208000",
+          "sourceAsset": "input-7.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "find_route",
+            "check": "unknown"
+          },
+          "previousOutcome": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.97,
+          "selectedOutputValue": 0.97,
+          "selectedFilteredValue": 0.9797979797979798
+        },
+        {
+          "step": 8,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-8.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "予約内容の変更\n「 川沿いの暮らし 」の 受取館 を管理",
+          "selected": "e1",
+          "selectedLabel": "予約内容の変更\n「 川沿いの暮らし 」の 受取館 を管理",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.93,
+          "selectedOutputValue": 0.93,
+          "selectedFilteredValue": 0.9994626544868351
+        },
+        {
+          "step": 9,
+          "route": "primary",
+          "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+          "sourceAsset": "input-9.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "東分館 に変更して保存",
+          "selected": "e1",
+          "selectedLabel": "東分館 に変更して保存",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "unknown"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.9,
+          "selectedOutputValue": 0.9,
+          "selectedFilteredValue": 0.9375000000000001
+        },
+        {
+          "step": 10,
+          "route": "primary",
+          "imageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef",
+          "sourceAsset": "input-10.png",
+          "action": {
+            "type": "done"
+          },
+          "modelChoice": "done",
+          "modelLabel": "done",
+          "selected": "done",
+          "selectedLabel": "done",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "none",
+            "intent": "unknown",
+            "check": "unknown"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.98,
+          "selectedOutputValue": 0.98,
+          "selectedFilteredValue": 1
+        }
+      ],
+      "tailABAB": {
+        "present": false,
+        "kind": "four-delivered-input-pattern-not-naturalness-verdict",
+        "steps": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "routes": [
+          "records",
+          "home",
+          "primary",
+          "primary"
+        ],
+        "imageHashes": [
+          "2df66fed86005dd01d9e6992efe6debfae8955e0ae58a8071e90048926208000",
+          "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+          "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef"
+        ],
+        "policyOverrides": [],
+        "terminalRoute": "primary",
+        "terminalModelDelivered": false
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-3",
+      "actor": "experience-inquiry-outcome",
+      "task": "workshop",
+      "replicate": 1,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-alignment-2026-11-05\\live\\recovery-workshop-unchanged-r1-experience-inquiry-outcome\\exploration\\result.json",
+      "goalAttainmentContextOnly": true,
+      "steps": [
+        {
+          "step": 1,
+          "route": "primary",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "sourceAsset": "input-1.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "マイページへ",
+          "selected": "e1",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "find_route",
+            "check": "unknown"
+          },
+          "previousOutcome": null,
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 1
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-2.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.96,
+          "selectedOutputValue": 0.96,
+          "selectedFilteredValue": 0.96
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+          "sourceAsset": "input-3.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e1",
+          "selectedLabel": "利用情報を確認する",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 0.99
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc",
+          "sourceAsset": "input-4.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "recalled_o1_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.69,
+          "selectedOutputValue": 0.69,
+          "selectedFilteredValue": 0.8961038961038962
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-5.png",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "modelChoice": "e3",
+          "modelLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selected": "e3",
+          "selectedLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.52,
+          "selectedOutputValue": 0.52,
+          "selectedFilteredValue": 0.5251994748005252
+        },
+        {
+          "step": 6,
+          "route": "records",
+          "imageSha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490",
+          "sourceAsset": "input-6.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "予約記録を照合する",
+          "selected": "e1",
+          "selectedLabel": "予約記録を照合する",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "recalled_o1_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.61,
+          "selectedOutputValue": 0.61,
+          "selectedFilteredValue": 0.6288659793814433
+        },
+        {
+          "step": 7,
+          "route": "records",
+          "imageSha256": "19efac5b61d30f4675645d3648c84e5746ac93d87343fe35e70a808fedf1c251",
+          "sourceAsset": "input-7.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "find_route",
+            "check": "unknown"
+          },
+          "previousOutcome": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 0.99
+        },
+        {
+          "step": 8,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-8.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "予約内容の変更\n「 木の小物づくり 」の 希望回 を管理",
+          "selected": "e1",
+          "selectedLabel": "予約内容の変更\n「 木の小物づくり 」の 希望回 を管理",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.92,
+          "selectedOutputValue": 0.92,
+          "selectedFilteredValue": 0.999131190269331
+        },
+        {
+          "step": 9,
+          "route": "primary",
+          "imageSha256": "86a71eb4aa5ba50d4e50b72ac3231f91512c174665693e36e48ddb80401357e3",
+          "sourceAsset": "input-9.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "午後の回 に変更して保存",
+          "selected": "e1",
+          "selectedLabel": "午後の回 に変更して保存",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.86,
+          "selectedOutputValue": 0.86,
+          "selectedFilteredValue": 0.945054945054945
+        },
+        {
+          "step": 10,
+          "route": "primary",
+          "imageSha256": "4d015f6b61ec0fb45a198302260729581e76619cf5ddf6a4702f72a3e5e39539",
+          "sourceAsset": "input-10.png",
+          "action": {
+            "type": "done"
+          },
+          "modelChoice": "done",
+          "modelLabel": "done",
+          "selected": "done",
+          "selectedLabel": "done",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "none",
+            "intent": "unknown",
+            "check": "unknown"
+          },
+          "previousOutcome": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.98,
+          "selectedOutputValue": 0.98,
+          "selectedFilteredValue": 1
+        }
+      ],
+      "tailABAB": {
+        "present": false,
+        "kind": "four-delivered-input-pattern-not-naturalness-verdict",
+        "steps": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "routes": [
+          "records",
+          "home",
+          "primary",
+          "primary"
+        ],
+        "imageHashes": [
+          "19efac5b61d30f4675645d3648c84e5746ac93d87343fe35e70a808fedf1c251",
+          "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "86a71eb4aa5ba50d4e50b72ac3231f91512c174665693e36e48ddb80401357e3",
+          "4d015f6b61ec0fb45a198302260729581e76619cf5ddf6a4702f72a3e5e39539"
+        ],
+        "policyOverrides": [],
+        "terminalRoute": "primary",
+        "terminalModelDelivered": false
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-4",
+      "actor": "experience-inquiry-aligned",
+      "task": "workshop",
+      "replicate": 1,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-alignment-2026-11-05\\live\\recovery-workshop-unchanged-r1-experience-inquiry-aligned\\exploration\\result.json",
+      "goalAttainmentContextOnly": false,
+      "steps": [
+        {
+          "step": 1,
+          "route": "primary",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "sourceAsset": "input-1.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "マイページへ",
+          "selected": "e1",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": null,
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 1
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-2.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.97,
+          "selectedOutputValue": 0.97,
+          "selectedFilteredValue": 0.97
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+          "sourceAsset": "input-3.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e1",
+          "selectedLabel": "利用情報を確認する",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 0.99
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc",
+          "sourceAsset": "input-4.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.71,
+          "selectedOutputValue": 0.71,
+          "selectedFilteredValue": 0.8554216867469879
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-5.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "予約内容の変更\n「 木の小物づくり 」の 希望回 を管理",
+          "selected": "e1",
+          "selectedLabel": "予約内容の変更\n「 木の小物づくり 」の 希望回 を管理",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.7,
+          "selectedOutputValue": 0.7,
+          "selectedFilteredValue": 0.728862973760933
+        },
+        {
+          "step": 6,
+          "route": "primary",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "sourceAsset": "input-6.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "マイページへ",
+          "selected": "e1",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.92,
+          "selectedOutputValue": 0.92,
+          "selectedFilteredValue": 0.9787234042553191
+        },
+        {
+          "step": 7,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-7.png",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e3",
+          "selectedLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selectionChanged": true,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "recalled_o1_c2",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.94,
+          "selectedOutputValue": 0.01,
+          "selectedFilteredValue": 0.5025125628140703
+        },
+        {
+          "step": 8,
+          "route": "records",
+          "imageSha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490",
+          "sourceAsset": "input-8.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "find_route",
+            "check": "new_route_visible"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.87,
+          "selectedOutputValue": 0.87,
+          "selectedFilteredValue": 0.90625
+        },
+        {
+          "step": 9,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-9.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.75,
+          "selectedOutputValue": 0.75,
+          "selectedFilteredValue": 0.7575757575757576
+        },
+        {
+          "step": 10,
+          "route": "account",
+          "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+          "sourceAsset": "input-10.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.65,
+          "selectedOutputValue": 0.65,
+          "selectedFilteredValue": 0.9802443070426783
+        },
+        {
+          "step": 11,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-11.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.5,
+          "selectedOutputValue": 0.5,
+          "selectedFilteredValue": 0.5102040816326531
+        },
+        {
+          "step": 12,
+          "route": "account",
+          "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+          "sourceAsset": "input-12.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.89,
+          "selectedOutputValue": 0.89,
+          "selectedFilteredValue": 0.898989898989899
+        }
+      ],
+      "tailABAB": {
+        "present": true,
+        "kind": "four-delivered-input-pattern-not-naturalness-verdict",
+        "steps": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "routes": [
+          "home",
+          "account",
+          "home",
+          "account"
+        ],
+        "imageHashes": [
+          "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+          "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+        ],
+        "policyOverrides": [],
+        "terminalRoute": "home",
+        "terminalModelDelivered": false
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-5",
+      "actor": "experience-inquiry-outcome",
+      "task": "library",
+      "replicate": 2,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-alignment-2026-11-05\\live\\recovery-library-unchanged-r2-experience-inquiry-outcome\\exploration\\result.json",
+      "goalAttainmentContextOnly": true,
+      "steps": [
+        {
+          "step": 1,
+          "route": "primary",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "sourceAsset": "input-1.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "マイページへ",
+          "selected": "e1",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "find_route",
+            "check": "unknown"
+          },
+          "previousOutcome": null,
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 1
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-2.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "unknown"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.92,
+          "selectedOutputValue": 0.92,
+          "selectedFilteredValue": 0.92
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+          "sourceAsset": "input-3.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e1",
+          "selectedLabel": "利用情報を確認する",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 0.99
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+          "sourceAsset": "input-4.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.76,
+          "selectedOutputValue": 0.76,
+          "selectedFilteredValue": 0.8539325842696629
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-5.png",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "modelChoice": "e3",
+          "modelLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selected": "e3",
+          "selectedLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.48,
+          "selectedOutputValue": 0.48,
+          "selectedFilteredValue": 0.5157962604771116
+        },
+        {
+          "step": 6,
+          "route": "records",
+          "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+          "sourceAsset": "input-6.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "予約記録を照合する",
+          "selected": "e1",
+          "selectedLabel": "予約記録を照合する",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.82,
+          "selectedOutputValue": 0.82,
+          "selectedFilteredValue": 0.8541666666666666
+        },
+        {
+          "step": 7,
+          "route": "records",
+          "imageSha256": "2df66fed86005dd01d9e6992efe6debfae8955e0ae58a8071e90048926208000",
+          "sourceAsset": "input-7.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "find_route",
+            "check": "unknown"
+          },
+          "previousOutcome": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.98,
+          "selectedOutputValue": 0.98,
+          "selectedFilteredValue": 0.98989898989899
+        },
+        {
+          "step": 8,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-8.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "予約内容の変更\n「 川沿いの暮らし 」の 受取館 を管理",
+          "selected": "e1",
+          "selectedLabel": "予約内容の変更\n「 川沿いの暮らし 」の 受取館 を管理",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.96,
+          "selectedOutputValue": 0.96,
+          "selectedFilteredValue": 0.999687597625742
+        },
+        {
+          "step": 9,
+          "route": "primary",
+          "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+          "sourceAsset": "input-9.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "東分館 に変更して保存",
+          "selected": "e1",
+          "selectedLabel": "東分館 に変更して保存",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.81,
+          "selectedOutputValue": 0.81,
+          "selectedFilteredValue": 0.9
+        },
+        {
+          "step": 10,
+          "route": "primary",
+          "imageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef",
+          "sourceAsset": "input-10.png",
+          "action": {
+            "type": "done"
+          },
+          "modelChoice": "done",
+          "modelLabel": "done",
+          "selected": "done",
+          "selectedLabel": "done",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "none",
+            "intent": "unknown",
+            "check": "unknown"
+          },
+          "previousOutcome": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 1
+        }
+      ],
+      "tailABAB": {
+        "present": false,
+        "kind": "four-delivered-input-pattern-not-naturalness-verdict",
+        "steps": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "routes": [
+          "records",
+          "home",
+          "primary",
+          "primary"
+        ],
+        "imageHashes": [
+          "2df66fed86005dd01d9e6992efe6debfae8955e0ae58a8071e90048926208000",
+          "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+          "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef"
+        ],
+        "policyOverrides": [],
+        "terminalRoute": "primary",
+        "terminalModelDelivered": false
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-6",
+      "actor": "experience-inquiry-aligned",
+      "task": "library",
+      "replicate": 2,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-alignment-2026-11-05\\live\\recovery-library-unchanged-r2-experience-inquiry-aligned\\exploration\\result.json",
+      "goalAttainmentContextOnly": true,
+      "steps": [
+        {
+          "step": 1,
+          "route": "primary",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+          "sourceAsset": "input-1.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "マイページへ",
+          "selected": "e1",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "find_route",
+            "check": "new_route_visible"
+          },
+          "previousOutcome": null,
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 1
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-2.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "route_found",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.96,
+          "selectedOutputValue": 0.96,
+          "selectedFilteredValue": 0.96
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+          "sourceAsset": "input-3.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e1",
+          "selectedLabel": "利用情報を確認する",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 1,
+          "selectedOutputValue": 1,
+          "selectedFilteredValue": 1
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "imageSha256": "750371578c5b1b48c861840ade7d706b50139f00fb9a2f6007f9a303f2615ddf",
+          "sourceAsset": "input-4.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.84,
+          "selectedOutputValue": 0.84,
+          "selectedFilteredValue": 0.9655172413793103
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-5.png",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "modelChoice": "e3",
+          "modelLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selected": "e3",
+          "selectedLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.74,
+          "selectedOutputValue": 0.74,
+          "selectedFilteredValue": 0.7549479698020812
+        },
+        {
+          "step": 6,
+          "route": "records",
+          "imageSha256": "3774c92244070cd3a28767fa107ef8b666f3a40430254a91f9f0deeb0edef4b3",
+          "sourceAsset": "input-6.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "予約記録を照合する",
+          "selected": "e1",
+          "selectedLabel": "予約記録を照合する",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.84,
+          "selectedOutputValue": 0.84,
+          "selectedFilteredValue": 0.865979381443299
+        },
+        {
+          "step": 7,
+          "route": "records",
+          "imageSha256": "2df66fed86005dd01d9e6992efe6debfae8955e0ae58a8071e90048926208000",
+          "sourceAsset": "input-7.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "find_route",
+            "check": "new_route_visible"
+          },
+          "previousOutcome": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.94,
+          "selectedOutputValue": 0.94,
+          "selectedFilteredValue": 0.9791666666666666
+        },
+        {
+          "step": 8,
+          "route": "home",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "sourceAsset": "input-8.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "予約内容の変更\n「 川沿いの暮らし 」の 受取館 を管理",
+          "selected": "e1",
+          "selectedLabel": "予約内容の変更\n「 川沿いの暮らし 」の 受取館 を管理",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.9,
+          "selectedOutputValue": 0.9,
+          "selectedFilteredValue": 0.9988901220865705
+        },
+        {
+          "step": 9,
+          "route": "primary",
+          "imageSha256": "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+          "sourceAsset": "input-9.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "東分館 に変更して保存",
+          "selected": "e1",
+          "selectedLabel": "東分館 に変更して保存",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.78,
+          "selectedOutputValue": 0.78,
+          "selectedFilteredValue": 0.8666666666666667
+        },
+        {
+          "step": 10,
+          "route": "primary",
+          "imageSha256": "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef",
+          "sourceAsset": "input-10.png",
+          "action": {
+            "type": "done"
+          },
+          "modelChoice": "done",
+          "modelLabel": "done",
+          "selected": "done",
+          "selectedLabel": "done",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "recalled_o1_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_satisfied",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 1
+        }
+      ],
+      "tailABAB": {
+        "present": false,
+        "kind": "four-delivered-input-pattern-not-naturalness-verdict",
+        "steps": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "routes": [
+          "records",
+          "home",
+          "primary",
+          "primary"
+        ],
+        "imageHashes": [
+          "2df66fed86005dd01d9e6992efe6debfae8955e0ae58a8071e90048926208000",
+          "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "73215faaf7b349f19012ed47257ca9a822777688c16741e73bcc7a7a416998f7",
+          "2ba6585ca8f2cd25545768683db0cba630e288975b15365e4f33aeae1814cdef"
+        ],
+        "policyOverrides": [],
+        "terminalRoute": "primary",
+        "terminalModelDelivered": false
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-7",
+      "actor": "experience-inquiry-aligned",
+      "task": "workshop",
+      "replicate": 2,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-alignment-2026-11-05\\live\\recovery-workshop-unchanged-r2-experience-inquiry-aligned\\exploration\\result.json",
+      "goalAttainmentContextOnly": false,
+      "steps": [
+        {
+          "step": 1,
+          "route": "primary",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "sourceAsset": "input-1.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "マイページへ",
+          "selected": "e1",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": null,
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 1
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-2.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.98,
+          "selectedOutputValue": 0.98,
+          "selectedFilteredValue": 0.98
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+          "sourceAsset": "input-3.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e1",
+          "selectedLabel": "利用情報を確認する",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 1,
+          "selectedOutputValue": 1,
+          "selectedFilteredValue": 1
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc",
+          "sourceAsset": "input-4.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.64,
+          "selectedOutputValue": 0.64,
+          "selectedFilteredValue": 0.7529411764705882
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-5.png",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "modelChoice": "e3",
+          "modelLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selected": "e3",
+          "selectedLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.55,
+          "selectedOutputValue": 0.55,
+          "selectedFilteredValue": 0.5554994445005556
+        },
+        {
+          "step": 6,
+          "route": "records",
+          "imageSha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490",
+          "sourceAsset": "input-6.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.51,
+          "selectedOutputValue": 0.51,
+          "selectedFilteredValue": 0.5204081632653061
+        },
+        {
+          "step": 7,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-7.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "予約内容の変更\n「 木の小物づくり 」の 希望回 を管理",
+          "selected": "e1",
+          "selectedLabel": "予約内容の変更\n「 木の小物づくり 」の 希望回 を管理",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.96,
+          "selectedOutputValue": 0.96,
+          "selectedFilteredValue": 0.9995835068721367
+        },
+        {
+          "step": 8,
+          "route": "primary",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "sourceAsset": "input-8.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "マイページへ",
+          "selected": "e1",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "change_condition",
+            "check": "condition_changed"
+          },
+          "previousOutcome": {
+            "result": "condition_unmet",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.92,
+          "selectedOutputValue": 0.92,
+          "selectedFilteredValue": 0.9583333333333333
+        },
+        {
+          "step": 9,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-9.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.87,
+          "selectedOutputValue": 0.87,
+          "selectedFilteredValue": 0.8877551020408163
+        },
+        {
+          "step": 10,
+          "route": "account",
+          "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+          "sourceAsset": "input-10.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": true,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.98,
+          "selectedOutputValue": 0.01,
+          "selectedFilteredValue": 0.5050505050505051
+        },
+        {
+          "step": 11,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-11.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "recalled_o1_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.84,
+          "selectedOutputValue": 0.84,
+          "selectedFilteredValue": 0.8484848484848485
+        },
+        {
+          "step": 12,
+          "route": "account",
+          "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+          "sourceAsset": "input-12.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": true,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "condition_uncertain",
+            "basis": "current_image"
+          },
+          "modelOutputValue": 0.94,
+          "selectedOutputValue": 0.05,
+          "selectedFilteredValue": 0.8417508417508418
+        }
+      ],
+      "tailABAB": {
+        "present": true,
+        "kind": "four-delivered-input-pattern-not-naturalness-verdict",
+        "steps": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "routes": [
+          "home",
+          "account",
+          "home",
+          "account"
+        ],
+        "imageHashes": [
+          "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+          "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+        ],
+        "policyOverrides": [
+          10,
+          12
+        ],
+        "terminalRoute": "home",
+        "terminalModelDelivered": false
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-8",
+      "actor": "experience-inquiry-outcome",
+      "task": "workshop",
+      "replicate": 2,
+      "resultFile": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\inquiry-alignment-2026-11-05\\live\\recovery-workshop-unchanged-r2-experience-inquiry-outcome\\exploration\\result.json",
+      "goalAttainmentContextOnly": false,
+      "steps": [
+        {
+          "step": 1,
+          "route": "primary",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "sourceAsset": "input-1.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "マイページへ",
+          "selected": "e1",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": null,
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 1
+        },
+        {
+          "step": 2,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-2.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.68,
+          "selectedOutputValue": 0.68,
+          "selectedFilteredValue": 0.68
+        },
+        {
+          "step": 3,
+          "route": "account",
+          "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+          "sourceAsset": "input-3.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e1",
+          "selectedLabel": "利用情報を確認する",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.99,
+          "selectedFilteredValue": 0.99
+        },
+        {
+          "step": 4,
+          "route": "account",
+          "imageSha256": "a492eea1c79c6ee77e76d8c9db8d96575ae7e96965ea27768ef079e4ec802bfc",
+          "sourceAsset": "input-4.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.85,
+          "selectedOutputValue": 0.85,
+          "selectedFilteredValue": 0.913978494623656
+        },
+        {
+          "step": 5,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-5.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "予約内容の変更\n「 木の小物づくり 」の 希望回 を管理",
+          "selected": "e1",
+          "selectedLabel": "予約内容の変更\n「 木の小物づくり 」の 希望回 を管理",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.54,
+          "selectedOutputValue": 0.54,
+          "selectedFilteredValue": 0.54
+        },
+        {
+          "step": 6,
+          "route": "primary",
+          "imageSha256": "38dae8a048288bb39aa0d84215162bf5eb0eac7bbc3e48345d2a2822f45a7396",
+          "sourceAsset": "input-6.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "マイページへ",
+          "selected": "e1",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.93,
+          "selectedOutputValue": 0.93,
+          "selectedFilteredValue": 0.96875
+        },
+        {
+          "step": 7,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-7.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.89,
+          "selectedOutputValue": 0.89,
+          "selectedFilteredValue": 0.9666558053654827
+        },
+        {
+          "step": 8,
+          "route": "account",
+          "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+          "sourceAsset": "input-8.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": true,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c2",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.99,
+          "selectedOutputValue": 0.01,
+          "selectedFilteredValue": 0.5025125628140703
+        },
+        {
+          "step": 9,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-9.png",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e3",
+          "selectedLabel": "予約記録\n予約情報の照合と記録の確認",
+          "selectionChanged": true,
+          "deferralReason": "DEFER_WITH_ALTERNATIVES",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.74,
+          "selectedOutputValue": 0.08,
+          "selectedFilteredValue": 0.8968609865470852
+        },
+        {
+          "step": 10,
+          "route": "records",
+          "imageSha256": "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490",
+          "sourceAsset": "input-10.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "マイページへ",
+          "selected": "e2",
+          "selectedLabel": "マイページへ",
+          "selectionChanged": false,
+          "deferralReason": "NO_DEFERRED_CANDIDATE",
+          "working": {
+            "conditionKey": "current_c3",
+            "intent": "find_route",
+            "check": "unknown"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.91,
+          "selectedOutputValue": 0.91,
+          "selectedFilteredValue": 0.9578947368421052
+        },
+        {
+          "step": 11,
+          "route": "home",
+          "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "sourceAsset": "input-11.png",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "modelChoice": "e2",
+          "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selected": "e2",
+          "selectedLabel": "利用情報の確認\n登録情報と利用状況の確認",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "find_route",
+            "check": "unknown"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.86,
+          "selectedOutputValue": 0.86,
+          "selectedFilteredValue": 0.8686868686868687
+        },
+        {
+          "step": 12,
+          "route": "account",
+          "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+          "sourceAsset": "input-12.png",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "modelChoice": "e1",
+          "modelLabel": "利用情報を確認する",
+          "selected": "e1",
+          "selectedLabel": "利用情報を確認する",
+          "selectionChanged": false,
+          "deferralReason": "ALTERNATIVES_EXHAUSTED",
+          "working": {
+            "conditionKey": "current_c1",
+            "intent": "test_condition",
+            "check": "condition_status_known"
+          },
+          "previousOutcome": {
+            "result": "unknown",
+            "basis": "none"
+          },
+          "modelOutputValue": 0.9,
+          "selectedOutputValue": 0.9,
+          "selectedFilteredValue": 0.9090909090909092
+        }
+      ],
+      "tailABAB": {
+        "present": false,
+        "kind": "four-delivered-input-pattern-not-naturalness-verdict",
+        "steps": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "routes": [
+          "home",
+          "records",
+          "home",
+          "account"
+        ],
+        "imageHashes": [
+          "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "6764f37db641e8fc1af13a79d78b343391f31c23e1fb6b1d7c0d20e723522490",
+          "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+          "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2"
+        ],
+        "policyOverrides": [
+          9
+        ],
+        "terminalRoute": "account",
+        "terminalModelDelivered": false
+      }
+    }
+  ],
+  "overrides": [
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-1",
+      "actor": "experience-inquiry-aligned",
+      "task": "library",
+      "replicate": 1,
+      "step": 10,
+      "route": "account",
+      "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+      "sourceAsset": "input-10.png",
+      "action": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "modelChoice": "e1",
+      "modelLabel": "利用情報を確認する",
+      "selected": "e2",
+      "selectedLabel": "マイページへ",
+      "selectionChanged": true,
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.96,
+        "e2": 0.04,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.1935483870967742,
+        "e2": 0.8064516129032259,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "weights": {
+        "abandon": 1,
+        "back": 1,
+        "done": 1,
+        "e1": 0.01,
+        "e2": 1,
+        "look_0": 1,
+        "look_1": 1,
+        "look_2": 1,
+        "look_3": 1,
+        "reread": 1,
+        "stuck": 1,
+        "wait": 1
+      },
+      "deferralReason": "DEFER_WITH_ALTERNATIVES",
+      "working": {
+        "conditionKey": "current_c1",
+        "intent": "change_condition",
+        "check": "condition_changed"
+      },
+      "previousOutcome": {
+        "result": "condition_uncertain",
+        "basis": "current_image"
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-1",
+      "actor": "experience-inquiry-aligned",
+      "task": "library",
+      "replicate": 1,
+      "step": 12,
+      "route": "account",
+      "imageSha256": "6d04d9f6c35f38da747bf95c8c64852aa839167bf8ad94bcb7b1c317a2d7c6ef",
+      "sourceAsset": "input-12.png",
+      "action": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "modelChoice": "e1",
+      "modelLabel": "利用情報を確認する",
+      "selected": "e2",
+      "selectedLabel": "マイページへ",
+      "selectionChanged": true,
+      "raw": {
+        "abandon": 0.01,
+        "back": 0.01,
+        "done": 0,
+        "e1": 0.56,
+        "e2": 0.4,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0.02,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0.02406159769008662,
+        "done": 0,
+        "e1": 0.013474494706448509,
+        "e2": 0.9624639076034649,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "weights": {
+        "abandon": 1,
+        "back": 1,
+        "done": 1,
+        "e1": 0.01,
+        "e2": 1,
+        "look_0": 1,
+        "look_1": 1,
+        "look_2": 1,
+        "look_3": 1,
+        "reread": 1,
+        "stuck": 1,
+        "wait": 1
+      },
+      "deferralReason": "DEFER_WITH_ALTERNATIVES",
+      "working": {
+        "conditionKey": "current_c1",
+        "intent": "change_condition",
+        "check": "condition_changed"
+      },
+      "previousOutcome": {
+        "result": "condition_uncertain",
+        "basis": "current_image"
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-4",
+      "actor": "experience-inquiry-aligned",
+      "task": "workshop",
+      "replicate": 1,
+      "step": 7,
+      "route": "home",
+      "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+      "sourceAsset": "input-7.png",
+      "action": {
+        "type": "click",
+        "elementId": "e3"
+      },
+      "modelChoice": "e2",
+      "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+      "selected": "e3",
+      "selectedLabel": "予約記録\n予約情報の照合と記録の確認",
+      "selectionChanged": true,
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.05,
+        "e2": 0.94,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.025125628140703515,
+        "e2": 0.4723618090452261,
+        "e3": 0.5025125628140703,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "weights": {
+        "abandon": 1,
+        "back": 1,
+        "done": 1,
+        "e1": 0.01,
+        "e2": 0.01,
+        "e3": 1,
+        "look_0": 1,
+        "look_1": 1,
+        "look_2": 1,
+        "look_3": 1,
+        "reread": 1,
+        "stuck": 1,
+        "wait": 1
+      },
+      "deferralReason": "DEFER_WITH_ALTERNATIVES",
+      "working": {
+        "conditionKey": "recalled_o1_c2",
+        "intent": "change_condition",
+        "check": "condition_changed"
+      },
+      "previousOutcome": {
+        "result": "condition_uncertain",
+        "basis": "current_image"
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-7",
+      "actor": "experience-inquiry-aligned",
+      "task": "workshop",
+      "replicate": 2,
+      "step": 10,
+      "route": "account",
+      "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+      "sourceAsset": "input-10.png",
+      "action": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "modelChoice": "e1",
+      "modelLabel": "利用情報を確認する",
+      "selected": "e2",
+      "selectedLabel": "マイページへ",
+      "selectionChanged": true,
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0.01,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.494949494949495,
+        "e2": 0.5050505050505051,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "weights": {
+        "abandon": 1,
+        "back": 1,
+        "done": 1,
+        "e1": 0.01,
+        "e2": 1,
+        "look_0": 1,
+        "look_1": 1,
+        "look_2": 1,
+        "look_3": 1,
+        "reread": 1,
+        "stuck": 1,
+        "wait": 1
+      },
+      "deferralReason": "DEFER_WITH_ALTERNATIVES",
+      "working": {
+        "conditionKey": "current_c3",
+        "intent": "test_condition",
+        "check": "condition_status_known"
+      },
+      "previousOutcome": {
+        "result": "condition_uncertain",
+        "basis": "current_image"
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-7",
+      "actor": "experience-inquiry-aligned",
+      "task": "workshop",
+      "replicate": 2,
+      "step": 12,
+      "route": "account",
+      "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+      "sourceAsset": "input-12.png",
+      "action": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "modelChoice": "e1",
+      "modelLabel": "利用情報を確認する",
+      "selected": "e2",
+      "selectedLabel": "マイページへ",
+      "selectionChanged": true,
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.94,
+        "e2": 0.05,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0.01,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.15824915824915825,
+        "e2": 0.8417508417508418,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "weights": {
+        "abandon": 1,
+        "back": 1,
+        "done": 1,
+        "e1": 0.01,
+        "e2": 1,
+        "look_0": 1,
+        "look_1": 1,
+        "look_2": 1,
+        "look_3": 1,
+        "reread": 1,
+        "stuck": 1,
+        "wait": 1
+      },
+      "deferralReason": "DEFER_WITH_ALTERNATIVES",
+      "working": {
+        "conditionKey": "current_c3",
+        "intent": "test_condition",
+        "check": "condition_status_known"
+      },
+      "previousOutcome": {
+        "result": "condition_uncertain",
+        "basis": "current_image"
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-8",
+      "actor": "experience-inquiry-outcome",
+      "task": "workshop",
+      "replicate": 2,
+      "step": 8,
+      "route": "account",
+      "imageSha256": "5f3d2f923fa104bb519a6c8afb88527153f3fb8a34a1499786a729900f980de2",
+      "sourceAsset": "input-8.png",
+      "action": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "modelChoice": "e1",
+      "modelLabel": "利用情報を確認する",
+      "selected": "e2",
+      "selectedLabel": "マイページへ",
+      "selectionChanged": true,
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.49748743718592964,
+        "e2": 0.5025125628140703,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "weights": {
+        "abandon": 1,
+        "back": 1,
+        "done": 1,
+        "e1": 0.01,
+        "e2": 1,
+        "look_0": 1,
+        "look_1": 1,
+        "look_2": 1,
+        "look_3": 1,
+        "reread": 1,
+        "stuck": 1,
+        "wait": 1
+      },
+      "deferralReason": "DEFER_WITH_ALTERNATIVES",
+      "working": {
+        "conditionKey": "current_c2",
+        "intent": "test_condition",
+        "check": "condition_status_known"
+      },
+      "previousOutcome": {
+        "result": "unknown",
+        "basis": "none"
+      }
+    },
+    {
+      "runId": "46b155a0-d952-4a2e-ba18-7cc8dc04fd5f-8",
+      "actor": "experience-inquiry-outcome",
+      "task": "workshop",
+      "replicate": 2,
+      "step": 9,
+      "route": "home",
+      "imageSha256": "a2e9326f686d2d95375bd242afc8c5fb32b03e1a84ac7a63cbd4e6bea9f36e2f",
+      "sourceAsset": "input-9.png",
+      "action": {
+        "type": "click",
+        "elementId": "e3"
+      },
+      "modelChoice": "e2",
+      "modelLabel": "利用情報の確認\n登録情報と利用状況の確認",
+      "selected": "e3",
+      "selectedLabel": "予約記録\n予約情報の照合と記録の確認",
+      "selectionChanged": true,
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.18,
+        "e2": 0.74,
+        "e3": 0.08,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.020179372197309416,
+        "e2": 0.08295964125560538,
+        "e3": 0.8968609865470852,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "weights": {
+        "abandon": 1,
+        "back": 1,
+        "done": 1,
+        "e1": 0.01,
+        "e2": 0.01,
+        "e3": 1,
+        "look_0": 1,
+        "look_1": 1,
+        "look_2": 1,
+        "look_3": 1,
+        "reread": 1,
+        "stuck": 1,
+        "wait": 1
+      },
+      "deferralReason": "DEFER_WITH_ALTERNATIVES",
+      "working": {
+        "conditionKey": "current_c1",
+        "intent": "test_condition",
+        "check": "condition_status_known"
+      },
+      "previousOutcome": {
+        "result": "unknown",
+        "basis": "none"
+      }
+    }
+  ],
+  "limitations": [
+    "No participant comparison or persona-specific plausibility validation.",
+    "The observational criteria were defined after viewing the earlier experimental results.",
+    "A local raw-choice counterfactual cannot establish an alternative full trajectory.",
+    "Audit labels/counters are used offline and are not additional actor inputs.",
+    "No movement is labeled wrong merely for not choosing the goal-achieving path."
+  ],
+  "independentReview": {
+    "file": "inquiry-movement-review-independent.txt",
+    "sha256": "2cf5584bc20d975a41c6cc16fc94e804920c1d17f5c8fcb66b926992cbdac7e6",
+    "privateMachineEvidence": "reports/inquiry-movement-review-2026-11-05/independent/movement-evidence.json",
+    "privateMachineSha256": "6b389c6da774ca2b1022a2df92f8d139dce899a42f38a829b41e30bb1a88e115",
+    "checks": {
+      "runs": 8,
+      "decisions": 88,
+      "imageShaMatches": true,
+      "overrides": 7,
+      "alignedOverrides": 5,
+      "legacyOverrides": 2,
+      "priorOutcomeDeliveryChecks": 72,
+      "allPreviousOutcomesReachNextAssessmentAndCurrentActionMemory": true
+    },
+    "semantics": {
+      "images": "Attached input PNG is primary perceptual evidence. Only six were visually inspected; all 88 current file hashes were checked. Equal input PNG hashes establish equal delivered pixels, not equal hidden state or actor cognition.",
+      "audit": "DOM text/hidden fixture state are reviewer evidence only; not treated as actor knowledge.",
+      "model": "Native extraction, quoted text, assessments and working conditions are fallible model output. ModelChoice is distinct from final selected action after shared weights.",
+      "memory": "Actual modelInput and imageAssets inspected; image memory capacity 3 is not the only memory channel."
+    }
+  },
+  "assessment": {
+    "humanNaturalness": "UNVALIDATED",
+    "goalRanking": "Goal attainment does not rank behavior naturalness; previous adoption rationale based on 3/4 versus1/4 is withdrawn.",
+    "selectionOverrides": "Seven observed changes, not seven automatic behavioral defects.",
+    "loopInterpretation": "Four account exits are policy-induced; one alternating tail is model-origin. Full unweighted trajectories are not inferred.",
+    "revisits": "Revisiting after alternative routes disappoint is a plausible hypothesis, not a defect by itself.",
+    "memory": "72 prior outcome carry opportunities verified. Receipt pixels can be absent while semantic/event recollections remain; forgetting is not established."
+  }
+}

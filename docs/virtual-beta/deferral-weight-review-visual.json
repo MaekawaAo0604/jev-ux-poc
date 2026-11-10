@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "review": "Actual current/next actor PNGs inspected through view_image; all 10 declared references checked, with one repeated viewing of the fifth current image.",
+  "caseCount": 5,
+  "pngReferences": 10,
+  "uniqueImageHashes": 5,
+  "cases": [
+    {
+      "id": "08d3c81d-deed-43d2-95a5-850e01e2db2d-2:1",
+      "observed": "Blocked reservation page explicitly directs use of My Page; e1 is that visible link. The next actor image is My Page with reservation, account-information and record cards.",
+      "interpretation": "The model/baseline/final e1 navigation follows available visible guidance. No policy substitution occurs in this case."
+    },
+    {
+      "id": "08d3c81d-deed-43d2-95a5-850e01e2db2d-3:10",
+      "observed": "The current account-information image offers e1 utilization-information confirmation and e2 My Page. The next actor image is My Page.",
+      "interpretation": "Saved raw model choice and mandatory-filter baseline are e1 at .99, but the .01 deferral multiplier changes final argmax to e2. This local substitution is directly verified; information/reason history was retained.",
+      "matchedOFFContext": {
+        "sameCurrentPNG": true,
+        "sameExecutedActionsAtSteps1to9": true,
+        "offModelE1Probability": 0.98,
+        "offSelected": "e1",
+        "logicalModelInputEqual": false,
+        "questionsEqual": false
+      },
+      "causalLimit": "Same pixels and action prefix do not equate cognitive/model inputs. This supports a local saved-distribution effect, not a whole-trajectory or human counterfactual."
+    },
+    {
+      "id": "64172b77-63c3-4dd4-88c1-fdf5d76ae4a4-1:6",
+      "observed": "The library reservation page still displays the utilization-information requirement, followed by My Page after e1. Prior examination passed through home and account surfaces, including a confirmation response.",
+      "interpretation": "A return to check whether the blocked operation changed is consistent with unsuccessful exploration. Repetition alone does not establish forgetting or abnormality; three intervening distinct images are recorded."
+    },
+    {
+      "id": "08d3c81d-deed-43d2-95a5-850e01e2db2d-4:8",
+      "observed": "The workshop reservation page still displays the utilization-information requirement, followed by My Page after e1. Recorded intervening exploration includes account information and reservation records.",
+      "interpretation": "This is an OFF model-origin revisit after four distinct intervening images, with no deferral substitution. Its lack of task success is not a naturalness judgment."
+    },
+    {
+      "id": "08d3c81d-deed-43d2-95a5-850e01e2db2d-8:9",
+      "observed": "My Page offers the utilization-information card, and the next image is the account-information page. The verified four-frame sequence at steps9–12 alternates My Page/account/My Page/account.",
+      "interpretation": "At steps10 and12 the model/baseline propose the account confirmation e1 while weighting chooses the My Page exit e2. Steps9 and11 retain model e2 navigation back into the account page. Thus the observed alternation includes local policy involvement; its final post-step12 state is not appended as a delivered frame."
+    }
+  ],
+  "counts": {
+    "experience-inquiry-policy-on": {
+      "selections": 44,
+      "proposedNonunitSteps": 10,
+      "appliedNonunitSteps": 10,
+      "localDeferralChanges": 3,
+      "runs": 4,
+      "withResult": 4,
+      "steps": 44,
+      "recordedInputs": 44,
+      "verifiedDeliveredInputs": 44,
+      "deliveryUnverifiedInputs": 0,
+      "unobservedFrames": 0,
+      "observedUIActions": 42,
+      "selectionRecords": 44,
+      "baselineMeasured": 44,
+      "applicationMeasured": 44,
+      "deferralChanges": 3,
+      "deferralAttributionUnmeasured": 0,
+      "modelChoiceDifferences": 3,
+      "baselineDifferences": 3,
+      "mandatoryAdjustmentSteps": 0,
+      "verifiedABAB": 1,
+      "recordedABAB": 0,
+      "sameFrameControlRetries": 8,
+      "immediateSameFrameRetries": 0,
+      "integrityErrors": 0
+    },
+    "experience-inquiry-policy-off": {
+      "selections": 35,
+      "proposedNonunitSteps": 11,
+      "appliedNonunitSteps": 0,
+      "localDeferralChanges": 0,
+      "runs": 4,
+      "withResult": 4,
+      "steps": 37,
+      "recordedInputs": 37,
+      "verifiedDeliveredInputs": 35,
+      "deliveryUnverifiedInputs": 2,
+      "unobservedFrames": 0,
+      "observedUIActions": 35,
+      "selectionRecords": 35,
+      "baselineMeasured": 35,
+      "applicationMeasured": 35,
+      "deferralChanges": 0,
+      "deferralAttributionUnmeasured": 0,
+      "modelChoiceDifferences": 0,
+      "baselineDifferences": 0,
+      "mandatoryAdjustmentSteps": 0,
+      "verifiedABAB": 0,
+      "recordedABAB": 0,
+      "sameFrameControlRetries": 13,
+      "immediateSameFrameRetries": 0,
+      "integrityErrors": 0
+    }
+  },
+  "classification": "Observations, local sampler effects and uncertainty only; no human naturalness scores or success ranking."
+}

@@ -1,0 +1,104 @@
+{
+  "differences": [
+    {
+      "run": "foveated-m0-seed-4001",
+      "step": 3,
+      "maxDelta": 1.1102230246251565e-16,
+      "adjustments": [],
+      "modelProposal": "back",
+      "selected": "back"
+    },
+    {
+      "run": "foveated-m0-seed-4001",
+      "step": 7,
+      "maxDelta": 1.1102230246251565e-16,
+      "adjustments": [],
+      "modelProposal": "back",
+      "selected": "back"
+    },
+    {
+      "run": "crop-m3-seed-4001",
+      "step": 3,
+      "maxDelta": 5.551115123125783e-17,
+      "adjustments": [],
+      "modelProposal": "back",
+      "selected": "back"
+    },
+    {
+      "run": "crop-m3-seed-4002",
+      "step": 3,
+      "maxDelta": 5.551115123125783e-17,
+      "adjustments": [],
+      "modelProposal": "back",
+      "selected": "back"
+    },
+    {
+      "run": "foveated-m3-seed-4002",
+      "step": 5,
+      "maxDelta": 1.1102230246251565e-16,
+      "adjustments": [],
+      "modelProposal": "back",
+      "selected": "back"
+    },
+    {
+      "run": "foveated-m3-seed-4002",
+      "step": 7,
+      "maxDelta": 1.1102230246251565e-16,
+      "adjustments": [],
+      "modelProposal": "back",
+      "selected": "back"
+    },
+    {
+      "run": "foveated-m0-seed-4002",
+      "step": 3,
+      "maxDelta": 1.1102230246251565e-16,
+      "adjustments": [],
+      "modelProposal": "back",
+      "selected": "back"
+    },
+    {
+      "run": "foveated-m0-seed-4002",
+      "step": 7,
+      "maxDelta": 1.1102230246251565e-16,
+      "adjustments": [],
+      "modelProposal": "back",
+      "selected": "back"
+    },
+    {
+      "run": "foveated-m0-seed-4003",
+      "step": 3,
+      "maxDelta": 1.1102230246251565e-16,
+      "adjustments": [],
+      "modelProposal": "back",
+      "selected": "back"
+    },
+    {
+      "run": "foveated-m3-seed-4003",
+      "step": 5,
+      "maxDelta": 1.1102230246251565e-16,
+      "adjustments": [],
+      "modelProposal": "back",
+      "selected": "back"
+    },
+    {
+      "run": "foveated-m3-seed-4003",
+      "step": 7,
+      "maxDelta": 1.1102230246251565e-16,
+      "adjustments": [],
+      "modelProposal": "back",
+      "selected": "back"
+    },
+    {
+      "run": "crop-m3-seed-4003",
+      "step": 3,
+      "maxDelta": 1.6653345369377348e-16,
+      "adjustments": [],
+      "modelProposal": "back",
+      "selected": "back"
+    }
+  ],
+  "interpretation": "Numerical normalized/filtered difference is not a candidate removal or choice replacement.",
+  "allChoices": 102,
+  "proposalSelectedDifferences": 0,
+  "adjustedDecisions": 0
+}

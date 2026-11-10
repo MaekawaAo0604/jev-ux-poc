@@ -1,0 +1,526 @@
+{
+  "schemaVersion": 1,
+  "status": "INDEPENDENT_COMPLETED_COMPARISON_AUDIT",
+  "verdict": {
+    "pipelineIntegrity": "PASS",
+    "modelSemanticAcceptance": "UNRESOLVED_RUBRIC_CONFLICTS",
+    "behavioralSuperiority": "NOT_ESTABLISHED",
+    "humanFidelity": "UNVERIFIED"
+  },
+  "source": {
+    "producer": {
+      "revision": "6cb8c277e410556435006fc57a2f8a451e06ebc5",
+      "sourceHash": "1b8c483b2b89c4f9fea113d2529d902ace425ec1a2a75e207109affa81b084c9"
+    },
+    "currentBefore": {
+      "revision": "6cb8c277e410556435006fc57a2f8a451e06ebc5",
+      "sourceHash": "1b8c483b2b89c4f9fea113d2529d902ace425ec1a2a75e207109affa81b084c9"
+    },
+    "currentAfter": {
+      "revision": "6cb8c277e410556435006fc57a2f8a451e06ebc5",
+      "sourceHash": "1b8c483b2b89c4f9fea113d2529d902ace425ec1a2a75e207109affa81b084c9"
+    },
+    "fullProductFiles": 122,
+    "unchanged": true
+  },
+  "auditorOperations": {
+    "realModelCalls": 0,
+    "fakeModelCalls": 0,
+    "externalNetwork": 0,
+    "UIReexecution": 0,
+    "secretOrHumanOperationRecordsRead": false,
+    "productOrRawEdits": false
+  },
+  "evidence": {
+    "rawAudit": "reports\\goal-search-budget-fixed-2026-10-29\\independent-raw.json",
+    "selectionAndSemantics": "reports\\goal-search-budget-fixed-2026-10-29\\independent-selection-semantics.json",
+    "traceAudit": "reports\\goal-search-budget-fixed-2026-10-29\\independent-trace.json",
+    "preflight": "reports\\goal-search-budget-fixed-2026-10-29\\independent-before.json",
+    "rawCommand": "npx tsx reports\\goal-search-budget-fixed-2026-10-29\\independent-raw-audit.mjs reports/goal-search-budget-fixed-2026-10-29/live reports\\goal-search-budget-fixed-2026-10-29\\independent-raw.json",
+    "traceCommand": "python docs/experiments/2026-10-29-correspondence-trace-audit.py reports/goal-search-budget-fixed-2026-10-29/live reports\\goal-search-budget-fixed-2026-10-29\\independent-trace.json",
+    "rawExitCode": 0,
+    "traceExitCode": 0,
+    "selectionExitCode": 0
+  },
+  "engineering": {
+    "trials": 12,
+    "validTrials": 12,
+    "pairedInitialConditionsAndConfigChecks": 6,
+    "actualRequests": 202,
+    "OK": 202,
+    "ERROR": 0,
+    "RESERVED": 0,
+    "retryAttemptsPerRequest": 1,
+    "parallel": 1,
+    "duplicateReservationIDs": 0,
+    "replayVerified": 12,
+    "traceArchivesCRCVerified": 12,
+    "priorLedgerHashesMatched": 94,
+    "oldRawAndMetadataHashesMatched": 251,
+    "oldAuditCodeHashesMatched": 3,
+    "freshRawFilesHashed": 434,
+    "totalFilesInRawAuditor": 528,
+    "allAuditedEvidenceUnchanged": true,
+    "noExtraAPIStagesOrImages": true,
+    "perStageImageCap": 4,
+    "memoryCapacity": 8,
+    "arrivalAssessmentActionMemoryRebuilt": true,
+    "questionsRecordsSourcesCriteriaAnnotationsVerified": true,
+    "seedAndRawSelectionVerified": true
+  },
+  "descriptiveOutcomes": {
+    "old": {
+      "successes": 5,
+      "n": 6
+    },
+    "newSearch": {
+      "successes": 6,
+      "n": 6
+    },
+    "necessaryRevisit": {
+      "oldSuccesses": 4,
+      "oldN": 4,
+      "newSuccesses": 4,
+      "newN": 4,
+      "allEightReleasedPriorDeferralAtStep6": true,
+      "allEightSelectedReleasedRouteAndCompletedTarget": true,
+      "allEightUIActions": 7
+    },
+    "notifications": {
+      "oldReplicate1": {
+        "success": true,
+        "uiActions": 6,
+        "decisions": 7
+      },
+      "oldReplicate2": {
+        "success": false,
+        "uiActions": 12,
+        "decisions": 12,
+        "termination": "DECISION_LIMIT"
+      },
+      "newReplicate1": {
+        "success": true,
+        "uiActions": 6,
+        "decisions": 7
+      },
+      "newReplicate2": {
+        "success": true,
+        "uiActions": 10,
+        "decisions": 11
+      }
+    },
+    "interpretation": "Two replicates per scenario are descriptive; one discordant notification pair cannot establish general superiority. Initial states/seed matched within pairs, but the search component intentionally changes assessment questions/memory/criteria. Responses and routes also vary across replicates."
+  },
+  "currentVersusHistorical": [
+    {
+      "id": "notifications-r1-old",
+      "currentAnnotationEntries": 0,
+      "historicalRouteResultNotes": 0,
+      "selectedHistoricalRouteNotes": 0,
+      "selectedReportedTargets": 0,
+      "note": "Current annotations may apply to every criterion. Historical notes and their actual selection are counted separately; neither is causal proof of actor use."
+    },
+    {
+      "id": "notifications-r1-reason",
+      "currentAnnotationEntries": 101,
+      "historicalRouteResultNotes": 1,
+      "selectedHistoricalRouteNotes": 0,
+      "selectedReportedTargets": 2,
+      "note": "Current annotations may apply to every criterion. Historical notes and their actual selection are counted separately; neither is causal proof of actor use."
+    },
+    {
+      "id": "revisit-alpha-r1-reason",
+      "currentAnnotationEntries": 101,
+      "historicalRouteResultNotes": 3,
+      "selectedHistoricalRouteNotes": 1,
+      "selectedReportedTargets": 3,
+      "note": "Current annotations may apply to every criterion. Historical notes and their actual selection are counted separately; neither is causal proof of actor use."
+    },
+    {
+      "id": "revisit-alpha-r1-old",
+      "currentAnnotationEntries": 0,
+      "historicalRouteResultNotes": 0,
+      "selectedHistoricalRouteNotes": 0,
+      "selectedReportedTargets": 0,
+      "note": "Current annotations may apply to every criterion. Historical notes and their actual selection are counted separately; neither is causal proof of actor use."
+    },
+    {
+      "id": "revisit-beta-r1-old",
+      "currentAnnotationEntries": 0,
+      "historicalRouteResultNotes": 0,
+      "selectedHistoricalRouteNotes": 0,
+      "selectedReportedTargets": 0,
+      "note": "Current annotations may apply to every criterion. Historical notes and their actual selection are counted separately; neither is causal proof of actor use."
+    },
+    {
+      "id": "revisit-beta-r1-reason",
+      "currentAnnotationEntries": 101,
+      "historicalRouteResultNotes": 3,
+      "selectedHistoricalRouteNotes": 1,
+      "selectedReportedTargets": 3,
+      "note": "Current annotations may apply to every criterion. Historical notes and their actual selection are counted separately; neither is causal proof of actor use."
+    },
+    {
+      "id": "notifications-r2-reason",
+      "currentAnnotationEntries": 161,
+      "historicalRouteResultNotes": 4,
+      "selectedHistoricalRouteNotes": 1,
+      "selectedReportedTargets": 2,
+      "note": "Current annotations may apply to every criterion. Historical notes and their actual selection are counted separately; neither is causal proof of actor use."
+    },
+    {
+      "id": "notifications-r2-old",
+      "currentAnnotationEntries": 0,
+      "historicalRouteResultNotes": 0,
+      "selectedHistoricalRouteNotes": 0,
+      "selectedReportedTargets": 0,
+      "note": "Current annotations may apply to every criterion. Historical notes and their actual selection are counted separately; neither is causal proof of actor use."
+    },
+    {
+      "id": "revisit-alpha-r2-old",
+      "currentAnnotationEntries": 0,
+      "historicalRouteResultNotes": 0,
+      "selectedHistoricalRouteNotes": 0,
+      "selectedReportedTargets": 0,
+      "note": "Current annotations may apply to every criterion. Historical notes and their actual selection are counted separately; neither is causal proof of actor use."
+    },
+    {
+      "id": "revisit-alpha-r2-reason",
+      "currentAnnotationEntries": 101,
+      "historicalRouteResultNotes": 3,
+      "selectedHistoricalRouteNotes": 1,
+      "selectedReportedTargets": 3,
+      "note": "Current annotations may apply to every criterion. Historical notes and their actual selection are counted separately; neither is causal proof of actor use."
+    },
+    {
+      "id": "revisit-beta-r2-reason",
+      "currentAnnotationEntries": 101,
+      "historicalRouteResultNotes": 3,
+      "selectedHistoricalRouteNotes": 1,
+      "selectedReportedTargets": 3,
+      "note": "Current annotations may apply to every criterion. Historical notes and their actual selection are counted separately; neither is causal proof of actor use."
+    },
+    {
+      "id": "revisit-beta-r2-old",
+      "currentAnnotationEntries": 0,
+      "historicalRouteResultNotes": 0,
+      "selectedHistoricalRouteNotes": 0,
+      "selectedReportedTargets": 0,
+      "note": "Current annotations may apply to every criterion. Historical notes and their actual selection are counted separately; neither is causal proof of actor use."
+    }
+  ],
+  "concreteActorPolicyEvidence": {
+    "repeatAtNewNotificationR2Step6": {
+      "sourceRoute": "actual step2 e4 click -> step3 campaign/no-target finding",
+      "currentImage": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r2-reason\\exploration\\input-6.png",
+      "currentHistoricalAnnotations": [
+        {
+          "candidateId": "e4",
+          "after": "[e4] [Model hypothesis: knowledge=insufficient; effect=unknown; evidence=o6; unknown does not establish safety or danger] [fallible correspondence hypothesis and historical model recollection, not current fact: source=o2; prior candidate=e4; result=o3; execution=performed; progress=neutral; expectation=unknown; historical result pixels are not asserted to be attached or current; no new visual judgment] [current model goal-search hypothesis, not fact: source=o6; scope=delivered-current-view-only; finding=no-target-in-view; requirements=g1 \"初めて利用する暮らしクラウドで\" assessment=context | g2 \"メール通知を停止し\" assessment=context | g3 \"停止したことを確認したい\" assessment=not_shown | historical model goal-search hypothesis, not a current fact or revisit ban: source=o2; prior candidate=e4; result=o3; finding source=o3; execution=performed; progress=neutral; expectation=unknown; scope=delivered-current-view-only; finding=no-target-in-view; requirements=g1 \"初めて利用する暮らしクラウドで\" assessment=context | g2 \"メール通知を停止し\" assessment=context | g3 \"停止したことを確認したい\" assessment=not_shown; the result describes only its originally inspected view; prerequisites may change and new information can justify a revisit; historical pixels are not asserted to be attached now]",
+          "selected": true
+        }
+      ],
+      "rawChosenProbability": 0.77,
+      "modelChoice": "e4",
+      "actualSelected": "e4",
+      "policyWeightsAllOne": true,
+      "actualNextURL": "http://127.0.0.1:5173/bad/#campaign",
+      "observation": "Despite delivered historical no-target, actual e4 click leads to campaign again."
+    },
+    "switchAtNewNotificationR2Step8": {
+      "currentImage": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r2-reason\\exploration\\input-8.png",
+      "rawModelChoice": "e4",
+      "rawE4": 0.92,
+      "rawSelectedE5": 0.02,
+      "deferralWeightE4": 0.01,
+      "selectedE5Filtered": 0.4065040650406504,
+      "selected": "e5",
+      "actualNextURL": "http://127.0.0.1:5173/bad/#other",
+      "observation": "The existing UI-conditional deferral controller changes the choice to e5; this is not an observed spontaneous raw-model semantic switch."
+    },
+    "independentlyRecomputedAllPolicyDistributions": true
+  },
+  "unresolvedFindings": [
+    {
+      "id": "GS-RESUMED-SEM-001",
+      "severity": "medium",
+      "kind": "model semantic contract conflict",
+      "status": "UNRESOLVED",
+      "title": "Task-related page navigation reported as direct Goal target",
+      "expectedContract": "A target must be a directly task-specific enabled control visible now, not plausible navigation, a related heading/menu, or an inferred destination.",
+      "contractPresentInActualAssessmentQuestions": true,
+      "observedNavigationTargetProposals": 14,
+      "reproduction": "Read each listed actual goalSearch_finding question and response, candidate control text, current PNG and subsequent actual observed page. The independent selection-and-semantics JSON contains all14 exact question texts, raw probability answers, source paths and actual next screens.",
+      "actualExamples": [
+        {
+          "trial": "notifications-r1-reason",
+          "step": 5,
+          "target": "e3",
+          "control": "お知らせの管理",
+          "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-5.png",
+          "actualNextImage": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-6.png",
+          "actualNextScreen": "A separate settings page contains the actual メール通知を停止する control; the entry click itself did not stop notifications."
+        },
+        {
+          "trial": "notifications-r2-reason",
+          "step": 9,
+          "target": "e3",
+          "control": "お知らせの管理",
+          "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r2-reason\\exploration\\input-9.png",
+          "actualNextImage": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r2-reason\\exploration\\input-10.png"
+        },
+        {
+          "trial": "revisit-alpha-r1-reason",
+          "step": 1,
+          "target": "e2",
+          "control": "共有設定 / 共有リンクの公開状態を変更",
+          "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-alpha-r1-reason\\exploration\\input-1.png",
+          "actualNextImage": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-alpha-r1-reason\\exploration\\input-2.png",
+          "actualNextScreen": "Only an unmet identity prerequisite and return control, not a current disable-link operation."
+        },
+        {
+          "trial": "revisit-beta-r1-reason",
+          "step": 1,
+          "target": "e3",
+          "control": "リンクの公開設定 / アルバムの共有方法を管理",
+          "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-beta-r1-reason\\exploration\\input-1.png",
+          "actualNextImage": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-beta-r1-reason\\exploration\\input-2.png"
+        }
+      ],
+      "actual": "Structurally valid candidate/source-bound target hypotheses overreach the direct-operation meaning. The final operation control appears on another observed screen.",
+      "impact": "Semantic precision is not established; annotations remain fallible. No source-transfer or execution wiring failure was found. No causal contribution to outcome is identified."
+    },
+    {
+      "id": "GS-RESUMED-SEM-002",
+      "severity": "medium",
+      "kind": "model requirement-role rubric conflict",
+      "status": "UNRESOLVED",
+      "title": "Requested actions classified as context",
+      "expectedContract": "context is limited to subject/background/action constraints that do not independently request information or an action result; preserve the full Goal.",
+      "contractPresentInActualAssessmentQuestions": true,
+      "notificationActionFragmentContext": 18,
+      "notificationActionFragment": "メール通知を停止し",
+      "revisitWholeActionGoalContext": 20,
+      "revisitWholeActionGoal": "アルバム「旅の記録」の共有リンクを無効にしてください",
+      "reproduction": "Inspect actual goalSearch_image_check question criteria and raw response choice in the38 entries recorded under fragmentContextConcerns.",
+      "actual": "The requested action/whole action Goal was categorized context in the listed frames. Whole Goal text remained identical in both input.goal and exploration.charter.goal across every request.",
+      "impact": "This conflicts with the role rubric, but both new notification trials and all new revisit trials still completed. Missing text, single-fault causation, and a claim that this alone caused route loops are not established."
+    }
+  ],
+  "necessaryRevisitVisualEvidence": {
+    "representativeVariants": [
+      "revisit-alpha-r1-reason",
+      "revisit-beta-r1-reason"
+    ],
+    "sequence": "input2 explicitly requires identity confirmation; input4 offers completing confirmation; input5 says confirmation completed; step6 releases the old candidate and revisits it; input7 displays enabled direct link-disable control; final shows disabled status.",
+    "bothOldAndNewAllReplicatesObserved": true,
+    "oldPrerequisiteNotPermanentBan": true,
+    "limitations": "No broad accuracy estimate for unrelated prerequisite changes or false releases follows from these successful positive cases."
+  },
+  "visualInspection": {
+    "deliveredInputImages": [
+      {
+        "trial": "revisit-alpha-r1-reason",
+        "step": 1,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-alpha-r1-reason\\exploration\\input-1.png"
+      },
+      {
+        "trial": "revisit-alpha-r1-reason",
+        "step": 2,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-alpha-r1-reason\\exploration\\input-2.png"
+      },
+      {
+        "trial": "revisit-alpha-r1-reason",
+        "step": 4,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-alpha-r1-reason\\exploration\\input-4.png"
+      },
+      {
+        "trial": "revisit-alpha-r1-reason",
+        "step": 5,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-alpha-r1-reason\\exploration\\input-5.png"
+      },
+      {
+        "trial": "revisit-alpha-r1-reason",
+        "step": 6,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-alpha-r1-reason\\exploration\\input-6.png"
+      },
+      {
+        "trial": "revisit-alpha-r1-reason",
+        "step": 7,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-alpha-r1-reason\\exploration\\input-7.png"
+      },
+      {
+        "trial": "revisit-beta-r1-reason",
+        "step": 1,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-beta-r1-reason\\exploration\\input-1.png"
+      },
+      {
+        "trial": "revisit-beta-r1-reason",
+        "step": 2,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-beta-r1-reason\\exploration\\input-2.png"
+      },
+      {
+        "trial": "revisit-beta-r1-reason",
+        "step": 4,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-beta-r1-reason\\exploration\\input-4.png"
+      },
+      {
+        "trial": "revisit-beta-r1-reason",
+        "step": 5,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-beta-r1-reason\\exploration\\input-5.png"
+      },
+      {
+        "trial": "revisit-beta-r1-reason",
+        "step": 6,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-beta-r1-reason\\exploration\\input-6.png"
+      },
+      {
+        "trial": "revisit-beta-r1-reason",
+        "step": 7,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-beta-r1-reason\\exploration\\input-7.png"
+      },
+      {
+        "trial": "notifications-r2-reason",
+        "step": 6,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r2-reason\\exploration\\input-6.png"
+      },
+      {
+        "trial": "notifications-r2-reason",
+        "step": 7,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r2-reason\\exploration\\input-7.png"
+      },
+      {
+        "trial": "notifications-r2-reason",
+        "step": 8,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r2-reason\\exploration\\input-8.png"
+      },
+      {
+        "trial": "notifications-r2-reason",
+        "step": 9,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r2-reason\\exploration\\input-9.png"
+      },
+      {
+        "trial": "notifications-r1-reason",
+        "step": 5,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-5.png"
+      },
+      {
+        "trial": "notifications-r1-reason",
+        "step": 6,
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r1-reason\\exploration\\input-6.png"
+      }
+    ],
+    "terminalImages": [
+      {
+        "trial": "notifications-r1-old",
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r1-old\\exploration\\final.png",
+        "observed": "Current setting stopped and notification-stopped confirmation",
+        "agreesWithSavedOracle": true
+      },
+      {
+        "trial": "notifications-r1-reason",
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r1-reason\\exploration\\final.png",
+        "observed": "Current setting stopped and notification-stopped confirmation",
+        "agreesWithSavedOracle": true
+      },
+      {
+        "trial": "revisit-alpha-r1-reason",
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-alpha-r1-reason\\exploration\\final.png",
+        "observed": "Link status disabled and shared-link-disabled confirmation",
+        "agreesWithSavedOracle": true
+      },
+      {
+        "trial": "revisit-alpha-r1-old",
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-alpha-r1-old\\exploration\\final.png",
+        "observed": "Link status disabled and shared-link-disabled confirmation",
+        "agreesWithSavedOracle": true
+      },
+      {
+        "trial": "revisit-beta-r1-old",
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-beta-r1-old\\exploration\\final.png",
+        "observed": "Link status disabled and shared-link-disabled confirmation",
+        "agreesWithSavedOracle": true
+      },
+      {
+        "trial": "revisit-beta-r1-reason",
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-beta-r1-reason\\exploration\\final.png",
+        "observed": "Link status disabled and shared-link-disabled confirmation",
+        "agreesWithSavedOracle": true
+      },
+      {
+        "trial": "notifications-r2-reason",
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r2-reason\\exploration\\final.png",
+        "observed": "Current setting stopped and notification-stopped confirmation",
+        "agreesWithSavedOracle": true
+      },
+      {
+        "trial": "notifications-r2-old",
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\notifications-r2-old\\exploration\\final.png",
+        "observed": "Home lower portion with no notification-stop confirmation",
+        "agreesWithSavedOracle": true
+      },
+      {
+        "trial": "revisit-alpha-r2-old",
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-alpha-r2-old\\exploration\\final.png",
+        "observed": "Link status disabled and shared-link-disabled confirmation",
+        "agreesWithSavedOracle": true
+      },
+      {
+        "trial": "revisit-alpha-r2-reason",
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-alpha-r2-reason\\exploration\\final.png",
+        "observed": "Link status disabled and shared-link-disabled confirmation",
+        "agreesWithSavedOracle": true
+      },
+      {
+        "trial": "revisit-beta-r2-reason",
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-beta-r2-reason\\exploration\\final.png",
+        "observed": "Link status disabled and shared-link-disabled confirmation",
+        "agreesWithSavedOracle": true
+      },
+      {
+        "trial": "revisit-beta-r2-old",
+        "image": "reports\\goal-search-budget-fixed-2026-10-29\\live\\revisit-beta-r2-old\\exploration\\final.png",
+        "observed": "Link status disabled and shared-link-disabled confirmation",
+        "agreesWithSavedOracle": true
+      }
+    ],
+    "totalImagesViewed": 30,
+    "terminalImagesAgreeWithAll12OracleValues": true,
+    "all50NewModelViewsNotIndividuallyManuallyLabeled": true
+  },
+  "limitsAndMissing": [
+    {
+      "item": "Broad superiority or causal search-component effect",
+      "reason": "Only six matched pairs and two replicates per scenario; one outcome discordance; bundled question/memory/criteria changes and pre-existing controller."
+    },
+    {
+      "item": "Spontaneous semantic route switching",
+      "reason": "At the key step the raw model still preferred e4; controller changed actual UI selection."
+    },
+    {
+      "item": "Semantic precision/recall across all target/no-target/prerequisite/guidance proposals",
+      "reason": "Representative image review plus documented rubric conflicts; no full blinded ground-truth labeling study. Counts14 and38 describe the listed observed proposals, not population accuracy."
+    },
+    {
+      "item": "Human behavior fidelity",
+      "reason": "No human records or trials were read or run."
+    },
+    {
+      "item": "Negative/ambiguous prerequisite-change robustness",
+      "reason": "This comparison supplies successful positive revisit cases, not sufficient unrelated-change controls."
+    }
+  ],
+  "auditCodeReadyForByteIdenticalCopy": {
+    "source": "reports\\goal-search-budget-fixed-2026-10-29\\independent-raw-audit.mjs",
+    "sha256": "6702994aaa06b6a134ede76072c0eb3ecd9614ab02570d1ad0ca7e3a8f3f8712",
+    "suggestedDestination": "docs/experiments/2026-10-29-goal-search-resumed-independent-audit.mjs",
+    "finalized": true,
+    "originalOldAuditRetained": true,
+    "producerPinRetained": true
+  },
+  "selectionAuditCode": {
+    "source": "reports\\goal-search-budget-fixed-2026-10-29\\independent-selection-semantics.mjs",
+    "sha256": "76edda1d321fa24b6d969f59d8985cd0d7bb87b85f8392303f1eb4cc64409031",
+    "finalized": true
+  }
+}

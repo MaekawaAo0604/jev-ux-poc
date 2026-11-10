@@ -1,0 +1,30 @@
+{
+  "schemaVersion":1,
+  "status":"PASS_FINAL_INDEPENDENT_REVIEW",
+  "sourceHash":"3decbfde991586a623258781f440024255dda55c125ca293c1c950f2a9b6d46a",
+  "finalTestFiles":{
+    "tests/attention-independent.test.ts":"d9751c24c1ea70d49a001493db8ef0131d19da680328309b58c1e754c2552183",
+    "tests/attention-independent-analyzer.test.ts":"b0e7c45895c6d9131db18883cb1e15a478a5e388d847ba037d971ee85e9db2be"
+  },
+  "testOnlyChangesAfterPreflight":[
+    "Each independent runtime fixture invocation now uses a unique mkdtemp directory under the independent report root, preserving original preflight fixtures.",
+    "Frozen-source and real-analyzer tests explicitly skip with an artifact-unavailable reason when their ignored local artifacts are absent; runtime acceptance tests remain executable.",
+    "Frozen source test compares all actor source bytes and inputs, without requiring current HEAD to remain the pre-run revision after publication.",
+    "Trailing blank-only lines removed from both added test files."
+  ],
+  "finalTests":{"command":"npx tsx --test tests/attention-independent.test.ts tests/attention-independent-analyzer.test.ts","passed":15,"failed":0,"skipped":0,"durationMs":18732.1924,"log":"final-independent-tests-v4.log","logSha256":"5262e2769235241216a69bb5ecf38615218fd30da62963ceeb94e4beecaffa06"},
+  "additionalChecks":["Independent npm run build PASS before final test-only changes.","Independent npx tsc --noEmit PASS including both independent test files.","git diff --check PASS; only Git CRLF-normalization notices emitted.","Existing scoped acceptance/regression run:80/80 PASS."],
+  "actualEvidence":{"report":"actual-v1.json","sha256":"361316d289ac183c1ce9290f9870ff2dbe071e110114e4b664eb4e4b3b68ab20","trials":12,"apiRequests":114,"artifactHashesChecked":282,"strictReplaysPassed":12},
+  "comparisonEvidence":{"report":"comparison-v1.json","sha256":"cd1647ed59db78c0a9f007153357452fd8f5dfdaa98e0c41177ba57497911699","addendum":"comparison-addendum-v1.json","gateSelections":36,"continue":36,"gateLooks":0,"uncertaintySelfReports":12,"combinedLookMassExceedsContinue":4,"commonSemanticDecisionsEachPair":6,"successfulTrials":0,"pairs":6},
+  "preservationEvidence":{"report":"preservation-v1.json","priorHashMatches":12255,"sourceArchiveFiles":195,"extraFreezeMetadataFiles":1,"sourceArchiveSha256":"afed9ea043953a6cb4fee744a564a1a6fb1b9d0928475ea47bc811efcee4f105"},
+  "resolvedFindings":[
+    {"priority":"P2","area":"analyzer cohort binding","repro":"Previously normalized each pair after dropping id/attention and did not bind each row to the frozen schedule, allowing a duplicated OFF or altered seed cohort to satisfy superficial pairing checks.","expected":"Exactly one frozen OFF and one frozen ON at each planned vision/seed slot.","actualAfterFix":"Frozen study/batch/plan/scheduled-row/config binding and explicit ON/OFF membership enforced; independent missing-batch, changed-plan, changed-ON and duplicated-run tamper tests reject.","evidence":"analyzer-tests-v1.log and final-independent-tests-v4.log"},
+    {"priority":"P2","area":"analyzer real-model provenance","repro":"Previously checked phase.mock only and did not reject mock/scripted manifest/summary provenance.","expected":"All saved manifest/summary/response provenance identifies the actual Jev model.","actualAfterFix":"Manifest and summary mock/model/dataSource plus saved response models enforced; independent mock-manifest, scripted-summary and wrong-model tamper tests reject.","evidence":"analyzer-tests-v1.log and final-independent-tests-v4.log"}
+  ],
+  "openBlockingFindings":[],
+  "interpretation":"The implementation and saved comparison meet scoped software acceptance. The observed ON intervention did not change the shared action sequence or achieve the goal; fewer ON repetitions reflect earlier API-limit censoring, not demonstrated behavioral improvement.",
+  "notVerified":["Global suite was not rerun; known unrelated baseline failures are outside the scoped result.","No causal claim that split look probability mass caused the negative outcome.","No cross-task, layout, persona or human-validity generalization.","Publication gate, staged artifacts, credential scan and post-commit verification remain separate parent-owned steps."],
+  "realModelCallsMadeByVerifier":0,
+  "productFilesEditedByVerifier":[],
+  "publicationGate":false
+}

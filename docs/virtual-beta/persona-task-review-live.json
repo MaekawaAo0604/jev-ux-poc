@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "gate": "Independent acceptance of frozen live Persona-task comparison evidence",
+  "status": "PASS",
+  "atUTC": "2026-11-06T00:26:37.376Z",
+  "reviewer": "Fresh independent verifier",
+  "scope": "The bounded experiment and its descriptive projections are accepted with 35 valid trials and 1 preserved invalid trial. This does not establish human fidelity, statistical significance, a stable Persona effect, or overall repository regression success.",
+  "source": {
+    "revision": "2c0876b3dc3848b29ff755885192890c891d2d69",
+    "sourceHash": "8d591fcb465f06293387391e4647a6b705e865c42b9ffc5f8c4ededda22bd4a3",
+    "runtimeFiles": 177,
+    "archiveSha256": "9448a4bcb76ec0b0360cfa5b277db3c959f18f0b2beac5e3089f069bda8caf8b"
+  },
+  "execution": {
+    "scheduled": 36,
+    "attempted": 36,
+    "valid": 35,
+    "invalid": 1,
+    "requests": 292,
+    "providerNativeRequests": 98,
+    "completedNativeOutputs": 97,
+    "assessmentRequests": 97,
+    "actionRequests": 97,
+    "retries": 0,
+    "replacements": 0,
+    "actualAPIConcurrency": 1,
+    "limitsExceeded": 0,
+    "censoredLive": 0,
+    "abandonedLive": 0,
+    "subjectiveDoneValid": 35,
+    "objectiveTrueValid": 35,
+    "objectiveTrueInvalid": 1
+  },
+  "acceptance": [
+    {
+      "criterion": "Raw source, input identity, models, profile, all 36 final HTTP replays, ledgers, frames, and all 657 live hashes",
+      "status": "PASS",
+      "expected": "Frozen producer identity and sealed raw files; exact trial identities; accounting and client HTTP timing bound; no retries or unauthorized writes.",
+      "actual": "All 36 raw trials replay with finalVisualHTTP=true. Ledger sum is 292 with one attempt per request and no overlapping request intervals. All initial product/current PNGs and source-backed reconstructed native HTTP bodies match within each task after removing Persona only. All 177 runtime source bytes and 657 live files rehash unchanged.",
+      "evidence": "live-raw-audit-final.json"
+    },
+    {
+      "criterion": "Actual selected model distributions and unit weights",
+      "status": "PASS",
+      "expected": "No non-unit applied weights or policy overrides; performed action matches selected control.",
+      "actual": "All 97 selected judgments have unit applied weights, exact selected/actual action binding, categorical modelChoice equal to selected, and no exclusions/adjustments. Snapshot event deltas match actual successful UI actions.",
+      "evidence": "live-raw-audit-r2.json"
+    },
+    {
+      "criterion": "Invalid native response separation",
+      "status": "PASS",
+      "expected": "Isolated malformed output remains an invalid slot with its prefix preserved, excluded before path statistics, with no replacement or repair.",
+      "actual": "Sessions B repeat 2 has an HTTP 200 gpt-6-luna output at step 3 repeating o1_c1 three times. Continuity schema permits all three supplied IDs. Admission rejects it; its two successful UI actions remain in partial evidence, objective true is separate, and the trial is absent from valid distances. The next planned trial continued.",
+      "evidence": "native-invalid-independent.json"
+    },
+    {
+      "criterion": "Independent route metrics, counter projections, CSV and same-image comparisons",
+      "status": "PASS",
+      "expected": "Valid-only paths by task, with missing valid B repeat 2 explicit, and no full-input claim from same PNG.",
+      "actual": "Independent raw reconstruction agrees with analyzer and comparison-results projections. Sessions: 11 valid, 10 within pairs and 45 between pairs, both mean 0. Preferences: 12 valid, 12 within and 54 between, both mean 0. Privacy: 12 valid, within mean 1/6 and between mean 1/3. Corrected CSV parser verifies all 36 rows and 22 columns. All observed targets match on shared PNGs; generated candidate annotations differ, so strict distribution-TV comparisons number 0.",
+      "evidence": "live-raw-audit-final.json"
+    },
+    {
+      "criterion": "Actual visual review and grounds for Persona interpretation",
+      "status": "PASS",
+      "expected": "Inspect all 8 selected unique delivered PNGs, all C privacy repetitions and extra baseline completion frames; separate exposure, observation, self-report and inference.",
+      "actual": "14 cases and 28 frame references reproduce the exploratory plan. All 8 unique selected PNGs plus 2 extra delivered baseline completion PNGs were viewed. C privacy repeats 1 and 3 opened details and enabled its default basic scope, without pressing scope-basic; repeat 2 enabled extended scope. The UI explicitly describes optional extra fields, fictional data and no external data transfer. No hard trait violation follows from the extended choice.",
+      "evidence": "live-visual-review.json"
+    },
+    {
+      "criterion": "Browser safety and fresh context evidence",
+      "status": "PASS",
+      "expected": "Local read-only fixture operations with no external data writes or prior session cookies.",
+      "actual": "All 36 new trace.network files contain 1800 browser resource records; all are local GET/HEAD or empty intercepted font stylesheets. No existing request cookies or unapproved external/write requests were found. Fresh contexts are supported by the frozen runner construction and matching unoperated initial state.",
+      "evidence": "live-browser-network-audit.json"
+    }
+  ],
+  "issues": [
+    {
+      "id": "LIVE-01",
+      "severity": "medium",
+      "blocking": false,
+      "category": "Preserved model-output invalidity",
+      "repro": "Inspect live-r1/persona-task-sessions-B-r2/exploration/result.json step 3; reconstruct with native-invalid-check.ts. No API resend.",
+      "expected": "Exactly one continuity entry per supplied prior ID.",
+      "actual": "o1_c1 repeated three times; o1_c2 and o1_c3 absent. Trial correctly invalidated.",
+      "evidence": "native-invalid-independent.json"
+    },
+    {
+      "id": "LIVE-02",
+      "severity": "low",
+      "blocking": false,
+      "category": "Authenticity boundary limitation",
+      "expected": "Use driver identity validation, source seals and raw replay alongside the pure analyzer.",
+      "actual": "The pure analyzer trusts receipt-bound driver validation for source/config/goal authenticity and is not a standalone authenticity verifier. This review independently checked those identities against frozen raw records.",
+      "evidence": "code-gate-r1.json"
+    },
+    {
+      "id": "LIVE-03",
+      "severity": "informational",
+      "blocking": false,
+      "category": "Repository regression limitation",
+      "expected": "Keep focused frozen verification distinct from overall repository regression status.",
+      "actual": "Parent overall full suite remains non-green: 2692 tests, 2629 passed, 60 failed, 3 skipped. Parent frozen focused 67 tests and build passed; independent typecheck and build passed earlier. No all-suite-pass claim is accepted."
+    }
+  ],
+  "harnessFailuresPreserved": [
+    {
+      "reports": [
+        "live-raw-audit-r1.json",
+        "live-raw-checks-r1.log"
+      ],
+      "cause": "Harness initially required a successful action response for a prepared but unsent action input on the invalid native tail; corrected and all 36 replays rechecked."
+    },
+    {
+      "reports": [
+        "live-raw-audit-r2.json",
+        "live-raw-checks-r2.log"
+      ],
+      "cause": "Naive/incorrect CSV row splitting rejected quoted embedded newlines. Its 42 other checks passed. Separate quote-aware parser verifies all 36 rows and 22 columns; original FAIL report remains unchanged."
+    },
+    {
+      "reports": [
+        "live-browser-network-r1.log"
+      ],
+      "cause": "Python default cp932 could not decode UTF-8 Japanese JSON. Corrected explicit UTF-8 read; trace audit passed."
+    }
+  ],
+  "unverified": [
+    "Human behavior agreement, reading, understanding, internal intent/cognition, and term knowledge boundaries.",
+    "Isolated contributions of individual Persona fields; this experiment treats the whole existing Persona JSON as the intervention.",
+    "Statistical significance, reproducible population effect, naturalness ranking, or smartphone behavior.",
+    "Provider server internals or an independent packet capture; native HTTP bodies are source-backed reconstructions from saved requests and actual attached assets.",
+    "Historical raw bytes were not opened by this verifier; metadata union of 8412 prior + 399 mock + 657 live = 9468 is checked, while parent byte rehashing supports historical preservation.",
+    "Formal preregistration: the visual sampling plan is exploratory operational guidance with a local checksum."
+  ],
+  "noAPIRequestsByVerifier": true,
+  "noProductEdits": true,
+  "noLiveRawEdits": true,
+  "evidence": [
+    {
+      "file": "live-raw-audit-final.json",
+      "sha256": "0263db7a777b4c581b1c55ecc9cd915afc6eb3b4cd0130957a126902e646f6ac"
+    },
+    {
+      "file": "live-raw-audit-r2.json",
+      "sha256": "10a04435454bc860460c86818b3dc65dbec83b684bd5e2891c84a8aa3695cd7e"
+    },
+    {
+      "file": "live-visual-review.json",
+      "sha256": "343cdb4b52429a2dc9a918a0df4de323fa62243937cc0886ad77df9877c9db7e"
+    },
+    {
+      "file": "native-invalid-independent.json",
+      "sha256": "709f3086221c85d2b9bf893f73cf943a900bb2a5a20b132008a96da0c3e1b2d1"
+    },
+    {
+      "file": "live-browser-network-audit.json",
+      "sha256": "bbcd853a95b00c799ef7224f913c880b4f25c039de30574ebd8c8db274a1090d"
+    },
+    {
+      "file": "live-same-image-audit.json",
+      "sha256": "a9ab637d6a953420c118a00d26925bbdb1b1c8123ff76c6af3a01517912a9d19"
+    },
+    {
+      "file": "live-raw-checks-r1.log",
+      "sha256": "da0f219c46d42c673795bd39ebd6d7900d1a64b2ee420cd9fb18e01f30e33ddb"
+    },
+    {
+      "file": "live-raw-checks-r2.log",
+      "sha256": "a160dcb9c77632e320cad5849ef917229239bc31f3f13ed86282e387231580ed"
+    },
+    {
+      "file": "live-projection-visual-r1.log",
+      "sha256": "39856b91373bc694329681724cd22c4b8346e5cc7b2031bbf4b2c0292cf6e170"
+    },
+    {
+      "file": "live-browser-network-r1.log",
+      "sha256": "dd4586c9cfbe03458771cc0ee919d67697945231db7f9c3ff61f03b94750f63e"
+    },
+    {
+      "file": "live-browser-network-r2.log",
+      "sha256": "5781cd2f7e261c3680d3e07d744932f8fea06a49403354ead38481650a3bbaef"
+    }
+  ]
+}

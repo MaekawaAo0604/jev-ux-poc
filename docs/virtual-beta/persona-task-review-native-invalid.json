@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "id": "persona-task-sessions-B-r2",
+  "step": 3,
+  "scope": "Independent offline diagnosis; no repair/resend and no synthetic output enters trial statistics.",
+  "sourceResultSha256": "70d7f89e7e1b6bf23bb1755ad3653bb794e458133c636c70e3578ddcdf1ac070",
+  "rawTextSha256": "00ba537ff0f36e3b2d3aa048db1d72a65dc8c577c3e5394a5eaed7eb97239ab3",
+  "provider": {
+    "model": "gpt-6-luna",
+    "status": "invalid-response",
+    "attempts": 1,
+    "httpReceived": true,
+    "statusCode": 200
+  },
+  "suppliedMemoryIds": [
+    "o1_c1",
+    "o1_c2",
+    "o1_c3"
+  ],
+  "continuityPriorIdEnums": [
+    {
+      "path": "schema.properties.continuity.items.anyOf.0.properties.priorId",
+      "values": [
+        "o1_c1",
+        "o1_c2",
+        "o1_c3"
+      ]
+    },
+    {
+      "path": "schema.properties.continuity.items.anyOf.1.properties.priorId",
+      "values": [
+        "o1_c1",
+        "o1_c2",
+        "o1_c3"
+      ]
+    }
+  ],
+  "relationEligiblePriorEnums": [
+    {
+      "path": "schema.properties.relations.items.anyOf.0.properties.priorConditionIds",
+      "values": [
+        "o1_c1"
+      ]
+    },
+    {
+      "path": "schema.properties.relations.items.anyOf.1.properties.priorConditionIds",
+      "values": [
+        "o1_c1"
+      ]
+    },
+    {
+      "path": "schema.properties.relations.items.anyOf.2.properties.priorConditionIds",
+      "values": [
+        "o1_c1"
+      ]
+    }
+  ],
+  "returnedPriorIds": [
+    "o1_c1",
+    "o1_c1",
+    "o1_c1"
+  ],
+  "duplicate": true,
+  "independentAdmissionRejectsCompletedProjection": true,
+  "syntheticValidatorControl": {
+    "kind": "Entirely synthetic empty conditions/unknown relations/unobserved continuity for all3 suppliedIDs",
+    "accepted": true,
+    "outputSha256": "5157207ee9f574c699ac68647b1b3ff10d26fc400191a0eca623dcb2a10096fc",
+    "noProductOrRawEdits": true
+  },
+  "diagnosis": "The output repeats one continuity priorId3times and omits2required IDs. Reconstructed request schema permits all3 IDs for continuity; the separate relation priorConditionIds enum is restricted to the eligible unresolved claim. The model text claiming onlyo1_c1 was allowed contradicts the reconstructed continuity schema. Admission rejects the output. This identifies a malformed model output, not its internal cause or provider-side server behavior.",
+  "preservation": {
+    "invalidExcluded": true,
+    "twoPerformedActionsRetained": true,
+    "objectiveTrueSeparate": true,
+    "perceivedDone": false,
+    "termination": "API_ERROR"
+  }
+}

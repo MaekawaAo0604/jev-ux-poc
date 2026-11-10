@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "status": "INDEPENDENT_INTERRUPTED_PARTIAL_AUDIT_COMPLETE",
+  "comparisonVerdict": "NOT_ESTABLISHED",
+  "sourceRevision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+  "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186",
+  "sourceBeforeAfterIdentical": true,
+  "auditorExternalRequests": 0,
+  "humanOrCredentialFilesRead": false,
+  "savedInputsResent": false,
+  "rawOriginalsModified": false,
+  "evidence": {
+    "rawAudit": "reports/goal-search-2026-10-29/independent-live-raw.json",
+    "traceAudit": "reports/goal-search-2026-10-29/independent-live-trace.json",
+    "script": "docs/experiments/2026-10-29-goal-search-independent-raw.mjs",
+    "command": "npx tsx docs/experiments/2026-10-29-goal-search-independent-raw.mjs reports/goal-search-2026-10-29/live reports/goal-search-2026-10-29/independent-live-raw.json --interrupted",
+    "commandExitCode": 0,
+    "rawFilesBeforeAfterHashMatched": 214,
+    "oldBudgetLedgersBeforeAfterHashMatched": 94,
+    "completedResultReplaysVerified": 5,
+    "traceArchivesVerified": 5
+  },
+  "durableAccounting": {
+    "requests": 38,
+    "OK": 34,
+    "ERROR": 4,
+    "RESERVED": 0,
+    "completedRecords": 5,
+    "validTrials": 1,
+    "validBehaviorPairs": 0,
+    "pendingScheduleSlots": 7,
+    "incompleteTrial": "revisit-beta-r1-reason",
+    "incompleteTrialLedgerUsed": 0,
+    "originalManifestStatus": "RUNNING",
+    "originalManifestReportedUsed": 0,
+    "originalManifestAccountingStale": true,
+    "maximumPhaseRequests": 288,
+    "maximumTrialRequests": 24,
+    "attemptsPerActualRequest": 1,
+    "duplicateReservationIDs": 0,
+    "overlappingRecordedRequestIntervals": 0
+  },
+  "trialOutcomes": [
+    {"id":"notifications-r1-old","requests":14,"OK":14,"ERROR":0,"termination":"SUBJECTIVE_DONE","uiActions":6,"objectiveSuccess":true,"validForComparison":true},
+    {"id":"notifications-r1-reason","requests":21,"OK":20,"ERROR":1,"termination":"API_ERROR","failure":{"code":"HTTP_ERROR","statusCode":402},"uiActions":10,"objectiveSuccess":false,"validForComparison":false},
+    {"id":"revisit-alpha-r1-reason","requests":1,"OK":0,"ERROR":1,"termination":"API_ERROR","failure":{"code":"HTTP_ERROR","statusCode":402},"uiActions":0,"objectiveSuccess":false,"validForComparison":false},
+    {"id":"revisit-alpha-r1-old","requests":1,"OK":0,"ERROR":1,"termination":"API_ERROR","failure":{"code":"HTTP_ERROR","statusCode":402},"uiActions":0,"objectiveSuccess":false,"validForComparison":false},
+    {"id":"revisit-beta-r1-old","requests":1,"OK":0,"ERROR":1,"termination":"API_ERROR","failure":{"code":"HTTP_ERROR","statusCode":402},"uiActions":0,"objectiveSuccess":false,"validForComparison":false}
+  ],
+  "engineeringChecks": [
+    "Producer revision/sourceHash identical in root manifest, each completed trial manifest, beta result code, and every reservation. Complete product sourceHashes and composite sourceHash match current checkout; before/after current identity identical.",
+    "Completed pair inputs/goals/personas, preparatory initial PNG hashes and first fingerprint match. Only config.id and config.goalSearch differ. No valid behavior pair remains after fault exclusion.",
+    "All actual requested model tags are jev-1.14.0 in saved successful responses/manifests, metadata attempts1. Faults retain HTTP402, do not become stuck, abandonment, subjective done or success.",
+    "Each successful goalSearch record rebuilt from actual raw assessment answers, literal Goal fragments and current actual PNG hash. Arrival memory, assessment-updated action memory and saved memory agree and stay capacity8/Goal-bound. Faulted assessment preserves prior memory without inventing a new finding.",
+    "Actual PNG hashes, question/input hashes, admitted memory/reason/correspondence source metadata, image reference counts <=4 at both stages, fixed input and audit metadata exclusion checked independently. All five normal replayDirectory checks pass.",
+    "Actual UI click/scroll counts and URL sequences match completed trace archives; archive CRC and raw hashes preserved. Back proof is raw action/outcome plus subsequent URL/image because navigateToHistoryEntry has no before-event.",
+    "The remaining seven slots are unexecuted or interrupted; the zero-used beta-new ledger is not treated as an API failure or as a completed trial."
+  ],
+  "findings": [
+    {
+      "id":"GS-LIVE-001",
+      "severity":"high",
+      "category":"external execution blocker",
+      "status":"OBSERVED_UNRESOLVED",
+      "description":"Four completed trial records terminate on HTTP402; the controlled12-slot comparison was interrupted and cannot support an old-versus-new success-rate comparison.",
+      "reproduction":"Inspect each completed raw result terminal error and corresponding durable ledger last ERROR reservation; the first occurrence is notifications-r1-reason assessment at step11, request21.",
+      "expected":"Complete valid paired trials under the fixed protocol before comparing behavior or success rates.",
+      "actual":"Only one valid trial, zero valid pairs; three later records end at their first assessment with no UI operation. No retry was performed.",
+      "source":"reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-11.json",
+      "ledger":"reports/goal-search-2026-10-29/live/notifications-r1-reason-budget.json"
+    },
+    {
+      "id":"GS-LIVE-002",
+      "severity":"medium",
+      "category":"interruption accounting limitation",
+      "status":"RAW_PRESERVED_AND_INDEPENDENTLY_RECONCILED",
+      "description":"Interrupted root manifest retains RUNNING and aggregate used0 while immutable durable trial ledgers contain38 actual attempts.",
+      "reproduction":"Read root manifest.requestAccounting.used and sum every fresh *-budget.json used including the incomplete trial.",
+      "expected":"Interrupted reporting should expose partial status and durable usage; consumers should not infer zero usage from a stale aggregate.",
+      "actual":"The original remains unchanged. Independent report records38=34OK+4ERROR, RESERVED0, and identifies the unused incomplete beta-new ledger separately.",
+      "source":"reports/goal-search-2026-10-29/live/manifest.json"
+    },
+    {
+      "id":"GS-LIVE-003",
+      "severity":"medium",
+      "category":"observed behavior limitation",
+      "status":"OBSERVED_NOT_A_SOFTWARE_DELIVERY_FAILURE",
+      "description":"Historical source-bound no-target route findings reached the action criteria, but the actor still repeated the same settings-to-campaign route twice.",
+      "reproduction":"Follow step2/e4 click -> step3 no-target image -> step6 e4 historical annotation/raw selection -> step7 image; repeat with step6/e4 -> step7 -> step8/e4 -> step9.",
+      "expected":"The engineering contract requires delivery, not forced avoidance; this evidence cannot establish improved reconsideration.",
+      "actual":"step6 raw e4=.81, filtered .861702, selected e4 and UI_PERFORMED; step7 is the same campaign surface. step8 raw e4=.59, filtered .662921, selected e4 and UI_PERFORMED; step9 again campaign. This is repetition in an observed prefix, not proof the trial would never recover.",
+      "source":"reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/result.json"
+    },
+    {
+      "id":"GS-LIVE-004",
+      "severity":"medium",
+      "category":"qualitative model interpretation concern",
+      "status":"REQUIRES_SEMANTIC_VALIDATION",
+      "description":"The explicit action Goal fragment 'メール通知を停止し' was classified context in all10 admitted assessments. Given the full Goal, treating the requested stop action solely as subject/background/constraints is questionable.",
+      "reproduction":"Inspect goalSearch_image_check_1 question criteria, each raw response choice, and admitted requirements[1].assessment across steps1..10.",
+      "expected":"Preserve the action obligation of the full literal Goal; absence of a visible result can be not_shown rather than erasing the obligation into context.",
+      "actual":"g1=context/g2=context/g3=not_shown throughout. Whole-Goal remains uncertain and the objective oracle does not report success, so this is not a demonstrated false-success bug.",
+      "source":"reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/step-1.json",
+      "limitation":"This is a documented qualitative concern, not a measured semantic error rate or ground-truth label for every proposal."
+    }
+  ],
+  "currentVersusHistorical": {
+    "trial":"notifications-r1-reason",
+    "currentAnnotationCount":146,
+    "historicalRouteResultAnnotationCount":5,
+    "historicalCandidateActuallySelectedCount":2,
+    "selectedReportedTargetCount":0,
+    "explanation":"Current findings can decorate all criteria. Historical annotations occur only at steps4/e4,6/e4,7/e2,8/e4,10/e4; only step6/e4 and step8/e4 are actually selected. Presence of memory or selected-current-annotation counts does not demonstrate actor use or causal improvement."
+  },
+  "concreteChain": [
+    {"sourceStep":2,"performedClick":"e4 (お知らせ)","resultStep":3,"resultFinding":"no-target-in-view","currentStep":6,"currentCandidate":"e4","correspondence":"unchanged","rawProbability":0.81,"selected":"e4","outcome":"UI_PERFORMED","nextImage":"reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-7.png"},
+    {"sourceStep":6,"performedClick":"e4 (お知らせ)","resultStep":7,"resultFinding":"no-target-in-view","currentStep":8,"currentCandidate":"e4","correspondence":"unchanged","rawProbability":0.59,"selected":"e4","outcome":"UI_PERFORMED","nextImage":"reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-9.png"},
+    {"sourceStep":8,"performedClick":"e4 (お知らせ)","resultStep":9,"resultFinding":"no-target-in-view","currentStep":10,"currentCandidate":"e4","rawProbability":0.24,"selected":"e3 (アカウント情報)","outcome":"UI_PERFORMED","nextImage":"reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-11.png","caution":"The existing temporary-deferral policy also downweights e4 here. Raw actor distribution and controller outcome are kept separate; causality is unmeasured."}
+  ],
+  "visualAudit": {
+    "newNotificationAdmittedImagesInspected":[1,2,3,4,5,6,7,8,9,10],
+    "findings":"All10 are no-target-in-view hypotheses. The inspected images show home, generic settings/navigation, and campaign content, with no directly enabled stop-notification control or explicit task-specific guidance. 'お知らせ' e4 in settings is a navigation lead, and was not falsely recorded as target. This is consistency for the seen views, not proof of hidden/destination absence or semantic precision.",
+    "sourcePattern":"reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/input-N.png",
+    "oldSuccessImages":["reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/input-6.png","reports/goal-search-2026-10-29/live/notifications-r1-old/exploration/final.png"],
+    "oldSuccessObserved":"Input6 has directly enabled e3 メール通知を停止する and receiving state. Final screenshot shows current setting 停止 and メール通知を停止しました, agreeing with independent oracle true.",
+    "newTerminalImage":"reports/goal-search-2026-10-29/live/notifications-r1-reason/exploration/final.png",
+    "newTerminalObserved":"Usage-history screen, no notification completion display; HTTP402 happened before the next assessment could be accepted.",
+    "holdoutTerminalImages":["reports/goal-search-2026-10-29/live/revisit-alpha-r1-reason/exploration/final.png","reports/goal-search-2026-10-29/live/revisit-alpha-r1-old/exploration/final.png","reports/goal-search-2026-10-29/live/revisit-beta-r1-old/exploration/final.png"],
+    "holdoutObserved":"Initial album-management menus remain displayed. All three have zero UI operations. No blocker, prerequisite completion, release or target-save sequence was reached."
+  },
+  "notVerified":[
+    {"item":"All12 paired comparison and improvement rate","reason":"Interrupted after5 completed records with4 transport faults and0 valid pairs."},
+    {"item":"Necessary revisit blocker -> prerequisite -> release -> target behavior","reason":"Holdout records fail at initial assessment; no behavioral sequence exists."},
+    {"item":"Precision/recall of target, prerequisite, guidance, no-target and requirement classification","reason":"No ground-truth labels for all proposal/view combinations; current completed prefix contains only10 no-target records and no admitted target/prerequisite/guidance."},
+    {"item":"Whether new goal-search caused a changed actor distribution","reason":"Questions/memory/criteria are a bundled component; partial unpaired/faulted data and existing controller effects do not identify a causal contribution."},
+    {"item":"Human reproduction and generalization","reason":"No human records or controlled human trials used."}
+  ],
+  "auditorHarnessCorrection": "The first offline-script execution expected private holdout targetWebsite local:good in the public wire. Existing runBeta deliberately aliases that public field to local:demo. The script was corrected to the explicit public contract; no raw data/product or acceptance condition changed."
+}

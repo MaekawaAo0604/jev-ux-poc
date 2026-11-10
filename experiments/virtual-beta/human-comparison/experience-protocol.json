@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "phase": "experience-recovery-2026-10-28",
+  "baselineRevision": "18213173ce7ce370cc6bab61b251a2593d4c13c1",
+  "comparison": "Archived deliberation long-context trial, plus two new independently initialized experience trials",
+  "model": "jev-1.14.0",
+  "mode": "experience",
+  "transport": {
+    "longContext": true,
+    "maxAttemptsPerRequest": 1
+  },
+  "inputPolicy": {
+    "ui": "local:bad",
+    "charter": "experiments/persona/charter.json",
+    "persona": null,
+    "images": "full viewport, numbered, image-only",
+    "humanInputsRead": false
+  },
+  "limits": {
+    "trials": 2,
+    "decisionsPerTrial": 12,
+    "requestsPerTrial": 24,
+    "requestsTotal": 48,
+    "assessmentPerTrial": 12,
+    "actionPerTrial": 12,
+    "parallel": 1,
+    "maxRunMs": 180000,
+    "uxReviewRequests": 0
+  },
+  "recoveryDefinition": "After an actually executed excursion returns to an image-observed source, select and execute a different offered entry from the first action on that excursion. Returning is an observed event, not automatically evidence of failure; inspect admitted model goal/progress judgments and independent final objective separately.",
+  "directSuccess": "Success before any stalled excursion is reported separately; never counted as recovery",
+  "safety": "Existing filters unchanged; all legitimate revisits and done remain available. No oracle/DOM/human action or feedback in model input.",
+  "budgets": "Create new ledgers; retain all previous ledgers byte-for-byte. User explicitly authorized ongoing calls; caps are self-imposed.",
+  "limitations": [
+    "Small non-randomized capability runs, not a causal estimate or success rate",
+    "Generation seed unavailable",
+    "Exact observed-image recurrence may miss render changes; it does not establish semantic equivalence",
+    "Model self-reported effects are hypotheses; image provenance is not understanding"
+  ]
+}

@@ -11,7 +11,7 @@ const sameEntry=(a:HistoryEntry|undefined,b:HistoryEntry|undefined)=>!!a&&!!b&&a
 /** Direct link navigation and narrowly classified, network-blocked disclosures. */
 export class PublicSitePage extends AutoPage {
   protected classifyNative=true;
-  constructor(page:Page,private resolveNavigation:(url:string)=>Promise<string>=async url=>url,private releaseNavigation:()=>Promise<void>=async()=>{}){super(page);}
+  constructor(page:Page,private resolveNavigation:(url:string)=>Promise<string>=async url=>url,private releaseNavigation:()=>Promise<void>=async()=>{},vision=false,informationDocuments:string[]=[]){super(page,vision);this.readonlyInformationDocuments=[...informationDocuments];}
   private localOnly=false;
   private prepared?:Promise<void>;
   private pendingNavigation?:{url:string;request?:Request};
@@ -21,6 +21,8 @@ export class PublicSitePage extends AutoPage {
   private historyClient?:Promise<CDPSession>;
   private blockedForm=false;
   get canGoBack(){return !this.historyChanged&&this.previousEntries.length>0;}
+  // Private, already-approved native history; never copied into Jev State.
+  get explorationBackUrl(){return this.canGoBack?this.previousEntries.at(-1)!.url:undefined;}
   get explorationNavigationChoices(){
     const current=documentURL(this.page.url());
     // Same-document fragments (including an empty '#') preserve DOM state.
@@ -82,6 +84,7 @@ export class PublicSitePage extends AutoPage {
     for(const element of screen.elements){
       const control=this.observedPublicControls.get(element.id)!;
       if(!element.text.trim()){
+        if(this.vision&&control.kind==='link')continue;
         if(control.kind==='disclosure'&&control.description){
           element.description=control.description;
           if(!screen.warnings?.includes('NON_TEXT_CONTROL_DESCRIPTION'))(screen.warnings??=[]).push('NON_TEXT_CONTROL_DESCRIPTION');
@@ -99,7 +102,7 @@ export class PublicSitePage extends AutoPage {
   async describeAction(action:Action,step:number){
     const draft=await super.describeAction(action,step);
     if(action.type==='click'){
-      const control=await (await this.targetElement(action.elementId)).evaluate(publicControl);
+      const control=await (await this.targetElement(action.elementId)).evaluate(publicControl,{informationDocuments:this.readonlyInformationDocuments});
       if(control.kind==='link')draft.execution={kind:'navigate',url:control.href};
       else if(control.kind==='disclosure')draft.execution={kind:'local-disclosure'};
     }
@@ -118,7 +121,11 @@ export class PublicSitePage extends AutoPage {
   async navigateTo(url:string){
     try{
       this.assertSafe();
+      const origin=new URL(url).origin,control=publicControl(url,origin);
+      if(control.kind==='blocked')throw new Error(`${control.reason}: destination outside read-only navigation policy`);
       const destination=await this.resolveNavigation(url);
+      const resolved=publicControl(destination,origin);
+      if(resolved.kind==='blocked')throw new Error(`${resolved.reason}: resolved destination outside read-only navigation policy`);
       this.pendingNavigation={url:documentURL(destination)};
       // A committed response identifies a new document, unlike a matching
       // framenavigated URL, which also accepts same-document pushState.
@@ -132,7 +139,7 @@ export class PublicSitePage extends AutoPage {
     this.assertSafe();
     if(action.type==='click'){
       const locator=await this.targetElement(action.elementId);
-      const control=await locator.evaluate(publicControl);
+      const control=await locator.evaluate(publicControl,{informationDocuments:this.readonlyInformationDocuments});
       if(control.kind==='blocked')throw new Error(`${control.reason}: external destination or unsupported control`);
       if(control.kind==='link'){
         const before=await this.navigationHistory(),source=before.entries[before.currentIndex];
@@ -165,7 +172,7 @@ export class PublicSitePage extends AutoPage {
             if(open===null)throw new Error('ACTION_ERROR: disclosure panel was replaced');
             if(open!==control.open)return;
           }else{
-            const after=await locator.evaluate(publicControl);
+            const after=await locator.evaluate(publicControl,{informationDocuments:this.readonlyInformationDocuments});
             if(after.kind==='disclosure'&&after.open!==control.open)return;
           }
           await this.page.waitForTimeout(50);
@@ -189,6 +196,11 @@ export class PublicSitePage extends AutoPage {
         this.pendingNavigation={url:documentURL(previous.url)};
         const response=await this.page.goBack({waitUntil:'commit',timeout:5000});
         if(response)this.localOnly=false;
+        // An unload-time replaceState can satisfy Playwright's commit waiter
+        // with the departing URL before the real Back document arrives.
+        // Wait for the already approved URL, then still check its native ID.
+        try{await this.page.waitForURL(url=>url.href===previous.url,{waitUntil:'domcontentloaded',timeout:5000});}
+        catch{throw new Error('SAFETY_BOUNDARY: back destination changed');}
         await this.settleNavigation();
         const after=await this.navigationHistory();
         if(this.page.url()!==previous.url||!sameEntry(after.entries[after.currentIndex],previous))throw new Error('SAFETY_BOUNDARY: back destination changed');

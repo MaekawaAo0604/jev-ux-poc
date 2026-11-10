@@ -1,0 +1,409 @@
+{
+  "status": "VERIFIED_FOR_OFFLINE_AUDIT_SCOPE",
+  "frozenTarget": "ef280f029cd99917cb94ab2173861cf0cd84d3ba",
+  "analyzerSha256": "fb81bf88310f7e645883b57be7a64b6864217b4176d4696a622eda58e22e6bdc",
+  "rubricSha256": "804db69bb7c58806b7f4f5df3e0fb650fc01f1ae086e9373b54f56f20ced4e29",
+  "independentTestSha256": "fb834670f2283e585665b35e7e5a21fc586f28f9bda498a1d52d9e3b7f8cac76",
+  "producer": {
+    "revision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+    "sourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186"
+  },
+  "current": {
+    "revision": "ef280f029cd99917cb94ab2173861cf0cd84d3ba",
+    "sourceHash": "1b8c483b2b89c4f9fea113d2529d902ace425ec1a2a75e207109affa81b084c9",
+    "sourceFiles": 122
+  },
+  "openFindings": [],
+  "round1Findings": [
+    {
+      "id": "P2-1",
+      "status": "RESOLVED",
+      "reason": "Assessment and action source consistency now validate separately; both original action mutations produce issues.",
+      "cases": [
+        "actionObservation",
+        "actionAsset"
+      ]
+    },
+    {
+      "id": "P2-2",
+      "status": "RESOLVED",
+      "reason": "Current record and each memory stage get structural checks independently of copy equality; original kind/scope/schema/carried-entry mutations produce issues.",
+      "cases": [
+        "recordKind",
+        "recordScope",
+        "memorySchema",
+        "carriedMemory"
+      ]
+    },
+    {
+      "id": "P2-3",
+      "status": "RESOLVED",
+      "reason": "Admitted Goal enum validates separately from raw choice; alien produces INVALID_ADMITTED_WHOLE_GOAL_STATUS, while raw unsatisfied/admitted uncertain remains valid.",
+      "cases": [
+        "admittedGoal"
+      ]
+    }
+  ],
+  "validation": {
+    "auditTests": {
+      "developer": 47,
+      "independent": 36,
+      "total": 83,
+      "pass": 83,
+      "fail": 0,
+      "skip": 0,
+      "exitCode": 0,
+      "log": "independent-tests-round2.txt"
+    },
+    "relatedGoalSearchContract": {
+      "tests": 71,
+      "pass": 71,
+      "fail": 0,
+      "exitCode": 0,
+      "log": "independent-related-regression-round2.txt"
+    },
+    "contractOnly": {
+      "tests": 36,
+      "pass": 34,
+      "fail": 0,
+      "skip": 2,
+      "skipReason": "Only real raw audit and real wrapper require unavailable/excluded local fictional raw.",
+      "exitCode": 0,
+      "log": "independent-contract-only-round2.txt"
+    },
+    "typecheck": {
+      "exitCode": 0,
+      "log": "independent-types-round2.txt"
+    },
+    "normalCLI": {
+      "exitCode": 0,
+      "log": "independent-cli-round2.txt",
+      "report": "independent-cli-audit-round2.json"
+    },
+    "normalReplay": {
+      "exitCode": 0,
+      "log": "independent-replay-round2.txt",
+      "result": {
+        "runId": "notifications-r1-reason",
+        "choices": 10,
+        "assessments": 10,
+        "images": 66,
+        "verified": true,
+        "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+      }
+    },
+    "beforeAfter": {
+      "sourceUnchanged": true,
+      "analyzerUnchanged": true,
+      "rubricUnchanged": true,
+      "independentTestUnchanged": true,
+      "originalBaseline121Unchanged": true,
+      "priorSnapshot214Unchanged": true,
+      "unionRaw215Unchanged": true,
+      "product122UnchangedFromRound1": true,
+      "productUnchangedFromB51": true
+    }
+  },
+  "actualSavedRun": {
+    "classifiedFrames": 10,
+    "fragmentSelections": [
+      {
+        "id": "g1",
+        "selections": {
+          "context": 10
+        },
+        "requiredContextConflicts": 0
+      },
+      {
+        "id": "g2",
+        "selections": {
+          "context": 10
+        },
+        "requiredContextConflicts": 10
+      },
+      {
+        "id": "g3",
+        "selections": {
+          "not_shown": 10
+        },
+        "requiredContextConflicts": 0
+      }
+    ],
+    "wholeGoalRawUnsatisfied": 10,
+    "wholeGoalAdmittedUncertain": 10,
+    "rawProbabilitiesExactAndValid": true,
+    "currentRecordSourcesExact": true,
+    "currentClassificationDistinctFromCarriedMemory": true,
+    "allFourStoredGoalFieldsPreserved": true,
+    "responseEvidence": [
+      {
+        "step": 1,
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      {
+        "step": 2,
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      {
+        "step": 3,
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      {
+        "step": 4,
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      {
+        "step": 5,
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      {
+        "step": 6,
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      {
+        "step": 7,
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      {
+        "step": 8,
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      {
+        "step": 9,
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      },
+      {
+        "step": 10,
+        "assessmentResponseRecorded": true,
+        "actionResponseRecorded": true
+      }
+    ],
+    "faultSteps": [
+      {
+        "step": 11,
+        "responseEvidence": {
+          "assessmentResponseRecorded": false,
+          "actionResponseRecorded": false
+        },
+        "outcome": "ASSESSMENT_ERROR",
+        "assessmentResponsePresent": false,
+        "currentRecordPresent": false,
+        "carriedMemoryEntryCount": 8,
+        "error": {
+          "code": "HTTP_ERROR",
+          "statusCode": 402
+        },
+        "goalPreservation": {
+          "assessmentGoal": true,
+          "assessmentCharterGoal": true,
+          "actionGoal": true,
+          "actionCharterGoal": true
+        },
+        "consistency": {
+          "recordedMemoryStructureValid": true,
+          "actionMemoryStructureValid": true,
+          "userStateMemoryStructureValid": true,
+          "assessmentMemoryStructureValid": true
+        },
+        "issues": []
+      }
+    ],
+    "framesWithIssues": 0,
+    "rubricStatus": "APPLIED",
+    "rubricAuthority": "Parent-AI-authored sidecar, not human-validated ground truth; never model input.",
+    "rubricConflictMeaning": "10 conflicts for g2 are authored required+context disagreements, not semantic accuracy or causal evidence.",
+    "statusMeaning": "AVAILABLE means saved classifications are available. framesWithIssues=0 means implemented source/copy/structure diagnostics find no inconsistencies in these saved frames; neither establishes semantic correctness."
+  },
+  "reproEvidence": [
+    {
+      "case": "actionObservation",
+      "issues": [
+        "INCONSISTENT:sourceMatchesCurrent",
+        "INCONSISTENT:actionSourceMatchesCurrent"
+      ],
+      "consistency": {
+        "sourceMatchesCurrent": false,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": false,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "admittedChoice": "uncertain",
+      "admittedChoiceValid": true
+    },
+    {
+      "case": "actionAsset",
+      "issues": [
+        "INCONSISTENT:sourceMatchesCurrent",
+        "INCONSISTENT:actionSourceMatchesCurrent"
+      ],
+      "consistency": {
+        "sourceMatchesCurrent": false,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": false,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "admittedChoice": "uncertain",
+      "admittedChoiceValid": true
+    },
+    {
+      "case": "recordKind",
+      "issues": [
+        "INCONSISTENT:currentRecordStructureValid",
+        "INCONSISTENT:recordedMemoryStructureValid",
+        "INCONSISTENT:actionMemoryStructureValid",
+        "INCONSISTENT:userStateMemoryStructureValid"
+      ],
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": false,
+        "recordedMemoryStructureValid": false,
+        "actionMemoryStructureValid": false,
+        "userStateMemoryStructureValid": false,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "admittedChoice": "uncertain",
+      "admittedChoiceValid": true
+    },
+    {
+      "case": "recordScope",
+      "issues": [
+        "INCONSISTENT:currentRecordStructureValid",
+        "INCONSISTENT:recordedMemoryStructureValid",
+        "INCONSISTENT:actionMemoryStructureValid",
+        "INCONSISTENT:userStateMemoryStructureValid"
+      ],
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": false,
+        "recordedMemoryStructureValid": false,
+        "actionMemoryStructureValid": false,
+        "userStateMemoryStructureValid": false,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "admittedChoice": "uncertain",
+      "admittedChoiceValid": true
+    },
+    {
+      "case": "memorySchema",
+      "issues": [
+        "INCONSISTENT:recordedMemoryStructureValid",
+        "INCONSISTENT:actionMemoryStructureValid",
+        "INCONSISTENT:userStateMemoryStructureValid"
+      ],
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": false,
+        "actionMemoryStructureValid": false,
+        "userStateMemoryStructureValid": false,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "admittedChoice": "uncertain",
+      "admittedChoiceValid": true
+    },
+    {
+      "case": "carriedMemory",
+      "issues": [
+        "INCONSISTENT:recordedMemoryStructureValid",
+        "INCONSISTENT:actionMemoryStructureValid",
+        "INCONSISTENT:userStateMemoryStructureValid"
+      ],
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": false,
+        "actionMemoryStructureValid": false,
+        "userStateMemoryStructureValid": false,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "admittedChoice": "uncertain",
+      "admittedChoiceValid": true
+    },
+    {
+      "case": "admittedGoal",
+      "issues": [
+        "INVALID_ADMITTED_WHOLE_GOAL_STATUS"
+      ],
+      "consistency": {
+        "sourceMatchesCurrent": true,
+        "assessmentSourceMatchesCurrent": true,
+        "actionSourceMatchesCurrent": true,
+        "currentRecordStructureValid": true,
+        "recordedMemoryStructureValid": true,
+        "actionMemoryStructureValid": true,
+        "userStateMemoryStructureValid": true,
+        "assessmentMemoryStructureValid": true,
+        "recordGoalMatches": true,
+        "recordFragmentsMatchLiteral": true,
+        "actionMemoryMatchesRecorded": true,
+        "userStateMemoryMatchesRecorded": true,
+        "currentRecordInActionMemory": true
+      },
+      "admittedChoice": "alien",
+      "admittedChoiceValid": false
+    }
+  ],
+  "testMaintenanceSeparateFromImplementation": "Callback return type and self-contained fixture portability changed only verifier test. Round1 original test, failing logs and report remain preserved. Added positive contract test; none of original seven adversarial assertions relaxed. Runtime identity is default and explicit test argument pins are optional.",
+  "scope": "Offline saved fictional run only. No product/analyzer/rubric edits by verifier; no API/network, input resend, UI, environment/credential or human-record access.",
+  "unverified": [
+    "Actual transmission cannot be inferred solely from prepared inputs; missing response does not imply no transmission.",
+    "Semantic accuracy, rendered-view correctness, causal effect, human fidelity, behavior improvement and HTTP402 restoration are not established.",
+    "Original E live-report path was absent (ENOENT); verification uses supplied C baseline121 and prior214 snapshots. No original E writes were made.",
+    "Independent verifier ran TypeScript noEmit and relevant tests; full build remains parent-owned (parent reports exit0), not reexecuted here."
+  ]
+}

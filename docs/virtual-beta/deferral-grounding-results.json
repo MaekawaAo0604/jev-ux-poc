@@ -1,0 +1,1161 @@
+{
+  "schemaVersion": 1,
+  "kind": "grounded-deferral-review-descriptive-comparison",
+  "comparison": "reason-grounding",
+  "baselineRevision": "dbbae0bdcd74d58687fad571418cfc3eeffce1d2",
+  "frozenRevision": "78615827064b790b41515b8037dfe6d3b3479555",
+  "sourceHash": "d6f0f040dbe5710679a1b556f7df3bf30e748b7e96196da62d01bfffa7b0c80d",
+  "status": "COMPLETED",
+  "model": "jev-1.14.0",
+  "mock": false,
+  "sourceUnchangedAcrossTrials": true,
+  "humanFidelityEvaluated": false,
+  "humanInputsRead": false,
+  "oldInputsResent": false,
+  "limits": {
+    "trials": 12,
+    "maxRequests": 288,
+    "phaseMaximumRequests": 288,
+    "maxRequestsPerTrial": 24,
+    "maxJudgmentsPerTrial": 12,
+    "maxUIActionsPerTrial": 15,
+    "maxLooksPerTrial": 3,
+    "maxRunMs": 180000,
+    "phaseMs": 1200000,
+    "parallel": 1
+  },
+  "requests": {
+    "used": 188,
+    "maximum": 288,
+    "source": "fresh-trial-ledgers-including-incomplete",
+    "actualAPIRequests": 188,
+    "chargedReservations": 188
+  },
+  "priorLedgers": {
+    "checked": 58,
+    "unchanged": true
+  },
+  "paired": [
+    {
+      "scenario": "notifications",
+      "replicate": 1,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "notifications-r1-old",
+        "notifications-r1-reason"
+      ]
+    },
+    {
+      "scenario": "notifications",
+      "replicate": 2,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "notifications-r2-reason",
+        "notifications-r2-old"
+      ]
+    },
+    {
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-alpha-r1-reason",
+        "revisit-alpha-r1-old"
+      ]
+    },
+    {
+      "scenario": "revisit-alpha",
+      "replicate": 2,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-alpha-r2-old",
+        "revisit-alpha-r2-reason"
+      ]
+    },
+    {
+      "scenario": "revisit-beta",
+      "replicate": 1,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-beta-r1-old",
+        "revisit-beta-r1-reason"
+      ]
+    },
+    {
+      "scenario": "revisit-beta",
+      "replicate": 2,
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-beta-r2-reason",
+        "revisit-beta-r2-old"
+      ]
+    }
+  ],
+  "initialAssessmentInputPairs": [
+    {
+      "scenario": "notifications",
+      "replicate": 1,
+      "sameInput": true,
+      "sameAnswers": false,
+      "oldInput": "22696d150a8b7b61e8b857eac7fe55ac280f23c9b16db4932faa1c8d7e1cfd72",
+      "newInput": "22696d150a8b7b61e8b857eac7fe55ac280f23c9b16db4932faa1c8d7e1cfd72"
+    },
+    {
+      "scenario": "notifications",
+      "replicate": 2,
+      "sameInput": true,
+      "sameAnswers": false,
+      "oldInput": "22696d150a8b7b61e8b857eac7fe55ac280f23c9b16db4932faa1c8d7e1cfd72",
+      "newInput": "22696d150a8b7b61e8b857eac7fe55ac280f23c9b16db4932faa1c8d7e1cfd72"
+    },
+    {
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "sameInput": true,
+      "sameAnswers": false,
+      "oldInput": "b3a7a44d5c108d94dcc7e1f840107420d6d1a56b79b33a9cb1f11c887fdfc1db",
+      "newInput": "b3a7a44d5c108d94dcc7e1f840107420d6d1a56b79b33a9cb1f11c887fdfc1db"
+    },
+    {
+      "scenario": "revisit-alpha",
+      "replicate": 2,
+      "sameInput": true,
+      "sameAnswers": false,
+      "oldInput": "b3a7a44d5c108d94dcc7e1f840107420d6d1a56b79b33a9cb1f11c887fdfc1db",
+      "newInput": "b3a7a44d5c108d94dcc7e1f840107420d6d1a56b79b33a9cb1f11c887fdfc1db"
+    },
+    {
+      "scenario": "revisit-beta",
+      "replicate": 1,
+      "sameInput": true,
+      "sameAnswers": false,
+      "oldInput": "1892c93df16f29cff92bdfbd591c11d6d744da5979737a397ed8b10012c5359b",
+      "newInput": "1892c93df16f29cff92bdfbd591c11d6d744da5979737a397ed8b10012c5359b"
+    },
+    {
+      "scenario": "revisit-beta",
+      "replicate": 2,
+      "sameInput": true,
+      "sameAnswers": false,
+      "oldInput": "1892c93df16f29cff92bdfbd591c11d6d744da5979737a397ed8b10012c5359b",
+      "newInput": "1892c93df16f29cff92bdfbd591c11d6d744da5979737a397ed8b10012c5359b"
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "old",
+      "trials": 6,
+      "valid": 6,
+      "successes": 5,
+      "faults": 0,
+      "requests": 96,
+      "reasonCaptures": 13,
+      "admittedReasonCaptures": 5,
+      "reviews": 5,
+      "releases": 0,
+      "statusChangedWithoutCitation": 2
+    },
+    {
+      "condition": "reason",
+      "trials": 6,
+      "valid": 6,
+      "successes": 4,
+      "faults": 0,
+      "requests": 92,
+      "reasonCaptures": 12,
+      "admittedReasonCaptures": 6,
+      "reviews": 4,
+      "releases": 4,
+      "statusChangedWithoutCitation": 0
+    }
+  ],
+  "cells": [
+    {
+      "scenario": "notifications",
+      "condition": "old",
+      "n": 2,
+      "valid": 2,
+      "successes": 1,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 6,
+      "meanDecisions": 7,
+      "policyChanges": 3,
+      "reasonRecordSteps": 14,
+      "reasonCaptures": 3,
+      "admittedReasonCaptures": 0,
+      "reasonReviews": 0,
+      "reasonBasisChangedReports": 0,
+      "actualReasonReleases": 0,
+      "temporaryAlternativeExhaustionSteps": 0,
+      "statusChangedWithoutCitation": 0,
+      "groundedQuestionCount": 0,
+      "groundedResponseCount": 0,
+      "meanCompletedReviewReleaseDelaySteps": null,
+      "unreleasedReviewedGenerations": 0
+    },
+    {
+      "scenario": "notifications",
+      "condition": "reason",
+      "n": 2,
+      "valid": 2,
+      "successes": 0,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 6,
+      "meanDecisions": 7,
+      "policyChanges": 4,
+      "reasonRecordSteps": 14,
+      "reasonCaptures": 4,
+      "admittedReasonCaptures": 0,
+      "reasonReviews": 0,
+      "reasonBasisChangedReports": 0,
+      "actualReasonReleases": 0,
+      "temporaryAlternativeExhaustionSteps": 0,
+      "statusChangedWithoutCitation": 0,
+      "groundedQuestionCount": 0,
+      "groundedResponseCount": 0,
+      "meanCompletedReviewReleaseDelaySteps": null,
+      "unreleasedReviewedGenerations": 0
+    },
+    {
+      "scenario": "revisit-alpha",
+      "condition": "old",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 8,
+      "meanDecisions": 9,
+      "policyChanges": 1,
+      "reasonRecordSteps": 18,
+      "reasonCaptures": 6,
+      "admittedReasonCaptures": 2,
+      "reasonReviews": 3,
+      "reasonBasisChangedReports": 2,
+      "actualReasonReleases": 0,
+      "temporaryAlternativeExhaustionSteps": 3,
+      "statusChangedWithoutCitation": 2,
+      "groundedQuestionCount": 0,
+      "groundedResponseCount": 0,
+      "meanCompletedReviewReleaseDelaySteps": null,
+      "unreleasedReviewedGenerations": 2
+    },
+    {
+      "scenario": "revisit-alpha",
+      "condition": "reason",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 7,
+      "meanDecisions": 8,
+      "policyChanges": 0,
+      "reasonRecordSteps": 16,
+      "reasonCaptures": 4,
+      "admittedReasonCaptures": 4,
+      "reasonReviews": 2,
+      "reasonBasisChangedReports": 2,
+      "actualReasonReleases": 2,
+      "temporaryAlternativeExhaustionSteps": 0,
+      "statusChangedWithoutCitation": 0,
+      "groundedQuestionCount": 2,
+      "groundedResponseCount": 2,
+      "meanCompletedReviewReleaseDelaySteps": 0,
+      "unreleasedReviewedGenerations": 0
+    },
+    {
+      "scenario": "revisit-beta",
+      "condition": "old",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 7,
+      "meanDecisions": 8,
+      "policyChanges": 0,
+      "reasonRecordSteps": 16,
+      "reasonCaptures": 4,
+      "admittedReasonCaptures": 3,
+      "reasonReviews": 2,
+      "reasonBasisChangedReports": 0,
+      "actualReasonReleases": 0,
+      "temporaryAlternativeExhaustionSteps": 2,
+      "statusChangedWithoutCitation": 0,
+      "groundedQuestionCount": 0,
+      "groundedResponseCount": 0,
+      "meanCompletedReviewReleaseDelaySteps": null,
+      "unreleasedReviewedGenerations": 2
+    },
+    {
+      "scenario": "revisit-beta",
+      "condition": "reason",
+      "n": 2,
+      "valid": 2,
+      "successes": 2,
+      "faults": 0,
+      "falseDone": 0,
+      "meanUIActions": 7,
+      "meanDecisions": 8,
+      "policyChanges": 0,
+      "reasonRecordSteps": 16,
+      "reasonCaptures": 4,
+      "admittedReasonCaptures": 2,
+      "reasonReviews": 2,
+      "reasonBasisChangedReports": 2,
+      "actualReasonReleases": 2,
+      "temporaryAlternativeExhaustionSteps": 0,
+      "statusChangedWithoutCitation": 0,
+      "groundedQuestionCount": 2,
+      "groundedResponseCount": 2,
+      "meanCompletedReviewReleaseDelaySteps": 0,
+      "unreleasedReviewedGenerations": 0
+    }
+  ],
+  "runs": [
+    {
+      "id": "notifications-r1-old",
+      "condition": "old",
+      "scenario": "notifications",
+      "replicate": 1,
+      "objective": false,
+      "valid": true,
+      "termination": "STUCK",
+      "uiActions": 6,
+      "decisions": 7,
+      "requests": 14,
+      "chargedReservations": 14,
+      "replay": true,
+      "reviews": []
+    },
+    {
+      "id": "notifications-r1-reason",
+      "condition": "reason",
+      "scenario": "notifications",
+      "replicate": 1,
+      "objective": false,
+      "valid": true,
+      "termination": "STUCK",
+      "uiActions": 6,
+      "decisions": 7,
+      "requests": 14,
+      "chargedReservations": 14,
+      "replay": true,
+      "reviews": []
+    },
+    {
+      "id": "revisit-alpha-r1-reason",
+      "condition": "reason",
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "objective": true,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "decisions": 8,
+      "requests": 16,
+      "chargedReservations": 16,
+      "replay": true,
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "released": true,
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+          },
+          "newEvidence": {
+            "observationId": "o5",
+            "imageSha256": "91ecdfe084b891123b9803d49f8baa9d7dcec8a315f4c49d33d415ae6cf66e4b"
+          },
+          "raw": {
+            "reasonCaptureCategory": {
+              "choice": "prerequisite",
+              "probabilities": {
+                "prerequisite": 0.56,
+                "information_only": 0.06,
+                "missing_information": 0.01,
+                "unavailable_control": 0.02,
+                "constraint": 0,
+                "unknown": 0.35
+              }
+            },
+            "reasonCaptureEvidence": {
+              "choice": "o4",
+              "probabilities": {
+                "o4": 0.32,
+                "o5": 0.17,
+                "o6": 0.03,
+                "o2": 0.18,
+                "none": 0.3
+              }
+            },
+            "reasonReview0Grounded": {
+              "choice": "changed_o5",
+              "probabilities": {
+                "unknown": 0.09,
+                "still_blocks": 0.27,
+                "changed_o4": 0.03,
+                "changed_o5": 0.61
+              }
+            }
+          },
+          "selected": "e2",
+          "nextAction": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "actualURL": "http://127.0.0.1:5173/good/?holdout=r1a#home",
+          "reviewQuestions": [
+            "reasonReview0Grounded"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revisit-alpha-r1-old",
+      "condition": "old",
+      "scenario": "revisit-alpha",
+      "replicate": 1,
+      "objective": true,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "decisions": 8,
+      "requests": 16,
+      "chargedReservations": 16,
+      "replay": true,
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "released": false,
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+          },
+          "raw": {
+            "reasonCaptureCategory": {
+              "choice": "prerequisite",
+              "probabilities": {
+                "prerequisite": 0.5,
+                "information_only": 0.07,
+                "missing_information": 0.01,
+                "unavailable_control": 0.02,
+                "constraint": 0,
+                "unknown": 0.4
+              }
+            },
+            "reasonCaptureEvidence": {
+              "choice": "o2",
+              "probabilities": {
+                "o4": 0.17,
+                "o5": 0.23,
+                "o6": 0.05,
+                "o2": 0.27,
+                "none": 0.28
+              }
+            },
+            "reasonReview0Status": {
+              "choice": "basis_changed",
+              "probabilities": {
+                "still_blocks": 0.36,
+                "basis_changed": 0.43,
+                "unknown": 0.21
+              }
+            },
+            "reasonReview0Evidence": {
+              "choice": "none",
+              "probabilities": {
+                "o4": 0.05,
+                "o5": 0.29,
+                "o6": 0.1,
+                "o2": 0.05,
+                "none": 0.51
+              }
+            }
+          },
+          "selected": "e2",
+          "nextAction": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "actualURL": "http://127.0.0.1:5173/good/?holdout=r1a#home",
+          "reviewQuestions": [
+            "reasonReview0Status",
+            "reasonReview0Evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revisit-beta-r1-old",
+      "condition": "old",
+      "scenario": "revisit-beta",
+      "replicate": 1,
+      "objective": true,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "decisions": 8,
+      "requests": 16,
+      "chargedReservations": 16,
+      "replay": true,
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "still_blocks",
+          "released": false,
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "raw": {
+            "reasonCaptureCategory": {
+              "choice": "prerequisite",
+              "probabilities": {
+                "prerequisite": 0.59,
+                "information_only": 0.04,
+                "missing_information": 0.01,
+                "unavailable_control": 0.02,
+                "constraint": 0,
+                "unknown": 0.34
+              }
+            },
+            "reasonCaptureEvidence": {
+              "choice": "o2",
+              "probabilities": {
+                "o4": 0.16,
+                "o5": 0.19,
+                "o6": 0.04,
+                "o2": 0.33,
+                "none": 0.28
+              }
+            },
+            "reasonReview0Status": {
+              "choice": "still_blocks",
+              "probabilities": {
+                "still_blocks": 0.39,
+                "basis_changed": 0.32,
+                "unknown": 0.29
+              }
+            },
+            "reasonReview0Evidence": {
+              "choice": "none",
+              "probabilities": {
+                "o4": 0.05,
+                "o5": 0.34,
+                "o6": 0.08,
+                "o2": 0.06,
+                "none": 0.47
+              }
+            }
+          },
+          "selected": "e3",
+          "nextAction": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "actualURL": "http://127.0.0.1:5173/good/?holdout=r1b#home",
+          "reviewQuestions": [
+            "reasonReview0Status",
+            "reasonReview0Evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revisit-beta-r1-reason",
+      "condition": "reason",
+      "scenario": "revisit-beta",
+      "replicate": 1,
+      "objective": true,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "decisions": 8,
+      "requests": 16,
+      "chargedReservations": 16,
+      "replay": true,
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "released": true,
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "newEvidence": {
+            "observationId": "o5",
+            "imageSha256": "4de865b79f05755eebc087f8e1741a1f78542897bfb0a70c5968f6671c882d8f"
+          },
+          "raw": {
+            "reasonCaptureCategory": {
+              "choice": "prerequisite",
+              "probabilities": {
+                "prerequisite": 0.72,
+                "information_only": 0.04,
+                "missing_information": 0.01,
+                "unavailable_control": 0.02,
+                "constraint": 0,
+                "unknown": 0.21
+              }
+            },
+            "reasonCaptureEvidence": {
+              "choice": "o2",
+              "probabilities": {
+                "o4": 0.14,
+                "o5": 0.26,
+                "o6": 0.04,
+                "o2": 0.36,
+                "none": 0.2
+              }
+            },
+            "reasonReview0Grounded": {
+              "choice": "changed_o5",
+              "probabilities": {
+                "unknown": 0.07,
+                "still_blocks": 0.12,
+                "changed_o4": 0.01,
+                "changed_o5": 0.8
+              }
+            }
+          },
+          "selected": "e3",
+          "nextAction": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "actualURL": "http://127.0.0.1:5173/good/?holdout=r1b#home",
+          "reviewQuestions": [
+            "reasonReview0Grounded"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "notifications-r2-reason",
+      "condition": "reason",
+      "scenario": "notifications",
+      "replicate": 2,
+      "objective": false,
+      "valid": true,
+      "termination": "STUCK",
+      "uiActions": 6,
+      "decisions": 7,
+      "requests": 14,
+      "chargedReservations": 14,
+      "replay": true,
+      "reviews": []
+    },
+    {
+      "id": "notifications-r2-old",
+      "condition": "old",
+      "scenario": "notifications",
+      "replicate": 2,
+      "objective": true,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 6,
+      "decisions": 7,
+      "requests": 14,
+      "chargedReservations": 14,
+      "replay": true,
+      "reviews": []
+    },
+    {
+      "id": "revisit-alpha-r2-old",
+      "condition": "old",
+      "scenario": "revisit-alpha",
+      "replicate": 2,
+      "objective": true,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 9,
+      "decisions": 10,
+      "requests": 20,
+      "chargedReservations": 20,
+      "replay": true,
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "still_blocks",
+          "released": false,
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+          },
+          "raw": {
+            "reasonCaptureCategory": {
+              "choice": "prerequisite",
+              "probabilities": {
+                "prerequisite": 0.6,
+                "information_only": 0.07,
+                "missing_information": 0.01,
+                "unavailable_control": 0.04,
+                "constraint": 0,
+                "unknown": 0.28
+              }
+            },
+            "reasonCaptureEvidence": {
+              "choice": "o2",
+              "probabilities": {
+                "o4": 0.23,
+                "o5": 0.15,
+                "o6": 0.03,
+                "o2": 0.35,
+                "none": 0.24
+              }
+            },
+            "reasonReview0Status": {
+              "choice": "still_blocks",
+              "probabilities": {
+                "still_blocks": 0.38,
+                "basis_changed": 0.34,
+                "unknown": 0.28
+              }
+            },
+            "reasonReview0Evidence": {
+              "choice": "none",
+              "probabilities": {
+                "o4": 0.07,
+                "o5": 0.27,
+                "o6": 0.1,
+                "o2": 0.04,
+                "none": 0.52
+              }
+            }
+          },
+          "selected": "e3",
+          "nextAction": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "actualURL": "http://127.0.0.1:5173/good/?holdout=r1a#home",
+          "reviewQuestions": [
+            "reasonReview0Status",
+            "reasonReview0Evidence"
+          ]
+        },
+        {
+          "step": 8,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "released": false,
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+          },
+          "raw": {
+            "reasonCaptureCategory": {
+              "choice": "unknown",
+              "probabilities": {
+                "prerequisite": 0.33,
+                "information_only": 0.25,
+                "missing_information": 0.01,
+                "unavailable_control": 0.03,
+                "constraint": 0,
+                "unknown": 0.38
+              }
+            },
+            "reasonCaptureEvidence": {
+              "choice": "none",
+              "probabilities": {
+                "o6": 0.01,
+                "o7": 0.24,
+                "o8": 0.03,
+                "o2": 0.3,
+                "none": 0.42
+              }
+            },
+            "reasonReview0Status": {
+              "choice": "basis_changed",
+              "probabilities": {
+                "still_blocks": 0.34,
+                "basis_changed": 0.44,
+                "unknown": 0.22
+              }
+            },
+            "reasonReview0Evidence": {
+              "choice": "none",
+              "probabilities": {
+                "o6": 0.01,
+                "o7": 0.36,
+                "o8": 0.03,
+                "o2": 0.1,
+                "none": 0.5
+              }
+            }
+          },
+          "selected": "e2",
+          "nextAction": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "actualURL": "http://127.0.0.1:5173/good/?holdout=r1a#home",
+          "reviewQuestions": [
+            "reasonReview0Status",
+            "reasonReview0Evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revisit-alpha-r2-reason",
+      "condition": "reason",
+      "scenario": "revisit-alpha",
+      "replicate": 2,
+      "objective": true,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "decisions": 8,
+      "requests": 16,
+      "chargedReservations": 16,
+      "replay": true,
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+            "candidateId": "e2",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "released": true,
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "6750a3823d383632ee13a8ffe8ec981d908174f00de919790ea068581f425e5c"
+          },
+          "newEvidence": {
+            "observationId": "o5",
+            "imageSha256": "91ecdfe084b891123b9803d49f8baa9d7dcec8a315f4c49d33d415ae6cf66e4b"
+          },
+          "raw": {
+            "reasonCaptureCategory": {
+              "choice": "prerequisite",
+              "probabilities": {
+                "prerequisite": 0.59,
+                "information_only": 0.04,
+                "missing_information": 0.01,
+                "unavailable_control": 0.02,
+                "constraint": 0,
+                "unknown": 0.34
+              }
+            },
+            "reasonCaptureEvidence": {
+              "choice": "o5",
+              "probabilities": {
+                "o4": 0.26,
+                "o5": 0.32,
+                "o6": 0.03,
+                "o2": 0.12,
+                "none": 0.27
+              }
+            },
+            "reasonReview0Grounded": {
+              "choice": "changed_o5",
+              "probabilities": {
+                "unknown": 0.08,
+                "still_blocks": 0.29,
+                "changed_o4": 0.03,
+                "changed_o5": 0.6
+              }
+            }
+          },
+          "selected": "e2",
+          "nextAction": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "outcome": "UI_PERFORMED",
+          "actualURL": "http://127.0.0.1:5173/good/?holdout=r1a#home",
+          "reviewQuestions": [
+            "reasonReview0Grounded"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revisit-beta-r2-reason",
+      "condition": "reason",
+      "scenario": "revisit-beta",
+      "replicate": 2,
+      "objective": true,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "decisions": 8,
+      "requests": 16,
+      "chargedReservations": 16,
+      "replay": true,
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "basis_changed",
+          "released": true,
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "newEvidence": {
+            "observationId": "o5",
+            "imageSha256": "4de865b79f05755eebc087f8e1741a1f78542897bfb0a70c5968f6671c882d8f"
+          },
+          "raw": {
+            "reasonCaptureCategory": {
+              "choice": "prerequisite",
+              "probabilities": {
+                "prerequisite": 0.65,
+                "information_only": 0.05,
+                "missing_information": 0.01,
+                "unavailable_control": 0.02,
+                "constraint": 0,
+                "unknown": 0.27
+              }
+            },
+            "reasonCaptureEvidence": {
+              "choice": "o2",
+              "probabilities": {
+                "o4": 0.15,
+                "o5": 0.24,
+                "o6": 0.03,
+                "o2": 0.34,
+                "none": 0.24
+              }
+            },
+            "reasonReview0Grounded": {
+              "choice": "changed_o5",
+              "probabilities": {
+                "unknown": 0.07,
+                "still_blocks": 0.15,
+                "changed_o4": 0.01,
+                "changed_o5": 0.77
+              }
+            }
+          },
+          "selected": "e3",
+          "nextAction": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "actualURL": "http://127.0.0.1:5173/good/?holdout=r1b#home",
+          "reviewQuestions": [
+            "reasonReview0Grounded"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revisit-beta-r2-old",
+      "condition": "old",
+      "scenario": "revisit-beta",
+      "replicate": 2,
+      "objective": true,
+      "valid": true,
+      "termination": "SUBJECTIVE_DONE",
+      "uiActions": 7,
+      "decisions": 8,
+      "requests": 16,
+      "chargedReservations": 16,
+      "replay": true,
+      "reviews": [
+        {
+          "step": 6,
+          "identity": {
+            "imageSha256": "c6f6ba89dd74cb0a04a99c0f1ef7998dfb7f5ff71c8e51de8b7ae60bd294f19d",
+            "candidateId": "e3",
+            "fromObservationId": "o1",
+            "toObservationId": "o3"
+          },
+          "status": "still_blocks",
+          "released": false,
+          "basis": {
+            "observationId": "o2",
+            "imageSha256": "39e5e856ab097b9e5419af90bec9cc82eca0c5e51e5d6453caad4265d6c72b06"
+          },
+          "raw": {
+            "reasonCaptureCategory": {
+              "choice": "prerequisite",
+              "probabilities": {
+                "prerequisite": 0.68,
+                "information_only": 0.05,
+                "missing_information": 0.01,
+                "unavailable_control": 0.02,
+                "constraint": 0,
+                "unknown": 0.23
+              }
+            },
+            "reasonCaptureEvidence": {
+              "choice": "o5",
+              "probabilities": {
+                "o4": 0.18,
+                "o5": 0.29,
+                "o6": 0.03,
+                "o2": 0.23,
+                "none": 0.27
+              }
+            },
+            "reasonReview0Status": {
+              "choice": "still_blocks",
+              "probabilities": {
+                "still_blocks": 0.38,
+                "basis_changed": 0.33,
+                "unknown": 0.29
+              }
+            },
+            "reasonReview0Evidence": {
+              "choice": "none",
+              "probabilities": {
+                "o4": 0.03,
+                "o5": 0.36,
+                "o6": 0.08,
+                "o2": 0.07,
+                "none": 0.46
+              }
+            }
+          },
+          "selected": "e3",
+          "nextAction": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "outcome": "UI_PERFORMED",
+          "actualURL": "http://127.0.0.1:5173/good/?holdout=r1b#home",
+          "reviewQuestions": [
+            "reasonReview0Status",
+            "reasonReview0Evidence"
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Two replicates per scenario and condition are descriptive, with no reliability or generalization estimate.",
+    "Model reason captures and reviews are self-reports. Actual release records and actual selected actions remain separate.",
+    "Images establish input equality only, not semantic identity or goal equivalence.",
+    "Only a subsequent audited observation establishes a performed action destination.",
+    "Mock scripted done output is a connectivity check and supplies no performance evidence.",
+    "Source, initial image, goal, persona, and config are paired with only config id and deferralReason.reviewMode excluded.",
+    "The syntactic absence of changed-without-citation answers is enforced by the choice interface; it is not evidence of improved semantic understanding.",
+    "Review delay covers completed record.reviews by exact generation; it excludes question-only and failed assessment opportunities and does not measure all eligible opportunities.",
+    "groundedQuestionCount counts saved assessment question definitions, not independently confirmed delivery; groundedResponseCount counts recorded raw answers.",
+    "No completed review or release opportunity leaves false-release accuracy untested; a zero count is not evidence of correctness."
+  ],
+  "verification": {
+    "relatedTests": 122,
+    "relatedTestsPassed": 122,
+    "independentFinalTests": 9,
+    "independentFinalPassed": 9,
+    "independentRepairRounds": 1,
+    "independentReplayTamperCases": 12,
+    "legacySavedReplays": 24,
+    "newSavedReplays": 12,
+    "typecheck": "passed",
+    "build": "passed",
+    "fourConditionRegression": {
+      "mock": true,
+      "actualAPIRequests": 0,
+      "results": [
+        {
+          "condition": "current",
+          "objective": true,
+          "valid": true,
+          "UIActions": 2,
+          "looks": 0,
+          "evaluatorCalls": 3
+        },
+        {
+          "condition": "vision",
+          "objective": true,
+          "valid": true,
+          "UIActions": 2,
+          "looks": 2,
+          "evaluatorCalls": 5
+        },
+        {
+          "condition": "state",
+          "objective": true,
+          "valid": true,
+          "UIActions": 2,
+          "looks": 0,
+          "evaluatorCalls": 3
+        },
+        {
+          "condition": "combined",
+          "objective": true,
+          "valid": true,
+          "UIActions": 2,
+          "looks": 2,
+          "evaluatorCalls": 5
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "source": "persona-task-review-visual.json",
+  "frames": [
+    {
+      "kind": "current",
+      "step": 1,
+      "file": "input-1.png",
+      "sha256": "aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-tasks-2026-11-06\\live-r1\\persona-task-sessions-C-r1\\exploration\\input-1.png",
+      "actuallyViewed": true,
+      "reviewMethod": "view_image tool on representative actual delivered PNG with this SHA256",
+      "publishedFile": "persona-task-frames/frame-aee2e607f6498664cd978043d456b069947ad33a6d2c999bb6bca0c5766b2bd5.png"
+    },
+    {
+      "kind": "next-delivered",
+      "step": 2,
+      "file": "input-2.png",
+      "sha256": "6d6c09a4887a8f042edfd0b04a5ca2c7e548d8844e8b48204442b18e23e7bfd0",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-tasks-2026-11-06\\live-r1\\persona-task-sessions-C-r1\\exploration\\input-2.png",
+      "actuallyViewed": true,
+      "reviewMethod": "view_image tool on representative actual delivered PNG with this SHA256",
+      "publishedFile": "persona-task-frames/frame-6d6c09a4887a8f042edfd0b04a5ca2c7e548d8844e8b48204442b18e23e7bfd0.png"
+    },
+    {
+      "kind": "current",
+      "step": 1,
+      "file": "input-1.png",
+      "sha256": "65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-tasks-2026-11-06\\live-r1\\persona-task-preferences-C-r1\\exploration\\input-1.png",
+      "actuallyViewed": true,
+      "reviewMethod": "view_image tool on representative actual delivered PNG with this SHA256",
+      "publishedFile": "persona-task-frames/frame-65570bf3aaaf85d4f9ed5f7d58f4b1ee7121b449e1bc0ebe8da076e56f3c7a40.png"
+    },
+    {
+      "kind": "next-delivered",
+      "step": 2,
+      "file": "input-2.png",
+      "sha256": "922c21dee97afec5dbb131aacbb4dcf712f99dbf9ee153050e1a17f63c04041e",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-tasks-2026-11-06\\live-r1\\persona-task-preferences-C-r1\\exploration\\input-2.png",
+      "actuallyViewed": true,
+      "reviewMethod": "view_image tool on representative actual delivered PNG with this SHA256",
+      "publishedFile": "persona-task-frames/frame-922c21dee97afec5dbb131aacbb4dcf712f99dbf9ee153050e1a17f63c04041e.png"
+    },
+    {
+      "kind": "current",
+      "step": 1,
+      "file": "input-1.png",
+      "sha256": "33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-tasks-2026-11-06\\live-r1\\persona-task-privacy-C-r2\\exploration\\input-1.png",
+      "actuallyViewed": true,
+      "reviewMethod": "view_image tool on representative actual delivered PNG with this SHA256",
+      "publishedFile": "persona-task-frames/frame-33b03933aa826a6cad21d3779e586dade1bccc89813a2cd9e9cefffec1da7821.png"
+    },
+    {
+      "kind": "next-delivered",
+      "step": 2,
+      "file": "input-2.png",
+      "sha256": "f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-tasks-2026-11-06\\live-r1\\persona-task-privacy-C-r2\\exploration\\input-2.png",
+      "actuallyViewed": true,
+      "reviewMethod": "view_image tool on representative actual delivered PNG with this SHA256",
+      "publishedFile": "persona-task-frames/frame-f084a27737bbd6ba73b7565f0832199ec066af4020ea5ec9eb1a8114aab8e41c.png"
+    },
+    {
+      "kind": "current",
+      "step": 2,
+      "file": "input-2.png",
+      "sha256": "9548f7807a8768f62808e359411506a197f7ca35f2344c6795450bce15ee0aea",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-tasks-2026-11-06\\live-r1\\persona-task-privacy-C-r1\\exploration\\input-2.png",
+      "actuallyViewed": true,
+      "reviewMethod": "view_image tool on representative actual delivered PNG with this SHA256",
+      "publishedFile": "persona-task-frames/frame-9548f7807a8768f62808e359411506a197f7ca35f2344c6795450bce15ee0aea.png"
+    },
+    {
+      "kind": "next-delivered",
+      "step": 3,
+      "file": "input-3.png",
+      "sha256": "890e28cae5dcb5e822ab800b2d29cb493f55d6744b32d068730a64b0ef61ff3d",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-tasks-2026-11-06\\live-r1\\persona-task-privacy-C-r1\\exploration\\input-3.png",
+      "actuallyViewed": true,
+      "reviewMethod": "view_image tool on representative actual delivered PNG with this SHA256",
+      "publishedFile": "persona-task-frames/frame-890e28cae5dcb5e822ab800b2d29cb493f55d6744b32d068730a64b0ef61ff3d.png"
+    },
+    {
+      "kind": "reviewer-selected-completion",
+      "step": 3,
+      "file": "input-3.png",
+      "sha256": "df0536b31e8113bf16e5230dd8854892e3b2abd903810dc586c1f859308ae668",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-tasks-2026-11-06\\live-r1\\persona-task-sessions-baseline-r1\\exploration\\input-3.png",
+      "actuallyViewed": true,
+      "reviewMethod": "view_image tool actual delivered input-3 PNG, outside parent14case plan",
+      "publishedFile": "persona-task-frames/frame-df0536b31e8113bf16e5230dd8854892e3b2abd903810dc586c1f859308ae668.png"
+    },
+    {
+      "kind": "reviewer-selected-completion",
+      "step": 3,
+      "file": "input-3.png",
+      "sha256": "5cf453875f28382add153fdc65c6fe4e1f7d6765ce3bde8fb5e028614639d132",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\persona-tasks-2026-11-06\\live-r1\\persona-task-preferences-baseline-r1\\exploration\\input-3.png",
+      "actuallyViewed": true,
+      "reviewMethod": "view_image tool actual delivered input-3 PNG, outside parent14case plan",
+      "publishedFile": "persona-task-frames/frame-5cf453875f28382add153fdc65c6fe4e1f7d6765ce3bde8fb5e028614639d132.png"
+    }
+  ]
+}

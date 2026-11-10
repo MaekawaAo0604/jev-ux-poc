@@ -1,8 +1,74 @@
 # Jev UX navigation PoC
 
+[視覚制約だけの比較と反復の診断](docs/virtual-beta/vision-isolation.md)：actorを変えず18試行・102要求。fullは6/6達成、crop/周辺ブラーは計12件がUI上限。停止ボタン未提示と、追加注視を選ばず戻る経路を特定しました。
+
+[予算・seed・機構を分離した比較](docs/virtual-beta/controlled-comparison.md)：条件別予算と5機構の切替を実装し、実Jev54枠・199要求を実行。上限終了15件と、samplingが完了提案をstuckへ変えた例を分けて記録します。
+
+[分かりやすい通知設定画面でのPersona比較](docs/virtual-beta/clear-personas.md)：同じ端末で初心者A・熟練者B・慎重なC・baselineを各4回。A/B/baselineは直接有効化が各4回、Cは詳細確認3回・直接1回。モデル分布と実操作、既定値の保存を分けて記録します。
+
+[端末制約を直接使う選択課題](docs/virtual-beta/constraint-choice.md)：同じ画面で PC 保存可否×スマホ有無を比較。探索・保存・機能完了・制約整合を分けて記録します。
+
+[極端な Persona の同条件比較](docs/virtual-beta/extreme-persona-study.md)：8 条件を各 4 回、同じ実サイト保存画面から動かした初回判断と、別枠の経路を記録。
+
+## 探索ログ一覧と実サイト反復
+
+[一覧の起動方法と実行設定](docs/virtual-beta/exploration-observatory.md)。各判断のモデル入力画像、状態、分布、実操作、終了理由を追い、Persona 別に絞り込めるローカル画面を追加しました。実サイトは取得した GitHub Docs を通信なしで再生し、条件を固定します。実行件数と検証結果はリンク先へ記録します。
+
+
+## 知識・経験・制約の3課題で比較：2026-11-06
+
+[結果・画像・実行方法](docs/virtual-beta/persona-task-comparison.md)、[36試行JSON](docs/virtual-beta/persona-task-results.json)。実モデル36枠、35有効・画像抽出の不正1、292要求。認証・表示設定では経路差なし。通知連携ではCが2/3回で詳細画面から基本アクセス、他3条件は9/9回で拡張アクセスだった。C内の揺れと詳細画面の既定選択を残し、安定したPersona効果や人間一致は確定しない。関連67テスト・コード/モックの独立検証は通過。リポジトリ全体のテストは未合格。
+
+## Persona比較の実モデル検証：2026-11-05
+
+[実装・結果・実行方法](docs/virtual-beta/persona-beta-comparison.md)、[比較JSON](docs/virtual-beta/persona-beta-results.json)、[独立監査](docs/virtual-beta/persona-beta-review-live.json)。共通の補正なしuserモードでbaseline/A/B/Cを各3回、全12枠有効・396要求・基盤途中停止0を確認した。条件内の経路距離0.306、条件間0.323で、ばらつきを超える経路のPersona効果は確認できていない。Cの確認カテゴリ27/30と3回の経路一致は、他条件でも同じ経路が出た事実と分けて保存する。人間一致と知識・制約全般の遵守は未検証。
+
+
+## Jev / OpenAI Decisions の実モデル比較
+
+[実行方法・結果](docs/virtual-beta/provider-comparison.md)、[24試行JSON](docs/virtual-beta/provider-comparison-results.json)、[独立検証](docs/virtual-beta/provider-comparison-independent-review.md)。同じ探索設計で判断APIだけを切り替え、並列2で各12試行を実行。目的達成はJev8/12、OpenAI4/12、408要求すべて正常応答でした。入口切替は両方4/4、前提変更後の再訪・保存はJev4/4・OpenAI0/4、照合が必要な条件は両方0/4。今回OpenAIへの差し替えは改善せず、既定はJevを維持します。人間一致は未検証です。
+
+## 別課題での探索切替・再訪の実測
+
+[実行方法・結果](docs/virtual-beta/recovery-transfer.md)、[12試行JSON](docs/virtual-beta/recovery-transfer-results.json)、[独立検証](docs/virtual-beta/recovery-transfer-independent-review.md)。2課題×3条件×2反復を方式固定で実行し、184要求はすべて成功応答でした。入口切替4/4、前提変更後の再訪・保存4/4、照合が必要な条件0/4。未達4件は判断上限で、基盤障害0。探索全体の安定化は未達、人間一致は未検証です。
+
 ユーザーの目的・現在見えるUI・操作履歴からJevが次の操作を選ぶ、ローカル専用PoCです。Good/Bad UI × 文字サイズ情報なし/あり × 2 Goalを実行します。
 
-## 起動
+## 方式を固定した別課題での実測
+
+[実行方法と結果](docs/virtual-beta/transfer-evaluation.md)、[個別JSON](docs/virtual-beta/transfer-results.json)、[独立検証](docs/virtual-beta/transfer-independent-review.md)。新しい3課題・6画面を方式を変えずに探索し、予定21枠をすべて試行しました。新課題は有効16件が達成・API障害2件、既知課題は3件が達成。累計147要求、未実行0です。catalogの各版は有効2反復、他は3反復で、同条件の経路差も1条件に残りました。人間再現や行き詰まり回復の一般化は未検証です。
+
+## ペルソナ別の探索実験
+
+ペルソナと探索チャーターを別々の JSON で指定し、ベースライン＋3ペルソナを各3回比較できます。
+実行手順、出力形式、初回12試行の結果は [ペルソナ探索 PoC](docs/persona-experiment.md) を参照してください。
+LOOPの原因分析と追加対照の結果は [第2フェーズ検証](docs/persona-phase2.md) にまとめています。
+
+```powershell
+npm run experiment:persona -- --vision
+```
+
+## スマホから見る公開資料
+
+公開資料は https://maekawaao0604.github.io/jev-ux-poc/ で配信します。
+サービス概要と匿名化した検証サマリーだけを掲載し、詳細ログ、認証情報、第三者サイトの画像は載せません。
+探索の実行や生のレポート閲覧は、引き続きローカルで行います。
+
+```powershell
+npx tsx --test tests/public-pages.test.ts
+npm run build:pages
+```
+
+`public-site/` の指定した 5 ファイルだけを `.cache/public-pages/` に出力します。
+ファイルを追加するだけでは公開対象は増えません。追加時はビルダーと検査を見直してください。
+`reports/`、`docs/`、Vite のビルド結果はアップロードしません。
+出力先に想定外のファイルやリンクがある場合は、削除せずにビルドを拒否します。
+
+GitHub Actions の `Publish public documents` が `fix/sufficiency-voting` と `master` の公開用ソース変更時に配信します。
+既定ブランチの変更やマージは行いません。統合後はワークフローの配信ブランチを整理してください。
+公開文面の更新は `public-site/` で行い、元の診断記録をそのままコピーしないでください。
+
+## ローカル環境
 
 Node.js 22以上を使用します。
 
@@ -30,6 +96,87 @@ npm run experiment -- --pom auto --success jev
 サーバーは自動起動・終了します。各試行で独立したブラウザーコンテキストを作り、試行中は同じページ・セッションを維持します。Jevには全操作履歴を毎回渡します。`--max-actions 0` は回数制限なし（既定20）。同じ画面・同じ操作の3回目でループ終了します。APIは30秒でタイムアウトします。
 
 実行後に表示される `reports/<日時>/index.html` を開いてください。各Stepの入力、候補、確率、操作結果、URL、スクリーンショット、判断時間、全体時間を保存します。結果は逐次保存するため、中断しても完了済みStepは残ります。
+
+## 画像入力の検証
+
+`--vision` を付けると、判断直前に保存したスクリーンショットも Jev 1.14 に渡します。
+既定では、現在の操作候補に `[e1]` などの番号を付けた画像から Jev が次の操作を選び、保持済みの DOM 要素を Playwright が操作します。
+OCR は起動せず、OCR の文字候補照合や文字メモも作りません。
+公開サイトでは、文字のないリンクも既存の安全分類を通過したものに限って番号で提示します。フォーム送信や任意座標の操作を許可する変更ではありません。
+番号と操作先の位置は各 Step の `visualTargets` に残します。番号表示は撮影時だけ追加し、成功時も撮影失敗時も片付けます。密集した番号は重ならない位置へ配置し、線で操作先へ対応付けます。
+探索判断には現在画像を 1 枚だけ送り、過去画像は再送しません。DOM の観測本文と操作履歴は残りますが、画像だけにあった過去の情報は保持されません。その不足をサイトの UX 問題と断定しないでください。
+
+画面情報を画像だけに限定する実験では、`--vision --image-only` を指定します。
+Jev には Goal、現在の番号付き画像、匿名の操作候補、実行した操作の履歴と位置情報だけを渡します。
+DOM の本文、タイトル、ラベル、URL は、完了の再確認や別ルート選択を含め、送信直前に除きます。
+DOM は操作先の特定、安全確認、ローカルログに残します。終了後の DOM 監査は実行しません。
+OCR と過去画像の内容保持は使わないため、複数画面の情報を合わせる Goal を完了できない場合があります。
+このモードの試行はサイトの UX 指標の有効件数に含めません。
+終了後の保存画像監査は探索とは別に実行し、その結果で探索の終了理由を変更しません。
+
+```powershell
+npm run explore -- https://www.ndl.go.jp/ "東京本館を初めて利用したい。事前の利用者登録が必要か、登録に使える本人確認書類を知りたい。" --reviewed --vision --image-only --interval-ms 2000 --max-actions 0
+```
+
+`--reviewed` は、実行時点でサイトの利用ルールと探索範囲を確認した後だけ指定してください。
+公開サイト探索では、既知の認証用 URL とログインなどの操作リンクを候補から除外し、実行直前、HTTP・画面スクリプトのリダイレクト先、ブラウザーからの認証用リクエストも送信前に検査します。
+同じドメインにあるという理由だけで認証を許可しません。料金ページや `/help/login` などの説明ページは引き続き読めます。
+画像やスクリプトなどのサブリソースは、自動リダイレクトと自動再試行を止めて 1 回だけ取得し、その応答をブラウザーで再利用します。
+サブリソースが HTTP リダイレクトを返した場合は探索範囲外として停止します。無害なリダイレクトでも表示確認ができなくなる制約があり、その試行をサイトの UX 問題には数えません。
+この検査は URL の経路・操作用クエリーとリンク表示による保守的な判定です。未知の URL で実装された副作用まで判別する保証ではなく、サイトの利用ルール確認に代わるものでもありません。
+`--image-only` は `--vision-ocr` と併用できません。既存の画像と DOM を合わせた経路は変更していません。
+
+画像からの判断記録を次の判断に渡す場合は、`--vision --image-only --image-memory` を指定します。
+Goal の原文を句読点などで区切り、各断片について現在画像で確認できたかを Jev の Choice で記録します。
+現在画像で見えないだけなら以前の記録を残し、取消・矛盾・不明を示す判断があれば完了を保留します。
+入口の有用さも、現在画像の番号と既存の探索対象 ID を対応させて記録します。
+判断記録には画像の SHA-256、ステップ、匿名ページ ID を付け、次の判断に渡します。DOM 本文、OCR、自由文の回答、過去画像の再送は使いません。
+全更新はログに残し、送信時は各項目の現在の状態、その状態を確定した最新の出典、更新回数へまとめます。現在画像で見えないだけの場合は、以前の確認元を残します。
+
+この記録はモデルの判断であり、正確な回答文や検証済みの事実ではありません。
+断片の分割だけでは Goal の網羅性を保証できないため、元の Goal 全体の完了照合も残しています。
+未確認・取消・不明の項目が残れば、完了という返答でも終了を認めず、元の返答と保留理由を別々に記録します。
+画像由来の確認項目が揃った時点でも、一次判断の `done` を待たずに全 Goal を照合します。不足・不明なら元の操作を維持し、完了を強制しません。
+送信時は同一の出典を `imageJudgments.sources` へまとめ、各記録の `source.reference` から参照します。別ルートをグループで比較するときは、その質問に含まれる入口の記録だけを渡し、保存ログは削りません。
+未確定の経由移動では、到達できる既知・未探索先が一意の場合だけ、許可済みの一次判断を再判断せずに固定します。
+複数の目的地が同じ移動を経由する場合は、候補順や距離だけで目的地を決めず、既存の Jev の経路選択を使います。その選択で停止やエラーになった場合、勝手に先頭候補へ進みません。
+現在画像の一意な未試行操作と、確定した目的地への経路継続、探索済み除外は維持します。
+終了画面の保存に失敗した場合は `finalCapture` に別記録し、探索の終了理由や Action Trace を撮影エラーで上書きしません。撮影に失敗した試行は UX 指標から除外します。
+
+完了照合だけに必要な出典画像を追加する場合は、さらに `--image-memory-proof` を指定します。
+操作判断は現在画像 1 枚のままです。
+完了照合では、現在 `observed` の各確認項目を確定した最新画像だけを保存 PNG から読み込み、記録済み SHA-256 と一致したものを現在画像に追加します。
+同じ出典は重複送信せず、取消・不明になった項目や入口の見込みだけの画像は選びません。
+全履歴画像をメモリに保持せず、OCR や DOM 本文も使いません。
+出典が欠落・改変していたら照合を停止し、黙って根拠を省略したり完了にしたりしません。
+各要求の `completionProof` に出典、照合状態、画像数を記録します。
+この方式でも、画像の意味を Jev が正しく判断することや、Goal の分割が十分なことは保証しません。
+
+```powershell
+npm run explore -- https://www.ndl.go.jp/ "東京本館を初めて利用したい。事前の利用者登録が必要か、登録に使える本人確認書類を知りたい。" --reviewed --vision --image-only --image-memory --image-memory-proof --interval-ms 2000 --max-actions 0
+```
+
+従来の OCR 文字メモが必要なら、`--vision --vision-ocr` を指定します。この経路は従来どおり番号なしの現在画像を使います。
+以下の OCR 処理は、この明示オプションを付けた場合だけ実行します。
+OCR 候補の文字照合は Goal や操作履歴を渡さず、操作選択とは別に行います。Jev が承認した文字と出典を後の判断へ残しますが、この承認は独立した正しさの保証ではありません。
+既存の Tesseract に加え、利用可能な Windows 日本語 OCR を未確認領域の候補生成に使います。追加エンジンが使えない場合も Tesseract は動作し、その状態は `ocrDiagnostics` に残ります。Windows OCR は認識スコアを返さないため、架空の信頼度は付けません。
+追加候補を照合する際は、同じ現在画像の一部を最近傍法で拡大して併送する場合があります。元 PNG は変更せず、切り出し位置と元画像・拡大画像のハッシュを記録します。拡大画像も過去の判断へ持ち越しません。
+送信時は同一画像の出典を `visualSources` で共有し、文字メモの `source.reference` から参照します。保存ログは出典を展開したままです。情報の切り捨てはしていませんが、長い探索では API の入力上限に達する制約が残ります。
+証跡用PNGと終了後の画像監査は別に残します。OCR言語データは `.cache/ocr` を使い、未取得なら初回にダウンロードします。
+実測では、拡大画像を使っても誤った文字列を Jev が承認するケースが残りました。モデル承認済みの画像文字だけで、サイト側の UX 問題と断定しないでください。制御サイトの独立照合で不一致があった試行は、UX 指標から除外します。
+現在地点の未実行対象に一意に対応する click／scroll は、画面を見た Jev の選択をそのまま探索記録へ確定します。同じ操作をもう一度選ばせて停止へ上書きしません。Back、経由移動、確定済み経路の継続は既存の別ルート処理を使います。
+Vercel の `AI_GATEWAY_API_KEY` が必要です。
+実行方法と比較結果は [画像入力の検証](docs/vision-validation.md) を参照してください。
+
+```powershell
+npm run experiment -- --vision --variant good --goal notifications --font on --pom auto --success both --max-actions 0
+```
+
+全テストの PC 負荷を抑える場合は、ファイル単位の並列実行を止めます。実サイト探索と同時には実行しないでください。
+
+```powershell
+npx tsx --test --test-concurrency=1 tests/*.test.ts
+```
 
 ## APIキーなしの動作確認
 
@@ -295,7 +442,8 @@ Remove-Item Env:RUN_OCR_INTEGRATION
 
 文字サイズ比較では同じ画面から `fontSizePx` だけを除外します。
 文字領域の位置は両条件で渡しますが、太さは未実装です。
-スクリーンショットは監査用で、Jev へ送りません。
+既定のテキスト入力モードでは、スクリーンショットは監査用で、Jev へ送りません。
+`--vision` を有効にした実行と、後述の仮想β runner は画像入力を扱います。
 小さな文字を数値で伝えても、人間の視覚や注意を再現する保証はありません。
 繰り返し試行で毎回違う結果になる保証もありません。
 
@@ -303,3 +451,11 @@ Remove-Item Env:RUN_OCR_INTEGRATION
 
 公式仕様: https://docs.typesafe.ai/introduction/quickstart / https://docs.typesafe.ai/primitives/choice
 `POST https://api.typesafe.ai/v1/systemone` / `questions.nextAction.criteria` / `answers.nextAction.probabilities` を使用。
+
+## 仮想βテスト基盤
+
+視覚制約・利用可能な記憶・確率的選択を独立設定した4条件比較は [docs/virtual-beta/README.md](docs/virtual-beta/README.md) を参照してください。既存CLIは維持しています。
+
+Goal の役割と現在の証拠、入口と実行操作を分けた修正は [意味判定の実比較](docs/virtual-beta/goal-search-semantics.md)、否定の出典と初期読み込みの修正は [出典参照の追補](docs/virtual-beta/goal-search-evidence.md) を参照してください。
+
+候補の役割と操作後確認を加えた同条件比較も実施した。旧・新とも8/12達成で、成功率の改善は確認できなかった。[実装・24試行・実入力画像](docs/virtual-beta/action-relations.md)、[全結果JSON](docs/virtual-beta/action-relations-results.json)、[独立検証](docs/virtual-beta/action-relations-independent-review.md) を参照。

@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "vision-m3-seed4002",
+  "configs": [
+    {
+      "schemaVersion": 1,
+      "id": "crop-m3",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 10,
+      "maxAPICalls": 12,
+      "maxRunMs": 90000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "foveated-m3",
+      "vision": {
+        "mode": "foveated",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 10,
+      "maxAPICalls": 12,
+      "maxRunMs": 90000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "full-m3",
+      "vision": {
+        "mode": "full",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 10,
+      "maxAPICalls": 12,
+      "maxRunMs": 90000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      }
+    }
+  ],
+  "seeds": [
+    4002
+  ],
+  "maxTotalAPI": 36,
+  "maxDurationMs": 600000
+}

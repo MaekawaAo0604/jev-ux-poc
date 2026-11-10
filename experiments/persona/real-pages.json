@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "kind": "REAL_PAGE_MATCHED_PERSONA_EVIDENCE",
+  "date": "2026-10-26",
+  "seed": 2026102607,
+  "model": "jev-1.14.0",
+  "viewport": {
+    "width": 1280,
+    "height": 1000
+  },
+  "locale": "ja-JP",
+  "timezoneId": "Asia/Tokyo",
+  "repeats": {
+    "primary": 20,
+    "confirmation": 10,
+    "ablation": 10,
+    "control": 5
+  },
+  "conditions": [
+    "baseline",
+    "A",
+    "B",
+    "C"
+  ],
+  "ablations": [
+    {
+      "id": "A_kB",
+      "base": "A",
+      "knowledgeFrom": "B"
+    },
+    {
+      "id": "B_kA",
+      "base": "B",
+      "knowledgeFrom": "A"
+    }
+  ],
+  "analysis": {
+    "permutations": 9999,
+    "alpha": 0.05,
+    "minEffect": 0.1,
+    "correction": "Holm across the two prespecified main screens, separately for primary and confirmation",
+    "qualification": "Both stages must pass the same scene; no pooling after inspecting outcomes",
+    "unit": "Repeated model decisions, not humans or full exploration sessions"
+  },
+  "scenes": [
+    {
+      "id": "two-factor",
+      "title": "GitHubの2要素認証ガイド",
+      "url": "https://docs.github.com/ja/authentication/securing-your-account-with-two-factor-authentication-2fa",
+      "goal": "GitHubで2要素認証を使い始めたい。自分のアカウントで使い始めるために必要な準備と設定方法を調べたい。今は公開ガイドを使って調べ、実際のサインインやアカウント設定の変更は行わない。",
+      "explanationPath": "/ja/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication",
+      "setupPath": "/ja/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication",
+      "hypothesis": "認証知識と説明への期待の違いが、概念説明と設定ガイドのどちらを先に開くかに反映される可能性。方向はAが説明、Bが設定を多く選ぶと予測するが、操作は指定しない。"
+    },
+    {
+      "id": "passkeys",
+      "title": "GitHubのパスキーガイド",
+      "url": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey",
+      "goal": "GitHubでパスキーを使い始めたい。自分のアカウントで使い始めるために必要な準備と設定方法を調べたい。今は公開ガイドを使って調べ、実際のサインインやアカウント設定の変更は行わない。",
+      "explanationPath": "/ja/authentication/authenticating-with-a-passkey/about-passkeys",
+      "setupPath": "/ja/authentication/authenticating-with-a-passkey/managing-your-passkeys",
+      "hypothesis": "認証知識と説明への期待の違いが、概念説明と設定ガイドのどちらを先に開くかに反映される可能性。方向はAが説明、Bが設定を多く選ぶと予測するが、操作は指定しない。"
+    },
+    {
+      "id": "control",
+      "title": "SVGOMGのサンプル圧縮・初期画面",
+      "url": "https://jakearchibald.github.io/svgomg/",
+      "goal": "このサービスを初めて使う。サイトに用意されているサンプル画像で圧縮を試し、処理前後の容量と見た目の変化を確認したい。ファイルの保存や、自分のファイルの読み込みはしない。",
+      "hypothesis": "明確な入口しかない画面では、ペルソナが異なっても同じ入口を選ぶと予測する。"
+    }
+  ],
+  "network": "GET/HEAD, each site same origin; no auth, form submissions, downloads or user files",
+  "scope": "Real-site screen decisions; model input frozen before all trials; no generated or modified product UI. Human-validity and cross-product generalization are out of scope.",
+  "liveContinuation": {
+    "phase": "confirmation",
+    "repeat": 1,
+    "conditions": [
+      "baseline",
+      "A",
+      "B",
+      "C"
+    ],
+    "scenes": [
+      "two-factor",
+      "passkeys"
+    ],
+    "maxActions": 4,
+    "scope": "Prespecified first confirmation trial per condition and scene; live execution and autonomous continuation only, not additional statistical replications"
+  },
+  "explorationMaxActions": 4
+}

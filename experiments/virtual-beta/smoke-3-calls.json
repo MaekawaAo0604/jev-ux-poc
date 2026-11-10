@@ -1,0 +1,102 @@
+[
+  {
+    "schemaVersion": 1,
+    "id": "current",
+    "vision": {
+      "mode": "full",
+      "clearWidth": 960,
+      "clearHeight": 620,
+      "blurRadius": 12
+    },
+    "state": {
+      "enabled": false,
+      "memoryCapacity": 3
+    },
+    "selection": {
+      "mode": "argmax",
+      "seed": 20261027
+    },
+    "behavior": "goal",
+    "maxUIActions": 6,
+    "maxLooks": 4,
+    "maxDecisions": 10,
+    "maxAPICalls": 3,
+    "maxRunMs": 90000,
+    "modeledActionMs": null
+  },
+  {
+    "schemaVersion": 1,
+    "id": "vision",
+    "vision": {
+      "mode": "foveated",
+      "clearWidth": 960,
+      "clearHeight": 620,
+      "blurRadius": 12
+    },
+    "state": {
+      "enabled": false,
+      "memoryCapacity": 3
+    },
+    "selection": {
+      "mode": "argmax",
+      "seed": 20261027
+    },
+    "behavior": "goal",
+    "maxUIActions": 6,
+    "maxLooks": 4,
+    "maxDecisions": 10,
+    "maxAPICalls": 3,
+    "maxRunMs": 90000,
+    "modeledActionMs": null
+  },
+  {
+    "schemaVersion": 1,
+    "id": "state",
+    "vision": {
+      "mode": "full",
+      "clearWidth": 960,
+      "clearHeight": 620,
+      "blurRadius": 12
+    },
+    "state": {
+      "enabled": true,
+      "memoryCapacity": 3
+    },
+    "selection": {
+      "mode": "sample",
+      "seed": 20261027
+    },
+    "behavior": "user",
+    "maxUIActions": 6,
+    "maxLooks": 4,
+    "maxDecisions": 10,
+    "maxAPICalls": 3,
+    "maxRunMs": 90000,
+    "modeledActionMs": null
+  },
+  {
+    "schemaVersion": 1,
+    "id": "combined",
+    "vision": {
+      "mode": "foveated",
+      "clearWidth": 960,
+      "clearHeight": 620,
+      "blurRadius": 12
+    },
+    "state": {
+      "enabled": true,
+      "memoryCapacity": 3
+    },
+    "selection": {
+      "mode": "sample",
+      "seed": 20261027
+    },
+    "behavior": "user",
+    "maxUIActions": 6,
+    "maxLooks": 4,
+    "maxDecisions": 10,
+    "maxAPICalls": 3,
+    "maxRunMs": 90000,
+    "modeledActionMs": null
+  }
+]

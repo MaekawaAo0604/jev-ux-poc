@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "createdAt": "2026-10-29T21:18:57.646Z",
+  "scope": "Independent pre-API round2 verification: sole exporter naming fix plus targeted regression. Actual API performance/human agreement are outside this gate.",
+  "target": {
+    "revision": "563389a80bf35b5d8eee370aa94fffafd11a7029",
+    "runtimeSourceHash": "b1f1f204df8779617f4f2b19a39720e3544a219d5d3b09c864b0cbaba1c28b4b",
+    "runtimeSourceFiles": 154,
+    "frozenFiles": 937,
+    "freeze": "reports/condition-retention-2026-10-30/freeze-round2.json",
+    "freezeSha256": "aa678f43bdba6bca6c179d29b57014e89b6bda4769c414374df2fcbbe6d110e9",
+    "changedFromRound1": [
+      "docs/experiments/2026-10-30-condition-retention-report.ts"
+    ],
+    "exporterSha256": "cf3eafb90ab732526a4b214a37f9b22a98b956fad76feba8457e4c2bfa4556d5"
+  },
+  "priorGate": {
+    "status": "FAIL",
+    "path": "reports/condition-retention-2026-10-30/independent-round1/GATE.json",
+    "sha256": "9d573bc2f7a62e00df059749f2bbc35fb7fd1974e0b658e978e48724370e3162",
+    "preservedEvidenceFiles": 101,
+    "allEvidenceUnchanged": true
+  },
+  "findings": [
+    {
+      "id": "R1-EXPORT-001",
+      "severity": "P1",
+      "status": "RESOLVED_VERIFIED",
+      "file": "docs/experiments/2026-10-30-condition-retention-report.ts",
+      "line": 29,
+      "fix": "Explicit actor map produces recent for continuity and grounded for retention.",
+      "reproductionBefore": "Round1 one-actor export succeeded; same-task two-actor export raised EEXIST at duplicate continuity PNG name.",
+      "verificationAfter": "Actual unmodified round2 exporter succeeds for one and two actors. Same-task PNG names are unique, exact source bytes/SHA256 match, results.json/results.csv completed, eight planned evidence slots retained including missing reasons.",
+      "evidence": [
+        "export-positive-1.json",
+        "export-positive-2.json",
+        "image-check-1.json",
+        "image-check-2.json",
+        "exporter-tests.log"
+      ]
+    }
+  ],
+  "unresolvedFindings": [],
+  "executions": [
+    {
+      "name": "New retention integration5 + continuity comparison5 + old continuity integration5",
+      "command": "node --import tsx --test --test-concurrency=1 tests/condition-retention-integration.test.ts tests/condition-continuity-comparison.test.ts tests/condition-continuity-integration.test.ts",
+      "exitCode": 0,
+      "tests": 15,
+      "passed": 15,
+      "failed": 0,
+      "durationMs": 37223.7849,
+      "log": "regressions.log"
+    },
+    {
+      "name": "Independent actual exporter positive and rejection cases",
+      "command": "node --import tsx --test --test-concurrency=1 reports/condition-retention-2026-10-30/independent-round2/exporter.test.ts",
+      "exitCode": 0,
+      "tests": 4,
+      "passed": 4,
+      "failed": 0,
+      "durationMs": 5514.1987,
+      "log": "exporter-tests.log",
+      "checks": [
+        "one actor positive: one image and seven missing slots, JSON and CSV complete",
+        "same task two actors positive: grounded/recent PNGs unique with exact original bytes and hashes, two images and six missing slots, JSON and CSV complete",
+        "all8 planned sample slots recorded; observed actor o2 unavailable vs unattempted actor slots distinguished",
+        "existing output directory rejected and all completed output bytes unchanged",
+        "wrong manifest SHA rejected before output directory creation"
+      ]
+    },
+    {
+      "name": "Standalone exporter typecheck",
+      "command": "npx tsc --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --jsx react-jsx --strict --esModuleInterop --skipLibCheck --types node --lib ES2022,DOM docs/experiments/2026-10-30-condition-retention-report.ts",
+      "exitCode": 0,
+      "log": "exporter-typecheck.log"
+    }
+  ],
+  "inheritedVerification": {
+    "notRerunInFullThisRound": true,
+    "reason": "Independent inventory confirms exactly the exporter changed among937 fixed paths; all154 runtime source hashes and the source identity remain identical. Exporter lies outside main tsconfig and was independently typechecked and executed this round.",
+    "fromGateSha256": "9d573bc2f7a62e00df059749f2bbc35fb7fd1974e0b658e978e48724370e3162",
+    "round1Specified11FileTests": {
+      "passed": 339,
+      "failed": 0
+    },
+    "round1IndependentTests": {
+      "passed": 6,
+      "failed": 0
+    },
+    "round1ProjectTypecheck": 0,
+    "round1Build": 0,
+    "round1HistoricalSuccessAndTimeoutReplay": {
+      "runs": 2,
+      "verified": 2
+    },
+    "qualification": "The339 tests, full project typecheck/build and historical replay are inherited fresh round1 evidence for unchanged files, not claimed as reexecuted in round2. The15 related regression tests were freshly rerun."
+  },
+  "syntheticEvidence": {
+    "rawFixtures": "Read-only reuse of explicitly labeled round1 SYNTHETIC-exporter-fixture-1/2 copied from mock browser runs.",
+    "mockFalseSwitch": "Only an exporter-input fixture switch with synthetic ledgers to exercise report validation; no provider requests or HTTP receipts occurred.",
+    "actualAPIStatisticsEligible": false,
+    "outputRoot": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\condition-retention-2026-10-30\\independent-round2",
+    "newOutputsOnly": true
+  },
+  "preservation": {
+    "before": {
+      "time": "2026-10-29T21:17:13.427Z",
+      "freezeSha256": "aa678f43bdba6bca6c179d29b57014e89b6bda4769c414374df2fcbbe6d110e9",
+      "revision": "563389a80bf35b5d8eee370aa94fffafd11a7029",
+      "expectedRevision": "563389a80bf35b5d8eee370aa94fffafd11a7029",
+      "sourceIdentity": "b1f1f204df8779617f4f2b19a39720e3544a219d5d3b09c864b0cbaba1c28b4b",
+      "source": {
+        "count": 154,
+        "mismatches": []
+      },
+      "files": {
+        "count": 937,
+        "mismatches": []
+      },
+      "protected": {
+        "count": 89,
+        "mismatches": []
+      },
+      "prior": {
+        "count": 5709,
+        "mismatches": []
+      }
+    },
+    "after": {
+      "time": "2026-10-29T21:18:24.533Z",
+      "freezeSha256": "aa678f43bdba6bca6c179d29b57014e89b6bda4769c414374df2fcbbe6d110e9",
+      "revision": "563389a80bf35b5d8eee370aa94fffafd11a7029",
+      "expectedRevision": "563389a80bf35b5d8eee370aa94fffafd11a7029",
+      "sourceIdentity": "b1f1f204df8779617f4f2b19a39720e3544a219d5d3b09c864b0cbaba1c28b4b",
+      "source": {
+        "count": 154,
+        "mismatches": []
+      },
+      "files": {
+        "count": 937,
+        "mismatches": []
+      },
+      "protected": {
+        "count": 89,
+        "mismatches": []
+      },
+      "prior": {
+        "count": 5709,
+        "mismatches": []
+      }
+    },
+    "all154Source937Frozen89Protected5709PriorMatchBeforeAndAfter": true,
+    "round1Evidence": {
+      "round1EvidenceCount": 101,
+      "mismatch": [],
+      "added": [],
+      "round1GateSha256": "9d573bc2f7a62e00df059749f2bbc35fb7fd1974e0b658e978e48724370e3162",
+      "unchanged": true
+    }
+  },
+  "changesByIndependentVerifier": {
+    "product": 0,
+    "existingDocumentation": 0,
+    "GitCommits": 0,
+    "GitPushes": 0,
+    "externalAPIRequests": 0,
+    "credentialFilesRead": 0,
+    "humanLogsRead": 0,
+    "newEvidenceRoot": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\condition-retention-2026-10-30\\independent-round2"
+  },
+  "notVerified": [
+    {
+      "item": "Actual new four-slot API comparison/effect",
+      "reason": "No new real API execution; mocked wiring and synthetic exporter outputs are not model performance results."
+    },
+    {
+      "item": "Human agreement/reproduction or calibrated memory",
+      "reason": "No human logs or human executions were accessed."
+    },
+    {
+      "item": "HTTP receipt/provider start",
+      "reason": "Client-timeout timing and mock observations do not establish provider events."
+    },
+    {
+      "item": "Whole repository suite and repeated339 tests in round2",
+      "reason": "Round2 scope is targeted15 plus exporter4 and standalone typecheck; unchanged broader round1 evidence explicitly inherited."
+    }
+  ],
+  "evidenceSha256": {
+    "preserve.mjs": "336f129ad592d45dce5d72ffd555279f28cd00ec0351ae4518ad93f44e9614e7",
+    "before-preservation.json": "8df889fff9bba09789ce0f48b3e8cdebbc91dfe07b74b85132ff0471f8702023",
+    "after-preservation.json": "c2b3f70edc6844eb0ed25d10cfa1f5c05dde8a31ddaf25fec86e9588384b3681",
+    "before-round1-evidence.json": "044a2fb0bbb028206db1bbb0d84ffeb072c1f5604fa76d4299396ed7a9b88aaa",
+    "after-round1-evidence.json": "8177ec82f72398f9a97c01fa638e109e56451eb9dd18e9a7f9578cb0de9f07c5",
+    "regressions.log": "6653dbc82fd7bae8b427ff02030369a19fba1505958113720b1a4ee898032e47",
+    "exporter-typecheck.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "exporter.test.ts": "7b0938586036c7bc4b44544e5b8709f06395032f04a5a2eac8250cf76218853d",
+    "exporter-tests.log": "7f01f7ad09f9fc2c341a68c5cd3df9c6a28c2800ff03095f078df13b38b18dc3",
+    "export-positive-1.json": "851b3c5f0fcfb29297b21e18359ded4500a398259cf7559d5f001982df7b7ede",
+    "export-positive-2.json": "d99ed462ab26b0c61ca94898257e5906eefa8972785135dc94fe187931dfa4d6",
+    "image-check-1.json": "a0b3536d4cee4666b1b8981db24f2cf76bc7441913f96ca3930c4601fcfbe686",
+    "image-check-2.json": "471f268c892b3422c1d55b6b562f3c54f7f32212b0d8353088cd8a90a0f75d2c",
+    "reject-existing-output.json": "80ad76f632e24666f38c4bc5ed80832abd535840d8167d9882104967625c7d2e",
+    "reject-wrong-hash.json": "da05a399554f4cd4f364f92d4917a041a375d7cf6b581a3bc8efda2e160270a8"
+  },
+  "editingStoppedAfterThisGate": true
+}

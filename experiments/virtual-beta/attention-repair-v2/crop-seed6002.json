@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "id": "crop-repair-6002",
+  "configs": [
+    {
+      "schemaVersion": 1,
+      "id": "crop-exclusive-flat",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 8,
+      "maxAPICalls": 12,
+      "maxRunMs": 150000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      },
+      "attention": {
+        "enabled": true,
+        "policy": "exclusive-flat-v2"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "crop-hierarchical",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 8,
+      "maxAPICalls": 12,
+      "maxRunMs": 150000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      },
+      "attention": {
+        "enabled": true,
+        "policy": "exclusive-hierarchical-v2"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "crop-off",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 8,
+      "maxAPICalls": 12,
+      "maxRunMs": 150000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "crop-legacy",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 8,
+      "maxAPICalls": 12,
+      "maxRunMs": 150000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      },
+      "attention": {
+        "enabled": true
+      }
+    }
+  ],
+  "seeds": [
+    6002
+  ],
+  "maxTotalAPI": 48,
+  "maxDurationMs": 600000
+}

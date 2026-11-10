@@ -1,0 +1,57 @@
+{
+  "scope": "Throwaway synthetic amplitude-sensitivity probe, not a trading strategy change. Balanced prompt, costs, current quote and original flat account remain fixed within each source. Entry gate is absent. No orders, simulated fills, PnL, live default changes or new decision interval.",
+  "report": "reports/jev-usdjpy-movement-probe-2026-09-24T07-02-34.847Z",
+  "source": "reports/jev-usdjpy-paper-2026-09-24T05-50-57.025Z",
+  "previousSample": "reports/jev-usdjpy-prompt-ablation-2026-09-24T06-43-29.673Z",
+  "verifiedAt": "2026-09-24T07:04:59.595Z",
+  "sourceIds": [959, 549, 713, 308],
+  "selection": "Four evenly ranked positive 5s-return inputs with complete observation windows from the previous 48-input sample. Selection does not use responses or future outcomes.",
+  "factors": [-4, -1, 0, 0.5, 1, 2, 4, 8],
+  "repeatsPerSourceAndFactor": 3,
+  "plannedAndSuccessfulResponses": 96,
+  "failedAttemptsRecovered": 3,
+  "totalAttempts": 99,
+  "elapsedMs": 40946,
+  "actions": {"buy": 0, "sell": 0, "keep": 96},
+  "meanBuyChoiceProbability": {
+    "-4": 0.12,
+    "-1": 0.10583333333333333,
+    "0": 0.009999999999999998,
+    "0.5": 0.14,
+    "1": 0.15833333333333335,
+    "2": 0.16916666666666666,
+    "4": 0.1891666666666667,
+    "8": 0.21083333333333332
+  },
+  "estimatedSuccessfulTokenCostUSD": 0.00588042,
+  "actualAICostUSD": null,
+  "checks": {
+    "allSourceAndCodeAndCaseAndRequestHashesMatch": true,
+    "allSourceQuotesMatchOriginalEvents": true,
+    "allSourceHistoriesPrecedeTheirDecisions": true,
+    "all96FeaturesIndependentlyRecalculated": true,
+    "allFactor1InputsExactlyReproduceOriginalUngatedStates": true,
+    "allCostsAccountsLatestPricesPromptsPreserved": true,
+    "allRepeatPayloadsIdenticalWithinCondition": true,
+    "allResponsesFromRequestedModel": true,
+    "allSummariesTokenCountsAndCostRecalculated": true,
+    "responseJournalMatchesResults": true,
+    "liveRuntimeCodeUnchanged": true
+  },
+  "tests": {
+    "tdd": "Five tests first failed because their exports were absent, then passed. Tests cover amplitude scaling, current-price/spread/time invariants, consistent feature recomputation, source selection, repeated payload isolation and summary denominators.",
+    "experiment": {"command": "node --test docs/experiments/jev-fx-spike/*.test.mjs", "passed": 66, "failed": 0},
+    "repository": {"command": "npm test", "passed": 322, "skipped": 1, "failed": 0, "skipReason": "Real OCR is opt-in"},
+    "build": {"command": "npm run build", "exitCode": 0},
+    "ui": {"desktopViewport": [1440, 1000], "mobileViewport": [390, 844], "conditionRows": 8, "sourceRows": 4, "pageErrors": 0, "horizontalPageOverflow": false},
+    "review": "Independent read-only reviewer found no actionable correctness or safety issues. Histories, inputs, hashes, responses and summaries reconciled."
+  },
+  "limitations": [
+    "All factors except1 create synthetic past-price histories; no market occurrence or future outcome is claimed.",
+    "Synthetic prices are not rounded to broker ticks.",
+    "Four selected, potentially overlapping positive5s histories are not representative independent market samples.",
+    "Three repeats per condition provide limited evidence about variability, not a statistical proof of causality.",
+    "Flat accounts cannot evaluate exits or shorting. Reported probabilities are action scores, not profit probabilities.",
+    "Larger amplitude did not change actions in this tested range. The cause of all-keep decisions and profitability remain unproven."
+  ]
+}

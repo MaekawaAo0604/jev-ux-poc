@@ -1,0 +1,4876 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-actual-audit",
+  "startedAtUTC": "2026-11-07T15:41:36.683Z",
+  "APIRequests": 0,
+  "batch": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\constraint-choice-2026-11-08\\live-r1",
+  "status": "PASS",
+  "findings": [],
+  "trials": [
+    {
+      "actor": "M0",
+      "replicate": 1,
+      "position": 1,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "local",
+      "savedMethod": "local",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "15bc9b305517b98d956c1f81d304eb85b57fa7184030e66e34be4cd50750a261"
+    },
+    {
+      "actor": "M1",
+      "replicate": 1,
+      "position": 2,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "code",
+      "savedMethod": "code",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "641773489529caf195de0bb24ef7b926e054c0e54cda7b82df1a987eb25d43d5"
+    },
+    {
+      "actor": "M2",
+      "replicate": 1,
+      "position": 3,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "local",
+      "savedMethod": "local",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "dda1f8780e429865e9f23fa5e423c9537815266cb9202a630a1c6d91e98b347a"
+    },
+    {
+      "actor": "M3",
+      "replicate": 1,
+      "position": 4,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "phone",
+      "savedMethod": "phone",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "4454b8af872c7f12072bf330569a222ba3a1a81221073520e355c74065e4269b"
+    },
+    {
+      "actor": "M1",
+      "replicate": 2,
+      "position": 1,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "code",
+      "savedMethod": "code",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "c7abe8cea6b6f1ae09f5e6e061e199e7836359c8043729fd1dd732971f659d8e"
+    },
+    {
+      "actor": "M2",
+      "replicate": 2,
+      "position": 2,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "local",
+      "savedMethod": "local",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "f65a7a5938b632575410813b56f240abf26befd62621ebcd2ecb564e130e6946"
+    },
+    {
+      "actor": "M3",
+      "replicate": 2,
+      "position": 3,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "phone",
+      "savedMethod": "phone",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "b8b2562088c7986b96110d44b01a5f8e261cb195ed2bfef574c7a29326816aea"
+    },
+    {
+      "actor": "M0",
+      "replicate": 2,
+      "position": 4,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "local",
+      "savedMethod": "local",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "ad8148867eaaaa5f6a868ebde12a02c04691f9461c6629ceaded0f9374d8ce2b"
+    },
+    {
+      "actor": "M2",
+      "replicate": 3,
+      "position": 1,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "local",
+      "savedMethod": "local",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "74d55be07cec60e797bf12d56483316f06998c65c18a6b5f8f744864b6a32bc6"
+    },
+    {
+      "actor": "M3",
+      "replicate": 3,
+      "position": 2,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "phone",
+      "savedMethod": "phone",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "dedb15a32287c05e1e8c1a49a29f85bdc80d61ef5d08063acc77571064284a1b"
+    },
+    {
+      "actor": "M0",
+      "replicate": 3,
+      "position": 3,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "local",
+      "savedMethod": "local",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "0456805bff6e38633bf6226624a899e7085651497b635050fc4213c2c0536ff4"
+    },
+    {
+      "actor": "M1",
+      "replicate": 3,
+      "position": 4,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "code",
+      "savedMethod": "code",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "c3fa9ec7d29bef9b3847388deb9f3ff146395709b2eaf9cf2dcef7a6221e690e"
+    },
+    {
+      "actor": "M3",
+      "replicate": 4,
+      "position": 1,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "phone",
+      "savedMethod": "phone",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "b5929f5a44372521c2b95b0e2a999a3fb5c696d037479fd6ef592ca0ecbf6491"
+    },
+    {
+      "actor": "M0",
+      "replicate": 4,
+      "position": 2,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "local",
+      "savedMethod": "local",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "3060b05f0ce788df6fd10963207db174f0bc977bcc38272f8f3b94a18d6a5117"
+    },
+    {
+      "actor": "M1",
+      "replicate": 4,
+      "position": 3,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "code",
+      "savedMethod": "code",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "bb34806fa0c8bfe80413ad7f51b9f08f36128bef8d6551ab62c98f02210195bc"
+    },
+    {
+      "actor": "M2",
+      "replicate": 4,
+      "position": 4,
+      "valid": true,
+      "status": "RESULT",
+      "requests": 9,
+      "termination": "SUBJECTIVE_DONE",
+      "functionalComplete": true,
+      "firstExplored": "local",
+      "savedMethod": "local",
+      "admissibility": true,
+      "personaDelivery": {
+        "native": 3,
+        "assessment": 3,
+        "action": 3,
+        "errors": []
+      },
+      "resultSha256": "20b93b8c02d4906ecccaf3215cb0572f7fec23983ed2eeb5c280ee65272f25bb"
+    }
+  ],
+  "distributionRows": [
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-1",
+      "actor": "M0",
+      "step": 1,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0.99,
+          "e2": 0,
+          "e3": 0.01,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "efficiency",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-1",
+      "actor": "M0",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0.01,
+        "e1": 0.95,
+        "e2": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0.01
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0.01,
+        "e1": 0.95,
+        "e2": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0.01
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.979381443298969,
+        "e2": 0.020618556701030927,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 0.97,
+        "weightedUIMass": 0.97,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0.01,
+          "e1": 0.95,
+          "e2": 0.02,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.01,
+          "stuck": 0,
+          "wait": 0.01
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-1",
+      "actor": "M0",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.89,
+        "e1": 0.04,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0.01,
+        "look_3": 0,
+        "reread": 0.02,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.89,
+        "e1": 0.04,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0.01,
+        "look_3": 0,
+        "reread": 0.02,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.05,
+        "weightedUIMass": 0.05,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.01,
+          "done": 0.89,
+          "e1": 0.04,
+          "look_0": 0.02,
+          "look_1": 0.01,
+          "look_2": 0.01,
+          "look_3": 0,
+          "reread": 0.02,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-2",
+      "actor": "M1",
+      "step": 1,
+      "modelChoice": "e3",
+      "selected": "e3",
+      "action": {
+        "type": "click",
+        "elementId": "e3"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.01,
+        "e2": 0,
+        "e3": 0.99,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.01,
+        "e2": 0,
+        "e3": 0.99,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.01,
+        "e2": 0,
+        "e3": 0.99,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e3",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0.01,
+          "e2": 0,
+          "e3": 0.99,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e3",
+        "selectedChoice": "e3"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-2",
+      "actor": "M1",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 1,
+          "e2": 0,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-2",
+      "actor": "M1",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0.01,
+        "back": 0.02,
+        "done": 0.75,
+        "e1": 0.1,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0.01,
+        "look_3": 0,
+        "reread": 0.06,
+        "stuck": 0.02,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0.01,
+        "back": 0.02,
+        "done": 0.75,
+        "e1": 0.1,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0.01,
+        "look_3": 0,
+        "reread": 0.06,
+        "stuck": 0.02,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.12000000000000001,
+        "weightedUIMass": 0.12000000000000001,
+        "marginal": {
+          "abandon": 0.01,
+          "back": 0.02,
+          "done": 0.75,
+          "e1": 0.1,
+          "look_0": 0.02,
+          "look_1": 0.01,
+          "look_2": 0.01,
+          "look_3": 0,
+          "reread": 0.06,
+          "stuck": 0.02,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-3",
+      "actor": "M2",
+      "step": 1,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.02,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.02,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.02,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0.98,
+          "e2": 0.02,
+          "e3": 0,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "efficiency",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-3",
+      "actor": "M2",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0.01
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0.01
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98989898989899,
+        "e2": 0.010101010101010102,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 0.99,
+        "weightedUIMass": 0.99,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0.98,
+          "e2": 0.01,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0.01
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-3",
+      "actor": "M2",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.68,
+        "e1": 0.14,
+        "look_0": 0.04,
+        "look_1": 0.03,
+        "look_2": 0.02,
+        "look_3": 0,
+        "reread": 0.07,
+        "stuck": 0.01,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.009999999999999998,
+        "done": 0.6799999999999999,
+        "e1": 0.13999999999999999,
+        "look_0": 0.039999999999999994,
+        "look_1": 0.029999999999999992,
+        "look_2": 0.019999999999999997,
+        "look_3": 0,
+        "reread": 0.06999999999999999,
+        "stuck": 0.009999999999999998,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.15,
+        "weightedUIMass": 0.15,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.009999999999999998,
+          "done": 0.6799999999999999,
+          "e1": 0.13999999999999999,
+          "look_0": 0.039999999999999994,
+          "look_1": 0.029999999999999992,
+          "look_2": 0.019999999999999997,
+          "look_3": 0,
+          "reread": 0.06999999999999999,
+          "stuck": 0.009999999999999998,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-4",
+      "actor": "M3",
+      "step": 1,
+      "modelChoice": "e2",
+      "selected": "e2",
+      "action": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.99,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.99,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.99,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e2",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0.99,
+          "e3": 0.01,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "efficiency",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e2",
+        "selectedChoice": "e2"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-4",
+      "actor": "M3",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.96,
+        "e2": 0.03,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.96,
+        "e2": 0.03,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.9696969696969697,
+        "e2": 0.030303030303030304,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 0.99,
+        "weightedUIMass": 0.99,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0.96,
+          "e2": 0.03,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.01,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-4",
+      "actor": "M3",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.02,
+        "done": 0.74,
+        "e1": 0.11,
+        "look_0": 0.04,
+        "look_1": 0.03,
+        "look_2": 0.01,
+        "look_3": 0,
+        "reread": 0.05,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.02,
+        "done": 0.74,
+        "e1": 0.11,
+        "look_0": 0.04,
+        "look_1": 0.03,
+        "look_2": 0.01,
+        "look_3": 0,
+        "reread": 0.05,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.13,
+        "weightedUIMass": 0.13,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.02,
+          "done": 0.74,
+          "e1": 0.11,
+          "look_0": 0.04,
+          "look_1": 0.03,
+          "look_2": 0.01,
+          "look_3": 0,
+          "reread": 0.05,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-5",
+      "actor": "M1",
+      "step": 1,
+      "modelChoice": "e3",
+      "selected": "e3",
+      "action": {
+        "type": "click",
+        "elementId": "e3"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.03,
+        "e2": 0.01,
+        "e3": 0.94,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.02,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.03,
+        "e2": 0.01,
+        "e3": 0.94,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.02,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.030612244897959183,
+        "e2": 0.010204081632653062,
+        "e3": 0.9591836734693877,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e3",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 0.98,
+        "weightedUIMass": 0.98,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0.03,
+          "e2": 0.01,
+          "e3": 0.94,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.02,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e3",
+        "selectedChoice": "e3"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-5",
+      "actor": "M1",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 1,
+          "e2": 0,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-5",
+      "actor": "M1",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.02,
+        "done": 0.72,
+        "e1": 0.12,
+        "look_0": 0.05,
+        "look_1": 0.02,
+        "look_2": 0.01,
+        "look_3": 0,
+        "reread": 0.06,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.02,
+        "done": 0.72,
+        "e1": 0.12,
+        "look_0": 0.05,
+        "look_1": 0.02,
+        "look_2": 0.01,
+        "look_3": 0,
+        "reread": 0.06,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.13999999999999999,
+        "weightedUIMass": 0.13999999999999999,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.02,
+          "done": 0.72,
+          "e1": 0.12,
+          "look_0": 0.05,
+          "look_1": 0.02,
+          "look_2": 0.01,
+          "look_3": 0,
+          "reread": 0.06,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-6",
+      "actor": "M2",
+      "step": 1,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.96,
+        "e2": 0.04,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.96,
+        "e2": 0.04,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.96,
+        "e2": 0.04,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0.96,
+          "e2": 0.04,
+          "e3": 0,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "efficiency",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-6",
+      "actor": "M2",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0.99,
+          "e2": 0.01,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-6",
+      "actor": "M2",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.93,
+        "e1": 0.02,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.93,
+        "e1": 0.02,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.03,
+        "weightedUIMass": 0.03,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.01,
+          "done": 0.93,
+          "e1": 0.02,
+          "look_0": 0.02,
+          "look_1": 0.01,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.01,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-7",
+      "actor": "M3",
+      "step": 1,
+      "modelChoice": "e2",
+      "selected": "e2",
+      "action": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.97,
+        "e3": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.97,
+        "e3": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.9797979797979798,
+        "e3": 0.020202020202020204,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e2",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 0.99,
+        "weightedUIMass": 0.99,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0.97,
+          "e3": 0.02,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.01,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "efficiency",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e2",
+        "selectedChoice": "e2"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-7",
+      "actor": "M3",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0.98,
+          "e2": 0.02,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-7",
+      "actor": "M3",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0.01,
+        "back": 0.01,
+        "done": 0.64,
+        "e1": 0.16,
+        "look_0": 0.04,
+        "look_1": 0.03,
+        "look_2": 0.02,
+        "look_3": 0,
+        "reread": 0.07,
+        "stuck": 0.02,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0.009999999999999998,
+        "back": 0.009999999999999998,
+        "done": 0.6399999999999999,
+        "e1": 0.15999999999999998,
+        "look_0": 0.039999999999999994,
+        "look_1": 0.029999999999999992,
+        "look_2": 0.019999999999999997,
+        "look_3": 0,
+        "reread": 0.06999999999999999,
+        "stuck": 0.019999999999999997,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.17,
+        "weightedUIMass": 0.17,
+        "marginal": {
+          "abandon": 0.01,
+          "back": 0.01,
+          "done": 0.64,
+          "e1": 0.16,
+          "look_0": 0.04,
+          "look_1": 0.029999999999999995,
+          "look_2": 0.02,
+          "look_3": 0,
+          "reread": 0.07,
+          "stuck": 0.02,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-8",
+      "actor": "M0",
+      "step": 1,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 1,
+          "e2": 0,
+          "e3": 0,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "efficiency",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-8",
+      "actor": "M0",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.94,
+        "e2": 0.03,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.02,
+        "stuck": 0,
+        "wait": 0.01
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.94,
+        "e2": 0.03,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.02,
+        "stuck": 0,
+        "wait": 0.01
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.9690721649484536,
+        "e2": 0.030927835051546393,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 0.97,
+        "weightedUIMass": 0.97,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0.94,
+          "e2": 0.03,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.02,
+          "stuck": 0,
+          "wait": 0.01
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-8",
+      "actor": "M0",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0.01,
+        "back": 0.01,
+        "done": 0.64,
+        "e1": 0.13,
+        "look_0": 0.05,
+        "look_1": 0.03,
+        "look_2": 0.02,
+        "look_3": 0.01,
+        "reread": 0.09,
+        "stuck": 0.01,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0.01,
+        "back": 0.01,
+        "done": 0.64,
+        "e1": 0.13,
+        "look_0": 0.05,
+        "look_1": 0.03,
+        "look_2": 0.02,
+        "look_3": 0.01,
+        "reread": 0.09,
+        "stuck": 0.01,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.14,
+        "weightedUIMass": 0.14,
+        "marginal": {
+          "abandon": 0.01,
+          "back": 0.01,
+          "done": 0.64,
+          "e1": 0.13,
+          "look_0": 0.05,
+          "look_1": 0.03,
+          "look_2": 0.02,
+          "look_3": 0.01,
+          "reread": 0.09,
+          "stuck": 0.01,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-9",
+      "actor": "M2",
+      "step": 1,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.96,
+        "e2": 0.04,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.96,
+        "e2": 0.04,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.96,
+        "e2": 0.04,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0.96,
+          "e2": 0.04,
+          "e3": 0,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "efficiency",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-9",
+      "actor": "M2",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0.01
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0.01
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98989898989899,
+        "e2": 0.010101010101010102,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 0.99,
+        "weightedUIMass": 0.99,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0.98,
+          "e2": 0.01,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0.01
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-9",
+      "actor": "M2",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.02,
+        "done": 0.78,
+        "e1": 0.07,
+        "look_0": 0.03,
+        "look_1": 0.01,
+        "look_2": 0.04,
+        "look_3": 0.01,
+        "reread": 0.04,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.019999999999999997,
+        "done": 0.7799999999999998,
+        "e1": 0.06999999999999999,
+        "look_0": 0.029999999999999992,
+        "look_1": 0.009999999999999998,
+        "look_2": 0.039999999999999994,
+        "look_3": 0.009999999999999998,
+        "reread": 0.039999999999999994,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.09000000000000001,
+        "weightedUIMass": 0.09000000000000001,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.02,
+          "done": 0.7799999999999999,
+          "e1": 0.07,
+          "look_0": 0.029999999999999995,
+          "look_1": 0.01,
+          "look_2": 0.04,
+          "look_3": 0.01,
+          "reread": 0.04,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-10",
+      "actor": "M3",
+      "step": 1,
+      "modelChoice": "e2",
+      "selected": "e2",
+      "action": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.99,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.99,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.99,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e2",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0.99,
+          "e3": 0.01,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "efficiency",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e2",
+        "selectedChoice": "e2"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-10",
+      "actor": "M3",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.96,
+        "e2": 0.03,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.96,
+        "e2": 0.03,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.9696969696969697,
+        "e2": 0.030303030303030304,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 0.99,
+        "weightedUIMass": 0.99,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0.96,
+          "e2": 0.03,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.01,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-10",
+      "actor": "M3",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.02,
+        "done": 0.74,
+        "e1": 0.13,
+        "look_0": 0.04,
+        "look_1": 0.02,
+        "look_2": 0.01,
+        "look_3": 0,
+        "reread": 0.04,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.02,
+        "done": 0.74,
+        "e1": 0.13,
+        "look_0": 0.04,
+        "look_1": 0.02,
+        "look_2": 0.01,
+        "look_3": 0,
+        "reread": 0.04,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.15,
+        "weightedUIMass": 0.15,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.02,
+          "done": 0.74,
+          "e1": 0.13,
+          "look_0": 0.04,
+          "look_1": 0.02,
+          "look_2": 0.01,
+          "look_3": 0,
+          "reread": 0.04,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-11",
+      "actor": "M0",
+      "step": 1,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0.99,
+          "e2": 0,
+          "e3": 0.01,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "efficiency",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-11",
+      "actor": "M0",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0.99,
+          "e2": 0.01,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-11",
+      "actor": "M0",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.94,
+        "e1": 0.02,
+        "look_0": 0.01,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.94,
+        "e1": 0.02,
+        "look_0": 0.01,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.03,
+        "weightedUIMass": 0.03,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.01,
+          "done": 0.94,
+          "e1": 0.02,
+          "look_0": 0.01,
+          "look_1": 0.01,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.01,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-12",
+      "actor": "M1",
+      "step": 1,
+      "modelChoice": "e3",
+      "selected": "e3",
+      "action": {
+        "type": "click",
+        "elementId": "e3"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.04,
+        "e2": 0,
+        "e3": 0.94,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.02,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.04,
+        "e2": 0,
+        "e3": 0.94,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.02,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.04081632653061225,
+        "e2": 0,
+        "e3": 0.9591836734693877,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e3",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 0.98,
+        "weightedUIMass": 0.98,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0.04,
+          "e2": 0,
+          "e3": 0.94,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.02,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e3",
+        "selectedChoice": "e3"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-12",
+      "actor": "M1",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 1,
+          "e2": 0,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-12",
+      "actor": "M1",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.82,
+        "e1": 0.08,
+        "look_0": 0.03,
+        "look_1": 0.01,
+        "look_2": 0.01,
+        "look_3": 0,
+        "reread": 0.04,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.82,
+        "e1": 0.08,
+        "look_0": 0.03,
+        "look_1": 0.01,
+        "look_2": 0.01,
+        "look_3": 0,
+        "reread": 0.04,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.09,
+        "weightedUIMass": 0.09,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.01,
+          "done": 0.82,
+          "e1": 0.08,
+          "look_0": 0.03,
+          "look_1": 0.01,
+          "look_2": 0.01,
+          "look_3": 0,
+          "reread": 0.04,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-13",
+      "actor": "M3",
+      "step": 1,
+      "modelChoice": "e2",
+      "selected": "e2",
+      "action": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.98,
+        "e3": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.98,
+        "e3": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.98,
+        "e3": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e2",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0.98,
+          "e3": 0.02,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "efficiency",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e2",
+        "selectedChoice": "e2"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-13",
+      "actor": "M3",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.02,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0.98,
+          "e2": 0.02,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-13",
+      "actor": "M3",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.93,
+        "e1": 0.02,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.93,
+        "e1": 0.02,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.03,
+        "weightedUIMass": 0.03,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.01,
+          "done": 0.93,
+          "e1": 0.02,
+          "look_0": 0.02,
+          "look_1": 0.01,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.01,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-14",
+      "actor": "M0",
+      "step": 1,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.99,
+        "e2": 0,
+        "e3": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0.99,
+          "e2": 0,
+          "e3": 0.01,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "efficiency",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-14",
+      "actor": "M0",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0.01
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0.01
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.98989898989899,
+        "e2": 0.010101010101010102,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 0.99,
+        "weightedUIMass": 0.99,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0.98,
+          "e2": 0.01,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0.01
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-14",
+      "actor": "M0",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.94,
+        "e1": 0.01,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.94,
+        "e1": 0.01,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.02,
+        "weightedUIMass": 0.02,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.01,
+          "done": 0.94,
+          "e1": 0.01,
+          "look_0": 0.02,
+          "look_1": 0.01,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.01,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-15",
+      "actor": "M1",
+      "step": 1,
+      "modelChoice": "e3",
+      "selected": "e3",
+      "action": {
+        "type": "click",
+        "elementId": "e3"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.01,
+        "e2": 0,
+        "e3": 0.98,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.01,
+        "e2": 0,
+        "e3": 0.98,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.010101010101010102,
+        "e2": 0,
+        "e3": 0.98989898989899,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e3",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 0.99,
+        "weightedUIMass": 0.99,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0.01,
+          "e2": 0,
+          "e3": 0.98,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.01,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e3",
+        "selectedChoice": "e3"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-15",
+      "actor": "M1",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 1,
+        "e2": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 1,
+        "weightedUIMass": 1,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 1,
+          "e2": 0,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-15",
+      "actor": "M1",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.93,
+        "e1": 0.01,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.02,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.93,
+        "e1": 0.01,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.02,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.02,
+        "weightedUIMass": 0.02,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.01,
+          "done": 0.93,
+          "e1": 0.01,
+          "look_0": 0.02,
+          "look_1": 0.01,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.02,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-16",
+      "actor": "M2",
+      "step": 1,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.97,
+        "e2": 0.02,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.97,
+        "e2": 0.02,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "done": 0,
+        "e1": 0.9797979797979798,
+        "e2": 0.020202020202020204,
+        "e3": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "uiMass": 0.99,
+        "weightedUIMass": 0.99,
+        "marginal": {
+          "abandon": 0,
+          "done": 0,
+          "e1": 0.97,
+          "e2": 0.02,
+          "e3": 0,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.01,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "efficiency",
+        "observationId": "o1",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-16",
+      "actor": "M2",
+      "step": 2,
+      "modelChoice": "e1",
+      "selected": "e1",
+      "action": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.95,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0.03
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.95,
+        "e2": 0.01,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0.03
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0.9895833333333334,
+        "e2": 0.010416666666666668,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "e1",
+        "baselineClass": "ui",
+        "uiCandidates": [
+          "back",
+          "e1",
+          "e2"
+        ],
+        "uiMass": 0.96,
+        "weightedUIMass": 0.96,
+        "marginal": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0.95,
+          "e2": 0.01,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.01,
+          "stuck": 0,
+          "wait": 0.03
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "goal",
+        "observationId": "o2",
+        "kind": "model-self-report",
+        "proposedChoice": "e1",
+        "selectedChoice": "e1"
+      }
+    },
+    {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-16",
+      "actor": "M2",
+      "step": 3,
+      "modelChoice": "done",
+      "selected": "done",
+      "action": {
+        "type": "done"
+      },
+      "raw": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.93,
+        "e1": 0.02,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "normalized": {
+        "abandon": 0,
+        "back": 0.01,
+        "done": 0.93,
+        "e1": 0.02,
+        "look_0": 0.02,
+        "look_1": 0.01,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0.01,
+        "stuck": 0,
+        "wait": 0
+      },
+      "filtered": {
+        "abandon": 0,
+        "back": 0,
+        "done": 1,
+        "e1": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0,
+        "wait": 0
+      },
+      "conditional": {
+        "kind": "ui-conditional-v1",
+        "baselineSelected": "done",
+        "baselineClass": "non-ui",
+        "uiCandidates": [
+          "back",
+          "e1"
+        ],
+        "uiMass": 0.03,
+        "weightedUIMass": 0.03,
+        "marginal": {
+          "abandon": 0,
+          "back": 0.01,
+          "done": 0.93,
+          "e1": 0.02,
+          "look_0": 0.02,
+          "look_1": 0.01,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0.01,
+          "stuck": 0,
+          "wait": 0
+        },
+        "conditionalDraw": null
+      },
+      "reason": {
+        "category": "confirmation",
+        "observationId": "o3",
+        "kind": "model-self-report",
+        "proposedChoice": "done",
+        "selectedChoice": "done"
+      }
+    }
+  ],
+  "representativeEvidence": {
+    "M0": {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-1",
+      "resultPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\constraint-choice-2026-11-08\\live-r1\\constraint-M0-r1\\exploration\\result.json",
+      "resultSha256": "15bc9b305517b98d956c1f81d304eb85b57fa7184030e66e34be4cd50750a261",
+      "currentImageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46",
+      "personaDeviceFacts": [
+        "PCのブラウザーから利用しており、既存の自分のメールをこのブラウザーで確認できる。",
+        "自分専用のPCで、OSに個人の認証情報を保存してよい。",
+        "スマートフォンは持っておらず、利用できない。",
+        "外付けのセキュリティキーは持っていない。"
+      ],
+      "selected": "e1",
+      "actualAction": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "firstExplored": "local",
+      "savedMethod": "local",
+      "nativeConditionSummaries": [
+        {
+          "pointer": "/steps/0/visualHypotheses/record/conditions/0",
+          "id": "c1",
+          "description": "次回から使うログイン方法が設定されている。",
+          "status": "unmet",
+          "visibleQuote": "保存済みの方法：未設定",
+          "evidenceImageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+        },
+        {
+          "pointer": "/steps/0/visualHypotheses/record/conditions/1",
+          "id": "c2",
+          "description": "選ぶログイン方法が、本人の利用環境（スマートフォンなし、PCとメールは利用可能）に合っている。",
+          "status": "uncertain",
+          "visibleQuote": null,
+          "evidenceImageSha256": null
+        },
+        {
+          "pointer": "/steps/0/visualHypotheses/record/conditions/2",
+          "id": "c3",
+          "description": "設定が保存されたことを画面で確認できる。",
+          "status": "uncertain",
+          "visibleQuote": null,
+          "evidenceImageSha256": null
+        }
+      ],
+      "nativeCandidateRelations": [
+        {
+          "pointer": "/steps/0/visualHypotheses/record/relations/0",
+          "candidateId": "e1",
+          "conditionIds": [
+            "c1",
+            "c2"
+          ],
+          "relation": "execute",
+          "visibleQuote": "このPCに保存"
+        },
+        {
+          "pointer": "/steps/0/visualHypotheses/record/relations/1",
+          "candidateId": "e2",
+          "conditionIds": [],
+          "relation": "unrelated",
+          "visibleQuote": "スマートフォンで承認"
+        },
+        {
+          "pointer": "/steps/0/visualHypotheses/record/relations/2",
+          "candidateId": "e3",
+          "conditionIds": [
+            "c1",
+            "c2"
+          ],
+          "relation": "execute",
+          "visibleQuote": "メールの一時コード"
+        }
+      ],
+      "assessmentSummary": {
+        "pointer": "/steps/0/deliberation/assessment",
+        "knowledge": "insufficient",
+        "goal": "unsatisfied",
+        "effects": {
+          "e1": {
+            "prediction": "advances",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+            }
+          },
+          "e2": {
+            "prediction": "unknown"
+          },
+          "e3": {
+            "prediction": "advances",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+            }
+          }
+        }
+      },
+      "interpretation": "Brief admitted structured condition/effect summaries and visible quotes are model self-reports. They show how recorded hypotheses differ across constraints, not private reasoning, comprehension proof or human fidelity."
+    },
+    "M1": {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-2",
+      "resultPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\constraint-choice-2026-11-08\\live-r1\\constraint-M1-r1\\exploration\\result.json",
+      "resultSha256": "641773489529caf195de0bb24ef7b926e054c0e54cda7b82df1a987eb25d43d5",
+      "currentImageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46",
+      "personaDeviceFacts": [
+        "PCのブラウザーから利用しており、既存の自分のメールをこのブラウザーで確認できる。",
+        "共用の管理PCで、OSに個人の認証情報を保存することは禁止されている。",
+        "スマートフォンは持っておらず、利用できない。",
+        "外付けのセキュリティキーは持っていない。"
+      ],
+      "selected": "e3",
+      "actualAction": {
+        "type": "click",
+        "elementId": "e3"
+      },
+      "firstExplored": "code",
+      "savedMethod": "code",
+      "nativeConditionSummaries": [
+        {
+          "pointer": "/steps/0/visualHypotheses/record/conditions/0",
+          "id": "c1",
+          "description": "次回から使うログイン方法が設定・保存されている。",
+          "status": "unmet",
+          "visibleQuote": "保存済みの方法：未設定",
+          "evidenceImageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+        }
+      ],
+      "nativeCandidateRelations": [
+        {
+          "pointer": "/steps/0/visualHypotheses/record/relations/0",
+          "candidateId": "e1",
+          "conditionIds": [],
+          "relation": "unknown",
+          "visibleQuote": "このPCに保存 — このPCのOSの認証情報ストアへの保存許可が必要です。"
+        },
+        {
+          "pointer": "/steps/0/visualHypotheses/record/relations/1",
+          "candidateId": "e2",
+          "conditionIds": [],
+          "relation": "unknown",
+          "visibleQuote": "スマートフォンで承認 — 自分のスマートフォンを近くに用意し、Bluetoothを使えることが必要です。"
+        },
+        {
+          "pointer": "/steps/0/visualHypotheses/record/relations/2",
+          "candidateId": "e3",
+          "conditionIds": [
+            "c1"
+          ],
+          "relation": "prerequisite",
+          "visibleQuote": "メールの一時コード — このブラウザーで利用できるメールに届く6桁のコードを、毎回手入力します。"
+        }
+      ],
+      "assessmentSummary": {
+        "pointer": "/steps/0/deliberation/assessment",
+        "knowledge": "insufficient",
+        "goal": "unsatisfied",
+        "effects": {
+          "e1": {
+            "prediction": "conflicts",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+            }
+          },
+          "e2": {
+            "prediction": "conflicts",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+            }
+          },
+          "e3": {
+            "prediction": "advances",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+            }
+          }
+        }
+      },
+      "interpretation": "Brief admitted structured condition/effect summaries and visible quotes are model self-reports. They show how recorded hypotheses differ across constraints, not private reasoning, comprehension proof or human fidelity."
+    },
+    "M2": {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-3",
+      "resultPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\constraint-choice-2026-11-08\\live-r1\\constraint-M2-r1\\exploration\\result.json",
+      "resultSha256": "dda1f8780e429865e9f23fa5e423c9537815266cb9202a630a1c6d91e98b347a",
+      "currentImageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46",
+      "personaDeviceFacts": [
+        "PCのブラウザーから利用しており、既存の自分のメールをこのブラウザーで確認できる。",
+        "自分専用のPCで、OSに個人の認証情報を保存してよい。",
+        "自分のスマートフォンが手元にあり、近くでBluetoothを使った認証に利用できる。",
+        "外付けのセキュリティキーは持っていない。"
+      ],
+      "selected": "e1",
+      "actualAction": {
+        "type": "click",
+        "elementId": "e1"
+      },
+      "firstExplored": "local",
+      "savedMethod": "local",
+      "nativeConditionSummaries": [
+        {
+          "pointer": "/steps/0/visualHypotheses/record/conditions/0",
+          "id": "c1",
+          "description": "自分の利用環境で次回から使うログイン方法が設定され、保存済みである。",
+          "status": "unmet",
+          "visibleQuote": "保存済みの方法：未設定",
+          "evidenceImageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+        }
+      ],
+      "nativeCandidateRelations": [
+        {
+          "pointer": "/steps/0/visualHypotheses/record/relations/0",
+          "candidateId": "e1",
+          "conditionIds": [
+            "c1"
+          ],
+          "relation": "execute",
+          "visibleQuote": "このPCに保存"
+        },
+        {
+          "pointer": "/steps/0/visualHypotheses/record/relations/1",
+          "candidateId": "e2",
+          "conditionIds": [
+            "c1"
+          ],
+          "relation": "execute",
+          "visibleQuote": "スマートフォンで承認"
+        },
+        {
+          "pointer": "/steps/0/visualHypotheses/record/relations/2",
+          "candidateId": "e3",
+          "conditionIds": [
+            "c1"
+          ],
+          "relation": "execute",
+          "visibleQuote": "メールの一時コード"
+        }
+      ],
+      "assessmentSummary": {
+        "pointer": "/steps/0/deliberation/assessment",
+        "knowledge": "insufficient",
+        "goal": "unsatisfied",
+        "effects": {
+          "e1": {
+            "prediction": "advances",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+            }
+          },
+          "e2": {
+            "prediction": "advances",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+            }
+          },
+          "e3": {
+            "prediction": "advances",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+            }
+          }
+        }
+      },
+      "interpretation": "Brief admitted structured condition/effect summaries and visible quotes are model self-reports. They show how recorded hypotheses differ across constraints, not private reasoning, comprehension proof or human fidelity."
+    },
+    "M3": {
+      "runId": "f43f6d52-a781-44ce-8e2d-641bfd92bbcd-4",
+      "resultPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\constraint-choice-2026-11-08\\live-r1\\constraint-M3-r1\\exploration\\result.json",
+      "resultSha256": "4454b8af872c7f12072bf330569a222ba3a1a81221073520e355c74065e4269b",
+      "currentImageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46",
+      "personaDeviceFacts": [
+        "PCのブラウザーから利用しており、既存の自分のメールをこのブラウザーで確認できる。",
+        "共用の管理PCで、OSに個人の認証情報を保存することは禁止されている。",
+        "自分のスマートフォンが手元にあり、近くでBluetoothを使った認証に利用できる。",
+        "外付けのセキュリティキーは持っていない。"
+      ],
+      "selected": "e2",
+      "actualAction": {
+        "type": "click",
+        "elementId": "e2"
+      },
+      "firstExplored": "phone",
+      "savedMethod": "phone",
+      "nativeConditionSummaries": [
+        {
+          "pointer": "/steps/0/visualHypotheses/record/conditions/0",
+          "id": "c1",
+          "description": "次回から使うログイン方法が設定され、保存済みの方法として表示される。",
+          "status": "unmet",
+          "visibleQuote": "保存済みの方法：未設定",
+          "evidenceImageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+        },
+        {
+          "pointer": "/steps/0/visualHypotheses/record/conditions/1",
+          "id": "c2",
+          "description": "設定が保存されたことを画面で確認する。",
+          "status": "uncertain",
+          "visibleQuote": null,
+          "evidenceImageSha256": null
+        }
+      ],
+      "nativeCandidateRelations": [
+        {
+          "pointer": "/steps/0/visualHypotheses/record/relations/0",
+          "candidateId": "e1",
+          "conditionIds": [
+            "c1"
+          ],
+          "relation": "prerequisite",
+          "visibleQuote": "このPCに保存"
+        },
+        {
+          "pointer": "/steps/0/visualHypotheses/record/relations/1",
+          "candidateId": "e2",
+          "conditionIds": [
+            "c1"
+          ],
+          "relation": "prerequisite",
+          "visibleQuote": "スマートフォンで承認"
+        },
+        {
+          "pointer": "/steps/0/visualHypotheses/record/relations/2",
+          "candidateId": "e3",
+          "conditionIds": [
+            "c1"
+          ],
+          "relation": "prerequisite",
+          "visibleQuote": "メールの一時コード"
+        }
+      ],
+      "assessmentSummary": {
+        "pointer": "/steps/0/deliberation/assessment",
+        "knowledge": "insufficient",
+        "goal": "unsatisfied",
+        "effects": {
+          "e1": {
+            "prediction": "conflicts",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+            }
+          },
+          "e2": {
+            "prediction": "advances",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+            }
+          },
+          "e3": {
+            "prediction": "advances",
+            "evidence": {
+              "observationId": "o1",
+              "imageSha256": "5342474ebefff66b6c42cf083c5692f56862875b12efe18d3b289558e71dbe46"
+            }
+          }
+        }
+      },
+      "interpretation": "Brief admitted structured condition/effect summaries and visible quotes are model self-reports. They show how recorded hypotheses differ across constraints, not private reasoning, comprehension proof or human fidelity."
+    }
+  },
+  "interpretation": "Observed model outcomes only; probabilities are not human frequencies; reasons are model self-reports; no human fidelity claim.",
+  "batchStatus": "COMPLETED",
+  "sourceHash": "baec5721f39219f227313e4e8b935d076ea97f8ab132c8c388b71eda42124467",
+  "summary": {
+    "schemaVersion": 1,
+    "status": "COMPLETED",
+    "planned": 16,
+    "attempted": 16,
+    "pending": 0,
+    "valid": 16,
+    "invalid": 0,
+    "missing": [],
+    "requests": 144,
+    "byActor": {
+      "M0": {
+        "planned": 4,
+        "attempted": 4,
+        "pending": 0,
+        "valid": 4,
+        "firstExploredMethods": {
+          "local": 4
+        },
+        "savedMethods": {
+          "local": 4
+        },
+        "functionalComplete": 4,
+        "compatibleSaved": 4,
+        "incompatibleSaved": 0,
+        "notSaved": 0
+      },
+      "M1": {
+        "planned": 4,
+        "attempted": 4,
+        "pending": 0,
+        "valid": 4,
+        "firstExploredMethods": {
+          "code": 4
+        },
+        "savedMethods": {
+          "code": 4
+        },
+        "functionalComplete": 4,
+        "compatibleSaved": 4,
+        "incompatibleSaved": 0,
+        "notSaved": 0
+      },
+      "M2": {
+        "planned": 4,
+        "attempted": 4,
+        "pending": 0,
+        "valid": 4,
+        "firstExploredMethods": {
+          "local": 4
+        },
+        "savedMethods": {
+          "local": 4
+        },
+        "functionalComplete": 4,
+        "compatibleSaved": 4,
+        "incompatibleSaved": 0,
+        "notSaved": 0
+      },
+      "M3": {
+        "planned": 4,
+        "attempted": 4,
+        "pending": 0,
+        "valid": 4,
+        "firstExploredMethods": {
+          "phone": 4
+        },
+        "savedMethods": {
+          "phone": 4
+        },
+        "functionalComplete": 4,
+        "compatibleSaved": 4,
+        "incompatibleSaved": 0,
+        "notSaved": 0
+      }
+    },
+    "interpretation": "First exploratory method is not a constraint violation. Functional completion and compatible saved method are separate. Invalid/pending/missing are excluded from behavior denominators. No human agreement measured."
+  },
+  "viewer": {
+    "out": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\constraint-choice-2026-11-08\\independent\\actual-audit-CsLXwp\\viewer",
+    "runs": 16,
+    "groups": [
+      "6bccf0d3896e0f1b51309a38f86382ffe14580b0e24b0e81f1cf11e4e7d91022"
+    ],
+    "issues": []
+  },
+  "preservation": {
+    "before": true,
+    "after": true,
+    "priorCount": 10379,
+    "note": "Existing raw contents not opened by verifier; preservation assertion comes from frozen driver and parent preservation evidence."
+  },
+  "finishedAtUTC": "2026-11-07T15:41:56.152Z",
+  "evidenceRoot": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\constraint-choice-2026-11-08\\independent\\actual-audit-CsLXwp"
+}

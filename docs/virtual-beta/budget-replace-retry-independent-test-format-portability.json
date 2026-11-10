@@ -1,0 +1,14 @@
+{
+  "originalSHA": "410c12fdd1103cbf57f112a652ea84ad16fff9c6de4bd7d9285432265d4c57e4",
+  "currentSHA": "e256369d3407aa15383296928380f1b48d88e1fd63a203b1b7d4d505ed26fbde",
+  "behavioralBodiesUnchanged": true,
+  "operationsOnly": [
+    "Explicit source pin follows supplied snapshot, with all122/revision strict equality.",
+    "Windows-only retry, native-reader-lock, and human-lock cases skip with a reason on non-Windows.",
+    "Same canonical FIFO uses uppercase alias on Windows and identical lowercase path on other OS.",
+    "Only ENOENT indexes/raw count as absent; malformed JSON or permission errors propagate.",
+    "Missing historical fixtures skip with reason/checked0 and report unchanged=null, never a false verification."
+  ],
+  "actualNonWindowsHostRun": false,
+  "EOFExactlyOneNewline": true
+}

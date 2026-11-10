@@ -1,0 +1,123 @@
+{
+  "producer": "fb4bf8ff37ef744c3f6cfd50b09af1440c12498e562dd1ce55f47932897305d9",
+  "phaseSha256": "92e3d479205dac4729f8b5f542d65868f0924eedb1a023eef5277c61c80ca23d",
+  "allDiagnosticFactsMatchRaw": true,
+  "independentOutputMatchesWorker": true,
+  "decisions": 102,
+  "looks": 12,
+  "notOffered": 36,
+  "selectedGoal": 6,
+  "priorPresentations": 3,
+  "rawUIRepeats": 12,
+  "semanticUIRepeats": 48,
+  "rows": [
+    {
+      "batchId": "vision-m0-seed4001",
+      "runId": "full-m0-seed-4001",
+      "decisions": 3,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m0-seed4001",
+      "runId": "crop-m0-seed-4001",
+      "decisions": 7,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m0-seed4001",
+      "runId": "foveated-m0-seed-4001",
+      "decisions": 7,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m3-seed4001",
+      "runId": "full-m3-seed-4001",
+      "decisions": 3,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m3-seed4001",
+      "runId": "crop-m3-seed-4001",
+      "decisions": 7,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m3-seed4001",
+      "runId": "foveated-m3-seed-4001",
+      "decisions": 7,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m3-seed4002",
+      "runId": "crop-m3-seed-4002",
+      "decisions": 7,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m3-seed4002",
+      "runId": "foveated-m3-seed-4002",
+      "decisions": 7,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m3-seed4002",
+      "runId": "full-m3-seed-4002",
+      "decisions": 3,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m0-seed4002",
+      "runId": "crop-m0-seed-4002",
+      "decisions": 7,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m0-seed4002",
+      "runId": "foveated-m0-seed-4002",
+      "decisions": 7,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m0-seed4002",
+      "runId": "full-m0-seed-4002",
+      "decisions": 3,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m0-seed4003",
+      "runId": "foveated-m0-seed-4003",
+      "decisions": 7,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m0-seed4003",
+      "runId": "full-m0-seed-4003",
+      "decisions": 3,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m0-seed4003",
+      "runId": "crop-m0-seed-4003",
+      "decisions": 7,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m3-seed4003",
+      "runId": "foveated-m3-seed-4003",
+      "decisions": 7,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m3-seed4003",
+      "runId": "full-m3-seed-4003",
+      "decisions": 3,
+      "diagnosticFactsMatchRaw": true
+    },
+    {
+      "batchId": "vision-m3-seed4003",
+      "runId": "crop-m3-seed-4003",
+      "decisions": 7,
+      "diagnosticFactsMatchRaw": true
+    }
+  ]
+}

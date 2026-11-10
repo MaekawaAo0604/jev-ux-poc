@@ -1,0 +1,20 @@
+{
+  "status": "THROWAWAY_RESEARCH_NOT_LIVE_TRADING",
+  "hypothesis": "A frozen Jev policy-stance filter improves a simple FOMC rate-action rule after assumed costs.",
+  "pair": "USDJPY",
+  "events": "All regular FOMC policy statements in the official calendar, 2021-2025. Strategy-framework statements excluded by title, not outcomes.",
+  "diagnosticPeriod": ["2021-01-01", "2023-12-31"],
+  "chronologicalHoldout": ["2024-01-01", "2025-12-31"],
+  "baseline": "Buy USD on an announced target-rate increase, sell on a decrease, otherwise remain flat.",
+  "primaryTreatment": "Keep a baseline trade only if Jev stance agrees with its direction and the selected classification probability is at least 0.70. This probability is NOT a trading win probability.",
+  "secondaryDiagnostic": "Jev stance alone determines direction; not the primary hypothesis and not eligible for post-hoc promotion.",
+  "jevQuestion": "Classify the current statement's explicit policy stance as hawkish, dovish, or neutral/mixed. Previous statement provided as context. Do not predict prices or rely on historical knowledge.",
+  "executionProxy": "First non-missing FRED DEXJPUS fixing strictly after the announcement date; exit at the next available fixing. These are ex-post reference rates, not executable broker prices or a real-time feed.",
+  "position": {"initialJPY": 1000000, "unitsUSD": 1000, "compounding": false},
+  "costAssumptions": {"primaryRoundTripPips": 2, "stressRoundTripPips": [0, 5, 10], "fundingPipsPerCalendarDay": 0.5, "apiJPYPerEvent": 1, "meaning": "Illustrative stress assumptions, NOT measured broker spreads, swaps, or billed API charges. One USDJPY pip = JPY 0.01 per USD."},
+  "missingInference": "Abort the performance comparison; never silently omit failures or treat them as successful abstention.",
+  "successGate": "No live-trading approval from this probe. Compare cost-adjusted PnL and closed-equity drawdown, report trade counts and paired bootstrap uncertainty. Positive historical results only justify a separately approved prospective paper trial.",
+  "knownLimitations": ["Small number of events", "Model training contamination cannot be excluded", "Current-vintage FRED data may be revised", "FRED is published with a lag, not a live broker feed", "Market expectations and surprises not modeled", "Intraday drawdown and execution unavailable", "Funding and transaction costs assumed", "No operation or outage resilience evidence", "No parameter search or retuning in this run"],
+  "brokerConnections": 0,
+  "realOrders": 0
+}

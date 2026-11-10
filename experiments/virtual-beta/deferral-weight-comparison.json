@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "phase": "deferral-ablation-2026-11-05",
+  "baselineRevision": "7df17d726e493893b719f5281ce49a463bb70a8b",
+  "actors": [
+    "experience-inquiry-policy-on",
+    "experience-inquiry-policy-off"
+  ],
+  "base": "experience-inquiry-aligned",
+  "onlyIntervention": "deferral.applyWeights true versus false. Learning, proposed decision weights, reason questions/memory and sampler scope retained; off applies unit multipliers.",
+  "unchanged": [
+    "UI",
+    "goal",
+    "persona null",
+    "behavior goal",
+    "vision",
+    "native schema/body",
+    "all assessment and action questions",
+    "memory capacity",
+    "seed",
+    "safety/charter exclusions",
+    "API stages"
+  ],
+  "tasks": [
+    "library",
+    "workshop"
+  ],
+  "condition": "unchanged",
+  "replicates": 2,
+  "limits": {
+    "trials": 8,
+    "maxRequests": 288,
+    "perTrialRequests": 36,
+    "judgments": 12,
+    "uiActions": 15,
+    "looks": 3,
+    "trialMs": 300000,
+    "nativeRequestMs": 60000,
+    "phaseMs": 2520000,
+    "parallel": 1,
+    "retry": 0
+  },
+  "primary": [
+    "raw model choice, sampler baseline after mandatory filters, actual selected action and executed result separately",
+    "proposed and applied weights; selection changes attributable to deferral rather than raw-choice/argmax disagreement",
+    "same-delivered-image route alternations with model-versus-policy origin; counts are descriptive not abnormality thresholds",
+    "retries of visible controls with intervening other-screen exploration and available outcomes/memory",
+    "case-level plausibility: distinguish observations, supported expectations, unsupported hypotheses and unknown human fidelity"
+  ],
+  "secondary": [
+    "objective success as context only, never rank naturalness",
+    "first native body/image/goal/input-state equality",
+    "APIs/limits/errors separate from human abandonment",
+    "UI actions and gaze separate; API time not user thinking time"
+  ],
+  "reviewRules": [
+    "Goal failure or not pressing a correct control is not abnormal by itself.",
+    "Revisiting after other plausible places disappoint can be reasonable.",
+    "Identical pixels do not prove identical cognition or no new hypothesis.",
+    "Do not invent naturalness scores, revisit thresholds, human frequency or whole-trajectory counterfactuals.",
+    "Inspect both plausible unsuccessful exploration and repetition concerns, not only goal-achieving traces."
+  ],
+  "acceptance": [
+    "on/off profiles differ only id and explicit flag",
+    "default legacy remains unchanged",
+    "all history/reason/native information retained off; only multiplier application switches",
+    "computed proposal and applied distribution auditable and replayable",
+    "off does not bypass mandatory filters, normalize invalid probabilities or equate chosen label with probability argmax",
+    "comparison stops invalid model output/accounting/initial-pair mismatch; failure and missing retained",
+    "independent code and fresh actual-run review; fixes reverified"
+  ],
+  "conditionalRepair": "Fix demonstrated contract or execution bugs minimally. Keep the optimizer explicitly distinguishable from simulated-user action; do not tune routes or forbid revisits to maximize success. Human naturalness remains unvalidated without matched data.",
+  "stop": [
+    "auth/quota",
+    "invalid model output",
+    "accounting/audit failure",
+    "phase deadline"
+  ],
+  "humanInputsRead": false,
+  "savedInputResends": 0
+}

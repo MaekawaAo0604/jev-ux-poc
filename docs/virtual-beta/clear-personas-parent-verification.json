@@ -1,0 +1,22 @@
+{
+  "status": "PASS_SCOPED",
+  "tests": {
+    "command": "node --import tsx --test --test-concurrency=1 tests/clear-persona-comparison.test.ts tests/clear-persona-analysis.test.ts tests/persona-task-fixture.test.ts tests/persona-task-wiring.test.ts",
+    "passed": 30,
+    "failed": 0,
+    "skipped": 0,
+    "log": "parent/final-regression.log"
+  },
+  "build": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "log": "parent/final-build.log"
+  },
+  "analysis": {
+    "valid": 16,
+    "requestsAlreadyRecorded": 105,
+    "newAPIRequests": 0,
+    "producerSha256": "c7f4e6783bb3eaab042a477aa9fd2017269e58ed57e8d8f25a641140378d516a"
+  },
+  "globalSuite": "Previously failing; not rerun or claimed green in this scoped change."
+}

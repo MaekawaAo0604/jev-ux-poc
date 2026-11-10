@@ -1,0 +1,373 @@
+{
+  "counts": {
+    "tests": "2692",
+    "pass": "2629",
+    "fail": "60",
+    "cancelled": "0",
+    "skipped": "3",
+    "duration_ms": "481682.428"
+  },
+  "failures": [
+    {
+      "location": "tests\\budget-diagnostics-independent.test.ts:143:1",
+      "name": "independent source freeze after all tests (704.1025ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  ... Skipped lines\r\n  \r\n    {\r\n      revision: 'eada5546173cc5092c089b0d4a7c365d9cc15fba',\r\n  +   sourceHash: '8a5d93350bcf0ffd48dba53ebdc9a1c92c13bf24fbe04153b3ec7a4dc0bf9e5b',\r\n  -   sourceHash: '1d611058f60a0f98436f585af875f07d1d0c9580b8c1b2222bdd4424cb7654f6',\r\n      sourceHashes: {\r\n        'app/HoldoutFixture.tsx': '335d3f7255ec02fd604cb3d1f3",
+      "category": "other"
+    },
+    {
+      "location": "tests\\budget-persistence-retry-independent.test.ts:53:1",
+      "name": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\budget-persistence-retry-independent.test.ts (626.2321ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  ... Skipped lines\r\n  \r\n    {\r\n      revision: 'eada5546173cc5092c089b0d4a7c365d9cc15fba',\r\n  +   sourceHash: '8a5d93350bcf0ffd48dba53ebdc9a1c92c13bf24fbe04153b3ec7a4dc0bf9e5b',\r\n  -   sourceHash: '1d611058f60a0f98436f585af875f07d1d0c9580b8c1b2222bdd4424cb7654f6',\r\n      sourceHashes: {\r\n        'app/HoldoutFixture.tsx': '335d3f7255ec02fd604cb3d1f3",
+      "category": "other"
+    },
+    {
+      "location": "tests\\condition-continuity-comparison.test.ts:25:1",
+      "name": "normal two-slot mock batch tracks initial pairing, bounded fresh state and zero environment access (32575.1012ms)",
+      "diagnostic": "Error: FROZEN_SOURCE_CHANGED\r\n      at frozen (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\condition-continuity-comparison.ts:95:369)\r\n      at async runContinuityComparison (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\condition-continuity-comparison.ts:112:4)\r\n      at async TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\condition-continuity-comparison.test.ts:29",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\condition-retention-integration.test.ts:58:1",
+      "name": "retention options enforce a four-slot144-request cap; fresh mock pair compares empty starting memory (16393.7774ms)",
+      "diagnostic": "Error: FROZEN_SOURCE_CHANGED\r\n      at frozen (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\condition-continuity-comparison.ts:95:369)\r\n      at async Module.runContinuityComparison (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\condition-continuity-comparison.ts:112:4)\r\n      at async TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\condition-retention-integration.tes",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\deferral-admission-experiment.test.ts:68:1",
+      "name": "admission mock pair records common input budgets modes and prior preservation with zero real requests (12783.317ms)",
+      "diagnostic": "Error: SOURCE_CHANGED_DURING_BATCH\r\n      at runDeferralReasonExperiment (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\deferral-reason-experiment.ts:284:115)\r\n      at async TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\deferral-admission-experiment.test.ts:71:109)\r\n      at async Test.run (node:internal/test_runner/test:1125:7)\r\n      at async Test.processPendingSubtests (node:intern",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\deferral-admission-independent.test.ts:108:1",
+      "name": "independent normal gateway boundary and browser execute new-only release while raw deferral survives (11415.8963ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: No assertion inside the fetch stub may be hidden as an API error\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'The expression evaluated to a falsy value:\\n' +\r\n  +       '\\n' +\r\n  +       '  assert.ok(body.assets[ref.image])\\n',\r\n  +     stack: 'AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\\n' +\r\n  +       '\\n' +\r\n  +       '  assert.ok(body.assets[ref.image])\\n' +\r\n  + ",
+      "category": "other"
+    },
+    {
+      "location": "tests\\deferral-admission-independent.test.ts:136:1",
+      "name": "independent comparison gate uses nested fresh output, twelve fixed slots and preserves available predecessor ledgers (25394.8307ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\r\n  + actual - expected\r\n  \r\n  + '8a5d93350bcf0ffd48dba53ebdc9a1c92c13bf24fbe04153b3ec7a4dc0bf9e5b'\r\n  - '1d611058f60a0f98436f585af875f07d1d0c9580b8c1b2222bdd4424cb7654f6'\r\n  \r\n      at TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\deferral-admission-independent.test.ts:139:305)\r\n      at async Test.run (node:internal/test_runner/test:1",
+      "category": "other"
+    },
+    {
+      "location": "tests\\deferral-grounding-independent.test.ts:233:1",
+      "name": "independent gateway and actual browser: changed, still, unknown and legacy changed-plus-none (15123.4913ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\r\n  + actual - expected\r\n  \r\n  + '8a5d93350bcf0ffd48dba53ebdc9a1c92c13bf24fbe04153b3ec7a4dc0bf9e5b'\r\n  - '1d611058f60a0f98436f585af875f07d1d0c9580b8c1b2222bdd4424cb7654f6'\r\n  \r\n      at gatewayBrowser (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\deferral-grounding-independent.test.ts:200:10)\r\n      at async TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\",
+      "category": "other"
+    },
+    {
+      "location": "tests\\deferral-grounding-independent.test.ts:25:1",
+      "name": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\deferral-grounding-independent.test.ts (1280.2971ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Product source must remain unchanged during independent audit\r\n  + actual - expected\r\n  ... Skipped lines\r\n  \r\n    {\r\n      revision: 'eada5546173cc5092c089b0d4a7c365d9cc15fba',\r\n  +   sourceHash: '8a5d93350bcf0ffd48dba53ebdc9a1c92c13bf24fbe04153b3ec7a4dc0bf9e5b',\r\n  -   sourceHash: '1d611058f60a0f98436f585af875f07d1d0c9580b8c1b2222bdd4424cb7654f6',\r\n      sourceHashes: {\r\n        'app/HoldoutFixture.tsx': '335d3f7",
+      "category": "other"
+    },
+    {
+      "location": "tests\\deferral-reason-independent.test.ts:88:1",
+      "name": "independent normal adapter and browser: retained original pixels release only effective state and alter the real action (13274.4134ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\r\n  \r\n  1 !== 2\r\n  \r\n      at browserRun (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\deferral-reason-independent.test.ts:85:550)\r\n      at async TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\deferral-reason-independent.test.ts:89:12)\r\n      at async Test.run (node:internal/test_runner/test:1125:7)\r\n      at async Te",
+      "category": "other"
+    },
+    {
+      "location": "tests\\deferral-reason-independent.test.ts:108:1",
+      "name": "independent unchanged dead end: unrelated progress does not remove still-blocks memory or the real sampler weight (11468.2378ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\r\n  \r\n  1 !== 2\r\n  \r\n      at browserRun (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\deferral-reason-independent.test.ts:85:550)\r\n      at async TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\deferral-reason-independent.test.ts:109:14)\r\n      at async Test.run (node:internal/test_runner/test:1125:7)\r\n      at async T",
+      "category": "other"
+    },
+    {
+      "location": "tests\\evaluator-long-context.test.ts:8:1",
+      "name": "explicit long context preserves the exact request body and uses a single counted attempt; default stays unchanged (5.138ms)",
+      "diagnostic": "Error: Choice API REQUEST_FAILED\r\n      at evaluateBetaRequest (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\virtual-beta-evaluator.ts:18:60)\r\n      at TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\evaluator-long-context.test.ts:13:22)\r\n      at Test.runInAsyncScope (node:async_hooks:228:14)\r\n      at Test.run (node:internal/test_runner/test:1118:25)\r\n      at Test.start (node:interna",
+      "category": "other"
+    },
+    {
+      "location": "tests\\evaluator-long-context.test.ts:19:1",
+      "name": "a long-context failure retains safe evidence and never hides a retry outside the phase budget (4.1974ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\r\n  + actual - expected\r\n  \r\n  + 'REQUEST_FAILED'\r\n  - 'HTTP_ERROR'\r\n  \r\n      at Object.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\evaluator-long-context.test.ts:23:153)\r\n      at expectedException (node:assert:578:17)\r\n      at expectsError (node:assert:703:21)\r\n      at strict.rejects (node:assert:769:3)\r\n      at async TestContext.<anonymous",
+      "category": "other"
+    },
+    {
+      "location": "tests\\experience-recovery-independent.test.ts:121:1",
+      "name": "independent basis opt-in: real gateway body differs only in evidence explanation; none admission and the 24-request budget stay fixed (34536.5523ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  ... Skipped lines\r\n  \r\n    {\r\n      currentDate: '2026-09-19',\r\n      experienceContext: {\r\n        kind: 'bounded-model-experience-not-fact',\r\n        returnedRoutes: [],\r\n  ...\r\n        {\r\n  +       image: '484ebc52-73fc-46b7-a70a-7fdcbf1a7d28',\r\n  -       image: '6ce2cbae-d970-4720-a3cf-4b28daf94450',\r\n          imageSha256: '03f0664b215a905427",
+      "category": "other"
+    },
+    {
+      "location": "tests\\goal-search-evidence-independent.test.ts:25:1",
+      "name": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\goal-search-evidence-independent.test.ts (1417.7001ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  ... Skipped lines\r\n  \r\n    {\r\n  +   revision: '2c0876b3dc3848b29ff755885192890c891d2d69',\r\n  +   sourceHash: '8d591fcb465f06293387391e4647a6b705e865c42b9ffc5f8c4ededda22bd4a3',\r\n  -   revision: 'eada5546173cc5092c089b0d4a7c365d9cc15fba',\r\n  -   sourceHash: '8a5d93350bcf0ffd48dba53ebdc9a1c92c13bf24fbe04153b3ec7a4dc0bf9e5b',\r\n      sourceHashes: {\r\n",
+      "category": "other"
+    },
+    {
+      "location": "tests\\goal-search-independent.test.ts:24:1",
+      "name": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\goal-search-independent.test.ts (1770.896ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\r\n  \r\n    assert.ok(unchanged)\r\n  \r\n      at TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\goal-search-independent.test.ts:24:898)\r\n      at async TestHook.run (node:internal/test_runner/test:1125:7)\r\n      at async Test.runHook (node:internal/test_runner/test:1036:9)\r\n      at async after (node:internal/test_runner/test:1076:9)\r\n ",
+      "category": "other"
+    },
+    {
+      "location": "tests\\holdout-independent.test.ts:98:1",
+      "name": "independent ordinary adapter: complete body equality, fresh reset, model ignorance and successful UI oracle (15722.4739ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  ... Skipped lines\r\n  \r\n    [\r\n      {\r\n        assets: {\r\n  +       'c8cc0906-9006-4a9a-a673-4ba6e27a11df': {\r\n  -       '0ab9f83e-0aff-4e24-9104-fb4fa3abafa8': {\r\n            data_base64: 'iVBORw0KGgoAAAANSUhEUgAABQAAAAOECAYAAAD+FZwDAADmWUlEQVR4AezBC5gOBKLw8f++Z7yz+5hx1qhcZ6yZtma6oFbUNKFcEqVFF9VhqiEpIUMPw9PQl+Fx6YLcx7qcpBubYlFZIqJpc2nXsBnlPuX2NeO",
+      "category": "other"
+    },
+    {
+      "location": "tests\\holdout-independent.test.ts:104:1",
+      "name": "independent ordinary adapter: HTTP, malformed and expired deadline never retry or operate UI (16937.1368ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\r\n  + actual - expected\r\n  \r\n  + '8d591fcb465f06293387391e4647a6b705e865c42b9ffc5f8c4ededda22bd4a3'\r\n  - '8a5d93350bcf0ffd48dba53ebdc9a1c92c13bf24fbe04153b3ec7a4dc0bf9e5b'\r\n  \r\n      at transport (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\holdout-independent.test.ts:95:488)\r\n      at async TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtua",
+      "category": "other"
+    },
+    {
+      "location": "tests\\holdout-independent.test.ts:27:1",
+      "name": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\holdout-independent.test.ts (895.3161ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: functional-verification sources changed during execution\r\n  + actual - expected\r\n  \r\n  + '8d591fcb465f06293387391e4647a6b705e865c42b9ffc5f8c4ededda22bd4a3'\r\n  - '8a5d93350bcf0ffd48dba53ebdc9a1c92c13bf24fbe04153b3ec7a4dc0bf9e5b'\r\n  \r\n      at TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\holdout-independent.test.ts:27:59)\r\n      at async TestHook.run (node:internal/test_run",
+      "category": "other"
+    },
+    {
+      "location": "tests\\human-jev-independent.test.ts:50:1",
+      "name": "independent human wrapper: twelve admitted exploration calls plus one blind review exhaust only the new thirteen ledger (19102.6344ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\r\n  \r\n    assert.ok(ledger.attempts.every((a:any)=>a.status==='OK'&&a.metadata.attempts===1))\r\n  \r\n      at TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\human-jev-independent.test.ts:69:169)\r\n      at async Test.run (node:internal/test_runner/test:1125:7)\r\n      at async Test.processPendingSubtests (node:internal/test_runner/test:",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:42:1",
+      "name": "independent normal gateway real browser: actual crop bytes, changed IDs, performed unknown history and action propagation (4918.837ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:43:1",
+      "name": "independent none changed and noninjective model outputs never annotate old outcome on current actions (3848.6782ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:44:1",
+      "name": "independent disabled versus absent correspondence preserves actual input questions images selection and replay (5023.2785ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:45:1",
+      "name": "independent bad gateway correspondence probability stops before next action without retry (4716.737ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:61:38",
+      "name": "independent saved replay rejects rehashed archive metadata (1.8545ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:61:38",
+      "name": "independent saved replay rejects rehashed preparation source (0.2116ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:61:38",
+      "name": "independent saved replay rejects rehashed record raw answer (0.1267ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:61:38",
+      "name": "independent saved replay rejects rehashed record links (0.1141ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:61:38",
+      "name": "independent saved replay rejects rehashed annotation (0.1222ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:61:38",
+      "name": "independent saved replay rejects rehashed assessment correspondence question (0.1278ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:61:38",
+      "name": "independent saved replay rejects rehashed action correspondence context (0.1125ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:61:38",
+      "name": "independent saved replay rejects rehashed action correspondence assessment (0.1335ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:61:38",
+      "name": "independent saved replay rejects rehashed actual offered prior candidate (0.1668ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:61:38",
+      "name": "independent saved replay rejects rehashed unprepared action correspondence assessment (0.1359ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:61:38",
+      "name": "independent saved replay rejects rehashed unprepared action correspondence context (0.1124ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:61:38",
+      "name": "independent saved replay rejects rehashed unprepared action correspondence images (0.104ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:64:95",
+      "name": "independent legacy replay rejects rehashed unprepared action correspondence assessment (0.2845ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:64:95",
+      "name": "independent legacy replay rejects rehashed unprepared action correspondence context (0.1151ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:64:95",
+      "name": "independent legacy replay rejects rehashed unprepared action correspondence images (0.098ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:64:95",
+      "name": "independent disabled replay rejects rehashed unprepared action correspondence assessment (8397.6155ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:64:95",
+      "name": "independent disabled replay rejects rehashed unprepared action correspondence context (0.4911ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:64:95",
+      "name": "independent disabled replay rejects rehashed unprepared action correspondence images (0.1202ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:65:1",
+      "name": "independent replay rejects rehashed current offered observation candidate removal (0.3337ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:67:36",
+      "name": "independent missing vision metadata is rejected (0.2834ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\observation-correspondence-independent.test.ts:67:36",
+      "name": "independent missing vision metadata cannot hide missing requested correspondence answers and forged archive (0.1118ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Expected values to be strictly equal:\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '8840201691548c7e721cd81da301b85a70645fa039d4a573917d815b8c4f9b16'\\n\"\r\n  +   }\r\n  + ]\r\n  - []\r\n  \r\n      at <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\U",
+      "category": "other"
+    },
+    {
+      "location": "tests\\persona-beta-wiring.test.ts:13:1",
+      "name": "baseline A B C reach native assessment and action without cross-run Persona or state leakage (11709.7927ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\r\n  \r\n  0 !== 1\r\n  \r\n      at TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\persona-beta-wiring.test.ts:29:10)\r\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\r\n      at async Test.run (node:internal/test_runner/test:1125:7)\r\n      at async Test.processPendingSubtests (node:internal/test_runner/test:",
+      "category": "other"
+    },
+    {
+      "location": "tests\\persona-task-wiring.test.ts:7:1",
+      "name": "ordinary three-stage runner binds Personas, isolates state and keeps fixture audit private for all3tasks (75896.9096ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\r\n  + actual - expected\r\n  \r\n  + 'OBSERVATION_ERROR'\r\n  - 'SUBJECTIVE_DONE'\r\n  \r\n      at TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\persona-task-wiring.test.ts:11:61)\r\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\r\n      at async Test.run (node:internal/test_runner/test:1125:7)\r\n      at async ",
+      "category": "other"
+    },
+    {
+      "location": "tests\\temporary-deferral-independent.test.ts:60:1",
+      "name": "independent real gateway: complete body equality on identical wait/done path and fresh trial isolation (28533.0025ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Complete gateway bodies must match for the same responses and actual path\r\n  + actual - expected\r\n  ... Skipped lines\r\n  \r\n    [\r\n      {\r\n        assets: {\r\n  +       'f5560aae-7950-4d7b-a53d-6a8478003f5a': {\r\n  +         data_base64: 'iVBORw0KGgoAAAANSUhEUgAABQAAAAOECAYAAAD+FZwDAAE5MUlEQVR4AezBCXwVhIHo6z8nh5xANkjAEIOARkQTL5jcEUIrUEE6UhgtMLRIa5+0zE/UVrAd8VnlVkfaXnGcgnasvofLlRa1VqgKxZFFQBGQvgQyJoLsSwwICZAEyDkk4bEKC",
+      "category": "other"
+    },
+    {
+      "location": "tests\\temporary-deferral-integration.test.ts:7:1",
+      "name": "closed grounded unproductive excursion lowers entry priority and actual operation follows the recorded corrected distribution (18841.8269ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\r\n  \r\n  1 !== 5\r\n  \r\n      at TestContext.<anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\temporary-deferral-integration.test.ts:17:9)\r\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\r\n      at async Test.run (node:internal/test_runner/test:1125:7)\r\n      at async Test.processPendingSubtests (node:internal/test_ru",
+      "category": "other"
+    },
+    {
+      "location": "tests\\transfer-evaluation.test.ts:33:1",
+      "name": "limited batch keeps full21 planned slots, exact frozen method and unique output identities (1512.8131ms)",
+      "diagnostic": "Error: BASELINE_SOURCE_CHANGED\r\n      at Module.runTransferEvaluation (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\transfer-evaluation.ts:79:119)\r\n      at async <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:36:15)\r\n      at async sandbox (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:26:120)\r\n      at async Test.run (node",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\transfer-evaluation.test.ts:46:1",
+      "name": "setup failures are attempted slots and two consecutive infrastructure errors stop incomplete schedule (376.9258ms)",
+      "diagnostic": "Error: BASELINE_SOURCE_CHANGED\r\n      at Module.runTransferEvaluation (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\transfer-evaluation.ts:79:119)\r\n      at async <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:47:45)\r\n      at async sandbox (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:26:120)\r\n      at async Test.run (node",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\transfer-evaluation.test.ts:53:1",
+      "name": "HTTP402 halts immediately and preserves failed slot accounting (249.083ms)",
+      "diagnostic": "Error: BASELINE_SOURCE_CHANGED\r\n      at Module.runTransferEvaluation (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\transfer-evaluation.ts:79:119)\r\n      at async <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:54:46)\r\n      at async sandbox (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:26:120)\r\n      at async Test.run (node",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\transfer-evaluation.test.ts:57:1",
+      "name": "exact config changes fail the batch even when only config id differs (336.9736ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /FROZEN_CONFIG_CHANGED/. Input:\r\n  \r\n  'Error: BASELINE_SOURCE_CHANGED'\r\n  \r\n      at async <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:58:33)\r\n      at async sandbox (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:26:120)\r\n      at async Test.run (node:internal/te",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\transfer-evaluation.test.ts:61:1",
+      "name": "malformed explicitly supplied prior snapshot rejects without silently assuming no history (320.5414ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /INVALID_PRIOR_SNAPSHOT/. Input:\r\n  \r\n  'Error: BASELINE_SOURCE_CHANGED'\r\n  \r\n      at async <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:63:2)\r\n      at async sandbox (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:26:120)\r\n      at async Test.run (node:internal/te",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\transfer-evaluation.test.ts:72:1",
+      "name": "trial cap violation preserves result and stops before another trial (605.1341ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /TRIAL_CAP_EXCEEDED/. Input:\r\n  \r\n  'Error: BASELINE_SOURCE_CHANGED'\r\n  \r\n      at async <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:73:29)\r\n      at async sandbox (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:26:120)\r\n      at async Test.run (node:internal/test_",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\transfer-evaluation.test.ts:76:1",
+      "name": "global deadline stops remaining slots without calling another trial (336.0237ms)",
+      "diagnostic": "Error: BASELINE_SOURCE_CHANGED\r\n      at Module.runTransferEvaluation (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\transfer-evaluation.ts:79:119)\r\n      at async <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:78:20)\r\n      at async sandbox (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:26:120)\r\n      at async Test.run (node",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\transfer-evaluation.test.ts:80:1",
+      "name": "full bounded mock simulation completes21 slots and keeps all six novel cells at3 (371.1608ms)",
+      "diagnostic": "Error: BASELINE_SOURCE_CHANGED\r\n      at Module.runTransferEvaluation (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\transfer-evaluation.ts:79:119)\r\n      at async <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:81:48)\r\n      at async sandbox (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:26:120)\r\n      at async Test.run (node",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\transfer-evaluation.test.ts:86:1",
+      "name": "stable slot IDs are distinct from fresh actual run IDs across new batches (377.9629ms)",
+      "diagnostic": "Error: BASELINE_SOURCE_CHANGED\r\n      at Module.runTransferEvaluation (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\transfer-evaluation.ts:79:119)\r\n      at async <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:87:42)\r\n      at async sandbox (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:26:120)\r\n      at async Test.run (node",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\transfer-evaluation.test.ts:92:1",
+      "name": "saved partial exploration result is recovered for accounting while failed wrapper remains invalid (335.9901ms)",
+      "diagnostic": "Error: BASELINE_SOURCE_CHANGED\r\n      at Module.runTransferEvaluation (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\runner\\transfer-evaluation.ts:79:119)\r\n      at async <anonymous> (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:93:47)\r\n      at async sandbox (C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\tests\\transfer-evaluation.test.ts:26:120)\r\n      at async Test.run (node",
+      "category": "source-freeze-or-pin"
+    },
+    {
+      "location": "tests\\ui-conditional-independent.test.ts:251:1",
+      "name": "independent normal gateway stub plus real browser reproduces old STUCK to new performed UI without false success (11583.2705ms)",
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Gateway assertion errors must not be hidden by API_ERROR handling\r\n  + actual - expected\r\n  \r\n  + [\r\n  +   {\r\n  +     message: 'Actual current input hash\\n' +\r\n  +       '+ actual - expected\\n' +\r\n  +       '\\n' +\r\n  +       '+ undefined\\n' +\r\n  +       \"- '03f0664b215a9054278a62086cc746159407034aa4054953203febf8dea21586'\\n\",\r\n  +     stack: 'AssertionError [ERR_ASSERTION]: Actual current input hash\\n' +\r\n  +      ",
+      "category": "image-transport-contract"
+    }
+  ],
+  "interpretation": "Full suite was run during final module/test assembly and code freeze, so source-sensitive failures are not a frozen-final-source verdict. holdout-independent child was explicitly stopped after5minute no-output hang; see child-stop artifact. Legacy failures are preserved; frozen targeted regression is reported separately."
+}

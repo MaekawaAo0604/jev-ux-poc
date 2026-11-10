@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "gate": "independent-persona-beta-code-round2",
+  "status": "PASS",
+  "sourceHash": "128d87929d31b9ca6e46220c75aa4bb70829a2a5eae818d5835d9a20f359f5f6",
+  "revision": "129e4527d19c8fa13a1b34ede66e4c459b72184d",
+  "supersedes": "../independent-code/gate-r1.json",
+  "resolvedIssues": [
+    "P1-AUDIT-VALIDITY"
+  ],
+  "realModelAssessment": "NOT_RUN_BY_REVIEWER",
+  "humanFidelity": "UNASSESSED",
+  "personaTraitConsistency": "UNASSESSED",
+  "modelCalls": 0,
+  "environmentValuesRead": false,
+  "historicalRawPayloadsRead": false,
+  "checks": {
+    "ordinaryWiringRelatedAndBlockingRegressions": {
+      "pass": 47,
+      "fail": 0,
+      "evidence": "related-wiring-regressions.log"
+    },
+    "boundedActualDriverControlFlow": {
+      "pass": 15,
+      "fail": 0,
+      "evidence": "driver.log",
+      "instrumentation": "Only runHumanJev/replay/frame service boundaries replaced; actual sourceIdentity, schedule, parsing, ledger reader, initial-input annotation, stop loop and analysis retained. Native result/input and product image differences are fresh fictional boundary fixtures.",
+      "faultsVerified": [
+        "isolated invalid output continues and invalid streak resets",
+        "consecutive invalid stops after2",
+        "quota immediate",
+        "accounting beats provider",
+        "missing ledger",
+        "reserved partial accounting",
+        "used/result mismatch",
+        "saved partial result after throw",
+        "Persona tamper excluded",
+        "motion OFF nonunit weights excluded",
+        "initial productPNG mismatch excluded",
+        "initial native nonPersona mismatch excluded",
+        "replay fault",
+        "safety",
+        "isolated timeout prefix retained"
+      ]
+    },
+    "originalBlockingRegressions": {
+      "pass": 2,
+      "fail": 0,
+      "includedIn47": true,
+      "evidence": "blocking-regressions.test.ts"
+    },
+    "ordinaryCLIMockRawAudit": {
+      "pass": true,
+      "trials": 12,
+      "replayVerified": 12,
+      "matchedInitialInputs": 12,
+      "nativeAssessmentActionPerTrial": [
+        1,
+        1,
+        1
+      ],
+      "sameImageBoundDistributionPairs": 66,
+      "allObjectiveFalseKeptValid": true,
+      "observeOnlyBaselineSelectionChanges": 0,
+      "evidence": "ordinary-mock-audit.json"
+    },
+    "build": {
+      "typecheckExit": 0,
+      "viteExit": 0,
+      "dedicatedOutputOnly": true,
+      "evidence": [
+        "typecheck-status.json",
+        "typecheck.log",
+        "vite-build.log"
+      ]
+    },
+    "mutations": {
+      "missingStopGateDetected": true,
+      "droppedRunBetaPersonaDetected": true,
+      "evidence": [
+        "mutation-stop-status.json",
+        "mutation-persona-status.json",
+        "mutation-stop.log",
+        "mutation-persona.log"
+      ]
+    },
+    "freeze": {
+      "runtimeFiles": 169,
+      "visibleFiles": 1087,
+      "allMatchedBeforeAndAfter": true,
+      "archiveEntries": 169,
+      "archiveSHA256": "c1d76ca2733804f25929856353c5fb556e44c26e3bd4547d48ce8c865adb1cb3",
+      "archiveRuntimeEntriesMatched": true,
+      "evidence": [
+        "freeze-before.json",
+        "freeze-after.json"
+      ]
+    }
+  },
+  "repairedBehavior": {
+    "PersonaDeliveryAndMotionAudits": "Affected run invalid before actor counts/complete paths/distances/permutation; error source/step/stage retained.",
+    "InitialInputs": "Actual driver marks mismatched row error before analysis; productPNG/native-input mismatches each yield valid1 invalid1 complete1 between0; prefix retained.",
+    "observedDataUnchanged": "R1FAIL and round1 source/archive/logs remain preserved."
+  },
+  "openIssues": [],
+  "limits": [
+    "PASS is a frozen code/mock integrity gate; it does not establish real-model results, human fidelity, naturalness, semantic comprehension, or persona-trait consistency.",
+    "The driver tests substitute external trial/replay/frame boundaries to inject bounded faults; actual ordinary browser/replay path was separately verified for all12 fresh mock trials.",
+    "No source, environment, model settings, Git or product data were edited by this reviewer."
+  ]
+}

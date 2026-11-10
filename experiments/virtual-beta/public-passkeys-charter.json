@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "public-passkeys",
+  "targetWebsite": "https://docs.github.com/ja/authentication/authenticating-with-a-passkey",
+  "goal": "GitHubでパスキーを使うか検討しています。自分が使い始める前に必要だと思う説明や条件を調べ、利用するか判断できるところまで進めてください。ログインや実際の設定変更は行いません。",
+  "initialState": {
+    "description": "未ログイン。日本語のパスキー説明の入口を表示した、新しいブラウザー。",
+    "currentDate": "2026-11-06"
+  },
+  "scope": [
+    "取得済みのGitHub公式パスキー説明4ページとページ内の案内。"
+  ],
+  "prohibitedActions": {
+    "actionTypes": [],
+    "controlTexts": [],
+    "downloads": true
+  },
+  "maxActions": 12
+}

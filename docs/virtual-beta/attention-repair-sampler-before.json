@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "kind": "conditional-gaze-sampling-coupling-diagnostic",
+  "actorSha256": "d23011d0d1f70968c12a68662833caf02d051ccf1c77f0b356d5d8d9e756ee75",
+  "actualStudyImpact": "No impact on fixed 24-run live cohort: every declared selection mode is argmax.",
+  "sampleModeImpact": "Gate and gaze at first draw share identical random number. Inspect requires draw >=0.8; uniform gaze look_3 requires draw >=0.75; therefore every first-draw inspect yields look_3 despite uniform conditional gaze distribution.",
+  "counts": {
+    "seeds": 10000,
+    "inspections": 2025,
+    "conditional": {
+      "look_0": 0,
+      "look_1": 0,
+      "look_2": 0,
+      "look_3": 2025
+    }
+  },
+  "conditionalFrequency": {
+    "look_0": 0,
+    "look_1": 0,
+    "look_2": 0,
+    "look_3": 1
+  },
+  "example": {
+    "seed": 1,
+    "gate": {
+      "modelChoice": "continue",
+      "raw": {
+        "continue": 0.8,
+        "inspect": 0.2
+      },
+      "normalized": {
+        "continue": 0.8,
+        "inspect": 0.2
+      },
+      "filtered": {
+        "continue": 0.8,
+        "inspect": 0.2
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "sample",
+      "seed": 1,
+      "drawIndex": 0,
+      "draw": 0.8838632628321648,
+      "selected": "inspect"
+    },
+    "gaze": {
+      "modelChoice": "look_0",
+      "raw": {
+        "look_0": 0.25,
+        "look_1": 0.25,
+        "look_2": 0.25,
+        "look_3": 0.25
+      },
+      "normalized": {
+        "look_0": 0.25,
+        "look_1": 0.25,
+        "look_2": 0.25,
+        "look_3": 0.25
+      },
+      "filtered": {
+        "look_0": 0.25,
+        "look_1": 0.25,
+        "look_2": 0.25,
+        "look_3": 0.25
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "sample",
+      "seed": 1,
+      "drawIndex": 0,
+      "draw": 0.8838632628321648,
+      "selected": "look_3"
+    }
+  },
+  "classification": "Actor defect in supported sample selection mode; separate counters do not provide independent conditional gaze sampling.",
+  "repair": "Use explicit persisted sampler stream domain for gaze, preserving legacy gate/action streams. Keep seed and drawIndex plus stream identity in saved selection; strict replay must bind the declared stream. Add a regression across many seeds requiring each conditional gaze bucket near 25% when gate inspection probability is20%; this fixture currently produces100%look_3."
+}

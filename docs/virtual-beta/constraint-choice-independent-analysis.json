@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scriptSha256Reviewed": "92cfcf974332386e79d55cead793c4931b347c7650a2264ae0c6c5ef98f3724f",
+  "testSha256Reviewed": "54f2be8bbb47d3c048a4f871b7427d4182fa5f1c7112eea38333f09b6a048f21",
+  "realAPIRequests": 0,
+  "activeActualFilesRead": false,
+  "verification": {
+    "command": "node --import tsx --test tests/constraint-choice-analysis.test.ts reports/constraint-choice-2026-11-08/independent/analysis-review.test.ts",
+    "exitCode": 0,
+    "passed": 18,
+    "failed": 0
+  },
+  "resolvedFindings": [
+    "P2 action input expectations inconsistent with the supplied Persona: original independent semantic reproduction now excluded even with recomputed hashes",
+    "P2 unbound action current-image reference: original independent semantic reproduction now excluded even with recomputed hashes"
+  ],
+  "review": [
+    "personaInputBindings now checks stage Persona and expectation delivery; step-level expectations additionally agree with the supplied Persona",
+    "Native, assessment and action input hashes are verified using the ordinary replay formulas",
+    "Current image reference, last-observation identity, native source identity, retained source references and real opaque-image bindings are checked",
+    "Attached PNG bytes are checked for all stage assets",
+    "First exploratory method, saved method, functional completion and capability admissibility remain separate",
+    "Pending files are not opened; invalid/pending/missing rows do not enter behavioral or probability denominators",
+    "All action types retain raw/normalized/filtered distributions and replay selected candidate against actual primitive",
+    "TV remains restricted to matching initial image/native-minus-Persona/source/config/candidate-mapping groups"
+  ],
+  "unresolvedFindings": [],
+  "scope": "Independent frozen analysis-code review; final actual result and publication audit are separate requirements. Original v1 RED evidence and review remain preserved."
+}

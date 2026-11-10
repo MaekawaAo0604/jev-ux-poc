@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "out": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\independent\\analysis-review-4OjicZ",
+  "modelAPIRequests": 0,
+  "analysisScript": {
+    "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\scripts\\analyze-extreme-personas.ts",
+    "sha256": "5f3fdc73ce6ab48b28bb40f31c60dab47086bce899e8ea0eba535d7ddc97b83b"
+  },
+  "findings": [
+    {
+      "severity": "P3",
+      "code": "FULLVALID_NAME_AMBIGUITY",
+      "status": "advisory",
+      "expected": "Read as valid capped trials, never full12-step flow",
+      "actual": "counts.fullValid=32 within probe phase; phase/censoredValid/MD clarify meaning; no arithmetic defect"
+    },
+    {
+      "severity": "P2",
+      "code": "NONCLICK_SELECTED_ACTION_MISMATCH",
+      "status": "fixed-and-independently-verified",
+      "reproduction": "tests/extreme-persona-study-independent.test.ts:56; original4 mismatches entered denominator; fixed reconstructReplayCandidates rejects them and accepts positive scroll/look/wait cases",
+      "actual32Impact": "none; all32 stronger selection replays passed; r2 counts/TV byte-equivalent to original numeric structures"
+    }
+  ],
+  "checks": [
+    "32 first-choice denominators, paired TV values and 6+6/16 pair counts independently match",
+    "r2 fix leaves all actual counts, distributions and TV values unchanged",
+    "27 conditional-distribution changes are distinct from selected action changes and nonunit suppression weights",
+    "Live4176 viewer: all32 raw exports byte-identical; all stage PNG hashes and distributions preserved; CSV/NDJSON32 rows verified",
+    "Desktop1440 and mobile390 inspected; no horizontal overflow; native/assessment/action and terminal audit distinguished"
+  ],
+  "probe": {
+    "counts": {
+      "planned": 32,
+      "scheduled": 32,
+      "attempted": 32,
+      "pending": 0,
+      "recorded": 32,
+      "firstChoiceEligible": 32,
+      "invalid": 0,
+      "missing": 0,
+      "censoredValid": 32,
+      "fullValid": 32,
+      "failedPrefixes": 0,
+      "requests": 96,
+      "ledgerVerified": 32,
+      "requestsBasis": "manifest snapshot; pending ledgers are intentionally not read"
+    },
+    "independentPairs": [
+      {
+        "id": "knowledge",
+        "n": [
+          4,
+          4
+        ],
+        "withinPairs": [
+          6,
+          6
+        ],
+        "crossPairs": 16,
+        "withinMean": [
+          0.23166666666666666,
+          0.43166666666666664
+        ],
+        "betweenMean": 0.3275
+      },
+      {
+        "id": "experience",
+        "n": [
+          4,
+          4
+        ],
+        "withinPairs": [
+          6,
+          6
+        ],
+        "crossPairs": 16,
+        "withinMean": [
+          0.45166666666666666,
+          0.355
+        ],
+        "betweenMean": 0.36687500000000006
+      },
+      {
+        "id": "priority",
+        "n": [
+          4,
+          4
+        ],
+        "withinPairs": [
+          6,
+          6
+        ],
+        "crossPairs": 16,
+        "withinMean": [
+          0.4200000000000001,
+          0.45
+        ],
+        "betweenMean": 0.42000000000000004
+      },
+      {
+        "id": "devices",
+        "n": [
+          4,
+          4
+        ],
+        "withinPairs": [
+          6,
+          6
+        ],
+        "crossPairs": 16,
+        "withinMean": [
+          0.395,
+          0.34166666666666673
+        ],
+        "betweenMean": 0.338125
+      }
+    ],
+    "candidateIdentity": "All32 complete initial audit screens and target geometry equal, exact normalized candidate keys equal",
+    "samplerChangedChoice": 0,
+    "conditionalDistributionChanged": 27,
+    "nonunitPolicyWeights": 0,
+    "correctedCountsUnchangedFromR1": true
+  },
+  "viewer": {
+    "probes": 32,
+    "groups": 1,
+    "rawJSONByteMatches": 32,
+    "stepExports": 32,
+    "deliveredPNGHashesVerified": true,
+    "desktop": {
+      "width": 1440,
+      "documentWidth": 1425,
+      "overflow": false
+    },
+    "mobile": {
+      "width": 390,
+      "documentWidth": 375,
+      "overflow": false
+    },
+    "screenshots": [
+      "viewer-desktop.png",
+      "viewer-mobile.png",
+      "viewer-desktop-detail.png",
+      "viewer-mobile-detail.png"
+    ],
+    "imageLoading": "Lazy offscreen images loaded correctly on scroll in desktop/mobile detail",
+    "console": "Only favicon.ico404; no application JS errors observed"
+  },
+  "revisionPolicy": "HEAD commit metadata may change only when all frozen files/sourceHash remain identical; raw model records retain execution revision.",
+  "status": "PASS_WITH_RESOLVED_FINDING"
+}

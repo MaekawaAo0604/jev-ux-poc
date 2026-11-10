@@ -1,0 +1,2962 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "revision": "9e403ae9ce1f1e29840481a06f1f2504b7cf3058",
+    "sourceHash": "3decbfde991586a623258781f440024255dda55c125ca293c1c950f2a9b6d46a"
+  },
+  "phaseFile": "reports/attention-reselection-2026-11-09/live-r1/phase.json",
+  "phaseSha256": "9827637a7e9c73e884da2824cdfe60f60eea6666afebfbb92689dff9c2425545",
+  "producerSha256": "33023970d3a6afb2160c5414d46be5b7c9b285c6382aa989f324aa712d4f1693",
+  "planned": 12,
+  "actual": 12,
+  "requests": 114,
+  "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+  "byCondition": [
+    {
+      "condition": "crop-current",
+      "trials": 3,
+      "requests": 21,
+      "objectiveSuccess": 0,
+      "looks": [
+        1,
+        1,
+        1
+      ],
+      "repeatedSemanticUIOperations": [
+        4,
+        4,
+        4
+      ],
+      "uiActions": [
+        6,
+        6,
+        6
+      ],
+      "termination": [
+        "UI_ACTION_LIMIT",
+        "UI_ACTION_LIMIT",
+        "UI_ACTION_LIMIT"
+      ],
+      "paths": [
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back"
+        ],
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back"
+        ],
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back"
+        ]
+      ]
+    },
+    {
+      "condition": "crop-attention",
+      "trials": 3,
+      "requests": 36,
+      "objectiveSuccess": 0,
+      "looks": [
+        1,
+        1,
+        1
+      ],
+      "repeatedSemanticUIOperations": [
+        3,
+        3,
+        3
+      ],
+      "uiActions": [
+        5,
+        5,
+        5
+      ],
+      "termination": [
+        "API_LIMIT",
+        "API_LIMIT",
+        "API_LIMIT"
+      ],
+      "paths": [
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更"
+        ],
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更"
+        ],
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更"
+        ]
+      ]
+    },
+    {
+      "condition": "foveated-current",
+      "trials": 3,
+      "requests": 21,
+      "objectiveSuccess": 0,
+      "looks": [
+        1,
+        1,
+        1
+      ],
+      "repeatedSemanticUIOperations": [
+        4,
+        4,
+        4
+      ],
+      "uiActions": [
+        6,
+        6,
+        6
+      ],
+      "termination": [
+        "UI_ACTION_LIMIT",
+        "UI_ACTION_LIMIT",
+        "UI_ACTION_LIMIT"
+      ],
+      "paths": [
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back"
+        ],
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back"
+        ],
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back"
+        ]
+      ]
+    },
+    {
+      "condition": "foveated-attention",
+      "trials": 3,
+      "requests": 36,
+      "objectiveSuccess": 0,
+      "looks": [
+        1,
+        1,
+        1
+      ],
+      "repeatedSemanticUIOperations": [
+        3,
+        3,
+        3
+      ],
+      "uiActions": [
+        5,
+        5,
+        5
+      ],
+      "termination": [
+        "API_LIMIT",
+        "API_LIMIT",
+        "API_LIMIT"
+      ],
+      "paths": [
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更"
+        ],
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更"
+        ],
+        [
+          "look(960,675)",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更",
+          "back",
+          "通知設定\nメール通知の受信を変更"
+        ]
+      ]
+    }
+  ],
+  "trials": [
+    {
+      "runId": "crop-current-seed-5001",
+      "condition": "crop-current",
+      "vision": "crop",
+      "enabled": false,
+      "seed": 5001,
+      "termination": "UI_ACTION_LIMIT",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 7,
+      "decisions": 7,
+      "uiActions": 6,
+      "looks": 1,
+      "repeatedSemanticUIOperations": 4,
+      "repeatedExactScreenUIOperations": 2,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      ],
+      "attentionDecisions": [],
+      "attentionRequests": 0,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "look_3",
+            "selectedChoice": "look_3"
+          }
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o3",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o6",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 7,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o7",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        }
+      ],
+      "rawSha256": "d374ce597db8f654787142b8edd721e91c2e5315bfd508575a6dc7dfb3c64a96",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\result.json",
+      "status": "censored"
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "condition": "crop-attention",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 5001,
+      "termination": "API_LIMIT",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 12,
+      "decisions": 6,
+      "uiActions": 5,
+      "looks": 1,
+      "repeatedSemanticUIOperations": 3,
+      "repeatedExactScreenUIOperations": 1,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      ],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.68,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.01,
+            "look_3": 0.29
+          },
+          "normalized": {
+            "continue": 0.68,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.01,
+            "look_3": 0.29
+          },
+          "continueMass": 0.68,
+          "combinedLookMass": 0.31999999999999995,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 2,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.78,
+            "look_0": 0.03,
+            "look_1": 0.16,
+            "look_2": 0.02,
+            "look_3": 0.01
+          },
+          "normalized": {
+            "continue": 0.78,
+            "look_0": 0.03,
+            "look_1": 0.16,
+            "look_2": 0.02,
+            "look_3": 0.01
+          },
+          "continueMass": 0.78,
+          "combinedLookMass": 0.22,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 3,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.51,
+            "look_0": 0.22,
+            "look_1": 0.1,
+            "look_2": 0.09,
+            "look_3": 0.08
+          },
+          "normalized": {
+            "continue": 0.5100000000000001,
+            "look_0": 0.22000000000000003,
+            "look_1": 0.10000000000000002,
+            "look_2": 0.09000000000000001,
+            "look_3": 0.08000000000000002
+          },
+          "continueMass": 0.5100000000000001,
+          "combinedLookMass": 0.4900000000000001,
+          "lookMassExceedsContinue": false,
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 4,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.82,
+            "look_0": 0.02,
+            "look_1": 0.12,
+            "look_2": 0.02,
+            "look_3": 0.02
+          },
+          "normalized": {
+            "continue": 0.82,
+            "look_0": 0.02,
+            "look_1": 0.12,
+            "look_2": 0.02,
+            "look_3": 0.02
+          },
+          "continueMass": 0.82,
+          "combinedLookMass": 0.17999999999999997,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 5,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.49,
+            "look_0": 0.21,
+            "look_1": 0.14,
+            "look_2": 0.08,
+            "look_3": 0.08
+          },
+          "normalized": {
+            "continue": 0.49000000000000005,
+            "look_0": 0.21000000000000002,
+            "look_1": 0.14000000000000004,
+            "look_2": 0.08000000000000002,
+            "look_3": 0.08000000000000002
+          },
+          "continueMass": 0.49000000000000005,
+          "combinedLookMass": 0.5100000000000001,
+          "lookMassExceedsContinue": true,
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 6,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.83,
+            "look_0": 0.05,
+            "look_1": 0.1,
+            "look_2": 0.01,
+            "look_3": 0.01
+          },
+          "normalized": {
+            "continue": 0.83,
+            "look_0": 0.05,
+            "look_1": 0.1,
+            "look_2": 0.01,
+            "look_3": 0.01
+          },
+          "continueMass": 0.83,
+          "combinedLookMass": 0.17000000000000004,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 6,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "look_3",
+            "selectedChoice": "look_3"
+          }
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "uncertainty",
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o3",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "uncertainty",
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o6",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        }
+      ],
+      "rawSha256": "244c23f0f4dd7d61c9ac6b84ffbbaef4f23b5632ff8539809d1c5cbb9856e3fa",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\result.json",
+      "status": "censored"
+    },
+    {
+      "runId": "foveated-current-seed-5001",
+      "condition": "foveated-current",
+      "vision": "foveated",
+      "enabled": false,
+      "seed": 5001,
+      "termination": "UI_ACTION_LIMIT",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 7,
+      "decisions": 7,
+      "uiActions": 6,
+      "looks": 1,
+      "repeatedSemanticUIOperations": 4,
+      "repeatedExactScreenUIOperations": 2,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      ],
+      "attentionDecisions": [],
+      "attentionRequests": 0,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "look_3",
+            "selectedChoice": "look_3"
+          }
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o3",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o6",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 7,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o7",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        }
+      ],
+      "rawSha256": "63801a84c33d33bf1e923fe7515e05929cf24dcdeba5bd4d661e162dcee3e55c",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\result.json",
+      "status": "censored"
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "condition": "foveated-attention",
+      "vision": "foveated",
+      "enabled": true,
+      "seed": 5001,
+      "termination": "API_LIMIT",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 12,
+      "decisions": 6,
+      "uiActions": 5,
+      "looks": 1,
+      "repeatedSemanticUIOperations": 3,
+      "repeatedExactScreenUIOperations": 1,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      ],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.64,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.02,
+            "look_3": 0.33
+          },
+          "normalized": {
+            "continue": 0.64,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.02,
+            "look_3": 0.33
+          },
+          "continueMass": 0.64,
+          "combinedLookMass": 0.36,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 2,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.69,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.3
+          },
+          "normalized": {
+            "continue": 0.69,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.3
+          },
+          "continueMass": 0.69,
+          "combinedLookMass": 0.31,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 3,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.6,
+            "look_0": 0.11,
+            "look_1": 0.09,
+            "look_2": 0.09,
+            "look_3": 0.11
+          },
+          "normalized": {
+            "continue": 0.6000000000000001,
+            "look_0": 0.11000000000000001,
+            "look_1": 0.09000000000000001,
+            "look_2": 0.09000000000000001,
+            "look_3": 0.11000000000000001
+          },
+          "continueMass": 0.6000000000000001,
+          "combinedLookMass": 0.4,
+          "lookMassExceedsContinue": false,
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 4,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.72,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.01,
+            "look_3": 0.25
+          },
+          "normalized": {
+            "continue": 0.72,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.01,
+            "look_3": 0.25
+          },
+          "continueMass": 0.72,
+          "combinedLookMass": 0.28,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 5,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.61,
+            "look_0": 0.11,
+            "look_1": 0.12,
+            "look_2": 0.09,
+            "look_3": 0.07
+          },
+          "normalized": {
+            "continue": 0.61,
+            "look_0": 0.11,
+            "look_1": 0.12,
+            "look_2": 0.09,
+            "look_3": 0.07
+          },
+          "continueMass": 0.61,
+          "combinedLookMass": 0.38999999999999996,
+          "lookMassExceedsContinue": false,
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 6,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.67,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.32
+          },
+          "normalized": {
+            "continue": 0.67,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.32
+          },
+          "continueMass": 0.67,
+          "combinedLookMass": 0.33,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 6,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "look_3",
+            "selectedChoice": "look_3"
+          }
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "uncertainty",
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o3",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "uncertainty",
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o6",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        }
+      ],
+      "rawSha256": "75b9bbd64ebc6749d3041bdcb0f9bb4943d56f94596abadac9c0bfa451a99565",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\result.json",
+      "status": "censored"
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "condition": "crop-attention",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 5002,
+      "termination": "API_LIMIT",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 12,
+      "decisions": 6,
+      "uiActions": 5,
+      "looks": 1,
+      "repeatedSemanticUIOperations": 3,
+      "repeatedExactScreenUIOperations": 1,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      ],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.66,
+            "look_0": 0.01,
+            "look_1": 0.02,
+            "look_2": 0.02,
+            "look_3": 0.29
+          },
+          "normalized": {
+            "continue": 0.66,
+            "look_0": 0.01,
+            "look_1": 0.02,
+            "look_2": 0.02,
+            "look_3": 0.29
+          },
+          "continueMass": 0.66,
+          "combinedLookMass": 0.33999999999999997,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 2,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.8,
+            "look_0": 0.03,
+            "look_1": 0.15,
+            "look_2": 0.01,
+            "look_3": 0.01
+          },
+          "normalized": {
+            "continue": 0.8,
+            "look_0": 0.03,
+            "look_1": 0.15,
+            "look_2": 0.01,
+            "look_3": 0.01
+          },
+          "continueMass": 0.8,
+          "combinedLookMass": 0.2,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 3,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.5,
+            "look_0": 0.24,
+            "look_1": 0.1,
+            "look_2": 0.08,
+            "look_3": 0.08
+          },
+          "normalized": {
+            "continue": 0.5000000000000001,
+            "look_0": 0.24000000000000002,
+            "look_1": 0.10000000000000002,
+            "look_2": 0.08000000000000002,
+            "look_3": 0.08000000000000002
+          },
+          "continueMass": 0.5000000000000001,
+          "combinedLookMass": 0.5,
+          "lookMassExceedsContinue": false,
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 4,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.82,
+            "look_0": 0.03,
+            "look_1": 0.11,
+            "look_2": 0.02,
+            "look_3": 0.02
+          },
+          "normalized": {
+            "continue": 0.82,
+            "look_0": 0.03,
+            "look_1": 0.11,
+            "look_2": 0.02,
+            "look_3": 0.02
+          },
+          "continueMass": 0.82,
+          "combinedLookMass": 0.18,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 5,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.47,
+            "look_0": 0.24,
+            "look_1": 0.13,
+            "look_2": 0.09,
+            "look_3": 0.07
+          },
+          "normalized": {
+            "continue": 0.47,
+            "look_0": 0.24,
+            "look_1": 0.13,
+            "look_2": 0.09,
+            "look_3": 0.07
+          },
+          "continueMass": 0.47,
+          "combinedLookMass": 0.53,
+          "lookMassExceedsContinue": true,
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 6,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.82,
+            "look_0": 0.03,
+            "look_1": 0.11,
+            "look_2": 0.02,
+            "look_3": 0.02
+          },
+          "normalized": {
+            "continue": 0.82,
+            "look_0": 0.03,
+            "look_1": 0.11,
+            "look_2": 0.02,
+            "look_3": 0.02
+          },
+          "continueMass": 0.82,
+          "combinedLookMass": 0.18,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 6,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "look_3",
+            "selectedChoice": "look_3"
+          }
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "uncertainty",
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o3",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "uncertainty",
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o6",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        }
+      ],
+      "rawSha256": "67a0c55ba5229d2556be314925e99900df61463cfbf8dbd2ec543d2c061ca74c",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\result.json",
+      "status": "censored"
+    },
+    {
+      "runId": "foveated-current-seed-5002",
+      "condition": "foveated-current",
+      "vision": "foveated",
+      "enabled": false,
+      "seed": 5002,
+      "termination": "UI_ACTION_LIMIT",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 7,
+      "decisions": 7,
+      "uiActions": 6,
+      "looks": 1,
+      "repeatedSemanticUIOperations": 4,
+      "repeatedExactScreenUIOperations": 1,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      ],
+      "attentionDecisions": [],
+      "attentionRequests": 0,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "look_3",
+            "selectedChoice": "look_3"
+          }
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o3",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o6",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 7,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o7",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        }
+      ],
+      "rawSha256": "62fed3fd4c77e7be0c8c8148b352bfa3f345408346cfb43ffb037ce1a8c27bda",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\result.json",
+      "status": "censored"
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "condition": "foveated-attention",
+      "vision": "foveated",
+      "enabled": true,
+      "seed": 5002,
+      "termination": "API_LIMIT",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 12,
+      "decisions": 6,
+      "uiActions": 5,
+      "looks": 1,
+      "repeatedSemanticUIOperations": 3,
+      "repeatedExactScreenUIOperations": 1,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      ],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.68,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.02,
+            "look_3": 0.29
+          },
+          "normalized": {
+            "continue": 0.68,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.02,
+            "look_3": 0.29
+          },
+          "continueMass": 0.68,
+          "combinedLookMass": 0.31999999999999995,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 2,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.73,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.26
+          },
+          "normalized": {
+            "continue": 0.73,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.26
+          },
+          "continueMass": 0.73,
+          "combinedLookMass": 0.27,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 3,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.62,
+            "look_0": 0.09,
+            "look_1": 0.1,
+            "look_2": 0.08,
+            "look_3": 0.11
+          },
+          "normalized": {
+            "continue": 0.6200000000000001,
+            "look_0": 0.09000000000000001,
+            "look_1": 0.10000000000000002,
+            "look_2": 0.08000000000000002,
+            "look_3": 0.11000000000000001
+          },
+          "continueMass": 0.6200000000000001,
+          "combinedLookMass": 0.38,
+          "lookMassExceedsContinue": false,
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 4,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.75,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.23
+          },
+          "normalized": {
+            "continue": 0.75,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.23
+          },
+          "continueMass": 0.75,
+          "combinedLookMass": 0.25,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 5,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.59,
+            "look_0": 0.12,
+            "look_1": 0.12,
+            "look_2": 0.09,
+            "look_3": 0.08
+          },
+          "normalized": {
+            "continue": 0.5900000000000001,
+            "look_0": 0.12000000000000001,
+            "look_1": 0.12000000000000001,
+            "look_2": 0.09000000000000001,
+            "look_3": 0.08000000000000002
+          },
+          "continueMass": 0.5900000000000001,
+          "combinedLookMass": 0.41000000000000003,
+          "lookMassExceedsContinue": false,
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 6,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.68,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.01,
+            "look_3": 0.29
+          },
+          "normalized": {
+            "continue": 0.68,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.01,
+            "look_3": 0.29
+          },
+          "continueMass": 0.68,
+          "combinedLookMass": 0.31999999999999995,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 6,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "look_3",
+            "selectedChoice": "look_3"
+          }
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "uncertainty",
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o3",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "uncertainty",
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o6",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        }
+      ],
+      "rawSha256": "76f72e245b10129a20d1ed05d7702acbcdaf934244075e7985a7baa64e9db403",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\result.json",
+      "status": "censored"
+    },
+    {
+      "runId": "crop-current-seed-5002",
+      "condition": "crop-current",
+      "vision": "crop",
+      "enabled": false,
+      "seed": 5002,
+      "termination": "UI_ACTION_LIMIT",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 7,
+      "decisions": 7,
+      "uiActions": 6,
+      "looks": 1,
+      "repeatedSemanticUIOperations": 4,
+      "repeatedExactScreenUIOperations": 1,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      ],
+      "attentionDecisions": [],
+      "attentionRequests": 0,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "look_3",
+            "selectedChoice": "look_3"
+          }
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o3",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o6",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 7,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o7",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        }
+      ],
+      "rawSha256": "91a4795b59307e7cac8bb57f834e4a2a83236c9fec6f5db9b9bccb8af5c6d530",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\result.json",
+      "status": "censored"
+    },
+    {
+      "runId": "foveated-current-seed-5003",
+      "condition": "foveated-current",
+      "vision": "foveated",
+      "enabled": false,
+      "seed": 5003,
+      "termination": "UI_ACTION_LIMIT",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 7,
+      "decisions": 7,
+      "uiActions": 6,
+      "looks": 1,
+      "repeatedSemanticUIOperations": 4,
+      "repeatedExactScreenUIOperations": 2,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      ],
+      "attentionDecisions": [],
+      "attentionRequests": 0,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "look_3",
+            "selectedChoice": "look_3"
+          }
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o3",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o6",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 7,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o7",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        }
+      ],
+      "rawSha256": "99c0cf0929ca10ea80758bb0daa836ec13259ee559bf65ea83a2d4318192f1b6",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\result.json",
+      "status": "censored"
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "condition": "foveated-attention",
+      "vision": "foveated",
+      "enabled": true,
+      "seed": 5003,
+      "termination": "API_LIMIT",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 12,
+      "decisions": 6,
+      "uiActions": 5,
+      "looks": 1,
+      "repeatedSemanticUIOperations": 3,
+      "repeatedExactScreenUIOperations": 1,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      ],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.6,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.02,
+            "look_3": 0.36
+          },
+          "normalized": {
+            "continue": 0.6,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.02,
+            "look_3": 0.36
+          },
+          "continueMass": 0.6,
+          "combinedLookMass": 0.39999999999999997,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 2,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.66,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.33
+          },
+          "normalized": {
+            "continue": 0.66,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.33
+          },
+          "continueMass": 0.66,
+          "combinedLookMass": 0.34,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 3,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.66,
+            "look_0": 0.07,
+            "look_1": 0.09,
+            "look_2": 0.08,
+            "look_3": 0.1
+          },
+          "normalized": {
+            "continue": 0.6600000000000001,
+            "look_0": 0.07000000000000002,
+            "look_1": 0.09000000000000001,
+            "look_2": 0.08000000000000002,
+            "look_3": 0.10000000000000002
+          },
+          "continueMass": 0.6600000000000001,
+          "combinedLookMass": 0.3400000000000001,
+          "lookMassExceedsContinue": false,
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 4,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.79,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.19
+          },
+          "normalized": {
+            "continue": 0.79,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.19
+          },
+          "continueMass": 0.79,
+          "combinedLookMass": 0.21,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 5,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.64,
+            "look_0": 0.09,
+            "look_1": 0.11,
+            "look_2": 0.08,
+            "look_3": 0.08
+          },
+          "normalized": {
+            "continue": 0.6400000000000001,
+            "look_0": 0.09000000000000001,
+            "look_1": 0.11000000000000001,
+            "look_2": 0.08000000000000002,
+            "look_3": 0.08000000000000002
+          },
+          "continueMass": 0.6400000000000001,
+          "combinedLookMass": 0.36000000000000004,
+          "lookMassExceedsContinue": false,
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 6,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.61,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.38
+          },
+          "normalized": {
+            "continue": 0.61,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.38
+          },
+          "continueMass": 0.61,
+          "combinedLookMass": 0.39,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 6,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "look_3",
+            "selectedChoice": "look_3"
+          }
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "uncertainty",
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o3",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "uncertainty",
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o6",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        }
+      ],
+      "rawSha256": "1d8a1ba625381879007dfd85f4bb5734e49a01e9c3dcb78ca7cb75ef5e5dc26f",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\result.json",
+      "status": "censored"
+    },
+    {
+      "runId": "crop-current-seed-5003",
+      "condition": "crop-current",
+      "vision": "crop",
+      "enabled": false,
+      "seed": 5003,
+      "termination": "UI_ACTION_LIMIT",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 7,
+      "decisions": 7,
+      "uiActions": 6,
+      "looks": 1,
+      "repeatedSemanticUIOperations": 4,
+      "repeatedExactScreenUIOperations": 1,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      ],
+      "attentionDecisions": [],
+      "attentionRequests": 0,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "look_3",
+            "selectedChoice": "look_3"
+          }
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o3",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o6",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 7,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "attentionReason": null,
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o7",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        }
+      ],
+      "rawSha256": "31dc8fb310d264293789400f7e9362cc63b7268f8d6314e2088738d5432b37f7",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\result.json",
+      "status": "censored"
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "condition": "crop-attention",
+      "vision": "crop",
+      "enabled": true,
+      "seed": 5003,
+      "termination": "API_LIMIT",
+      "valid": true,
+      "objectiveSuccess": false,
+      "subjectiveDone": false,
+      "apiCalls": 12,
+      "decisions": 6,
+      "uiActions": 5,
+      "looks": 1,
+      "repeatedSemanticUIOperations": 3,
+      "repeatedExactScreenUIOperations": 1,
+      "lookChecks": [
+        {
+          "nextDecision": 2,
+          "requestedFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "uiOperationCount": 0,
+          "nextFixationMatches": true,
+          "rawSourceUnchanged": true,
+          "newlyEligibleIds": [
+            "e5"
+          ]
+        }
+      ],
+      "attentionDecisions": [
+        {
+          "decision": 1,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.77,
+            "look_0": 0,
+            "look_1": 0.02,
+            "look_2": 0.01,
+            "look_3": 0.2
+          },
+          "normalized": {
+            "continue": 0.77,
+            "look_0": 0,
+            "look_1": 0.02,
+            "look_2": 0.01,
+            "look_3": 0.2
+          },
+          "continueMass": 0.77,
+          "combinedLookMass": 0.23,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 2,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.82,
+            "look_0": 0.03,
+            "look_1": 0.13,
+            "look_2": 0.01,
+            "look_3": 0.01
+          },
+          "normalized": {
+            "continue": 0.82,
+            "look_0": 0.03,
+            "look_1": 0.13,
+            "look_2": 0.01,
+            "look_3": 0.01
+          },
+          "continueMass": 0.82,
+          "combinedLookMass": 0.18000000000000002,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 3,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.48,
+            "look_0": 0.24,
+            "look_1": 0.11,
+            "look_2": 0.08,
+            "look_3": 0.09
+          },
+          "normalized": {
+            "continue": 0.48000000000000004,
+            "look_0": 0.24000000000000002,
+            "look_1": 0.11000000000000001,
+            "look_2": 0.08000000000000002,
+            "look_3": 0.09000000000000001
+          },
+          "continueMass": 0.48000000000000004,
+          "combinedLookMass": 0.52,
+          "lookMassExceedsContinue": true,
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 4,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.76,
+            "look_0": 0.03,
+            "look_1": 0.16,
+            "look_2": 0.02,
+            "look_3": 0.03
+          },
+          "normalized": {
+            "continue": 0.76,
+            "look_0": 0.03,
+            "look_1": 0.16,
+            "look_2": 0.02,
+            "look_3": 0.03
+          },
+          "continueMass": 0.76,
+          "combinedLookMass": 0.24,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 5,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.47,
+            "look_0": 0.24,
+            "look_1": 0.13,
+            "look_2": 0.08,
+            "look_3": 0.08
+          },
+          "normalized": {
+            "continue": 0.47000000000000003,
+            "look_0": 0.24000000000000002,
+            "look_1": 0.13000000000000003,
+            "look_2": 0.08000000000000002,
+            "look_3": 0.08000000000000002
+          },
+          "continueMass": 0.47000000000000003,
+          "combinedLookMass": 0.53,
+          "lookMassExceedsContinue": true,
+          "reason": "uncertainty",
+          "kind": "model-distribution-not-human-frequency"
+        },
+        {
+          "decision": 6,
+          "selected": "continue",
+          "raw": {
+            "continue": 0.8,
+            "look_0": 0.05,
+            "look_1": 0.11,
+            "look_2": 0.02,
+            "look_3": 0.02
+          },
+          "normalized": {
+            "continue": 0.8,
+            "look_0": 0.05,
+            "look_1": 0.11,
+            "look_2": 0.02,
+            "look_3": 0.02
+          },
+          "continueMass": 0.8,
+          "combinedLookMass": 0.19999999999999998,
+          "lookMassExceedsContinue": false,
+          "reason": "goal",
+          "kind": "model-distribution-not-human-frequency"
+        }
+      ],
+      "attentionRequests": 6,
+      "attentionLooks": 0,
+      "path": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o1",
+            "kind": "model-self-report",
+            "proposedChoice": "look_3",
+            "selectedChoice": "look_3"
+          }
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o2",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "uncertainty",
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o3",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o4",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": null,
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "uncertainty",
+          "actionReason": {
+            "category": "uncertainty",
+            "observationId": "o5",
+            "kind": "model-self-report",
+            "proposedChoice": "back",
+            "selectedChoice": "back"
+          }
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "attentionReason": "goal",
+          "actionReason": {
+            "category": "goal",
+            "observationId": "o6",
+            "kind": "model-self-report",
+            "proposedChoice": "e5",
+            "selectedChoice": "e5"
+          }
+        }
+      ],
+      "rawSha256": "c05c1c5e11b9df0dac423c042c38a63742c12275a3d793695c597ac2eec9a696",
+      "rawPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\result.json",
+      "status": "censored"
+    }
+  ],
+  "limitations": [
+    "External model seed uncontrolled; 3 repetitions per condition",
+    "One goal-policy fixture and beginner persona only",
+    "Additional inference stage is part of intervention; identical input output determinism not assumed",
+    "No human validity claim"
+  ]
+}

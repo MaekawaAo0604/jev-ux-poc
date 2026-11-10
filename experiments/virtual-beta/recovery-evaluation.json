@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "recovery-transfer-2026-10-29",
+  "baselineRevision": "b7ce1cdc2123d12136a63675f0ee437497f9154d",
+  "baselineSourceHash": "0d6a2476bc592fe9d56afc4436b2737555659129eb2c4b8e4ee8309ef73890d4",
+  "mode": "experience-goal-search-grounded",
+  "persona": null,
+  "repeats": 2,
+  "initialState": "primary blocked; not autonomous discovery of a dead end",
+  "conditions": ["switch", "changed", "unchanged"],
+  "tasks": ["library", "workshop"],
+  "order": "registry six cells, then reversed six cells",
+  "limits": {"trials":12,"maxRequests":288,"maxRequestsPerTrial":24,"maxJudgmentsPerTrial":12,"maxUIActionsPerTrial":15,"maxLooksPerTrial":3,"maxRunMsPerTrial":180000,"phaseMs":2400000,"parallel":1},
+  "stop": {"HTTP402":"immediate no retry","consecutiveInfrastructure":2},
+  "outcomePolicy": "Objective commitment, perceived done, opportunities delivered vs terminal-only, switching, changed and unchanged prerequisite revisits, limits and infrastructure separately. No route banning. No human-fidelity inference.",
+  "unchangedMeaning": "Primary eligibility remains false after confirmation; other workflow state may change. Records reconciliation becomes available after confirmation attempt.",
+  "actorChangesAllowed": false,
+  "maxAttemptsPerRequest": 1,
+  "longContext": true
+}

@@ -1,0 +1,3773 @@
+{
+  "schemaVersion": 1,
+  "phase": "holdout-stability-2026-10-28",
+  "status": "COMPARISON_IMPLEMENTED_AND_EXECUTED_CAPABILITY_NOT_STABLE",
+  "executionRevision": "5798717671f7fec7502a225e40ac56db48e1c5e4",
+  "executionSourceHash": "dace005dbf214f7df94c6afdd4cf1b4f8085d6ad68bd87f9fd3238adec2a9b91",
+  "policyReference": "4a67772b872c8b7893550295072177ea17c8de6a",
+  "policyContentsUnchanged": true,
+  "analysisCorrection": {
+    "onlyChangedExecutionSourceFile": "runner/holdout-analysis.ts",
+    "analysisFileSha256": "aef3ac1b19fda36404b1a779804a4967bc94b1ac1d238b9a09a7085c191dc0c9",
+    "originalSummarySha256": "f4845419b10c6dc66c24b7efab8c677ffe9ecd380e02c575d88b622b0d5f8a6a",
+    "correctedSummarySha256": "a074fc914943f6bdedb9634296576f993d5071f7985092ae59d4043d47d735ed",
+    "scope": "Valid local holdout UI empty hash is the same rendered home as #home; no general image/semantic equivalence",
+    "oldBranchCounts": {
+      "control": 7,
+      "policy": 6
+    },
+    "newBranchCounts": {
+      "control": 10,
+      "policy": 10
+    },
+    "additionalAPIRequests": 0,
+    "finalAnalysisSourceHash": "bb213993e1006c56fdffef07aac8c80a5d43102838b99505c148386735b5c00e"
+  },
+  "protocol": "experiments/virtual-beta/holdout-stability.json",
+  "requests": {
+    "maximum": 576,
+    "actual": 244,
+    "transportAttemptsPerRequest": 1,
+    "reviewRequests": 0
+  },
+  "priorLedgerCheck": {
+    "unchanged": true,
+    "checked": 10
+  },
+  "summary": {
+    "trials": 24,
+    "valid": 24,
+    "successes": 20,
+    "falseCompletions": 4,
+    "faults": 0,
+    "allPairsConsistent": true,
+    "allCellsComplete": true
+  },
+  "fixedConditions": {
+    "model": "jev-1.14.0",
+    "persona": null,
+    "controlConfig": {
+      "schemaVersion": 1,
+      "id": "human-screen-experience-basis",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 4096,
+        "clearHeight": 4096,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261028
+      },
+      "behavior": "goal",
+      "maxUIActions": 15,
+      "maxLooks": 3,
+      "maxDecisions": 12,
+      "maxAPICalls": 24,
+      "maxRunMs": 180000,
+      "modeledActionMs": null,
+      "deliberation": {
+        "enabled": true,
+        "memoryCapacity": 3,
+        "candidateEffects": true
+      },
+      "experience": {
+        "enabled": true,
+        "capacity": 8,
+        "evidenceMode": "basis"
+      }
+    },
+    "policyConfig": {
+      "schemaVersion": 1,
+      "id": "human-screen-experience-defer",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 4096,
+        "clearHeight": 4096,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261028
+      },
+      "behavior": "goal",
+      "maxUIActions": 15,
+      "maxLooks": 3,
+      "maxDecisions": 12,
+      "maxAPICalls": 24,
+      "maxRunMs": 180000,
+      "modeledActionMs": null,
+      "deliberation": {
+        "enabled": true,
+        "memoryCapacity": 3,
+        "candidateEffects": true
+      },
+      "experience": {
+        "enabled": true,
+        "capacity": 8,
+        "evidenceMode": "basis"
+      },
+      "deferral": {
+        "enabled": true,
+        "capacity": 8,
+        "weight": 0.01,
+        "minAlternativeProbability": 0.01
+      }
+    }
+  },
+  "totals": [
+    {
+      "task": "switch",
+      "condition": "control",
+      "n": 4,
+      "valid": 4,
+      "successes": 2,
+      "failures": 2,
+      "falseCompletions": 2,
+      "meanUIActions": 2.5,
+      "policyChanges": 0
+    },
+    {
+      "task": "switch",
+      "condition": "policy",
+      "n": 4,
+      "valid": 4,
+      "successes": 2,
+      "failures": 2,
+      "falseCompletions": 2,
+      "meanUIActions": 2.5,
+      "policyChanges": 0
+    },
+    {
+      "task": "revisit",
+      "condition": "control",
+      "n": 4,
+      "valid": 4,
+      "successes": 4,
+      "failures": 0,
+      "falseCompletions": 0,
+      "meanUIActions": 7.5,
+      "policyChanges": 0
+    },
+    {
+      "task": "revisit",
+      "condition": "policy",
+      "n": 4,
+      "valid": 4,
+      "successes": 4,
+      "failures": 0,
+      "falseCompletions": 0,
+      "meanUIActions": 8,
+      "policyChanges": 2
+    },
+    {
+      "task": "direct",
+      "condition": "control",
+      "n": 4,
+      "valid": 4,
+      "successes": 4,
+      "failures": 0,
+      "falseCompletions": 0,
+      "meanUIActions": 2,
+      "policyChanges": 0
+    },
+    {
+      "task": "direct",
+      "condition": "policy",
+      "n": 4,
+      "valid": 4,
+      "successes": 4,
+      "failures": 0,
+      "falseCompletions": 0,
+      "meanUIActions": 2,
+      "policyChanges": 0
+    }
+  ],
+  "cells": [
+    {
+      "key": "direct/alpha/control",
+      "task": "direct",
+      "variant": "alpha",
+      "condition": "control",
+      "n": 2,
+      "validN": 2,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "faults": 0,
+      "invalidN": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 2,
+      "meanDecisions": 3,
+      "pathUniqueness": {
+        "completeValidN": 2,
+        "unknownPathN": 0,
+        "uniquePaths": 1,
+        "consistent": true
+      },
+      "behaviorTotals": {
+        "repeatedDirectedEdges": 0,
+        "revisits": 2,
+        "policyChanges": 0,
+        "postReturnBranchChanges": 0
+      }
+    },
+    {
+      "key": "direct/alpha/policy",
+      "task": "direct",
+      "variant": "alpha",
+      "condition": "policy",
+      "n": 2,
+      "validN": 2,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "faults": 0,
+      "invalidN": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 2,
+      "meanDecisions": 3,
+      "pathUniqueness": {
+        "completeValidN": 2,
+        "unknownPathN": 0,
+        "uniquePaths": 1,
+        "consistent": true
+      },
+      "behaviorTotals": {
+        "repeatedDirectedEdges": 0,
+        "revisits": 2,
+        "policyChanges": 0,
+        "postReturnBranchChanges": 0
+      }
+    },
+    {
+      "key": "direct/beta/control",
+      "task": "direct",
+      "variant": "beta",
+      "condition": "control",
+      "n": 2,
+      "validN": 2,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "faults": 0,
+      "invalidN": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 2,
+      "meanDecisions": 3,
+      "pathUniqueness": {
+        "completeValidN": 2,
+        "unknownPathN": 0,
+        "uniquePaths": 1,
+        "consistent": true
+      },
+      "behaviorTotals": {
+        "repeatedDirectedEdges": 0,
+        "revisits": 2,
+        "policyChanges": 0,
+        "postReturnBranchChanges": 0
+      }
+    },
+    {
+      "key": "direct/beta/policy",
+      "task": "direct",
+      "variant": "beta",
+      "condition": "policy",
+      "n": 2,
+      "validN": 2,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "faults": 0,
+      "invalidN": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 2,
+      "meanDecisions": 3,
+      "pathUniqueness": {
+        "completeValidN": 2,
+        "unknownPathN": 0,
+        "uniquePaths": 1,
+        "consistent": true
+      },
+      "behaviorTotals": {
+        "repeatedDirectedEdges": 0,
+        "revisits": 2,
+        "policyChanges": 0,
+        "postReturnBranchChanges": 0
+      }
+    },
+    {
+      "key": "revisit/alpha/control",
+      "task": "revisit",
+      "variant": "alpha",
+      "condition": "control",
+      "n": 2,
+      "validN": 2,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "faults": 0,
+      "invalidN": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 7,
+      "meanDecisions": 8,
+      "pathUniqueness": {
+        "completeValidN": 2,
+        "unknownPathN": 0,
+        "uniquePaths": 1,
+        "consistent": true
+      },
+      "behaviorTotals": {
+        "repeatedDirectedEdges": 2,
+        "revisits": 10,
+        "policyChanges": 0,
+        "postReturnBranchChanges": 4
+      }
+    },
+    {
+      "key": "revisit/alpha/policy",
+      "task": "revisit",
+      "variant": "alpha",
+      "condition": "policy",
+      "n": 2,
+      "validN": 2,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "faults": 0,
+      "invalidN": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 9,
+      "meanDecisions": 10,
+      "pathUniqueness": {
+        "completeValidN": 2,
+        "unknownPathN": 0,
+        "uniquePaths": 1,
+        "consistent": true
+      },
+      "behaviorTotals": {
+        "repeatedDirectedEdges": 6,
+        "revisits": 14,
+        "policyChanges": 2,
+        "postReturnBranchChanges": 4
+      }
+    },
+    {
+      "key": "revisit/beta/control",
+      "task": "revisit",
+      "variant": "beta",
+      "condition": "control",
+      "n": 2,
+      "validN": 2,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "faults": 0,
+      "invalidN": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 8,
+      "meanDecisions": 9,
+      "pathUniqueness": {
+        "completeValidN": 2,
+        "unknownPathN": 0,
+        "uniquePaths": 2,
+        "consistent": false
+      },
+      "behaviorTotals": {
+        "repeatedDirectedEdges": 4,
+        "revisits": 12,
+        "policyChanges": 0,
+        "postReturnBranchChanges": 4
+      }
+    },
+    {
+      "key": "revisit/beta/policy",
+      "task": "revisit",
+      "variant": "beta",
+      "condition": "policy",
+      "n": 2,
+      "validN": 2,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "faults": 0,
+      "invalidN": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 7,
+      "meanDecisions": 8,
+      "pathUniqueness": {
+        "completeValidN": 2,
+        "unknownPathN": 0,
+        "uniquePaths": 1,
+        "consistent": true
+      },
+      "behaviorTotals": {
+        "repeatedDirectedEdges": 2,
+        "revisits": 10,
+        "policyChanges": 0,
+        "postReturnBranchChanges": 4
+      }
+    },
+    {
+      "key": "switch/alpha/control",
+      "task": "switch",
+      "variant": "alpha",
+      "condition": "control",
+      "n": 2,
+      "validN": 2,
+      "objectiveSuccesses": 0,
+      "objectiveFailures": 2,
+      "faults": 0,
+      "invalidN": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 3,
+      "meanDecisions": 4,
+      "pathUniqueness": {
+        "completeValidN": 2,
+        "unknownPathN": 0,
+        "uniquePaths": 1,
+        "consistent": true
+      },
+      "behaviorTotals": {
+        "repeatedDirectedEdges": 0,
+        "revisits": 2,
+        "policyChanges": 0,
+        "postReturnBranchChanges": 2
+      }
+    },
+    {
+      "key": "switch/alpha/policy",
+      "task": "switch",
+      "variant": "alpha",
+      "condition": "policy",
+      "n": 2,
+      "validN": 2,
+      "objectiveSuccesses": 0,
+      "objectiveFailures": 2,
+      "faults": 0,
+      "invalidN": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 3,
+      "meanDecisions": 4,
+      "pathUniqueness": {
+        "completeValidN": 2,
+        "unknownPathN": 0,
+        "uniquePaths": 1,
+        "consistent": true
+      },
+      "behaviorTotals": {
+        "repeatedDirectedEdges": 0,
+        "revisits": 2,
+        "policyChanges": 0,
+        "postReturnBranchChanges": 2
+      }
+    },
+    {
+      "key": "switch/beta/control",
+      "task": "switch",
+      "variant": "beta",
+      "condition": "control",
+      "n": 2,
+      "validN": 2,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "faults": 0,
+      "invalidN": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 2,
+      "meanDecisions": 3,
+      "pathUniqueness": {
+        "completeValidN": 2,
+        "unknownPathN": 0,
+        "uniquePaths": 1,
+        "consistent": true
+      },
+      "behaviorTotals": {
+        "repeatedDirectedEdges": 0,
+        "revisits": 2,
+        "policyChanges": 0,
+        "postReturnBranchChanges": 0
+      }
+    },
+    {
+      "key": "switch/beta/policy",
+      "task": "switch",
+      "variant": "beta",
+      "condition": "policy",
+      "n": 2,
+      "validN": 2,
+      "objectiveSuccesses": 2,
+      "objectiveFailures": 0,
+      "faults": 0,
+      "invalidN": 0,
+      "terminations": {
+        "SUBJECTIVE_DONE": 2
+      },
+      "meanUIActions": 2,
+      "meanDecisions": 3,
+      "pathUniqueness": {
+        "completeValidN": 2,
+        "unknownPathN": 0,
+        "uniquePaths": 1,
+        "consistent": true
+      },
+      "behaviorTotals": {
+        "repeatedDirectedEdges": 0,
+        "revisits": 2,
+        "policyChanges": 0,
+        "postReturnBranchChanges": 0
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "key": "direct/alpha/1",
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "direct-alpha-r1-control",
+        "direct-alpha-r1-policy"
+      ],
+      "bothValid": true,
+      "control": "direct-alpha-r1-control",
+      "policy": "direct-alpha-r1-policy"
+    },
+    {
+      "key": "direct/alpha/2",
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "direct-alpha-r2-policy",
+        "direct-alpha-r2-control"
+      ],
+      "bothValid": true,
+      "control": "direct-alpha-r2-control",
+      "policy": "direct-alpha-r2-policy"
+    },
+    {
+      "key": "direct/beta/1",
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "direct-beta-r1-policy",
+        "direct-beta-r1-control"
+      ],
+      "bothValid": true,
+      "control": "direct-beta-r1-control",
+      "policy": "direct-beta-r1-policy"
+    },
+    {
+      "key": "direct/beta/2",
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "direct-beta-r2-control",
+        "direct-beta-r2-policy"
+      ],
+      "bothValid": true,
+      "control": "direct-beta-r2-control",
+      "policy": "direct-beta-r2-policy"
+    },
+    {
+      "key": "revisit/alpha/1",
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-alpha-r1-control",
+        "revisit-alpha-r1-policy"
+      ],
+      "bothValid": true,
+      "control": "revisit-alpha-r1-control",
+      "policy": "revisit-alpha-r1-policy"
+    },
+    {
+      "key": "revisit/alpha/2",
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-alpha-r2-policy",
+        "revisit-alpha-r2-control"
+      ],
+      "bothValid": true,
+      "control": "revisit-alpha-r2-control",
+      "policy": "revisit-alpha-r2-policy"
+    },
+    {
+      "key": "revisit/beta/1",
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-beta-r1-policy",
+        "revisit-beta-r1-control"
+      ],
+      "bothValid": true,
+      "control": "revisit-beta-r1-control",
+      "policy": "revisit-beta-r1-policy"
+    },
+    {
+      "key": "revisit/beta/2",
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "revisit-beta-r2-control",
+        "revisit-beta-r2-policy"
+      ],
+      "bothValid": true,
+      "control": "revisit-beta-r2-control",
+      "policy": "revisit-beta-r2-policy"
+    },
+    {
+      "key": "switch/alpha/1",
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "switch-alpha-r1-control",
+        "switch-alpha-r1-policy"
+      ],
+      "bothValid": true,
+      "control": "switch-alpha-r1-control",
+      "policy": "switch-alpha-r1-policy"
+    },
+    {
+      "key": "switch/alpha/2",
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "switch-alpha-r2-policy",
+        "switch-alpha-r2-control"
+      ],
+      "bothValid": true,
+      "control": "switch-alpha-r2-control",
+      "policy": "switch-alpha-r2-policy"
+    },
+    {
+      "key": "switch/beta/1",
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "switch-beta-r1-policy",
+        "switch-beta-r1-control"
+      ],
+      "bothValid": true,
+      "control": "switch-beta-r1-control",
+      "policy": "switch-beta-r1-policy"
+    },
+    {
+      "key": "switch/beta/2",
+      "status": "paired",
+      "consistent": true,
+      "errors": [],
+      "ids": [
+        "switch-beta-r2-control",
+        "switch-beta-r2-policy"
+      ],
+      "bothValid": true,
+      "control": "switch-beta-r2-control",
+      "policy": "switch-beta-r2-policy"
+    }
+  ],
+  "runs": [
+    {
+      "id": "switch-alpha-r1-control",
+      "task": "switch",
+      "variant": "alpha",
+      "replicate": 1,
+      "condition": "control",
+      "requests": 8,
+      "initialImageSha256": "82bb16fb56be30483ce441b09771ce3124147c66ba421fc1f39d240948ca770e",
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 3,
+      "looks": 0,
+      "decisions": 4,
+      "apiMs": 8382.712199999998,
+      "uiMs": 161.7538999999997,
+      "elapsedMs": 10408.7789,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "observedUIEdges": 3,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 1
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=s1a",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "配送設定\n配送サービスの条件を確認",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=s1a#primary",
+          "action": {
+            "type": "back"
+          },
+          "label": "back",
+          "proposed": "back",
+          "selected": "back",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=s1a",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "注文・お届け予定\n注文内容と今後の予定を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 4,
+          "from": "/good/?holdout=s1a#alternative",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": null
+        }
+      ]
+    },
+    {
+      "id": "switch-alpha-r1-policy",
+      "task": "switch",
+      "variant": "alpha",
+      "replicate": 1,
+      "condition": "policy",
+      "requests": 8,
+      "initialImageSha256": "82bb16fb56be30483ce441b09771ce3124147c66ba421fc1f39d240948ca770e",
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 3,
+      "looks": 0,
+      "decisions": 4,
+      "apiMs": 7747.115699999988,
+      "uiMs": 136.66280000000188,
+      "elapsedMs": 9627.8645,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "observedUIEdges": 3,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 1,
+        "appliedDeferralCandidates": 1,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 1
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=s1a",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "配送設定\n配送サービスの条件を確認",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=s1a#primary",
+          "action": {
+            "type": "back"
+          },
+          "label": "back",
+          "proposed": "back",
+          "selected": "back",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=s1a",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "注文・お届け予定\n注文内容と今後の予定を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 4,
+          "from": "/good/?holdout=s1a#alternative",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "id": "switch-beta-r1-policy",
+      "task": "switch",
+      "variant": "beta",
+      "replicate": 1,
+      "condition": "policy",
+      "requests": 6,
+      "initialImageSha256": "34710b678fb2513b386a7c1b8008b589eff9b66cefa62a19018fbbeafd7890d7",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 2,
+      "looks": 0,
+      "decisions": 3,
+      "apiMs": 6462.371399999989,
+      "uiMs": 118.37770000000455,
+      "elapsedMs": 8112.002400000005,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "observedUIEdges": 2,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 0
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=s1b",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "定期注文の管理\n定期便の注文内容・配送スケジュール",
+          "proposed": "e4",
+          "selected": "e4",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=s1b#alternative",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "土曜日のお届けで保存",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=s1b#alternative",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "id": "switch-beta-r1-control",
+      "task": "switch",
+      "variant": "beta",
+      "replicate": 1,
+      "condition": "control",
+      "requests": 6,
+      "initialImageSha256": "34710b678fb2513b386a7c1b8008b589eff9b66cefa62a19018fbbeafd7890d7",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 2,
+      "looks": 0,
+      "decisions": 3,
+      "apiMs": 5984.461400000007,
+      "uiMs": 107.31390000000829,
+      "elapsedMs": 7628.7359,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "observedUIEdges": 2,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 0
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=s1b",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "定期注文の管理\n定期便の注文内容・配送スケジュール",
+          "proposed": "e4",
+          "selected": "e4",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=s1b#alternative",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "土曜日のお届けで保存",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=s1b#alternative",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": null
+        }
+      ]
+    },
+    {
+      "id": "revisit-alpha-r1-control",
+      "task": "revisit",
+      "variant": "alpha",
+      "replicate": 1,
+      "condition": "control",
+      "requests": 16,
+      "initialImageSha256": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "apiMs": 26549.934000000023,
+      "uiMs": 368.0849000000162,
+      "elapsedMs": 29610.234500000006,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 7,
+        "looks": 0,
+        "decisions": 8,
+        "observedUIEdges": 7,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 1,
+        "revisits": 5,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 2
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=r1a",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有設定\n共有リンクの公開状態を変更",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=r1a#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=r1a#home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "アカウント\n登録情報や本人確認を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 4,
+          "from": "/good/?holdout=r1a#account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "本人確認を完了する",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 5,
+          "from": "/good/?holdout=r1a#account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 6,
+          "from": "/good/?holdout=r1a#home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有設定\n共有リンクの公開状態を変更",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 7,
+          "from": "/good/?holdout=r1a#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有リンクを無効にする",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 8,
+          "from": "/good/?holdout=r1a#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": null
+        }
+      ]
+    },
+    {
+      "id": "revisit-alpha-r1-policy",
+      "task": "revisit",
+      "variant": "alpha",
+      "replicate": 1,
+      "condition": "policy",
+      "requests": 20,
+      "initialImageSha256": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 9,
+      "looks": 0,
+      "decisions": 10,
+      "apiMs": 22367.94660000004,
+      "uiMs": 541.0465000000113,
+      "elapsedMs": 26429.74130000001,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 9,
+        "looks": 0,
+        "decisions": 10,
+        "observedUIEdges": 9,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 3,
+        "revisits": 7,
+        "policyChanges": 1,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 2,
+        "appliedDeferralCandidates": 2,
+        "releaseSteps": 2,
+        "postReturnBranchChanges": 2
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=r1a",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有設定\n共有リンクの公開状態を変更",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=r1a#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=r1a#home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "アカウント\n登録情報や本人確認を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 4,
+          "from": "/good/?holdout=r1a#account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "本人確認を完了する",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "from": "/good/?holdout=r1a#account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "from": "/good/?holdout=r1a#home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "アカウント\n登録情報や本人確認を管理",
+          "proposed": "e2",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 7,
+          "from": "/good/?holdout=r1a#account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 8,
+          "from": "/good/?holdout=r1a#home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有設定\n共有リンクの公開状態を変更",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 9,
+          "from": "/good/?holdout=r1a#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有リンクを無効にする",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 10,
+          "from": "/good/?holdout=r1a#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "id": "revisit-beta-r1-policy",
+      "task": "revisit",
+      "variant": "beta",
+      "replicate": 1,
+      "condition": "policy",
+      "requests": 16,
+      "initialImageSha256": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "apiMs": 17869.713200000027,
+      "uiMs": 393.3163999999815,
+      "elapsedMs": 21105.23570000002,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 7,
+        "looks": 0,
+        "decisions": 8,
+        "observedUIEdges": 7,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 1,
+        "revisits": 5,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 2
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=r1b",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "リンクの公開設定\nアルバムの共有方法を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=r1b#home",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "会員情報と本人確認\n登録情報・セキュリティのお手続き",
+          "proposed": "e4",
+          "selected": "e4",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 4,
+          "from": "/good/?holdout=r1b#account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "登録済みの情報で確認",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "from": "/good/?holdout=r1b#account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "from": "/good/?holdout=r1b#home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "リンクの公開設定\nアルバムの共有方法を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 7,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有を停止する",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 8,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "id": "revisit-beta-r1-control",
+      "task": "revisit",
+      "variant": "beta",
+      "replicate": 1,
+      "condition": "control",
+      "requests": 16,
+      "initialImageSha256": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "apiMs": 17251.469399999885,
+      "uiMs": 406.57340000005206,
+      "elapsedMs": 20584.925199999998,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 7,
+        "looks": 0,
+        "decisions": 8,
+        "observedUIEdges": 7,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 1,
+        "revisits": 5,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 2
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=r1b",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "リンクの公開設定\nアルバムの共有方法を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=r1b#home",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "会員情報と本人確認\n登録情報・セキュリティのお手続き",
+          "proposed": "e4",
+          "selected": "e4",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 4,
+          "from": "/good/?holdout=r1b#account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "登録済みの情報で確認",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 5,
+          "from": "/good/?holdout=r1b#account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 6,
+          "from": "/good/?holdout=r1b#home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "リンクの公開設定\nアルバムの共有方法を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 7,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有を停止する",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 8,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": null
+        }
+      ]
+    },
+    {
+      "id": "direct-alpha-r1-control",
+      "task": "direct",
+      "variant": "alpha",
+      "replicate": 1,
+      "condition": "control",
+      "requests": 6,
+      "initialImageSha256": "5ec72c55100ec84de13d5e37edd9d335367bec8a5bf09c05ab823cc8ea2a6312",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 2,
+      "looks": 0,
+      "decisions": 3,
+      "apiMs": 6259.285199999984,
+      "uiMs": 108.86280000000261,
+      "elapsedMs": 7892.339700000011,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "observedUIEdges": 2,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 0
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=d1a",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "次回予約の変更\nご予約の日付を変更します",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=d1a#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "2026年11月14日に変更する",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=d1a#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": null
+        }
+      ]
+    },
+    {
+      "id": "direct-alpha-r1-policy",
+      "task": "direct",
+      "variant": "alpha",
+      "replicate": 1,
+      "condition": "policy",
+      "requests": 6,
+      "initialImageSha256": "5ec72c55100ec84de13d5e37edd9d335367bec8a5bf09c05ab823cc8ea2a6312",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 2,
+      "looks": 0,
+      "decisions": 3,
+      "apiMs": 5778.486600000004,
+      "uiMs": 122.61100000000442,
+      "elapsedMs": 7600.027899999986,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "observedUIEdges": 2,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 0
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=d1a",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "次回予約の変更\nご予約の日付を変更します",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=d1a#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "2026年11月14日に変更する",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=d1a#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "id": "direct-beta-r1-policy",
+      "task": "direct",
+      "variant": "beta",
+      "replicate": 1,
+      "condition": "policy",
+      "requests": 6,
+      "initialImageSha256": "dcda353f8a2a86367b3afcc54ab73aa8d1db1313e76313f1e0127490d98e91b5",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 2,
+      "looks": 0,
+      "decisions": 3,
+      "apiMs": 6181.122399999993,
+      "uiMs": 160.19550000003073,
+      "elapsedMs": 7922.319900000002,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "observedUIEdges": 2,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 0
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=d1b",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "予約日を変更\n次回の利用日を選び直す",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=d1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "11月14日の予約に変更",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=d1b#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "id": "direct-beta-r1-control",
+      "task": "direct",
+      "variant": "beta",
+      "replicate": 1,
+      "condition": "control",
+      "requests": 6,
+      "initialImageSha256": "dcda353f8a2a86367b3afcc54ab73aa8d1db1313e76313f1e0127490d98e91b5",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 2,
+      "looks": 0,
+      "decisions": 3,
+      "apiMs": 6171.4024999999965,
+      "uiMs": 157.39009999998962,
+      "elapsedMs": 7862.077500000014,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "observedUIEdges": 2,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 0
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=d1b",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "予約日を変更\n次回の利用日を選び直す",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=d1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "11月14日の予約に変更",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=d1b#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": null
+        }
+      ]
+    },
+    {
+      "id": "switch-alpha-r2-policy",
+      "task": "switch",
+      "variant": "alpha",
+      "replicate": 2,
+      "condition": "policy",
+      "requests": 8,
+      "initialImageSha256": "82bb16fb56be30483ce441b09771ce3124147c66ba421fc1f39d240948ca770e",
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 3,
+      "looks": 0,
+      "decisions": 4,
+      "apiMs": 8372.78390000001,
+      "uiMs": 194.10289999996894,
+      "elapsedMs": 10281.839399999997,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "observedUIEdges": 3,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 1,
+        "appliedDeferralCandidates": 1,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 1
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=s1a",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "配送設定\n配送サービスの条件を確認",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=s1a#primary",
+          "action": {
+            "type": "back"
+          },
+          "label": "back",
+          "proposed": "back",
+          "selected": "back",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=s1a",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "注文・お届け予定\n注文内容と今後の予定を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 4,
+          "from": "/good/?holdout=s1a#alternative",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "id": "switch-alpha-r2-control",
+      "task": "switch",
+      "variant": "alpha",
+      "replicate": 2,
+      "condition": "control",
+      "requests": 8,
+      "initialImageSha256": "82bb16fb56be30483ce441b09771ce3124147c66ba421fc1f39d240948ca770e",
+      "objective": {
+        "status": "OK",
+        "value": false
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 3,
+      "looks": 0,
+      "decisions": 4,
+      "apiMs": 8079.679999999993,
+      "uiMs": 152.82580000004964,
+      "elapsedMs": 9970.64049999998,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 3,
+        "looks": 0,
+        "decisions": 4,
+        "observedUIEdges": 3,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 1
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=s1a",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "配送設定\n配送サービスの条件を確認",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=s1a#primary",
+          "action": {
+            "type": "back"
+          },
+          "label": "back",
+          "proposed": "back",
+          "selected": "back",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=s1a",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "注文・お届け予定\n注文内容と今後の予定を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 4,
+          "from": "/good/?holdout=s1a#alternative",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": null
+        }
+      ]
+    },
+    {
+      "id": "switch-beta-r2-control",
+      "task": "switch",
+      "variant": "beta",
+      "replicate": 2,
+      "condition": "control",
+      "requests": 6,
+      "initialImageSha256": "34710b678fb2513b386a7c1b8008b589eff9b66cefa62a19018fbbeafd7890d7",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 2,
+      "looks": 0,
+      "decisions": 3,
+      "apiMs": 6177.287399999972,
+      "uiMs": 145.4240999999456,
+      "elapsedMs": 7884.801500000001,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "observedUIEdges": 2,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 0
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=s1b",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "定期注文の管理\n定期便の注文内容・配送スケジュール",
+          "proposed": "e4",
+          "selected": "e4",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=s1b#alternative",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "土曜日のお届けで保存",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=s1b#alternative",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": null
+        }
+      ]
+    },
+    {
+      "id": "switch-beta-r2-policy",
+      "task": "switch",
+      "variant": "beta",
+      "replicate": 2,
+      "condition": "policy",
+      "requests": 6,
+      "initialImageSha256": "34710b678fb2513b386a7c1b8008b589eff9b66cefa62a19018fbbeafd7890d7",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 2,
+      "looks": 0,
+      "decisions": 3,
+      "apiMs": 6673.604300000006,
+      "uiMs": 127.36890000005951,
+      "elapsedMs": 8330.815899999987,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "observedUIEdges": 2,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 0
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=s1b",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "定期注文の管理\n定期便の注文内容・配送スケジュール",
+          "proposed": "e4",
+          "selected": "e4",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=s1b#alternative",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "土曜日のお届けで保存",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=s1b#alternative",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "id": "revisit-alpha-r2-policy",
+      "task": "revisit",
+      "variant": "alpha",
+      "replicate": 2,
+      "condition": "policy",
+      "requests": 20,
+      "initialImageSha256": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 9,
+      "looks": 0,
+      "decisions": 10,
+      "apiMs": 20496.47920000006,
+      "uiMs": 683.8992000000435,
+      "elapsedMs": 25265.5098,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 9,
+        "looks": 0,
+        "decisions": 10,
+        "observedUIEdges": 9,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 3,
+        "revisits": 7,
+        "policyChanges": 1,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 2,
+        "appliedDeferralCandidates": 2,
+        "releaseSteps": 2,
+        "postReturnBranchChanges": 2
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=r1a",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有設定\n共有リンクの公開状態を変更",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=r1a#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=r1a#home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "アカウント\n登録情報や本人確認を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 4,
+          "from": "/good/?holdout=r1a#account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "本人確認を完了する",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "from": "/good/?holdout=r1a#account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "from": "/good/?holdout=r1a#home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "アカウント\n登録情報や本人確認を管理",
+          "proposed": "e2",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 7,
+          "from": "/good/?holdout=r1a#account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 8,
+          "from": "/good/?holdout=r1a#home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有設定\n共有リンクの公開状態を変更",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 9,
+          "from": "/good/?holdout=r1a#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有リンクを無効にする",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 10,
+          "from": "/good/?holdout=r1a#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "id": "revisit-alpha-r2-control",
+      "task": "revisit",
+      "variant": "alpha",
+      "replicate": 2,
+      "condition": "control",
+      "requests": 16,
+      "initialImageSha256": "f83d6e8e2cd6d7455108886c5f9354a6f621902d795e5abd5dd01eb3a11ded4b",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "apiMs": 17231.27800000005,
+      "uiMs": 432.5256000000518,
+      "elapsedMs": 20270.38380000001,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 7,
+        "looks": 0,
+        "decisions": 8,
+        "observedUIEdges": 7,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 1,
+        "revisits": 5,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 2
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=r1a",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有設定\n共有リンクの公開状態を変更",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=r1a#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=r1a#home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "アカウント\n登録情報や本人確認を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 4,
+          "from": "/good/?holdout=r1a#account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "本人確認を完了する",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 5,
+          "from": "/good/?holdout=r1a#account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 6,
+          "from": "/good/?holdout=r1a#home",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有設定\n共有リンクの公開状態を変更",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 7,
+          "from": "/good/?holdout=r1a#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有リンクを無効にする",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 8,
+          "from": "/good/?holdout=r1a#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": null
+        }
+      ]
+    },
+    {
+      "id": "revisit-beta-r2-control",
+      "task": "revisit",
+      "variant": "beta",
+      "replicate": 2,
+      "condition": "control",
+      "requests": 20,
+      "initialImageSha256": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 9,
+      "looks": 0,
+      "decisions": 10,
+      "apiMs": 22164.769300000044,
+      "uiMs": 549.9548000000068,
+      "elapsedMs": 25794.537899999996,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 9,
+        "looks": 0,
+        "decisions": 10,
+        "observedUIEdges": 9,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 3,
+        "revisits": 7,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 2
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=r1b",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "リンクの公開設定\nアルバムの共有方法を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=r1b#home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "リンクの公開設定\nアルバムの共有方法を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 4,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 5,
+          "from": "/good/?holdout=r1b#home",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "会員情報と本人確認\n登録情報・セキュリティのお手続き",
+          "proposed": "e4",
+          "selected": "e4",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 6,
+          "from": "/good/?holdout=r1b#account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "登録済みの情報で確認",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 7,
+          "from": "/good/?holdout=r1b#account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 8,
+          "from": "/good/?holdout=r1b#home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "リンクの公開設定\nアルバムの共有方法を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 9,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有を停止する",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 10,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": null
+        }
+      ]
+    },
+    {
+      "id": "revisit-beta-r2-policy",
+      "task": "revisit",
+      "variant": "beta",
+      "replicate": 2,
+      "condition": "policy",
+      "requests": 16,
+      "initialImageSha256": "88a144a887895ca9540662bbf37f106256e1ed90be81220ea4a392d38b15d160",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 7,
+      "looks": 0,
+      "decisions": 8,
+      "apiMs": 17338.17000000016,
+      "uiMs": 505.6178999998374,
+      "elapsedMs": 20494.0674,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 7,
+        "looks": 0,
+        "decisions": 8,
+        "observedUIEdges": 7,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 1,
+        "revisits": 5,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 1,
+        "appliedDeferralCandidates": 1,
+        "releaseSteps": 1,
+        "postReturnBranchChanges": 2
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=r1b",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "リンクの公開設定\nアルバムの共有方法を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=r1b#home",
+          "action": {
+            "type": "click",
+            "elementId": "e4"
+          },
+          "label": "会員情報と本人確認\n登録情報・セキュリティのお手続き",
+          "proposed": "e4",
+          "selected": "e4",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 4,
+          "from": "/good/?holdout=r1b#account",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "登録済みの情報で確認",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 5,
+          "from": "/good/?holdout=r1b#account",
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "label": "マイページへ戻る",
+          "proposed": "e1",
+          "selected": "e1",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 6,
+          "from": "/good/?holdout=r1b#home",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "リンクの公開設定\nアルバムの共有方法を管理",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 7,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "共有を停止する",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 8,
+          "from": "/good/?holdout=r1b#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "id": "direct-alpha-r2-policy",
+      "task": "direct",
+      "variant": "alpha",
+      "replicate": 2,
+      "condition": "policy",
+      "requests": 6,
+      "initialImageSha256": "5ec72c55100ec84de13d5e37edd9d335367bec8a5bf09c05ab823cc8ea2a6312",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 2,
+      "looks": 0,
+      "decisions": 3,
+      "apiMs": 6333.70829999994,
+      "uiMs": 101.0527000000584,
+      "elapsedMs": 7927.336699999985,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "observedUIEdges": 2,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 0
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=d1a",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "次回予約の変更\nご予約の日付を変更します",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=d1a#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "2026年11月14日に変更する",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "uncertain",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=d1a#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "id": "direct-alpha-r2-control",
+      "task": "direct",
+      "variant": "alpha",
+      "replicate": 2,
+      "condition": "control",
+      "requests": 6,
+      "initialImageSha256": "5ec72c55100ec84de13d5e37edd9d335367bec8a5bf09c05ab823cc8ea2a6312",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 2,
+      "looks": 0,
+      "decisions": 3,
+      "apiMs": 6177.555599999963,
+      "uiMs": 110.08739999996033,
+      "elapsedMs": 7747.0390999999945,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "observedUIEdges": 2,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 0
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=d1a",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "次回予約の変更\nご予約の日付を変更します",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=d1a#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "2026年11月14日に変更する",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "uncertain",
+          "deferralReason": null
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=d1a#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": null
+        }
+      ]
+    },
+    {
+      "id": "direct-beta-r2-control",
+      "task": "direct",
+      "variant": "beta",
+      "replicate": 2,
+      "condition": "control",
+      "requests": 6,
+      "initialImageSha256": "dcda353f8a2a86367b3afcc54ab73aa8d1db1313e76313f1e0127490d98e91b5",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 2,
+      "looks": 0,
+      "decisions": 3,
+      "apiMs": 6253.131200000003,
+      "uiMs": 119.26630000001751,
+      "elapsedMs": 7802.227399999974,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "observedUIEdges": 2,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 0
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=d1b",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "予約日を変更\n次回の利用日を選び直す",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=d1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "11月14日の予約に変更",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": null
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=d1b#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": null
+        }
+      ]
+    },
+    {
+      "id": "direct-beta-r2-policy",
+      "task": "direct",
+      "variant": "beta",
+      "replicate": 2,
+      "condition": "policy",
+      "requests": 6,
+      "initialImageSha256": "dcda353f8a2a86367b3afcc54ab73aa8d1db1313e76313f1e0127490d98e91b5",
+      "objective": {
+        "status": "OK",
+        "value": true
+      },
+      "perceivedDone": true,
+      "termination": "SUBJECTIVE_DONE",
+      "validForComparison": true,
+      "uiActions": 2,
+      "looks": 0,
+      "decisions": 3,
+      "apiMs": 6275.447199999995,
+      "uiMs": 134.9646000000066,
+      "elapsedMs": 7887.501800000027,
+      "humanTimeMs": null,
+      "metrics": {
+        "uiActions": 2,
+        "looks": 0,
+        "decisions": 3,
+        "observedUIEdges": 2,
+        "unknownUIEdges": 0,
+        "failedUIEdges": 0,
+        "repeatedDirectedEdges": 0,
+        "revisits": 1,
+        "policyChanges": 0,
+        "policyChangesFromTies": 0,
+        "appliedDeferralSteps": 0,
+        "appliedDeferralCandidates": 0,
+        "releaseSteps": 0,
+        "postReturnBranchChanges": 0
+      },
+      "route": [
+        {
+          "step": 1,
+          "from": "/good/?holdout=d1b",
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "label": "予約日を変更\n次回の利用日を選び直す",
+          "proposed": "e3",
+          "selected": "e3",
+          "objectiveAfterAction": false,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 2,
+          "from": "/good/?holdout=d1b#primary",
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "label": "11月14日の予約に変更",
+          "proposed": "e2",
+          "selected": "e2",
+          "objectiveAfterAction": true,
+          "goalSelfReport": "unsatisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 3,
+          "from": "/good/?holdout=d1b#primary",
+          "action": {
+            "type": "done"
+          },
+          "label": "done",
+          "proposed": "done",
+          "selected": "done",
+          "objectiveAfterAction": null,
+          "goalSelfReport": "satisfied",
+          "deferralReason": "NO_DEFERRED_CANDIDATE"
+        }
+      ]
+    }
+  ],
+  "corrections": [
+    {
+      "id": "revisit-alpha-r1-policy",
+      "step": 6,
+      "selectedLabel": "アカウント\n登録情報や本人確認を管理",
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.97,
+        "e3": 0.02,
+        "e4": 0,
+        "e5": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0.01,
+        "wait": 0
+      },
+      "policy": {
+        "kind": "temporary-deferral",
+        "weights": {
+          "abandon": 1,
+          "back": 1,
+          "done": 1,
+          "e1": 1,
+          "e2": 0.01,
+          "e3": 1,
+          "e4": 1,
+          "e5": 1,
+          "look_0": 1,
+          "look_1": 1,
+          "look_2": 1,
+          "look_3": 1,
+          "reread": 1,
+          "stuck": 1,
+          "wait": 1
+        },
+        "before": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0.97,
+          "e3": 0.02,
+          "e4": 0,
+          "e5": 0,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0.01,
+          "wait": 0
+        },
+        "weightedTotal": 0.0397
+      },
+      "final": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.2443324937027708,
+        "e3": 0.5037783375314862,
+        "e4": 0,
+        "e5": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0.2518891687657431,
+        "wait": 0
+      },
+      "modelChoice": "e2",
+      "selected": "e3",
+      "deferral": {
+        "state": {
+          "schemaVersion": 1,
+          "entries": [
+            {
+              "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+              "candidateId": "e2",
+              "fromObservationId": "o1",
+              "toObservationId": "o3",
+              "evidence": [
+                {
+                  "observationId": "o3",
+                  "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21"
+                }
+              ]
+            }
+          ]
+        },
+        "decision": {
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 0.01,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        }
+      },
+      "followingRoute": [
+        {
+          "step": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 7,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "reason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 8,
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "reason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 9,
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 10,
+          "action": {
+            "type": "done"
+          },
+          "reason": "NO_DEFERRED_CANDIDATE"
+        }
+      ],
+      "interpretation": "After verification this correction delayed the necessary return to sharing settings; the actual subsequent account roundtrip was unnecessary in the certified UI."
+    },
+    {
+      "id": "revisit-alpha-r2-policy",
+      "step": 6,
+      "selectedLabel": "アカウント\n登録情報や本人確認を管理",
+      "raw": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.97,
+        "e3": 0.02,
+        "e4": 0,
+        "e5": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0.01,
+        "wait": 0
+      },
+      "policy": {
+        "kind": "temporary-deferral",
+        "weights": {
+          "abandon": 1,
+          "back": 1,
+          "done": 1,
+          "e1": 1,
+          "e2": 0.01,
+          "e3": 1,
+          "e4": 1,
+          "e5": 1,
+          "look_0": 1,
+          "look_1": 1,
+          "look_2": 1,
+          "look_3": 1,
+          "reread": 1,
+          "stuck": 1,
+          "wait": 1
+        },
+        "before": {
+          "abandon": 0,
+          "back": 0,
+          "done": 0,
+          "e1": 0,
+          "e2": 0.97,
+          "e3": 0.02,
+          "e4": 0,
+          "e5": 0,
+          "look_0": 0,
+          "look_1": 0,
+          "look_2": 0,
+          "look_3": 0,
+          "reread": 0,
+          "stuck": 0.01,
+          "wait": 0
+        },
+        "weightedTotal": 0.0397
+      },
+      "final": {
+        "abandon": 0,
+        "back": 0,
+        "done": 0,
+        "e1": 0,
+        "e2": 0.2443324937027708,
+        "e3": 0.5037783375314862,
+        "e4": 0,
+        "e5": 0,
+        "look_0": 0,
+        "look_1": 0,
+        "look_2": 0,
+        "look_3": 0,
+        "reread": 0,
+        "stuck": 0.2518891687657431,
+        "wait": 0
+      },
+      "modelChoice": "e2",
+      "selected": "e3",
+      "deferral": {
+        "state": {
+          "schemaVersion": 1,
+          "entries": [
+            {
+              "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21",
+              "candidateId": "e2",
+              "fromObservationId": "o1",
+              "toObservationId": "o3",
+              "evidence": [
+                {
+                  "observationId": "o3",
+                  "imageSha256": "43d61b2a92f23c467d48987b7571022d53c2839526d69d2f913d589393840f21"
+                }
+              ]
+            }
+          ]
+        },
+        "decision": {
+          "kind": "temporary-deferral",
+          "weights": {
+            "e1": 1,
+            "e2": 0.01,
+            "e3": 1,
+            "e4": 1,
+            "e5": 1,
+            "back": 1,
+            "done": 1,
+            "stuck": 1,
+            "look_0": 1,
+            "look_1": 1,
+            "look_2": 1,
+            "look_3": 1,
+            "reread": 1,
+            "wait": 1,
+            "abandon": 1
+          },
+          "plausibleCandidates": [
+            "e2",
+            "e3"
+          ],
+          "deferredCandidates": [
+            "e2"
+          ],
+          "appliedCandidates": [
+            "e2"
+          ],
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        }
+      },
+      "followingRoute": [
+        {
+          "step": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e3"
+          },
+          "reason": "DEFER_WITH_ALTERNATIVES"
+        },
+        {
+          "step": 7,
+          "action": {
+            "type": "click",
+            "elementId": "e1"
+          },
+          "reason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 8,
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "reason": "ALTERNATIVES_EXHAUSTED"
+        },
+        {
+          "step": 9,
+          "action": {
+            "type": "click",
+            "elementId": "e2"
+          },
+          "reason": "NO_DEFERRED_CANDIDATE"
+        },
+        {
+          "step": 10,
+          "action": {
+            "type": "done"
+          },
+          "reason": "NO_DEFERRED_CANDIDATE"
+        }
+      ],
+      "interpretation": "After verification this correction delayed the necessary return to sharing settings; the actual subsequent account roundtrip was unnecessary in the certified UI."
+    }
+  ],
+  "tests": {
+    "oldRelatedPassed": 126,
+    "newTestsPassed": 47,
+    "independentTestsPassed": 9,
+    "distinctSelectedTestsPassed": 182,
+    "wholeRepositorySuite": false,
+    "typecheck": "PASS",
+    "build": "PASS",
+    "offlineReplaysPassed": 24
+  },
+  "independent": {
+    "preflight": "ACCEPTED_AFTER_NATIVE_BACK_FIX",
+    "liveSavedRunAudit": "ACCEPTED",
+    "liveAudit": "reports/holdout-stability-2026-10-28/independent-live-audit.json",
+    "postAnalysisAudit": "ACCEPTED",
+    "postAnalysisAuditFile": "reports/holdout-stability-2026-10-28/independent-analysis-repair-audit.json"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "observed": "All four switch-alpha trials entered the alternative order screen then chose done without applying the change; objective=false. Current delivery Wednesday and proposed Saturday are both visible.",
+      "hypothesis": "Planned or previewed state is being treated as completion; reasons are model self-reports, not full internal decisions.",
+      "priority": "P0",
+      "next": "Make completion evaluation distinguish current persisted state, proposed future value, actual action and observed result without injecting the independent oracle.",
+      "validation": "Re-run a frozen preview-vs-saved contrast with independent objective audit and alternate wording; preserve original holdout results."
+    },
+    {
+      "id": "F2",
+      "observed": "Both revisit-alpha policy trials proposed the correct sharing entry after verification but stale deferral changed selection to account, adding a two-action roundtrip; later ALTERNATIVES_EXHAUSTED restored revisits and both achieved.",
+      "hypothesis": "Exact-image and entry-based deferral does not invalidate the earlier hypothesis when a prerequisite changes elsewhere.",
+      "priority": "P0",
+      "next": "Reassess whether the basis for deferral still holds after observed prerequisite change, while retaining justified deferral for unchanged failures.",
+      "validation": "Use necessary-revisit and unchanged-failure controls; compare raw/corrected choices, actual detours and goal results without giving the route."
+    },
+    {
+      "id": "F3",
+      "observed": "Stable fixture cards removed rounded-edge44pixel variation before live. The product still uses exact-image identity.",
+      "priority": "P1",
+      "next": "Validate robust observation identity with same-view rendering changes and different-state negative controls."
+    }
+  ],
+  "limits": [
+    "Behavior metrics describe model and runner behavior; they are not human difficulty, preferences, validation, or causal effects.",
+    "Two replicates per condition support descriptive path comparison only; no p-values or generalization claims.",
+    "Elapsed/API/UI times remain separate; human time is unknown. Modeled time is a configured assumption.",
+    "Objective outcomes use the independent recorded assessment; infrastructure faults are excluded from task failures and valid-run means.",
+    "Route identity uses audited local pathname plus hash, omitting host, temporary port, and query. Only an explicit valid holdout fixture under /good/ aliases the empty hash to #home, matching that fixture UI. Invalid or conflicting fixture selectors, other paths, and other hashes receive no alias. This exception does not establish general semantic equivalence; different state or query values can share a route, and equal images do not establish semantic identity.",
+    "Only the immediately following audited observation establishes a destination. Missing observations and failed actions never establish success or recovery.",
+    "Policy changes compare deterministic lexical argmax of the saved pre-policy distribution with the saved selection; sampled changes are descriptive, not policy-attributed counterfactuals.",
+    "Model judgments, evidence references, and reasons remain model self-reports, including accepted evidence; branch changes are behavior, not demonstrated recovery.",
+    "Pair consistency checks code revision, source hash, initial image, charter, persona, and config with only id and deferral removed. Pair integrity does not prove human validity.",
+    "No positive selection-policy recovery advantage was demonstrated in this matrix; control and policy each achieved10/12. Both already switched routes in switch-alpha.",
+    "Only local fictional screens with stable rendering were tested; prerequisite navigation guidance is visible UI, no reference route is sent by the harness.",
+    "Wording and layout change together across alpha/beta; the observed performance difference cannot be attributed to either factor alone.",
+    "No execution policy tuning or additional live experiment was performed after seeing the outcomes.",
+    "Human prediction, population behavior, and real-product transfer remain unmeasured."
+  ],
+  "artifacts": {
+    "localRoot": "reports/holdout-stability-2026-10-28",
+    "rawReportsCommitted": false
+  }
+}

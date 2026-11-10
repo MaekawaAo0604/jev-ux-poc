@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "gate": "PRESERVATION_GO",
+  "observedAtUTC": "2026-11-10T05:05:22.948490+00:00",
+  "priorManifestSha256": "7afd3b0b016bb2e0858bf4f66a275ee8e7b542f7bca42f575120db77e9838dba",
+  "count": 13239,
+  "unchanged": true,
+  "scope": "Hash-only preservation; no historical human content parsed or transmitted",
+  "sourceFreeze": "c9a64e1f0ebe75539e346dac6b0b83cf4441c2258085a9baa2ef299a299bdd4c"
+}

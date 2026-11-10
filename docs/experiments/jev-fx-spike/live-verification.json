@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-24",
+  "scope": "Throwaway real-time public-market performance and local paper-account probe. UX testing remains stopped.",
+  "files": ["live-core.mjs", "live-core.test.mjs", "live.mjs", "live-report.mjs"],
+  "tests": {"command": "node --test docs/experiments/jev-fx-spike/*.test.mjs", "passed": 18, "failed": 0, "tdd": "Observed initial failures for parsing, account accounting, chronology, single-flight, and latest-state recovery before implementation."},
+  "firstRun": {"report": "reports/jev-live-paper-2026-09-24T02-48-53.013Z/index.html", "status": "MODEL_OR_VALIDATION_ERROR", "cause": "HTTP 503 on the 16th request; run preserved as incomplete."},
+  "secondRun": {
+    "report": "reports/jev-live-paper-2026-09-24T02-53-29.385Z/index.html",
+    "status": "MEASUREMENT_WINDOW_COMPLETE",
+    "measurementSeconds": 120,
+    "updates": 895,
+    "updatesPerSecond": 7.562044289556936,
+    "startedDecisions": 151,
+    "completedDecisions": 148,
+    "http503Failures": 3,
+    "modelLatencyMs": {"p50": 359.8770000000004, "p95": 513.1520999999993},
+    "observedDecisionStartGapMs": {"p50": 620, "p95": 2077},
+    "configuredDecisionIntervalMs": null,
+    "maxConcurrentRequests": 1,
+    "pendingUpdatesCoalesced": 743,
+    "actions": {"buy": 0, "sell": 0, "keep": 148},
+    "actualJevPaperFills": 0,
+    "brokerConnections": 0,
+    "realOrders": 0
+  },
+  "independentAudit": {"status": "PASS", "checks": ["Persisted quote/decision counts reconcile with summary", "Every comparator fill used a quote received after the decision, with a larger sequence number", "The completion record precedes the fill quote in the append-only log", "After each 503, the next input sequence exceeds the failed input sequence", "At most one live inference request"]},
+  "interpretation": "Performance and latest-only scheduling demonstrated during a short sample. No profitability claim: Jev made zero buy/sell decisions. The 18 tests, not the live Jev run, exercised simulated buying and selling. No perpetual task or automation was started.",
+  "knownLimitations": ["Keep also waits for the next quote to settle reference strategies, so full-cycle spacing includes that wait as well as inference; it is not pure model latency", "Feature windows and fee/slippage assumptions are declared in the run protocol, not optimized", "Public bid/ask paper fills do not prove executable trading", "No production reconnect, risk management, long-run profitability, or model-version stability validation"]
+}

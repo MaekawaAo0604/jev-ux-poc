@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "kind": "pre-execution-motion-review-plan-not-human-calibrated-score",
+  "declaredAtUTC": "2026-11-05T09:37:53.114Z",
+  "runtimeHash": "9f1dc69815b16cfc0eaaec9e5e1386afebb024dd66561e7e1aef29923b511365",
+  "counts": [
+    "attempted/valid/invalid/missing and observed-decision opportunities",
+    "proposed nonunit weights versus actually applied nonunit weights",
+    "modelChoiceDifferences versus baselineDifferences/deferralChanges and unmeasured attribution",
+    "verified-delivered A-B-A-B input windows with actual navigation; overlapping windows disclosed",
+    "same-frame-control retries with/without intervening other frames; missing observations kept unknown"
+  ],
+  "contextOnly": [
+    "objective goal success",
+    "subjective done",
+    "system limit; not human abandonment",
+    "API latency; not simulated user time"
+  ],
+  "caseSelection": {
+    "perActorPerTask": "For each ON/OFF and task, chronological first deferral-change case; if none first same-frame retry after other frames; if none first immediate same-frame retry; if none first ABAB or initial explored route. Never select by goal outcome.",
+    "additional": "First remaining model-origin ABAB and first remaining policy-involved ABAB, maximum6 distinct cases. Inspect up to12 current/next actual actor PNGs, missing next input explicit; terminal audit is not a delivered model observation."
+  },
+  "questions": [
+    "What did the model propose versus what did the sampler execute?",
+    "What visible information or alternative exploration preceded a revisit?",
+    "Which outcome/history was actually supplied, and is forgetting unproven?",
+    "Does a current expectation have observation support or remain a model hypothesis?",
+    "Does the controller create a local action substitution and subsequent observed alternation? Do not infer an unexecuted whole trajectory."
+  ],
+  "decisionRules": [
+    "Do not rank naturalness from task success.",
+    "Do not call a correct-control bypass or a revisit abnormal by itself.",
+    "Report plausible unsuccessful exploration alongside concerns.",
+    "If code changes or loses required information/safety or silently substitutes actions, fix the demonstrated implementation issue and reverify.",
+    "Keep uncalibrated optimization weights explicitly distinguishable from user-motion observations; recommend inspectable no-reweighting mode when studying model-selected motion, without claiming human fidelity."
+  ],
+  "humanFidelity": "unvalidated; no matched human comparison",
+  "newModelCallLimit": 288,
+  "parallel": 1,
+  "stopOrReplace": "Preserve failure and missing; no replacement runs."
+}

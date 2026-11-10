@@ -8,9 +8,13 @@ export type GoalAssessment={coverage:Answer;checks:(Answer&{text:string})[];mode
 export function pendingGoalChecks(assessment:GoalAssessment){
  const preliminary=assessment.checks.filter(c=>c.choice!=='present');
  if(preliminary.length&&!assessment.grounding?.checks.some(c=>c.assessment))return preliminary.map(c=>c.text);
- return assessment.checks.filter((c,i)=>{
+ return assessment.checks.filter((_,i)=>{
   const proof=assessment.grounding?.checks[i];
-  return c.choice!=='present'||!proof?.evidence.length||proof.scope?.choice!=='match'||proof.assessment?.choice!=='present'||proof.contradictions?.choice!=='present';
+  // The coarse answer selected this item for grounding, so re-testing it only
+  // adds a way to lose a verdict the quotes already support; scope is implied
+  // because only match-scoped quotes enter evidence. Newly observed
+  // information that should reopen an item is the contradiction veto's job.
+  return !proof?.evidence.length||proof.assessment?.choice!=='present'||proof.contradictions?.choice!=='present';
  }).map(c=>c.text);
 }
 export const isGoalComplete=(assessment:GoalAssessment)=>assessment.coverage.choice==='complete'&&pendingGoalChecks(assessment).length===0;

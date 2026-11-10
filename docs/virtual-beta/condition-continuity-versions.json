@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "versions": [
+    {
+      "id": "provider-stop",
+      "producer": "dd8527b876f61489bdec7fcf0b5df9483ce0e817",
+      "sourceHash": "075a0df4e844e7076beceaf1f2c597b70950943439f3a64359ce3add752344d4",
+      "manifestSha256": "45f2a57b535151d80760d1c085d74d895780f65f6a601049358e4d697d1bca96",
+      "status": "PROVIDER_UNAVAILABLE",
+      "planned": 8,
+      "attempted": 2,
+      "notAttempted": 6,
+      "valid": 1,
+      "invalid": 1,
+      "requests": 22,
+      "executionMaximumRequests": 288,
+      "firstActor": "experience-visual-conditions",
+      "protocolSha256": "eaedf956b40ad4ccb051330d1e0f564d7e6ca85587207213889b8b8616e820c1",
+      "priorCount": 5479,
+      "archive": {
+        "file": "producer-source-075a0df4.zip",
+        "sha256": "d0e1b557908a43c99f48289a3453930ee2554dc33e9dd530eea83ccb6396600a",
+        "fileCount": 153
+      },
+      "measurements": {
+        "chargedRequests": 22,
+        "knownHTTPAttempts": 22,
+        "knownHTTPReceipts": 22,
+        "receiptUnconfirmedChargedRequests": 0,
+        "httpAttemptCountsComplete": true,
+        "costUSD": null,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "schema-stop",
+      "producer": "39e36adcc3d47bcf7ba0737f8f2831c35208a6e0",
+      "sourceHash": "5243a14bda8b046f6e567078e0edbc4f03d53d6c6796dd64b6f6055a408ae3e6",
+      "manifestSha256": "29e980a8f507f7b53c5a65ea60e066877e384c19313c609562b2739c4929cd21",
+      "status": "MODEL_OUTPUT_FAILURE",
+      "planned": 8,
+      "attempted": 1,
+      "notAttempted": 7,
+      "valid": 0,
+      "invalid": 1,
+      "requests": 4,
+      "executionMaximumRequests": 266,
+      "firstActor": "experience-visual-conditions-continuity",
+      "protocolSha256": "2a3020a6234ed4f6f4e0e1ca3d8e9727fdf7d9c4c1d46d0bfc8d7edd51cdfa0a",
+      "priorCount": 5527,
+      "archive": {
+        "file": "producer-source-5243a14b.zip",
+        "sha256": "ed14e25ff3ecbfb9805c635aef3c2b9ac4caa943022e8e680a9939564a4f2634",
+        "fileCount": 153
+      },
+      "measurements": {
+        "chargedRequests": 4,
+        "knownHTTPAttempts": 4,
+        "knownHTTPReceipts": 4,
+        "receiptUnconfirmedChargedRequests": 0,
+        "httpAttemptCountsComplete": true,
+        "costUSD": null,
+        "humanTimeMs": null
+      }
+    },
+    {
+      "id": "prompt-fixed",
+      "producer": "71989e7e2f914f79f73dbc5316dd7e6ee3909a00",
+      "sourceHash": "d7bdc1dda5b4202a784a8106f907e88ec3e39a4cad5ddcd42417dca7e7e49e2f",
+      "manifestSha256": "3ad5053d4b94851cecc672da646511636357b111b7b497b4c483473134aaef5e",
+      "status": "CONSECUTIVE_INFRASTRUCTURE_FAILURES",
+      "planned": 8,
+      "attempted": 5,
+      "notAttempted": 3,
+      "valid": 3,
+      "invalid": 2,
+      "requests": 104,
+      "executionMaximumRequests": 262,
+      "firstActor": "experience-visual-conditions-continuity",
+      "protocolSha256": "7cf97166aa6d2a2cf8507595139f01dbc7036a37106e5d35da80e2b22cba0961",
+      "priorCount": 5547,
+      "archive": {
+        "file": "producer-source-d7bdc1dd.zip",
+        "sha256": "19f2974faaed92624e5daae9c20e8c8d021475c257dcc7939a0191fac8c00727",
+        "fileCount": 153
+      },
+      "measurements": {
+        "chargedRequests": 104,
+        "knownHTTPAttempts": 104,
+        "knownHTTPReceipts": 102,
+        "receiptUnconfirmedChargedRequests": 2,
+        "httpAttemptCountsComplete": true,
+        "costUSD": null,
+        "humanTimeMs": null
+      }
+    }
+  ],
+  "phaseMaximum": 288,
+  "totalRequests": 130,
+  "remainingPhaseMaximum": 158,
+  "performancePooling": false,
+  "originalFailureReplacement": false,
+  "rawPreservation": {
+    "priorCount": 5547,
+    "newCount": 162,
+    "total": 5709,
+    "snapshot": "reports/condition-continuity-2026-10-30/prior-raw-v4.json"
+  },
+  "independentFinalAudit": {
+    "file": "condition-continuity-review-live.json",
+    "sha256": "a9c7ba41d6e11e50027180cdf14e62dc3e362a90ddce0a02781ba67d1b981783",
+    "status": "PASS_EVIDENCE_AUDIT_WITH_RETENTION_LIMITATION"
+  }
+}

@@ -1,0 +1,463 @@
+{
+  "schemaVersion": 1,
+  "sourceHash": "c91a8213caeb35576e21b0c90c64008b04c016e08db68573bc15c38174fb6389",
+  "examplesOnly": true,
+  "frames": [
+    {
+      "label": "full-goal-control-offered",
+      "batch": "vision-m0-seed4001",
+      "runId": "full-m0-seed-4001",
+      "step": 2,
+      "stage": "action",
+      "delivery": "response-received",
+      "sourceRaw": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\vision-isolation-2026-11-09\\live-r1\\vision-m0-seed4001\\full-m0-seed-4001\\result.json",
+      "rawSha256": "00fcc2600027e2e35f19a16a01cef5b67fb40f48e7caaaa2363f8a6bbddb642b",
+      "sourceImage": "input-2.png",
+      "imageSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+      "published": "docs/virtual-beta/vision-frames/full-goal-control-offered-dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e.png",
+      "vision": {
+        "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "imageSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "width": 1280,
+        "height": 900,
+        "sourceWidth": 1280,
+        "sourceHeight": 900,
+        "fixation": {
+          "x": 640,
+          "y": 450
+        },
+        "clearRect": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 900
+        },
+        "transform": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        "mode": "full",
+        "visibleTargets": [
+          {
+            "id": "e1",
+            "x": 64,
+            "y": 27.5,
+            "width": 154,
+            "height": 34,
+            "badge": {
+              "x": 115.59375,
+              "y": 65.5,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          {
+            "id": "e2",
+            "x": 32,
+            "y": 193,
+            "width": 170,
+            "height": 48,
+            "badge": {
+              "x": 142.203125,
+              "y": 197,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          {
+            "id": "e3",
+            "x": 330,
+            "y": 440.0625,
+            "width": 173.3125,
+            "height": 50,
+            "badge": {
+              "x": 404.578125,
+              "y": 476,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          {
+            "id": "e4",
+            "x": 299,
+            "y": 551.0625,
+            "width": 103.75,
+            "height": 19,
+            "badge": {
+              "x": 410.75,
+              "y": 551.0625,
+              "width": 48,
+              "height": 19
+            }
+          }
+        ]
+      },
+      "action": {
+        "type": "click",
+        "elementId": "e3"
+      },
+      "selected": "e3",
+      "goalControlId": "e3",
+      "goalControlOffered": true,
+      "goalGeometry": {
+        "id": "e3",
+        "x": 330,
+        "y": 440.0625,
+        "width": 173.3125,
+        "height": 50,
+        "badge": {
+          "x": 404.578125,
+          "y": 476,
+          "width": 55.796875,
+          "height": 26
+        }
+      },
+      "memoryObservations": [],
+      "termination": "SUBJECTIVE_DONE",
+      "objectiveSuccess": true
+    },
+    {
+      "label": "foveated-before-look",
+      "batch": "vision-m3-seed4001",
+      "runId": "foveated-m3-seed-4001",
+      "step": 1,
+      "stage": "action",
+      "delivery": "response-received",
+      "sourceRaw": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\vision-isolation-2026-11-09\\live-r1\\vision-m3-seed4001\\foveated-m3-seed-4001\\result.json",
+      "rawSha256": "634b0a29615c1e93d3afd1fac60facf3bb64f76e74b6bfc72ab399b69977c835",
+      "sourceImage": "input-1.png",
+      "imageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+      "published": "docs/virtual-beta/vision-frames/foveated-before-look-5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049.png",
+      "vision": {
+        "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "imageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+        "width": 1280,
+        "height": 900,
+        "sourceWidth": 1280,
+        "sourceHeight": 900,
+        "fixation": {
+          "x": 640,
+          "y": 450
+        },
+        "clearRect": {
+          "x": 160,
+          "y": 140,
+          "width": 960,
+          "height": 620
+        },
+        "transform": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        "mode": "foveated",
+        "visibleTargets": [
+          {
+            "id": "e3",
+            "x": 299,
+            "y": 540.375,
+            "width": 295,
+            "height": 113.796875,
+            "badge": {
+              "x": 534.203125,
+              "y": 624.171875,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          {
+            "id": "e4",
+            "x": 610,
+            "y": 540.375,
+            "width": 295,
+            "height": 113.796875,
+            "badge": {
+              "x": 845.203125,
+              "y": 624.171875,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          {
+            "id": "e6",
+            "x": 299,
+            "y": 679.171875,
+            "width": 280,
+            "height": 57,
+            "badge": {
+              "x": 404.578125,
+              "y": 700,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        ]
+      },
+      "action": {
+        "type": "look",
+        "point": {
+          "x": 960,
+          "y": 675
+        }
+      },
+      "selected": "look_3",
+      "goalControlId": null,
+      "goalControlOffered": null,
+      "goalGeometry": null,
+      "memoryObservations": [
+        {
+          "observationId": "o1",
+          "image": "current",
+          "imageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049"
+        }
+      ],
+      "termination": "UI_ACTION_LIMIT",
+      "objectiveSuccess": false
+    },
+    {
+      "label": "foveated-after-look-entry",
+      "batch": "vision-m3-seed4001",
+      "runId": "foveated-m3-seed-4001",
+      "step": 2,
+      "stage": "action",
+      "delivery": "response-received",
+      "sourceRaw": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\vision-isolation-2026-11-09\\live-r1\\vision-m3-seed4001\\foveated-m3-seed-4001\\result.json",
+      "rawSha256": "634b0a29615c1e93d3afd1fac60facf3bb64f76e74b6bfc72ab399b69977c835",
+      "sourceImage": "input-2.png",
+      "imageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+      "published": "docs/virtual-beta/vision-frames/foveated-after-look-entry-2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095.png",
+      "vision": {
+        "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+        "imageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+        "width": 1280,
+        "height": 900,
+        "sourceWidth": 1280,
+        "sourceHeight": 900,
+        "fixation": {
+          "x": 960,
+          "y": 675
+        },
+        "clearRect": {
+          "x": 480,
+          "y": 365,
+          "width": 800,
+          "height": 535
+        },
+        "transform": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        "mode": "foveated",
+        "visibleTargets": [
+          {
+            "id": "e4",
+            "x": 610,
+            "y": 540.375,
+            "width": 295,
+            "height": 113.796875,
+            "badge": {
+              "x": 845.203125,
+              "y": 624.171875,
+              "width": 55.796875,
+              "height": 26
+            }
+          },
+          {
+            "id": "e5",
+            "x": 921,
+            "y": 540.375,
+            "width": 295,
+            "height": 113.796875,
+            "badge": {
+              "x": 1156.203125,
+              "y": 624.171875,
+              "width": 55.796875,
+              "height": 26
+            }
+          }
+        ]
+      },
+      "action": {
+        "type": "click",
+        "elementId": "e5"
+      },
+      "selected": "e5",
+      "goalControlId": null,
+      "goalControlOffered": null,
+      "goalGeometry": null,
+      "memoryObservations": [
+        {
+          "observationId": "o1",
+          "image": "memory_0",
+          "imageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049"
+        },
+        {
+          "observationId": "o2",
+          "image": "current",
+          "imageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095"
+        }
+      ],
+      "termination": "UI_ACTION_LIMIT",
+      "objectiveSuccess": false
+    },
+    {
+      "label": "foveated-goal-not-offered-back",
+      "batch": "vision-m3-seed4001",
+      "runId": "foveated-m3-seed-4001",
+      "step": 3,
+      "stage": "action",
+      "delivery": "response-received",
+      "sourceRaw": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\vision-isolation-2026-11-09\\live-r1\\vision-m3-seed4001\\foveated-m3-seed-4001\\result.json",
+      "rawSha256": "634b0a29615c1e93d3afd1fac60facf3bb64f76e74b6bfc72ab399b69977c835",
+      "sourceImage": "input-3.png",
+      "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+      "published": "docs/virtual-beta/vision-frames/foveated-goal-not-offered-back-9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485.png",
+      "vision": {
+        "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+        "width": 1280,
+        "height": 900,
+        "sourceWidth": 1280,
+        "sourceHeight": 900,
+        "fixation": {
+          "x": 960,
+          "y": 675
+        },
+        "clearRect": {
+          "x": 480,
+          "y": 365,
+          "width": 800,
+          "height": 535
+        },
+        "transform": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        "mode": "foveated",
+        "visibleTargets": []
+      },
+      "action": {
+        "type": "back"
+      },
+      "selected": "back",
+      "goalControlId": "e3",
+      "goalControlOffered": false,
+      "goalGeometry": {
+        "id": "e3",
+        "x": 330,
+        "y": 440.0625,
+        "width": 173.3125,
+        "height": 50,
+        "badge": {
+          "x": 404.578125,
+          "y": 476,
+          "width": 55.796875,
+          "height": 26
+        }
+      },
+      "memoryObservations": [
+        {
+          "observationId": "o1",
+          "image": "memory_0",
+          "imageSha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049"
+        },
+        {
+          "observationId": "o2",
+          "image": "memory_1",
+          "imageSha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095"
+        },
+        {
+          "observationId": "o3",
+          "image": "current",
+          "imageSha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485"
+        }
+      ],
+      "termination": "UI_ACTION_LIMIT",
+      "objectiveSuccess": false
+    },
+    {
+      "label": "crop-goal-not-offered-back",
+      "batch": "vision-m3-seed4001",
+      "runId": "crop-m3-seed-4001",
+      "step": 3,
+      "stage": "action",
+      "delivery": "response-received",
+      "sourceRaw": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\vision-isolation-2026-11-09\\live-r1\\vision-m3-seed4001\\crop-m3-seed-4001\\result.json",
+      "rawSha256": "a0c16cb4610c6e2543d6c349032c49bca75ab1ee20d4dc320a34b05aa4a3d2c9",
+      "sourceImage": "input-3.png",
+      "imageSha256": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+      "published": "docs/virtual-beta/vision-frames/crop-goal-not-offered-back-749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b.png",
+      "vision": {
+        "sourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+        "imageSha256": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+        "width": 800,
+        "height": 535,
+        "sourceWidth": 1280,
+        "sourceHeight": 900,
+        "fixation": {
+          "x": 960,
+          "y": 675
+        },
+        "clearRect": {
+          "x": 480,
+          "y": 365,
+          "width": 800,
+          "height": 535
+        },
+        "transform": {
+          "offsetX": 480,
+          "offsetY": 365,
+          "scaleX": 1,
+          "scaleY": 1
+        },
+        "mode": "crop",
+        "visibleTargets": []
+      },
+      "action": {
+        "type": "back"
+      },
+      "selected": "back",
+      "goalControlId": "e3",
+      "goalControlOffered": false,
+      "goalGeometry": {
+        "id": "e3",
+        "x": 330,
+        "y": 440.0625,
+        "width": 173.3125,
+        "height": 50,
+        "badge": {
+          "x": 404.578125,
+          "y": 476,
+          "width": 55.796875,
+          "height": 26
+        }
+      },
+      "memoryObservations": [
+        {
+          "observationId": "o1",
+          "image": "memory_0",
+          "imageSha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+        },
+        {
+          "observationId": "o2",
+          "image": "memory_1",
+          "imageSha256": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63"
+        },
+        {
+          "observationId": "o3",
+          "image": "current",
+          "imageSha256": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b"
+        }
+      ],
+      "termination": "UI_ACTION_LIMIT",
+      "objectiveSuccess": false
+    }
+  ]
+}

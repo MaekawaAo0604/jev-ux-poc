@@ -1,0 +1,1962 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_STOPPED_MODEL_OUTPUT_EVIDENCE_AUDIT",
+  "createdAt": "2026-10-29T20:09:15.785Z",
+  "scope": "Stopped39e36ad/source524 evidence audit; not a behavioral performance pass.",
+  "producer": {
+    "revision": "39e36adcc3d47bcf7ba0737f8f2831c35208a6e0",
+    "sourceHash": "5243a14bda8b046f6e567078e0edbc4f03d53d6c6796dd64b6f6055a408ae3e6",
+    "archiveSha256": "ed14e25ff3ecbfb9805c635aef3c2b9ac4caa943022e8e680a9939564a4f2634",
+    "isolatedSourceFiles": 153,
+    "sourceChanges": []
+  },
+  "manifestSha256": "29e980a8f507f7b53c5a65ea60e066877e384c19313c609562b2739c4929cd21",
+  "counts": {
+    "planned": 8,
+    "attempted": 1,
+    "notAttempted": 7,
+    "valid": 0,
+    "invalid": 1,
+    "chargedRequests": 4,
+    "knownHTTPAttempts": 4,
+    "knownHTTPReceipts": 4,
+    "unconfirmedCharges": 0,
+    "nativeRequests": 2,
+    "nativeAdmitted": 1,
+    "assessmentCalls": 1,
+    "actionCalls": 1,
+    "UIActions": 1,
+    "presentImages": 2,
+    "missingImages": 14
+  },
+  "checks": [
+    {
+      "name": "fixed manifest exact",
+      "passed": true
+    },
+    {
+      "name": "fixed524 producer source/revision",
+      "passed": true
+    },
+    {
+      "name": "producerZIP exact",
+      "passed": true
+    },
+    {
+      "name": "isolated153 files match source",
+      "passed": true
+    },
+    {
+      "name": "fixed schedule/limits/cap266 with1of8 stopped",
+      "passed": true
+    },
+    {
+      "name": "prior union5527plus20 equals5547",
+      "passed": true
+    },
+    {
+      "name": "5547 unchanged before",
+      "passed": true
+    },
+    {
+      "name": "earlier archives GATEs raw inventory and public artifacts preserved",
+      "passed": true
+    },
+    {
+      "name": "manifest and saved result exact",
+      "passed": true
+    },
+    {
+      "name": "result producer binding",
+      "passed": true
+    },
+    {
+      "name": "ledger4 no unresolved reservation",
+      "passed": true
+    },
+    {
+      "name": "all saved replay via isolated524 source",
+      "passed": true
+    },
+    {
+      "name": "o1 native admitted with initial3claims",
+      "passed": true
+    },
+    {
+      "name": "o1 exact continuity and memory reach bothJevstages",
+      "passed": true
+    },
+    {
+      "name": "one actualUIclick toMyPage",
+      "passed": true
+    },
+    {
+      "name": "o2 invalid200 rejected before eitherJevstage/action",
+      "passed": true
+    },
+    {
+      "name": "o2 arrival retains prior memory without treating invalid transitions as updates",
+      "passed": true
+    },
+    {
+      "name": "independent isolated semantic admission reproduces bothnull revised contradictions",
+      "passed": true
+    },
+    {
+      "name": "saved/public analysis matches oldcode recomputation",
+      "passed": true
+    },
+    {
+      "name": "8planned1attempt7missing0valid1invalid",
+      "passed": true
+    },
+    {
+      "name": "all4pairs remain unavailable no falseinitialmatch",
+      "passed": true
+    },
+    {
+      "name": "4charged4attempts4receipts no unconfirmed",
+      "passed": true
+    },
+    {
+      "name": "model-output invalid not UX abandonment or counted objectivefailure/success",
+      "passed": true
+    },
+    {
+      "name": "public provenance producer",
+      "passed": true
+    },
+    {
+      "name": "public provenance sourceHash",
+      "passed": true
+    },
+    {
+      "name": "public provenance manifestSha256",
+      "passed": true
+    },
+    {
+      "name": "public provenance status",
+      "passed": true
+    },
+    {
+      "name": "public provenance protocolSha256",
+      "passed": true
+    },
+    {
+      "name": "public provenance profiles",
+      "passed": true
+    },
+    {
+      "name": "public provenance limits",
+      "passed": true
+    },
+    {
+      "name": "public provenance executionMaximumRequests",
+      "passed": true
+    },
+    {
+      "name": "public provenance priorCount",
+      "passed": true
+    },
+    {
+      "name": "public provenance preservationBefore",
+      "passed": true
+    },
+    {
+      "name": "public provenance preservationAfter",
+      "passed": true
+    },
+    {
+      "name": "public pending retained/zero API env",
+      "passed": true
+    },
+    {
+      "name": "producercharter/protocol exact",
+      "passed": true
+    },
+    {
+      "name": "one public trial identity/metrics exact",
+      "passed": true
+    },
+    {
+      "name": "public detailed stage exact 1",
+      "passed": true
+    },
+    {
+      "name": "public detailed stage exact 2",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 1/1",
+      "passed": true
+    },
+    {
+      "name": "exact deliveredPNG 1",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 1/2",
+      "passed": true
+    },
+    {
+      "name": "exact deliveredPNG 2",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 2/1",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 2/1",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 2/2",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 2/2",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 3/1",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 3/1",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 3/2",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 3/2",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 4/1",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 4/1",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 4/2",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 4/2",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 5/1",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 5/1",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 5/2",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 5/2",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 6/1",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 6/1",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 6/2",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 6/2",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 7/1",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 7/1",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 7/2",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 7/2",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 8/1",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 8/1",
+      "passed": true
+    },
+    {
+      "name": "fixed sample slot 8/2",
+      "passed": true
+    },
+    {
+      "name": "missing sample retained 8/2",
+      "passed": true
+    },
+    {
+      "name": "fixed16 samples2present14missing",
+      "passed": true
+    },
+    {
+      "name": "publicCSV exact",
+      "passed": true
+    },
+    {
+      "name": "5547 raw unchanged after",
+      "passed": true
+    },
+    {
+      "name": "all28 prior static protectedfiles unchanged after",
+      "passed": true
+    },
+    {
+      "name": "public4 artifacts unchanged after",
+      "passed": true
+    },
+    {
+      "name": "noAPI/noenv",
+      "passed": true
+    }
+  ],
+  "findings": [],
+  "replays": [
+    {
+      "runId": "f2ccb106-fbe5-417b-990d-ac6ab9bc1938-1",
+      "choices": 1,
+      "assessments": 1,
+      "images": 4,
+      "verified": true,
+      "scope": "Saved distribution sampling and actual model input assets only; no API or UI actions reexecuted"
+    }
+  ],
+  "ledgers": [
+    {
+      "used": 4,
+      "sha256": "3963341cf36ff7f87817898859c128eb6d58ead8c9e427c6863193fcc3ac54af",
+      "reserved": 0,
+      "ok": 4,
+      "errors": 0
+    }
+  ],
+  "analysis": {
+    "schemaVersion": 1,
+    "kind": "ACTUAL_CONTINUITY_DESCRIPTIVE",
+    "planned": 8,
+    "attempted": 1,
+    "notAttempted": 7,
+    "valid": 0,
+    "invalid": 1,
+    "complete": false,
+    "missing": [
+      {
+        "id": "recovery-library-changed-r1",
+        "actor": "experience-visual-conditions"
+      },
+      {
+        "id": "recovery-library-unchanged-r1",
+        "actor": "experience-visual-conditions"
+      },
+      {
+        "id": "recovery-library-unchanged-r1",
+        "actor": "experience-visual-conditions-continuity"
+      },
+      {
+        "id": "recovery-workshop-changed-r1",
+        "actor": "experience-visual-conditions-continuity"
+      },
+      {
+        "id": "recovery-workshop-changed-r1",
+        "actor": "experience-visual-conditions"
+      },
+      {
+        "id": "recovery-workshop-unchanged-r1",
+        "actor": "experience-visual-conditions"
+      },
+      {
+        "id": "recovery-workshop-unchanged-r1",
+        "actor": "experience-visual-conditions-continuity"
+      }
+    ],
+    "measurements": {
+      "chargedRequests": 4,
+      "knownHTTPAttempts": 4,
+      "knownHTTPReceipts": 4,
+      "receiptUnconfirmedChargedRequests": 0,
+      "httpAttemptCountsComplete": true,
+      "costUSD": null,
+      "humanTimeMs": null
+    },
+    "requestEvidence": [
+      {
+        "runId": "f2ccb106-fbe5-417b-990d-ac6ab9bc1938-1",
+        "chargedRequests": 4,
+        "knownHTTPAttempts": 4,
+        "httpAttemptEvidenceRequests": 4,
+        "httpAttemptCountsComplete": true,
+        "requestAttempted": true,
+        "apiReached": true,
+        "recordedResponses": 4,
+        "returnedModels": {
+          "gpt-6-luna": 2,
+          "jev-1.14.0": 2
+        },
+        "apiMs": 37003.2818,
+        "costUSD": null,
+        "humanTimeMs": null,
+        "knownHTTPReceipts": 4
+      }
+    ],
+    "integrity": {
+      "ok": true,
+      "errors": []
+    },
+    "actors": {
+      "experience-visual-conditions": {
+        "schemaVersion": 1,
+        "kind": "offline-recovery-transfer-descriptive",
+        "completeness": {
+          "planned": 4,
+          "attempted": 0,
+          "withResult": 0,
+          "valid": 0,
+          "missing": [
+            "library/changed/r1",
+            "library/unchanged/r1",
+            "workshop/changed/r1",
+            "workshop/unchanged/r1"
+          ],
+          "complete": false
+        },
+        "integrity": {
+          "ok": true,
+          "errors": []
+        },
+        "totals": {
+          "planned": 4,
+          "attempted": 0,
+          "notAttempted": 4,
+          "withResult": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 0,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {},
+          "requests": 0,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 0,
+            "deliveredRuns": 0,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 0,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 0,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0
+        },
+        "cells": [
+          {
+            "key": "library/changed",
+            "fixture": {
+              "version": 1,
+              "task": "library",
+              "condition": "changed"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          },
+          {
+            "key": "library/unchanged",
+            "fixture": {
+              "version": 1,
+              "task": "library",
+              "condition": "unchanged"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          },
+          {
+            "key": "workshop/changed",
+            "fixture": {
+              "version": 1,
+              "task": "workshop",
+              "condition": "changed"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          },
+          {
+            "key": "workshop/unchanged",
+            "fixture": {
+              "version": 1,
+              "task": "workshop",
+              "condition": "unchanged"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          }
+        ],
+        "runs": [],
+        "limitations": [
+          "All trials start on an explicitly blocked primary screen; initial exposure does not establish self-directed discovery of a dead end.",
+          "Snapshot ground truth, successful current-frame delivery, model self-reports and actual UI operations are separate evidence. Delivered pixels do not establish reading or understanding.",
+          "Behavior counts describe locally established transitions in attempted trials, including partial/faulted trials. Valid objective outcomes and valid-run means have their own denominators.",
+          "Prerequisite roles require actual successful clicks with one matching confirm/reconcile counter increment; certification routes are never consulted.",
+          "Revisits require a recorded UI departure and return. Wait, reread and repeated observations do not establish a revisit. Missing transitions are not interpolated.",
+          "Terminal snapshots may establish actual state after the last UI operation but never establish model exposure or an unrecorded URL.",
+          "An unchanged-eligibility early return records lack of prerequisite progress; it is not a prohibition or a claim about natural human behavior.",
+          "Absence of an observed or delivered opportunity is not evidence of successful avoidance, comprehension or correct release decisions.",
+          "One repeat per task/condition is an initial bounded comparison only; reproducibility, human fidelity and causal effects remain unverified.",
+          "Limits and infrastructure failures remain separate. A final saved UI state may satisfy the objective without a later delivered confirmation or subjective done."
+        ]
+      },
+      "experience-visual-conditions-continuity": {
+        "schemaVersion": 1,
+        "kind": "offline-recovery-transfer-descriptive",
+        "completeness": {
+          "planned": 4,
+          "attempted": 1,
+          "withResult": 1,
+          "valid": 0,
+          "missing": [
+            "library/unchanged/r1",
+            "workshop/changed/r1",
+            "workshop/unchanged/r1"
+          ],
+          "complete": false
+        },
+        "integrity": {
+          "ok": true,
+          "errors": []
+        },
+        "totals": {
+          "planned": 4,
+          "attempted": 1,
+          "notAttempted": 3,
+          "withResult": 1,
+          "valid": 0,
+          "invalid": 1,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "objectiveDenominator": 0,
+          "falseDone": 0,
+          "subjectiveDone": 0,
+          "infrastructure": 1,
+          "invalidDistributions": 0,
+          "safetyStops": 0,
+          "limits": 0,
+          "abandoned": 0,
+          "stuck": 0,
+          "terminations": {
+            "API_ERROR": 1
+          },
+          "requests": 4,
+          "meanUIActions": null,
+          "meanJudgments": null,
+          "initialBlocked": {
+            "observedRuns": 1,
+            "deliveredRuns": 1,
+            "unknownRuns": 0
+          },
+          "switchCompletedRuns": 0,
+          "prerequisite": {
+            "applicableAttempted": 1,
+            "occurredRuns": 0,
+            "deliveredRuns": 0,
+            "noOpportunityRuns": 1,
+            "unknownRuns": 0,
+            "returnedRuns": 0,
+            "completedRuns": 0
+          },
+          "unchanged": {
+            "applicableAttempted": 0,
+            "confirmedStillBlockedRuns": 0,
+            "deliveredStillBlockedRuns": 0,
+            "earlyRevisitRuns": 0,
+            "earlyRevisitEvents": 0
+          },
+          "selectionCorrections": 0
+        },
+        "cells": [
+          {
+            "key": "library/changed",
+            "fixture": {
+              "version": 1,
+              "task": "library",
+              "condition": "changed"
+            },
+            "planned": 1,
+            "attempted": 1,
+            "notAttempted": 0,
+            "withResult": 1,
+            "valid": 0,
+            "invalid": 1,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 1,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {
+              "API_ERROR": 1
+            },
+            "requests": 4,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 1,
+              "deliveredRuns": 1,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 1,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 1,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": [
+                "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba"
+              ]
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          },
+          {
+            "key": "library/unchanged",
+            "fixture": {
+              "version": 1,
+              "task": "library",
+              "condition": "unchanged"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          },
+          {
+            "key": "workshop/changed",
+            "fixture": {
+              "version": 1,
+              "task": "workshop",
+              "condition": "changed"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          },
+          {
+            "key": "workshop/unchanged",
+            "fixture": {
+              "version": 1,
+              "task": "workshop",
+              "condition": "unchanged"
+            },
+            "planned": 1,
+            "attempted": 0,
+            "notAttempted": 1,
+            "withResult": 0,
+            "valid": 0,
+            "invalid": 0,
+            "objectiveSuccesses": 0,
+            "objectiveFailures": 0,
+            "objectiveDenominator": 0,
+            "falseDone": 0,
+            "subjectiveDone": 0,
+            "infrastructure": 0,
+            "invalidDistributions": 0,
+            "safetyStops": 0,
+            "limits": 0,
+            "abandoned": 0,
+            "stuck": 0,
+            "terminations": {},
+            "requests": 0,
+            "meanUIActions": null,
+            "meanJudgments": null,
+            "initialBlocked": {
+              "observedRuns": 0,
+              "deliveredRuns": 0,
+              "unknownRuns": 0
+            },
+            "switchCompletedRuns": 0,
+            "prerequisite": {
+              "applicableAttempted": 0,
+              "occurredRuns": 0,
+              "deliveredRuns": 0,
+              "noOpportunityRuns": 0,
+              "unknownRuns": 0,
+              "returnedRuns": 0,
+              "completedRuns": 0
+            },
+            "unchanged": {
+              "applicableAttempted": 0,
+              "confirmedStillBlockedRuns": 0,
+              "deliveredStillBlockedRuns": 0,
+              "earlyRevisitRuns": 0,
+              "earlyRevisitEvents": 0
+            },
+            "selectionCorrections": 0,
+            "initialImages": {
+              "consistent": null,
+              "hashes": []
+            },
+            "configs": {
+              "consistent": null
+            },
+            "aggregationUncertain": false
+          }
+        ],
+        "runs": [
+          {
+            "id": "recovery-library-changed-r1",
+            "runId": "f2ccb106-fbe5-417b-990d-ac6ab9bc1938-1",
+            "fixture": {
+              "version": 1,
+              "task": "library",
+              "condition": "changed"
+            },
+            "replicate": 1,
+            "status": "RESULT",
+            "dir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\condition-continuity-2026-10-30\\schema-fixed-live\\recovery-library-changed-r1-experience-visual-conditions-continuity",
+            "resultPath": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\condition-continuity-2026-10-30\\schema-fixed-live\\recovery-library-changed-r1-experience-visual-conditions-continuity\\exploration\\result.json",
+            "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\condition-continuity-2026-10-30\\schema-fixed-live\\recovery-library-changed-r1-experience-visual-conditions-continuity-budget.json",
+            "ledgerEvidence": {
+              "used": 4,
+              "sha256": "3963341cf36ff7f87817898859c128eb6d58ead8c9e427c6863193fcc3ac54af",
+              "reserved": 0,
+              "ok": 4,
+              "errors": 0
+            },
+            "source": {
+              "revision": "39e36adcc3d47bcf7ba0737f8f2831c35208a6e0",
+              "sourceHash": "5243a14bda8b046f6e567078e0edbc4f03d53d6c6796dd64b6f6055a408ae3e6"
+            },
+            "initialImageSha256": "8f3331f9a70de8d3620ddfe3935d751207d69158a67248626e83ca723ef91dba",
+            "objectiveAssessment": {
+              "status": "OK",
+              "value": false
+            },
+            "perceivedDone": false,
+            "termination": "API_ERROR",
+            "validity": {
+              "valid": false,
+              "reasons": [
+                "REPORTED_INVALID",
+                "INFRASTRUCTURE_FAULT"
+              ]
+            },
+            "categories": {
+              "infrastructure": true,
+              "invalidDistribution": false,
+              "safety": false,
+              "limit": false,
+              "abandoned": false,
+              "stuck": false
+            },
+            "auditErrors": [],
+            "initialBlocked": {
+              "observed": true,
+              "delivered": true,
+              "evidence": {
+                "kind": "observation",
+                "step": 1,
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "url": "/good/?recovery=v9",
+                "snapshot": {
+                  "schemaVersion": 1,
+                  "route": "primary",
+                  "eligible": false,
+                  "verificationAttempts": 0,
+                  "recordChecks": 0,
+                  "savedValue": "中央図書館",
+                  "complete": false
+                },
+                "delivered": true,
+                "deliveredStages": [
+                  "assessment",
+                  "action"
+                ]
+              }
+            },
+            "coverageComplete": true,
+            "opportunities": {
+              "prerequisiteChange": "none-observed",
+              "unchangedConfirmation": "not-applicable"
+            },
+            "transitions": [
+              {
+                "step": 1,
+                "observationId": "o1",
+                "sourceImageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "action": {
+                  "type": "click",
+                  "elementId": "e1"
+                },
+                "outcome": "UI_PERFORMED",
+                "actualUI": true,
+                "navigation": true,
+                "before": {
+                  "kind": "observation",
+                  "step": 1,
+                  "observationId": "o1",
+                  "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                  "url": "/good/?recovery=v9",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "primary",
+                    "eligible": false,
+                    "verificationAttempts": 0,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": true,
+                  "deliveredStages": [
+                    "assessment",
+                    "action"
+                  ]
+                },
+                "after": {
+                  "kind": "observation",
+                  "step": 2,
+                  "observationId": "o2",
+                  "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                  "url": "/good/?recovery=v9#home",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "home",
+                    "eligible": false,
+                    "verificationAttempts": 0,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": false,
+                  "deliveredStages": []
+                },
+                "afterKind": "observation",
+                "fromURL": "/good/?recovery=v9",
+                "toURL": "/good/?recovery=v9#home",
+                "stateConsistent": true,
+                "role": null,
+                "eligibleChanged": false,
+                "save": false,
+                "errors": []
+              },
+              {
+                "step": 2,
+                "observationId": "o2",
+                "sourceImageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                "action": null,
+                "outcome": "VISUAL_EXTRACTION_OUTPUT_ERROR",
+                "actualUI": false,
+                "navigation": false,
+                "before": {
+                  "kind": "observation",
+                  "step": 2,
+                  "observationId": "o2",
+                  "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+                  "url": "/good/?recovery=v9#home",
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "home",
+                    "eligible": false,
+                    "verificationAttempts": 0,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": false,
+                  "deliveredStages": []
+                },
+                "after": {
+                  "kind": "terminal",
+                  "step": 2,
+                  "observationId": null,
+                  "imageSha256": null,
+                  "url": null,
+                  "snapshot": {
+                    "schemaVersion": 1,
+                    "route": "home",
+                    "eligible": false,
+                    "verificationAttempts": 0,
+                    "recordChecks": 0,
+                    "savedValue": "中央図書館",
+                    "complete": false
+                  },
+                  "delivered": false,
+                  "deliveredStages": []
+                },
+                "afterKind": "terminal",
+                "fromURL": "/good/?recovery=v9#home",
+                "toURL": null,
+                "stateConsistent": true,
+                "role": null,
+                "eligibleChanged": false,
+                "save": false,
+                "errors": []
+              }
+            ],
+            "prerequisiteEvents": [],
+            "revisits": [],
+            "saves": [],
+            "switchCompletion": {
+              "applicable": false,
+              "completed": false,
+              "evidence": []
+            },
+            "recoveryAfterChange": {
+              "applicable": true,
+              "completed": false,
+              "returns": [],
+              "evidence": []
+            },
+            "choices": [
+              {
+                "step": 1,
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "modelChoice": "e1",
+                "selected": "e1",
+                "differsFromModel": false,
+                "baselineSelected": "e1",
+                "differsFromBaseline": false,
+                "raw": {
+                  "abandon": 0,
+                  "done": 0,
+                  "e1": 0.98,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0.02,
+                  "wait": 0
+                },
+                "filtered": {
+                  "abandon": 0,
+                  "done": 0,
+                  "e1": 1,
+                  "look_0": 0,
+                  "look_1": 0,
+                  "look_2": 0,
+                  "look_3": 0,
+                  "reread": 0,
+                  "stuck": 0,
+                  "wait": 0
+                },
+                "policy": {
+                  "kind": "temporary-deferral",
+                  "weights": {
+                    "abandon": 1,
+                    "done": 1,
+                    "e1": 1,
+                    "look_0": 1,
+                    "look_1": 1,
+                    "look_2": 1,
+                    "look_3": 1,
+                    "reread": 1,
+                    "stuck": 1,
+                    "wait": 1
+                  },
+                  "before": {
+                    "abandon": 0,
+                    "done": 0,
+                    "e1": 0.98,
+                    "look_0": 0,
+                    "look_1": 0,
+                    "look_2": 0,
+                    "look_3": 0,
+                    "reread": 0,
+                    "stuck": 0.02,
+                    "wait": 0
+                  },
+                  "weightedTotal": 1,
+                  "scope": {
+                    "kind": "ui-conditional-v1",
+                    "baselineSelected": "e1",
+                    "baselineClass": "ui",
+                    "uiCandidates": [
+                      "e1"
+                    ],
+                    "uiMass": 0.98,
+                    "weightedUIMass": 0.98,
+                    "marginal": {
+                      "abandon": 0,
+                      "done": 0,
+                      "e1": 0.98,
+                      "look_0": 0,
+                      "look_1": 0,
+                      "look_2": 0,
+                      "look_3": 0,
+                      "reread": 0,
+                      "stuck": 0.02,
+                      "wait": 0
+                    },
+                    "conditionalDraw": null
+                  }
+                }
+              }
+            ],
+            "reasonReports": [
+              {
+                "step": 1,
+                "observationId": "o1",
+                "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+                "kind": "model-self-report-not-verified-truth",
+                "reviews": [],
+                "releasedCandidates": []
+              }
+            ],
+            "metrics": {
+              "uiActions": 1,
+              "looks": 0,
+              "judgments": 2,
+              "requests": 4,
+              "recordedAPICalls": 4,
+              "selectionCorrections": 0,
+              "baselineSelectionChanges": 0,
+              "earlyUnchangedRevisits": 0
+            },
+            "timing": {
+              "apiMs": 37003.2818,
+              "uiMs": 109.11200000000099,
+              "elapsedMs": 38493.4755,
+              "humanTimeMs": null
+            }
+          }
+        ],
+        "limitations": [
+          "All trials start on an explicitly blocked primary screen; initial exposure does not establish self-directed discovery of a dead end.",
+          "Snapshot ground truth, successful current-frame delivery, model self-reports and actual UI operations are separate evidence. Delivered pixels do not establish reading or understanding.",
+          "Behavior counts describe locally established transitions in attempted trials, including partial/faulted trials. Valid objective outcomes and valid-run means have their own denominators.",
+          "Prerequisite roles require actual successful clicks with one matching confirm/reconcile counter increment; certification routes are never consulted.",
+          "Revisits require a recorded UI departure and return. Wait, reread and repeated observations do not establish a revisit. Missing transitions are not interpolated.",
+          "Terminal snapshots may establish actual state after the last UI operation but never establish model exposure or an unrecorded URL.",
+          "An unchanged-eligibility early return records lack of prerequisite progress; it is not a prohibition or a claim about natural human behavior.",
+          "Absence of an observed or delivered opportunity is not evidence of successful avoidance, comprehension or correct release decisions.",
+          "One repeat per task/condition is an initial bounded comparison only; reproducibility, human fidelity and causal effects remain unverified.",
+          "Limits and infrastructure failures remain separate. A final saved UI state may satisfy the objective without a later delivered confirmation or subjective done."
+        ]
+      }
+    },
+    "pairs": [
+      {
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "changed"
+        },
+        "present": false,
+        "evidenceAvailable": false,
+        "matched": false,
+        "reasons": [
+          "MISSING_OR_DUPLICATE_ACTOR"
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "library",
+          "condition": "unchanged"
+        },
+        "present": false,
+        "evidenceAvailable": false,
+        "matched": false,
+        "reasons": [
+          "MISSING_OR_DUPLICATE_ACTOR"
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "changed"
+        },
+        "present": false,
+        "evidenceAvailable": false,
+        "matched": false,
+        "reasons": [
+          "MISSING_OR_DUPLICATE_ACTOR"
+        ]
+      },
+      {
+        "fixture": {
+          "version": 1,
+          "task": "workshop",
+          "condition": "unchanged"
+        },
+        "present": false,
+        "evidenceAvailable": false,
+        "matched": false,
+        "reasons": [
+          "MISSING_OR_DUPLICATE_ACTOR"
+        ]
+      }
+    ],
+    "limitations": [
+      "One trial per mode/task/condition; no statistical, causal or human-reproduction claim.",
+      "Explicit native continuity context/schema/instructions and decision guidance form one declared intervention; model, image transport, UI and effort are unchanged.",
+      "Grounded quotations remain model-transcribed-unverified. Current uncertainty and historical evidence are distinct.",
+      "Infrastructure failures, API waiting and unattempted slots are not user confusion, human thought time or abandonment.",
+      "Models choose condition mappings and actions; no correct route or revisit ban is registered."
+    ]
+  },
+  "preservation": {
+    "before": {
+      "count": 5547,
+      "changed": []
+    },
+    "after": {
+      "count": 5547,
+      "changed": []
+    }
+  },
+  "protectedStatic": [
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\action-relations-2026-10-29\\producer-source-233752d2.zip",
+      "sha256": "2f96b1255aff3fc2d26c6b5df026be0660eb815c192c060f167515d98462496b"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\goal-search-2026-10-29\\producer-source-ee8fe221.zip",
+      "sha256": "473736d2a13167cd95e258115948ec3bb9bef9035e5bcd36cadb70b39ca64ab6"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\goal-search-evidence-2026-10-29\\producer-source-ea90b28.zip",
+      "sha256": "2709d6cd6646173d6962b832fe1c5a36038b4c6401c8bdeeb9a0c9dd2cdfc840"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\goal-search-evidence-persistence-fixed-2026-10-29\\producer-source-5120f9a.zip",
+      "sha256": "35a87393b0d9881856d05889279f1524c9d3896cf7cb3fc9bb3d0a82858c327c"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\goal-search-semantics-2026-10-29\\producer-source-9c6207a.zip",
+      "sha256": "d61614fa8b032d25779fc3c8c2a1806486391c50bc6f127255b7f554977ce9ad"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\provider-comparison-2026-10-29\\producer-source-8cf3d166.zip",
+      "sha256": "79884247cc30bb7230a8dafc0ff9d78c79c3a20a86353be258a74743acaa7c33"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\recovery-transfer-2026-10-29\\producer-source-16ab01b.zip",
+      "sha256": "30251289d3d95f1d90b88b692f9d439cc0bc872911d37719ff700637beed2ede"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\transfer-evaluation-2026-10-29\\frozen-producer.zip",
+      "sha256": "7aa425deea04a16691df60faf01d34efc1b9bd662b0a3f1bda2e36139cc1d80d"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\producer-source-6162dce0.zip",
+      "sha256": "01377149bef116163a0db7737f4762937949865767da455225aec458aea93e35"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\producer-source-7e27d09a.zip",
+      "sha256": "e2d88f1a8aa58f84fccdb7fa9fb1d6235eabdc96c637e5e9bd139ceb8854f3c9"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\producer-source-a1643a44.zip",
+      "sha256": "133ea53fa7a87fff72a80c2d7840f4673f742172854b59be8f356515278b775a"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\producer-source-d36dd19f.zip",
+      "sha256": "97e862e1b39cae33b44ed98e17ece07b4854169f12adbab82bb89186a4aee762"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\producer-source-de20ac6b.zip",
+      "sha256": "f196f353130a972a8f9c41ae77ad1ee3093b13eb0a47bc1cb44da82e04d1e644"
+    },
+    {
+      "path": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-conditions-2026-10-30\\producer-source-dffaab9d.zip",
+      "sha256": "df0631f28d9fb99f46e29277927cccdb0b66427ab03652b2e0797b3c19ca1761"
+    },
+    {
+      "path": "reports/condition-continuity-2026-10-30/producer-source-075a0df4.zip",
+      "sha256": "d0e1b557908a43c99f48289a3453930ee2554dc33e9dd530eea83ccb6396600a"
+    },
+    {
+      "path": "reports/condition-continuity-2026-10-30/round1-source-cf07c7a0.zip",
+      "sha256": "7bb9635a8fda935aef22e05799c9e737abc1e39102d6b5d94fc9be2ffc348a53"
+    },
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\condition-continuity-evidence\\library-changed-continuity-o1.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+    },
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\condition-continuity-evidence\\library-changed-control-o1.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+    },
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\condition-continuity-evidence\\library-changed-control-o2.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+    },
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\results.csv",
+      "sha256": "a5235fe7e125e395fe3b75c8a1ed5f7d8e0176e6ece5b73e47c096a4ae026f9a"
+    },
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\stopped-public\\results.json",
+      "sha256": "9ef431e326e5373f328f35f660bdf0606a05e98d37d74b0bd81067e33699c4b7"
+    },
+    {
+      "path": "reports/condition-continuity-2026-10-30/independent-round1/GATE.json",
+      "sha256": "2c83057fd557874cebd173809abf6d149ebd139335eb3ccba03a4f393cdda3e4"
+    },
+    {
+      "path": "reports/condition-continuity-2026-10-30/independent-round2/GATE.json",
+      "sha256": "69b50aa132062a15111ddf30739385f158e88072d66f71c7617312b0d67eb2ae"
+    },
+    {
+      "path": "reports/condition-continuity-2026-10-30/independent-live/STOPPED-GATE.json",
+      "sha256": "82fcc0954e2ce939de70885fe6a0f8967e6efc8829f001c44d62002840798131"
+    },
+    {
+      "path": "reports/condition-continuity-2026-10-30/freeze-round2.json",
+      "sha256": "95e08a48ffed299ce99ee51facca871b5cf149626c2f5610a38b8a743d6e519c"
+    },
+    {
+      "path": "reports/condition-continuity-2026-10-30/independent-round3/GATE.json",
+      "sha256": "a5c1209b9f523ebdae19d57eef55f45e1e887d5f208602750fc5829239e26f3e"
+    },
+    {
+      "path": "reports/condition-continuity-2026-10-30/freeze-round3.json",
+      "sha256": "c529318da5637ec32e1cbacfee54e59df29cea99d16c721b1ab479bd439d6f7d"
+    },
+    {
+      "path": "reports/condition-continuity-2026-10-30/prior-raw-v2.json",
+      "sha256": "7e3071c3477854a4fd83627caab78b3ec79b2098221967bbb4caf0f54157d7ab"
+    }
+  ],
+  "publicFiles": [
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\schema-fixed-public\\condition-continuity-evidence\\library-changed-continuity-o1.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+    },
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\schema-fixed-public\\condition-continuity-evidence\\library-changed-continuity-o2.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+    },
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\schema-fixed-public\\results.csv",
+      "sha256": "214ad96ec0a7d17217da0b944a6068f491a9b36c19eab95799ab871c38ee3a31"
+    },
+    {
+      "path": "reports\\condition-continuity-2026-10-30\\schema-fixed-public\\results.json",
+      "sha256": "43d2cbd0591df1c22e5816550a32d97c1a64aa9d471413fe4479fa988e8489b7"
+    }
+  ],
+  "frames": [
+    {
+      "sequence": 1,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "observation": 1,
+      "file": "condition-continuity-evidence/library-changed-continuity-o1.png",
+      "sha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f",
+      "status": "NATIVE_OUTPUT_ADMITTED",
+      "quoteStatus": "model-transcribed-unverified",
+      "verified": true
+    },
+    {
+      "sequence": 1,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "observation": 2,
+      "file": "condition-continuity-evidence/library-changed-continuity-o2.png",
+      "sha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+      "status": "HTTP_RESPONSE_WITHOUT_ADMITTED_HYPOTHESIS",
+      "quoteStatus": "model-transcribed-unverified",
+      "verified": true
+    },
+    {
+      "sequence": 2,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 2,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "changed"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 3,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 3,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 4,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 4,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "library",
+        "condition": "unchanged"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 5,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 5,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 6,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 6,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "changed"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 7,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 7,
+      "actor": "experience-visual-conditions",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 8,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "observation": 1,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    },
+    {
+      "sequence": 8,
+      "actor": "experience-visual-conditions-continuity",
+      "fixture": {
+        "version": 1,
+        "task": "workshop",
+        "condition": "unchanged"
+      },
+      "observation": 2,
+      "status": "MISSING",
+      "reason": "TRIAL_NOT_ATTEMPTED",
+      "verified": true
+    }
+  ],
+  "contradictionIsolation": {
+    "producerRevision": "39e36adcc3d47bcf7ba0737f8f2831c35208a6e0",
+    "sourceHash": "5243a14bda8b046f6e567078e0edbc4f03d53d6c6796dd64b6f6055a408ae3e6",
+    "requestValidation": "PASS with actual PNG bytes and clearly synthetic30000ms timeout",
+    "contradiction": "o1_c2 and o1_c3 each map revised to uncertain current conditions with null evidence; contract requires nonnull current-image evidence for revised. Each fails separately; correcting just one still fails; changing both to unobserved/null locally admits unchanged condition/relation content.",
+    "results": [
+      {
+        "name": "fully rehydrated metadata validates before admission",
+        "firstSource": {
+          "observationId": "o1",
+          "imageSha256": "c5ba8da54d5667daaa15ddd90584e036018fcc3dce588bda98ec83ff8533415f"
+        },
+        "currentSource": {
+          "observationId": "o2",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9"
+        },
+        "timeoutMs": 30000,
+        "timeoutMeaning": "synthetic validation placeholder; actual dispatch timeout not saved/not inferred",
+        "rawOutputMatches": true
+      },
+      {
+        "name": "exact native output rejected beyond original invalid-response status",
+        "error": "Error: INVALID_CONDITION_CONTINUITY_DATA",
+        "statusOverrideForIsolationOnly": true
+      },
+      {
+        "name": "same conditions relations unknowns pass old base admission when continuity is isolated away",
+        "accepted": true
+      },
+      {
+        "name": "independent one-prior transition admission",
+        "priorId": "o1_c1",
+        "conditionId": "c1",
+        "change": "resolved",
+        "conditionStatus": "satisfied",
+        "currentEvidence": {
+          "observationId": "o2",
+          "imageSha256": "c298dae5ae4d8d01525cfd6f6a2159c5fb3d4d54046967bb40e5cd2621d3ffa9",
+          "quote": "「川沿いの暮らし」の受取館を管理",
+          "quoteStatus": "model-transcribed-unverified"
+        },
+        "rejected": false
+      },
+      {
+        "name": "independent one-prior transition admission",
+        "priorId": "o1_c2",
+        "conditionId": "c2",
+        "change": "revised",
+        "conditionStatus": "uncertain",
+        "currentEvidence": null,
+        "rejected": true,
+        "error": "Error: INVALID_CONDITION_CONTINUITY_DATA"
+      },
+      {
+        "name": "independent one-prior transition admission",
+        "priorId": "o1_c3",
+        "conditionId": "c3",
+        "change": "revised",
+        "conditionStatus": "uncertain",
+        "currentEvidence": null,
+        "rejected": true,
+        "error": "Error: INVALID_CONDITION_CONTINUITY_DATA"
+      },
+      {
+        "name": "counterfactual local isolation only; model output never corrected or resent",
+        "changedPriorIds": [
+          "o1_c2"
+        ],
+        "change": "unobserved/null only",
+        "accepted": false,
+        "error": "Error: INVALID_CONDITION_CONTINUITY_DATA"
+      },
+      {
+        "name": "counterfactual local isolation only; model output never corrected or resent",
+        "changedPriorIds": [
+          "o1_c3"
+        ],
+        "change": "unobserved/null only",
+        "accepted": false,
+        "error": "Error: INVALID_CONDITION_CONTINUITY_DATA"
+      },
+      {
+        "name": "counterfactual local isolation only; model output never corrected or resent",
+        "changedPriorIds": [
+          "o1_c2",
+          "o1_c3"
+        ],
+        "change": "unobserved/null only",
+        "accepted": true
+      }
+    ],
+    "actualAPIRequests": 0,
+    "envFilesRead": 0,
+    "rawEdits": 0,
+    "modelOutputEdits": 0,
+    "hypotheticalEdits": "in-memory counterfactual copies for isolation only; original files remain exact",
+    "old075HTTP400Cause": "UNKNOWN unchanged"
+  },
+  "visualReview": {
+    "prespecifiedFrames": 2,
+    "notes": [
+      "O1 shows pending information confirmation, saved central library and e1 My Page link. c1 title/source and c2 unmet confirmation/c3 unmet east-branch goal are consistent with visible text; all remain model-transcribed-unverified.",
+      "O1 admitted3claims reached both Jev stages exactly. Selected/executed e1 navigated to My Page; eligibility remained false and no save occurred.",
+      "O2 shows navigation cards, with no actual confirmation state or saved pickup branch value. The raw output itself says c2/c3 uncertain with null evidence. Calling them revised contradicts the admission contract.",
+      "Revised uncertainty with genuine current-image evidence is allowed by contract; this record has no such evidence. No alternative current quote was invented.",
+      "O2 invalid transition array was never admitted or delivered to Jev. Prior memory remains source-bound to o1. No claim resolved or revised from this rejected output is an actual accepted transition."
+    ]
+  },
+  "upstreamEvidence": {
+    "correctedFirstNativeHTTP200AndAdmitted": true,
+    "secondNativeHTTP200ButInvalidModelOutput": true,
+    "older075HTTP400Cause": "UNKNOWN; new200 observation does not identify older400 cause"
+  },
+  "budget": {
+    "olderStoppedProducerRequests": 22,
+    "thisStoppedProducerRequests": 4,
+    "newPhaseUsed": 26,
+    "authorizedPhaseMaximum": 288,
+    "remainingMaximum": 262,
+    "historical367And554": "separate; not pooled as performance"
+  },
+  "boundaries": {
+    "APIRequests": 0,
+    "environmentFilesRead": 0,
+    "humanRecordContentsRead": 0,
+    "currentChangingProductSourceUsed": false,
+    "productEdits": 0,
+    "rawEdits": 0,
+    "publicEdits": 0,
+    "modelOutputCorrection": "none; only in-memory counterfactual copies for offline rejection isolation",
+    "timeoutReconstruction": "synthetic30000ms placeholder, not actual saved dispatch value"
+  },
+  "limitations": [
+    "0 valid runs in this corrected producer and no control attempted; no action-effect improvement, human understanding/agreement or success/failure-rate inference.",
+    "Model output validity failure is not user abandonment or UX confusion. Objective false from this invalid partial run is excluded from objective user-failure denominator.",
+    "Old075 control result and old22requests retained separately; no failure replacement or pooled actor performance.",
+    "Public original independentAudit PENDING remains unchanged; separateGATE is completed audit record.",
+    "Original parent incomplete-request diagnostic attempts are not used as cause evidence; this independent reconstruction validated actual image bytes before isolating rejection."
+  ]
+}

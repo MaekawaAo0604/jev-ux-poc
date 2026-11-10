@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "status": "INDEPENDENT_OPERATIONAL_STOP_ACCEPTED",
+  "source": {
+    "before": {
+      "revision": "ab71a1508420c4bfc09105e66f62a608fb75c578",
+      "sourceHash": "1b8c483b2b89c4f9fea113d2529d902ace425ec1a2a75e207109affa81b084c9"
+    },
+    "after": {
+      "revision": "ab71a1508420c4bfc09105e66f62a608fb75c578",
+      "sourceHash": "1b8c483b2b89c4f9fea113d2529d902ace425ec1a2a75e207109affa81b084c9"
+    },
+    "identical": true,
+    "changedFromOldProducer": {
+      "changed": [
+        "runner/deferral-reason-experiment.ts"
+      ],
+      "insertions": 12,
+      "deletions": 0,
+      "impact": "Adds pure final HTTP402 detector and batch stop/save/break only. Prior code is byte-preserved by line subsequence; per-step actor, success, metrics and sampling source bytes unchanged."
+    }
+  },
+  "execution": {
+    "normalRunnerMockFlag": false,
+    "transport": "Every Node fetch intercepted at exact gateway URL; dummy Authorization, images and long-context headers asserted. Real Chromium uses ordinary local Vite UI and existing external-request routing restrictions.",
+    "realAPIRequests": 0,
+    "fakeRequests": 5,
+    "additionalRequestsForRecheck": 0,
+    "fakeResultsNotRealAPIEvidence": true,
+    "realDotEnvFilesAbsent": true,
+    "humanDataRead": false,
+    "realCredentialFileRead": false
+  },
+  "cases": {
+    "assessment402": {
+      "fakeRequests": 0,
+      "originalRequestCount": 1,
+      "trials": 1,
+      "stage": "assessment",
+      "status": 402,
+      "result": {
+        "root": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\gateway-stop-2026-10-29\\independent-1793218558194\\assessment-402",
+        "status": "GATEWAY_HTTP_402",
+        "trials": 1,
+        "requests": 1
+      },
+      "ledger": {
+        "total": 1,
+        "OK": 0,
+        "ERROR": 1
+      },
+      "safeGatewayFailure": {
+        "code": "HTTP_ERROR",
+        "statusCode": 402,
+        "step": 1,
+        "stage": "assessment",
+        "runId": "notifications-r1-old",
+        "resultPath": "notifications-r1-old/exploration/result.json"
+      }
+    },
+    "action402": {
+      "fakeRequests": 0,
+      "originalRequestCount": 2,
+      "trials": 1,
+      "stage": "action",
+      "status": 402,
+      "result": {
+        "root": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\gateway-stop-2026-10-29\\independent-1793218558194\\action-402",
+        "status": "GATEWAY_HTTP_402",
+        "trials": 1,
+        "requests": 2
+      },
+      "ledger": {
+        "total": 2,
+        "OK": 1,
+        "ERROR": 1
+      },
+      "safeGatewayFailure": {
+        "code": "HTTP_ERROR",
+        "statusCode": 402,
+        "step": 1,
+        "stage": "action",
+        "runId": "notifications-r1-old",
+        "resultPath": "notifications-r1-old/exploration/result.json"
+      }
+    },
+    "HTTP500Control": {
+      "fakeRequests": 0,
+      "originalRequestCount": 2,
+      "trials": 2,
+      "stage": "assessment",
+      "status": 500,
+      "result": {
+        "root": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\gateway-stop-2026-10-29\\independent-1793218558194\\assessment-500-control",
+        "status": "COMPLETED",
+        "trials": 2,
+        "requests": 2
+      },
+      "ledger": {
+        "total": 2,
+        "OK": 0,
+        "ERROR": 2
+      },
+      "safeGatewayFailure": null
+    }
+  },
+  "validation": {
+    "freshInvocation": {
+      "pass": 3,
+      "fail": 2,
+      "log": "reports/gateway-stop-2026-10-29/independent-first-run.log",
+      "reason": "The last incomplete-pair assertion incorrectly expected status unpaired. Existing analyzer contract is missing-condition. Preceding request, error, no-next-ledger, accounting, safe-body and replay checks passed."
+    },
+    "harnessCorrection": "Corrected status-name expectation to existing missing-condition contract and checked consistent=false. No product, raw result, behavioral expectation or failure assertion was relaxed or deleted.",
+    "artifactRecheck": {
+      "pass": 5,
+      "fail": 0,
+      "externalRequests": 0,
+      "fakeRequests": 0,
+      "command": "npx tsx tests/gateway-batch-stop-independent.test.ts --offline-root reports/gateway-stop-2026-10-29/independent-1793218558194",
+      "log": "reports/gateway-stop-2026-10-29/independent-offline-contract-green.log",
+      "summary": "reports/gateway-stop-2026-10-29/independent-1793218688721/summary.json"
+    },
+    "typeAndBuild": {
+      "command": "npm run build -- --outDir reports/gateway-stop-2026-10-29/independent-build-1793218688721",
+      "exitCode": 0,
+      "log": "reports/gateway-stop-2026-10-29/independent-build.log"
+    }
+  },
+  "failureEvidence": {
+    "fieldsAllowlisted": true,
+    "errorCode": "HTTP_ERROR",
+    "statusCodePreserved": true,
+    "stagePreserved": true,
+    "stepPreserved": 1,
+    "resultPathPreserved": true,
+    "providerErrorBodyMessageCauseHeaderSecretPersisted": false,
+    "first402NextLedgerCreated": false,
+    "first402FinalAccountingSaved": true,
+    "failedTrialsInvalidForComparison": true,
+    "perceivedDone": false,
+    "objectiveSuccess": false
+  },
+  "oldEvidence": {
+    "liveProducerRevision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+    "liveProducerSourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186",
+    "oldSavedReplaysVerified": 5,
+    "oldRawFileHashesUnchanged": 214,
+    "priorLedgerHashesUnchanged": 94,
+    "rawOriginalManifestUntouched": true,
+    "rawAuditStrictPin": {
+      "strictPinPreserved": true,
+      "rejectedCurrentProduct": true,
+      "reason": "The old ee/d3e producer checkout is required for a whole-product identical-hash rerun. Historical original report remains valid and untouched."
+    }
+  },
+  "findings": [],
+  "limitations": [
+    "Synthetic HTTP responses establish operational batch behavior, not resolution or provider cause of the real HTTP402.",
+    "No further real-model requests. GoalSearch effectiveness, human reproduction and the interrupted real12 comparison remain unestablished.",
+    "Historical live audit remains the ee/d3e audit. Its strict whole-source script correctly refuses the new runner hash; rerun it from the exact producer checkout rather than weakening source checks."
+  ],
+  "testFile": "tests/gateway-batch-stop-independent.test.ts",
+  "verificationHarnessPortability": {
+    "testFile": "tests/gateway-batch-stop-independent.test.ts",
+    "originalEvidenceUnchanged": true,
+    "freshProducer": "runtime sourceIdentity with optional explicit revision/source-hash pins",
+    "offlineProducer": "original artifact producer retained; current full product hashes must match; docs/test-only HEAD difference allowed",
+    "historicalArtifactsAbsent": "only related historical checks skip with reason; three primary transport cases never skip",
+    "recheck": {
+      "pass": 5,
+      "fail": 0,
+      "additionalFakeRequests": 0,
+      "additionalExternalRequests": 0,
+      "typeCheckExitCode": 0,
+      "log": "reports/gateway-stop-2026-10-29/independent-portability-offline.log",
+      "summary": "reports/gateway-stop-2026-10-29/independent-1793219276177/summary.json"
+    }
+  }
+}

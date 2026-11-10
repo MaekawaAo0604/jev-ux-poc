@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1, "id": "C", "name": "セキュリティに慎重な利用者",
+  "itLiteracy": "中程度", "serviceExperience": "一般的",
+  "knowledge": ["基本的なセキュリティ対策を知っている"],
+  "expectations": ["操作の安全性や操作結果を確認できる"],
+  "behavioralTendencies": ["重要な操作では確認を重視する傾向がある。これは行動仮説であり特定の操作を強制しない"],
+  "contextAndConstraints": ["個人情報の取り扱いに慎重"]
+}

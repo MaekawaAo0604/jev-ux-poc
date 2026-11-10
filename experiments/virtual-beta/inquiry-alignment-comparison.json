@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "phase": "inquiry-alignment-2026-11-05",
+  "baselineRevision": "3a3dcc73b73632c24cb73fa122f27498afc79f97",
+  "intervention": "aligned-v1 question contract package: joint condition/intent/check choice; result family bound to pending check; explicit positive/negative/limited basis wording",
+  "unchanged": [
+    "native schema/body",
+    "local UI",
+    "persona null and goal policy",
+    "state and memory capacities",
+    "sampler seed and shared weights",
+    "action candidates and roles",
+    "conservative outcome normalization",
+    "API stages"
+  ],
+  "actors": [
+    "experience-inquiry-outcome",
+    "experience-inquiry-aligned"
+  ],
+  "tasks": [
+    "library",
+    "workshop"
+  ],
+  "condition": "unchanged",
+  "replicates": 2,
+  "limits": {
+    "trials": 8,
+    "perTrialRequests": 36,
+    "maxRequests": 288,
+    "judgments": 12,
+    "uiActions": 15,
+    "looks": 3,
+    "trialMs": 300000,
+    "nativeRequestMs": 60000,
+    "phaseMs": 2520000,
+    "parallel": 1,
+    "retry": 0
+  },
+  "primaryMeasures": [
+    "raw unknown",
+    "admitted unknown",
+    "adjustments by cause with overlap",
+    "decoded working tuple and adjustments",
+    "actual delivered admitted memory",
+    "objective goal, subjective done and termination separately"
+  ],
+  "secondaryMeasures": [
+    "reconciliation counter and eligibility/saved changes",
+    "initial image/goal/native input equality",
+    "distribution, chosen action, bounded-memory replay",
+    "API latency separate from modeled time"
+  ],
+  "acceptance": [
+    "legacy default unchanged",
+    "joint plan admits only supported tuples from supplied context",
+    "outcome questions and validation use same compatible family",
+    "no unsupported claim promoted",
+    "policy bound to config and replay; rehashed tampering rejected",
+    "8 scheduled slots with invalid and unattempted preserved",
+    "independent source/test/replay/raw audit"
+  ],
+  "limitations": [
+    "Structural mismatch removal is by construction, not proof of semantic improvement",
+    "Compound input conditions are not automatically decomposed; do not claim atomic-condition generation fixed",
+    "A model current_image claim is not verified transcription",
+    "Two repeats are descriptive; no human fidelity or broad stability claim"
+  ],
+  "stop": [
+    "authentication/quota/invalid model output/accounting or audit failure",
+    "no replacement runs"
+  ],
+  "humanInputsRead": false,
+  "savedInputResends": 0
+}

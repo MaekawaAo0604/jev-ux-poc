@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Composed independent live raw acceptance. The 42 passing raw checks are retained in their original report; its CSV-only harness failure is resolved by a separate corrected parser test. The original FAIL report has not been rewritten as all PASS.",
+  "rawReport": {
+    "file": "live-raw-audit-r2.json",
+    "originalStatus": "FAIL",
+    "checks": 43,
+    "passing": 42,
+    "remainingOriginalFailure": {
+      "name": "CSV independently maps raw counters and paths",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n49 !== 37\n"
+    }
+  },
+  "correctedCsv": {
+    "file": "live-visual-review.json",
+    "check": {
+      "name": "quoted multiline CSV independently maps all36 raw rows and22columns",
+      "status": "PASS",
+      "detail": {
+        "rows": 36,
+        "columns": 22,
+        "sha256": "bb94c2e3b2db03217b190821a8d8c297889256a2f4e85912b9b1134e8b9e11d4"
+      }
+    },
+    "rows": 36,
+    "columns": 22
+  },
+  "additionalEvidence": {
+    "sameImages": "live-same-image-audit.json",
+    "nativeInvalid": "native-invalid-independent.json",
+    "browserNetwork": "live-browser-network-audit.json"
+  },
+  "finalPreservation": {
+    "source177MatchesProducer": true,
+    "live657RehashedUnchanged": true,
+    "archiveSha256": "9448a4bcb76ec0b0360cfa5b277db3c959f18f0b2beac5e3089f069bda8caf8b"
+  },
+  "selection": {
+    "judgments": 97,
+    "categoricalModelChoiceEqualsActualSelection": 97,
+    "adjustedSelections": 0
+  },
+  "atUTC": "2026-11-06T00:26:37.365Z"
+}

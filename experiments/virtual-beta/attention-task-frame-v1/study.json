@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "attention-task-frame-v1",
+  "charter": "experiments/persona/charter-good.json",
+  "persona": "experiments/persona/clear-notifications-v1/a.json",
+  "plannedTrials": 18,
+  "allocatedAPIRequests": 144,
+  "maxPhaseMs": 3600000,
+  "batchDurationMs": 600000,
+  "batches": [
+    {
+      "id": "crop-seed7001",
+      "plan": "experiments/virtual-beta/attention-task-frame-v1/crop-seed7001.json",
+      "allocatedAPIRequests": 24
+    },
+    {
+      "id": "foveated-seed7001",
+      "plan": "experiments/virtual-beta/attention-task-frame-v1/foveated-seed7001.json",
+      "allocatedAPIRequests": 24
+    },
+    {
+      "id": "foveated-seed7002",
+      "plan": "experiments/virtual-beta/attention-task-frame-v1/foveated-seed7002.json",
+      "allocatedAPIRequests": 24
+    },
+    {
+      "id": "crop-seed7002",
+      "plan": "experiments/virtual-beta/attention-task-frame-v1/crop-seed7002.json",
+      "allocatedAPIRequests": 24
+    },
+    {
+      "id": "crop-seed7003",
+      "plan": "experiments/virtual-beta/attention-task-frame-v1/crop-seed7003.json",
+      "allocatedAPIRequests": 24
+    },
+    {
+      "id": "foveated-seed7003",
+      "plan": "experiments/virtual-beta/attention-task-frame-v1/foveated-seed7003.json",
+      "allocatedAPIRequests": 24
+    }
+  ],
+  "arms": [
+    "off",
+    "hierarchical",
+    "framed"
+  ],
+  "seeds": [
+    7001,
+    7002,
+    7003
+  ],
+  "visionModes": [
+    "crop",
+    "foveated"
+  ],
+  "previousPhase": "reports/attention-repair-2026-11-10/live-r1/phase.json",
+  "previousActualRequests": 138,
+  "taskMaximumTotalRequests": 288,
+  "primaryContrast": "off vs framed; hierarchical vs framed changes only taskFrame",
+  "sampling": "bothONdomain-separated-v1; all3conditionsargmax, same seedcounterimplementationtag is not sent to model",
+  "primary": "actual gaze reselection and subsequent actions, same initialfixture/persona/goal; achievementsecondary"
+}

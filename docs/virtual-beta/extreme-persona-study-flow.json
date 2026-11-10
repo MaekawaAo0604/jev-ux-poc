@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "kind": "final-stopped-flow-prefix-review",
+  "batchStatus": "CONSECUTIVE_INVALID_TRIALS",
+  "manifestReference": {
+    "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\manifest.json",
+    "sha256": "4678dfec261311c3386eafa1309a5c7153042774f365fdcae422fc6a9de5ee51"
+  },
+  "actorSource": {
+    "revision": "7905e324a9167b278493703b1c719cea32d76d19",
+    "sourceHash": "bfb1e80ee80308bb84ae6cc9dc8aafd27c69ef72c75a59bd9e7739dd129c7f44"
+  },
+  "counts": {
+    "planned": 8,
+    "attempted": 4,
+    "fullValid": 0,
+    "invalid": 4,
+    "unattempted": 4,
+    "reportedRequests": 65,
+    "recordedUIActions": 20,
+    "observations": 24,
+    "selectedActionMatchesObservedMovement": 20,
+    "rawAndImageFilesUnchanged": 29
+  },
+  "requestsBasis": "Completed result/manifest counts only; ledgers deliberately not read in this qualitative review.",
+  "stopClassification": "XK0 transport TIMEOUT is not model-invalid; next three native incomplete are model-invalid and trigger the frozen three-consecutive stop.",
+  "unattemptedActors": [
+    "XP0",
+    "XP1",
+    "XD0",
+    "XD1"
+  ],
+  "actors": [
+    {
+      "actor": "XK0",
+      "reference": "xk0-review.json",
+      "route": "入口上部 ↓ 入口下部 → 管理上部 ↓ 管理の概要/追加説明 → 概要上部 ↓ 仕組み/同期説明 → 管理上部（再訪） ↓ 管理の概要/追加説明（再訪） → 削除説明anchor → 概要上部（再訪） → assessment TIMEOUT",
+      "fullValid": false,
+      "actions": 9,
+      "observations": 10,
+      "reportedRequests": 29
+    },
+    {
+      "actor": "XK1",
+      "reference": "xk1-review.json",
+      "route": "入口上部 ↓ 入口下部 → 管理上部 ↓ 管理の概要/追加手順 ↓ 追加後半/アップグレード説明 ↓ アップグレード手順/削除見出し → native incomplete",
+      "fullValid": false,
+      "actions": 5,
+      "observations": 6,
+      "reportedRequests": 16
+    },
+    {
+      "actor": "XE0",
+      "reference": "xe0-review.json",
+      "route": "入口上部 ↓ 入口下部 → 管理上部 ↓ 管理の概要/追加手順 → native incomplete",
+      "fullValid": false,
+      "actions": 3,
+      "observations": 4,
+      "reportedRequests": 10
+    },
+    {
+      "actor": "XE1",
+      "reference": "xe1-review.json",
+      "route": "入口上部 ↓ 入口下部 → 管理上部 ↓ 管理の概要/追加手順 → native incomplete",
+      "fullValid": false,
+      "actions": 3,
+      "observations": 4,
+      "reportedRequests": 10
+    }
+  ],
+  "supportedFindings": [
+    "Recorded primitives and next screenshots/URLs agree for all20 UI actions; e15 meaning depends on the current screen.",
+    "XK0 has exact-image revisits, but also obtains sync information and opens a new removal explanatory subsection; not every revisit is a useless loop.",
+    "XK1 sequentially scrolls into new management/add/upgrade viewports; XE0/XE1 share a short entry-to-management prefix with no observed return before failures.",
+    "XK0 and XE1 contain overlapping unresolved-condition entries in a capacity-three continuity state; this is concrete state evidence, not a proven root cause.",
+    "XE0 resolves a broad own-device applicability condition by narrowing it to reading a displayed target-user description; separate unknowns still retain actual applicability.",
+    "Judgment-result saving appears as unrequested unknowns in XK0 and XE1; no save action or enforced save requirement is observed."
+  ],
+  "claimsNotMade": [
+    "No complete valid flow trajectory exists in this batch.",
+    "No Persona TV/full-route causal comparison, goal-success score, human-naturalness score or abandonment inference is made from invalid prefixes.",
+    "Native/model state and reasons are self-reports, and current unobserved does not itself prove memory loss."
+  ],
+  "inputHashes": {
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\manifest.json": "4678dfec261311c3386eafa1309a5c7153042774f365fdcae422fc6a9de5ee51",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK0-r1\\exploration\\result.json": "8c444e750fc14dc352f45009fb894f2b678e3a1ad12b9fe7716b58bac416666d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK0-r1\\exploration\\input-1.png": "adf47910109c1c66eddb9bd8d82b4a26209ff0390210ec1dbbb7ea2b9f22388e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK0-r1\\exploration\\input-2.png": "2f32fe52c3dc0836428bdf118af447494e74ca625344f6b55d7d43ebf5f32840",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK0-r1\\exploration\\input-3.png": "522ad81068e165589714d8fd76de9efbd740e0320440ad830b9b21ee52097e80",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK0-r1\\exploration\\input-4.png": "66b5e70126c24b574b93ec9340172373f9b1bc1a7359758c256875abac6ae94a",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK0-r1\\exploration\\input-5.png": "8ee7a965d0ec8bd5f248e505afdd0501f8baffc2b02a05f0483b258d1e1c7f64",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK0-r1\\exploration\\input-6.png": "ce9fcafbbc1e3b4feef16fce9f334216b88a411522ceb4725a2c0625978c6fe7",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK0-r1\\exploration\\input-7.png": "522ad81068e165589714d8fd76de9efbd740e0320440ad830b9b21ee52097e80",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK0-r1\\exploration\\input-8.png": "66b5e70126c24b574b93ec9340172373f9b1bc1a7359758c256875abac6ae94a",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK0-r1\\exploration\\input-9.png": "b09e70f944985f69579448939136ce9c1108ea290ab7fdf484902b1e62753f31",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK0-r1\\exploration\\input-10.png": "8ee7a965d0ec8bd5f248e505afdd0501f8baffc2b02a05f0483b258d1e1c7f64",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK1-r1\\exploration\\result.json": "57ae0c5c09753d7b11ec693f9876d5a90ec64448bd42676c4549888bc6c1bc15",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK1-r1\\exploration\\input-1.png": "adf47910109c1c66eddb9bd8d82b4a26209ff0390210ec1dbbb7ea2b9f22388e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK1-r1\\exploration\\input-2.png": "847391636cf3ddff41448700d081e405175badbd65ba298293761c80aa2c30f1",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK1-r1\\exploration\\input-3.png": "522ad81068e165589714d8fd76de9efbd740e0320440ad830b9b21ee52097e80",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK1-r1\\exploration\\input-4.png": "66b5e70126c24b574b93ec9340172373f9b1bc1a7359758c256875abac6ae94a",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK1-r1\\exploration\\input-5.png": "3f0826cfabdb9eb79cbd248c48456927c63657d566e9808d80fcd6cc5460b457",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XK1-r1\\exploration\\input-6.png": "9ac457a84d6889eb0f10d1f0654d412f15582b4f2c538406df9ec480b17b69b8",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XE0-r1\\exploration\\result.json": "a8bf5ec2907ecd74ebb15fe3be0d272c394b50d7bdbb3c1fe966f2d826f42e80",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XE0-r1\\exploration\\input-1.png": "adf47910109c1c66eddb9bd8d82b4a26209ff0390210ec1dbbb7ea2b9f22388e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XE0-r1\\exploration\\input-2.png": "2f32fe52c3dc0836428bdf118af447494e74ca625344f6b55d7d43ebf5f32840",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XE0-r1\\exploration\\input-3.png": "522ad81068e165589714d8fd76de9efbd740e0320440ad830b9b21ee52097e80",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XE0-r1\\exploration\\input-4.png": "66b5e70126c24b574b93ec9340172373f9b1bc1a7359758c256875abac6ae94a",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XE1-r1\\exploration\\result.json": "658615d2c3119675415d87d31afbbb487362ba717fbdb179d0ca9d531831e270",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XE1-r1\\exploration\\input-1.png": "adf47910109c1c66eddb9bd8d82b4a26209ff0390210ec1dbbb7ea2b9f22388e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XE1-r1\\exploration\\input-2.png": "53884b103beda9ff5425de6df4f04a34c4c83e6d550c8237560132913f94c31a",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XE1-r1\\exploration\\input-3.png": "522ad81068e165589714d8fd76de9efbd740e0320440ad830b9b21ee52097e80",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\extreme-persona-study-2026-11-06\\flow\\public-persona-XE1-r1\\exploration\\input-4.png": "66b5e70126c24b574b93ec9340172373f9b1bc1a7359758c256875abac6ae94a"
+  },
+  "validation": {
+    "allInspectedRawAndImagesUnchanged": true,
+    "activeReads": 0,
+    "ledgerReads": 0,
+    "envReads": 0,
+    "apiCalls": 0,
+    "productEdits": 0,
+    "allActionsCheckedAgainstNextImage": 20
+  }
+}

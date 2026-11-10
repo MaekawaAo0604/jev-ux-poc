@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "Narrow actual documentation publication review; no broad retests, model calls, environment reads or older payload reads",
+  "sourceHash": "128d87929d31b9ca6e46220c75aa4bb70829a2a5eae818d5835d9a20f359f5f6",
+  "producerRevision": "f0d15c67f2d6679c944788ee52942d9351bf04c0",
+  "checks": [
+    {
+      "name": "published numerical conclusions and qualification",
+      "status": "PASS"
+    },
+    {
+      "name": "producer profile Persona schedule request limits and execution projection",
+      "status": "PASS"
+    },
+    {
+      "name": "aggregate descriptive metrics and strict candidate matching semantic projections",
+      "status": "PASS"
+    },
+    {
+      "name": "per-run raw identity route reason motion and bounded memory-channel projection",
+      "status": "PASS"
+    },
+    {
+      "name": "shared canonical path across all four actor groups and reason counts",
+      "status": "PASS"
+    },
+    {
+      "name": "published case projections and nine actual current-next PNG byte copies",
+      "status": "PASS"
+    },
+    {
+      "name": "copied independent gates evidence raw audit visual case review and source archives byte exact",
+      "status": "PASS"
+    },
+    {
+      "name": "CSV twelve raw route hashes operation counts and reason denominators",
+      "status": "PASS"
+    },
+    {
+      "name": "objective outcomes remain context only and agree with raw",
+      "status": "PASS"
+    },
+    {
+      "name": "README task research and implementation plan publication pointers",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime bytes and sealed live raw remain unchanged after publication",
+      "status": "PASS"
+    },
+    {
+      "name": "fresh root and virtual-beta README sections contents hashes and local links",
+      "status": "PASS"
+    }
+  ],
+  "issues": [],
+  "notes": [
+    "Intentional JSON projections verified semantically, without requiring duplicated raw recovery or full repeated memory references.",
+    "Primary conclusion remains lack of demonstrated path separation beyond observed variation; no goal-success or naturalness ranking.",
+    "Strict distribution comparisons remain unavailable; frozen criteria matcher unchanged.",
+    "Manual ordinal/revisit operationalization clarified during live is explicitly exploratory, with privacy/authentication/device traits unexercised or unassessable."
+  ],
+  "modelCallsByReviewer": 0,
+  "readmeDelta": {
+    "clarification": "Original index target was docs/virtual-beta/README.md; root README received one additional navigation section during narrow review. Both final sections freshly read and verified.",
+    "pointers": [
+      {
+        "file": "README.md",
+        "sha256": "2ee72523358d24c6d5a24a8cc79bc4e1842c00c6cbcb94f9c89af6981527fa43",
+        "sectionLinks": [
+          "docs/virtual-beta/persona-beta-comparison.md",
+          "docs/virtual-beta/persona-beta-results.json",
+          "docs/virtual-beta/persona-beta-review-live.json"
+        ],
+        "status": "PASS"
+      },
+      {
+        "file": "docs/virtual-beta/README.md",
+        "sha256": "a019ef1bbf1b82fe84cc180e63b240769e762fb42de4a51706b5fd743cc8f160",
+        "sectionLinks": [
+          "persona-beta-comparison.md",
+          "persona-beta-results.json",
+          "persona-beta-runs.csv",
+          "persona-beta-review-live.json"
+        ],
+        "status": "PASS"
+      }
+    ]
+  }
+}

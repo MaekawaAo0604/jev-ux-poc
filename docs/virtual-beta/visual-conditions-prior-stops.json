@@ -1,0 +1,290 @@
+{
+  "kind": "historical-separate-producers-not-pooled-performance",
+  "chargedRequests": 339,
+  "independentPhaseMaximum": 554,
+  "phases": [
+    {
+      "phase": "live",
+      "producer": "abe56582c179a3cce6c9e6e59a70f814e368e527",
+      "sourceHash": "6162dce0c00b040ff47324498972613bccf130b8d31615b61b8e8cad0a87d569",
+      "manifestSha256": "c8e18cec3da9783d4d238b80b5e54e1cc91c5b8f039840127c595809333bb98d",
+      "status": "PROVIDER_UNAVAILABLE",
+      "requests": 11,
+      "completeness": {
+        "planned": 18,
+        "attempted": 2,
+        "notAttempted": 16,
+        "valid": 1,
+        "withResult": 2,
+        "plannedPairs": 6,
+        "matchedInitialPairs": 0,
+        "complete": false
+      },
+      "summary": {
+        "experience-action-relations": {
+          "attempted": 1,
+          "valid": 1,
+          "invalid": 0,
+          "objectiveSuccesses": 1,
+          "objectiveFailures": 0,
+          "infrastructure": 0,
+          "requests": 8,
+          "terminations": {
+            "SUBJECTIVE_DONE": 1
+          }
+        },
+        "experience-action-relations-current": {
+          "attempted": 1,
+          "valid": 0,
+          "invalid": 1,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "infrastructure": 1,
+          "requests": 3,
+          "terminations": {
+            "API_ERROR": 1
+          }
+        },
+        "experience-visual-conditions": {
+          "attempted": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "infrastructure": 0,
+          "requests": 0,
+          "terminations": {}
+        }
+      }
+    },
+    {
+      "phase": "compact-live",
+      "producer": "beab36b7b6b7b9e81673b04e044db32e245e1cfd",
+      "sourceHash": "a1643a4481ee4e63675856928a818c6bc0184e4d6a78e95b4366a3a072ca4c3a",
+      "manifestSha256": "ccac4a81a0995ef931395bf125eeb576a9191f03e6558f6eb88123288770040a",
+      "status": "PROVIDER_UNAVAILABLE",
+      "requests": 11,
+      "completeness": {
+        "planned": 18,
+        "attempted": 2,
+        "notAttempted": 16,
+        "valid": 1,
+        "withResult": 2,
+        "plannedPairs": 6,
+        "matchedInitialPairs": 0,
+        "complete": false
+      },
+      "summary": {
+        "experience-action-relations": {
+          "attempted": 1,
+          "valid": 1,
+          "invalid": 0,
+          "objectiveSuccesses": 1,
+          "objectiveFailures": 0,
+          "infrastructure": 0,
+          "requests": 8,
+          "terminations": {
+            "SUBJECTIVE_DONE": 1
+          }
+        },
+        "experience-action-relations-current": {
+          "attempted": 1,
+          "valid": 0,
+          "invalid": 1,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "infrastructure": 1,
+          "requests": 3,
+          "terminations": {
+            "API_ERROR": 1
+          }
+        },
+        "experience-visual-conditions": {
+          "attempted": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "infrastructure": 0,
+          "requests": 0,
+          "terminations": {}
+        }
+      }
+    },
+    {
+      "phase": "global-context-live",
+      "producer": "69f74a58362eada271e423438c1e3fa3dcbf679d",
+      "sourceHash": "dffaab9d829a8eafde1752470d6bcaba93ecea42ac9185ea419563bf05dadeee",
+      "manifestSha256": "ceb36b3c0810bb85408138bceb53b75d99cc4a8738b15a833fc60c109cb33908",
+      "status": "PROVIDER_UNAVAILABLE",
+      "requests": 11,
+      "completeness": {
+        "planned": 18,
+        "attempted": 2,
+        "notAttempted": 16,
+        "valid": 1,
+        "withResult": 2,
+        "plannedPairs": 6,
+        "matchedInitialPairs": 0,
+        "complete": false
+      },
+      "summary": {
+        "experience-action-relations": {
+          "attempted": 1,
+          "valid": 1,
+          "invalid": 0,
+          "objectiveSuccesses": 1,
+          "objectiveFailures": 0,
+          "infrastructure": 0,
+          "requests": 8,
+          "terminations": {
+            "SUBJECTIVE_DONE": 1
+          }
+        },
+        "experience-action-relations-current": {
+          "attempted": 1,
+          "valid": 0,
+          "invalid": 1,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "infrastructure": 1,
+          "requests": 3,
+          "terminations": {
+            "API_ERROR": 1
+          }
+        },
+        "experience-visual-conditions": {
+          "attempted": 0,
+          "valid": 0,
+          "invalid": 0,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "infrastructure": 0,
+          "requests": 0,
+          "terminations": {}
+        }
+      }
+    },
+    {
+      "phase": "opaque-live",
+      "producer": "d6796fca744ee3b9b33f075d45eb2eda4432339f",
+      "sourceHash": "de20ac6b41050e7ae7a3febe8687049441c55ec3342df536e6c07e7aed53726d",
+      "manifestSha256": "cf3415aba3bcf69e0815fd93e6fe9e872f940ccfae3b8cbcccb520cc5aa1e0c4",
+      "status": "MODEL_OUTPUT_FAILURE",
+      "requests": 17,
+      "completeness": {
+        "planned": 18,
+        "attempted": 3,
+        "notAttempted": 15,
+        "valid": 2,
+        "withResult": 3,
+        "plannedPairs": 6,
+        "matchedInitialPairs": 0,
+        "complete": false
+      },
+      "summary": {
+        "experience-action-relations": {
+          "attempted": 1,
+          "valid": 1,
+          "invalid": 0,
+          "objectiveSuccesses": 1,
+          "objectiveFailures": 0,
+          "infrastructure": 0,
+          "requests": 8,
+          "terminations": {
+            "SUBJECTIVE_DONE": 1
+          }
+        },
+        "experience-action-relations-current": {
+          "attempted": 1,
+          "valid": 1,
+          "invalid": 0,
+          "objectiveSuccesses": 1,
+          "objectiveFailures": 0,
+          "infrastructure": 0,
+          "requests": 8,
+          "terminations": {
+            "SUBJECTIVE_DONE": 1
+          }
+        },
+        "experience-visual-conditions": {
+          "attempted": 1,
+          "valid": 0,
+          "invalid": 1,
+          "objectiveSuccesses": 0,
+          "objectiveFailures": 0,
+          "infrastructure": 1,
+          "requests": 1,
+          "terminations": {
+            "API_ERROR": 1
+          }
+        }
+      }
+    },
+    {
+      "phase": "evidence-conditioned-live",
+      "producer": "ac2b8d792d3971f7d02526e9eb43c843d82c0ac8",
+      "sourceHash": "d36dd19f6076cff468bcafe01e71ad194c1dab44080a942d183dda30c9ba98da",
+      "manifestSha256": "58e8854facaf40fa8060d1e5e7e116ee2809b7b09e53f98673d9506b9159d179",
+      "status": "COMPLETED",
+      "requests": 289,
+      "completeness": {
+        "planned": 18,
+        "attempted": 18,
+        "notAttempted": 0,
+        "valid": 15,
+        "withResult": 18,
+        "plannedPairs": 6,
+        "matchedInitialPairs": 6,
+        "complete": true
+      },
+      "summary": {
+        "experience-action-relations": {
+          "attempted": 6,
+          "valid": 6,
+          "invalid": 0,
+          "objectiveSuccesses": 4,
+          "objectiveFailures": 2,
+          "infrastructure": 0,
+          "requests": 92,
+          "terminations": {
+            "SUBJECTIVE_DONE": 4,
+            "DECISION_LIMIT": 2
+          }
+        },
+        "experience-action-relations-current": {
+          "attempted": 6,
+          "valid": 6,
+          "invalid": 0,
+          "objectiveSuccesses": 4,
+          "objectiveFailures": 2,
+          "infrastructure": 0,
+          "requests": 92,
+          "terminations": {
+            "SUBJECTIVE_DONE": 4,
+            "DECISION_LIMIT": 2
+          }
+        },
+        "experience-visual-conditions": {
+          "attempted": 6,
+          "valid": 3,
+          "invalid": 3,
+          "objectiveSuccesses": 3,
+          "objectiveFailures": 0,
+          "infrastructure": 3,
+          "requests": 105,
+          "terminations": {
+            "SUBJECTIVE_DONE": 3,
+            "API_ERROR": 3
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Earlier stopped phases remain separate; failed slots were not replaced.",
+    "All five phases are local fictional UI runs without human records or personas.",
+    "Charged requests include attempted calls with unconfirmed service receipt.",
+    "A producer change prevents pooled performance or a causal UI effect inference."
+  ]
+}

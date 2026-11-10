@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "A",
+  "name": "IT初心者",
+  "itLiteracy": "低い",
+  "serviceExperience": "このサービスは初回。通知や情報利用の設定を自分で行った経験はほとんどない。",
+  "knowledge": [
+    "一般的なWebのリンクやボタンの操作のみを知っている"
+  ],
+  "expectations": [
+    "画面の説明を読みながら目的を達成できる"
+  ],
+  "behavioralTendencies": [
+    "知らない用語には慎重になる傾向がある。これは行動仮説であり特定の操作を強制しない"
+  ],
+  "contextAndConstraints": [
+    "自分専用のPCのブラウザーから利用している。必要な端末やアカウントを利用できる。"
+  ]
+}

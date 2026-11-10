@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "phase": "constraint-choice-2026-11-08",
+  "personaSet": "experiments/persona/constraint-choice-v1/set.json",
+  "fixture": {
+    "version": 1,
+    "task": "methods"
+  },
+  "actors": [
+    "M0",
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "repeats": 4,
+  "planned": 16,
+  "profile": "experience-persona-unweighted",
+  "maxDecisions": 3,
+  "limits": {
+    "trialMs": 300000,
+    "nativeMs": 60000,
+    "UI": 15,
+    "looks": 3,
+    "phaseMs": 3600000,
+    "allocation": 576,
+    "effectiveStageBound": 144,
+    "parallel": 1,
+    "retry": 0
+  },
+  "order": "Four-position cyclic actor rotation; fully position-balanced across4replicates, not randomized.",
+  "endpoint": "First explored method and saved method are separate; raw/normalized/filtered distributions and reasons retained. Functional completion independent of method admissibility.",
+  "stop": "Immediate source/accounting/provider/safety faults; three consecutive trusted model-invalid outcomes. Timeouts infrastructure, no replacements.",
+  "humanInputsRead": false,
+  "savedInputResends": 0
+}

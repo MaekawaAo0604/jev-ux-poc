@@ -1,0 +1,20 @@
+# Controlled comparison design (issues #2 and #3)
+
+User approved executing the proposed order on2026-11-09JST. Reuse linked worktree feature/virtual-beta-information-state at037c7546bde76f2bf3de456883c990182b8834a2, preserve E source/.env and all prior raw. No budget confirmation or merge to default. Parent manages shared types/core/replay/CLI/protocol/docs; two implementation modules have disjoint ownership; fresh verifier follows integration.
+
+## Acceptance
+1. Legacy CLI/configs remain default-compatible. New opt-in --comparison-plan uses precomputed condition x distinct replicate seed, paired seeds across conditions and cyclic position balance. Each trial has its own API cap; sum of allocated caps must fit batch<=48, no silent shared-budget starvation. Invalid plans fail before credentials/output/browser/API.
+2. All planned/attempted/invalid/censored/missing rows remain explicit. API/TIME/UI/DECISION/LOOK limits are imposed censoring, ABANDONED voluntary, API failures infrastructure. Persist checkpoints and all request accounting including errors. Persist source/config/initial image/Persona and model waiting vs modeled time. Fixed seed is sampler reproducibility, not external model determinism.
+3. Opt-in BetaConfig.factors={informationChannel:'image-state'|'dom-state',extraActions:{look:boolean,reread:boolean,wait:boolean,abandon:boolean}}. Existing behavior and selection stay authoritative. Require state.enabled=true; memory off is capacity0 so current observation/expectations remain identical. Require single-stage basic profile (no enabled deliberation/experience/deferral/etc) in this initial contract; no unknown switch keys. DOM-state requires full vision. Legacy absence means no changed default wire/candidates.
+4. image-state admits no DOM screen/history/semantic labels/visibleText, even on full screenshot. dom-state admits current screen and visibleText but never unbounded history. Extras independent of memory. Same screenshots/ordinary click tool; no forced solution/path/action weights. Code controls information/candidates, not human fidelity.
+5. Replay validates opted-in config, actual offered keys/labels/question guidance/current input/state/memory/assets and selection-config/action binding. Hash-consistent tampering still fails. No root human logs or saved-input resend to API.
+6. Scope #3 pilots: common base full image-state/engine enabled/memory0/user question/UI-only vocabulary/argmax. Separate variants sample only, memory3 only, extra vocabulary only, goal question only, dom-state only. Compare each against base, not variants to each other as one factor. Three distinct paired seeds, no human fit inference.
+7. #2 bounded pilots legacy4conditions seeds3 caps3/6/12, each per-seed batch<=48. #3 sixconditions seeds3 cap6 eachbatch36. Total54planned, allocated360stagecalls maximum, parallel1/retry0, phase45min. At3consecutive trustworthy model-invalid or provider/accounting/safety/source/audit failure stop; timeout infrastructure, pending remain missing. No forced replacement. Operational caps are a parent choice, not a claimed user research threshold.
+8. Scoped tests/build/mock transport/actual bounded model runs/independent verification and repair<=3rounds, featurecommit/push/remote verification. Human data collection and Issue4 performance validation remain out of scope; no automatic Issue close or external comments without explicit request.
+
+## Rulings
+- Use normalized state engine enabled with memory0/3 rather than state.enabled toggle: preserves current observation and fixed Persona expectations.
+- Information channel includes permitted text representations and neutral candidate labels; its effects are an information-channel bundle, not an image-transform effect.
+- Legacy condition state remains bundled; new named factor configurations provide separate contrasts.
+- Existing48batch/perRun12 limits stay unchanged. Larger allocations run separate predetermined batches.
+- No new dependency or model-training artifact; existing source is the implementation authority.

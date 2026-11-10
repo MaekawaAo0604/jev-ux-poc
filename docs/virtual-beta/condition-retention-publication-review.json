@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "scope": "PUBLICATION_INTEGRITY_ONLY",
+  "createdAt": "2026-10-29T21:40:59.531Z",
+  "producer": "43f2f062e98f7e8892c48c1ec93a6f8d96ba1c8f",
+  "observedHEAD": "43f2f062e98f7e8892c48c1ec93a6f8d96ba1c8f",
+  "sourceHash": "b1f1f204df8779617f4f2b19a39720e3544a219d5d3b09c864b0cbaba1c28b4b",
+  "publicationFreezeSha256": "30ed150867bf096c75180ac297348cdb7021ec0c0e0b9bb82adebda5116c7eed",
+  "addendaSha256": "38a383ae8df5a669d957572fb28d2283b81cd4eed5d5e0120f9b879d25080ca7",
+  "verified": {
+    "frozenPublicFiles": 15,
+    "exactOldContentPrefixes": 4,
+    "CSV4PNG3GATECopies": "8 exact byte copies",
+    "publicJSONDelta": "independentAudit reference only",
+    "links": 13,
+    "secretPatternCategories": 5,
+    "secretMatches": 0,
+    "counts": {
+      "planned": 4,
+      "attempted": 2,
+      "unattempted": 2,
+      "valid": 0,
+      "charged": 48,
+      "native": 17,
+      "assessment": 16,
+      "action": 15,
+      "knownReceipts": 46,
+      "unknownReceipts": 2,
+      "prespecifiedFrames": 8,
+      "present": 4,
+      "missing": 4
+    },
+    "failures": "Retention o8 native TIMEOUT; recent o9 native admitted then Jev assessment TIMEOUT. Shared step.error mirrors not double-counted.",
+    "limitations": "Final HTTP timeout unrecorded; core/extractor plan distinguished. Comparison incomplete; performance/human agreement/causal effect not approved.",
+    "historicalDocuments": "Original bytes remain intact; old findings are historical snapshots. Only explicit appendices carry current results and next work."
+  },
+  "preservation": {
+    "source154": 154,
+    "oldFrozen933Unchanged": true,
+    "appendOnlyExceptions4": true,
+    "protected86Unchanged": true,
+    "protectedIndex3AppendOnly": true,
+    "raw5784Unchanged": true,
+    "allRound1Round2EvidenceAndLiveGateUnchanged": true,
+    "producerZIPAndExportUnchanged": true,
+    "publication15UnchangedAtEnd": true
+  },
+  "findings": [],
+  "existingOpenRequirement": {
+    "id": "LIVE-MEASUREMENT-001",
+    "severity": "P1",
+    "status": "UNRESOLVED_AND_ACCURATELY_DISCLOSED",
+    "reference": "docs/virtual-beta/condition-retention-review-live.json"
+  },
+  "overallGoalComplete": false,
+  "tests": "No339 tests rerun; this gate checks publication bytes, prefixes, provenance, counts, links and limitations against preserved independent results.",
+  "auditActions": {
+    "APIRequests": 0,
+    "environmentFilesRead": 0,
+    "humanLogsRead": 0,
+    "productEdits": 0,
+    "publicDocumentationEdits": 0,
+    "GitWrites": 0
+  },
+  "evidence": {
+    "checks": {
+      "file": "checks.json",
+      "sha256": "59555086d07bb24ddb424a472aa587ebd191b41c91adbcb938c51236f9b676dd"
+    },
+    "log": {
+      "file": "checks.log",
+      "sha256": "164813185dd2f4ab7f5229b4b8c6d5b384edf146dc9ed6f6af3d0e93c106eff2"
+    },
+    "script": {
+      "file": "check.ts",
+      "sha256": "a4f690e0fec9b27c276af1e936036cf6438fd8af3e468e9ad4e362c04f6d468e"
+    },
+    "after": {
+      "file": "after-preservation.json",
+      "sha256": "83bdd9d719e58f49e5f59ff5313f24c7c1e2a19b8ee72d7f3598c81d697a4cb7"
+    }
+  },
+  "editingStoppedAfterThisGate": true
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-domain-separated-sampling-diagnostic",
+  "counts": {
+    "seeds": 10000,
+    "inspections": 1927,
+    "continuations": 8073,
+    "gaze": {
+      "look_0": 478,
+      "look_1": 454,
+      "look_2": 497,
+      "look_3": 498
+    },
+    "ordinary": {
+      "back": 3996,
+      "reread": 4077
+    }
+  },
+  "gazeFrequency": {
+    "look_0": 0.24805396990140113,
+    "look_1": 0.23559937727036845,
+    "look_2": 0.25791385573430203,
+    "look_3": 0.2584327970939284
+  },
+  "ordinaryFrequency": {
+    "back": 0.49498327759197325,
+    "reread": 0.5050167224080268
+  },
+  "derivationCheckedForAllRootSeeds": true,
+  "selectionSamplerFileSha256": "284711d5f7e0900f443ba6a63381f1d7eac2ed4add6b7d2a680815a8e7488e34",
+  "streamDerivationFileSha256": "1b3519444184b935afc12a2ab3d3e9dc19a5b99bb769d53b5c8ce898d34335b0",
+  "priorDefectEvidence": "sampler-coupling-v1.json",
+  "scope": "Offline deterministic sampler diagnostic; separate runtime tests exercise actual actor across512roots and strict replay."
+}

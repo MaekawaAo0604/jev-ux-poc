@@ -1,0 +1,73 @@
+{
+  "checkedAt": "2026-11-09T11:21:52.437Z",
+  "sourceHash": "c91a8213caeb35576e21b0c90c64008b04c016e08db68573bc15c38174fb6389",
+  "sourceFiles": 194,
+  "inputFiles": 9,
+  "archive": {
+    "archive": "docs\\virtual-beta\\vision-source-c91a8213.zip",
+    "sha256": "46111bd4abee098c75eb3fa57687bebe4d9a19075d33a1210ba85c264a25f5c8",
+    "entries": 195,
+    "sourceFiles": 194,
+    "allSourceBytesMatchFrozenHashes": true,
+    "freezeBytesMatch": true
+  },
+  "metadataCopies": 4,
+  "images": 5,
+  "verified": [
+    {
+      "source": "reports/vision-isolation-2026-11-09/live-r1/phase.json",
+      "published": "docs/virtual-beta/vision-phase.json",
+      "sha256": "92e3d479205dac4729f8b5f542d65868f0924eedb1a023eef5277c61c80ca23d"
+    },
+    {
+      "source": "reports/vision-isolation-2026-11-09/parent/run-study.ts",
+      "published": "docs/virtual-beta/vision-phase-driver.snapshot.txt",
+      "sha256": "97bb8c8dc18160ebf3d3eea8f446e657a7de79b464d8e45c70980948deff58b6"
+    },
+    {
+      "source": "reports/vision-isolation-2026-11-09/independent/actual-verification.json",
+      "published": "docs/virtual-beta/vision-independent-actual.json",
+      "sha256": "f63e92377d79fdca6b01f88b78cd10bd16fe7797acc9c471591236ff37aac356"
+    },
+    {
+      "source": "reports/vision-isolation-2026-11-09/independent/prior-raw-verification.json",
+      "published": "docs/virtual-beta/vision-independent-preservation.json",
+      "sha256": "a945db952f219313815dad9bdc364c6bd145768a4cd23d8b642582c1545b1509"
+    },
+    {
+      "published": "docs/virtual-beta/vision-frames/full-goal-control-offered-dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e.png",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\vision-isolation-2026-11-09\\live-r1\\vision-m0-seed4001\\full-m0-seed-4001\\input-2.png",
+      "rawSha256": "00fcc2600027e2e35f19a16a01cef5b67fb40f48e7caaaa2363f8a6bbddb642b",
+      "sha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+      "annotationVerified": true
+    },
+    {
+      "published": "docs/virtual-beta/vision-frames/foveated-before-look-5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049.png",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\vision-isolation-2026-11-09\\live-r1\\vision-m3-seed4001\\foveated-m3-seed-4001\\input-1.png",
+      "rawSha256": "634b0a29615c1e93d3afd1fac60facf3bb64f76e74b6bfc72ab399b69977c835",
+      "sha256": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+      "annotationVerified": true
+    },
+    {
+      "published": "docs/virtual-beta/vision-frames/foveated-after-look-entry-2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095.png",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\vision-isolation-2026-11-09\\live-r1\\vision-m3-seed4001\\foveated-m3-seed-4001\\input-2.png",
+      "rawSha256": "634b0a29615c1e93d3afd1fac60facf3bb64f76e74b6bfc72ab399b69977c835",
+      "sha256": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+      "annotationVerified": true
+    },
+    {
+      "published": "docs/virtual-beta/vision-frames/foveated-goal-not-offered-back-9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485.png",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\vision-isolation-2026-11-09\\live-r1\\vision-m3-seed4001\\foveated-m3-seed-4001\\input-3.png",
+      "rawSha256": "634b0a29615c1e93d3afd1fac60facf3bb64f76e74b6bfc72ab399b69977c835",
+      "sha256": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+      "annotationVerified": true
+    },
+    {
+      "published": "docs/virtual-beta/vision-frames/crop-goal-not-offered-back-749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b.png",
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\vision-isolation-2026-11-09\\live-r1\\vision-m3-seed4001\\crop-m3-seed-4001\\input-3.png",
+      "rawSha256": "a0c16cb4610c6e2543d6c349032c49bca75ab1ee20d4dc320a34b05aa4a3d2c9",
+      "sha256": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+      "annotationVerified": true
+    }
+  ]
+}

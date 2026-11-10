@@ -1,0 +1,1596 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-actual-verification",
+  "status": "PASS",
+  "source": {
+    "revision": "9e403ae9ce1f1e29840481a06f1f2504b7cf3058",
+    "sourceHash": "3decbfde991586a623258781f440024255dda55c125ca293c1c950f2a9b6d46a"
+  },
+  "phaseFile": "reports\\attention-reselection-2026-11-09\\live-r1\\phase.json",
+  "phaseSha256": "9827637a7e9c73e884da2824cdfe60f60eea6666afebfbb92689dff9c2425545",
+  "driverSha256": "99bcd1dc1d7903180b27a858f7479db9bf24e986c3866c9433698d939c2cb142",
+  "verifierSha256": "2a0f5e7cfcd2724012fac933e6aedbe6e87b59344b892fa5b7c11ecb09fcdcdf",
+  "totalRequests": 114,
+  "trials": 12,
+  "initialFingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908",
+  "sourceFiles": 195,
+  "artifactCount": 282,
+  "artifactHashes": {
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\analysis.json": "e2d811b1909e36d3203f82d04ca2ebfaf6df26f459191da169fd7c8f1329aa12",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\audit-1.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\audit-2.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\audit-3.png": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\audit-4.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\audit-5.png": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\audit-6.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\audit-7.png": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\final.png": "d95bb9b85a27b6947b11fb152dd36ea60a3b3f3cf25844a13e942e515c610993",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\input-1.png": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\input-2.png": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\input-3.png": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\input-4.png": "4274d44ba2fa8bb0673e3307ab41c6470af18f2da868cae54a0647bdba5c2c87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\input-5.png": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\input-6.png": "4274d44ba2fa8bb0673e3307ab41c6470af18f2da868cae54a0647bdba5c2c87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\input-7.png": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\result.json": "d374ce597db8f654787142b8edd721e91c2e5315bfd508575a6dc7dfb3c64a96",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\step-1.json": "92a9b5304e059de606c5ccf642827a5def4bcbd4b564a4b1d6d47cd26be0e984",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\step-2.json": "52bbc5616aba113c89a3c0664f98bfe179e490a4e317110238cbd365e0719c02",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\step-3.json": "5fbedf01c2002182dad1f3aa0a41770b2f4a1aad277c83f54fd8a73234c31cad",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\step-4.json": "e57ecc37b071d419bcd87e07b6803006e0df7d392e8cf9bb145a44610b60b121",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\step-5.json": "97cd7bfc805352ad8313643d3ae5f85aabcf8c393857c6d0495f866818b36dfe",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\step-6.json": "b0607efcbdb31a852a0ae620e5e5ced53f4e314716bdc0743dcd07401f9ea58b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\step-7.json": "75b9ebed1e22aac6f6e646e74f08804f0586c5fa9ca175d123d78d9f337a7b81",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-current-seed-5001\\trace.zip": "730bd0d5084126da9fee5de3ae020b8c46abea6527836f96843e240037af4fbf",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\analysis.json": "664fd16833929676a1fd788177fe149e78ea52fc6c4400f90964cfd4bca80f5f",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\audit-1.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\audit-2.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\audit-3.png": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\audit-4.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\audit-5.png": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\audit-6.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\final.png": "d7f741d540b3f1847f6be3295e3b1e2227cac9667d20ad91ae27415552310707",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\input-1.png": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\input-2.png": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\input-3.png": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\input-4.png": "4274d44ba2fa8bb0673e3307ab41c6470af18f2da868cae54a0647bdba5c2c87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\input-5.png": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\input-6.png": "4274d44ba2fa8bb0673e3307ab41c6470af18f2da868cae54a0647bdba5c2c87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\result.json": "244c23f0f4dd7d61c9ac6b84ffbbaef4f23b5632ff8539809d1c5cbb9856e3fa",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\step-1.json": "a70529fbd09701f065c7670d89187002b4d7d942cb11a414bb962895de3f092f",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\step-2.json": "419af941f6336b39325622de9a8c135cee3c04f766d1c75b3ab4627f8c11119f",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\step-3.json": "b8fa710a9323e54f8746199a314602f2605d0dbe7dba33ee78f882846029d607",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\step-4.json": "87d8c357e9d16f853464a36724ec5307f5b8f01e1705b776c1ae2353e554139d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\step-5.json": "b4d59272c9d3c04df270e5821a8e50ade043526dabbc14e9dd3228e37bb3d06d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\step-6.json": "53f0dc4781aeb78effbf84a3e64ceed6754483dcbd879759b1ffc4dbd0bc7740",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\crop-attention-seed-5001\\trace.zip": "721bec2c6f9ca9c596332d6774dda3b5d8783815be238d2e087209219711f470",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\analysis.json": "4d70143422f8dd0e20096c39030709ebca7963901f0bd1a5b14bf63da4dca502",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\audit-1.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\audit-2.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\audit-3.png": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\audit-4.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\audit-5.png": "1c7c18c38bc68657bcbcf9a55ef2c00777516fd595925c4f7c9b5f3dc751dc04",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\audit-6.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\audit-7.png": "1c7c18c38bc68657bcbcf9a55ef2c00777516fd595925c4f7c9b5f3dc751dc04",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\final.png": "2abcd19aa7a952209145433d980ac8d0f39f6c51007e8be8a5524c96ec7291e0",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\input-1.png": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\input-2.png": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\input-3.png": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\input-4.png": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\input-5.png": "40fd32d510cd176ade9df89893f11069f64f0bfdbe0351d9ce9642b8fe598d87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\input-6.png": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\input-7.png": "40fd32d510cd176ade9df89893f11069f64f0bfdbe0351d9ce9642b8fe598d87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\result.json": "63801a84c33d33bf1e923fe7515e05929cf24dcdeba5bd4d661e162dcee3e55c",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\step-1.json": "e10a7feb1356a4bd755b4e87cb08ed2a4d062ac227198c7488caf5758f33b7cb",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\step-2.json": "b1cb5a81837ab7a8ce569abad21b9bfce3b07801b964e1cde84397ef4c19dd98",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\step-3.json": "450d5c39ad5b8859074259d61cf43bb9f126ac0fe930c91ef03dba8777c4b643",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\step-4.json": "9d598423423947774398f948997ce89eeda44acd358a909f1e7616a785dfb806",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\step-5.json": "a800ef4c07c03fb101524eaf44f5cd9b0df4a26bbc93c3cde66f1b1314624037",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\step-6.json": "324c0144fb4b652060fc9016aac6be9a0ffa325510f2a8f4236c679ef413557c",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\step-7.json": "cacaf5ebb2d7e063de4079e5c00eac1b7f9b59317ed059159a0ab20fe1af3b20",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-current-seed-5001\\trace.zip": "afd27802ed9d9c894e9cb41fc7c9a2218155b68ea351a7b4b19c698f8d00353d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\analysis.json": "ec2ced552987f5b3ed4c6faed4e0a78c44279e5f81873c9f9746f887695b4057",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\audit-1.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\audit-2.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\audit-3.png": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\audit-4.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\audit-5.png": "1c7c18c38bc68657bcbcf9a55ef2c00777516fd595925c4f7c9b5f3dc751dc04",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\audit-6.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\final.png": "d7f741d540b3f1847f6be3295e3b1e2227cac9667d20ad91ae27415552310707",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\input-1.png": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\input-2.png": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\input-3.png": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\input-4.png": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\input-5.png": "40fd32d510cd176ade9df89893f11069f64f0bfdbe0351d9ce9642b8fe598d87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\input-6.png": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\result.json": "75b9bbd64ebc6749d3041bdcb0f9bb4943d56f94596abadac9c0bfa451a99565",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\step-1.json": "b5d910945a12c72f707cb8b0e2bf091d3b18104780c83c0099cd5dcff8f44294",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\step-2.json": "a327fc2b6060bf8dfe61364cf93e50ff13259a001732df8a342b96f49192d97d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\step-3.json": "f9d56f8206366ac14ee7189952f8be282ed3c854d087acebe44a11aaf1527df6",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\step-4.json": "1972be5af80310ef65c621bf7ede04561babc548d41d81a9003380514270195e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\step-5.json": "40abd60e1e2e36286a7c1e14a075871901ad2c7135e851c7c10462b24890a406",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\step-6.json": "e6bd208ba64a367ed72647b9f06e9a1dc54d22b31dd1be7bfbdc4e045e0d7385",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5001\\foveated-attention-seed-5001\\trace.zip": "01ea533ffc7c59a2ffe03af40fadbbde5e264d2923a95d80b764bd29d12fa4c8",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\analysis.json": "4755ada95aa8732159f2a488432d4d70487daeefd7ad9b35c3bfb854ae5290e9",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\audit-1.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\audit-2.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\audit-3.png": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\audit-4.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\audit-5.png": "1c7c18c38bc68657bcbcf9a55ef2c00777516fd595925c4f7c9b5f3dc751dc04",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\audit-6.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\final.png": "d7f741d540b3f1847f6be3295e3b1e2227cac9667d20ad91ae27415552310707",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\input-1.png": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\input-2.png": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\input-3.png": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\input-4.png": "4274d44ba2fa8bb0673e3307ab41c6470af18f2da868cae54a0647bdba5c2c87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\input-5.png": "2ffaeb2b30014d5b6f0245bc32b69abe83e6b49d52354dba6cdde808f9c0e677",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\input-6.png": "4274d44ba2fa8bb0673e3307ab41c6470af18f2da868cae54a0647bdba5c2c87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\result.json": "67a0c55ba5229d2556be314925e99900df61463cfbf8dbd2ec543d2c061ca74c",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\step-1.json": "8e999529b36e56dfe157c3ebef5a0be043d894de01ca6ff57385fccbc0c87339",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\step-2.json": "be927329ab84540cd6e3656d18240e91ce9ffba6acad556c49dcb8255baaf4ac",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\step-3.json": "b00ac9f55ab284051d56f025357265c92ad0c7a3a7f52e6e434460629281ab7d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\step-4.json": "dfb4b49a5693d217683026ef13aabf0d9364131d3a029cc2336cd8e5c81588d2",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\step-5.json": "5fdecc66240037437be0b317f4c236e37654a5bd848e555596975ee2c004069d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\step-6.json": "b9c7e3886f7b4b2097ce294e5e71e126e7bb18181caa1f8afbe4ffb16ea600b9",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-attention-seed-5002\\trace.zip": "34befeb71b850df0fe82e031c6209e3978c866a8b31c45e45c44b50220e5ed3d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\analysis.json": "8039decda93e5325a2279b2bc618547f2692352018cd4ffe8e2138a3eaee7e2e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\audit-1.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\audit-2.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\audit-3.png": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\audit-4.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\audit-5.png": "1c7c18c38bc68657bcbcf9a55ef2c00777516fd595925c4f7c9b5f3dc751dc04",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\audit-6.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\audit-7.png": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\final.png": "2abcd19aa7a952209145433d980ac8d0f39f6c51007e8be8a5524c96ec7291e0",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\input-1.png": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\input-2.png": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\input-3.png": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\input-4.png": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\input-5.png": "40fd32d510cd176ade9df89893f11069f64f0bfdbe0351d9ce9642b8fe598d87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\input-6.png": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\input-7.png": "7416af44b337ab5d542f8442a2c6577ff50b036c2257fc191c46964a181feadb",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\result.json": "62fed3fd4c77e7be0c8c8148b352bfa3f345408346cfb43ffb037ce1a8c27bda",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\step-1.json": "3ff3719fa90389b786748d58a21a203736336ac46e916171b088988aa38d5e21",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\step-2.json": "70106b75f0bcb8e11ae6797cac6a16d7770326472f710fedb22f6e51d1dfaa43",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\step-3.json": "fb52a7e453b5596881e7ed8f2668d9d5e5d07fcd7f03a630782b06366b42d1c9",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\step-4.json": "40981aa5b284cff59ee60bbf6783edba76715d536818e42c82de7e645d9762b4",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\step-5.json": "0bbe7bf4b4dc8400450f8d776bf0222384a210424aac122b843efa9be3b68f5a",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\step-6.json": "b16898c5120bfddbcd53842906d5c531c215ec2e87a2a0da39c3c4af9409a6d2",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\step-7.json": "ac430ead7995858da8c6f95064dd47f1c308d01adf1bb3e2fe342dc130976ece",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-current-seed-5002\\trace.zip": "9426e27435a27856a5e2d2be77ac29d572a1a1ad287b42725ebe1a05511935da",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\analysis.json": "9433177b9dd8237aef5d464fbc3423619fd8884491a937378012c7d9e90cd7a8",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\audit-1.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\audit-2.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\audit-3.png": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\audit-4.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\audit-5.png": "1c7c18c38bc68657bcbcf9a55ef2c00777516fd595925c4f7c9b5f3dc751dc04",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\audit-6.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\final.png": "40de21200adef2249d9455f9a1f594c7b119df18393a6d72d5acf262fb5e448a",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\input-1.png": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\input-2.png": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\input-3.png": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\input-4.png": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\input-5.png": "40fd32d510cd176ade9df89893f11069f64f0bfdbe0351d9ce9642b8fe598d87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\input-6.png": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\result.json": "76f72e245b10129a20d1ed05d7702acbcdaf934244075e7985a7baa64e9db403",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\step-1.json": "4495e019ebd5ee2463afd5885267b0b75471fb3f23f578e173d1a380394c38b2",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\step-2.json": "9bd76a2a3bb08e008cc90ebecb90a3efb6459cb737da2a81d19d425dafce56cc",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\step-3.json": "a61917debf69321f3a92175f434254df0e9cb8b91aed228769abee083df88ea0",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\step-4.json": "600f69d54e9b365f18799c67aad16015079dd232f654cd3acec8c05a4afcab18",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\step-5.json": "5b7c7a2fca2bd44fc87eec79f0a527d3381c6745d01c2b552fbff94c099b7b09",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\step-6.json": "333911d23243d106f65265bd3af0bdaf5cbab9e9b8cceb8e48c98abb51c608ba",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\foveated-attention-seed-5002\\trace.zip": "22ed83635e84f466eaf2926af230cf6a8c72f1c51532b575608b00d078f5d47f",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\analysis.json": "8afa3e552f28657c4d49e3a6a9f26653bcdf96894e70c221f022f2b716b8bcf9",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\audit-1.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\audit-2.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\audit-3.png": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\audit-4.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\audit-5.png": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\audit-6.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\audit-7.png": "1c7c18c38bc68657bcbcf9a55ef2c00777516fd595925c4f7c9b5f3dc751dc04",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\final.png": "42837ae61f8fd45da7545f600b3739a0039d908fa691c0eb84fc8bb4acee28ea",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\input-1.png": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\input-2.png": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\input-3.png": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\input-4.png": "4274d44ba2fa8bb0673e3307ab41c6470af18f2da868cae54a0647bdba5c2c87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\input-5.png": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\input-6.png": "4274d44ba2fa8bb0673e3307ab41c6470af18f2da868cae54a0647bdba5c2c87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\input-7.png": "2ffaeb2b30014d5b6f0245bc32b69abe83e6b49d52354dba6cdde808f9c0e677",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\result.json": "91a4795b59307e7cac8bb57f834e4a2a83236c9fec6f5db9b9bccb8af5c6d530",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\step-1.json": "6e75ebf9fdfbb7a6713cbcc52eab865f7bd8e6a96661ef40ca95e61786a23266",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\step-2.json": "717826a84937a0f604973890dcdc8e6b5dd25a5c295a28d81debfe692d793c9d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\step-3.json": "47ca12ccb65f7a780d2e90a6a70969b4c20de66e8af8bb878757d2de229db133",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\step-4.json": "e8dfd7aa824df0590d996490b4f6a344aa76dd3e57a240d91fd66b5ed2fb85c4",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\step-5.json": "cce970dc786005f37d13018b6afe50d3c396892283b388ce5985232fb6ef9f07",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\step-6.json": "0969321469ad7b114dcff1211f9a560c519bd22f1d21b37f458765ba55759636",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\step-7.json": "da37de583880d24653760be5fb2890b144ad9bce3bd822d60f4eba653d982e78",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5002\\crop-current-seed-5002\\trace.zip": "cebe1da92de581b4035e97f044f52fd16e8b4465fab9487781378895e057cd0c",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\analysis.json": "d8be3c742a898572f919f1cd330152f94e39644fd95414cf87b7df9f36182382",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\audit-1.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\audit-2.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\audit-3.png": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\audit-4.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\audit-5.png": "1c7c18c38bc68657bcbcf9a55ef2c00777516fd595925c4f7c9b5f3dc751dc04",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\audit-6.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\audit-7.png": "1c7c18c38bc68657bcbcf9a55ef2c00777516fd595925c4f7c9b5f3dc751dc04",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\final.png": "42837ae61f8fd45da7545f600b3739a0039d908fa691c0eb84fc8bb4acee28ea",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\input-1.png": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\input-2.png": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\input-3.png": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\input-4.png": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\input-5.png": "40fd32d510cd176ade9df89893f11069f64f0bfdbe0351d9ce9642b8fe598d87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\input-6.png": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\input-7.png": "40fd32d510cd176ade9df89893f11069f64f0bfdbe0351d9ce9642b8fe598d87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\result.json": "99c0cf0929ca10ea80758bb0daa836ec13259ee559bf65ea83a2d4318192f1b6",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\step-1.json": "7874f7499794d784dda3df3afebb2c478c5b024fddc75d391f059178cf896aed",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\step-2.json": "40fcfde070b1ea032f870fa1e094c224e61d43daa5f5be6458a6cecc300720c8",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\step-3.json": "bb72eb3073c48d86e0b8fc90937fea9c04ecb715bb5fa4ca1f2964112a498988",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\step-4.json": "40ee706810315f9ab915600c00ce59fef23bf8cf27a5a5d8e0087f3c15ff6235",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\step-5.json": "4891e19a2c34420f8c27340a60d90d0a43b626f0d72ae79c7a29f07d0439cfa5",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\step-6.json": "d0f638293fdd68a899debc1ce1c247d454b15b91ef1a26ab4e63e3be7183d89f",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\step-7.json": "00d46d1428e24ce3302bb48726373950f08bed94735ef7cb0976b332fbeee790",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-current-seed-5003\\trace.zip": "87c08dc83ac22c807bd93f0c7f242b86972428011b10f5afcff2fa5aebd0e0fc",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\analysis.json": "066b92ed1cd415a70a3c42d42f0696c9dce26c509e6d16fd626657d58c566e83",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\audit-1.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\audit-2.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\audit-3.png": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\audit-4.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\audit-5.png": "1c7c18c38bc68657bcbcf9a55ef2c00777516fd595925c4f7c9b5f3dc751dc04",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\audit-6.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\final.png": "40de21200adef2249d9455f9a1f594c7b119df18393a6d72d5acf262fb5e448a",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\input-1.png": "5bc229cc439823e85908c7de09575cb9f36acda396a80cdca0baeea0ff3e0049",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\input-2.png": "2774ad3f6c5c84a0cc3b7e4b71a2d1e2c1acd11d4889b310946b5293922fb095",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\input-3.png": "9aeb18e0648386b41b8601cf75429fdd33fc69ae5c77de16d6f7e479107a0485",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\input-4.png": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\input-5.png": "40fd32d510cd176ade9df89893f11069f64f0bfdbe0351d9ce9642b8fe598d87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\input-6.png": "c0112eaebc14e620173712981067a3d5261f08b56b7bc048911c4f569b799733",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\result.json": "1d8a1ba625381879007dfd85f4bb5734e49a01e9c3dcb78ca7cb75ef5e5dc26f",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\step-1.json": "a74159dedcb86a06d39062d69c738bbb07fb9227ad0fe396d6eae5b5d43206a1",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\step-2.json": "950227169c75b788e811e4f376731db3614cc23d54031fe590071997c78ea805",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\step-3.json": "38fc58279c7fdfb7e93022a931b149ae0fc20094e4bc990d2343ee217216621c",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\step-4.json": "eae4fefeeda59a890bdc2a1f26bb572826fac83c1dcabe550919874acb4c12eb",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\step-5.json": "762872862f8ee0a5eba95b46f26998bdb15b63965a3cd1c2bd138538eac58008",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\step-6.json": "89873b74fcf58ebe877dad8a3a3f4d539a7fbdfbf034129a7120751ab6584fb1",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\foveated-attention-seed-5003\\trace.zip": "6db753b55d38bbefb83fa45fab9c16ea6a34dd6280e05354455a6f2ef9827cb7",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\analysis.json": "f4e419aeb3457b2178773b4082ca4b4543d1c21a5ecc4d2245a6e8498ef3899a",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\audit-1.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\audit-2.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\audit-3.png": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\audit-4.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\audit-5.png": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\audit-6.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\audit-7.png": "1c7c18c38bc68657bcbcf9a55ef2c00777516fd595925c4f7c9b5f3dc751dc04",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\final.png": "d95bb9b85a27b6947b11fb152dd36ea60a3b3f3cf25844a13e942e515c610993",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\input-1.png": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\input-2.png": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\input-3.png": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\input-4.png": "4274d44ba2fa8bb0673e3307ab41c6470af18f2da868cae54a0647bdba5c2c87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\input-5.png": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\input-6.png": "4274d44ba2fa8bb0673e3307ab41c6470af18f2da868cae54a0647bdba5c2c87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\input-7.png": "2ffaeb2b30014d5b6f0245bc32b69abe83e6b49d52354dba6cdde808f9c0e677",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\result.json": "31dc8fb310d264293789400f7e9362cc63b7268f8d6314e2088738d5432b37f7",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\step-1.json": "a02749c90d5a0392424bd6d3c21376f43554a192b128375c43b9b94a25bc326a",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\step-2.json": "c13571205ca3de9b6ca8e8b53012e46932a0cc29bbeb6e4406ebe44a8eea81e6",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\step-3.json": "6deb884edcf2ef1c198dd2af0a7c9218152f23ddf0c4470ded91a25e0e784c12",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\step-4.json": "d0355444ecfbbce3a22b7be0a1a7f5d30aae96ece0d446ac733866a97d1f53ee",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\step-5.json": "dc3e4d19a415a00062051772c98d55c24a74334bc394cdc84fe442b13ce77ea7",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\step-6.json": "414acc6aba11ad2976d45ae199e60e2ff1968586f87e274489a3bbbdcf4ce37b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\step-7.json": "158cbac729128722715a3897b9a9630ad1a73e5e731a966ed78361497799b652",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-current-seed-5003\\trace.zip": "2337f5d8f8527b9270510eda151e0114f0a4f9dfa78bee5e9a1a22d0f381e639",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\analysis.json": "f83f680a97709ede02389f95474c6c1a028b703650d45cc3139cc1433a2f8738",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\audit-1.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\audit-2.png": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\audit-3.png": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\audit-4.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\audit-5.png": "3a9c00549bd8f046c9a3791f7ae26cd35ce1f271b8fe9f3ca6651b3db19abd34",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\audit-6.png": "96246721947a2254dad5abec898629730e892ff63ee7c4fe646b2ab6e366ac4d",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\final.png": "d7f741d540b3f1847f6be3295e3b1e2227cac9667d20ad91ae27415552310707",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\input-1.png": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\input-2.png": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\input-3.png": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\input-4.png": "4274d44ba2fa8bb0673e3307ab41c6470af18f2da868cae54a0647bdba5c2c87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\input-5.png": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\input-6.png": "4274d44ba2fa8bb0673e3307ab41c6470af18f2da868cae54a0647bdba5c2c87",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\result.json": "c05c1c5e11b9df0dac423c042c38a63742c12275a3d793695c597ac2eec9a696",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\step-1.json": "f7899a04ddf9c8da1da91bc26c8b936cc78fbf9cb345fd140e178eaeac204eb1",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\step-2.json": "d765c7fe724f3836e983dd16bb3f3c700ba1b0b45202b7490a9d1535e8aad884",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\step-3.json": "63eb885c8ff42c11dc7303427c1d2e7a5c11535025c5c2e76b112b46f8089c61",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\step-4.json": "c482e304e4dd68ecdf277b0255ab7ae3ba5c803a764bb08df36ebfb99fcfd723",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\step-5.json": "6a90b283875349bac59aa4d303c5023dc7d8e77b98a1683da7fc015f7f6f4149",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\step-6.json": "706080e6a9688183452587730463cefb4332644825ad4fce3ea348de78e8002a",
+    "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-reselection-2026-11-09\\live-r1\\attention-seed5003\\crop-attention-seed-5003\\trace.zip": "cef0a093d08ac08557ea3046b4a06142837bd43eed379fd760127540fd391f63"
+  },
+  "elapsedMs": 204488.86349999998,
+  "realModelCallsMadeByVerifier": 0,
+  "findings": [],
+  "trialDetails": [
+    {
+      "runId": "crop-current-seed-5001",
+      "condition": "crop-current",
+      "seed": 5001,
+      "vision": "crop",
+      "enabled": false,
+      "status": "censored",
+      "termination": "UI_ACTION_LIMIT",
+      "objectiveSuccess": false,
+      "apiCalls": 7,
+      "decisions": 7,
+      "looks": 1,
+      "uiActions": 6,
+      "rawSha256": "d374ce597db8f654787142b8edd721e91c2e5315bfd508575a6dc7dfb3c64a96",
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "independentStage": null,
+          "uiActionsAtMove": 0,
+          "nextFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "newCandidateIds": [
+            "e5"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": null,
+          "repeatSameRawScreen": 0
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 2
+        },
+        {
+          "decision": 7,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 2
+        }
+      ]
+    },
+    {
+      "runId": "crop-attention-seed-5001",
+      "condition": "crop-attention",
+      "seed": 5001,
+      "vision": "crop",
+      "enabled": true,
+      "status": "censored",
+      "termination": "API_LIMIT",
+      "objectiveSuccess": false,
+      "apiCalls": 12,
+      "decisions": 6,
+      "looks": 1,
+      "uiActions": 5,
+      "rawSha256": "244c23f0f4dd7d61c9ac6b84ffbbaef4f23b5632ff8539809d1c5cbb9856e3fa",
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "independentStage": "continue",
+          "uiActionsAtMove": 0,
+          "nextFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "newCandidateIds": [
+            "e5"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "continue",
+          "repeatSameRawScreen": 0
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 2
+        }
+      ]
+    },
+    {
+      "runId": "foveated-current-seed-5001",
+      "condition": "foveated-current",
+      "seed": 5001,
+      "vision": "foveated",
+      "enabled": false,
+      "status": "censored",
+      "termination": "UI_ACTION_LIMIT",
+      "objectiveSuccess": false,
+      "apiCalls": 7,
+      "decisions": 7,
+      "looks": 1,
+      "uiActions": 6,
+      "rawSha256": "63801a84c33d33bf1e923fe7515e05929cf24dcdeba5bd4d661e162dcee3e55c",
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "independentStage": null,
+          "uiActionsAtMove": 0,
+          "nextFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "newCandidateIds": [
+            "e5"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": null,
+          "repeatSameRawScreen": 0
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 2
+        },
+        {
+          "decision": 7,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 2
+        }
+      ]
+    },
+    {
+      "runId": "foveated-attention-seed-5001",
+      "condition": "foveated-attention",
+      "seed": 5001,
+      "vision": "foveated",
+      "enabled": true,
+      "status": "censored",
+      "termination": "API_LIMIT",
+      "objectiveSuccess": false,
+      "apiCalls": 12,
+      "decisions": 6,
+      "looks": 1,
+      "uiActions": 5,
+      "rawSha256": "75b9bbd64ebc6749d3041bdcb0f9bb4943d56f94596abadac9c0bfa451a99565",
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "independentStage": "continue",
+          "uiActionsAtMove": 0,
+          "nextFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "newCandidateIds": [
+            "e5"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "continue",
+          "repeatSameRawScreen": 0
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 2
+        }
+      ]
+    },
+    {
+      "runId": "crop-attention-seed-5002",
+      "condition": "crop-attention",
+      "seed": 5002,
+      "vision": "crop",
+      "enabled": true,
+      "status": "censored",
+      "termination": "API_LIMIT",
+      "objectiveSuccess": false,
+      "apiCalls": 12,
+      "decisions": 6,
+      "looks": 1,
+      "uiActions": 5,
+      "rawSha256": "67a0c55ba5229d2556be314925e99900df61463cfbf8dbd2ec543d2c061ca74c",
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "independentStage": "continue",
+          "uiActionsAtMove": 0,
+          "nextFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "newCandidateIds": [
+            "e5"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "continue",
+          "repeatSameRawScreen": 0
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 2
+        }
+      ]
+    },
+    {
+      "runId": "foveated-current-seed-5002",
+      "condition": "foveated-current",
+      "seed": 5002,
+      "vision": "foveated",
+      "enabled": false,
+      "status": "censored",
+      "termination": "UI_ACTION_LIMIT",
+      "objectiveSuccess": false,
+      "apiCalls": 7,
+      "decisions": 7,
+      "looks": 1,
+      "uiActions": 6,
+      "rawSha256": "62fed3fd4c77e7be0c8c8148b352bfa3f345408346cfb43ffb037ce1a8c27bda",
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "independentStage": null,
+          "uiActionsAtMove": 0,
+          "nextFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "newCandidateIds": [
+            "e5"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": null,
+          "repeatSameRawScreen": 0
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 2
+        },
+        {
+          "decision": 7,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        }
+      ]
+    },
+    {
+      "runId": "foveated-attention-seed-5002",
+      "condition": "foveated-attention",
+      "seed": 5002,
+      "vision": "foveated",
+      "enabled": true,
+      "status": "censored",
+      "termination": "API_LIMIT",
+      "objectiveSuccess": false,
+      "apiCalls": 12,
+      "decisions": 6,
+      "looks": 1,
+      "uiActions": 5,
+      "rawSha256": "76f72e245b10129a20d1ed05d7702acbcdaf934244075e7985a7baa64e9db403",
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "independentStage": "continue",
+          "uiActionsAtMove": 0,
+          "nextFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "newCandidateIds": [
+            "e5"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "continue",
+          "repeatSameRawScreen": 0
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 2
+        }
+      ]
+    },
+    {
+      "runId": "crop-current-seed-5002",
+      "condition": "crop-current",
+      "seed": 5002,
+      "vision": "crop",
+      "enabled": false,
+      "status": "censored",
+      "termination": "UI_ACTION_LIMIT",
+      "objectiveSuccess": false,
+      "apiCalls": 7,
+      "decisions": 7,
+      "looks": 1,
+      "uiActions": 6,
+      "rawSha256": "91a4795b59307e7cac8bb57f834e4a2a83236c9fec6f5db9b9bccb8af5c6d530",
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "independentStage": null,
+          "uiActionsAtMove": 0,
+          "nextFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "newCandidateIds": [
+            "e5"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": null,
+          "repeatSameRawScreen": 0
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 2
+        },
+        {
+          "decision": 7,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        }
+      ]
+    },
+    {
+      "runId": "foveated-current-seed-5003",
+      "condition": "foveated-current",
+      "seed": 5003,
+      "vision": "foveated",
+      "enabled": false,
+      "status": "censored",
+      "termination": "UI_ACTION_LIMIT",
+      "objectiveSuccess": false,
+      "apiCalls": 7,
+      "decisions": 7,
+      "looks": 1,
+      "uiActions": 6,
+      "rawSha256": "99c0cf0929ca10ea80758bb0daa836ec13259ee559bf65ea83a2d4318192f1b6",
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "independentStage": null,
+          "uiActionsAtMove": 0,
+          "nextFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "newCandidateIds": [
+            "e5"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": null,
+          "repeatSameRawScreen": 0
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 2
+        },
+        {
+          "decision": 7,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 2
+        }
+      ]
+    },
+    {
+      "runId": "foveated-attention-seed-5003",
+      "condition": "foveated-attention",
+      "seed": 5003,
+      "vision": "foveated",
+      "enabled": true,
+      "status": "censored",
+      "termination": "API_LIMIT",
+      "objectiveSuccess": false,
+      "apiCalls": 12,
+      "decisions": 6,
+      "looks": 1,
+      "uiActions": 5,
+      "rawSha256": "1d8a1ba625381879007dfd85f4bb5734e49a01e9c3dcb78ca7cb75ef5e5dc26f",
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "independentStage": "continue",
+          "uiActionsAtMove": 0,
+          "nextFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "newCandidateIds": [
+            "e5"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "continue",
+          "repeatSameRawScreen": 0
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 2
+        }
+      ]
+    },
+    {
+      "runId": "crop-current-seed-5003",
+      "condition": "crop-current",
+      "seed": 5003,
+      "vision": "crop",
+      "enabled": false,
+      "status": "censored",
+      "termination": "UI_ACTION_LIMIT",
+      "objectiveSuccess": false,
+      "apiCalls": 7,
+      "decisions": 7,
+      "looks": 1,
+      "uiActions": 6,
+      "rawSha256": "31dc8fb310d264293789400f7e9362cc63b7268f8d6314e2088738d5432b37f7",
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "independentStage": null,
+          "uiActionsAtMove": 0,
+          "nextFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "newCandidateIds": [
+            "e5"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": null,
+          "repeatSameRawScreen": 0
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 2
+        },
+        {
+          "decision": 7,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": null,
+          "repeatSameRawScreen": 1
+        }
+      ]
+    },
+    {
+      "runId": "crop-attention-seed-5003",
+      "condition": "crop-attention",
+      "seed": 5003,
+      "vision": "crop",
+      "enabled": true,
+      "status": "censored",
+      "termination": "API_LIMIT",
+      "objectiveSuccess": false,
+      "apiCalls": 12,
+      "decisions": 6,
+      "looks": 1,
+      "uiActions": 5,
+      "rawSha256": "c05c1c5e11b9df0dac423c042c38a63742c12275a3d793695c597ac2eec9a696",
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "independentStage": "continue",
+          "uiActionsAtMove": 0,
+          "nextFixation": {
+            "x": 960,
+            "y": 675
+          },
+          "newCandidateIds": [
+            "e5"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "decision": 1,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "control": null,
+          "outcome": "FIXATION_MOVED",
+          "attention": "continue",
+          "repeatSameRawScreen": 0
+        },
+        {
+          "decision": 2,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 3,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 4,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 5,
+          "action": {
+            "type": "back"
+          },
+          "control": "back",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 1
+        },
+        {
+          "decision": 6,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "control": "通知設定\nメール通知の受信を変更",
+          "outcome": "UI_PERFORMED",
+          "attention": "continue",
+          "repeatSameRawScreen": 2
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Model responses are external stochastic observations; three trials per condition are descriptive.",
+    "Replay verifies internal consistency and saved request/image bindings, not human psychological validity.",
+    "No ON success-rate improvement is required for software acceptance."
+  ]
+}

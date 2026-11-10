@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-hash-only-preservation-and-source-archive-audit",
+  "status": "VERIFIED",
+  "preservation": [
+    {
+      "file": "reports\\attention-repair-2026-11-10\\prior-raw.json",
+      "sha256": "3db5c73def60e8de35c8bafd30534bae7785a4420c3f0692515f72db373b408a",
+      "expectedFiles": 12550,
+      "matchedFiles": 12550,
+      "contentHandling": "Each retained file read as bytes for SHA-256 only; no human-record content decoded."
+    },
+    {
+      "file": "reports\\attention-repair-2026-11-10\\prior-raw-v2.json",
+      "sha256": "1acbe3a9a69300b6bad9c6023116c5759870cdf00db629809cd1eafbdaa91a88",
+      "expectedFiles": 12941,
+      "matchedFiles": 12941,
+      "contentHandling": "Each retained file read as bytes for SHA-256 only; no human-record content decoded."
+    }
+  ],
+  "archives": [
+    {
+      "file": "reports\\attention-repair-2026-11-10\\source-a997e3ac.zip",
+      "sha256": "e3072000eba0eb958fa0f58f526373be2c963f1c5bc10f1040b5c90e2eec1353",
+      "sourceHash": "a997e3ac7e7f7ddb1f09e7257828ad94cd2893fb1c5fbb4b66b85dc4a494e976",
+      "sourceEntries": 195,
+      "allSourceEntriesMatched": true,
+      "embeddedFreezeByteMatched": true
+    },
+    {
+      "file": "reports\\attention-repair-2026-11-10\\source-44ea22fb.zip",
+      "sha256": "71bd54efcd9a26bd8694afa593a047d52447a185ddeda620100b30ed11b07a3a",
+      "sourceHash": "44ea22fb53a3da5ecb17e3ee3c3407119f44b28ad8d4c656558c93352201c12b",
+      "sourceEntries": 196,
+      "allSourceEntriesMatched": true,
+      "embeddedFreezeByteMatched": true
+    }
+  ]
+}

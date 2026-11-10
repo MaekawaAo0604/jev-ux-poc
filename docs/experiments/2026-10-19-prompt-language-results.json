@@ -1,0 +1,231 @@
+{
+  "root": "E:\\ChatGPT\\Ux_test\\reports\\prompt-language-2026-10-19T12-17-53.324Z",
+  "model": "jev-1.14.0",
+  "dryRun": false,
+  "groups": [
+    {
+      "step": 3,
+      "language": "ja",
+      "expectedRepair": "not_shown",
+      "planned": 5,
+      "valid": 5,
+      "errors": 0,
+      "repair": {
+        "observed": 0,
+        "not_shown": 5,
+        "context": 0,
+        "contradicted": 0,
+        "uncertain": 0
+      },
+      "password": {
+        "observed": 0,
+        "not_shown": 5,
+        "context": 0,
+        "contradicted": 0,
+        "uncertain": 0
+      },
+      "repairReferenceMatches": 5
+    },
+    {
+      "step": 3,
+      "language": "en",
+      "expectedRepair": "not_shown",
+      "planned": 5,
+      "valid": 5,
+      "errors": 0,
+      "repair": {
+        "observed": 0,
+        "not_shown": 5,
+        "context": 0,
+        "contradicted": 0,
+        "uncertain": 0
+      },
+      "password": {
+        "observed": 0,
+        "not_shown": 5,
+        "context": 0,
+        "contradicted": 0,
+        "uncertain": 0
+      },
+      "repairReferenceMatches": 5
+    },
+    {
+      "step": 23,
+      "language": "ja",
+      "expectedRepair": "not_shown",
+      "planned": 5,
+      "valid": 5,
+      "errors": 0,
+      "repair": {
+        "observed": 5,
+        "not_shown": 0,
+        "context": 0,
+        "contradicted": 0,
+        "uncertain": 0
+      },
+      "password": {
+        "observed": 0,
+        "not_shown": 5,
+        "context": 0,
+        "contradicted": 0,
+        "uncertain": 0
+      },
+      "repairReferenceMatches": 0
+    },
+    {
+      "step": 23,
+      "language": "en",
+      "expectedRepair": "not_shown",
+      "planned": 5,
+      "valid": 5,
+      "errors": 0,
+      "repair": {
+        "observed": 0,
+        "not_shown": 5,
+        "context": 0,
+        "contradicted": 0,
+        "uncertain": 0
+      },
+      "password": {
+        "observed": 0,
+        "not_shown": 5,
+        "context": 0,
+        "contradicted": 0,
+        "uncertain": 0
+      },
+      "repairReferenceMatches": 5
+    },
+    {
+      "step": 6,
+      "language": "ja",
+      "expectedRepair": "observed",
+      "planned": 5,
+      "valid": 5,
+      "errors": 0,
+      "repair": {
+        "observed": 5,
+        "not_shown": 0,
+        "context": 0,
+        "contradicted": 0,
+        "uncertain": 0
+      },
+      "password": {
+        "observed": 0,
+        "not_shown": 5,
+        "context": 0,
+        "contradicted": 0,
+        "uncertain": 0
+      },
+      "repairReferenceMatches": 5
+    },
+    {
+      "step": 6,
+      "language": "en",
+      "expectedRepair": "observed",
+      "planned": 5,
+      "valid": 5,
+      "errors": 0,
+      "repair": {
+        "observed": 5,
+        "not_shown": 0,
+        "context": 0,
+        "contradicted": 0,
+        "uncertain": 0
+      },
+      "password": {
+        "observed": 0,
+        "not_shown": 5,
+        "context": 0,
+        "contradicted": 0,
+        "uncertain": 0
+      },
+      "repairReferenceMatches": 5
+    }
+  ],
+  "planned": 30,
+  "completed": 30,
+  "errors": 0,
+  "originalsUnchanged": true,
+  "limits": [
+    "Three fixed English-language screenshots, five calls per condition; not population accuracy.",
+    "The Japanese Goal remains unchanged; this does not isolate Goal language or Japanese visual-text recognition.",
+    "Reference labels are developer image inspection, not an independent human-user study.",
+    "Reconstructed isolated reading requests, not an end-to-end exploration or exact historical replay.",
+    "No prior image judgments or action choice; findings do not establish effects in every production request.",
+    "English is a human-authored translation; semantic equivalence cannot be guaranteed mechanically."
+  ],
+  "comparisonSha256": "51cb6f990e6de264f57dc3fcbb1b247c227442e0be4005eac57b2c8e03d7fa49",
+  "findings": {
+    "linkScreen": {
+      "japaneseObserved": 5,
+      "englishObserved": 0,
+      "repeats": 5
+    },
+    "positiveScreen": {
+      "japaneseObserved": 5,
+      "englishObserved": 5,
+      "repeats": 5
+    },
+    "interpretation": "The translated English instructions removed the link-screen false-positive in these five repetitions while preserving the positive control. This does not prove a general language-only cause or end-to-end success.",
+    "invalidPhase": {
+      "root": "E:\\ChatGPT\\Ux_test\\reports\\prompt-language-2026-10-19T12-15-28.911Z",
+      "sha256": "3e5236472891a9dbc42f58eb661906ffeb0c93b19707bd1759e7dfafeba8f10f",
+      "completed": 30,
+      "errors": 15,
+      "excludedFromComparison": true,
+      "description": "English requests with common asset name current failed with max_tokens_exceeded; opaque reference ID alone restored HTTP200. Extra image expansion is the likely mechanism, not verified provider internals.",
+      "probes": [
+        {
+          "file": "E:\\ChatGPT\\Ux_test\\reports\\prompt-language-2026-10-19T12-15-28.911Z\\validation-probe.json",
+          "sha256": "9199bc1a14293c242622636823e67eff7978a22305b27bd5d2dc064d42340e37",
+          "status": 400,
+          "error": "{\"error_type\":\"max_tokens_exceeded\"}"
+        },
+        {
+          "file": "E:\\ChatGPT\\Ux_test\\reports\\prompt-language-2026-10-19T12-15-28.911Z\\validation-probe-single-en.json",
+          "sha256": "6a7e689d73c2fa88821545a9be587578bb12dfb49b6f80aa0ba1820592b8ca0a",
+          "status": 200,
+          "usage": {
+            "input_tokens": 27282,
+            "output_tokens": 66
+          }
+        },
+        {
+          "file": "E:\\ChatGPT\\Ux_test\\reports\\prompt-language-2026-10-19T12-15-28.911Z\\validation-probe-single-ja.json",
+          "sha256": "939af41ceea0f88fbfa2b92a944f8476e362f2fda7f86b0acf6471cbb8f8d24f",
+          "status": 200,
+          "usage": {
+            "input_tokens": 8711,
+            "output_tokens": 66
+          }
+        },
+        {
+          "file": "E:\\ChatGPT\\Ux_test\\reports\\prompt-language-2026-10-19T12-15-28.911Z\\validation-probe-full-en-opaque.json",
+          "sha256": "4f76fd336ebca11fa3cbe85d97884a615e4fe263aee748c7b717f59c8d7f9c0f",
+          "status": 200,
+          "usage": {
+            "input_tokens": 9298,
+            "output_tokens": 190
+          }
+        },
+        {
+          "file": "E:\\ChatGPT\\Ux_test\\reports\\prompt-language-2026-10-19T12-15-28.911Z\\validation-probe-full-ja-opaque.json",
+          "sha256": "9157615c8ab6c65a218cdbf86497b1010cdfcbf48624596f6c1ccb2563519e89",
+          "status": 200,
+          "usage": {
+            "input_tokens": 9775,
+            "output_tokens": 190
+          }
+        }
+      ]
+    }
+  },
+  "qa": {
+    "http": 200,
+    "sourceImages": 3,
+    "localLinksChecked": 5,
+    "pageErrors": [],
+    "mobileOverflow": false,
+    "pairedStateChecks": 15
+  }
+}

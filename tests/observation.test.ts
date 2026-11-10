@@ -45,6 +45,20 @@ test('a body replacement after the readiness check retries only observation and 
  }finally{await browser.close();}
 });
 
+test('observed DOM fragment geometry cannot cover image-only gaps inside grouped text',async()=>{
+ const browser=await chromium.launch();
+ try{
+  const page=await browser.newPage({viewport:{width:800,height:600}});
+  await page.setContent('<p style="font:24px sans-serif">Known first line<br><canvas width="300" height="80" style="display:block"></canvas>Known last line</p>');
+  const screen=await new AutoPage(page).observe(false);
+  const region=screen.regions!.find(r=>r.text.includes('Known first line'))!;
+  const image=await page.locator('canvas').boundingBox();assert.ok(image);
+  assert.ok(region.bbox.y0<image.y&&region.bbox.y1>image.y+image.height,'the old grouped bounding box really includes the image gap');
+  assert.ok(region.fragments?.length&&region.fragments.length>=2,'actual contiguous observed fragments are retained');
+  for(const f of region.fragments!)assert.ok(f.y1<=image.y||f.y0>=image.y+image.height,'no DOM fragment contains image-only pixels');
+ }finally{await browser.close();}
+});
+
 test('visible DOM prices, units and table cells are observed with grounded regions',async()=>{
  const browser=await chromium.launch();
  try{

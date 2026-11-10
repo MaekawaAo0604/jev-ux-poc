@@ -1,0 +1,47 @@
+.persona-task-root{min-height:100vh;background:#f4f6f7;color:#25353d;font-family:"Yu Gothic UI","Meiryo",sans-serif;font-size:16px;line-height:1.65;box-sizing:border-box}
+.persona-task-root *{box-sizing:border-box}
+.persona-task-root .persona-task-header{height:72px;padding:0 60px;border-bottom:1px solid #dae2e4;background:white;display:flex;align-items:center;justify-content:space-between;font-size:14px;color:#596a72}
+.persona-task-brand{font-size:23px;font-weight:700;color:#244e58;letter-spacing:.04em}
+.persona-task-root .persona-task-content{max-width:1000px;margin:0 auto;padding:24px 24px 16px;display:block}
+.persona-task-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;gap:24px}
+.persona-task-root h1{font-size:30px;line-height:1.35;letter-spacing:0;margin:4px 0 0;color:#233d47}
+.persona-task-root h2{font-size:21px;line-height:1.5;margin:0 0 14px;color:#253f49}
+.persona-task-root h3{font-size:17px;margin:20px 0 8px}
+.persona-task-root p{margin:10px 0}
+.persona-task-root .persona-task-eyebrow{font-size:12px;letter-spacing:.1em;color:#62767c;margin:0}
+.persona-task-root a{font-size:15px;color:#1d6375;text-decoration:underline;text-underline-offset:4px;font-weight:600}
+.persona-task-root button{display:inline-block;background:#265f70;color:#fff;border:1px solid #265f70;border-radius:7px;box-shadow:none;padding:12px 20px;font:600 15px/1.5 "Yu Gothic UI","Meiryo",sans-serif;cursor:pointer}
+.persona-task-root button:hover{background:#194c5b}
+.persona-task-root button:disabled{background:#e7eded;border-color:#b7c7cb;color:#526770;cursor:default}
+.persona-task-root a:focus-visible,.persona-task-root button:focus-visible{outline:3px solid #db9d36;outline-offset:4px}
+.persona-task-summary,.persona-task-saved{padding:14px 22px;background:#e8eef0;border-radius:8px;margin:0 0 22px!important}
+.persona-task-summary p{margin:3px 0}
+.persona-task-panel{background:white;border:1px solid #d7e1e4;border-radius:10px;padding:24px 28px;margin-bottom:18px}
+.persona-task-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.persona-task-grid .persona-task-panel{margin:0}
+.persona-task-options{display:flex;gap:16px;margin:18px 0}
+.persona-task-root .persona-task-choice{background:white;color:#2b4753;border:1px solid #9eb3bb;padding:14px 18px;text-align:left;flex:1}
+.persona-task-root .persona-task-choice[aria-pressed="true"]{border:2px solid #286b7b;padding:13px 17px;background:#eaf3f5}
+.persona-task-choice span{display:block;font-size:14px;font-weight:400;margin-top:5px}
+.persona-task-links{display:flex;align-items:center;gap:22px;margin:18px 0;flex-wrap:wrap}
+.persona-task-root .persona-task-secondary{color:#315562;background:white;border-color:#a5bac0;padding:10px 15px}
+.persona-task-root .persona-task-note{font-size:14px;line-height:1.7;color:#5b6b73}
+.persona-task-preview{background:#f6f8f8;border:1px solid #d9e3e6;border-radius:6px;padding:8px 18px;margin:14px 0 20px}
+.persona-task-preview div{padding:12px 0;border-bottom:1px solid #dbe4e6}
+.persona-task-preview div:last-child{border-bottom:0}
+.persona-task-compact div{padding:4px 0}
+.persona-task-root .persona-task-status{background:#e7f3ec;border:1px solid #94b9a2;border-radius:7px;padding:14px 20px;color:#285b3c;font-weight:600;margin:20px 0 14px}
+.persona-task-return{margin:18px 0 8px}
+.persona-task-root .persona-task-footer{display:block;max-width:1000px;margin:0 auto;padding:12px 24px 20px;color:#728088;font-size:12px;border:0;background:transparent}
+@media(max-width:700px){.persona-task-root .persona-task-header{padding:0 22px}.persona-task-heading{align-items:flex-start;flex-direction:column;gap:12px}.persona-task-grid{grid-template-columns:1fr}.persona-task-options{flex-direction:column}}
+
+.persona-method-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:20px 0 22px}
+.persona-task-root .persona-method-choice{display:flex;flex-direction:column;align-items:flex-start;width:100%;min-height:300px;padding:22px;text-align:left;background:white;color:#2b4753;border:1px solid #9eb3bb;border-radius:8px}
+.persona-task-root .persona-method-choice:hover{background:#f3f7f8;border-color:#527f8c}
+.persona-task-root .persona-method-choice[aria-pressed="true"]{padding:21px;border:2px solid #286b7b;background:#eaf3f5}
+.persona-method-choice .persona-method-label{font-size:20px;line-height:1.5;margin-bottom:16px}
+.persona-method-choice .persona-method-description{display:block;flex:1;font-size:15px;font-weight:400;line-height:1.7;margin:0}
+.persona-method-choice .persona-method-time{display:block;font-size:14px;font-weight:400;line-height:1.6;margin-top:20px}
+.persona-method-time strong{font-size:19px;color:#233d47}
+.persona-method-review-label{font-size:22px;font-weight:700;color:#233d47}
+@media(max-width:700px){.persona-method-options{grid-template-columns:1fr}.persona-task-root .persona-method-choice{min-height:0}.persona-method-choice .persona-method-time{margin-top:16px}}

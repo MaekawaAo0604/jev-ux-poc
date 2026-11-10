@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "reviewerRole": "Fresh-context independent verifier; separate from implementers and parent",
+  "verdict": "PASS_FOR_LOCAL_ENGINEERING_ACCEPTANCE_AFTER_ONE_PRODUCT_FIX",
+  "finalRevision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+  "finalSourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186",
+  "initialRevision": "fc4835d7e3e6793590133067325bf3870aa3474a",
+  "initialSourceHash": "bbffe9113ba1ccdbece36771ad77ee4693a51b4f79f7a522afe7ddfba271d27e",
+  "productEditsByVerifier": false,
+  "actualRequestsToExternalAPI": 0,
+  "humanRecordsOrCredentialFilesRead": false,
+  "savedInputsResent": false,
+  "testFile": "tests/goal-search-independent.test.ts",
+  "finalEvidence": "reports/goal-search-2026-10-29/independent-1793217466304/report.json",
+  "finalLog": "reports/goal-search-2026-10-29/independent-guard-final.log",
+  "commands": [
+    {"command": "npx tsx --test --test-concurrency=1 tests/goal-search-independent.test.ts", "exitCode": 0, "tests": 19, "pass": 19, "fail": 0, "skip": 0},
+    {"command": "npx tsc --noEmit", "exitCode": 0}
+  ],
+  "findings": [
+    {
+      "id": "GS-INDEPENDENT-001",
+      "severity": "medium",
+      "status": "FIXED_AND_INDEPENDENTLY_RETESTED",
+      "component": "runner/virtual-beta-replay.ts",
+      "description": "Replay accepted undeclared search fields in saved model inputs after recalculating input hashes, so altered model-visible state could still be reported verified.",
+      "reproduction": [
+        "Create an ordinary local Chromium run through evaluateBetaRequest -> evaluateChoices -> gateway HTTP fetch stub.",
+        "Insert step[4].modelInput.goalSearchMemory or goalSearchAssessment with contradictory unobserved state.",
+        "Recalculate each modelInput/questions/assetFiles inputSha256 and run replayDirectory.",
+        "Repeat for assessment input, and disabled or absent config."
+      ],
+      "expected": "Reject undeclared model-visible goalSearch fields regardless of config, as canonical search memory is userState.goalSearch only.",
+      "actualBeforeFix": "verified=true for both enabled aliases on both stages and all eight disabled/absent top-level alias insertions.",
+      "sourceBeforeFix": "reports/goal-search-2026-10-29/independent-1793217341188/tamper-results.json",
+      "additionalBeforeFixEvidence": "reports/goal-search-2026-10-29/independent-1793217341188/disabled-hidden-results.json",
+      "actualAfterFix": "All 24 source/question/memory/criteria/metadata tamper cases and all 20 unconfigured alias insertions rejected. Cases include both model stages, their userState objects and saved step.userState.",
+      "sourceAfterFix": "reports/goal-search-2026-10-29/independent-1793217466304/tamper-results.json",
+      "additionalAfterFixEvidence": "reports/goal-search-2026-10-29/independent-1793217466304/disabled-hidden-results.json"
+    }
+  ],
+  "testHarnessCorrections": [
+    {
+      "description": "Initial independent fixture script ran before document.body existed, leaving no click candidates and causing stub failure. Added explicit body before script. This was a verifier fixture defect, not a product failure.",
+      "initialRedPreserved": "reports/goal-search-2026-10-29/independent-1793217166648/report.json"
+    },
+    {
+      "description": "Prior run index points to run roots; actual saved beta results reside under exploration/. Corrected independent artifact lookup. Final old60/four-mock check verified 64 results with no skips."
+    }
+  ],
+  "coverage": {
+    "normalPath": "Real Chromium custom HTML, normal runBeta -> evaluateBetaRequest -> client -> HTTP fetch stub. Actual PNG bytes, SHA-256, source IDs, question payload and both wire-stage memory snapshots independently inspected.",
+    "connection": "Current o5 target e2 appears in action criteria, raw distribution retains e1=.01/e2=.99 with modelChoice=e1, deterministic sample selects e2 and browser click reaches notification completion status.",
+    "independentReconstruction": "For each successful step, requirements and image-check questions recreated with existing ImageJudgmentMemory, record rebuilt from actual raw answers/current PNG, bounded before/after memory rebuilt independently, candidate IDs and hashes checked, each historical route matched against actual performed prior click and arrival, sampler SHA draw/CDF independently calculated.",
+    "semanticBoundaries": "Target and observed fragment hypotheses remain distinct from pre-click whole-Goal assessment and objective oracle. Finding prompts explicitly constrain no-target to inspected current view and say principal findings are non-exhaustive. These assertions test prompt contract, not semantic accuracy.",
+    "correspondence": "Unchanged mapping transfers actual o1/e1 -> o2 no-target finding with unknown progress. Changed and none mappings prevent that transfer while leaving current e2 target selectable.",
+    "regression": "Disabled and absent config produced identical complete request bodies, questions, image assets, selections and actions.",
+    "privacyAndState": "Fixed synthetic persona and charter preserved in actual wire; mutable search memory only in userState. DOM title/hidden text/attribute sentinels, screen/history and audit-only keys absent from constrained state/questions. Prohibited control is unnumbered and not offered as target.",
+    "boundsAndIsolation": "Config capacity1/8 accepted and invalid capacities/dependency-disabled configs rejected; eight literal fragments accepted/nine rejected; actual source required; wrong/future sources and changed Goal rejected; memory copies detached/capacity bounded and fresh instances isolated.",
+    "failureAccounting": "Unknown prefixed answer, invalid probabilities, target_done, initial HTTP503, post-assessment HTTP503, API cap, exhausted-look filter and pre-model observation failure never become objective success or user abandonment. Partial error results replay locally; pre-model fault records API0 and no deliberation response.",
+    "replayRegression": {"oldSavedRunsVerified": 60, "currentMockRunsVerified": 4, "skipped": 0, "source": "reports/goal-search-2026-10-29/independent-1793217466304/legacy-replays.json"},
+    "priorBudgetIntegrity": {"ledgers": 94, "beforeAfterByteHashesIdentical": true, "source": "reports/goal-search-2026-10-29/independent-1793217466304/before.json"},
+    "comparisonDeclaration": "3 scenarios x2 replicates x2 arms =12 slots; only id and goalSearch config differ. 24/trial,288/phase,parallel1,one attempt,no extra stage/images; initial question differences declared intentionally."
+  },
+  "visualInspection": [
+    {"path": "reports/goal-search-2026-10-29/independent-1793217341188/enabled-unchanged/input-2.png", "observed": "Display-settings-only scene, continuation e1, no direct notification target. Forbidden control is visible but unnumbered."},
+    {"path": "reports/goal-search-2026-10-29/independent-1793217341188/enabled-unchanged/input-5.png", "observed": "Current hub shows e1 other settings and directly task-specific e2 stop email notifications."},
+    {"path": "reports/goal-search-2026-10-29/independent-1793217341188/enabled-unchanged/independent-actual-final.png", "observed": "Actual clicked page shows notification-stopped status."}
+  ],
+  "metricCautions": [
+    "Current search findings decorate all criteria. In the independently inspected step5 there are 12 current annotations, but historical annotation belongs only to e1, while actual selection is e2. Selected-annotated count is not proof of historical memory use.",
+    "The stub deliberately specifies responses and cannot establish that memory caused a model behavior improvement. Normal data delivery, criteria connection and actual action were verified separately.",
+    "An observed fragment or target hypothesis does not establish objective success; the browser oracle remains independent."
+  ],
+  "notVerified": [
+    {"item": "Model semantic accuracy, negative-case recognition precision, real-model policy improvement", "reason": "No external model requests permitted; response meaning scripted."},
+    {"item": "Human behavior fidelity and population generalization", "reason": "No human records or trials used."},
+    {"item": "Full real12 comparison execution", "reason": "Parent owns live experiment and budget; independent verification limited to no-API local evidence."},
+    {"item": "Newly rerun four-condition experiment", "reason": "Parent supplied fresh four-mock artifacts; verifier independently replayed all four. Independent Chromium runs covered enabled/disabled/absent and fault variants."}
+  ],
+  "testDesignAudit": "Expected source IDs, PNG hashes, memory chronology, raw response assessments, actual performed actions and independently calculated sampling are checked directly rather than treating implementation helper output as correctness. Existing ImageJudgmentMemory reused for requirement-question identity as explicitly required. First RED and product RED are retained; no assertion was relaxed or deleted to obtain green."
+}

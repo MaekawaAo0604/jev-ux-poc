@@ -1,0 +1,195 @@
+{
+  "status": "MEASUREMENT_INTEGRITY_PASSED_MODEL_COMPARISON_NOT_ESTABLISHED",
+  "checkedAtUTC": "2026-11-06T02:39:36.599Z",
+  "revision": "3fd144ccbdeb6229ca5b2c873cc711581e9ee647",
+  "sourceHash": "696fd78a43715f17f6b54ecd2bea41ae4589badb2f24a57a6d3ea1dd7643b663",
+  "sourceFiles": 186,
+  "freezeMatch": true,
+  "scope": "Pre-commit frozen source and raw evidence; no new model calls",
+  "integrityIssues": [],
+  "apiCallsByAuditor": 0,
+  "savedInputResends": 0,
+  "productionSourceEditsByAuditor": 0,
+  "currentPhase": {
+    "status": "CONSECUTIVE_INVALID_TRIALS",
+    "planned": 16,
+    "attempted": 5,
+    "requests": 89,
+    "valid": 0,
+    "invalid": 5,
+    "active": 0,
+    "unattempted": 11,
+    "preservationAfter": true,
+    "modelInvalidFlags": [
+      true,
+      false,
+      true,
+      true,
+      true
+    ],
+    "lastConsecutiveModelInvalid": 3,
+    "eligiblePersonaComparisonDenominator": 0,
+    "rows": [
+      {
+        "id": "public-persona-baseline-r1",
+        "actor": "baseline",
+        "decisions": 5,
+        "uiActions": 4,
+        "requests": 13,
+        "termination": "API_ERROR",
+        "modelInvalid": true,
+        "finalError": {
+          "code": "INVALID_VISUAL_HYPOTHESES",
+          "status": "invalid-response"
+        },
+        "rawSha256": "c2e4b3c5c775ee3a0d1495d9200416397d5077b4630f80cea8e31c6266ed218b",
+        "ledgerUsed": 13,
+        "ledgerReserved": 0
+      },
+      {
+        "id": "public-persona-A-r1",
+        "actor": "A",
+        "decisions": 9,
+        "uiActions": 8,
+        "requests": 25,
+        "termination": "API_ERROR",
+        "modelInvalid": false,
+        "finalError": {
+          "code": "TIMEOUT",
+          "attempts": 1,
+          "httpReceived": false
+        },
+        "rawSha256": "b8e74ddf3bdbca2d6333a9c4b39715ffe9762820066ea5b70ef5ee496b69080a",
+        "ledgerUsed": 25,
+        "ledgerReserved": 0
+      },
+      {
+        "id": "public-persona-B-r1",
+        "actor": "B",
+        "decisions": 5,
+        "uiActions": 4,
+        "requests": 13,
+        "termination": "API_ERROR",
+        "modelInvalid": true,
+        "finalError": {
+          "code": "INVALID_VISUAL_HYPOTHESES",
+          "status": "incomplete"
+        },
+        "rawSha256": "89ce4c2ec4c24e5553732a5883b954fa35daa9bc95d4f6fe0d9ff0126f1da695",
+        "ledgerUsed": 13,
+        "ledgerReserved": 0
+      },
+      {
+        "id": "public-persona-C-r1",
+        "actor": "C",
+        "decisions": 8,
+        "uiActions": 7,
+        "requests": 22,
+        "termination": "API_ERROR",
+        "modelInvalid": true,
+        "finalError": {
+          "code": "INVALID_VISUAL_HYPOTHESES",
+          "status": "incomplete"
+        },
+        "rawSha256": "08df23871e4fd14342d7eeba39b3191398b3c47028ad0fef1f20ceb2222b62d8",
+        "ledgerUsed": 22,
+        "ledgerReserved": 0
+      },
+      {
+        "id": "public-persona-A-r2",
+        "actor": "A",
+        "decisions": 6,
+        "uiActions": 5,
+        "requests": 16,
+        "termination": "API_ERROR",
+        "modelInvalid": true,
+        "finalError": {
+          "code": "INVALID_VISUAL_HYPOTHESES",
+          "status": "invalid-response"
+        },
+        "rawSha256": "1012717806b7ba770178c96357240cc5e881cf5bb9e6a2cfb9733c3066537af1",
+        "ledgerUsed": 16,
+        "ledgerReserved": 0
+      }
+    ]
+  },
+  "oldPhase": {
+    "status": "FROZEN_SOURCE_CHANGED",
+    "attempts": 2,
+    "requests": 41,
+    "unattempted": 14,
+    "preservationAfter": false,
+    "excludedFromNewMain": true,
+    "reason": "Intentional operatorHold protocol identity change at trial boundary, documented in parent/operator-boundary-stop.json; not human abandonment",
+    "rows": [
+      {
+        "id": "public-persona-baseline-r1",
+        "requests": 22,
+        "rawSha256": "41fcb68a788a64c3e12310dba70b7f631b2b04248de1b104b431a322c5992cc7",
+        "ledgerReserved": 0
+      },
+      {
+        "id": "public-persona-A-r1",
+        "requests": 19,
+        "rawSha256": "00b0f279760391dad027b02821d5095acec58d3fbb294f326b0050f5fa7523fc",
+        "ledgerReserved": 0
+      }
+    ]
+  },
+  "allNewPublicModelTrials": {
+    "trials": 7,
+    "apiCalls": 130,
+    "uiActions": 41,
+    "steps": 48,
+    "ledgerUsed": 130,
+    "ledgerReserved": 0
+  },
+  "originalPrior": {
+    "checked": 9468,
+    "bytes": 1960682389,
+    "mismatches": 0,
+    "mode": "hash-only; no historical human raw parsed"
+  },
+  "viewer": {
+    "slots": 73,
+    "recorded": 48,
+    "missing": 25,
+    "pending": 0,
+    "mockRecorded": 5,
+    "realRecorded": 43,
+    "normalizedSteps": 151
+  },
+  "ui": {
+    "url": "http://127.0.0.1:4175/",
+    "allSlotsVisible": 73,
+    "recorded": 48,
+    "unrecorded": 25,
+    "currentGroupTrials": 5,
+    "eligibleCurrentDenominator": 0,
+    "invalidCurrent": 5,
+    "allGroupsNoPooling": true,
+    "mobileHorizontalOverflow": false,
+    "browserErrors": []
+  },
+  "initialInputs": {
+    "all5CurrentProductPNGHash": "c1ef458b50bf8ff2b60eeaeb9a3e2d343e0bb2145c2a052006c6e71aeba8a29c",
+    "all5CurrentModelPNGHash": "adf47910109c1c66eddb9bd8d82b4a26209ff0390210ec1dbbb7ea2b9f22388e",
+    "all5CurrentNonPersonaNativeHash": "0fc196880bb446891e26fe9ccbc79c60387f68cf7417b273ef03179a52351514",
+    "allMatched": true
+  },
+  "evidence": {
+    "modelAuditDirectory": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\exploration-observatory-2026-11-06\\independent\\live-audits\\2026-11-06T02-35-27-473Z",
+    "modelAudit": "audit.json",
+    "viewerAudit": "final-model-viewer-audit.json",
+    "priorAudit": "prior-integrity-final.json",
+    "fullSourceFreeze": "../freeze.json"
+  },
+  "notCertified": [
+    "Model performance or readiness; all5 revised trials invalid",
+    "Human behavior agreement or causal Persona effects",
+    "400 real model executions; prior400 load test was synthetic",
+    "General repository-wide npm test baseline",
+    "Internal trace event semantics; trace archives were copied and hash verified",
+    "Capture-time terminal PNG hash absent in raw terminal metadata; audit-time bytes copied and hash verified, viewer labels source-hash-not-recorded"
+  ]
+}

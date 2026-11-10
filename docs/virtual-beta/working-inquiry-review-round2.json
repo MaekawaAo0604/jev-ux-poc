@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "round": 2,
+  "status": "PASS",
+  "scope": "Fresh independent execution against fixed round-two producer snapshot. Report-only modifications; no credentials/environment/human inputs/external API/Git mutation.",
+  "sourceHash": "ec48493a0e26ce19f7e2742791644fedc3d821ab51074f11da4e3ecb7ff69080",
+  "freezeSha256": "fd7b60bb7b8af653df0988272de359f1dadc7f8922e8f54b823ba2bbbb0ea91b",
+  "sourceFiles": 161,
+  "frozenFiles": 996,
+  "priorFiles": 6270,
+  "preservation": {
+    "before": {
+      "timestamp": "2026-10-30T04:19:35.885Z",
+      "freezeSha256": "fd7b60bb7b8af653df0988272de359f1dadc7f8922e8f54b823ba2bbbb0ea91b",
+      "sourceHash": "ec48493a0e26ce19f7e2742791644fedc3d821ab51074f11da4e3ecb7ff69080",
+      "sourceFileCount": 161,
+      "revision": "a25ab9cb441aeae2387067dd8212a9f445fe3afb",
+      "frozenFiles": 996,
+      "priorCount": 6270,
+      "priorSnapshotSha256": "d523df7be9ff01403f9eebbc7ad0069c61aecb26f4f06558d36e8df0443cb1c6",
+      "protocolSha256": "2e17d89395c18881a3d2dc583f35669337bb1de2198cbaa21ce89df98415a757",
+      "matchesSource": true,
+      "matchesPrior": true,
+      "matchesProtocol": true,
+      "mismatch": []
+    },
+    "after": {
+      "timestamp": "2026-10-30T04:21:06.835Z",
+      "freezeSha256": "fd7b60bb7b8af653df0988272de359f1dadc7f8922e8f54b823ba2bbbb0ea91b",
+      "sourceHash": "ec48493a0e26ce19f7e2742791644fedc3d821ab51074f11da4e3ecb7ff69080",
+      "sourceFileCount": 161,
+      "revision": "a25ab9cb441aeae2387067dd8212a9f445fe3afb",
+      "frozenFiles": 996,
+      "priorCount": 6270,
+      "priorSnapshotSha256": "d523df7be9ff01403f9eebbc7ad0069c61aecb26f4f06558d36e8df0443cb1c6",
+      "protocolSha256": "2e17d89395c18881a3d2dc583f35669337bb1de2198cbaa21ce89df98415a757",
+      "matchesSource": true,
+      "matchesPrior": true,
+      "matchesProtocol": true,
+      "mismatch": []
+    },
+    "unchanged": true
+  },
+  "repair": {
+    "finding": "WI-R1-001",
+    "status": "RESOLVED",
+    "exactRuntimeDelta": {
+      "matchesExactlyTwoImmediateHashSynchronizations": true,
+      "sites": [
+        "workingInquiryContext insertion",
+        "workingInquiry record insertion"
+      ],
+      "otherRuntimeChanges": false
+    },
+    "regression": "Four previously failing assessment partials now retain API_ERROR/INVALID_DISTRIBUTION classifications and pass replay; original round-one failures remain saved.",
+    "evidence": "audit.json partialFailures; runs/{assessment-http,assessment-model,invalid-inquiry,invalid-assessment}/result.json"
+  },
+  "results": {
+    "freshRuntime": {
+      "checks": 33,
+      "failures": 0,
+      "normalTwoScreenChoices": true,
+      "threeActualQuestions": true,
+      "rawAdjustedCriteriaChain": true,
+      "currentAndHistoricalDistinct": true,
+      "allCandidatesPreserved": true,
+      "existingWeightsAllOne": true,
+      "doneChoicePreserved": true,
+      "perceivedDone": true,
+      "objectiveSuccess": false
+    },
+    "partialFailurePaths": {
+      "pass": 8,
+      "fail": 0,
+      "paths": [
+        {
+          "kind": "native-http",
+          "termination": "API_ERROR",
+          "replayError": null,
+          "objectiveSuccess": false,
+          "perceivedDone": false
+        },
+        {
+          "kind": "native-invalid-output",
+          "termination": "API_ERROR",
+          "replayError": null,
+          "objectiveSuccess": false,
+          "perceivedDone": false
+        },
+        {
+          "kind": "assessment-http",
+          "termination": "API_ERROR",
+          "replayError": null,
+          "objectiveSuccess": false,
+          "perceivedDone": false
+        },
+        {
+          "kind": "assessment-model",
+          "termination": "API_ERROR",
+          "replayError": null,
+          "objectiveSuccess": false,
+          "perceivedDone": false
+        },
+        {
+          "kind": "invalid-inquiry",
+          "termination": "INVALID_DISTRIBUTION",
+          "replayError": null,
+          "objectiveSuccess": false,
+          "perceivedDone": false
+        },
+        {
+          "kind": "invalid-assessment",
+          "termination": "INVALID_DISTRIBUTION",
+          "replayError": null,
+          "objectiveSuccess": false,
+          "perceivedDone": false
+        },
+        {
+          "kind": "action-http",
+          "termination": "API_ERROR",
+          "replayError": null,
+          "objectiveSuccess": false,
+          "perceivedDone": false
+        },
+        {
+          "kind": "action-model",
+          "termination": "API_ERROR",
+          "replayError": null,
+          "objectiveSuccess": false,
+          "perceivedDone": false
+        }
+      ]
+    },
+    "rehashedTamper": {
+      "rejected": 22,
+      "accepted": 0,
+      "evidence": "runtime-verification.json and mutants/*/result.json"
+    },
+    "targetedModuleTests": {
+      "pass": 41,
+      "fail": 0,
+      "evidence": "targeted-tests.log"
+    },
+    "exactAdmittedContextAndNativeBodyAudit": {
+      "checks": [
+        {
+          "name": "normal fresh two-screen run replay and choice chain",
+          "status": "PASS"
+        },
+        {
+          "name": "bounded post-continuity context derives only admitted unresolved current/historical claims",
+          "status": "PASS"
+        },
+        {
+          "name": "normal CLI completes four slots and keeps identical native request HTTP bodies",
+          "status": "PASS"
+        }
+      ],
+      "failures": 0,
+      "evidence": "audit.json"
+    },
+    "normalCLI": {
+      "slots": 4,
+      "valid": 4,
+      "invalid": 0,
+      "requests": 0,
+      "reversedActorOrder": true,
+      "pairs": 2,
+      "nativeRequestsAndHTTPBodiesEqual": 2,
+      "limits": {
+        "trials": 4,
+        "maxRequests": 144,
+        "parallel": 1,
+        "retry": 0,
+        "phaseMs": 1260000,
+        "maxTrialMs": 300000,
+        "maxJudgments": 12,
+        "maxUIActions": 15,
+        "maxLooks": 3,
+        "maxRequestsPerTrial": 36,
+        "maxVisualRequestMs": 60000
+      },
+      "evidence": "cli-audit.json and cli-mock/summary.json"
+    }
+  },
+  "findings": [],
+  "unverified": [
+    "Live API/provider behavior and real experiment results remain outside this mock-only gate.",
+    "No causal improvement, human fidelity, repeated-run stability, or real-world performance conclusion assessed."
+  ],
+  "originalEvidence": "Round-one GATE.json, raw failure logs and original source snapshots were preserved."
+}

@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "kind": "IMPLEMENTATION_AND_FRESH_EXECUTION_NOT_HUMAN_FIDELITY_PROOF",
+  "producer": "f5c1786eb648df3c5e13d7db08fd230b5b5014d5",
+  "sourceHash": "9ffb0aa77e39c5d8cb4a14837781459f4802e5e20befecf8eff461e379ae5aa3",
+  "sourceFiles": 158,
+  "sourceArchive": {
+    "path": "reports/visual-prior-links-2026-10-30/producer-source-9ffb0aa7.zip",
+    "sha256": "4fe3a014ef001b3942350310553b5aa7d4999d64916773e2ee6b5601bcf2eea5"
+  },
+  "phases": [
+    {
+      "scope": "live",
+      "manifest": "reports/visual-prior-links-2026-10-30/live/manifest.json",
+      "manifestSha256": "0109b4f47b4f0ce994f3de3c6f03a4030d40a281d05adfa74ba2492e44625641",
+      "producer": "f5c1786eb648df3c5e13d7db08fd230b5b5014d5",
+      "sourceHash": "9ffb0aa77e39c5d8cb4a14837781459f4802e5e20befecf8eff461e379ae5aa3",
+      "status": "MODEL_OUTPUT_FAILURE",
+      "requests": 124,
+      "records": [
+        {
+          "runId": "78da773e-a5f4-49a5-8680-57e1eb05c294-1",
+          "task": "library",
+          "actor": "experience-visual-conditions-prior-links",
+          "requests": 36,
+          "termination": "DECISION_LIMIT",
+          "objective": {
+            "status": "OK",
+            "value": false
+          },
+          "terminal": {
+            "schemaVersion": 1,
+            "route": "home",
+            "eligible": false,
+            "verificationAttempts": 1,
+            "recordChecks": 0,
+            "savedValue": "中央図書館",
+            "complete": false
+          },
+          "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-prior-links-2026-10-30\\live\\recovery-library-unchanged-r1-experience-visual-conditions-prior-links\\exploration\\result.json"
+        },
+        {
+          "runId": "78da773e-a5f4-49a5-8680-57e1eb05c294-2",
+          "task": "library",
+          "actor": "experience-visual-conditions-checks",
+          "requests": 36,
+          "termination": "DECISION_LIMIT",
+          "objective": {
+            "status": "OK",
+            "value": false
+          },
+          "terminal": {
+            "schemaVersion": 1,
+            "route": "account",
+            "eligible": false,
+            "verificationAttempts": 2,
+            "recordChecks": 0,
+            "savedValue": "中央図書館",
+            "complete": false
+          },
+          "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-prior-links-2026-10-30\\live\\recovery-library-unchanged-r1-experience-visual-conditions-checks\\exploration\\result.json"
+        },
+        {
+          "runId": "78da773e-a5f4-49a5-8680-57e1eb05c294-3",
+          "task": "workshop",
+          "actor": "experience-visual-conditions-checks",
+          "requests": 36,
+          "termination": "DECISION_LIMIT",
+          "objective": {
+            "status": "OK",
+            "value": false
+          },
+          "terminal": {
+            "schemaVersion": 1,
+            "route": "home",
+            "eligible": false,
+            "verificationAttempts": 1,
+            "recordChecks": 0,
+            "savedValue": "午前の回",
+            "complete": false
+          },
+          "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-prior-links-2026-10-30\\live\\recovery-workshop-unchanged-r1-experience-visual-conditions-checks\\exploration\\result.json"
+        },
+        {
+          "runId": "78da773e-a5f4-49a5-8680-57e1eb05c294-4",
+          "task": "workshop",
+          "actor": "experience-visual-conditions-prior-links",
+          "requests": 16,
+          "termination": "API_ERROR",
+          "objective": {
+            "status": "OK",
+            "value": false
+          },
+          "terminal": {
+            "schemaVersion": 1,
+            "route": "primary",
+            "eligible": false,
+            "verificationAttempts": 1,
+            "recordChecks": 0,
+            "savedValue": "午前の回",
+            "complete": false
+          },
+          "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-prior-links-2026-10-30\\live\\recovery-workshop-unchanged-r1-experience-visual-conditions-prior-links\\exploration\\result.json"
+        }
+      ]
+    },
+    {
+      "scope": "openai-sanity",
+      "manifest": "reports/visual-prior-links-2026-10-30/openai-sanity/manifest.json",
+      "manifestSha256": "bda9a000ddcdec19c9f71b8b58833b280834290ff290c03efad243032e37628b",
+      "producer": "f5c1786eb648df3c5e13d7db08fd230b5b5014d5",
+      "sourceHash": "9ffb0aa77e39c5d8cb4a14837781459f4802e5e20befecf8eff461e379ae5aa3",
+      "status": "COMPLETED",
+      "requests": 72,
+      "records": [
+        {
+          "runId": "9c1c02cc-435a-4529-91af-3cb43b716981-recovery-library-unchanged-r1",
+          "task": "library",
+          "actor": "prior-links/openai-decisions",
+          "requests": 36,
+          "termination": "DECISION_LIMIT",
+          "objective": {
+            "status": "OK",
+            "value": false
+          },
+          "terminal": {
+            "schemaVersion": 1,
+            "route": "home",
+            "eligible": true,
+            "verificationAttempts": 4,
+            "recordChecks": 1,
+            "savedValue": "中央図書館",
+            "complete": false
+          },
+          "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-prior-links-2026-10-30\\openai-sanity\\recovery-library-unchanged-r1\\exploration\\result.json"
+        },
+        {
+          "runId": "9c1c02cc-435a-4529-91af-3cb43b716981-recovery-workshop-unchanged-r1",
+          "task": "workshop",
+          "actor": "prior-links/openai-decisions",
+          "requests": 36,
+          "termination": "DECISION_LIMIT",
+          "objective": {
+            "status": "OK",
+            "value": false
+          },
+          "terminal": {
+            "schemaVersion": 1,
+            "route": "account",
+            "eligible": false,
+            "verificationAttempts": 6,
+            "recordChecks": 0,
+            "savedValue": "午前の回",
+            "complete": false
+          },
+          "rawResult": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\visual-prior-links-2026-10-30\\openai-sanity\\recovery-workshop-unchanged-r1\\exploration\\result.json"
+        }
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "scope": "independent-round1",
+      "path": "docs/virtual-beta/visual-prior-links-review-round1.json",
+      "sha256": "fe834ce7760024210ffb5f7a9df6ad8cf1d5802dba9e79b37467b3f6093e19bb",
+      "status": "FAIL"
+    },
+    {
+      "scope": "independent-round2",
+      "path": "docs/virtual-beta/visual-prior-links-review-round2.json",
+      "sha256": "ab0b9742f635968165560486e4c591ff1155d4d662fa97f5392bf7d39faf9ff7",
+      "status": "PASS"
+    },
+    {
+      "scope": "independent-live",
+      "path": "docs/virtual-beta/visual-prior-links-review-live.json",
+      "sha256": "ff921de912337744607f4c80724290f96622fec07353169931735cb9b4ab1860",
+      "status": "PASS"
+    },
+    {
+      "scope": "independent-openai",
+      "path": "docs/virtual-beta/visual-prior-links-review-openai.json",
+      "sha256": "07b45d7a610d8d0948ee9a17642b4e32ad075e27f6c3c0da50170b8919455599",
+      "status": "PASS"
+    }
+  ],
+  "priorPhasesNotPooled": [
+    {
+      "trialMs": 180000,
+      "nativeMs": 30000,
+      "attempted": 2,
+      "planned": 4,
+      "valid": 0,
+      "invalid": 2,
+      "requests": 50
+    },
+    {
+      "trialMs": 300000,
+      "nativeMs": 30000,
+      "attempted": 4,
+      "planned": 4,
+      "valid": 1,
+      "invalid": 3,
+      "requests": 75
+    }
+  ],
+  "newJev": {
+    "planned": 4,
+    "attempted": 4,
+    "valid": 3,
+    "invalid": 1,
+    "missing": 0,
+    "requests": 124,
+    "objectiveSuccess": 0,
+    "validPairedTasks": [
+      "library"
+    ],
+    "invalidReason": "Existing one-to-one continuity validation rejected two recalled IDs mapped to current c2; prior-link admission itself passed."
+  },
+  "newOpenAI": {
+    "planned": 2,
+    "attempted": 2,
+    "valid": 2,
+    "invalid": 0,
+    "missing": 0,
+    "requests": 72,
+    "objectiveSuccess": 0,
+    "intermediateRecordChecks": {
+      "library": 1,
+      "workshop": 0
+    }
+  },
+  "limitations": [
+    "One repeat per task and actor; no stable improvement claim",
+    "Fresh native outputs and later histories differ across providers; not causal provider comparison",
+    "Persona null in these runs; no new persona effect test",
+    "No human participant logs sent or human fidelity measured",
+    "Historical quotes and model relations remain hypotheses, not current screen facts"
+  ],
+  "preservedRawFiles": 6270,
+  "tests": {
+    "parentRelated": 322,
+    "parentFinalRelated": 209,
+    "replayRegressionAfterRepair": 12,
+    "independentRelated": 236,
+    "independentRehashedMutantsRejected": 17,
+    "buildExitCode": 0,
+    "note": "Suites overlap; do not sum counts."
+  },
+  "publicationCommandCheck": {
+    "kind": "MOCK_WIRING_ONLY",
+    "planned": 4,
+    "attempted": 4,
+    "valid": 4,
+    "invalid": 0,
+    "requests": 0,
+    "objectiveSuccesses": 0,
+    "matchedInitialPairs": 2,
+    "raw": "reports/visual-prior-links-2026-10-30/publication-mock"
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "status": "PASS_WITH_STATED_LIMITS",
+  "producer": {
+    "revision": "02ec896e9c3e2d29c11a6221466b9fa49a50c083",
+    "sourceHash": "5120f9a4c3bd33c3f1e0f974407a86b3647af9fffdb0980a16e4cb233e984d73",
+    "files": 122,
+    "differencesFrom84bc": [
+      "runner/budget-persistence.ts"
+    ]
+  },
+  "execution": {
+    "tests": 14,
+    "pass": 14,
+    "fail": 0,
+    "skip": 0,
+    "tscExit": 0,
+    "durationMs": 44587.2655,
+    "fullSuiteRun": false,
+    "browserWrapperCases": 2
+  },
+  "findings": [],
+  "resolvedFinding": {
+    "severity": "P2",
+    "file": "runner/budget-persistence.ts",
+    "initial": {
+      "severity": "P2",
+      "file": "runner/budget-persistence.ts",
+      "line": 64,
+      "title": "Relative destination changes when CWD changes after invocation",
+      "repro": "From A, call persistBudgetSnapshot('ledger.json',{saved:1}); synchronously change CWD to B; await save. Both folders initially hold {old:true}.",
+      "expected": {
+        "a": {
+          "saved": 1
+        },
+        "b": {
+          "old": true
+        }
+      },
+      "actual": {
+        "a": {
+          "old": true
+        },
+        "b": {
+          "saved": 1
+        }
+      },
+      "cause": "The FIFO key is resolved at invocation, but the queued IO receives the original relative path.",
+      "impact": "Writes the wrong ledger and detaches actual IO from the canonical FIFO key. PhaseBudget currently resolves its own ledger absolute, so this is a helper boundary defect, not evidence of a wrapper failure.",
+      "evidence": "independent-persistence-1793258060254/report.json and round1 log"
+    },
+    "round2Expected": {
+      "a": {
+        "saved": 1
+      },
+      "b": {
+        "old": true
+      }
+    },
+    "round2Actual": {
+      "a": {
+        "saved": 1
+      },
+      "b": {
+        "old": true
+      }
+    },
+    "status": "Independent original RED assertion now passes with default native IO"
+  },
+  "native": [
+    {
+      "releaseLock": true,
+      "diagnostics": 3,
+      "attempts": 3,
+      "events": [
+        {
+          "kind": "budget-persistence-retry",
+          "ledgerId": "26462a22603ecbbf7c2444c711a9c85f013177c5ba2b808a8bc16f6d433379c8",
+          "attempt": 1,
+          "delayMs": 25,
+          "fsCode": "EPERM"
+        },
+        {
+          "kind": "budget-persistence-retry",
+          "ledgerId": "26462a22603ecbbf7c2444c711a9c85f013177c5ba2b808a8bc16f6d433379c8",
+          "attempt": 2,
+          "delayMs": 50,
+          "fsCode": "EPERM"
+        },
+        {
+          "kind": "budget-persistence-recovered",
+          "ledgerId": "26462a22603ecbbf7c2444c711a9c85f013177c5ba2b808a8bc16f6d433379c8",
+          "attempt": 3,
+          "delayMs": 0,
+          "fsCode": "EPERM"
+        }
+      ],
+      "retainedTemps": []
+    },
+    {
+      "releaseLock": false,
+      "diagnostics": 4,
+      "attempts": 4,
+      "events": [
+        {
+          "kind": "budget-persistence-retry",
+          "ledgerId": "ce1280b5cf9e7195b1f773a602e5012d40265b2d9c91741f016d89ecb70abbb5",
+          "attempt": 1,
+          "delayMs": 25,
+          "fsCode": "EPERM"
+        },
+        {
+          "kind": "budget-persistence-retry",
+          "ledgerId": "ce1280b5cf9e7195b1f773a602e5012d40265b2d9c91741f016d89ecb70abbb5",
+          "attempt": 2,
+          "delayMs": 50,
+          "fsCode": "EPERM"
+        },
+        {
+          "kind": "budget-persistence-retry",
+          "ledgerId": "ce1280b5cf9e7195b1f773a602e5012d40265b2d9c91741f016d89ecb70abbb5",
+          "attempt": 3,
+          "delayMs": 100,
+          "fsCode": "EPERM"
+        },
+        {
+          "kind": "budget-persistence-exhausted",
+          "ledgerId": "ce1280b5cf9e7195b1f773a602e5012d40265b2d9c91741f016d89ecb70abbb5",
+          "attempt": 4,
+          "delayMs": 0,
+          "fsCode": "EPERM"
+        }
+      ],
+      "retainedTemps": [
+        "ledger.json.tmp-6b0de70b-b8bf-4e6d-bee0-9213e79be05f"
+      ]
+    }
+  ],
+  "wrappers": [
+    {
+      "recover": true,
+      "HTTPCalls": 2,
+      "stages": [
+        "assessment",
+        "action"
+      ],
+      "termination": "SUBJECTIVE_DONE",
+      "valid": true,
+      "diagnostics": 3,
+      "events": [
+        {
+          "kind": "budget-persistence-retry",
+          "ledgerId": "df07875be916956be9e80ea484447745313c89c6a5f75572381e7652bf27ff99",
+          "attempt": 1,
+          "delayMs": 25,
+          "fsCode": "EPERM"
+        },
+        {
+          "kind": "budget-persistence-retry",
+          "ledgerId": "df07875be916956be9e80ea484447745313c89c6a5f75572381e7652bf27ff99",
+          "attempt": 2,
+          "delayMs": 50,
+          "fsCode": "EPERM"
+        },
+        {
+          "kind": "budget-persistence-recovered",
+          "ledgerId": "df07875be916956be9e80ea484447745313c89c6a5f75572381e7652bf27ff99",
+          "attempt": 3,
+          "delayMs": 0,
+          "fsCode": "EPERM"
+        }
+      ],
+      "diskStatuses": [
+        "OK",
+        "OK"
+      ]
+    },
+    {
+      "recover": false,
+      "HTTPCalls": 1,
+      "stages": [
+        "assessment"
+      ],
+      "termination": "API_ERROR",
+      "valid": false,
+      "diagnostics": 4,
+      "events": [
+        {
+          "kind": "budget-persistence-retry",
+          "ledgerId": "810892b9ba87a7bae5c76821b3728eb99d1630354671a82f086dda05f2c1d9ee",
+          "attempt": 1,
+          "delayMs": 25,
+          "fsCode": "EPERM"
+        },
+        {
+          "kind": "budget-persistence-retry",
+          "ledgerId": "810892b9ba87a7bae5c76821b3728eb99d1630354671a82f086dda05f2c1d9ee",
+          "attempt": 2,
+          "delayMs": 50,
+          "fsCode": "EPERM"
+        },
+        {
+          "kind": "budget-persistence-retry",
+          "ledgerId": "810892b9ba87a7bae5c76821b3728eb99d1630354671a82f086dda05f2c1d9ee",
+          "attempt": 3,
+          "delayMs": 100,
+          "fsCode": "EPERM"
+        },
+        {
+          "kind": "budget-persistence-exhausted",
+          "ledgerId": "810892b9ba87a7bae5c76821b3728eb99d1630354671a82f086dda05f2c1d9ee",
+          "attempt": 4,
+          "delayMs": 0,
+          "fsCode": "EPERM"
+        }
+      ],
+      "diskStatuses": [
+        "RESERVED"
+      ]
+    }
+  ],
+  "verified": [
+    "Exact EPERM retry limit 4, waits 25/50/100ms, same serialized snapshot and temporary name, Promise<void>.",
+    "Guard blocks new starts at 250ms and after wait; an already started successful IO completes.",
+    "Write and non-EPERM codes immediately fail; malformed JSON and hostile error descriptors do not leak data.",
+    "Canonical Windows aliases preserve FIFO, call-time snapshots, distinct-ledger progress, cleanup and failure recovery without unhandled rejection.",
+    "Native default IO recovers after independent timer releases a no-delete reader lock; permanent lock retains original and complete temp.",
+    "Human wrapper recovery uses exactly one assessment and one distinct action HTTP; persistent lock stops after one assessment HTTP with RESERVED disk and matching-ID OK candidate temp.",
+    "Fixed diagnostics use path SHA256 and no raw paths/messages/stacks/causes."
+  ],
+  "preservation": {
+    "productBeforeAfterExactPin": true,
+    "historicalRawFiles": 1517,
+    "historicalLedgers": 130,
+    "unchanged": true,
+    "originalUnsettledLedgerUnrepaired": true
+  },
+  "testSHA": "e256369d3407aa15383296928380f1b48d88e1fd63a203b1b7d4d505ed26fbde",
+  "testChanges": {
+    "originalSHA": "410c12fdd1103cbf57f112a652ea84ad16fff9c6de4bd7d9285432265d4c57e4",
+    "currentSHA": "e256369d3407aa15383296928380f1b48d88e1fd63a203b1b7d4d505ed26fbde",
+    "behavioralBodiesUnchanged": true,
+    "operationsOnly": [
+      "Explicit source pin follows supplied snapshot, with all122/revision strict equality.",
+      "Windows-only retry, native-reader-lock, and human-lock cases skip with a reason on non-Windows.",
+      "Same canonical FIFO uses uppercase alias on Windows and identical lowercase path on other OS.",
+      "Only ENOENT indexes/raw count as absent; malformed JSON or permission errors propagate.",
+      "Missing historical fixtures skip with reason/checked0 and report unchanged=null, never a false verification."
+    ],
+    "actualNonWindowsHostRun": false,
+    "EOFExactlyOneNewline": true
+  },
+  "limits": [
+    "No real API/model calls or human files read. Fetch is fully stubbed; no saved input resend.",
+    "Actual native Windows behavior covered; non-Windows host behavior was code-reviewed, not executed on another OS.",
+    "Source and historical bytes remain pinned. No whole-suite claim.",
+    "Original EPERM holder is not identified by these newly created reader-lock probes."
+  ],
+  "freezeReleasedForParent": true
+}

@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "PARTIAL_BEHAVIOR_MEASURED_UX_REVIEW_ERROR",
+  "productRevision": "ea27c3cd197f873c50f72d465bc6c285811913e2",
+  "sourceHash": "edd41005912aab855443f8038efafc8af569c70b5f90efa164889a5d477ae869",
+  "protocol": "experiments/virtual-beta/human-comparison/protocol.json",
+  "inputBoundary": {
+    "participantActionsSent": false,
+    "participantFeedbackSent": false,
+    "DOMSent": false,
+    "persona": null,
+    "policy": "goal baseline",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "numberMarkers": true
+  },
+  "budget": {
+    "maximum": 13,
+    "used": 13,
+    "remaining": 0,
+    "exploration": 12,
+    "review": 1,
+    "statuses": {
+      "OK": 12,
+      "ERROR": 1
+    },
+    "previousLedgers": "Both hashes exactly match prior-ledgers-before.json; independently verified unchanged"
+  },
+  "human": {
+    "participant": "anonymous-single-participant",
+    "selfAttested": true,
+    "reportedOutcome": "achieved",
+    "objectiveSuccess": true,
+    "screenClicks": 6,
+    "scrollEvents": 4,
+    "nativeBackCount": null,
+    "recordingErrors": 0,
+    "clicks": [
+      {
+        "step": 2,
+        "label": "各種設定"
+      },
+      {
+        "step": 4,
+        "label": "アカウント情報"
+      },
+      {
+        "step": 5,
+        "label": "お知らせ"
+      },
+      {
+        "step": 7,
+        "label": "その他"
+      },
+      {
+        "step": 9,
+        "label": "お知らせの管理"
+      },
+      {
+        "step": 10,
+        "label": "メール通知を停止する"
+      }
+    ],
+    "postTaskIssueCategories": [
+      "organization expectation",
+      "text size"
+    ],
+    "rawFeedbackPublished": false
+  },
+  "model": {
+    "objectiveSuccess": false,
+    "objectiveAuditStatus": "OK",
+    "perceivedDone": false,
+    "termination": "DECISION_LIMIT",
+    "screenClicks": 12,
+    "uiActions": 12,
+    "looks": 0,
+    "decisions": 12,
+    "apiCalls": 12,
+    "validExplorationArtifact": true,
+    "clicks": [
+      {
+        "step": 1,
+        "label": "各種設定",
+        "observationId": "o1"
+      },
+      {
+        "step": 2,
+        "label": "お知らせ",
+        "observationId": "o2"
+      },
+      {
+        "step": 3,
+        "label": "マイページ",
+        "observationId": "o3"
+      },
+      {
+        "step": 4,
+        "label": "各種設定",
+        "observationId": "o4"
+      },
+      {
+        "step": 5,
+        "label": "お知らせ",
+        "observationId": "o5"
+      },
+      {
+        "step": 6,
+        "label": "マイページ",
+        "observationId": "o6"
+      },
+      {
+        "step": 7,
+        "label": "各種設定",
+        "observationId": "o7"
+      },
+      {
+        "step": 8,
+        "label": "お知らせ",
+        "observationId": "o8"
+      },
+      {
+        "step": 9,
+        "label": "マイページ",
+        "observationId": "o9"
+      },
+      {
+        "step": 10,
+        "label": "各種設定",
+        "observationId": "o10"
+      },
+      {
+        "step": 11,
+        "label": "お知らせ",
+        "observationId": "o11"
+      },
+      {
+        "step": 12,
+        "label": "マイページ",
+        "observationId": "o12"
+      }
+    ],
+    "repeatedPath": {
+      "labels": [
+        "各種設定",
+        "お知らせ",
+        "マイページ"
+      ],
+      "repetitions": 4
+    },
+    "otherWasOfferedAtRoot": [
+      {
+        "step": 1,
+        "id": "e5",
+        "offered": true,
+        "rawModelProbability": 0.01
+      },
+      {
+        "step": 4,
+        "id": "e5",
+        "offered": true,
+        "rawModelProbability": 0.01
+      },
+      {
+        "step": 7,
+        "id": "e5",
+        "offered": true,
+        "rawModelProbability": 0
+      },
+      {
+        "step": 10,
+        "id": "e5",
+        "offered": true,
+        "rawModelProbability": 0.01
+      }
+    ]
+  },
+  "comparison": {
+    "firstClickedCategoryMatches": true,
+    "firstActionMatches": false,
+    "firstActionDifference": "Human first recorded scroll before settings click; model clicked settings directly",
+    "sameUnderlyingExpectation": "NOT_ESTABLISHED",
+    "explorationRecovery": "Human eventually selected another category and achieved goal; model repeated the same three-click route four times and did not achieve goal",
+    "typographyEffect": "UNMEASURED: no gaze or perceptual attribution from actions alone",
+    "initialProductPixels": {
+      "identical": false,
+      "differingPixels": 50085,
+      "totalPixels": 1152000,
+      "differencePercent": 4.34765625,
+      "interpretation": "Native scrollbar/layout differences; not identical visual conditions"
+    }
+  },
+  "uxReview": {
+    "status": "ERROR",
+    "code": "REVIEW_INVALID_OR_REQUEST_FAILED",
+    "findings": null,
+    "interpretation": "A failed/missing review is not none/no-issues; the original exception detail was not retained, so transport versus response validation cause is unknown"
+  },
+  "verification": {
+    "newFocused": {
+      "passed": 15,
+      "failed": 0,
+      "log": "reports/human-jev-2026-10-28/final-focused.log"
+    },
+    "relatedRegression": {
+      "passed": 28,
+      "failed": 0,
+      "log": "reports/human-jev-2026-10-28/related-regression.log"
+    },
+    "fullSuite": "Previous product baseline completed752/749pass/0fail/3skip; not rerun after isolated comparison additions",
+    "independentStatus": "Actual-run audit passed for saved source/images/inputs/selections/counts; independent postrun focused15 passed; review cause remains unknown",
+    "buildExitCode": 0,
+    "typescriptExitCode": 0,
+    "independentPostrun": {
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "log": "reports/human-first-20261028-153854/independent-postrun-focused.log"
+    },
+    "diagnosticRepair": {
+      "revision": "207a465ca74e645f4e9f8fa5b0beb0edf4b7cb48",
+      "sourceHash": "429090c564613bde4fe1c34d9336c486605c408d229471de1d0ffc10213e1c2f",
+      "realModelRerun": false,
+      "scope": "Safe failure evidence only; action policy and review questions unchanged"
+    }
+  },
+  "archivalEvidence": {
+    "differentVersion": true,
+    "runsInspected": 42,
+    "runsWithOperationalFailures": 12,
+    "runsWithBehavior": 30,
+    "firstClickSettings": 30,
+    "pooledWithNewTrial": false,
+    "artifact": "reports/human-first-20261028-153854/independent-existing-model-audit.json"
+  },
+  "limits": [
+    "One participant and one fresh model trial, post-hoc comparison",
+    "Baseline policy was not fitted to the participant",
+    "Number markers, candidate eligibility and finite image memory differ from native human browsing",
+    "Native browser Back is not counted in human click count",
+    "Generic category review is prompted, not spontaneous free-text discovery",
+    "UX review failed; independent problem identification remains unmeasured"
+  ]
+}

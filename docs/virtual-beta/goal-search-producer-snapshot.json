@@ -1,0 +1,17 @@
+{
+  "producerRevision": "ee8fe22183e4fd6c30f6919f1af35158d8bef634",
+  "producerSourceHash": "d3e77a5f2e1a0a1ae757999252d116902414a838192223b3de7c5521b573b186",
+  "files": 122,
+  "zipSha256": "473736d2a13167cd95e258115948ec3bb9bef9035e5bcd36cadb70b39ca64ab6",
+  "sourceHashesVerified": true,
+  "archiveCRCVerified": true,
+  "credentialFilesIncluded": false,
+  "gitRecoveredFiles": [
+    {
+      "file": "runner/deferral-reason-experiment.ts",
+      "method": "git-blob",
+      "sha256": "b5906802c8f8cb6f25a815aa94c457ac2e27920ac2a77fef02ace620922d45cb"
+    }
+  ],
+  "limitation": "Snapshot retains exact producer source bytes. Git line-ending conversion alone need not preserve their hashes. Dependencies/reports and credential files are not included."
+}

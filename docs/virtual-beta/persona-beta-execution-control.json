@@ -1,0 +1,10 @@
+{
+  "createdAtUTC": "2026-11-05T11:37:12.675Z",
+  "revision": "f0d15c67f2d6679c944788ee52942d9351bf04c0",
+  "sourceHash": "128d87929d31b9ca6e46220c75aa4bb70829a2a5eae818d5835d9a20f359f5f6",
+  "analysisProtocolSha256": "140b60eac468bad5ff66e0a1c20633d839724da0047de899820e4d0f8c326051",
+  "priorCount": 7893,
+  "priorFile": "live-prior-round2.json",
+  "requestLimit": 432,
+  "parallel": 1
+}

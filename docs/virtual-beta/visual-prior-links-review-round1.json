@@ -1,0 +1,102 @@
+{
+  "status": "FAIL",
+  "round": 1,
+  "sourceHash": "d7459de8809c0352450deacafb8ec444738b33bdf2890963922911bdd8b2a53a",
+  "sourceRevision": "00157b3d41ec27b664766fb6dd017e1127553838",
+  "APIRequests": 0,
+  "authEnvAccess": false,
+  "productModified": false,
+  "freeze": {
+    "before": true,
+    "after": true,
+    "source158": true,
+    "trackedUntracked977": true,
+    "protected853": true,
+    "prior6006": true
+  },
+  "acceptance": {
+    "1": {
+      "status": "PASS",
+      "evidence": "related-regression.log: old native body/schema/request golden and four-argument action bytes"
+    },
+    "2": {
+      "status": "PASS",
+      "evidence": "231 focused regressions; exact eligible IDs, current quotes, duplicate/cross-scope/source/goal/capacity failures"
+    },
+    "3": {
+      "status": "PASS",
+      "evidence": "independent-ui/result.json; delivered-second-observation.json: both stage sidecars equal; historical unmet scoped before current uncertain reassessment; empty current conditions remain empty"
+    },
+    "4": {
+      "status": "PASS_TECHNICAL_SCOPE",
+      "evidence": "selection.modelChoice equals selection.selected in independent UI; profile diff regression; sidecar module only projects input memory; no semantic-performance claim"
+    },
+    "5": {
+      "status": "PASS",
+      "evidence": "native-scalars.json: actual AbortSignal.timeout and observer 30000/60000/1231, no timing in native body; focused runtime regressions external remaining clipping"
+    },
+    "6": {
+      "status": "FAIL",
+      "evidence": "tamper-outcomes.json: 13/14 reject; ordinary-and-additional-audit.json: missing type and extra field also incorrectly accepted"
+    },
+    "7": {
+      "status": "PASS",
+      "evidence": "ordinary-pair.log + ordinary-and-additional-audit.json: ordinary CLI planned4 attempted2 missing2 valid2 API0; image/goal/persona/empty memory pair matched; shared60s/300s limits; wrong config, old180s pool, duplicate pool rejected"
+    },
+    "8": {
+      "status": "PASS",
+      "evidence": "ordinary pair subjective done remains objective false; injected infrastructure never success; recovery-analysis related regression"
+    },
+    "9": {
+      "status": "NOT_CLAIMED",
+      "evidence": "No live model, human reproduction, semantic correspondence or performance improvement evaluated."
+    }
+  },
+  "executedTests": [
+    {
+      "command": "node --experimental-vm-modules --import tsx --test reports/visual-prior-links-2026-10-30/independent-round1/native-independent.test.mjs",
+      "pass": 1,
+      "fail": 0
+    },
+    {
+      "command": "node --import tsx --test reports/visual-prior-links-2026-10-30/independent-round1/ui-independent.test.ts",
+      "pass": 0,
+      "fail": 1,
+      "probeRejected": 13,
+      "probeAcceptedUnexpectedly": 1
+    },
+    {
+      "command": "node --import tsx --test tests/visual-prior-hypotheses.test.ts tests/visual-prior-relations.test.ts tests/visual-prior-runtime.test.ts tests/condition-continuity.test.ts tests/visual-action-checks.test.ts tests/recovery-analysis.test.ts",
+      "pass": 231,
+      "fail": 0
+    },
+    {
+      "command": "node --import tsx runner/condition-continuity-comparison.ts --prior-links --trial-ms 300000 --visual-request-ms 60000 --mock --prior-snapshot ABS_PRIOR_6006 --limit 2 --out reports/visual-prior-links-2026-10-30/independent-round1/ordinary-pair",
+      "exitCode": 0,
+      "attempted": 2,
+      "valid": 2,
+      "APIRequests": 0
+    },
+    {
+      "command": "node --import tsx reports/visual-prior-links-2026-10-30/independent-round1/additional-audit.ts",
+      "exitCode": 0
+    }
+  ],
+  "issues": [
+    {
+      "severity": "P2",
+      "requirement": 6,
+      "location": "runner/virtual-beta-replay.ts candidateChecks nextAction validation",
+      "repro": "In independent-ui/result.json set steps[1].questions.nextAction.type=\"forged-choice\", remove type, or add nextAction.forged=\"injected\"; recompute each step inputSha256 using SHA256(JSON.stringify({input:modelInput,questions,assets:assetFiles})); replayDirectory still verifies.",
+      "expected": "Closed complete nextAction question with type choice required; malformed/extra/missing question fields rejected after rehash.",
+      "actual": "All three malformed complete-question variants return verified:true; instructions and criteria changes do reject."
+    }
+  ],
+  "unverified": [
+    "Live native API execution",
+    "Human reproducibility and semantic link correctness",
+    "Performance improvement",
+    "All repository tests (focused related subset only)"
+  ],
+  "sourceMayNowBeChangedForCorrection": true
+}
