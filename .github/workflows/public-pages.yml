@@ -2,7 +2,7 @@ name: Publish public documents
 
 on:
   push:
-    branches: [master, fix/sufficiency-voting]
+    branches: [fix/sufficiency-voting]
     paths:
       - public-site/**
       - runner/build-public-pages.ts

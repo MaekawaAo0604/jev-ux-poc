@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "sourceHash": "c9a64e1f0ebe75539e346dac6b0b83cf4441c2258085a9baa2ef299a299bdd4c",
+  "initialRegression": {
+    "pass": 134,
+    "fail": 0,
+    "skip": 0
+  },
+  "precisionRegression": {
+    "pass": 17,
+    "fail": 0,
+    "skip": 0
+  },
+  "finalCropAndPagesRegression": {
+    "pass": 33,
+    "fail": 0,
+    "skip": 0
+  },
+  "build": "PASS",
+  "pagesBuild": "PASS local only; no deployment",
+  "viewerChromiumSmoke": "PASS actions-v1 visible; 3 images",
+  "realModel": {
+    "trials": 12,
+    "requests": 60,
+    "mock": false
+  },
+  "wholeSuite": "Not claimed green; historical fixture/source-freeze tests outside scoped regression",
+  "logs": {
+    "reports\\crop-stuck-2026-11-10\\parent\\final-regression.txt": "ba97c1c63fe61f67d2bb0651cd8acbd5ccdf0b1bc4b679250c31fc8fc56aa5d1",
+    "reports\\crop-stuck-2026-11-10\\parent\\regression.txt": "5424c5fc35aaf8a8c3ace65593a2b6c0c5f6ba8c920501e245f180ad8853ab97",
+    "reports\\crop-stuck-2026-11-10\\parent\\precision-regression.txt": "529c8b0264c24d98d037e19708893918a7e4167cd1ed53d11964fc8d720969ae",
+    "reports\\crop-stuck-2026-11-10\\parent\\build-final.txt": "a7aa410082d3eeb2c9fe59ab89a38cf2282063220fe2fc350164d42b65c31836",
+    "reports\\crop-stuck-2026-11-10\\parent\\analyzer-green.txt": "77df36a02d7e1d8fb9dbfc1c3f779197b1dbd6737d162795605fe799541f1c2d"
+  }
+}

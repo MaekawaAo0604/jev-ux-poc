@@ -1,3 +1,4 @@
+import {attentionObservationContext} from '../jev/virtual-beta/attention-observation-context.js';
 import {deriveAttentionSampling} from './attention-sampling.js';
 import {attentionCandidates,attentionQuestions,attentionInput,attentionGazeCandidates,attentionCurrentViewCandidates,attentionCurrentViewInput,attentionCurrentViewInstructions} from '../jev/virtual-beta/attention.js';
 import {validateChoice} from '../jev/client.js';
@@ -51,7 +52,7 @@ export async function verifyFactorReplay(directory:string,result:BetaResult){
    if(!a){if(!['DEADLINE_BEFORE_INFERENCE','SAFETY_STOP'].includes(step.outcome??''))throw Error('ATTENTION_STAGE_MISSING');}
    else{
     if(!equal(a.sampling,sampling))throw Error('ATTENTION_SAMPLING_MISMATCH');
-    const offered=attentionCandidates(candidates,config.attention.policy),expectedInput=attentionInput(wire,config.attention.taskFrame),expectedQuestions=attentionQuestions(candidates,config.attention.policy);
+    const offered=attentionCandidates(candidates,config.attention.policy),attentionBase=attentionInput(wire,config.attention.taskFrame),expectedInput=config.attention.observationContext?attentionObservationContext(attentionBase,candidates,config.vision.mode,config.attention.observationContext):attentionBase,expectedQuestions=attentionQuestions(candidates,config.attention.policy);
     const attentionExcluded=Object.fromEntries(Object.entries(excluded).filter(([id])=>Object.hasOwn(offered,id)));
     if(config.attention.policy==='exclusive-hierarchical-v2'&&looks>=config.maxLooks)attentionExcluded.inspect='LOOK_BUDGET_EXHAUSTED';
     if(a.gazeSelection!==undefined&&(config.attention.policy!=='exclusive-hierarchical-v2'||a.selection?.selected!=='inspect'))throw Error('ATTENTION_UNEXPECTED_GAZE_SELECTION');

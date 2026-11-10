@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "study": "experiments/virtual-beta/crop-context-v1/study.json",
+  "studySha256": "f01f32d7aa7f5d2423847dc0ad625e9f5d7eb0c3900bca4fa1ea2cb4b281052d",
+  "inputHashes": {
+    "experiments/virtual-beta/crop-context-v1/study.json": "f01f32d7aa7f5d2423847dc0ad625e9f5d7eb0c3900bca4fa1ea2cb4b281052d",
+    "experiments/persona/charter-good.json": "419ebb939b18fadb01f7a2db17da0fc31d817641b1b695411af37bf77004d176",
+    "experiments/persona/clear-notifications-v1/a.json": "8c4cbeeaadde52f98c0433e2f1a15ad6416183f450806048e918e808e4c315c1",
+    "experiments/virtual-beta/crop-context-v1/seed9001.json": "853e80aa695bf182f987023e1b87c770d118e7770cd4fdbbaabd7d80fa9a7ae5",
+    "experiments/virtual-beta/crop-context-v1/seed9002.json": "be8cb2eecdeb4f248ff0df2f909ef7d8f0fb1aa4bd0ed62c3c3230927fca9a2b",
+    "experiments/virtual-beta/crop-context-v1/seed9003.json": "5d63f6e2d8a353e2a1b0d08ee1a7ff1887201a06a322cf844aecd219bde0cf40"
+  },
+  "source": {
+    "revision": "7f35def90ca5b21818bb9c6dd0b26578bd6f2646",
+    "sourceHash": "c9a64e1f0ebe75539e346dac6b0b83cf4441c2258085a9baa2ef299a299bdd4c"
+  },
+  "driverSha256": "052faab93cc85d0ec0d3b0cb88c30f6f0d3143bd12c6540db08629cac9486a28",
+  "mock": false,
+  "status": "COMPLETED",
+  "allocation": 144,
+  "plannedTrials": 12,
+  "preservationBefore": true,
+  "preservationAfter": true,
+  "batches": [
+    {
+      "id": "seed9001",
+      "plan": "experiments/virtual-beta/crop-context-v1/seed9001.json",
+      "allocatedAPIRequests": 48,
+      "outDir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9001",
+      "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9001-budget.json",
+      "status": "COMPLETED",
+      "actualAPIRequests": 20,
+      "summarySha256": "2cb757951dabde8967c5ccf72c56cbb7bd19655905d71b1c1f39158af4ce7a45"
+    },
+    {
+      "id": "seed9002",
+      "plan": "experiments/virtual-beta/crop-context-v1/seed9002.json",
+      "allocatedAPIRequests": 48,
+      "outDir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9002",
+      "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9002-budget.json",
+      "status": "COMPLETED",
+      "actualAPIRequests": 20,
+      "summarySha256": "31f435c827cafe2f3a45d197050ea98fc96d9e88be63e194747ba2e4dde265d7"
+    },
+    {
+      "id": "seed9003",
+      "plan": "experiments/virtual-beta/crop-context-v1/seed9003.json",
+      "allocatedAPIRequests": 48,
+      "outDir": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9003",
+      "ledger": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\crop-stuck-2026-11-10\\live-r1\\seed9003-budget.json",
+      "status": "COMPLETED",
+      "actualAPIRequests": 20,
+      "summarySha256": "c5eee32fd36af93e425cc5dfe578d224c28a59ee8ccf79fce25915ac0991d576"
+    }
+  ],
+  "elapsedMs": 95836.9787
+}

@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "id": "crop-context-9003",
+  "configs": [
+    {
+      "schemaVersion": 1,
+      "id": "crop-actions",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 8,
+      "maxAPICalls": 12,
+      "maxRunMs": 150000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      },
+      "attention": {
+        "enabled": true,
+        "policy": "exclusive-hierarchical-v2",
+        "sampling": "domain-separated-v1",
+        "taskFrame": "attention-v1",
+        "observationContext": "actions-v1"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "crop-both",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 8,
+      "maxAPICalls": 12,
+      "maxRunMs": 150000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      },
+      "attention": {
+        "enabled": true,
+        "policy": "exclusive-hierarchical-v2",
+        "sampling": "domain-separated-v1",
+        "taskFrame": "attention-v1",
+        "observationContext": "geometry-actions-v1"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "crop-control",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 8,
+      "maxAPICalls": 12,
+      "maxRunMs": 150000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      },
+      "attention": {
+        "enabled": true,
+        "policy": "exclusive-hierarchical-v2",
+        "sampling": "domain-separated-v1",
+        "taskFrame": "attention-v1"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "crop-geometry",
+      "vision": {
+        "mode": "crop",
+        "clearWidth": 960,
+        "clearHeight": 620,
+        "blurRadius": 12
+      },
+      "state": {
+        "enabled": true,
+        "memoryCapacity": 3
+      },
+      "selection": {
+        "mode": "argmax",
+        "seed": 20261027
+      },
+      "behavior": "goal",
+      "maxUIActions": 6,
+      "maxLooks": 4,
+      "maxDecisions": 8,
+      "maxAPICalls": 12,
+      "maxRunMs": 150000,
+      "modeledActionMs": null,
+      "factors": {
+        "informationChannel": "image-state",
+        "extraActions": {
+          "look": true,
+          "reread": false,
+          "wait": false,
+          "abandon": false
+        }
+      },
+      "attention": {
+        "enabled": true,
+        "policy": "exclusive-hierarchical-v2",
+        "sampling": "domain-separated-v1",
+        "taskFrame": "attention-v1",
+        "observationContext": "geometry-v1"
+      }
+    }
+  ],
+  "seeds": [
+    9003
+  ],
+  "maxTotalAPI": 48,
+  "maxDurationMs": 600000
+}

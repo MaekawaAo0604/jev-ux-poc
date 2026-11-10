@@ -1,0 +1,460 @@
+{
+  "schemaVersion": 1,
+  "gate": "ACTUAL_RAW_AUDIT_GO",
+  "phaseFile": "reports/crop-stuck-2026-11-10/live-r1/phase.json",
+  "phaseSha256": "f3f1415d1528c62210d300cb4c2cb0bb9a3b60c4f95d932cef27ebe5210cb6e3",
+  "freezePath": "reports/crop-stuck-2026-11-10/freeze-v2.json",
+  "freezeSha256": "988a9e9468c37eec44dad6ea0cd1a3f559a9b7af75361a824658360971834435",
+  "source": {
+    "revision": "7f35def90ca5b21818bb9c6dd0b26578bd6f2646",
+    "sourceHash": "c9a64e1f0ebe75539e346dac6b0b83cf4441c2258085a9baa2ef299a299bdd4c"
+  },
+  "batches": [
+    {
+      "id": "seed9001",
+      "used": 20,
+      "ledgerSha256": "d139eab8359c5b55c7db634e93d81f9dc548a6c1802ce2170cbb9b3d82154097",
+      "comparisonSha256": "2cb757951dabde8967c5ccf72c56cbb7bd19655905d71b1c1f39158af4ce7a45"
+    },
+    {
+      "id": "seed9002",
+      "used": 20,
+      "ledgerSha256": "2f2ed28677d174a14908a181c8077757274eb1ed87bf88ffbfbd601aac08caa0",
+      "comparisonSha256": "31f435c827cafe2f3a45d197050ea98fc96d9e88be63e194747ba2e4dde265d7"
+    },
+    {
+      "id": "seed9003",
+      "used": 20,
+      "ledgerSha256": "d6c7a03b433fefc735afb59a25e5f25ab8d9a808f0ff1f3ea1f28207c92f8f46",
+      "comparisonSha256": "c5eee32fd36af93e425cc5dfe578d224c28a59ee8ccf79fce25915ac0991d576"
+    }
+  ],
+  "trials": [
+    {
+      "runId": "crop-control-seed-9001",
+      "seed": 9001,
+      "arm": "control",
+      "rawSha256": "de2488802268a15474bfe519387b116ed63613bfcd0071cbafd881e700546e8a",
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "termination": "STUCK",
+      "objectiveSuccess": false,
+      "transportMarker": null,
+      "firstGate": "continue",
+      "firstInspectMass": 0.35,
+      "firstGaze": {
+        "look_0": 0.02,
+        "look_1": 0.03,
+        "look_2": 0.04,
+        "look_3": 0.91
+      }
+    },
+    {
+      "runId": "crop-geometry-seed-9001",
+      "seed": 9001,
+      "arm": "geometry-v1",
+      "rawSha256": "65a147f9864c63eb7434f859c67fa89dafff6d646e77e733585ac805ce7aee65",
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "termination": "STUCK",
+      "objectiveSuccess": false,
+      "transportMarker": null,
+      "firstGate": "continue",
+      "firstInspectMass": 0.38,
+      "firstGaze": {
+        "look_0": 0.04,
+        "look_1": 0.31,
+        "look_2": 0.1,
+        "look_3": 0.55
+      }
+    },
+    {
+      "runId": "crop-actions-seed-9001",
+      "seed": 9001,
+      "arm": "actions-v1",
+      "rawSha256": "8b56310126c70f7b110125fd6d1f83a4cf3065bd2c08dae2aead8fea04451cd9",
+      "apiCalls": 8,
+      "looks": 2,
+      "uiActions": 2,
+      "termination": "SUBJECTIVE_DONE",
+      "objectiveSuccess": true,
+      "transportMarker": null,
+      "firstGate": "inspect",
+      "firstInspectMass": 0.89,
+      "firstGaze": {
+        "look_0": 0.02,
+        "look_1": 0.04,
+        "look_2": 0.05,
+        "look_3": 0.89
+      }
+    },
+    {
+      "runId": "crop-both-seed-9001",
+      "seed": 9001,
+      "arm": "geometry-actions-v1",
+      "rawSha256": "253f6f89917b4a14b3d0f09bdf9fa6f0521ad5607327baf90cc5860edc50f95b",
+      "apiCalls": 8,
+      "looks": 2,
+      "uiActions": 2,
+      "termination": "SUBJECTIVE_DONE",
+      "objectiveSuccess": true,
+      "transportMarker": null,
+      "firstGate": "inspect",
+      "firstInspectMass": 0.88,
+      "firstGaze": {
+        "look_0": 0.03,
+        "look_1": 0.26,
+        "look_2": 0.08,
+        "look_3": 0.63
+      }
+    },
+    {
+      "runId": "crop-geometry-seed-9002",
+      "seed": 9002,
+      "arm": "geometry-v1",
+      "rawSha256": "910e42991c4e7c7d96fefb4abc0207605a9d92968d23d9986c88215e13bb63e7",
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "termination": "STUCK",
+      "objectiveSuccess": false,
+      "transportMarker": null,
+      "firstGate": "continue",
+      "firstInspectMass": 0.45,
+      "firstGaze": {
+        "look_0": 0.04,
+        "look_1": 0.22,
+        "look_2": 0.1,
+        "look_3": 0.64
+      }
+    },
+    {
+      "runId": "crop-actions-seed-9002",
+      "seed": 9002,
+      "arm": "actions-v1",
+      "rawSha256": "a8f397836e1cc07732726e0bc3c2e4f5e7825f18729a08007233030b66122027",
+      "apiCalls": 8,
+      "looks": 2,
+      "uiActions": 2,
+      "termination": "SUBJECTIVE_DONE",
+      "objectiveSuccess": true,
+      "transportMarker": null,
+      "firstGate": "inspect",
+      "firstInspectMass": 0.91,
+      "firstGaze": {
+        "look_0": 0.02,
+        "look_1": 0.03,
+        "look_2": 0.03,
+        "look_3": 0.92
+      }
+    },
+    {
+      "runId": "crop-both-seed-9002",
+      "seed": 9002,
+      "arm": "geometry-actions-v1",
+      "rawSha256": "843beb9f7a7203df3bccf9bf6d56a9ba352b340f067b50ade01ae093543051c4",
+      "apiCalls": 8,
+      "looks": 2,
+      "uiActions": 2,
+      "termination": "SUBJECTIVE_DONE",
+      "objectiveSuccess": true,
+      "transportMarker": null,
+      "firstGate": "inspect",
+      "firstInspectMass": 0.89,
+      "firstGaze": {
+        "look_0": 0.03,
+        "look_1": 0.35,
+        "look_2": 0.08,
+        "look_3": 0.54
+      }
+    },
+    {
+      "runId": "crop-control-seed-9002",
+      "seed": 9002,
+      "arm": "control",
+      "rawSha256": "d7b22fcb662a8d6c05dbe9bf4c6887fb5f8b968784cbd64b859279634a2a3395",
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "termination": "STUCK",
+      "objectiveSuccess": false,
+      "transportMarker": null,
+      "firstGate": "continue",
+      "firstInspectMass": 0.37,
+      "firstGaze": {
+        "look_0": 0.01,
+        "look_1": 0.02,
+        "look_2": 0.03,
+        "look_3": 0.94
+      }
+    },
+    {
+      "runId": "crop-actions-seed-9003",
+      "seed": 9003,
+      "arm": "actions-v1",
+      "rawSha256": "c7a60a8562f4b4ae6337b46363ea4f806a7b0cc5fa9655e6bc52cc689dd9ac6c",
+      "apiCalls": 8,
+      "looks": 2,
+      "uiActions": 2,
+      "termination": "SUBJECTIVE_DONE",
+      "objectiveSuccess": true,
+      "transportMarker": null,
+      "firstGate": "inspect",
+      "firstInspectMass": 0.88,
+      "firstGaze": {
+        "look_0": 0.02,
+        "look_1": 0.03,
+        "look_2": 0.04,
+        "look_3": 0.91
+      }
+    },
+    {
+      "runId": "crop-both-seed-9003",
+      "seed": 9003,
+      "arm": "geometry-actions-v1",
+      "rawSha256": "412e7028c8fc468ee6b68b88dc1a340ca4817b2f2963679d1f657db9e5e57e15",
+      "apiCalls": 8,
+      "looks": 2,
+      "uiActions": 2,
+      "termination": "SUBJECTIVE_DONE",
+      "objectiveSuccess": true,
+      "transportMarker": null,
+      "firstGate": "inspect",
+      "firstInspectMass": 0.89,
+      "firstGaze": {
+        "look_0": 0.03,
+        "look_1": 0.21,
+        "look_2": 0.08,
+        "look_3": 0.68
+      }
+    },
+    {
+      "runId": "crop-control-seed-9003",
+      "seed": 9003,
+      "arm": "control",
+      "rawSha256": "a59a5e050d6d72e15fe96bdd6dc9d46181beb0aa58ecd11267bbe27541fe6d8a",
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "termination": "STUCK",
+      "objectiveSuccess": false,
+      "transportMarker": null,
+      "firstGate": "continue",
+      "firstInspectMass": 0.27,
+      "firstGaze": {
+        "look_0": 0.02,
+        "look_1": 0.04,
+        "look_2": 0.04,
+        "look_3": 0.9
+      }
+    },
+    {
+      "runId": "crop-geometry-seed-9003",
+      "seed": 9003,
+      "arm": "geometry-v1",
+      "rawSha256": "bedaab0f92ab81182cd50b18dcc34e93ef70d28f84d6b19ab62de54e51928d8e",
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "termination": "STUCK",
+      "objectiveSuccess": false,
+      "transportMarker": null,
+      "firstGate": "continue",
+      "firstInspectMass": 0.42,
+      "firstGaze": {
+        "look_0": 0.03,
+        "look_1": 0.24,
+        "look_2": 0.09,
+        "look_3": 0.64
+      }
+    }
+  ],
+  "apiRequests": 60,
+  "gateSelections": 36,
+  "gazeSelections": 12,
+  "actionSelections": 24,
+  "imageBindings": 132,
+  "lookPairs": [
+    {
+      "runId": "crop-actions-seed-9001",
+      "decision": 1,
+      "point": {
+        "x": 960,
+        "y": 675
+      },
+      "changed": true,
+      "newlyEligible": [
+        "e5"
+      ]
+    },
+    {
+      "runId": "crop-actions-seed-9001",
+      "decision": 3,
+      "point": {
+        "x": 320,
+        "y": 225
+      },
+      "changed": true,
+      "newlyEligible": [
+        "e1",
+        "e2",
+        "e3"
+      ]
+    },
+    {
+      "runId": "crop-both-seed-9001",
+      "decision": 1,
+      "point": {
+        "x": 960,
+        "y": 675
+      },
+      "changed": true,
+      "newlyEligible": [
+        "e5"
+      ]
+    },
+    {
+      "runId": "crop-both-seed-9001",
+      "decision": 3,
+      "point": {
+        "x": 320,
+        "y": 225
+      },
+      "changed": true,
+      "newlyEligible": [
+        "e1",
+        "e2",
+        "e3"
+      ]
+    },
+    {
+      "runId": "crop-actions-seed-9002",
+      "decision": 1,
+      "point": {
+        "x": 960,
+        "y": 675
+      },
+      "changed": true,
+      "newlyEligible": [
+        "e5"
+      ]
+    },
+    {
+      "runId": "crop-actions-seed-9002",
+      "decision": 3,
+      "point": {
+        "x": 320,
+        "y": 225
+      },
+      "changed": true,
+      "newlyEligible": [
+        "e1",
+        "e2",
+        "e3"
+      ]
+    },
+    {
+      "runId": "crop-both-seed-9002",
+      "decision": 1,
+      "point": {
+        "x": 960,
+        "y": 675
+      },
+      "changed": true,
+      "newlyEligible": [
+        "e5"
+      ]
+    },
+    {
+      "runId": "crop-both-seed-9002",
+      "decision": 3,
+      "point": {
+        "x": 320,
+        "y": 225
+      },
+      "changed": true,
+      "newlyEligible": [
+        "e1",
+        "e2",
+        "e3"
+      ]
+    },
+    {
+      "runId": "crop-actions-seed-9003",
+      "decision": 1,
+      "point": {
+        "x": 960,
+        "y": 675
+      },
+      "changed": true,
+      "newlyEligible": [
+        "e5"
+      ]
+    },
+    {
+      "runId": "crop-actions-seed-9003",
+      "decision": 3,
+      "point": {
+        "x": 320,
+        "y": 225
+      },
+      "changed": true,
+      "newlyEligible": [
+        "e1",
+        "e2",
+        "e3"
+      ]
+    },
+    {
+      "runId": "crop-both-seed-9003",
+      "decision": 1,
+      "point": {
+        "x": 960,
+        "y": 675
+      },
+      "changed": true,
+      "newlyEligible": [
+        "e5"
+      ]
+    },
+    {
+      "runId": "crop-both-seed-9003",
+      "decision": 3,
+      "point": {
+        "x": 320,
+        "y": 225
+      },
+      "changed": true,
+      "newlyEligible": [
+        "e1",
+        "e2",
+        "e3"
+      ]
+    }
+  ],
+  "initialMatched": true,
+  "notes": [
+    "Independent arithmetic and source/ledger/raw reconstruction; no model or UI calls.",
+    "Model distributions are not human frequencies. Self-reported decisionBasis is not a chain of thought.",
+    "Objective success and termination are separate fields; no early stop is credited as progress."
+  ],
+  "initial": {
+    "sourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "imageSha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4",
+    "candidateIds": [
+      "e3",
+      "e4",
+      "e6",
+      "done",
+      "stuck",
+      "look_0",
+      "look_1",
+      "look_2",
+      "look_3"
+    ],
+    "fingerprint": "7852be83a4cca94b795aa2519dfaaa2c6accde9ebde07d72e6e0cd72a83f8908"
+  },
+  "verifierSha256": "82977f4e9d8188eab96d6b0692d7bf5e6c92a4c6cfa48595a3a465967c5ebe75"
+}

@@ -1,3 +1,4 @@
+import {attentionObservationContext} from '../jev/virtual-beta/attention-observation-context.js';
 import {deriveAttentionSampling,type AttentionSampling} from './attention-sampling.js';
 import {attentionCandidates,attentionQuestions,attentionInput,attentionGazeCandidates,attentionCurrentViewCandidates,attentionCurrentViewInput,attentionCurrentViewInstructions} from '../jev/virtual-beta/attention.js';
 import {factorModelInput,factorCandidates,factorVisibleText} from '../jev/virtual-beta/factors.js';
@@ -209,7 +210,7 @@ export async function runBeta(page:Page,args:{nativeHTTPMeasurement?:boolean;jev
    let attentionLook:SelectionRecord|undefined;
    if(config.attention?.enabled){
     if(args.isSafetyStopped?.()){termination='SAFETY_STOP';step.outcome=termination;break;}
-    const attentionWire=attentionInput(wire,config.attention.taskFrame),attentionOffered=attentionCandidates(candidates,config.attention.policy),attentionRequest=attentionQuestions(candidates,config.attention.policy);
+    const attentionBase=attentionInput(wire,config.attention.taskFrame),attentionWire=config.attention.observationContext?attentionObservationContext(attentionBase,candidates,config.vision.mode,config.attention.observationContext):attentionBase,attentionOffered=attentionCandidates(candidates,config.attention.policy),attentionRequest=attentionQuestions(candidates,config.attention.policy);
     const attentionExcluded=Object.fromEntries(Object.entries(excluded).filter(([id])=>Object.hasOwn(attentionOffered,id)));
     if(config.attention.policy==='exclusive-hierarchical-v2'&&looks>=config.maxLooks)attentionExcluded.inspect='LOOK_BUDGET_EXHAUSTED';
     const a:AttentionStep={...(sampling?{sampling:{...sampling}}:{}),actionAPICalls:0,modelInput:attentionWire,questions:attentionRequest,assetFiles:structuredClone(assetFiles),inputSha256:sha(JSON.stringify({input:attentionWire,questions:attentionRequest,assets:assetFiles})),apiCalls:0};step.attention=a;

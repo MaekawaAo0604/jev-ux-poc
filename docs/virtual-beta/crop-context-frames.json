@@ -1,0 +1,277 @@
+[
+  {
+    "name": "before-control",
+    "runId": "crop-control-seed-9001",
+    "decision": 1,
+    "inputAsset": {
+      "file": "input-1.png",
+      "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+    },
+    "publicImage": "docs/virtual-beta/crop-context-frames/before-control.png",
+    "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "gateInputHash": "e64dbdf4306f43fd7652ea3a3df3be90424e9e848b63665b2d80348d9b49b0e7",
+    "gate": {
+      "modelChoice": "continue",
+      "raw": {
+        "continue": 0.65,
+        "inspect": 0.35
+      },
+      "normalized": {
+        "continue": 0.65,
+        "inspect": 0.35
+      },
+      "filtered": {
+        "continue": 0.65,
+        "inspect": 0.35
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "argmax",
+      "seed": 1073541531,
+      "drawIndex": 0,
+      "draw": null,
+      "selected": "continue"
+    },
+    "gaze": null,
+    "action": {
+      "type": "stuck"
+    }
+  },
+  {
+    "name": "before-actions",
+    "runId": "crop-actions-seed-9001",
+    "decision": 1,
+    "inputAsset": {
+      "file": "input-1.png",
+      "sha256": "90bca4064c1e85addeeed4d24b8d4e3083dcc0179eb15037f543b9fd14c2ecb4"
+    },
+    "publicImage": "docs/virtual-beta/crop-context-frames/before-actions.png",
+    "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "gateInputHash": "47b4bc1a71a3af32118d2cbb531c7ff1f5a9ca6bb0326e5b9c018a0f78aae09f",
+    "gate": {
+      "modelChoice": "inspect",
+      "raw": {
+        "continue": 0.11,
+        "inspect": 0.89
+      },
+      "normalized": {
+        "continue": 0.11,
+        "inspect": 0.89
+      },
+      "filtered": {
+        "continue": 0.11,
+        "inspect": 0.89
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "argmax",
+      "seed": 1073541531,
+      "drawIndex": 0,
+      "draw": null,
+      "selected": "inspect"
+    },
+    "gaze": {
+      "modelChoice": "look_3",
+      "raw": {
+        "look_0": 0.02,
+        "look_1": 0.04,
+        "look_2": 0.05,
+        "look_3": 0.89
+      },
+      "normalized": {
+        "look_0": 0.02,
+        "look_1": 0.04,
+        "look_2": 0.05,
+        "look_3": 0.89
+      },
+      "filtered": {
+        "look_0": 0.02,
+        "look_1": 0.04,
+        "look_2": 0.05,
+        "look_3": 0.89
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "argmax",
+      "seed": 2816244572,
+      "drawIndex": 0,
+      "draw": null,
+      "selected": "look_3"
+    },
+    "action": {
+      "type": "look",
+      "point": {
+        "x": 960,
+        "y": 675
+      }
+    }
+  },
+  {
+    "name": "after-first-look",
+    "runId": "crop-actions-seed-9001",
+    "decision": 2,
+    "inputAsset": {
+      "file": "input-2.png",
+      "sha256": "2bca4d24cc5dadccdeb336998911c04fc9605df64f923a2550369d3497c26e63"
+    },
+    "publicImage": "docs/virtual-beta/crop-context-frames/after-first-look.png",
+    "rawSourceSha256": "bea8c424a1456af4013d4eb99b451db78f00e31565084ab284513839dcb79802",
+    "gateInputHash": "f8ea4a72921910a815c749cb52a434102e05641534be8cc9410d335b8c2f687f",
+    "gate": {
+      "modelChoice": "continue",
+      "raw": {
+        "continue": 0.91,
+        "inspect": 0.09
+      },
+      "normalized": {
+        "continue": 0.91,
+        "inspect": 0.09
+      },
+      "filtered": {
+        "continue": 0.91,
+        "inspect": 0.09
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "argmax",
+      "seed": 1073541531,
+      "drawIndex": 1,
+      "draw": null,
+      "selected": "continue"
+    },
+    "gaze": null,
+    "action": {
+      "type": "click",
+      "elementId": "e5"
+    }
+  },
+  {
+    "name": "before-second-look",
+    "runId": "crop-actions-seed-9001",
+    "decision": 3,
+    "inputAsset": {
+      "file": "input-3.png",
+      "sha256": "749df656a367614f61b4f6af2e30641a82e9f10ee79dcae902378062fdb9d17b"
+    },
+    "publicImage": "docs/virtual-beta/crop-context-frames/before-second-look.png",
+    "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "gateInputHash": "3e69874d3fb71e6776a86e1187e44c3186374ba45e7a1693db37127885bc8cb6",
+    "gate": {
+      "modelChoice": "inspect",
+      "raw": {
+        "continue": 0.25,
+        "inspect": 0.75
+      },
+      "normalized": {
+        "continue": 0.25,
+        "inspect": 0.75
+      },
+      "filtered": {
+        "continue": 0.25,
+        "inspect": 0.75
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "argmax",
+      "seed": 1073541531,
+      "drawIndex": 2,
+      "draw": null,
+      "selected": "inspect"
+    },
+    "gaze": {
+      "modelChoice": "look_0",
+      "raw": {
+        "look_0": 0.43,
+        "look_1": 0.26,
+        "look_2": 0.13,
+        "look_3": 0.18
+      },
+      "normalized": {
+        "look_0": 0.43,
+        "look_1": 0.26,
+        "look_2": 0.13,
+        "look_3": 0.18
+      },
+      "filtered": {
+        "look_0": 0.43,
+        "look_1": 0.26,
+        "look_2": 0.13,
+        "look_3": 0.18
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "argmax",
+      "seed": 2816244572,
+      "drawIndex": 1,
+      "draw": null,
+      "selected": "look_0"
+    },
+    "action": {
+      "type": "look",
+      "point": {
+        "x": 320,
+        "y": 225
+      }
+    }
+  },
+  {
+    "name": "after-second-look",
+    "runId": "crop-actions-seed-9001",
+    "decision": 4,
+    "inputAsset": {
+      "file": "input-4.png",
+      "sha256": "4d361d8a873f6e651c3a6dc57f05f3cca9ca3749bdb446cd744dc0cfc7e18e07"
+    },
+    "publicImage": "docs/virtual-beta/crop-context-frames/after-second-look.png",
+    "rawSourceSha256": "dbd695b776be3bbda208f7c32175dddaedfeb312c96d75ec628cd563c7fd265e",
+    "gateInputHash": "c18ab72d4f70b3eb0e0fe9d4f67cb41ee359964320a2f79260f771a3ee4d35e5",
+    "gate": {
+      "modelChoice": "continue",
+      "raw": {
+        "continue": 0.96,
+        "inspect": 0.04
+      },
+      "normalized": {
+        "continue": 0.96,
+        "inspect": 0.04
+      },
+      "filtered": {
+        "continue": 0.96,
+        "inspect": 0.04
+      },
+      "normalization": {
+        "rawTotal": 1,
+        "filteredTotal": 1
+      },
+      "adjustments": [],
+      "mode": "argmax",
+      "seed": 1073541531,
+      "drawIndex": 3,
+      "draw": null,
+      "selected": "continue"
+    },
+    "gaze": null,
+    "action": {
+      "type": "click",
+      "elementId": "e3"
+    }
+  }
+]

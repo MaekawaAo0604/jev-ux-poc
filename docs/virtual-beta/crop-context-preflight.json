@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "gate": "PREFLIGHT_GO",
+  "scope": "Frozen source and offline behavior only. Actual model trial audit, analysis, presentation, publication and post-commit gates remain pending.",
+  "freezePath": "reports/crop-stuck-2026-11-10/freeze-v2.json",
+  "freezeSha256": "988a9e9468c37eec44dad6ea0cd1a3f559a9b7af75361a824658360971834435",
+  "revision": "7f35def90ca5b21818bb9c6dd0b26578bd6f2646",
+  "sourceHash": "c9a64e1f0ebe75539e346dac6b0b83cf4441c2258085a9baa2ef299a299bdd4c",
+  "sourceFiles": 197,
+  "inputFiles": 6,
+  "focusedTests": {
+    "log": "reports\\crop-stuck-2026-11-10\\independent\\final-focused-tests.txt",
+    "passed": 42,
+    "failed": 0,
+    "skipped": 0
+  },
+  "build": {
+    "log": "reports\\crop-stuck-2026-11-10\\independent\\final-build.txt",
+    "exitCode": 0
+  },
+  "independentEvidence": {
+    "sha256": "13ba6e31e40115f2f46f1461de013c7e33834df9a9c10c4cd05bddbde6206aeb",
+    "historicalRawReplays": 42,
+    "historicalAPIRequests": 222.0,
+    "path": "reports\\crop-stuck-2026-11-10\\independent\\preflight-huFEnA\\independent-evidence.json",
+    "initialFrames": 6
+  },
+  "testFile": {
+    "path": "tests/crop-context-independent.test.ts",
+    "sha256": "42a640578aea431920583119e89a59d838256cf19cfb4d386ab20291b9e1c878"
+  },
+  "findings": [
+    "Only explicit opt-in gate context changes; ordinary action input, goal, image and candidates unchanged.",
+    "Geometry fields copied from existing public observation with finite allowlist; derived image extent uses public width/height/transform only.",
+    "Action context exactly matches currently offered non-look IDs; neutral labels and action fields are reconstructed and sanitized.",
+    "Badge instruction corrected to preserve existing optional-badge compatibility; full-body containment unchanged.",
+    "All actual six historical initial-frame targets carry badges; actual eligibility matches clear containment.",
+    "42 retained historical raw runs replayed without API or UI calls and without raw result mutation.",
+    "Three old crop framed runs remain STUCK; three old foveated framed runs retain objectiveSuccess=true with their recorded API_LIMIT/SUBJECTIVE_DONE terminations.",
+    "Rehashed context injection/drop/config-downgrade replay tampering rejected; no-option legacy gate and cross-instance isolation tests passed."
+  ],
+  "limitations": [
+    "No claim of improved model performance or human behavior validity.",
+    "No actual study API calls run by independent verifier.",
+    "Historical source is not compared to current tree; new freeze source audit runs only when explicitly requested."
+  ]
+}
