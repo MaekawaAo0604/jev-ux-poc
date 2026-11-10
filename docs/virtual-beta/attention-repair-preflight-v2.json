@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-second-repair-preflight",
+  "status": "GO_FOR_FROZEN_PHASE_TWO",
+  "createdAt": "2026-11-10T02:44:57.172Z",
+  "source": {
+    "revision": "5eb463e5cddbd8ddc17c833c8b7df0fd05259d08",
+    "sourceHash": "44ea22fb53a3da5ecb17e3ee3c3407119f44b28ad8d4c656558c93352201c12b",
+    "files": 196
+  },
+  "freeze": {
+    "file": "reports/attention-repair-2026-11-10/freeze-v2.json",
+    "sha256": "151222e3cf40e1474d55b52dd7f1aaa8551053bad3bda0349a6f5de26c908dc6",
+    "inputs": {
+      "experiments/virtual-beta/attention-task-frame-v1/study.json": "88aa239d177e63cc5ed96877674092469221d03ddcd3e5840c5926a9f92ba7df",
+      "experiments/persona/charter-good.json": "419ebb939b18fadb01f7a2db17da0fc31d817641b1b695411af37bf77004d176",
+      "experiments/persona/clear-notifications-v1/a.json": "8c4cbeeaadde52f98c0433e2f1a15ad6416183f450806048e918e808e4c315c1",
+      "experiments/virtual-beta/attention-task-frame-v1/crop-seed7001.json": "fc509e8da96d58bec5a18ec07fd6290b0ec1bb55e40a202638de0b57d1f5f450",
+      "experiments/virtual-beta/attention-task-frame-v1/foveated-seed7001.json": "e78e59f88a62070685ac63cd7f11e14fa12ea55dfd87744c1feb04ad53231d8d",
+      "experiments/virtual-beta/attention-task-frame-v1/foveated-seed7002.json": "a2d5ff08c64466fefca1ec6850f7ad270b04e6e9be91aaf966104c35eed118af",
+      "experiments/virtual-beta/attention-task-frame-v1/crop-seed7002.json": "62a0b811d201f82388f02574c8cc4376b90f9657f24f92326a735bdac232f108",
+      "experiments/virtual-beta/attention-task-frame-v1/crop-seed7003.json": "d53f0dcdc68126a14aa38f349fd7e774a7567ae8d54ed2f873284ea84a07fc0f",
+      "experiments/virtual-beta/attention-task-frame-v1/foveated-seed7003.json": "5459d86f2481a3bfd0de51b25bd5c0bb177a7b522abcec1db066c06f5e1629c9"
+    }
+  },
+  "driver": {
+    "file": "scripts/run-attention-task-frame.ts",
+    "sha256": "35a27f6d0d34e237346c0cbb6edad582842517988a9b32ee944b34ec3537742b"
+  },
+  "analyzer": {
+    "file": "scripts/analyze-attention-task-frame.ts",
+    "sha256": "436ce81cc082aabf69357aa341ab9e5696fc2b8755a9d8f1c95c7ef99c1f8274"
+  },
+  "checks": {
+    "focused": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "log": "reports/attention-repair-2026-11-10/independent/preflight-second-repair-tests-v2.log",
+      "sha256": "b1adea1afc80f168713d2c2028424de5f0f868ccd28d8ad2a3c07e1a35cf5243"
+    },
+    "protocol": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "log": "reports/attention-repair-2026-11-10/independent/preflight-second-repair-protocol-v1.log",
+      "sha256": "9e435d20a262cc60fb50cd639eb10f32c25671543ff7e38d54f1de7556c27d9c",
+      "trials": 18,
+      "newAllocation": 144,
+      "previousActual": 138,
+      "totalMaximumAllocated": 282,
+      "taskCap": 288
+    },
+    "build": {
+      "passed": true,
+      "log": "reports/attention-repair-2026-11-10/independent/preflight-second-repair-build-v1.log",
+      "sha256": "a9d65e6114b5eef297853f241103d5336b3c6308e8ca4ac25621a0afd288b5cc"
+    },
+    "historicalReplay": {
+      "originalAttentionRuns": 12,
+      "originalRequests": 114,
+      "phaseOneRepairRuns": 24,
+      "phaseOneRequests": 138,
+      "allVerified": true
+    },
+    "independentTest": {
+      "file": "tests/attention-repair-independent.test.ts",
+      "sha256": "401492a1759515842cbce67a2cd98ad050e36dea918e057d43607402b02ce3f2"
+    }
+  },
+  "sampling": {
+    "priorDefect": {
+      "file": "reports/attention-repair-2026-11-10/independent/sampler-coupling-v1.json",
+      "sha256": "5feabc1b2f75d97ed2d07986c76be7cc8fa4136ab33f11dd9ef985e594e312dd"
+    },
+    "supersedingEvidence": {
+      "file": "reports/attention-repair-2026-11-10/independent/sampler-separated-v2.json",
+      "sha256": "0ac655bc292cd464ac628e187cad01eb28299c041ec205f7ce2ed85ff997dade",
+      "counts": {
+        "seeds": 10000,
+        "inspections": 1927,
+        "continuations": 8073,
+        "gaze": {
+          "look_0": 478,
+          "look_1": 454,
+          "look_2": 497,
+          "look_3": 498
+        },
+        "ordinary": {
+          "back": 3996,
+          "reread": 4077
+        }
+      },
+      "gazeFrequency": {
+        "look_0": 0.24805396990140113,
+        "look_1": 0.23559937727036845,
+        "look_2": 0.25791385573430203,
+        "look_3": 0.2584327970939284
+      },
+      "ordinaryFrequency": {
+        "back": 0.49498327759197325,
+        "reread": 0.5050167224080268
+      }
+    },
+    "actorRuntime": {
+      "rootSeeds": 512,
+      "inspections": 109,
+      "gazeCounts": {
+        "look_0": 27,
+        "look_1": 35,
+        "look_2": 24,
+        "look_3": 23
+      }
+    },
+    "contract": "New-policy sample mode requires domain-separated-v1; config-derived gate/gaze effective seeds and root seed are saved and strictly replay-bound. Ordinary action root stream and untagged legacy behavior remain unchanged."
+  },
+  "frame": {
+    "enabledOnlyByExplicitHierarchicalTaskFrame": true,
+    "originalGoalRetained": "endUserGoal and exploration.charter.goal; also included verbatim in stage goal",
+    "inputBoundary": "Same public projection, candidates, questions and attached images; ordinary action request unchanged.",
+    "runtimePairedChecks": true,
+    "coherentHashTamperRejections": true
+  },
+  "preserved": {
+    "initialPreflight": {
+      "file": "reports/attention-repair-2026-11-10/independent/preflight-v1.json",
+      "sha256": "4aabaafef4c5a636803e334572630b61cd654bbd7cc4c43c8529adfb3606f970"
+    },
+    "phaseOneActual": {
+      "file": "reports/attention-repair-2026-11-10/independent/actual-v1.json",
+      "sha256": "7405528b8a105b087acbac257a1f4d30963b8593fff21f94c142152ef39fe85c"
+    },
+    "note": "Earlier GO and sampling diagnosis remain immutable. Phase1argmax artifacts are valid; the supported sample-mode defect was fixed before this second-phase GO."
+  },
+  "blockers": [],
+  "limitations": [
+    "No phase2model calls performed by verifier.",
+    "Task framing is a new explicitly isolated treatment; no model-understanding or human-validity claim.",
+    "Offline deterministic seed sanity is not a formal statistical independence proof."
+  ]
+}

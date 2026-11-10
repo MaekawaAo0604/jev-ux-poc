@@ -1,4 +1,5 @@
-import {attentionCandidates,attentionQuestions,attentionInput} from '../jev/virtual-beta/attention.js';
+import {deriveAttentionSampling} from './attention-sampling.js';
+import {attentionCandidates,attentionQuestions,attentionInput,attentionGazeCandidates,attentionCurrentViewCandidates,attentionCurrentViewInput,attentionCurrentViewInstructions} from '../jev/virtual-beta/attention.js';
 import {validateChoice} from '../jev/client.js';
 import {readFile} from 'node:fs/promises';
 import {join} from 'node:path';
@@ -20,7 +21,7 @@ export async function verifyFactorReplay(directory:string,result:BetaResult){
  const evidence=result.factorContract!==undefined||result.steps.some(s=>s.audit?.canGoBack!==undefined);
  if(evidence!==!!result.config.factors||result.config.factors&&result.factorContract!=='independent-v1')throw Error('FACTOR_CONTRACT_MISMATCH');
  if(!result.config.factors)return;
- const config=result.config,sampler=createSampler(config.selection),attentionSampler=createSampler(config.selection),images=new Map<string,{file:string}>();
+ const config=result.config,sampling=deriveAttentionSampling(config),sampler=createSampler(config.selection),attentionSampler=createSampler({...config.selection,seed:sampling?.gateSeed??config.selection.seed}),gazeSampler=createSampler({...config.selection,seed:sampling?.gazeSeed??config.selection.seed}),images=new Map<string,{file:string}>();
  let user=createUserState(result.input.persona,config.initialFixation??{x:640,y:450}),looks=0,uiActions=0,attentionAPICalls=0;
  let pending:{action:BetaAction;outcome:'performed'|'failed'|'unchanged'}|undefined;
  for(const [index,step] of result.steps.entries()){
@@ -39,17 +40,21 @@ export async function verifyFactorReplay(directory:string,result:BetaResult){
   if(sha(await readFile(join(directory,file)))!==vision.imageSha256)throw Error('FACTOR_CURRENT_IMAGE_MISMATCH');
   images.set(vision.imageSha256,{file});const wire=modelInput(result.input,vision,observation,user,config,audit.screen,[]),references=new Map([[vision.imageSha256,'current']]);
   wire.memoryObservations=user.memory.map((memory,i)=>{const source=images.get(memory.imageSha256);if(!source)throw Error('FACTOR_MEMORY_IMAGE_MISSING');let id=references.get(memory.imageSha256);if(!id){id='memory_'+i;references.set(memory.imageSha256,id);assets[id]={file:source.file,sha256:memory.imageSha256};}return {observationId:memory.observationId,image:id,imageSha256:memory.imageSha256};});
-  if(!equal(wire,step.modelInput)||!equal(assets,step.assetFiles))throw Error('FACTOR_MODEL_INPUT_MISMATCH');
+  if(!equal(assets,step.assetFiles))throw Error('FACTOR_MODEL_INPUT_MISMATCH');
   const base=requestFor({goal:result.input.charter.goal,currentDate:result.input.charter.initialState.currentDate,screen:audit.screen,history:[]},original,'').questions.nextAction.instructions;
   const questions={nextAction:{type:'choice',instructions:betaActionInstructions(config,base),criteria:Object.fromEntries(Object.entries(candidates).map(([id,c])=>[id,c.label]))},decisionBasis:reasonQuestion};
-  if(!equal(step.questions,questions))throw Error('FACTOR_QUESTION_MISMATCH');
+  let actionCandidates=candidates,actionWire=wire;
   const excluded:Record<string,string>={};for(const [id,c]of Object.entries(candidates))if(c.action.type==='look'&&looks>=config.maxLooks)excluded[id]='LOOK_BUDGET_EXHAUSTED';
   let attentionLook=false;
   const a=step.attention;
   if(config.attention?.enabled){
    if(!a){if(!['DEADLINE_BEFORE_INFERENCE','SAFETY_STOP'].includes(step.outcome??''))throw Error('ATTENTION_STAGE_MISSING');}
    else{
-    const offered=attentionCandidates(candidates),expectedInput=attentionInput(wire),expectedQuestions=attentionQuestions(candidates);
+    if(!equal(a.sampling,sampling))throw Error('ATTENTION_SAMPLING_MISMATCH');
+    const offered=attentionCandidates(candidates,config.attention.policy),expectedInput=attentionInput(wire,config.attention.taskFrame),expectedQuestions=attentionQuestions(candidates,config.attention.policy);
+    const attentionExcluded=Object.fromEntries(Object.entries(excluded).filter(([id])=>Object.hasOwn(offered,id)));
+    if(config.attention.policy==='exclusive-hierarchical-v2'&&looks>=config.maxLooks)attentionExcluded.inspect='LOOK_BUDGET_EXHAUSTED';
+    if(a.gazeSelection!==undefined&&(config.attention.policy!=='exclusive-hierarchical-v2'||a.selection?.selected!=='inspect'))throw Error('ATTENTION_UNEXPECTED_GAZE_SELECTION');
     if(!equal(a.modelInput,expectedInput)||!equal(a.questions,expectedQuestions)||!equal(a.assetFiles,assets)||a.inputSha256!==sha(JSON.stringify({input:a.modelInput,questions:a.questions,assets:a.assetFiles})))throw Error('ATTENTION_REQUEST_MISMATCH');
     if(![0,1].includes(a.apiCalls)||![0,1].includes(a.actionAPICalls)||!a.timing||!Number.isFinite(a.timing.apiMs)||a.timing.apiMs<0)throw Error('ATTENTION_ACCOUNTING_MISMATCH');
     attentionAPICalls+=a.apiCalls+a.actionAPICalls;
@@ -65,11 +70,23 @@ export async function verifyFactorReplay(directory:string,result:BetaResult){
     if(a.selection){
      if(a.apiCalls!==1||a.error||!a.response)throw Error('ATTENTION_SELECTION_EVIDENCE_MISMATCH');
      for(const [id,q]of Object.entries(expectedQuestions))validateChoice(a.response.answers[id],q.criteria);
-     const answer=a.response.answers.nextAction,selection=attentionSampler.select(answer.choice,answer.probabilities,offered,excluded);
+     const answer=a.response.answers.nextAction,selection=attentionSampler.select(answer.choice,answer.probabilities,offered,attentionExcluded);
      if(!equal(a.selection,selection))throw Error('ATTENTION_SELECTION_MISMATCH');
      attentionLook=selection.selected!=='continue';
-     if(attentionLook){if(!equal(step.selection,selection)||step.response||a.actionAPICalls!==0||step.action&&!equal(offered[selection.selected].action,step.action)||!step.action&&!['SELECTION_AFTER_DEADLINE','SAFETY_STOP'].includes(step.outcome??''))throw Error('ATTENTION_ACTION_MISMATCH');}
+     if(attentionLook){
+      let actualSelection=selection,actualCandidates=offered;
+      if(config.attention.policy==='exclusive-hierarchical-v2'){
+       const gaze=a.response.answers.gazeTarget;actualCandidates=attentionGazeCandidates(candidates);actualSelection=gazeSampler.select(gaze.choice,gaze.probabilities,actualCandidates);
+       if(!equal(a.gazeSelection,actualSelection))throw Error('ATTENTION_GAZE_SELECTION_MISMATCH');
+      }
+      if(!equal(step.selection,actualSelection)||step.response||a.actionAPICalls!==0||step.action&&!equal(actualCandidates[actualSelection.selected].action,step.action)||!step.action&&!['SELECTION_AFTER_DEADLINE','SAFETY_STOP'].includes(step.outcome??''))throw Error('ATTENTION_ACTION_MISMATCH');
+     }
      else{
+      if(config.attention.policy){
+       actionCandidates=attentionCurrentViewCandidates(candidates);actionWire=attentionCurrentViewInput(wire,actionCandidates);
+       questions.nextAction.criteria=Object.fromEntries(Object.entries(actionCandidates).map(([id,c])=>[id,c.label]));questions.nextAction.instructions+=' '+attentionCurrentViewInstructions;
+       for(const id of Object.keys(excluded))if(!Object.hasOwn(actionCandidates,id))delete excluded[id];
+      }
       if(step.selection&&a.actionAPICalls!==1)throw Error('ATTENTION_CONTINUE_ACTION_MISMATCH');
       if(a.actionAPICalls===0&&!step.error){
        const stopped=step.outcome==='ATTENTION_ONLY_API_LIMIT'&&result.termination==='API_LIMIT'&&attentionAPICalls===config.maxAPICalls||step.outcome==='SAFETY_STOP'&&result.termination==='SAFETY_STOP'||step.outcome==='DEADLINE_BEFORE_INFERENCE'&&result.termination==='TIME_LIMIT';
@@ -80,24 +97,26 @@ export async function verifyFactorReplay(directory:string,result:BetaResult){
      if(step.selection||step.action||step.response||a.actionAPICalls!==0)throw Error('ATTENTION_UNSELECTED_ACTION');
      if((a.error as any)?.code==='INVALID_DISTRIBUTION'){
       if(result.termination!=='INVALID_DISTRIBUTION'||step.outcome!=='ATTENTION_ERROR'||!a.response)throw Error('ATTENTION_INVALID_DISTRIBUTION_EVIDENCE');
-      let rejected=false;try{for(const [id,q]of Object.entries(expectedQuestions))validateChoice(a.response.answers[id],q.criteria);const answer=a.response.answers.nextAction;attentionSampler.select(answer.choice,answer.probabilities,offered,excluded);}catch{rejected=true;}if(!rejected)throw Error('ATTENTION_INVALID_DISTRIBUTION_NOT_REPRODUCED');
+      let rejected=false;try{for(const [id,q]of Object.entries(expectedQuestions))validateChoice(a.response.answers[id],q.criteria);const answer=a.response.answers.nextAction;attentionSampler.select(answer.choice,answer.probabilities,offered,attentionExcluded);}catch{rejected=true;}if(!rejected)throw Error('ATTENTION_INVALID_DISTRIBUTION_NOT_REPRODUCED');
      }else if(!a.error&&!(step.outcome==='ATTENTION_AFTER_DEADLINE'&&result.termination==='TIME_LIMIT'&&a.response))throw Error('ATTENTION_SELECTION_MISSING');
     }
     if(a.actionAPICalls===0&&step.response||a.actionAPICalls===1&&!step.response&&!step.error)throw Error('ATTENTION_ACTION_ACCOUNTING_MISMATCH');
    }
   }
+  if(!equal(actionWire,step.modelInput))throw Error('FACTOR_MODEL_INPUT_MISMATCH');
+  if(!equal(step.questions,questions))throw Error('FACTOR_QUESTION_MISMATCH');
   if(!attentionLook){
   if(step.selection){
    const answer=step.response?.answers.nextAction;if(!answer)throw Error('FACTOR_SELECTION_RESPONSE_MISSING');
-   const selection=sampler.select(answer.choice,answer.probabilities,candidates,excluded);if(!equal(selection,step.selection))throw Error('FACTOR_SELECTION_MISMATCH');
-   if(step.action&&!equal(candidates[selection.selected].action,step.action))throw Error('FACTOR_ACTION_MISMATCH');
+   const selection=sampler.select(answer.choice,answer.probabilities,actionCandidates,excluded);if(!equal(selection,step.selection))throw Error('FACTOR_SELECTION_MISMATCH');
+   if(step.action&&!equal(actionCandidates[selection.selected].action,step.action))throw Error('FACTOR_ACTION_MISMATCH');
    if(!step.action&&!['SELECTION_AFTER_DEADLINE','SAFETY_STOP'].includes(step.outcome??''))throw Error('FACTOR_SELECTED_ACTION_MISSING');
   }else{
    if(step.action)throw Error('FACTOR_ACTION_WITHOUT_SELECTION');
    if(step.response&&step.outcome!=='RESPONSE_AFTER_DEADLINE'){
     if((step.error as any)?.code!=='INVALID_DISTRIBUTION')throw Error('FACTOR_SELECTION_MISSING');
     const answer=step.response.answers.nextAction;let rejected=false;
-    try{sampler.select(answer?.choice,answer?.probabilities,candidates,excluded);}catch{rejected=true;}
+    try{sampler.select(answer?.choice,answer?.probabilities,actionCandidates,excluded);}catch{rejected=true;}
     if(!rejected)throw Error('FACTOR_INVALID_DISTRIBUTION_NOT_REPRODUCED');
    }
   }

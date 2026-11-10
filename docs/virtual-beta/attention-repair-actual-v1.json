@@ -1,0 +1,3595 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-actual-artifact-audit",
+  "phase": {
+    "file": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\phase.json",
+    "sha256": "181a5ac2647939fdfc62040cba730bb623beab66bfd444ee3138a900adea273e"
+  },
+  "source": {
+    "revision": "5eb463e5cddbd8ddc17c833c8b7df0fd05259d08",
+    "sourceHash": "a997e3ac7e7f7ddb1f09e7257828ad94cd2893fb1c5fbb4b66b85dc4a494e976"
+  },
+  "freeze": {
+    "file": "reports/attention-repair-2026-11-10/freeze.json",
+    "sha256": "3380563aabea46f82fa969fa3d740a9ca9b1e7c0d44cac3351c5c913ab5bf2f3"
+  },
+  "producerSha256": "38b4d7a9c4228d63773a8168652b5d9e0fe4dab7c49a687f6917b0951164b050",
+  "counts": {
+    "runs": 24,
+    "requests": 138,
+    "bindings": 138,
+    "assetOccurrences": 288,
+    "memoryReferences": 312,
+    "gateSelections": 48,
+    "gazeSelections": 0,
+    "ordinarySelections": 90,
+    "inspectionMoves": 0,
+    "normalLooksAfterContinue": 6
+  },
+  "batches": [
+    {
+      "id": "crop-seed6001",
+      "trials": 4,
+      "requests": 23,
+      "summarySha256": "cae0090fe5f362028c4765e34714e6e49711def26f7d050d4c84583602670ee3",
+      "ledgerSha256": "e24ef55e04f50d8a7b76fd6bdc950192be6ff0bdb705b4a1309cf6de076cb36c"
+    },
+    {
+      "id": "foveated-seed6001",
+      "trials": 4,
+      "requests": 23,
+      "summarySha256": "3a117d57a10cb1d5a9b8daf3c5ca9cc0cb5f3df44e7989bd7bd2fb1fee9f305f",
+      "ledgerSha256": "9301a985c2b57f1882fe5b9c0fd8f8b5f634ca859a4c9102d15fc08b21f325fb"
+    },
+    {
+      "id": "foveated-seed6002",
+      "trials": 4,
+      "requests": 23,
+      "summarySha256": "40ea45a0c0201cc12f4f3fdac1889eb1b218d7a39c5a1f12da7e27604e9f66af",
+      "ledgerSha256": "1437be41ed6b4753cfea2517ea0ba4e16ee4fa7ea58539cb097b0444175428c0"
+    },
+    {
+      "id": "crop-seed6002",
+      "trials": 4,
+      "requests": 23,
+      "summarySha256": "c1cc49c1e2fa6ffe0707b530898e57becd43cec2422d1b7bd4c7520d17398ce9",
+      "ledgerSha256": "b2dc5c7b7e554020f212672bfa2c9a833b01640182a2fbced9eaf791345bb8cc"
+    },
+    {
+      "id": "crop-seed6003",
+      "trials": 4,
+      "requests": 23,
+      "summarySha256": "a7c86c9fd91a82f2d5a17ce8742fbede4d057999f8ea104ec3e9f2a236de3b8a",
+      "ledgerSha256": "0f8624ae36eeca55c09438dac06cafad0ec6678d9a33ce01db9f7c7cba07bbed"
+    },
+    {
+      "id": "foveated-seed6003",
+      "trials": 4,
+      "requests": 23,
+      "summarySha256": "03e68145a01bf4ec526bb7bcfd7e12c95f3a80a359369b4d630fe7b22d9075b9",
+      "ledgerSha256": "43e74202bb60e9a990c01ca8b4ec746de48d5f624a5e755c568fb3082be9fcfc"
+    }
+  ],
+  "runs": [
+    {
+      "runId": "crop-off-seed-6001",
+      "arm": "off",
+      "vision": "crop",
+      "seed": 6001,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6001\\crop-off-seed-6001\\result.json",
+      "sha256": "47b06c8f1351715ce1d02a7b23d95941aca39c5cc6eec4978b363d9362467a4a",
+      "termination": "UI_ACTION_LIMIT",
+      "status": "censored",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 7,
+      "looks": 1,
+      "uiActions": 6,
+      "normalLooksAfterContinue": 0,
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "changed": true
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "outcome": "FIXATION_MOVED",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        },
+        {
+          "decision": 2,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 0
+        },
+        {
+          "decision": 3,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 1
+        },
+        {
+          "decision": 4,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 2
+        },
+        {
+          "decision": 5,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 3
+        },
+        {
+          "decision": 6,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 4
+        },
+        {
+          "decision": 7,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 5
+        }
+      ]
+    },
+    {
+      "runId": "crop-legacy-seed-6001",
+      "arm": "legacy",
+      "vision": "crop",
+      "seed": 6001,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6001\\crop-legacy-seed-6001\\result.json",
+      "sha256": "cec12eee2d54bfc5478838d8e6b8f99cd6d2dfef65b8ce4e73e423da4bb58c34",
+      "termination": "API_LIMIT",
+      "status": "censored",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 12,
+      "looks": 1,
+      "uiActions": 5,
+      "normalLooksAfterContinue": 1,
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "changed": true
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.63,
+            "look_0": 0.01,
+            "look_1": 0.02,
+            "look_2": 0.02,
+            "look_3": 0.32
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "outcome": "FIXATION_MOVED",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        },
+        {
+          "decision": 2,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.84,
+            "look_0": 0.02,
+            "look_1": 0.12,
+            "look_2": 0.01,
+            "look_3": 0.01
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 0
+        },
+        {
+          "decision": 3,
+          "titleAuditOnly": "通知設定",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.48,
+            "look_0": 0.24,
+            "look_1": 0.12,
+            "look_2": 0.08,
+            "look_3": 0.08
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 1
+        },
+        {
+          "decision": 4,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.78,
+            "look_0": 0.03,
+            "look_1": 0.14,
+            "look_2": 0.02,
+            "look_3": 0.03
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 2
+        },
+        {
+          "decision": 5,
+          "titleAuditOnly": "通知設定",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.47,
+            "look_0": 0.25,
+            "look_1": 0.14,
+            "look_2": 0.08,
+            "look_3": 0.06
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 3
+        },
+        {
+          "decision": 6,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.8,
+            "look_0": 0.05,
+            "look_1": 0.12,
+            "look_2": 0.02,
+            "look_3": 0.01
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 4
+        }
+      ]
+    },
+    {
+      "runId": "crop-exclusive-flat-seed-6001",
+      "arm": "exclusive-flat-v2",
+      "vision": "crop",
+      "seed": 6001,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6001\\crop-exclusive-flat-seed-6001\\result.json",
+      "sha256": "3bf89f4d5627ef1502758378be316cde2b20ca60a494cc8562abd9ab5728c296",
+      "termination": "STUCK",
+      "status": "completed",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "normalLooksAfterContinue": 0,
+      "moves": [],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.64,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.02,
+            "look_3": 0.32
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "stuck"
+          },
+          "outcome": "STUCK",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        }
+      ]
+    },
+    {
+      "runId": "crop-hierarchical-seed-6001",
+      "arm": "exclusive-hierarchical-v2",
+      "vision": "crop",
+      "seed": 6001,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6001\\crop-hierarchical-seed-6001\\result.json",
+      "sha256": "e1f458dedcae21f60b39f529d14a4b8e936101035a6e79dc36ab325d2a5661b7",
+      "termination": "STUCK",
+      "status": "completed",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "normalLooksAfterContinue": 0,
+      "moves": [],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.89,
+            "inspect": 0.11
+          },
+          "gazeRaw": {
+            "look_0": 0.05,
+            "look_1": 0.05,
+            "look_2": 0.04,
+            "look_3": 0.86
+          },
+          "gazeSelection": null,
+          "action": {
+            "type": "stuck"
+          },
+          "outcome": "STUCK",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        }
+      ]
+    },
+    {
+      "runId": "foveated-legacy-seed-6001",
+      "arm": "legacy",
+      "vision": "foveated",
+      "seed": 6001,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6001\\foveated-legacy-seed-6001\\result.json",
+      "sha256": "074a52f4fed18a405052edad15b23533338d81dc5c5ba097e42c57cca0576414",
+      "termination": "API_LIMIT",
+      "status": "censored",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 12,
+      "looks": 1,
+      "uiActions": 5,
+      "normalLooksAfterContinue": 1,
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "changed": true
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.61,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.02,
+            "look_3": 0.35
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "outcome": "FIXATION_MOVED",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        },
+        {
+          "decision": 2,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.74,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.25
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 0
+        },
+        {
+          "decision": 3,
+          "titleAuditOnly": "通知設定",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.62,
+            "look_0": 0.11,
+            "look_1": 0.1,
+            "look_2": 0.09,
+            "look_3": 0.08
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 1
+        },
+        {
+          "decision": 4,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.69,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.29
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 2
+        },
+        {
+          "decision": 5,
+          "titleAuditOnly": "通知設定",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.6,
+            "look_0": 0.11,
+            "look_1": 0.12,
+            "look_2": 0.09,
+            "look_3": 0.08
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 3
+        },
+        {
+          "decision": 6,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.71,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.28
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 4
+        }
+      ]
+    },
+    {
+      "runId": "foveated-exclusive-flat-seed-6001",
+      "arm": "exclusive-flat-v2",
+      "vision": "foveated",
+      "seed": 6001,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6001\\foveated-exclusive-flat-seed-6001\\result.json",
+      "sha256": "228c67159d03b15864bc25cb8b061218e6951df1f32ee5f54d1d1a4083193d99",
+      "termination": "STUCK",
+      "status": "completed",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "normalLooksAfterContinue": 0,
+      "moves": [],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.51,
+            "look_0": 0.04,
+            "look_1": 0.01,
+            "look_2": 0.02,
+            "look_3": 0.42
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "stuck"
+          },
+          "outcome": "STUCK",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        }
+      ]
+    },
+    {
+      "runId": "foveated-hierarchical-seed-6001",
+      "arm": "exclusive-hierarchical-v2",
+      "vision": "foveated",
+      "seed": 6001,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6001\\foveated-hierarchical-seed-6001\\result.json",
+      "sha256": "f90a838f574735880fe31e2e8d3f33f1ee3c4afeb13eff5ef1dd56e96b0b83ca",
+      "termination": "STUCK",
+      "status": "completed",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "normalLooksAfterContinue": 0,
+      "moves": [],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.79,
+            "inspect": 0.21
+          },
+          "gazeRaw": {
+            "look_0": 0.04,
+            "look_1": 0.03,
+            "look_2": 0.08,
+            "look_3": 0.85
+          },
+          "gazeSelection": null,
+          "action": {
+            "type": "stuck"
+          },
+          "outcome": "STUCK",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        }
+      ]
+    },
+    {
+      "runId": "foveated-off-seed-6001",
+      "arm": "off",
+      "vision": "foveated",
+      "seed": 6001,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6001\\foveated-off-seed-6001\\result.json",
+      "sha256": "0950dd4dd3a065987712b9fc4d88414edcd9e8d99e5d34c0c02bc700523eb833",
+      "termination": "UI_ACTION_LIMIT",
+      "status": "censored",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 7,
+      "looks": 1,
+      "uiActions": 6,
+      "normalLooksAfterContinue": 0,
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "changed": true
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "outcome": "FIXATION_MOVED",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        },
+        {
+          "decision": 2,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 0
+        },
+        {
+          "decision": 3,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 1
+        },
+        {
+          "decision": 4,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 2
+        },
+        {
+          "decision": 5,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 3
+        },
+        {
+          "decision": 6,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 4
+        },
+        {
+          "decision": 7,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 5
+        }
+      ]
+    },
+    {
+      "runId": "foveated-legacy-seed-6002",
+      "arm": "legacy",
+      "vision": "foveated",
+      "seed": 6002,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6002\\foveated-legacy-seed-6002\\result.json",
+      "sha256": "41629fbf62739b1b6b31d887fd00348db487e935ecb4d8f7e326d886781a7aed",
+      "termination": "API_LIMIT",
+      "status": "censored",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 12,
+      "looks": 1,
+      "uiActions": 5,
+      "normalLooksAfterContinue": 1,
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "changed": true
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.68,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.02,
+            "look_3": 0.29
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "outcome": "FIXATION_MOVED",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        },
+        {
+          "decision": 2,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.7,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.29
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 0
+        },
+        {
+          "decision": 3,
+          "titleAuditOnly": "通知設定",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.65,
+            "look_0": 0.09,
+            "look_1": 0.09,
+            "look_2": 0.08,
+            "look_3": 0.09
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 1
+        },
+        {
+          "decision": 4,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.76,
+            "look_0": 0.01,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.22
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 2
+        },
+        {
+          "decision": 5,
+          "titleAuditOnly": "通知設定",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.63,
+            "look_0": 0.1,
+            "look_1": 0.12,
+            "look_2": 0.08,
+            "look_3": 0.07
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 3
+        },
+        {
+          "decision": 6,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.7,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.01,
+            "look_3": 0.27
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 4
+        }
+      ]
+    },
+    {
+      "runId": "foveated-exclusive-flat-seed-6002",
+      "arm": "exclusive-flat-v2",
+      "vision": "foveated",
+      "seed": 6002,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6002\\foveated-exclusive-flat-seed-6002\\result.json",
+      "sha256": "31a722e17a97610264c8b0d4a132024064ac51e45e6347fd04f28571a529b462",
+      "termination": "STUCK",
+      "status": "completed",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "normalLooksAfterContinue": 0,
+      "moves": [],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.47,
+            "look_0": 0.03,
+            "look_1": 0.01,
+            "look_2": 0.02,
+            "look_3": 0.47
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "stuck"
+          },
+          "outcome": "STUCK",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        }
+      ]
+    },
+    {
+      "runId": "foveated-hierarchical-seed-6002",
+      "arm": "exclusive-hierarchical-v2",
+      "vision": "foveated",
+      "seed": 6002,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6002\\foveated-hierarchical-seed-6002\\result.json",
+      "sha256": "a2e3e16c99f46259009edf5a1852fdef4dacbd40c304433c4c6d547df51d0f4e",
+      "termination": "STUCK",
+      "status": "completed",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "normalLooksAfterContinue": 0,
+      "moves": [],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.82,
+            "inspect": 0.18
+          },
+          "gazeRaw": {
+            "look_0": 0.04,
+            "look_1": 0.03,
+            "look_2": 0.09,
+            "look_3": 0.84
+          },
+          "gazeSelection": null,
+          "action": {
+            "type": "stuck"
+          },
+          "outcome": "STUCK",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        }
+      ]
+    },
+    {
+      "runId": "foveated-off-seed-6002",
+      "arm": "off",
+      "vision": "foveated",
+      "seed": 6002,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6002\\foveated-off-seed-6002\\result.json",
+      "sha256": "432d19bfb6cd441f19d4a34dc0bd05c37c35daa643038119f49a35a96465915f",
+      "termination": "UI_ACTION_LIMIT",
+      "status": "censored",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 7,
+      "looks": 1,
+      "uiActions": 6,
+      "normalLooksAfterContinue": 0,
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "changed": true
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "outcome": "FIXATION_MOVED",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        },
+        {
+          "decision": 2,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 0
+        },
+        {
+          "decision": 3,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 1
+        },
+        {
+          "decision": 4,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 2
+        },
+        {
+          "decision": 5,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 3
+        },
+        {
+          "decision": 6,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 4
+        },
+        {
+          "decision": 7,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 5
+        }
+      ]
+    },
+    {
+      "runId": "crop-exclusive-flat-seed-6002",
+      "arm": "exclusive-flat-v2",
+      "vision": "crop",
+      "seed": 6002,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6002\\crop-exclusive-flat-seed-6002\\result.json",
+      "sha256": "8b953fe12eea767abe70dab4a324625d07b5c7fde98b277b9f70572f98e54fa4",
+      "termination": "STUCK",
+      "status": "completed",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "normalLooksAfterContinue": 0,
+      "moves": [],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.55,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.02,
+            "look_3": 0.41
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "stuck"
+          },
+          "outcome": "STUCK",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        }
+      ]
+    },
+    {
+      "runId": "crop-hierarchical-seed-6002",
+      "arm": "exclusive-hierarchical-v2",
+      "vision": "crop",
+      "seed": 6002,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6002\\crop-hierarchical-seed-6002\\result.json",
+      "sha256": "d36d82392cad36f8abfb3bc2232ac1be77b8ca94ed1b2520b35ee2984ea8c886",
+      "termination": "STUCK",
+      "status": "completed",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "normalLooksAfterContinue": 0,
+      "moves": [],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.88,
+            "inspect": 0.12
+          },
+          "gazeRaw": {
+            "look_0": 0.05,
+            "look_1": 0.05,
+            "look_2": 0.03,
+            "look_3": 0.87
+          },
+          "gazeSelection": null,
+          "action": {
+            "type": "stuck"
+          },
+          "outcome": "STUCK",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        }
+      ]
+    },
+    {
+      "runId": "crop-off-seed-6002",
+      "arm": "off",
+      "vision": "crop",
+      "seed": 6002,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6002\\crop-off-seed-6002\\result.json",
+      "sha256": "23f248bf9cdb45fe82101274b53e6622937c5fefe546027dc04f6ae991a82052",
+      "termination": "UI_ACTION_LIMIT",
+      "status": "censored",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 7,
+      "looks": 1,
+      "uiActions": 6,
+      "normalLooksAfterContinue": 0,
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "changed": true
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "outcome": "FIXATION_MOVED",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        },
+        {
+          "decision": 2,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 0
+        },
+        {
+          "decision": 3,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 1
+        },
+        {
+          "decision": 4,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 2
+        },
+        {
+          "decision": 5,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 3
+        },
+        {
+          "decision": 6,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 4
+        },
+        {
+          "decision": 7,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 5
+        }
+      ]
+    },
+    {
+      "runId": "crop-legacy-seed-6002",
+      "arm": "legacy",
+      "vision": "crop",
+      "seed": 6002,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6002\\crop-legacy-seed-6002\\result.json",
+      "sha256": "2c05dbfe146abfc0b5f49f18d61d786667c3de2a7fcf57e30f170c7996a3961b",
+      "termination": "API_LIMIT",
+      "status": "censored",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 12,
+      "looks": 1,
+      "uiActions": 5,
+      "normalLooksAfterContinue": 1,
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "changed": true
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.67,
+            "look_0": 0.01,
+            "look_1": 0.02,
+            "look_2": 0.02,
+            "look_3": 0.28
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "outcome": "FIXATION_MOVED",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        },
+        {
+          "decision": 2,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.82,
+            "look_0": 0.03,
+            "look_1": 0.13,
+            "look_2": 0.01,
+            "look_3": 0.01
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 0
+        },
+        {
+          "decision": 3,
+          "titleAuditOnly": "通知設定",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.54,
+            "look_0": 0.21,
+            "look_1": 0.1,
+            "look_2": 0.07,
+            "look_3": 0.08
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 1
+        },
+        {
+          "decision": 4,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.77,
+            "look_0": 0.03,
+            "look_1": 0.15,
+            "look_2": 0.02,
+            "look_3": 0.03
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 2
+        },
+        {
+          "decision": 5,
+          "titleAuditOnly": "通知設定",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.49,
+            "look_0": 0.24,
+            "look_1": 0.13,
+            "look_2": 0.08,
+            "look_3": 0.06
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 3
+        },
+        {
+          "decision": 6,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.8,
+            "look_0": 0.04,
+            "look_1": 0.12,
+            "look_2": 0.02,
+            "look_3": 0.02
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 4
+        }
+      ]
+    },
+    {
+      "runId": "crop-exclusive-flat-seed-6003",
+      "arm": "exclusive-flat-v2",
+      "vision": "crop",
+      "seed": 6003,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6003\\crop-exclusive-flat-seed-6003\\result.json",
+      "sha256": "62042a0e4ca163081a0418351e92bd0ddfeaab8820771cf6cd88e3aec44c86d1",
+      "termination": "STUCK",
+      "status": "completed",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "normalLooksAfterContinue": 0,
+      "moves": [],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.59,
+            "look_0": 0.02,
+            "look_1": 0.02,
+            "look_2": 0.02,
+            "look_3": 0.35
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "stuck"
+          },
+          "outcome": "STUCK",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        }
+      ]
+    },
+    {
+      "runId": "crop-hierarchical-seed-6003",
+      "arm": "exclusive-hierarchical-v2",
+      "vision": "crop",
+      "seed": 6003,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6003\\crop-hierarchical-seed-6003\\result.json",
+      "sha256": "26a032f62e32f84439d48b571e4e638919490d496849b17bd9869c658df150e4",
+      "termination": "STUCK",
+      "status": "completed",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "normalLooksAfterContinue": 0,
+      "moves": [],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.9,
+            "inspect": 0.1
+          },
+          "gazeRaw": {
+            "look_0": 0.02,
+            "look_1": 0.03,
+            "look_2": 0.03,
+            "look_3": 0.92
+          },
+          "gazeSelection": null,
+          "action": {
+            "type": "stuck"
+          },
+          "outcome": "STUCK",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        }
+      ]
+    },
+    {
+      "runId": "crop-off-seed-6003",
+      "arm": "off",
+      "vision": "crop",
+      "seed": 6003,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6003\\crop-off-seed-6003\\result.json",
+      "sha256": "5aac46c84de5e41531ecadd4a158a9a8f7bba06b427bb2f93a83991047a0a9b9",
+      "termination": "UI_ACTION_LIMIT",
+      "status": "censored",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 7,
+      "looks": 1,
+      "uiActions": 6,
+      "normalLooksAfterContinue": 0,
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "changed": true
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "outcome": "FIXATION_MOVED",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        },
+        {
+          "decision": 2,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 0
+        },
+        {
+          "decision": 3,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 1
+        },
+        {
+          "decision": 4,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 2
+        },
+        {
+          "decision": 5,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 3
+        },
+        {
+          "decision": 6,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 4
+        },
+        {
+          "decision": 7,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 5
+        }
+      ]
+    },
+    {
+      "runId": "crop-legacy-seed-6003",
+      "arm": "legacy",
+      "vision": "crop",
+      "seed": 6003,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\crop-seed6003\\crop-legacy-seed-6003\\result.json",
+      "sha256": "f65bb6c12535de433e9a4b2920bd6de2a6ae9796a6d4a93886f52147e1fb9b7e",
+      "termination": "API_LIMIT",
+      "status": "censored",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 12,
+      "looks": 1,
+      "uiActions": 5,
+      "normalLooksAfterContinue": 1,
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "changed": true
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.7,
+            "look_0": 0.01,
+            "look_1": 0.02,
+            "look_2": 0.02,
+            "look_3": 0.25
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "outcome": "FIXATION_MOVED",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        },
+        {
+          "decision": 2,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.82,
+            "look_0": 0.03,
+            "look_1": 0.12,
+            "look_2": 0.02,
+            "look_3": 0.01
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 0
+        },
+        {
+          "decision": 3,
+          "titleAuditOnly": "通知設定",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.52,
+            "look_0": 0.22,
+            "look_1": 0.1,
+            "look_2": 0.08,
+            "look_3": 0.08
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 1
+        },
+        {
+          "decision": 4,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.78,
+            "look_0": 0.03,
+            "look_1": 0.15,
+            "look_2": 0.02,
+            "look_3": 0.02
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 2
+        },
+        {
+          "decision": 5,
+          "titleAuditOnly": "通知設定",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.5,
+            "look_0": 0.24,
+            "look_1": 0.12,
+            "look_2": 0.07,
+            "look_3": 0.07
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 3
+        },
+        {
+          "decision": 6,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.83,
+            "look_0": 0.04,
+            "look_1": 0.09,
+            "look_2": 0.02,
+            "look_3": 0.02
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 4
+        }
+      ]
+    },
+    {
+      "runId": "foveated-hierarchical-seed-6003",
+      "arm": "exclusive-hierarchical-v2",
+      "vision": "foveated",
+      "seed": 6003,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6003\\foveated-hierarchical-seed-6003\\result.json",
+      "sha256": "e0061532ec9c8d82a82bd8e014fd80682683dcc59b1997ede5fb4c877cc7b53d",
+      "termination": "STUCK",
+      "status": "completed",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "normalLooksAfterContinue": 0,
+      "moves": [],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.79,
+            "inspect": 0.21
+          },
+          "gazeRaw": {
+            "look_0": 0.06,
+            "look_1": 0.03,
+            "look_2": 0.11,
+            "look_3": 0.8
+          },
+          "gazeSelection": null,
+          "action": {
+            "type": "stuck"
+          },
+          "outcome": "STUCK",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        }
+      ]
+    },
+    {
+      "runId": "foveated-off-seed-6003",
+      "arm": "off",
+      "vision": "foveated",
+      "seed": 6003,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6003\\foveated-off-seed-6003\\result.json",
+      "sha256": "f1cbe972259b96822b9cc1110224e168a7978874b0b8882e91edfe2d5c0a2355",
+      "termination": "UI_ACTION_LIMIT",
+      "status": "censored",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 7,
+      "looks": 1,
+      "uiActions": 6,
+      "normalLooksAfterContinue": 0,
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "changed": true
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "outcome": "FIXATION_MOVED",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        },
+        {
+          "decision": 2,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 0
+        },
+        {
+          "decision": 3,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 1
+        },
+        {
+          "decision": 4,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 2
+        },
+        {
+          "decision": 5,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 3
+        },
+        {
+          "decision": 6,
+          "titleAuditOnly": "マイページ",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 4
+        },
+        {
+          "decision": 7,
+          "titleAuditOnly": "通知設定",
+          "gate": null,
+          "gateRaw": null,
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 5
+        }
+      ]
+    },
+    {
+      "runId": "foveated-legacy-seed-6003",
+      "arm": "legacy",
+      "vision": "foveated",
+      "seed": 6003,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6003\\foveated-legacy-seed-6003\\result.json",
+      "sha256": "f32d2c7ad883261557ee7caffaefddb3a96db6e52a14645f4b318be59b92129f",
+      "termination": "API_LIMIT",
+      "status": "censored",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 12,
+      "looks": 1,
+      "uiActions": 5,
+      "normalLooksAfterContinue": 1,
+      "moves": [
+        {
+          "decision": 1,
+          "point": {
+            "x": 960,
+            "y": 675
+          },
+          "changed": true
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.73,
+            "look_0": 0.01,
+            "look_1": 0.01,
+            "look_2": 0.02,
+            "look_3": 0.23
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "look",
+            "point": {
+              "x": 960,
+              "y": 675
+            }
+          },
+          "outcome": "FIXATION_MOVED",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        },
+        {
+          "decision": 2,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.79,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.2
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 0
+        },
+        {
+          "decision": 3,
+          "titleAuditOnly": "通知設定",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.66,
+            "look_0": 0.08,
+            "look_1": 0.08,
+            "look_2": 0.08,
+            "look_3": 0.1
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 1
+        },
+        {
+          "decision": 4,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.82,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.17
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 2
+        },
+        {
+          "decision": 5,
+          "titleAuditOnly": "通知設定",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.6,
+            "look_0": 0.13,
+            "look_1": 0.1,
+            "look_2": 0.09,
+            "look_3": 0.08
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "back"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "back",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": null,
+          "looksBefore": 1,
+          "uiBefore": 3
+        },
+        {
+          "decision": 6,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.66,
+            "look_0": 0,
+            "look_1": 0,
+            "look_2": 0.01,
+            "look_3": 0.33
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "click",
+            "elementId": "e5"
+          },
+          "outcome": "UI_PERFORMED",
+          "candidateIds": [
+            "e4",
+            "e5",
+            "done",
+            "stuck",
+            "look_0",
+            "look_1",
+            "look_2",
+            "look_3"
+          ],
+          "control": "通知設定\nメール通知の受信を変更",
+          "looksBefore": 1,
+          "uiBefore": 4
+        }
+      ]
+    },
+    {
+      "runId": "foveated-exclusive-flat-seed-6003",
+      "arm": "exclusive-flat-v2",
+      "vision": "foveated",
+      "seed": 6003,
+      "source": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\live-r1\\foveated-seed6003\\foveated-exclusive-flat-seed-6003\\result.json",
+      "sha256": "225ec0ca1c9b774cea69eb5ee1f7295ec134690a708f6152ce33ea23cfb2fa26",
+      "termination": "STUCK",
+      "status": "completed",
+      "validForComparison": true,
+      "objectiveSuccess": false,
+      "apiCalls": 2,
+      "looks": 0,
+      "uiActions": 0,
+      "normalLooksAfterContinue": 0,
+      "moves": [],
+      "decisions": [
+        {
+          "decision": 1,
+          "titleAuditOnly": "マイページ",
+          "gate": "continue",
+          "gateRaw": {
+            "continue": 0.48,
+            "look_0": 0.03,
+            "look_1": 0.01,
+            "look_2": 0.03,
+            "look_3": 0.45
+          },
+          "gazeRaw": null,
+          "gazeSelection": null,
+          "action": {
+            "type": "stuck"
+          },
+          "outcome": "STUCK",
+          "candidateIds": [
+            "e3",
+            "e4",
+            "e6",
+            "done",
+            "stuck"
+          ],
+          "control": null,
+          "looksBefore": 0,
+          "uiBefore": 0
+        }
+      ]
+    }
+  ],
+  "contrasts": [
+    {
+      "vision": "crop",
+      "seed": 6001,
+      "a": "off",
+      "b": "exclusive-hierarchical-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 0,
+      "aRequests": 7,
+      "bRequests": 2,
+      "aLooks": 1,
+      "bLooks": 0,
+      "aChangedFixations": 1,
+      "bChangedFixations": 0,
+      "aUI": 6,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "UI_ACTION_LIMIT",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "crop",
+      "seed": 6001,
+      "a": "legacy",
+      "b": "exclusive-flat-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 0,
+      "aRequests": 12,
+      "bRequests": 2,
+      "aLooks": 1,
+      "bLooks": 0,
+      "aChangedFixations": 1,
+      "bChangedFixations": 0,
+      "aUI": 5,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "API_LIMIT",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "crop",
+      "seed": 6001,
+      "a": "exclusive-flat-v2",
+      "b": "exclusive-hierarchical-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 1,
+      "aRequests": 2,
+      "bRequests": 2,
+      "aLooks": 0,
+      "bLooks": 0,
+      "aChangedFixations": 0,
+      "bChangedFixations": 0,
+      "aUI": 0,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "STUCK",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "crop",
+      "seed": 6002,
+      "a": "off",
+      "b": "exclusive-hierarchical-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 0,
+      "aRequests": 7,
+      "bRequests": 2,
+      "aLooks": 1,
+      "bLooks": 0,
+      "aChangedFixations": 1,
+      "bChangedFixations": 0,
+      "aUI": 6,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "UI_ACTION_LIMIT",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "crop",
+      "seed": 6002,
+      "a": "legacy",
+      "b": "exclusive-flat-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 0,
+      "aRequests": 12,
+      "bRequests": 2,
+      "aLooks": 1,
+      "bLooks": 0,
+      "aChangedFixations": 1,
+      "bChangedFixations": 0,
+      "aUI": 5,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "API_LIMIT",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "crop",
+      "seed": 6002,
+      "a": "exclusive-flat-v2",
+      "b": "exclusive-hierarchical-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 1,
+      "aRequests": 2,
+      "bRequests": 2,
+      "aLooks": 0,
+      "bLooks": 0,
+      "aChangedFixations": 0,
+      "bChangedFixations": 0,
+      "aUI": 0,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "STUCK",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "crop",
+      "seed": 6003,
+      "a": "off",
+      "b": "exclusive-hierarchical-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 0,
+      "aRequests": 7,
+      "bRequests": 2,
+      "aLooks": 1,
+      "bLooks": 0,
+      "aChangedFixations": 1,
+      "bChangedFixations": 0,
+      "aUI": 6,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "UI_ACTION_LIMIT",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "crop",
+      "seed": 6003,
+      "a": "legacy",
+      "b": "exclusive-flat-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 0,
+      "aRequests": 12,
+      "bRequests": 2,
+      "aLooks": 1,
+      "bLooks": 0,
+      "aChangedFixations": 1,
+      "bChangedFixations": 0,
+      "aUI": 5,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "API_LIMIT",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "crop",
+      "seed": 6003,
+      "a": "exclusive-flat-v2",
+      "b": "exclusive-hierarchical-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 1,
+      "aRequests": 2,
+      "bRequests": 2,
+      "aLooks": 0,
+      "bLooks": 0,
+      "aChangedFixations": 0,
+      "bChangedFixations": 0,
+      "aUI": 0,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "STUCK",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "foveated",
+      "seed": 6001,
+      "a": "off",
+      "b": "exclusive-hierarchical-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 0,
+      "aRequests": 7,
+      "bRequests": 2,
+      "aLooks": 1,
+      "bLooks": 0,
+      "aChangedFixations": 1,
+      "bChangedFixations": 0,
+      "aUI": 6,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "UI_ACTION_LIMIT",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "foveated",
+      "seed": 6001,
+      "a": "legacy",
+      "b": "exclusive-flat-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 0,
+      "aRequests": 12,
+      "bRequests": 2,
+      "aLooks": 1,
+      "bLooks": 0,
+      "aChangedFixations": 1,
+      "bChangedFixations": 0,
+      "aUI": 5,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "API_LIMIT",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "foveated",
+      "seed": 6001,
+      "a": "exclusive-flat-v2",
+      "b": "exclusive-hierarchical-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 1,
+      "aRequests": 2,
+      "bRequests": 2,
+      "aLooks": 0,
+      "bLooks": 0,
+      "aChangedFixations": 0,
+      "bChangedFixations": 0,
+      "aUI": 0,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "STUCK",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "foveated",
+      "seed": 6002,
+      "a": "off",
+      "b": "exclusive-hierarchical-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 0,
+      "aRequests": 7,
+      "bRequests": 2,
+      "aLooks": 1,
+      "bLooks": 0,
+      "aChangedFixations": 1,
+      "bChangedFixations": 0,
+      "aUI": 6,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "UI_ACTION_LIMIT",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "foveated",
+      "seed": 6002,
+      "a": "legacy",
+      "b": "exclusive-flat-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 0,
+      "aRequests": 12,
+      "bRequests": 2,
+      "aLooks": 1,
+      "bLooks": 0,
+      "aChangedFixations": 1,
+      "bChangedFixations": 0,
+      "aUI": 5,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "API_LIMIT",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "foveated",
+      "seed": 6002,
+      "a": "exclusive-flat-v2",
+      "b": "exclusive-hierarchical-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 1,
+      "aRequests": 2,
+      "bRequests": 2,
+      "aLooks": 0,
+      "bLooks": 0,
+      "aChangedFixations": 0,
+      "bChangedFixations": 0,
+      "aUI": 0,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "STUCK",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "foveated",
+      "seed": 6003,
+      "a": "off",
+      "b": "exclusive-hierarchical-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 0,
+      "aRequests": 7,
+      "bRequests": 2,
+      "aLooks": 1,
+      "bLooks": 0,
+      "aChangedFixations": 1,
+      "bChangedFixations": 0,
+      "aUI": 6,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "UI_ACTION_LIMIT",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "foveated",
+      "seed": 6003,
+      "a": "legacy",
+      "b": "exclusive-flat-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 0,
+      "aRequests": 12,
+      "bRequests": 2,
+      "aLooks": 1,
+      "bLooks": 0,
+      "aChangedFixations": 1,
+      "bChangedFixations": 0,
+      "aUI": 5,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "API_LIMIT",
+      "bTermination": "STUCK"
+    },
+    {
+      "vision": "foveated",
+      "seed": 6003,
+      "a": "exclusive-flat-v2",
+      "b": "exclusive-hierarchical-v2",
+      "commonHorizon": 1,
+      "identicalActionPrefix": 1,
+      "aRequests": 2,
+      "bRequests": 2,
+      "aLooks": 0,
+      "bLooks": 0,
+      "aChangedFixations": 0,
+      "bChangedFixations": 0,
+      "aUI": 0,
+      "bUI": 0,
+      "aObjective": false,
+      "bObjective": false,
+      "aTermination": "STUCK",
+      "bTermination": "STUCK"
+    }
+  ],
+  "limitations": [
+    "Actual probabilities are model reports, not human frequencies.",
+    "Independent sampler counters share each run seed; statistical independence is not asserted.",
+    "External model seed uncontrolled; one goal and persona, three repetitions per condition."
+  ],
+  "updatedPreflight": {
+    "test": "tests/attention-repair-independent.test.ts",
+    "testSha256": "768ca7969bc18918d006f2971a2a4e01fe5935e873e570b4bd05b5b336a8cd9b",
+    "log": "C:\\Users\\Maekawa Ao\\.codex\\worktrees\\virtual-beta\\Ux_test\\reports\\attention-repair-2026-11-10\\independent\\preflight-independent-tests-v2.log",
+    "logSha256": "2e83ee20d845c826a3b5ac2774f31923f1d1c64875df7c7e70a8c7694900996a",
+    "initialPreflightSha256": "4aabaafef4c5a636803e334572630b61cd654bbd7cc4c43c8529adfb3606f970",
+    "note": "Version2 test guard changes apply only to absent retained artifacts; runtime tests remain enabled. Analyzer all-four-config comparison was hardened after preflight."
+  },
+  "status": "VERIFIED"
+}

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "attention-repair-v2",
+  "charter": "experiments/persona/charter-good.json",
+  "persona": "experiments/persona/clear-notifications-v1/a.json",
+  "plannedTrials": 24,
+  "allocatedAPIRequests": 288,
+  "maxPhaseMs": 3600000,
+  "batchDurationMs": 600000,
+  "batches": [
+    {
+      "id": "crop-seed6001",
+      "plan": "experiments/virtual-beta/attention-repair-v2/crop-seed6001.json",
+      "allocatedAPIRequests": 48
+    },
+    {
+      "id": "foveated-seed6001",
+      "plan": "experiments/virtual-beta/attention-repair-v2/foveated-seed6001.json",
+      "allocatedAPIRequests": 48
+    },
+    {
+      "id": "foveated-seed6002",
+      "plan": "experiments/virtual-beta/attention-repair-v2/foveated-seed6002.json",
+      "allocatedAPIRequests": 48
+    },
+    {
+      "id": "crop-seed6002",
+      "plan": "experiments/virtual-beta/attention-repair-v2/crop-seed6002.json",
+      "allocatedAPIRequests": 48
+    },
+    {
+      "id": "crop-seed6003",
+      "plan": "experiments/virtual-beta/attention-repair-v2/crop-seed6003.json",
+      "allocatedAPIRequests": 48
+    },
+    {
+      "id": "foveated-seed6003",
+      "plan": "experiments/virtual-beta/attention-repair-v2/foveated-seed6003.json",
+      "allocatedAPIRequests": 48
+    }
+  ],
+  "arms": [
+    "off",
+    "legacy",
+    "exclusive-flat",
+    "hierarchical"
+  ],
+  "seeds": [
+    6001,
+    6002,
+    6003
+  ],
+  "visionModes": [
+    "crop",
+    "foveated"
+  ],
+  "contrasts": [
+    "off vs hierarchical: primary fixed-condition repair comparison",
+    "legacy vs exclusive-flat: overlapping branch contract",
+    "exclusive-flat vs hierarchical: grouped decision vs per-location competition"
+  ],
+  "limits": "12calls/UI6/look4/decisions8/150s pertrial; batch48; concurrency1/retry0",
+  "primary": "actual gaze changes, extra candidate eligibility, repeated UI over matched observed prefixes; success secondary",
+  "unverified": "one fixture/one goal-policy persona, external model seed unavailable, nohumanvalidation"
+}

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-final-review-before-staging",
+  "status": "REVIEW_PASSED_PUBLICATION_PENDING",
+  "source": {
+    "revision": "5eb463e5cddbd8ddc17c833c8b7df0fd05259d08",
+    "sourceHash": "44ea22fb53a3da5ecb17e3ee3c3407119f44b28ad8d4c656558c93352201c12b",
+    "files": 196
+  },
+  "reviewedTests": [
+    {
+      "file": "tests/attention-repair-independent.test.ts",
+      "sha256": "401492a1759515842cbce67a2cd98ad050e36dea918e057d43607402b02ce3f2"
+    },
+    {
+      "file": "tests/attention-repair-analysis-independent.test.ts",
+      "sha256": "6881d78cfc2dbc6f1f9057c2b32325f4e8fc0255ded65f1ea083701b271999f4"
+    }
+  ],
+  "evidence": [
+    {
+      "file": "reports/attention-repair-2026-11-10/independent/preflight-v1.json",
+      "sha256": "4aabaafef4c5a636803e334572630b61cd654bbd7cc4c43c8529adfb3606f970"
+    },
+    {
+      "file": "reports/attention-repair-2026-11-10/independent/preflight-v2.json",
+      "sha256": "c431ce64dbedfbc76afe5247b18957bb075fb9fc915a4272da3e5614b0d00700"
+    },
+    {
+      "file": "reports/attention-repair-2026-11-10/independent/actual-v1.json",
+      "sha256": "7405528b8a105b087acbac257a1f4d30963b8593fff21f94c142152ef39fe85c"
+    },
+    {
+      "file": "reports/attention-repair-2026-11-10/independent/actual-v2.json",
+      "sha256": "99cf064ab012def090b0120095f7e31584bf2b1f17face3bc656dc9590be5a42"
+    },
+    {
+      "file": "reports/attention-repair-2026-11-10/independent/sampler-coupling-v1.json",
+      "sha256": "5feabc1b2f75d97ed2d07986c76be7cc8fa4136ab33f11dd9ef985e594e312dd"
+    },
+    {
+      "file": "reports/attention-repair-2026-11-10/independent/sampler-separated-v2.json",
+      "sha256": "0ac655bc292cd464ac628e187cad01eb28299c041ec205f7ce2ed85ff997dade"
+    },
+    {
+      "file": "reports/attention-repair-2026-11-10/independent/comparison-v1.json",
+      "sha256": "14c14be23e7e82487e4775fddfbf90cde9b3488e803a87029d20b3d4d41247e3"
+    },
+    {
+      "file": "reports/attention-repair-2026-11-10/independent/comparison-v2.json",
+      "sha256": "3d81a7739959043147b53dcde494676526a88ad012efb2ace31c9c060d397453"
+    },
+    {
+      "file": "reports/attention-repair-2026-11-10/independent/preservation-v1.json",
+      "sha256": "129c50f240b7646c4eddb7c170b5b357895c7bd8a1cd841bd0bfdd36bd27904e"
+    },
+    {
+      "file": "reports/attention-repair-2026-11-10/independent/analysis-tamper-tests-v1.log",
+      "sha256": "61fb33ebbc169b004c65a1ac4dad9cec76ed27250ede6ad066e533c642d9870e"
+    },
+    {
+      "file": "reports/attention-repair-2026-11-10/independent/final-typecheck-v1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "results": {
+    "preflightFocusedTests": 67,
+    "analyzerTamperTests": 22,
+    "failures": 0,
+    "skips": 0,
+    "productionBuildPassed": true,
+    "finalTypecheckPassed": true,
+    "historicalReplays": 36,
+    "actualRunsAudited": 42,
+    "actualRequestsAudited": 222,
+    "imageBindingsVerified": 222,
+    "retainedPriorEntries": [
+      12550,
+      12941
+    ],
+    "frozenArchiveSourceEntries": [
+      195,
+      196
+    ]
+  },
+  "resolvedFinding": "Supported new-policy sample-mode gate/gaze/action coupling fixed through explicit domain-separated stream metadata and validation; legacy records preserved.",
+  "remainingFindings": [],
+  "publicationGate": {
+    "status": "PENDING",
+    "requires": [
+      "Review staged paths against an explicit task allowlist and bind exact staged bytes.",
+      "Confirm current source and inputs still match second freeze.",
+      "Verify report/viewer presentation keeps phase1 failures, crop failures and API-censored completion separate.",
+      "After commit, verify committed tree, current actor hash and published evidence producer/archive bindings."
+    ]
+  },
+  "limitations": [
+    "No broad generalization, model cognition or human-frequency claim.",
+    "Positive observed movement only for framed foveated condition in this one fixture and persona.",
+    "Independent review owns test additions and evidence only; no actor changes were made."
+  ]
+}

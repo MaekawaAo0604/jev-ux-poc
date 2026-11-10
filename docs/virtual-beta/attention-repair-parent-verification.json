@@ -1,0 +1,36 @@
+{
+  "status": "SCOPED_PASS_PARTIAL_BEHAVIOR_IMPROVEMENT",
+  "parentRegression": {
+    "passed": 129,
+    "failed": 0,
+    "skipped": 0
+  },
+  "build": "PASS",
+  "phaseOne": {
+    "sourceHash": "a997e3ac7e7f7ddb1f09e7257828ad94cd2893fb1c5fbb4b66b85dc4a494e976",
+    "trials": 24,
+    "actualRequests": 138
+  },
+  "phaseTwo": {
+    "sourceHash": "44ea22fb53a3da5ecb17e3ee3c3407119f44b28ad8d4c656558c93352201c12b",
+    "trials": 18,
+    "actualRequests": 84,
+    "foveatedFramed": {
+      "trials": 3,
+      "newGazeAfterNotification": 3,
+      "objectiveSuccess": 3,
+      "subjectiveDone": 2,
+      "apiCensoredAfterStop": 1
+    },
+    "cropFramed": {
+      "trials": 3,
+      "stuckBeforeUI": 3
+    }
+  },
+  "totalCalls": 222,
+  "taskMaximum": 288,
+  "sourceChangesDuringRuns": 0,
+  "fullSuiteGreen": false,
+  "humanValidity": "UNVERIFIED",
+  "newModelAPICallsDuringAnalysis": 0
+}

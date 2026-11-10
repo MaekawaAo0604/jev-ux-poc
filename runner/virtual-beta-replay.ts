@@ -365,7 +365,7 @@ export async function replayDirectory(directory:string,requirements:{finalVisual
    if(!equal(step.selection.policy?.weights,Object.fromEntries(Object.keys(applied).sort().map(id=>[id,applied[id]]))))throw new Error('DEFERRAL_WEIGHT_MISMATCH');
   }
   if(step.selection){
-   const attentionLook=step.attention?.selection&&step.attention.selection.selected!=='continue';const answer=(attentionLook?step.attention!.response:step.response)?.answers?.nextAction;if(!answer||answer.choice!==step.selection.modelChoice||!isDeepStrictEqual(answer.probabilities,step.selection.raw))throw Error('SELECTION_RESPONSE_BINDING_MISMATCH');
+   const attentionLook=step.attention?.selection&&step.attention.selection.selected!=='continue';const answer=attentionLook?step.attention!.response?.answers?.[result.config.attention?.policy==='exclusive-hierarchical-v2'?'gazeTarget':'nextAction']:step.response?.answers?.nextAction;if(!answer||answer.choice!==step.selection.modelChoice||!isDeepStrictEqual(answer.probabilities,step.selection.raw))throw Error('SELECTION_RESPONSE_BINDING_MISMATCH');
    const conditional=result.config.deferral?.enabled===true&&result.config.deferral.selectionScope==='ui-conditional';
    if(conditional?step.selection.policy?.scope?.kind!=='ui-conditional-v1':step.selection.policy?.scope!==undefined)throw Error('DEFERRAL_SCOPE_MISMATCH');
    const candidates=conditional?reconstructReplayCandidates(step.audit!.screen,Object.keys(step.selection.raw)):Object.fromEntries(Object.keys(step.selection.raw).map(k=>[k,{action:{type:'stuck' as const},label:k}]));

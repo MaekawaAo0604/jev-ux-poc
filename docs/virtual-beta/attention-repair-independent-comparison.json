@@ -1,0 +1,701 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-final-cross-phase-comparison",
+  "status": "VERIFIED",
+  "sourceRecords": [
+    {
+      "id": "phase1",
+      "analyzer": "scripts/analyze-attention-repair.ts",
+      "analysis": "reports/attention-repair-2026-11-10/analysis-r1/analysis.json",
+      "timeline": "reports/attention-repair-2026-11-10/analysis-r1/timeline.json",
+      "audit": "reports/attention-repair-2026-11-10/independent/actual-v1.json",
+      "source": {
+        "revision": "5eb463e5cddbd8ddc17c833c8b7df0fd05259d08",
+        "sourceHash": "a997e3ac7e7f7ddb1f09e7257828ad94cd2893fb1c5fbb4b66b85dc4a494e976"
+      },
+      "producerSha256": "cbe35d73c89164b24b0a1b1c7625d170d53a27a74f9259b64cc16b4e7de5f40e",
+      "analysisSha256": "a21721b780eb8cd33c7e20ece704f9bba81c45f602eb6b53037b6932dd45de75",
+      "timelineSha256": "fcde34e9b9b17c6b2fad53108e583d79c392c111ef280b003f8a9ba9b105f0fd",
+      "auditSha256": "7405528b8a105b087acbac257a1f4d30963b8593fff21f94c142152ef39fe85c"
+    },
+    {
+      "id": "phase2",
+      "analyzer": "scripts/analyze-attention-task-frame.ts",
+      "analysis": "reports/attention-repair-2026-11-10/analysis-r2/analysis.json",
+      "timeline": "reports/attention-repair-2026-11-10/analysis-r2/timeline.json",
+      "audit": "reports/attention-repair-2026-11-10/independent/actual-v2.json",
+      "source": {
+        "revision": "5eb463e5cddbd8ddc17c833c8b7df0fd05259d08",
+        "sourceHash": "44ea22fb53a3da5ecb17e3ee3c3407119f44b28ad8d4c656558c93352201c12b"
+      },
+      "producerSha256": "436ce81cc082aabf69357aa341ab9e5696fc2b8755a9d8f1c95c7ef99c1f8274",
+      "analysisSha256": "47bc3379ee4af66cb01fdf6ea08ed23a521d750a2976c6cab790d1e0844ade49",
+      "timelineSha256": "ec06cd2c63a33440585217270401b259a08936c670ee192336a2523b25f55755",
+      "auditSha256": "99cf064ab012def090b0120095f7e31584bf2b1f17face3bc656dc9590be5a42"
+    }
+  ],
+  "checks": {
+    "runs": 42,
+    "decisions": 157,
+    "gateSelections": 73,
+    "conditionalGazeSelections": 7,
+    "ordinarySelections": 149,
+    "admittedRequests": 222,
+    "lookPairs": 25,
+    "notificationLookPairs": 4,
+    "newStopControlAfterLook": 3
+  },
+  "totals": {
+    "phase1Runs": 24,
+    "phase1Requests": 138,
+    "phase2Runs": 18,
+    "phase2Requests": 84,
+    "totalRuns": 42,
+    "totalRequests": 222,
+    "taskCap": 288,
+    "admittedImageBindings": 222,
+    "assetOccurrencesRehashed": 465
+  },
+  "groups": [
+    {
+      "id": "phase1:crop:off",
+      "phase": "phase1",
+      "vision": "crop",
+      "arm": "off",
+      "runs": 3,
+      "requests": 21,
+      "looks": [
+        1,
+        1,
+        1
+      ],
+      "uiActions": [
+        6,
+        6,
+        6
+      ],
+      "changedFixations": [
+        1,
+        1,
+        1
+      ],
+      "normalLooksAfterContinue": 0,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 0,
+      "stuck": 0,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "UI_ACTION_LIMIT",
+        "UI_ACTION_LIMIT",
+        "UI_ACTION_LIMIT"
+      ],
+      "runIds": [
+        "crop-off-seed-6001",
+        "crop-off-seed-6002",
+        "crop-off-seed-6003"
+      ]
+    },
+    {
+      "id": "phase1:crop:legacy",
+      "phase": "phase1",
+      "vision": "crop",
+      "arm": "legacy",
+      "runs": 3,
+      "requests": 36,
+      "looks": [
+        1,
+        1,
+        1
+      ],
+      "uiActions": [
+        5,
+        5,
+        5
+      ],
+      "changedFixations": [
+        1,
+        1,
+        1
+      ],
+      "normalLooksAfterContinue": 3,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 3,
+      "stuck": 0,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "API_LIMIT",
+        "API_LIMIT",
+        "API_LIMIT"
+      ],
+      "runIds": [
+        "crop-legacy-seed-6001",
+        "crop-legacy-seed-6002",
+        "crop-legacy-seed-6003"
+      ]
+    },
+    {
+      "id": "phase1:crop:exclusive-flat-v2",
+      "phase": "phase1",
+      "vision": "crop",
+      "arm": "exclusive-flat-v2",
+      "runs": 3,
+      "requests": 6,
+      "looks": [
+        0,
+        0,
+        0
+      ],
+      "uiActions": [
+        0,
+        0,
+        0
+      ],
+      "changedFixations": [
+        0,
+        0,
+        0
+      ],
+      "normalLooksAfterContinue": 0,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 0,
+      "stuck": 3,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "STUCK",
+        "STUCK",
+        "STUCK"
+      ],
+      "runIds": [
+        "crop-exclusive-flat-seed-6001",
+        "crop-exclusive-flat-seed-6002",
+        "crop-exclusive-flat-seed-6003"
+      ]
+    },
+    {
+      "id": "phase1:crop:exclusive-hierarchical-v2",
+      "phase": "phase1",
+      "vision": "crop",
+      "arm": "exclusive-hierarchical-v2",
+      "runs": 3,
+      "requests": 6,
+      "looks": [
+        0,
+        0,
+        0
+      ],
+      "uiActions": [
+        0,
+        0,
+        0
+      ],
+      "changedFixations": [
+        0,
+        0,
+        0
+      ],
+      "normalLooksAfterContinue": 0,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 0,
+      "stuck": 3,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "STUCK",
+        "STUCK",
+        "STUCK"
+      ],
+      "runIds": [
+        "crop-hierarchical-seed-6001",
+        "crop-hierarchical-seed-6002",
+        "crop-hierarchical-seed-6003"
+      ]
+    },
+    {
+      "id": "phase1:foveated:legacy",
+      "phase": "phase1",
+      "vision": "foveated",
+      "arm": "legacy",
+      "runs": 3,
+      "requests": 36,
+      "looks": [
+        1,
+        1,
+        1
+      ],
+      "uiActions": [
+        5,
+        5,
+        5
+      ],
+      "changedFixations": [
+        1,
+        1,
+        1
+      ],
+      "normalLooksAfterContinue": 3,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 3,
+      "stuck": 0,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "API_LIMIT",
+        "API_LIMIT",
+        "API_LIMIT"
+      ],
+      "runIds": [
+        "foveated-legacy-seed-6001",
+        "foveated-legacy-seed-6002",
+        "foveated-legacy-seed-6003"
+      ]
+    },
+    {
+      "id": "phase1:foveated:exclusive-flat-v2",
+      "phase": "phase1",
+      "vision": "foveated",
+      "arm": "exclusive-flat-v2",
+      "runs": 3,
+      "requests": 6,
+      "looks": [
+        0,
+        0,
+        0
+      ],
+      "uiActions": [
+        0,
+        0,
+        0
+      ],
+      "changedFixations": [
+        0,
+        0,
+        0
+      ],
+      "normalLooksAfterContinue": 0,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 0,
+      "stuck": 3,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "STUCK",
+        "STUCK",
+        "STUCK"
+      ],
+      "runIds": [
+        "foveated-exclusive-flat-seed-6001",
+        "foveated-exclusive-flat-seed-6002",
+        "foveated-exclusive-flat-seed-6003"
+      ]
+    },
+    {
+      "id": "phase1:foveated:exclusive-hierarchical-v2",
+      "phase": "phase1",
+      "vision": "foveated",
+      "arm": "exclusive-hierarchical-v2",
+      "runs": 3,
+      "requests": 6,
+      "looks": [
+        0,
+        0,
+        0
+      ],
+      "uiActions": [
+        0,
+        0,
+        0
+      ],
+      "changedFixations": [
+        0,
+        0,
+        0
+      ],
+      "normalLooksAfterContinue": 0,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 0,
+      "stuck": 3,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "STUCK",
+        "STUCK",
+        "STUCK"
+      ],
+      "runIds": [
+        "foveated-hierarchical-seed-6001",
+        "foveated-hierarchical-seed-6002",
+        "foveated-hierarchical-seed-6003"
+      ]
+    },
+    {
+      "id": "phase1:foveated:off",
+      "phase": "phase1",
+      "vision": "foveated",
+      "arm": "off",
+      "runs": 3,
+      "requests": 21,
+      "looks": [
+        1,
+        1,
+        1
+      ],
+      "uiActions": [
+        6,
+        6,
+        6
+      ],
+      "changedFixations": [
+        1,
+        1,
+        1
+      ],
+      "normalLooksAfterContinue": 0,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 0,
+      "stuck": 0,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "UI_ACTION_LIMIT",
+        "UI_ACTION_LIMIT",
+        "UI_ACTION_LIMIT"
+      ],
+      "runIds": [
+        "foveated-off-seed-6001",
+        "foveated-off-seed-6002",
+        "foveated-off-seed-6003"
+      ]
+    },
+    {
+      "id": "phase2:crop:off",
+      "phase": "phase2",
+      "vision": "crop",
+      "arm": "off",
+      "runs": 3,
+      "requests": 21,
+      "looks": [
+        1,
+        1,
+        1
+      ],
+      "uiActions": [
+        6,
+        6,
+        6
+      ],
+      "changedFixations": [
+        1,
+        1,
+        1
+      ],
+      "normalLooksAfterContinue": 0,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 0,
+      "stuck": 0,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "UI_ACTION_LIMIT",
+        "UI_ACTION_LIMIT",
+        "UI_ACTION_LIMIT"
+      ],
+      "runIds": [
+        "crop-off-seed-7001",
+        "crop-off-seed-7002",
+        "crop-off-seed-7003"
+      ]
+    },
+    {
+      "id": "phase2:crop:hierarchical",
+      "phase": "phase2",
+      "vision": "crop",
+      "arm": "hierarchical",
+      "runs": 3,
+      "requests": 6,
+      "looks": [
+        0,
+        0,
+        0
+      ],
+      "uiActions": [
+        0,
+        0,
+        0
+      ],
+      "changedFixations": [
+        0,
+        0,
+        0
+      ],
+      "normalLooksAfterContinue": 0,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 0,
+      "stuck": 3,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "STUCK",
+        "STUCK",
+        "STUCK"
+      ],
+      "runIds": [
+        "crop-hierarchical-seed-7001",
+        "crop-hierarchical-seed-7002",
+        "crop-hierarchical-seed-7003"
+      ]
+    },
+    {
+      "id": "phase2:crop:framed",
+      "phase": "phase2",
+      "vision": "crop",
+      "arm": "framed",
+      "runs": 3,
+      "requests": 6,
+      "looks": [
+        0,
+        0,
+        0
+      ],
+      "uiActions": [
+        0,
+        0,
+        0
+      ],
+      "changedFixations": [
+        0,
+        0,
+        0
+      ],
+      "normalLooksAfterContinue": 0,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 0,
+      "stuck": 3,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "STUCK",
+        "STUCK",
+        "STUCK"
+      ],
+      "runIds": [
+        "crop-framed-seed-7001",
+        "crop-framed-seed-7002",
+        "crop-framed-seed-7003"
+      ]
+    },
+    {
+      "id": "phase2:foveated:off",
+      "phase": "phase2",
+      "vision": "foveated",
+      "arm": "off",
+      "runs": 3,
+      "requests": 21,
+      "looks": [
+        1,
+        1,
+        1
+      ],
+      "uiActions": [
+        6,
+        6,
+        6
+      ],
+      "changedFixations": [
+        1,
+        1,
+        1
+      ],
+      "normalLooksAfterContinue": 0,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 0,
+      "stuck": 0,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "UI_ACTION_LIMIT",
+        "UI_ACTION_LIMIT",
+        "UI_ACTION_LIMIT"
+      ],
+      "runIds": [
+        "foveated-off-seed-7001",
+        "foveated-off-seed-7002",
+        "foveated-off-seed-7003"
+      ]
+    },
+    {
+      "id": "phase2:foveated:hierarchical",
+      "phase": "phase2",
+      "vision": "foveated",
+      "arm": "hierarchical",
+      "runs": 3,
+      "requests": 6,
+      "looks": [
+        0,
+        0,
+        0
+      ],
+      "uiActions": [
+        0,
+        0,
+        0
+      ],
+      "changedFixations": [
+        0,
+        0,
+        0
+      ],
+      "normalLooksAfterContinue": 0,
+      "objectiveSuccesses": 0,
+      "subjectiveDone": 0,
+      "apiLimit": 0,
+      "stuck": 3,
+      "notificationInspectionRuns": 0,
+      "newStopControlEligibleAfterLookRuns": 0,
+      "terminations": [
+        "STUCK",
+        "STUCK",
+        "STUCK"
+      ],
+      "runIds": [
+        "foveated-hierarchical-seed-7001",
+        "foveated-hierarchical-seed-7002",
+        "foveated-hierarchical-seed-7003"
+      ]
+    },
+    {
+      "id": "phase2:foveated:framed",
+      "phase": "phase2",
+      "vision": "foveated",
+      "arm": "framed",
+      "runs": 3,
+      "requests": 24,
+      "looks": [
+        3,
+        2,
+        2
+      ],
+      "uiActions": [
+        2,
+        2,
+        2
+      ],
+      "changedFixations": [
+        3,
+        2,
+        2
+      ],
+      "normalLooksAfterContinue": 0,
+      "objectiveSuccesses": 3,
+      "subjectiveDone": 2,
+      "apiLimit": 1,
+      "stuck": 0,
+      "notificationInspectionRuns": 3,
+      "newStopControlEligibleAfterLookRuns": 3,
+      "terminations": [
+        "API_LIMIT",
+        "SUBJECTIVE_DONE",
+        "SUBJECTIVE_DONE"
+      ],
+      "runIds": [
+        "foveated-framed-seed-7001",
+        "foveated-framed-seed-7002",
+        "foveated-framed-seed-7003"
+      ]
+    }
+  ],
+  "conclusions": [
+    {
+      "claim": "Exclusive flat and unframed hierarchy alone did not produce observed inspection in phase1; all12repaired runs stopped at the first current-view decision.",
+      "scope": "Phase1fixedargmax24runs; no cognition claim."
+    },
+    {
+      "claim": "Task framing produced notification-page gaze reselection in3/3foveated runs, making the stop control newly eligible after an actual look before it was clicked.",
+      "scope": "Phase2foveatedframed only; newframed vsunframed changes only explicit taskFrame with sameactorassets/questions/candidates."
+    },
+    {
+      "claim": "Foveated framed reached the objective in3/3runs; subjective completion was2/3, with one run API-censored after performing the objective action.",
+      "scope": "Outcome types kept separate; no censoredrun relabelled complete."
+    },
+    {
+      "claim": "Crop framed remained STUCK with no look or UI action in3/3runs.",
+      "scope": "No general improvement claim across vision modes."
+    }
+  ],
+  "limits": [
+    "Separate phases have different per-run request caps and root seeds; use within-phase paired contrasts and common-prefix lengths.",
+    "Phase1costs138andphase2costs84requests are intervention costs, not speed or intelligence metrics.",
+    "Saved distributions and reason categories are model reports, not human frequencies or verified internal cognition.",
+    "One goal/persona/fixture and3repetitions per condition; external modelseed uncontrolled.",
+    "Sampler fix validated offline; all real model cohorts use argmax."
+  ],
+  "tamperRegression": {
+    "file": "tests/attention-repair-analysis-independent.test.ts",
+    "sha256": "6881d78cfc2dbc6f1f9057c2b32325f4e8fc0255ded65f1ea083701b271999f4",
+    "passed": 22,
+    "failed": 0,
+    "skipped": 0,
+    "log": "reports/attention-repair-2026-11-10/independent/analysis-tamper-tests-v1.log",
+    "logSha256": "61fb33ebbc169b004c65a1ac4dad9cec76ed27250ede6ad066e533c642d9870e"
+  },
+  "preservation": {
+    "file": "reports/attention-repair-2026-11-10/independent/preservation-v1.json",
+    "sha256": "129c50f240b7646c4eddb7c170b5b357895c7bd8a1cd841bd0bfdd36bd27904e",
+    "records": [
+      {
+        "file": "reports\\attention-repair-2026-11-10\\prior-raw.json",
+        "sha256": "3db5c73def60e8de35c8bafd30534bae7785a4420c3f0692515f72db373b408a",
+        "expectedFiles": 12550,
+        "matchedFiles": 12550,
+        "contentHandling": "Each retained file read as bytes for SHA-256 only; no human-record content decoded."
+      },
+      {
+        "file": "reports\\attention-repair-2026-11-10\\prior-raw-v2.json",
+        "sha256": "1acbe3a9a69300b6bad9c6023116c5759870cdf00db629809cd1eafbdaa91a88",
+        "expectedFiles": 12941,
+        "matchedFiles": 12941,
+        "contentHandling": "Each retained file read as bytes for SHA-256 only; no human-record content decoded."
+      }
+    ],
+    "archives": [
+      {
+        "file": "reports\\attention-repair-2026-11-10\\source-a997e3ac.zip",
+        "sha256": "e3072000eba0eb958fa0f58f526373be2c963f1c5bc10f1040b5c90e2eec1353",
+        "sourceHash": "a997e3ac7e7f7ddb1f09e7257828ad94cd2893fb1c5fbb4b66b85dc4a494e976",
+        "sourceEntries": 195,
+        "allSourceEntriesMatched": true,
+        "embeddedFreezeByteMatched": true
+      },
+      {
+        "file": "reports\\attention-repair-2026-11-10\\source-44ea22fb.zip",
+        "sha256": "71bd54efcd9a26bd8694afa593a047d52447a185ddeda620100b30ed11b07a3a",
+        "sourceHash": "44ea22fb53a3da5ecb17e3ee3c3407119f44b28ad8d4c656558c93352201c12b",
+        "sourceEntries": 196,
+        "allSourceEntriesMatched": true,
+        "embeddedFreezeByteMatched": true
+      }
+    ]
+  },
+  "earlierComparison": {
+    "file": "reports/attention-repair-2026-11-10/independent/comparison-v1.json",
+    "sha256": "14c14be23e7e82487e4775fddfbf90cde9b3488e803a87029d20b3d4d41247e3"
+  },
+  "publication": {
+    "status": "PENDING_STAGED_ALLOWLIST_AND_POSTCOMMIT_CHECK",
+    "blockers": []
+  }
+}
