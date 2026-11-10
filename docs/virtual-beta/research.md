@@ -1,6 +1,6 @@
 # 今回採用した部品と残るモデル課題
 
-指定の過去research.mdは利用可能な版には存在しなかったため、欠落を隠して復元しません。今回の実装判断に必要な一次資料に限定しました。
+初期実装時には指定の過去research.mdを参照できなかったため、今回の実装判断に必要な一次資料に限定しました。master統合時に過去版を確認できたので、[2026-10-27の調査原文](planning-2026-10-27/research.md)を別途保存しました。過去版の候補・提案を採用済みとは扱いません。
 
 - 採用: 既存pngjs 7.0.0のPNG decode/encodeと画素コピー。MIT、追加依存なし。公式公開コードとインストール済みの該当版を確認。詳細は vision-research.md。box blurは工学的な制約で、視覚モデルの学習や較正はありません。[公式コード](https://github.com/pngjs/pngjs)
 - 採用: Node crypto SHA-256によるseed/counter決定的なdraw。独自の小さなアダプターで外部samplerをコピーしません。分布から実選択し、保存記録から同一結果を検証できます。詳細は state-research.md。[公式仕様](https://nodejs.org/api/crypto.html#cryptocreatehashalgorithm-options)
